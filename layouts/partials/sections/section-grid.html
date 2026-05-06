@@ -36,7 +36,9 @@
         {{- $style := .button_style | default $defaultStyle -}}
         <article class="s-card">
           {{- if $img }}
-            <img class="s-card__img" src="{{ $img }}" alt="{{ .alt | default .title }}" loading="lazy">
+            <div class="s-card__inner">
+              <img class="s-card__img" src="{{ $img }}" alt="{{ .alt | default .title }}" loading="lazy">
+            </div>
           {{- end }}
           {{- with .title }}<h3 class="s-card__title display-5">{{ . | safeHTML }}</h3>{{ end }}
           {{- with .url }}

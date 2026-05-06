@@ -56,8 +56,8 @@
 
   /* Component shape */
   --radius-card:    2rem;     /* images, cards, video frames */
-  --radius-btn:     4px;      /* buttons */
-  --radius-nav:     1rem;     /* nav items */
+  --radius-btn:     1.5rem;   /* buttons — soft rounded, not pill */
+  --radius-nav:     2rem;     /* nav itself, and nav items */
 
   /* Border weights */
   --btn-border:     2px;
@@ -65,7 +65,7 @@
   /* Section vertical rhythm */
   --section-py:     6rem;     /* top + bottom padding for sections */
   --section-py-sm:  3rem;     /* on small screens */
-  --hero-py-top:    9rem;     /* hero gets extra top to clear the sticky nav */
+  --hero-py-top:    5rem;     /* hero starts close under the floating nav */
 
   /* Motion */
   --transition:     0.25s ease;
@@ -284,14 +284,23 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* -----------------------------------------------------------------------------
-   6. SITE NAV (sticky top bar)
+   6. SITE NAV (floating, rounded, sticky)
+   Matches the original Mobirise pattern — a rounded pill that floats just
+   inside the viewport edges, with semi-transparent background and a backdrop
+   blur on browsers that support it. Falls back to opaque white otherwise.
    ----------------------------------------------------------------------------- */
 .site-nav {
   position: sticky;
-  top: 0;
+  top: 1rem;
   z-index: 1000;
-  background: var(--bg);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  margin: 1rem auto 0;
+  width: calc(100% - 2rem);
+  max-width: var(--container-max);
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  backdrop-filter: saturate(150%) blur(12px);
+  border-radius: var(--radius-nav);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .site-nav__inner {
@@ -299,11 +308,11 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 0;
+  padding: 0.5rem 1.5rem;
 }
 
 .site-nav__brand img {
-  height: 4.4rem;
+  height: 3.6rem;
   width: auto;
   border-radius: 0;
 }
@@ -319,7 +328,7 @@ p:last-child { margin-bottom: 0; }
 
 .site-nav__link {
   display: inline-block;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   font-size: var(--display-4);
   color: var(--primary);
   border-radius: var(--radius-nav);
@@ -403,7 +412,14 @@ p:last-child { margin-bottom: 0; }
   .s-two-col-cta__grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 .s-two-col-cta__title { margin: 0 0 1rem; font-weight: 700; }
-.s-two-col-cta__buttons { margin-top: 1.5rem; }
+.s-two-col-cta__buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+.s-two-col-cta__buttons .btn { margin: 0; }
 
 /* When the section bg is muted, render the LEFT column as a rounded white
    card. Matches the Mobirise pattern on the original adscouts.org. */
@@ -433,6 +449,12 @@ p:last-child { margin-bottom: 0; }
 
 /* -----------------------------------------------------------------------------
    10. SECTION: SECTION-GRID (header + N cards)
+   Card layout follows the original Mobirise pattern:
+     - White rounded pill containing ONLY the logo (centred, big)
+     - Age text floating below the card on the section's own background
+     - "Learn more" button below the age
+   This means the age/button inherit the section's text colour (e.g. white on
+   a green section) without fighting an enclosing white card.
    ----------------------------------------------------------------------------- */
 .s-section-grid__head {
   margin: 0 auto 3rem;
@@ -451,21 +473,42 @@ p:last-child { margin-bottom: 0; }
 .s-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
+  gap: 1.25rem;
+}
+
+.s-card__inner {
   background: var(--bg);
-  padding: 1.5rem;
+  color: var(--text);                  /* keep card-internal text legible */
   border-radius: var(--radius-card);
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
 }
 .s-card__img {
   width: 100%;
-  max-width: 220px;
+  max-width: 280px;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin: 0 auto;
+  display: block;
 }
-.s-card__title  { margin: 0 0 1rem; font-weight: 700; }
-.s-card__footer { margin-top: auto; padding-top: 1rem; }
+.s-card__title {
+  margin: 0;
+  font-weight: 700;
+}
+.s-card__footer { margin: 0; }
+
+/* On a coloured section bg, subtitle text needs to flip too — handled by the
+   global s-bg-* :is(...) rule, but s-card__title isn't an h2 — make explicit. */
+.s-bg-primary   .s-card__title,
+.s-bg-secondary .s-card__title,
+.s-bg-tertiary  .s-card__title,
+.s-bg-dark      .s-card__title { color: inherit; }
+.s-bg-accent    .s-card__title { color: #000000; }
 
 /* -----------------------------------------------------------------------------
    11. SECTION: STACKED-FEATURES (header + left text-stack | right image)
@@ -488,9 +531,35 @@ p:last-child { margin-bottom: 0; }
   .s-stacked__grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
-.s-stacked__items { display: flex; flex-direction: column; gap: 2rem; }
-.s-stacked__item-title { margin: 0 0 1rem; font-weight: 700; }
-.s-stacked__item-body  { margin: 0; }
+.s-stacked__items { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Each item is a white pill so the section's coloured background frames it
+   nicely. Item titles take the palette's primary colour (Scouts Purple in
+   the classic palette) — set `title_color = "..."` on the section to change. */
+.s-stacked__item {
+  background: var(--bg);
+  color: var(--text);
+  border-radius: var(--radius-card);
+  padding: 2rem 2.5rem;
+}
+@media (max-width: 767px) {
+  .s-stacked__item { padding: 1.5rem 1.75rem; }
+}
+.s-stacked__item-title {
+  color: var(--primary);
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+.s-stacked__item-body { margin: 0; }
+
+/* Inline link inside a white pill: brand purple, no underline, hover-only
+   underline. This overrides the white-underlined rule applied by .s-bg-* a. */
+.s-stacked__item a:not(.btn) {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.s-stacked__item a:not(.btn):hover { text-decoration: underline; }
 
 .s-stacked__image img { width: 100%; height: auto; }
 
@@ -610,7 +679,60 @@ p:last-child { margin-bottom: 0; }
 .site-footer p { margin: 0; }
 
 /* -----------------------------------------------------------------------------
-   17. PAGE-LOAD FADE-IN
+   17. BACK-TO-TOP BUTTON
+   Floating circular button, bottom-right, anchors to #top on the body.
+   Always visible on browsers without scroll-driven animations; on browsers
+   that support scroll-driven animations, fades in after the user has scrolled
+   past the first viewport. Honours prefers-reduced-motion.
+   ----------------------------------------------------------------------------- */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--primary);
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  color: var(--primary);
+}
+.back-to-top:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Browsers that support scroll-driven animations: hide until the user has
+   scrolled at least one viewport down. */
+@supports (animation-timeline: scroll()) {
+  .back-to-top {
+    animation: btt-show linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100vh;
+    opacity: 0;
+    pointer-events: none;
+  }
+  @keyframes btt-show {
+    0%, 50% { opacity: 0; transform: scale(0.85); pointer-events: none; }
+    100%    { opacity: 1; transform: scale(1);    pointer-events: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top { animation: none; opacity: 1; pointer-events: auto; }
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   18. PAGE-LOAD FADE-IN
    A simple, universally-supported fade-in for sections on first render.
    Replaces Mobirise's animate.css + JS observer pair. No scroll-driven
    timeline, so content stays visible for screen readers, screenshots, RSS,

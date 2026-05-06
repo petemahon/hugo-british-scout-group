@@ -32,10 +32,10 @@
       <div class="s-stacked__items">
         {{- range .items }}
           <div class="s-stacked__item">
-            {{- with .title }}<h3 class="s-stacked__item-title display-1">{{ . }}</h3>{{ end }}
+            {{- with .title }}<h3 class="s-stacked__item-title display-3">{{ . }}</h3>{{ end }}
             {{- with .body }}<div class="s-stacked__item-body display-7">{{ . | safeHTML }}</div>{{ end }}
             {{- with .link }}
-              <p><a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }} &gt;</a></p>
+              <p style="margin-top: 1rem;"><a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }} &gt;</a></p>
             {{- end }}
           </div>
         {{- end }}
