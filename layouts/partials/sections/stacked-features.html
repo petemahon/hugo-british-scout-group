@@ -35,7 +35,7 @@
             {{- with .title }}<h3 class="s-stacked__item-title display-3">{{ . }}</h3>{{ end }}
             {{- with .body }}<div class="s-stacked__item-body display-7">{{ . | safeHTML }}</div>{{ end }}
             {{- with .link }}
-              <p style="margin-top: 1rem;"><a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }} &gt;</a></p>
+              <p class="display-7" style="margin-top: 1rem;"><a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }} &gt;</a></p>
             {{- end }}
           </div>
         {{- end }}

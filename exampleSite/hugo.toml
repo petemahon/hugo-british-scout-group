@@ -46,6 +46,19 @@ enableRobotsTXT = true
   hostScoutingAssociation = "Anytown Scout Association" # CHANGE ME
 
 # -----------------------------------------------------------------------------
+# Scout Sections — toggle which sections your Group runs.
+#
+# That's it. Logos ship with the theme — you don't need to download or
+# configure them. Brand asset maintenance is centralised in the theme repo.
+# -----------------------------------------------------------------------------
+[params.scoutSections]
+  squirrels = { enable = true }
+  beavers   = { enable = true }
+  cubs      = { enable = true }
+  scouts    = { enable = true }
+  explorers = { enable = true }
+
+# -----------------------------------------------------------------------------
 # Top navigation. The URLs are anchors into the home page sections.
 # -----------------------------------------------------------------------------
 [[menu.main]]

@@ -19,7 +19,7 @@
 {{- $defaultLabel := .button_label | default "Learn more" -}}
 {{- $defaultStyle := .button_style | default "primary" -}}
 <section{{ with $id }} id="{{ . }}"{{ end }} class="section s-section-grid reveal {{ $bgClass }}">
-  <div class="container-fluid">
+  <div class="container">
     <div class="s-section-grid__head">
       {{- with .title }}<h2 class="s-section-grid__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
       {{- with .subtitle }}<div class="s-section-grid__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
@@ -36,9 +36,7 @@
         {{- $style := .button_style | default $defaultStyle -}}
         <article class="s-card">
           {{- if $img }}
-            <div class="s-card__inner">
-              <img class="s-card__img" src="{{ $img }}" alt="{{ .alt | default .title }}" loading="lazy">
-            </div>
+            <img class="s-card__img" src="{{ $img }}" alt="{{ .alt | default .title }}" loading="lazy">
           {{- end }}
           {{- with .title }}<h3 class="s-card__title display-5">{{ . | safeHTML }}</h3>{{ end }}
           {{- with .url }}

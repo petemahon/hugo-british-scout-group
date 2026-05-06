@@ -27,14 +27,18 @@ LICENSE file intact in any forks of the theme repository.
                             THIRD-PARTY ASSETS
 ================================================================================
 
-This theme does NOT redistribute Scout brand imagery or logos. Scout-branded
-section logos (Beavers, Cubs, Scouts, Explorers, Network) and the fleur-de-lis
-must be downloaded directly from https://scoutsbrand.org.uk by each Scout
-Group using this theme.
+The theme ships with placeholder WebP files at
+`assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.webp`.
+These placeholders are NOT Scout Association brand assets — they are
+generic coloured circles created for testing. The theme maintainer
+replaces these with the official Scout brand logos (downloaded from
+https://scoutsbrand.org.uk) before publishing.
 
-The Scout brand, logos, and trade marks are © The Scout Association and are
-provided by them under their own brand-asset terms. Nothing in this theme's
-licence affects those rights.
+Once replaced, those files are © The Scout Association. Their distribution
+within forks of this theme is permitted only if the fork is being used to
+build a website for an actual Scout Group, in line with The Scout
+Association's brand asset terms. Consult those terms for non-Scout-Group
+use.
 
 The colour palette presets in data/palettes.toml use hex values published in
 the Scouts Brand Guidelines (Our Colours, 2023). Hex codes are factual data

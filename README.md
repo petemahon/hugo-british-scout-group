@@ -146,7 +146,8 @@ of each partial in `layouts/partials/sections/`.
 | `hero` | Big welcome banner with title + intro text. | `title`, `text`, `background` |
 | `two-col-cta` | Two text columns; one is a description, the other has primary CTAs. | `left.{title,text}`, `right.{title,text,buttons}` |
 | `two-col-image-cta` | Image on one side, headline + body + button on the other. | `image.{src,alt}`, `title`, `text`, `buttons`, `reverse` |
-| `section-grid` | Centred header and a responsive grid of cards (e.g. the four Scout sections). | `title`, `subtitle`, `cards[]` |
+| `scout-sections` | Auto-rendered grid of UK Scout sections (Squirrels through Explorers). Toggle each on/off in `[params.scoutSections]`. | `title`, `subtitle`, `button_label`, `button_style` |
+| `section-grid` | Generic centred header and a responsive grid of cards. Use this for non-Scout-section grids; for the canonical Scout sections, use `scout-sections` above. | `title`, `subtitle`, `cards[]` |
 | `stacked-features` | Header with a left column of stacked text items and an image on the right. | `title`, `intro`, `items[]`, `image` |
 | `section-header` | Centred title + subtitle, no body content. Use as a header above an embed or content area. | `title`, `subtitle` |
 | `embed` | Generic responsive iframe (SnazzyMaps, YouTube, etc.). | `url`, `height`, `width`, `title` |
@@ -285,6 +286,98 @@ The minimum set for a typical home page:
 | Fleur-de-lis (favicon) | `params.favicon` |
 
 WebP is preferred for size; PNG is fine.
+
+---
+
+## Scout Sections — toggling the age groups your Group runs
+
+The theme ships with the standard UK Scout sections defined in
+`data/scout_sections.toml` (Squirrels, Beavers, Cubs, Scouts, Explorers)
+and the official brand logos for each, shipped under
+`assets/images/sections/`. Each Group enables the ones it runs in
+`hugo.toml`:
+
+```toml
+[params.scoutSections]
+  squirrels = { enable = false }   # not running this section
+  beavers   = { enable = true }
+  cubs      = { enable = true }
+  scouts    = { enable = true }
+  explorers = { enable = true }
+```
+
+Then place the section anywhere in `_index.md`:
+
+```toml
+[[sections]]
+  type     = "scout-sections"
+  id       = "sections"
+  bg       = "tertiary"            # Forest Green section
+  title    = "Our Sections"
+  subtitle = "There is a place in Scouts for almost all ages..."
+```
+
+That's it. **Groups do not download their own section logos.** Brand
+asset maintenance is centralised in this theme repo — when The Scout
+Association updates a logo, the theme is updated and every Group picks
+up the new asset by bumping their submodule:
+
+```sh
+git submodule update --remote themes/british-scout-group
+```
+
+**Section metadata is fixed** — age ranges, `scouts.org.uk` URLs and
+logo paths all live in `data/scout_sections.toml`. Don't duplicate them
+per Group.
+
+**Responsive grid** — explicit breakpoints designed for the canonical
+5-section layout: 5 across at ≥1200px, 3 at ≥768px, 2 at ≥480px, 1 below
+that. Fewer enabled sections (e.g. four) centre on the row at wider
+viewports rather than leaving an empty trailing column.
+
+**Network 18-25** — the Network logo also ships with the theme at
+`assets/images/sections/network.webp` and is referenced from a
+`stacked-features` section in your `_index.md`:
+
+```toml
+[sections.image]
+  src = "images/sections/network.webp"
+  alt = "Network Scouts Logo"
+```
+
+---
+
+## For theme maintainers — how to update the brand logos
+
+Place fresh WebP files at exactly these paths in the theme repo:
+
+```
+themes/british-scout-group/assets/images/sections/
+  ├── squirrels.webp     (Squirrels section, 4-6 years)
+  ├── beavers.webp       (Beavers section, 6-8 years)
+  ├── cubs.webp          (Cubs section, 8-10½ years)
+  ├── scouts.webp        (Scouts section, 10½-14 years)
+  ├── explorers.webp     (Explorers section, 14-18 years)
+  └── network.webp       (Network section, 18-25 years)
+```
+
+**Specifications:**
+
+- **Format**: WebP (lossless or lossy ≥85% quality both fine)
+- **Dimensions**: square aspect ratio, 500-700px on each side. The original
+  Mobirise build used 661×661 for sections and 500×500 for Network — these
+  are good targets but anything in that range works.
+- **Background**: transparent (the theme renders them inside a white card)
+- **File size**: aim for under 30 KB each — the placeholders are ~12-17 KB
+- **Filename**: lowercase, exactly as listed above (`squirrels.webp` not
+  `Squirrels.webp` or `squirrels-logo.webp`)
+
+After replacing files, commit and push to the theme repo. Group sites
+pick up the new logos by bumping their submodule.
+
+To add a new section in the future (e.g. if The Scout Association
+introduces one), drop a new WebP and add a corresponding `[[items]]` block
+in `data/scout_sections.toml`.
 
 ---
 

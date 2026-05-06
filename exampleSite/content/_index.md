@@ -42,35 +42,19 @@ description = "Skills for Life — example Scout Group home page using the Briti
 # -----------------------------------------------------------------------------
 # 3. Our Sections — section-grid
 # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# 3. Our Sections — auto-renders enabled UK Scout sections.
+# Toggle each section on/off and set logo paths in [params.scoutSections]
+# in hugo.toml. Section metadata (ages, URLs) comes from the theme.
+# -----------------------------------------------------------------------------
 [[sections]]
-  type     = "section-grid"
+  type     = "scout-sections"
   id       = "sections"
   bg       = "tertiary"
   title    = "Our Sections"
   subtitle = "There is a place in Scouts for almost all ages, either as a member of one of the sections below, or as a volunteer. Clicking the Learn More buttons below will take you to the UK Scouts website for further information.<br><br>Sections meet on weekday evenings, during school term-time. To see timings for each group, check the map further down the page."
   button_label = "Learn more"
   button_style = "primary"
-
-  [[sections.cards]]
-    logo  = "images/placeholder-beavers.svg"
-    alt   = "Logo for Beavers Section"
-    title = "<strong>6 to 8 years</strong>"
-    url   = "https://www.scouts.org.uk/beavers"
-  [[sections.cards]]
-    logo  = "images/placeholder-cubs.svg"
-    alt   = "Logo for Cubs Section"
-    title = "<strong>8 to 10 ½ years</strong>"
-    url   = "https://www.scouts.org.uk/cubs"
-  [[sections.cards]]
-    logo  = "images/placeholder-scouts.svg"
-    alt   = "Logo for Scouts Section"
-    title = "<strong>10 ½ to 14 years</strong>"
-    url   = "https://www.scouts.org.uk/scouts"
-  [[sections.cards]]
-    logo  = "images/placeholder-explorers.svg"
-    alt   = "Logo for Explorers Section"
-    title = "<strong>14 to 18 years</strong>"
-    url   = "https://www.scouts.org.uk/explorers"
 
 # -----------------------------------------------------------------------------
 # 4. Who can join — BSO membership eligibility (POR 3.2.1.1)
@@ -107,7 +91,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
       url   = "https://www.scouts.org.uk/network/awards/"
 
   [sections.image]
-    src = "images/placeholder-network.svg"
+    src = "images/sections/network.webp"
     alt = "Network Scouts Logo"
 
 # -----------------------------------------------------------------------------

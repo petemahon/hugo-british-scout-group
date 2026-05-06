@@ -448,13 +448,12 @@ p:last-child { margin-bottom: 0; }
 .s-two-col-image__buttons { margin-top: 1rem; }
 
 /* -----------------------------------------------------------------------------
-   10. SECTION: SECTION-GRID (header + N cards)
-   Card layout follows the original Mobirise pattern:
-     - White rounded pill containing ONLY the logo (centred, big)
-     - Age text floating below the card on the section's own background
-     - "Learn more" button below the age
-   This means the age/button inherit the section's text colour (e.g. white on
-   a green section) without fighting an enclosing white card.
+   10. SECTION: SECTION-GRID & SCOUT-SECTIONS (header + N cards)
+   Card layout: each card is a single white rounded pill containing the
+   logo, the age range, and the Learn-more button — all stacked.
+   The age is rendered in the palette's PRIMARY colour (Scouts Purple in
+   the classic palette) so it pops against the section background regardless
+   of section bg tone. When the section bg IS primary, age flips to accent.
    ----------------------------------------------------------------------------- */
 .s-section-grid__head {
   margin: 0 auto 3rem;
@@ -464,51 +463,68 @@ p:last-child { margin-bottom: 0; }
 .s-section-grid__title    { margin: 0 0 1.5rem; font-weight: 700; }
 .s-section-grid__subtitle { margin: 0; color: var(--text-muted); }
 
+/* Responsive cards layout: explicit 5 / 3 / 2 / 1 column breakpoints.
+   Mobile-first. Uses flex+wrap (rather than grid) so that when a Group has
+   fewer cards enabled than the column count, the remaining cards centre
+   within the row instead of leaving an empty trailing column. */
 .s-section-grid__cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.s-card { flex: 0 1 100%; }                                /* mobile: 1 col */
+@media (min-width: 480px) {
+  .s-card { flex-basis: calc(50%      - 0.75rem); }        /* 2 cols */
+}
+@media (min-width: 768px) {
+  .s-card { flex-basis: calc(33.333%  - 1rem);   }         /* 3 cols */
+}
+@media (min-width: 1200px) {
+  .s-card { flex-basis: calc(20%      - 1.2rem);
+            max-width: 280px; }                            /* 5 cols, capped */
 }
 
 .s-card {
+  background: var(--bg);
+  color: var(--text);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.25rem;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   text-align: center;
   gap: 1.25rem;
-}
-
-.s-card__inner {
-  background: var(--bg);
-  color: var(--text);                  /* keep card-internal text legible */
-  border-radius: var(--radius-card);
-  padding: 2rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 180px;
+  /* Cards expand to fill their grid cell width — ensures pills span the
+     row even when fewer cards than columns. */
+  width: 100%;
 }
 .s-card__img {
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
 }
 .s-card__title {
   margin: 0;
   font-weight: 700;
 }
-.s-card__footer { margin: 0; }
+.s-card__footer { margin-top: auto; }
 
-/* On a coloured section bg, subtitle text needs to flip too — handled by the
-   global s-bg-* :is(...) rule, but s-card__title isn't an h2 — make explicit. */
-.s-bg-primary   .s-card__title,
-.s-bg-secondary .s-card__title,
-.s-bg-tertiary  .s-card__title,
-.s-bg-dark      .s-card__title { color: inherit; }
-.s-bg-accent    .s-card__title { color: #000000; }
+/* Card title in the palette's primary colour — pops against the white card.
+   Higher specificity than the ".s-bg-* :is(h1..h6) { color: inherit; }" rule
+   above so this wins. When the section bg IS primary, flip to accent.
+   Inline links inside a white card use the brand-link style (not the
+   inverted-on-coloured-bg style applied by the .s-bg-* descendant rule). */
+.s-card .s-card__title         { color: var(--primary); }
+.s-bg-primary .s-card .s-card__title { color: var(--accent); }
+.s-card a:not(.btn) {
+  color: var(--primary);
+  text-decoration: none;
+}
+.s-card a:not(.btn):hover { text-decoration: underline; }
 
 /* -----------------------------------------------------------------------------
    11. SECTION: STACKED-FEATURES (header + left text-stack | right image)
@@ -546,11 +562,15 @@ p:last-child { margin-bottom: 0; }
   .s-stacked__item { padding: 1.5rem 1.75rem; }
 }
 .s-stacked__item-title {
-  color: var(--primary);
   margin: 0 0 1rem;
   font-weight: 700;
 }
 .s-stacked__item-body { margin: 0; }
+
+/* Item title in palette primary — higher specificity than the
+   ".s-bg-* :is(h1..h6) { color: ...; }" rule, so this wins inside white pills. */
+.s-stacked__item .s-stacked__item-title { color: var(--primary); }
+.s-bg-primary .s-stacked__item .s-stacked__item-title { color: var(--secondary); }
 
 /* Inline link inside a white pill: brand purple, no underline, hover-only
    underline. This overrides the white-underlined rule applied by .s-bg-* a. */
