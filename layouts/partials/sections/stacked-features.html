@@ -1,0 +1,51 @@
+{{- /*
+  stacked-features — centred header, then a 2-column body where the left side
+  has multiple stacked items and the right side shows an image.
+  Used for the Network 18-25 section on adscouts.
+  Params:
+    id     (string)
+    title  (string)
+    intro  (string, HTML ok)
+    items  ([]{title, body, link?: {label, url}})  body is HTML ok
+    image  ({src, alt})  src: path under assets/ OR absolute URL
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $img := "" -}}
+{{- with .image.src }}
+  {{- if hasPrefix . "http" }}{{ $img = . }}
+  {{- else }}{{- with resources.Get . }}{{ $img = .RelPermalink }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-stacked reveal {{ $bgClass }}">
+  <div class="container">
+    <div class="s-stacked__head">
+      {{- with .title }}<h2 class="s-stacked__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+      {{- with .intro }}<p class="s-stacked__intro display-7">{{ . | safeHTML }}</p>{{ end }}
+    </div>
+
+    <div class="s-stacked__grid">
+      <div class="s-stacked__items">
+        {{- range .items }}
+          <div class="s-stacked__item">
+            {{- with .title }}<h3 class="s-stacked__item-title display-1">{{ . }}</h3>{{ end }}
+            {{- with .body }}<div class="s-stacked__item-body display-7">{{ . | safeHTML }}</div>{{ end }}
+            {{- with .link }}
+              <p><a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }} &gt;</a></p>
+            {{- end }}
+          </div>
+        {{- end }}
+      </div>
+
+      {{- if $img }}
+        <div class="s-stacked__image">
+          <img src="{{ $img }}" alt="{{ .image.alt | default "" }}" loading="lazy">
+        </div>
+      {{- end }}
+    </div>
+  </div>
+</section>

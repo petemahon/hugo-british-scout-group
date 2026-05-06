@@ -1,0 +1,46 @@
+{{- /*
+  two-col-image-cta — image on the left, title + body + button(s) on the right.
+  Used for the "Register to Volunteer" section.
+  Params:
+    id      (string)
+    image   ({src, alt})           src: path under assets/ OR absolute URL
+    title   (string)
+    text    (string, HTML ok)
+    buttons ([]{label, url, style})  style ∈ primary | primary-outline | secondary | tertiary
+    reverse (bool)                   If true, image goes on the right instead.
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $img := "" -}}
+{{- with .image.src }}
+  {{- if hasPrefix . "http" }}{{ $img = . }}
+  {{- else }}{{- with resources.Get . }}{{ $img = .RelPermalink }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-two-col-image reveal {{ $bgClass }}">
+  <div class="container">
+    <div class="s-two-col-image__grid"{{ if .reverse }} style="direction: rtl;"{{ end }}>
+      <div{{ if .reverse }} style="direction: ltr;"{{ end }}>
+        {{- if $img }}
+          <img src="{{ $img }}" alt="{{ .image.alt | default "" }}" loading="lazy">
+        {{- end }}
+      </div>
+      <div{{ if .reverse }} style="direction: ltr;"{{ end }}>
+        {{- with .title }}<h2 class="s-two-col-image__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+        {{- with .text }}<div class="display-7">{{ . | safeHTML }}</div>{{ end }}
+        {{- with .buttons }}
+          <div class="s-two-col-image__buttons">
+            {{- range . }}
+              {{- $style := .style | default "secondary" -}}
+              <a class="btn btn-{{ $style }}" href="{{ .url | safeURL }}"{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+            {{- end }}
+          </div>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>

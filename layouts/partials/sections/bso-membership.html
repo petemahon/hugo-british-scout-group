@@ -1,0 +1,35 @@
+{{- /*
+  bso-membership — section wrapper around the bso-membership-notice partial.
+  Lets you place the notice into a page's front-matter sections list:
+
+      [[sections]]
+        type = "bso-membership"
+        bg   = "muted"
+        id   = "membership"
+
+  Configuration of the notice itself (host country and host scouting
+  association) lives at site level in [params.bsoMembershipNotice].
+  See partials/bso-membership-notice.html for the full param reference.
+
+  Per-page overrides via .Params.bsoMembershipNotice are honoured when
+  this section appears on a page that has its own front-matter overrides.
+
+  Section params (this wrapper):
+    id  (string)  Anchor id, optional.
+    bg  (string)  Section bg tone, optional. muted | primary | secondary
+                  | tertiary | accent | dark.
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $page := .page -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-bso-membership reveal {{ $bgClass }}">
+  <div class="container">
+    {{- if $page -}}
+      {{ partial "bso-membership-notice.html" $page }}
+    {{- else -}}
+      <!-- bso-membership: page context not available; notice not rendered -->
+    {{- end }}
+  </div>
+</section>

@@ -1,0 +1,79 @@
+# exampleSite/hugo.toml — copy this into your Group's site as a starting point.
+# Lines marked "# CHANGE ME" are the ones you should edit.
+
+baseURL      = "https://example.com/"             # CHANGE ME
+title        = "1st Anytown Scouts"               # CHANGE ME
+theme        = "british-scout-group"
+enableRobotsTXT = true
+# This theme is hardcoded to British English (en-GB). The <html lang="en-GB">
+# attribute is set in baseof.html — do not configure other locales.
+
+# Hugo 0.156+ syntax. Pagination is not used by this theme but kept here for
+# Group sites that grow to multiple pages.
+[pagination]
+  pagerSize = 10
+
+# Required by some Hugo features when the theme uses safeHTML in front-matter
+# fields (e.g. text containing <strong> or <a>).
+[markup.goldmark.renderer]
+  unsafe = true
+
+# -----------------------------------------------------------------------------
+# Theme params
+# -----------------------------------------------------------------------------
+[params]
+  # Pick one of: classic-purple, adventure, coastal, vibrant, network
+  # Or add your own to data/palettes.toml. See /palettes/ for a visual ref.
+  palette         = "classic-purple"
+
+  description     = "Skills for Life — placeholder description for the example Scout Group site."
+  logo            = "images/placeholder-logo.svg"      # CHANGE ME (under your assets/)
+  logoAlt         = "1st Anytown Scouts logo"          # CHANGE ME
+  favicon         = "images/favicon.png"               # CHANGE ME (optional)
+
+  copyrightOwner  = "1st Anytown Scouts"               # CHANGE ME
+  copyrightRights = "All Rights Reserved"
+  footerBg        = "dark"                              # Scouts Navy footer
+
+# -----------------------------------------------------------------------------
+# BSO membership notice (POR 3.2.1.1)
+# Set hostCountryName + hostScoutingAssociation for your host country.
+# Wording lives in i18n strings; override in i18n/en.toml at site root.
+# -----------------------------------------------------------------------------
+[params.bsoMembershipNotice]
+  enable                  = true
+  hostCountryName         = "Anytown"                   # CHANGE ME (e.g. "the United Arab Emirates")
+  hostScoutingAssociation = "Anytown Scout Association" # CHANGE ME
+
+# -----------------------------------------------------------------------------
+# Top navigation. The URLs are anchors into the home page sections.
+# -----------------------------------------------------------------------------
+[[menu.main]]
+  name   = "Join Us"
+  url    = "/#join"
+  weight = 10
+
+[[menu.main]]
+  name   = "6 - 18 Years"
+  url    = "/#sections"
+  weight = 20
+
+[[menu.main]]
+  name   = "18-25 Years"
+  url    = "/#network"
+  weight = 30
+
+[[menu.main]]
+  name   = "Volunteer"
+  url    = "/#volunteer"
+  weight = 40
+
+[[menu.main]]
+  name   = "Where we meet"
+  url    = "/#where-we-meet"
+  weight = 50
+
+[[menu.main]]
+  name   = "Palettes"
+  url    = "/palettes/"
+  weight = 60

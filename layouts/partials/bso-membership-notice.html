@@ -1,0 +1,80 @@
+{{/* themes/<your-theme>/layouts/partials/bso-membership-notice.html */}}
+{{/*
+  BSO Membership Notice
+  ----------------------
+  Renders a friendly notice explaining who BSO is for, in line with The Scout
+  Association's Policy, Organisation and Rules (POR) 3.2.1.1, which restricts
+  youth membership of British Scouting Overseas to nationals other than those
+  of the relevant host country.
+
+  CONFIGURATION
+  Site-wide defaults in your site's hugo.toml:
+
+      [params.bsoMembershipNotice]
+        enable = true
+        hostCountryName = "the United Arab Emirates"
+        hostScoutingAssociation = "Emirates Scout Association"
+
+  Notes:
+    - hostCountryName: include the article if natural ("the UAE",
+      "the Netherlands"). It is interpolated as "...nationals of <X>..."
+      so phrases like "France" and "the UAE" both read correctly.
+    - hostScoutingAssociation: the WOSM-recognised National Scout
+      Organisation in your host country (e.g. Emirates Scout Association,
+      Scouts et Guides de France).
+
+  Per-page overrides via front matter — front matter values override
+  site params. Any key can be overridden (enable, hostCountryName,
+  hostScoutingAssociation):
+
+      +++
+      title = "Some page"
+      [bsoMembershipNotice]
+        enable = false
+      +++
+
+  If enable resolves to true but a name is missing, the notice is silently
+  skipped and an HTML comment is emitted to aid debugging.
+
+  OVERRIDING THE TEXT (standard Hugo i18n override)
+  All wording lives in i18n strings so it can be changed without forking
+  the theme. To override any line:
+
+    1. Create i18n/en.toml at your SITE ROOT (not the theme).
+    2. Add only the keys you want to change. Available keys:
+         bsoNoticeHeading
+         bsoNoticeIntro
+         bsoNoticeAssociation
+         bsoNoticeVolunteering
+         bsoNoticeRuleReference   (HTML allowed; rendered with safeHTML)
+    3. Placeholders {{`{{ .HostCountry }}`}} and {{`{{ .HostAssociation }}`}}
+       are interpolated from the resolved config.
+
+  Hugo merges i18n files from the theme with those in your site root, with
+  the site root taking precedence. See:
+  https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+  OVERRIDING THE LAYOUT (standard Hugo partial override)
+  To change the HTML, copy this file to:
+      layouts/partials/bso-membership-notice.html
+  at your site root. Hugo will use yours instead of the theme's.
+*/}}
+
+{{- $cfg := dict -}}
+{{- $siteCfg := site.Params.bsoMembershipNotice -}}
+{{- $pageCfg := .Params.bsoMembershipNotice -}}
+{{- if $siteCfg -}}{{- $cfg = merge $cfg $siteCfg -}}{{- end -}}
+{{- if $pageCfg -}}{{- $cfg = merge $cfg $pageCfg -}}{{- end -}}
+
+{{- if and $cfg.enable $cfg.hostCountryName $cfg.hostScoutingAssociation -}}
+  {{- $ctx := dict "HostCountry" $cfg.hostCountryName "HostAssociation" $cfg.hostScoutingAssociation -}}
+  <section class="bso-membership-notice" aria-labelledby="bso-membership-notice-heading">
+    <h2 id="bso-membership-notice-heading" class="bso-membership-notice__heading">{{ i18n "bsoNoticeHeading" }}</h2>
+    <p class="bso-membership-notice__intro">{{ i18n "bsoNoticeIntro" $ctx }}</p>
+    <p class="bso-membership-notice__association">{{ i18n "bsoNoticeAssociation" $ctx }}</p>
+    <p class="bso-membership-notice__volunteering">{{ i18n "bsoNoticeVolunteering" $ctx }}</p>
+    <p class="bso-membership-notice__rule-reference"><small>{{ i18n "bsoNoticeRuleReference" | safeHTML }}</small></p>
+  </section>
+{{- else if $cfg.enable -}}
+  <!-- bso-membership-notice: enabled but hostCountryName and/or hostScoutingAssociation is missing. Notice not rendered. -->
+{{- end -}}

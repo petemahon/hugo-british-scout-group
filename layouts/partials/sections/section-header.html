@@ -1,0 +1,19 @@
+{{- /*
+  section-header — centred title + subtitle only. Useful as a header above an
+  embed or a content area that follows.
+  Params:
+    id        (string)
+    title     (string)
+    subtitle  (string, HTML ok)
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-section-header reveal {{ $bgClass }}">
+  <div class="container">
+    {{- with .title }}<h2 class="s-section-header__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+    {{- with .subtitle }}<div class="s-section-header__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
+  </div>
+</section>

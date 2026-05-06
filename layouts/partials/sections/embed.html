@@ -1,0 +1,22 @@
+{{- /*
+  embed — generic responsive iframe (SnazzyMaps, YouTube, etc.).
+  Params:
+    id      (string)
+    url     (string, required)  iframe src
+    title   (string)             accessibility title
+    height  (string)             default "600px"
+    width   (string)             default "90%"  (rendered as max-width)
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $height := .height | default "600px" -}}
+{{- $width := .width | default "90%" -}}
+{{- $title := .title | default "Embedded content" -}}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="s-embed {{ $bgClass }}">
+  <iframe class="s-embed__frame"
+          src="{{ .url }}"
+          title="{{ $title }}"
+          loading="lazy"
+          style="height: {{ $height }}; width: {{ $width }};"></iframe>
+</section>

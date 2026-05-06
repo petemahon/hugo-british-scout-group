@@ -1,0 +1,51 @@
+{{- /*
+  section-grid — centred header + N cards. Each card has an image, title, and CTA.
+  Used for the four Scout sections (Beavers, Cubs, Scouts, Explorers).
+  Params:
+    id            (string)        Optional anchor id.
+    title         (string)
+    subtitle      (string, HTML ok)
+    button_label  (string)        Default label for all card buttons.
+    button_style  (string)        Default style for all card buttons.
+    cards         ([]{logo, alt, title, url, button_label?, button_style?})
+                  - logo: path under assets/ OR absolute URL
+                  - button_label / button_style: per-card overrides (optional)
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $defaultLabel := .button_label | default "Learn more" -}}
+{{- $defaultStyle := .button_style | default "primary" -}}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-section-grid reveal {{ $bgClass }}">
+  <div class="container-fluid">
+    <div class="s-section-grid__head">
+      {{- with .title }}<h2 class="s-section-grid__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+      {{- with .subtitle }}<div class="s-section-grid__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
+    </div>
+    <div class="s-section-grid__cards">
+      {{- range .cards }}
+        {{- $img := "" -}}
+        {{- with .logo }}
+          {{- if hasPrefix . "http" }}{{ $img = . }}
+          {{- else }}{{- with resources.Get . }}{{ $img = .RelPermalink }}{{ end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $label := .button_label | default $defaultLabel -}}
+        {{- $style := .button_style | default $defaultStyle -}}
+        <article class="s-card">
+          {{- if $img }}
+            <img class="s-card__img" src="{{ $img }}" alt="{{ .alt | default .title }}" loading="lazy">
+          {{- end }}
+          {{- with .title }}<h3 class="s-card__title display-5">{{ . | safeHTML }}</h3>{{ end }}
+          {{- with .url }}
+            <div class="s-card__footer">
+              <a class="btn btn-{{ $style }}" href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ $label }}</a>
+            </div>
+          {{- end }}
+        </article>
+      {{- end }}
+    </div>
+  </div>
+</section>

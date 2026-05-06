@@ -1,0 +1,29 @@
+{{- /*
+  Reads the palette key from site params (Site.Params.palette) and emits a
+  :root CSS block overriding the colour tokens with that palette's values.
+  Falls back to "classic-purple" if the requested palette isn't defined.
+*/ -}}
+{{- $key := site.Params.palette | default "classic-purple" -}}
+{{- $palette := index hugo.Data.palettes $key -}}
+{{- if not $palette -}}
+  {{- warnf "british-scout-group: palette %q not found in data/palettes.toml — falling back to classic-purple" $key -}}
+  {{- $palette = index hugo.Data.palettes "classic-purple" -}}
+{{- end -}}
+{{- with $palette }}
+<style>
+:root {
+  --primary:           {{ .primary }};
+  --primary-hover:     {{ .primary_hover }};
+  --secondary:         {{ .secondary }};
+  --secondary-hover:   {{ .secondary_hover }};
+  --tertiary:          {{ .tertiary }};
+  --accent:            {{ .accent }};
+  --bg:                {{ .bg }};
+  --bg-muted:          {{ .bg_muted }};
+  --text:              {{ .text }};
+  --text-muted:        {{ .text_muted }};
+  --text-on-primary:   {{ .text_on_primary }};
+  --text-on-secondary: {{ .text_on_secondary }};
+}
+</style>
+{{- end }}

@@ -1,0 +1,47 @@
+{{- $title := .Title | default site.Title -}}
+{{- if and .IsHome site.Title -}}
+  {{- $title = site.Title -}}
+{{- end -}}
+{{- $description := .Params.description | default site.Params.description | default "" -}}
+{{- $ogImage := .Params.ogImage | default site.Params.ogImage -}}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+
+{{- with $description }}
+<meta name="description" content="{{ . }}">
+{{- end }}
+
+<!-- Open Graph / social -->
+<meta property="og:title" content="{{ $title }}">
+{{- with $description }}
+<meta property="og:description" content="{{ . }}">
+{{- end }}
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with $ogImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{- end }}
+
+{{- with site.Params.favicon }}
+<link rel="icon" href="{{ . | relURL }}">
+{{- end }}
+
+<!-- Inter Tight from Google Fonts (preload to avoid FOUT) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+
+<!-- Palette injection (chosen palette overrides default tokens) -->
+{{ partial "palette-style.html" . }}
+
+<!-- Theme CSS (compiled, fingerprinted, minified in production) -->
+{{- $css := resources.Get "css/theme.css" -}}
+{{- if hugo.IsProduction -}}
+  {{- $css = $css | minify | fingerprint -}}
+{{- end -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>

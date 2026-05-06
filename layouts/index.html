@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ with .Params.sections }}
+    {{ range . }}
+      {{- $type := .type | default "prose" -}}
+      {{- $partial := printf "sections/%s.html" $type -}}
+      {{- $ctx := merge . (dict "page" $) -}}
+      {{ if templates.Exists (printf "partials/%s" $partial) }}
+        {{ partial $partial $ctx }}
+      {{ else }}
+        <!-- british-scout-group: unknown section type "{{ $type }}" -->
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ .Content }}
+  {{ end }}
+{{ end }}

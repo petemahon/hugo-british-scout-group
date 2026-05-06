@@ -1,0 +1,21 @@
+# theme.toml — Hugo theme metadata
+# https://gohugo.io/hugo-modules/theme-components/
+
+name = "British Scout Group"
+license = "CC-BY-SA-4.0"
+licenselink = "https://creativecommons.org/licenses/by-sa/4.0/"
+description = "A reusable, palette-driven Hugo theme for UK Scout Group websites. Front-matter-driven sections, no JavaScript, faithful to the Scouts brand guidelines."
+homepage = "https://github.com/petemahon/hugo-british-scout-group"
+tags = ["scouts", "scouting", "single-page", "non-profit", "community"]
+features = ["palette-presets", "section-driven", "no-javascript", "responsive", "github-pages"]
+min_version = "0.128.0"
+
+[author]
+  name = "Peter Mahon"
+  homepage = "https://petemahon.net"
+
+# Note on Scout brand assets:
+# Scout-branded section logos (Beavers, Cubs, Scouts, Explorers, Network) and
+# the fleur-de-lis must be downloaded directly from https://scoutsbrand.org.uk
+# by each Scout Group using this theme. They are NOT redistributed with this
+# theme. The brand guidelines are © The Scout Association.

@@ -1,0 +1,27 @@
+[learnMore]
+other = "Learn more"
+
+[copyright]
+other = "All Rights Reserved"
+
+[toggleMenu]
+other = "Toggle menu"
+
+# -----------------------------------------------------------------------------
+# BSO Membership Notice — used by partials/bso-membership-notice.html
+# Override these in your site's i18n/en.toml to change the wording.
+# -----------------------------------------------------------------------------
+[bsoNoticeHeading]
+other = "Who can join"
+
+[bsoNoticeIntro]
+other = "BSO is a slice of UK Scouting, here for families living in {{ .HostCountry }}. Whether you've moved here from the UK or somewhere else, our doors are open."
+
+[bsoNoticeAssociation]
+other = "Every country has its own home of Scouting. Here, that's {{ .HostAssociation }} — and if you're a national of {{ .HostCountry }}, they'd love to have you."
+
+[bsoNoticeVolunteering]
+other = "Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of {{ .HostCountry }}."
+
+[bsoNoticeRuleReference]
+other = "(This follows <a href=\"https://www.scouts.org.uk/por/3-membership/32-membership/\">POR 3.2.1.1</a> — The Scout Association's rule for every BSO group.)"

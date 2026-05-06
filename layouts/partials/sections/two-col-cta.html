@@ -1,0 +1,39 @@
+{{- /*
+  two-col-cta — text on left, headline + body + buttons on right.
+  Params:
+    id           (string)         Optional anchor id.
+    left:
+      title      (string)
+      text       (string, HTML ok)
+    right:
+      title      (string)
+      text       (string, HTML ok)
+      buttons    ([]{label, url, style})  style ∈ primary | primary-outline | secondary | tertiary
+*/ -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-two-col-cta reveal {{ $bgClass }}">
+  <div class="container">
+    <div class="s-two-col-cta__grid">
+      <div class="s-two-col-cta__left">
+        {{- with .left.title }}<h3 class="s-two-col-cta__title display-5">{{ . }}</h3>{{ end }}
+        {{- with .left.text }}<div class="display-7">{{ . | safeHTML }}</div>{{ end }}
+      </div>
+      <div class="s-two-col-cta__right">
+        {{- with .right.title }}<h2 class="s-two-col-cta__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+        {{- with .right.text }}<div class="display-7">{{ . | safeHTML }}</div>{{ end }}
+        {{- with .right.buttons }}
+          <div class="s-two-col-cta__buttons">
+            {{- range . }}
+              {{- $style := .style | default "primary" -}}
+              <a class="btn btn-{{ $style }}" href="{{ .url | safeURL }}"{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+            {{- end }}
+          </div>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>

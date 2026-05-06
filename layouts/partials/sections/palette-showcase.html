@@ -1,0 +1,37 @@
+{{- /*
+  palette-showcase — renders one card per palette in data/palettes.toml,
+  with swatches and the hugo.toml line needed to apply it.
+  Params:
+    id           (string)
+    title        (string)
+    intro        (string, HTML ok)
+*/ -}}
+{{- $id := .id | default "palettes" -}}
+<section id="{{ $id }}" class="section">
+  <div class="container">
+    <div class="s-section-grid__head">
+      {{- with .title }}<h2 class="display-2">{{ . }}</h2>{{ end }}
+      {{- with .intro }}<div class="display-7" style="color: var(--text-muted); margin-top: 1.5rem;">{{ . | safeHTML }}</div>{{ end }}
+    </div>
+
+    <div class="palette-grid">
+      {{- range $key, $p := hugo.Data.palettes }}
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">{{ $p.name }}</h3>
+            <p class="palette-card__desc">{{ $p.description }}</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: {{ $p.primary }};"   title="Primary">{{ $p.primary }}</div>
+            <div class="palette-swatch" style="background: {{ $p.secondary }};" title="Secondary">{{ $p.secondary }}</div>
+            <div class="palette-swatch" style="background: {{ $p.tertiary }};"  title="Tertiary">{{ $p.tertiary }}</div>
+            <div class="palette-swatch" style="background: {{ $p.accent }}; color: #000; text-shadow: none;" title="Accent">{{ $p.accent }}</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "{{ $key }}"</code></pre>
+        </article>
+      {{- end }}
+    </div>
+  </div>
+</section>

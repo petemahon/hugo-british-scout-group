@@ -1,0 +1,32 @@
+{{- /*
+  hero — large centred title and intro text.
+  Params:
+    title           (string, required)  Main headline.
+    text            (string)            Supporting paragraph (HTML allowed).
+    background      (string)            Optional background image path (relative to assets/).
+    background_url  (string)            Or absolute URL.
+    bg              (string)            Section bg tone: muted | primary | secondary | tertiary | accent | dark
+    id              (string)            Optional anchor id (defaults to "hero").
+*/ -}}
+{{- $bg := "" -}}
+{{- with .background }}
+  {{- with resources.Get . }}{{ $bg = .RelPermalink }}{{ end -}}
+{{- end -}}
+{{- if eq $bg "" }}{{ $bg = .background_url | default "" }}{{ end -}}
+{{- $id := .id | default "hero" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+
+<section id="{{ $id }}" class="s-hero reveal {{ $bgClass }}"
+  {{- if $bg }} style="background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('{{ $bg }}');"{{ end }}>
+  <div class="container">
+    <div class="s-hero__inner">
+      <h1 class="s-hero__title display-1 {{ $titleClass }}">{{ .title }}</h1>
+      {{- with .text }}
+        <p class="s-hero__text display-7">{{ . | safeHTML }}</p>
+      {{- end }}
+    </div>
+  </div>
+</section>

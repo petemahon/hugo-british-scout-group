@@ -1,0 +1,22 @@
+{{- /*
+  The footer shows the Scout Group's copyright (e.g. "© 2026 1st Anytown Scouts").
+  Theme attribution lives only in the theme repo's LICENSE/README — it does NOT
+  appear on the rendered page.
+
+  Background tone is controlled by site param `footerBg`:
+    "" or unset    → muted (light grey, default)
+    "muted"        → light grey
+    "primary" / "secondary" / "tertiary" / "accent" / "dark"
+                   → palette colour
+*/ -}}
+{{- $year := now.Format "2006" -}}
+{{- $owner := site.Params.copyrightOwner | default site.Title -}}
+{{- $rights := site.Params.copyrightRights | default "All Rights Reserved" -}}
+{{- $bg := site.Params.footerBg | default "muted" -}}
+{{- $bgClass := printf "s-bg-%s" $bg -}}
+
+<footer class="site-footer {{ $bgClass }}">
+  <div class="container">
+    <p>&copy; Copyright {{ $year }} {{ $owner }} &mdash; {{ $rights }}</p>
+  </div>
+</footer>

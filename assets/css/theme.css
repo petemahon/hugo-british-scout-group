@@ -1,0 +1,634 @@
+/* =============================================================================
+   British Scout Group — Hugo theme
+   theme.css
+   -----------------------------------------------------------------------------
+   ALL editable design tokens are at the top of this file.
+   To realign with a future change to the Scouts brand:
+     1. Update the palette in your site's hugo.toml `palette` param
+        (or edit data/palettes.toml in the theme to add a new preset).
+     2. Edit the Design Tokens block below if non-colour tokens change.
+   The palette tokens (--primary, --secondary, etc.) are injected at runtime
+   from the chosen palette via partials/palette-style.html — you should not
+   need to edit the :root block here unless changing fallback defaults.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. PALETTE TOKENS — fallback defaults (overridden per-site by palette-style)
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Brand colours (Scouts Purple + Teal — classic-purple palette) */
+  --primary:           #7413dc;
+  --primary-hover:     #8e34ee;
+  --secondary:         #088486;
+  --secondary-hover:   #0bb3b6;
+  --tertiary:          #205b41;
+  --accent:            #ff912a;
+
+  /* Surface colours */
+  --bg:                #ffffff;
+  --bg-muted:          #f7f7f7;
+
+  /* Text colours */
+  --text:              #232323;
+  --text-muted:        #5a5a5a;
+  --text-on-primary:   #ffffff;
+  --text-on-secondary: #ffffff;
+}
+
+/* -----------------------------------------------------------------------------
+   2. DESIGN TOKENS — non-colour structural values
+   Only edit these if the visual language itself needs to change.
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Typography */
+  --font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display-1: 5rem;     /* hero titles */
+  --display-2: 4rem;     /* section titles */
+  --display-3: 3rem;
+  --display-4: 1.4rem;   /* nav links */
+  --display-5: 2rem;     /* card titles */
+  --display-7: 1.4rem;   /* body / button text */
+
+  /* Layout */
+  --container-max:  1320px;
+  --gutter-lg:      2rem;     /* >= 768px */
+  --gutter-sm:      1rem;     /* < 768px  */
+
+  /* Component shape */
+  --radius-card:    2rem;     /* images, cards, video frames */
+  --radius-btn:     4px;      /* buttons */
+  --radius-nav:     1rem;     /* nav items */
+
+  /* Border weights */
+  --btn-border:     2px;
+
+  /* Section vertical rhythm */
+  --section-py:     6rem;     /* top + bottom padding for sections */
+  --section-py-sm:  3rem;     /* on small screens */
+  --hero-py-top:    9rem;     /* hero gets extra top to clear the sticky nav */
+
+  /* Motion */
+  --transition:     0.25s ease;
+}
+
+/* -----------------------------------------------------------------------------
+   3. RESET / BASE
+   ----------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* offset for sticky nav when jumping to anchors */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-card);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--primary-hover); }
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* Typography display scale (matches Mobirise's display-N classes) */
+.display-1 { font-size: var(--display-1); line-height: 1;   font-weight: 400; }
+.display-2 { font-size: var(--display-2); line-height: 1;   font-weight: 400; }
+.display-3 { font-size: var(--display-3); line-height: 1.1; font-weight: 400; }
+.display-4 { font-size: var(--display-4); line-height: 1.5; font-weight: 400; }
+.display-5 { font-size: var(--display-5); line-height: 1.5; font-weight: 400; }
+.display-7 { font-size: var(--display-7); line-height: 1.3; font-weight: 400; }
+
+@media (max-width: 992px) {
+  .display-1 { font-size: 4rem; }
+}
+@media (max-width: 768px) {
+  .display-1 { font-size: calc(2.4rem + (5 - 2.4) * ((100vw - 20rem) / (48 - 20))); }
+  .display-2 { font-size: calc(2.05rem + (4 - 2.05) * ((100vw - 20rem) / (48 - 20))); }
+  .display-5 { font-size: calc(1.4rem + (2 - 1.4) * ((100vw - 20rem) / (48 - 20))); }
+  .display-7 { font-size: calc(1rem + (1.4 - 1) * ((100vw - 20rem) / (48 - 20))); }
+}
+
+/* -----------------------------------------------------------------------------
+   4. LAYOUT PRIMITIVES
+   ----------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+@media (max-width: 767px) {
+  .container { padding-left: var(--gutter-sm); padding-right: var(--gutter-sm); }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+@media (max-width: 767px) {
+  .container-fluid { padding-left: var(--gutter-sm); padding-right: var(--gutter-sm); }
+}
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+@media (max-width: 767px) {
+  .section { padding-top: var(--section-py-sm); padding-bottom: var(--section-py-sm); }
+}
+
+.text-center { text-align: center; }
+.text-left   { text-align: left;   }
+
+/* -----------------------------------------------------------------------------
+   SECTION BACKGROUND TONES
+   Each section can opt into a palette-coloured background by passing
+   `bg = "primary" | "secondary" | "tertiary" | "accent" | "muted" | "dark"`
+   in its front matter. Text colours flip automatically for readability.
+   ----------------------------------------------------------------------------- */
+.s-bg-muted     { background-color: var(--bg-muted); }
+.s-bg-primary   { background-color: var(--primary);   color: var(--text-on-primary); }
+.s-bg-secondary { background-color: var(--secondary); color: var(--text-on-secondary); }
+.s-bg-tertiary  { background-color: var(--tertiary);  color: #ffffff; }
+.s-bg-accent    { background-color: var(--accent);    color: #000000; }
+.s-bg-dark      { background-color: #003982;          color: #ffffff; } /* Scouts Navy */
+
+/* When a section is on a coloured bg, headings, links, captions and muted
+   text all need to adapt for legibility. */
+.s-bg-primary   :is(h1,h2,h3,h4,h5,h6),
+.s-bg-secondary :is(h1,h2,h3,h4,h5,h6),
+.s-bg-tertiary  :is(h1,h2,h3,h4,h5,h6),
+.s-bg-dark      :is(h1,h2,h3,h4,h5,h6) { color: inherit; }
+.s-bg-accent    :is(h1,h2,h3,h4,h5,h6) { color: #000000; }
+
+.s-bg-primary   .s-section-grid__subtitle,
+.s-bg-secondary .s-section-grid__subtitle,
+.s-bg-tertiary  .s-section-grid__subtitle,
+.s-bg-dark      .s-section-grid__subtitle,
+.s-bg-primary   .s-stacked__intro,
+.s-bg-secondary .s-stacked__intro,
+.s-bg-tertiary  .s-stacked__intro,
+.s-bg-dark      .s-stacked__intro,
+.s-bg-primary   .s-section-header__subtitle,
+.s-bg-secondary .s-section-header__subtitle,
+.s-bg-tertiary  .s-section-header__subtitle,
+.s-bg-dark      .s-section-header__subtitle { color: rgba(255,255,255,0.85); }
+
+.s-bg-primary   a:not(.btn),
+.s-bg-secondary a:not(.btn),
+.s-bg-tertiary  a:not(.btn),
+.s-bg-dark      a:not(.btn) { color: inherit; text-decoration: underline; }
+.s-bg-accent    a:not(.btn) { color: #000000; text-decoration: underline; }
+
+/* Title colour overrides — pass `title_color = "primary" | "secondary" |
+   "tertiary" | "accent"` on a section to tint its main heading. */
+.s-title-primary   { color: var(--primary)   !important; }
+.s-title-secondary { color: var(--secondary) !important; }
+.s-title-tertiary  { color: var(--tertiary)  !important; }
+.s-title-accent    { color: var(--accent)    !important; }
+
+/* Visually hidden but available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   5. BUTTONS
+   ----------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 1.25rem 2rem;
+  border: var(--btn-border) solid transparent;
+  border-radius: var(--radius-btn);
+  font-family: inherit;
+  font-size: var(--display-7);
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+@media (max-width: 767px) {
+  .btn { padding: 0.75rem 1.5rem; }
+}
+
+.btn + .btn { margin-left: 0.5rem; margin-top: 0.5rem; }
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-on-primary);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: var(--text-on-primary);
+}
+
+.btn-primary-outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-primary-outline:hover, .btn-primary-outline:focus {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--text-on-secondary);
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  color: var(--text-on-secondary);
+}
+
+.btn-tertiary {
+  background: var(--tertiary);
+  border-color: var(--tertiary);
+  color: #ffffff;
+}
+.btn-tertiary:hover, .btn-tertiary:focus {
+  background: color-mix(in srgb, var(--tertiary) 80%, white);
+  border-color: color-mix(in srgb, var(--tertiary) 80%, white);
+}
+
+/* -----------------------------------------------------------------------------
+   6. SITE NAV (sticky top bar)
+   ----------------------------------------------------------------------------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+
+.site-nav__brand img {
+  height: 4.4rem;
+  width: auto;
+  border-radius: 0;
+}
+
+.site-nav__menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding: 1rem;
+  font-size: var(--display-4);
+  color: var(--primary);
+  border-radius: var(--radius-nav);
+  transition: background-color var(--transition);
+}
+.site-nav__link:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--primary);
+}
+
+/* Mobile toggle */
+.site-nav__toggle-cb { display: none; }
+.site-nav__toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 44px; height: 44px;
+  padding: 8px;
+  cursor: pointer;
+}
+.site-nav__toggle span {
+  display: block;
+  width: 100%; height: 3px;
+  margin: 5px 0;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+@media (max-width: 991px) {
+  .site-nav__toggle { display: block; }
+  .site-nav__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: var(--bg);
+    padding: 1rem 2rem 2rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  }
+  /* Pure-CSS open state */
+  .site-nav__toggle-cb:checked ~ .site-nav__menu { display: flex; }
+}
+
+/* -----------------------------------------------------------------------------
+   7. SECTION: HERO
+   ----------------------------------------------------------------------------- */
+.s-hero {
+  padding-top: var(--hero-py-top);
+  padding-bottom: var(--section-py);
+  text-align: center;
+  background-color: var(--bg);
+  background-size: cover;
+  background-position: center;
+}
+.s-hero__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.s-hero__title { margin: 0 0 1.5rem; font-weight: 700; color: var(--primary); }
+.s-hero__text  { margin: 0 0 1.5rem; }
+
+/* Hero on a coloured bg: title inherits white from .s-bg-* rules above */
+.s-bg-primary   .s-hero__title,
+.s-bg-secondary .s-hero__title,
+.s-bg-tertiary  .s-hero__title,
+.s-bg-dark      .s-hero__title { color: inherit; }
+.s-bg-accent    .s-hero__title { color: #000000; }
+
+/* -----------------------------------------------------------------------------
+   8. SECTION: TWO-COL CTA  (text left | text+buttons right)
+   ----------------------------------------------------------------------------- */
+.s-two-col-cta__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 991px) {
+  .s-two-col-cta__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.s-two-col-cta__title { margin: 0 0 1rem; font-weight: 700; }
+.s-two-col-cta__buttons { margin-top: 1.5rem; }
+
+/* When the section bg is muted, render the LEFT column as a rounded white
+   card. Matches the Mobirise pattern on the original adscouts.org. */
+.s-bg-muted .s-two-col-cta__left {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+}
+@media (max-width: 991px) {
+  .s-bg-muted .s-two-col-cta__left { padding: 1.75rem; }
+}
+
+/* -----------------------------------------------------------------------------
+   9. SECTION: TWO-COL IMAGE + CTA  (image left | title+text+button right)
+   ----------------------------------------------------------------------------- */
+.s-two-col-image__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .s-two-col-image__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.s-two-col-image__title { margin: 0 0 1.5rem; font-weight: 700; }
+.s-two-col-image__buttons { margin-top: 1rem; }
+
+/* -----------------------------------------------------------------------------
+   10. SECTION: SECTION-GRID (header + N cards)
+   ----------------------------------------------------------------------------- */
+.s-section-grid__head {
+  margin: 0 auto 3rem;
+  text-align: center;
+  max-width: 64rem;
+}
+.s-section-grid__title    { margin: 0 0 1.5rem; font-weight: 700; }
+.s-section-grid__subtitle { margin: 0; color: var(--text-muted); }
+
+.s-section-grid__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.s-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: var(--radius-card);
+}
+.s-card__img {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.s-card__title  { margin: 0 0 1rem; font-weight: 700; }
+.s-card__footer { margin-top: auto; padding-top: 1rem; }
+
+/* -----------------------------------------------------------------------------
+   11. SECTION: STACKED-FEATURES (header + left text-stack | right image)
+   ----------------------------------------------------------------------------- */
+.s-stacked__head {
+  margin: 0 auto 3rem;
+  text-align: center;
+  max-width: 70rem;
+}
+.s-stacked__title { margin: 0 0 1.5rem; font-weight: 700; }
+.s-stacked__intro { margin: 0; color: var(--text-muted); }
+
+.s-stacked__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .s-stacked__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.s-stacked__items { display: flex; flex-direction: column; gap: 2rem; }
+.s-stacked__item-title { margin: 0 0 1rem; font-weight: 700; }
+.s-stacked__item-body  { margin: 0; }
+
+.s-stacked__image img { width: 100%; height: auto; }
+
+/* -----------------------------------------------------------------------------
+   12. SECTION: SECTION-HEADER (centred title + subtitle, no body)
+   ----------------------------------------------------------------------------- */
+.s-section-header { text-align: center; }
+.s-section-header__title    { margin: 0 0 1.5rem; font-weight: 700; }
+.s-section-header__subtitle { margin: 0 auto; max-width: 56rem; color: var(--text-muted); }
+
+/* -----------------------------------------------------------------------------
+   13. SECTION: EMBED (iframe — maps, video etc.)
+   ----------------------------------------------------------------------------- */
+.s-embed {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.s-embed__frame {
+  width: 90%;
+  border: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   14. SECTION: PROSE (free-form Markdown)
+   ----------------------------------------------------------------------------- */
+.s-prose__inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+.s-prose__inner h2 { font-size: var(--display-2); margin: 0 0 1.5rem; line-height: 1; }
+.s-prose__inner h3 { font-size: var(--display-3); margin: 2rem 0 1rem; }
+
+/* -----------------------------------------------------------------------------
+   15. SECTION: BSO MEMBERSHIP NOTICE
+   The bso-membership-notice partial sits inside the s-bso-membership section
+   wrapper. The wrapper handles bg/padding/centring; the partial renders the
+   inner content. Class names are BEM-style and unique to the partial so
+   they're easy to alias if a downstream theme wants to restyle.
+   ----------------------------------------------------------------------------- */
+.s-bso-membership .bso-membership-notice {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+.bso-membership-notice__heading {
+  margin: 0 0 1.5rem;
+  font-size: var(--display-2);
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+}
+.bso-membership-notice__intro,
+.bso-membership-notice__association,
+.bso-membership-notice__volunteering {
+  margin: 0 0 1rem;
+  font-size: var(--display-7);
+  line-height: 1.5;
+}
+.bso-membership-notice__rule-reference {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  opacity: 0.75;
+}
+.bso-membership-notice__rule-reference small { font-size: 0.95rem; }
+
+/* -----------------------------------------------------------------------------
+   16. SECTION: PALETTE-SHOWCASE (theme-only, used by /palettes/ ref page)
+   ----------------------------------------------------------------------------- */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.palette-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.palette-card__header { padding: 1.5rem; }
+.palette-card__name { margin: 0 0 0.5rem; font-weight: 700; font-size: 1.5rem; }
+.palette-card__desc { margin: 0; color: var(--text-muted); font-size: 1rem; }
+
+.palette-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.palette-swatch {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.palette-card__usage {
+  padding: 1.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  background: var(--bg-muted);
+  color: var(--text);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* -----------------------------------------------------------------------------
+   16. FOOTER
+   ----------------------------------------------------------------------------- */
+.site-footer {
+  padding: 4rem 0;
+  text-align: center;
+  font-size: var(--display-7);
+}
+/* Default footer is the muted bg with muted text */
+.site-footer.s-bg-muted { color: var(--text-muted); }
+.site-footer p { margin: 0; }
+
+/* -----------------------------------------------------------------------------
+   17. PAGE-LOAD FADE-IN
+   A simple, universally-supported fade-in for sections on first render.
+   Replaces Mobirise's animate.css + JS observer pair. No scroll-driven
+   timeline, so content stays visible for screen readers, screenshots, RSS,
+   and search-engine snapshots. Honours prefers-reduced-motion.
+   ----------------------------------------------------------------------------- */
+.reveal {
+  animation: reveal-in 0.6s ease-out both;
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* Stagger the first few sections so they don't all fade in at once */
+main > .reveal:nth-child(1) { animation-delay: 0s; }
+main > .reveal:nth-child(2) { animation-delay: 0.1s; }
+main > .reveal:nth-child(3) { animation-delay: 0.2s; }
+main > .reveal:nth-child(4) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+}
