@@ -15,10 +15,18 @@
         cubs      = { enable = true }
         scouts    = { enable = true }
         explorers = { enable = true }
+        network   = { enable = true }   # opt-in; default off
 
-  Default behaviour: a section IS rendered unless `enable = false`. If the
-  theme's logo file isn't found (e.g. if you've placed your own at the same
-  path), the partial renders the card without an image rather than breaking.
+  Default behaviour: a section IS rendered unless its data entry sets
+  `default_enabled = false` or the Group sets `enable = false`. The only
+  default-off section is Network (18–25), which is a separate provision
+  from the under-18 youth sections — Groups running a Network opt in
+  explicitly. Network's metadata is still loaded for badge rendering by
+  other features (news, events, galleries) regardless of this setting.
+
+  If the theme's logo file isn't found (e.g. if you've placed your own at
+  the same path), the partial renders the card without an image rather
+  than breaking.
 
   Section params (front matter):
     id           (string)  Anchor id, e.g. "sections".
@@ -48,7 +56,15 @@
       {{- range hugo.Data.scout_sections.items }}
         {{- $key := .key -}}
         {{- $user := index $userConfig $key | default dict -}}
-        {{- if ne $user.enable false }}
+        {{- /* Should this card render?
+               1. Baseline comes from data: `default_enabled` (omit = true).
+               2. Group's `params.scoutSections.<key>.enable` overrides if
+                  explicitly set to true or false. */ -}}
+        {{- $defaultEnabled := ne .default_enabled false -}}
+        {{- $shouldRender := $defaultEnabled -}}
+        {{- if eq $user.enable true }}{{ $shouldRender = true }}{{ end -}}
+        {{- if eq $user.enable false }}{{ $shouldRender = false }}{{ end -}}
+        {{- if $shouldRender }}
           {{- /* Logo: per-Group override wins if set; otherwise the theme's
                  shipped logo from data/scout_sections.toml. */ -}}
           {{- $logoPath := $user.logo | default .logo -}}

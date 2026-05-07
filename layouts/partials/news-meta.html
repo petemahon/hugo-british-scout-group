@@ -1,0 +1,33 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  news-meta — date + (optional) author byline + section badges.
+  Receives a Page. Section badge colours come from data/scout_sections.toml
+  via inline CSS custom properties (no hex hardcoded in the stylesheet).
+*/ -}}
+<div class="s-news__meta">
+  <time class="s-news__date display-7" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+  {{- $showAuthor := site.Params.news.show_author -}}
+  {{- if and (ne $showAuthor false) .Params.author }}
+    <span class="s-news__author display-7">{{ i18n "newsByLine" (dict "Author" .Params.author) }}</span>
+  {{- end }}
+  {{- with .Params.sections }}
+    <ul class="s-news__sections" aria-label="{{ i18n "newsSectionBadge" }}">
+      {{- $items := hugo.Data.scout_sections.items -}}
+      {{- range . }}
+        {{- $key := . -}}
+        {{- $section := "" -}}
+        {{- range $items -}}
+          {{- if eq .key $key }}{{ $section = . }}{{ end -}}
+        {{- end -}}
+        {{- with $section }}
+          <li class="s-news__section-pill" style="--badge-bg: {{ .color }}; --badge-fg: {{ .text_color }};">
+            <a href="{{ printf "/news/sections/%s/" .key | relURL }}">{{ .name }}</a>
+          </li>
+        {{- end -}}
+      {{- end -}}
+    </ul>
+  {{- end }}
+</div>

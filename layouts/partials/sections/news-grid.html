@@ -1,0 +1,57 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  news-grid — home-page (or any-page) block showing the latest N news posts.
+  Gated by site.Params.features.news. If the flag is off, this partial
+  renders nothing — the block is silent rather than producing an empty
+  shell with a heading.
+
+  Section params (front-matter under [[sections]]):
+    id          (string, optional)
+    title       (string, optional) — falls back to i18n.newsHeading
+    subtitle    (string, optional, HTML allowed)
+    bg          (string, optional) — see partials/footer for values
+    title_color (string, optional)
+    count       (int, optional) — number of posts (default site.Params.news.default_count_on_home, max 12)
+    show_more   (bool, optional, default true) — render the "View all news →" link
+*/ -}}
+{{- if site.Params.features.news -}}
+{{- $id := .id | default "" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $defaultCount := (site.Params.news.default_count_on_home | default 3) -}}
+{{- $count := .count | default $defaultCount -}}
+{{- if gt $count 12 }}{{ $count = 12 }}{{ end -}}
+{{- $showMore := true -}}
+{{- if isset . "show_more" }}{{ $showMore = .show_more }}{{ end -}}
+{{- $posts := where site.RegularPages "Section" "news" -}}
+{{- $posts = first $count $posts.ByDate.Reverse -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-news s-news--grid reveal {{ $bgClass }}">
+  <div class="container">
+    <div class="s-news__head">
+      <h2 class="s-news__title display-2 {{ $titleClass }}">{{ with .title }}{{ . }}{{ else }}{{ i18n "newsHeading" }}{{ end }}</h2>
+      {{- with .subtitle }}<div class="s-news__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
+    </div>
+
+    {{- if eq (len $posts) 0 }}
+      <p class="s-news__empty display-7">{{ i18n "newsNoPosts" }}</p>
+    {{- else }}
+      <div class="s-news__grid">
+        {{- range $posts }}
+          {{- partial "news-card.html" . -}}
+        {{- end }}
+      </div>
+      {{- if $showMore }}
+        <p class="s-news__viewall">
+          <a class="btn btn-primary" href="{{ "/news/" | relURL }}">{{ i18n "newsViewAll" }} →</a>
+        </p>
+      {{- end }}
+    {{- end }}
+  </div>
+</section>
+{{- end -}}

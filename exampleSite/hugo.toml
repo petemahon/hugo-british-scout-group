@@ -8,6 +8,13 @@ enableRobotsTXT = true
 # This theme is hardcoded to British English (en-GB). The <html lang="en-GB">
 # attribute is set in baseof.html — do not configure other locales.
 
+# Suppress Hugo's auto-generated taxonomy term/list pages. The shared
+# `section = "sections"` taxonomy (see [taxonomies] below) is used for
+# tagging and filtering, but the user-visible filter pages are
+# per-content-type at /news/sections/<scout-section>/ etc., shipped as
+# Hugo content sections by the theme. See SPEC-01 / SPEC-COMMON §8.
+disableKinds = ["taxonomy", "term"]
+
 # Hugo 0.156+ syntax. Pagination is not used by this theme but kept here for
 # Group sites that grow to multiple pages.
 [pagination]
@@ -57,6 +64,35 @@ enableRobotsTXT = true
   cubs      = { enable = true }
   scouts    = { enable = true }
   explorers = { enable = true }
+  network   = { enable = true }   # opt-in; default off (see DECISIONS.md)
+
+# -----------------------------------------------------------------------------
+# Feature flags — every theme feature defaults OFF and is opted into here.
+# Set to true ONLY when your Group has the editorial commitment to maintain
+# the feature: stale published content damages credibility more than no
+# content. The exampleSite turns everything on so the demo exercises every
+# feature. See DECISIONS.md for the full rationale.
+# -----------------------------------------------------------------------------
+[params.features]
+  news = true
+
+# -----------------------------------------------------------------------------
+# News & Camp Reports — see SPEC-01.
+# -----------------------------------------------------------------------------
+[params.news]
+  posts_per_page        = 12     # listing page pagination
+  default_count_on_home = 3      # default cards in the news-grid home block
+  show_author           = true   # render leader nickname/role in byline
+  show_reading_time     = false  # pure-Hugo, no JS
+
+# -----------------------------------------------------------------------------
+# Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.
+# The values are the keys from data/scout_sections.toml. The auto-generated
+# taxonomy term/list pages are suppressed via top-level disableKinds (above);
+# user-visible filter pages live at /news/sections/<scout-section>/ etc.
+# -----------------------------------------------------------------------------
+[taxonomies]
+  section = "sections"
 
 # -----------------------------------------------------------------------------
 # Top navigation. The URLs are anchors into the home page sections.

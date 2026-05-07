@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palettes</title>
+<meta name="description" content="Reference for all colour palettes shipped with the British Scout Group theme.">
+
+
+<meta property="og:title" content="Palettes">
+<meta property="og:description" content="Reference for all colour palettes shipped with the British Scout Group theme.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/palettes/">
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+
+
+
+<style>
+:root {
+  --primary:           #7413dc;
+  --primary-hover:     #8e34ee;
+  --secondary:         #088486;
+  --secondary-hover:   #0bb3b6;
+  --tertiary:          #205b41;
+  --accent:            #ff912a;
+  --bg:                #ffffff;
+  --bg-muted:          #f7f7f7;
+  --text:              #232323;
+  --text-muted:        #5a5a5a;
+  --text-on-primary:   #ffffff;
+  --text-on-secondary: #ffffff;
+}
+</style>
+
+
+<link rel="stylesheet" href="/css/theme.css">
+
+</head>
+<body id="top">
+  <nav class="site-nav" aria-label="Primary">
+  <div class="site-nav__inner">
+    <a class="site-nav__brand" href="/" aria-label="1st Anytown Scouts home">
+        <img src="/images/placeholder-logo.svg" alt="1st Anytown Scouts logo">
+    </a>
+      <input class="site-nav__toggle-cb" type="checkbox" id="nav-toggle" aria-hidden="true">
+      <label class="site-nav__toggle" for="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <ul class="site-nav__menu">
+          <li>
+            <a class="site-nav__link" href="/#join">Join Us</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="/#sections">6 - 18 Years</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="/#network">18-25 Years</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="/#volunteer">Volunteer</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="/#where-we-meet">Where we meet</a>
+          </li>
+          <li>
+            <a class="site-nav__link" href="/palettes/">Palettes</a>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+  <main>
+    
+  
+    
+        <section id="palettes" class="section">
+  <div class="container">
+    <div class="s-section-grid__head"><h2 class="display-2">Theme palettes</h2><div class="display-7" style="color: var(--text-muted); margin-top: 1.5rem;">Every palette below uses only colours from the official Scouts brand guidelines. Pick the one that fits your Group, then set <code>params.palette</code> in your <code>hugo.toml</code> to the key shown on each card.<br><br>To preview a palette in context, change the value in <code>exampleSite/hugo.toml</code> and reload — every section on the home page will update.</div>
+    </div>
+
+    <div class="palette-grid">
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">Adventure</h3>
+            <p class="palette-card__desc">Forest Green primary with Orange secondary. Outdoorsy and energetic.</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: #205b41;"   title="Primary">#205b41</div>
+            <div class="palette-swatch" style="background: #ff912a;" title="Secondary">#ff912a</div>
+            <div class="palette-swatch" style="background: #7413dc;"  title="Tertiary">#7413dc</div>
+            <div class="palette-swatch" style="background: #ffe627; color: #000; text-shadow: none;" title="Accent">#ffe627</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "adventure"</code></pre>
+        </article>
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">Classic Purple</h3>
+            <p class="palette-card__desc">Scouts Purple primary with Teal secondary. The default UK Scouts house style.</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: #7413dc;"   title="Primary">#7413dc</div>
+            <div class="palette-swatch" style="background: #088486;" title="Secondary">#088486</div>
+            <div class="palette-swatch" style="background: #205b41;"  title="Tertiary">#205b41</div>
+            <div class="palette-swatch" style="background: #ff912a; color: #000; text-shadow: none;" title="Accent">#ff912a</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "classic-purple"</code></pre>
+        </article>
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">Coastal</h3>
+            <p class="palette-card__desc">Navy primary with Blue secondary. For Sea Scout Groups and waterside settings.</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: #003982;"   title="Primary">#003982</div>
+            <div class="palette-swatch" style="background: #006ddf;" title="Secondary">#006ddf</div>
+            <div class="palette-swatch" style="background: #088486;"  title="Tertiary">#088486</div>
+            <div class="palette-swatch" style="background: #ff912a; color: #000; text-shadow: none;" title="Accent">#ff912a</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "coastal"</code></pre>
+        </article>
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">Network</h3>
+            <p class="palette-card__desc">Black primary with Purple secondary. The Scout Network look — older, more sophisticated.</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: #000000;"   title="Primary">#000000</div>
+            <div class="palette-swatch" style="background: #7413dc;" title="Secondary">#7413dc</div>
+            <div class="palette-swatch" style="background: #088486;"  title="Tertiary">#088486</div>
+            <div class="palette-swatch" style="background: #ff912a; color: #000; text-shadow: none;" title="Accent">#ff912a</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "network"</code></pre>
+        </article>
+        <article class="palette-card">
+          <div class="palette-card__header">
+            <h3 class="palette-card__name">Vibrant</h3>
+            <p class="palette-card__desc">Red primary with Pink secondary. Bold, youthful, attention-grabbing.</p>
+          </div>
+          <div class="palette-swatches">
+            <div class="palette-swatch" style="background: #ed3f23;"   title="Primary">#ed3f23</div>
+            <div class="palette-swatch" style="background: #ffb4e5;" title="Secondary">#ffb4e5</div>
+            <div class="palette-swatch" style="background: #7413dc;"  title="Tertiary">#7413dc</div>
+            <div class="palette-swatch" style="background: #ffe627; color: #000; text-shadow: none;" title="Accent">#ffe627</div>
+          </div>
+          <pre class="palette-card__usage"><code># in hugo.toml:
+[params]
+  palette = "vibrant"</code></pre>
+        </article>
+    </div>
+  </div>
+</section>
+
+      
+    
+  
+
+  </main>
+  <footer class="site-footer s-bg-dark">
+  <div class="container">
+    <p>&copy; Copyright 2026 1st Anytown Scouts &mdash; All Rights Reserved</p>
+  </div>
+</footer>
+
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+    <path d="M12 4l-8 8 1.4 1.4L11 7.8V20h2V7.8l5.6 5.6L20 12z"/>
+  </svg>
+</a>
+</body>
+</html>

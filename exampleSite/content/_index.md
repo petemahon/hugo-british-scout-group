@@ -123,7 +123,20 @@ description = "Skills for Life — example Scout Group home page using the Briti
   subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
-# 7. The map — embed
+# 7. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
+# -----------------------------------------------------------------------------
+[[sections]]
+  type        = "news-grid"
+  id          = "news"
+  bg          = "muted"
+  title       = "Latest news"
+  title_color = "primary"   # match the brand-purple weight of other section headings
+  subtitle    = "Camp write-ups, badge presentations, and what's been happening across the Group."
+  count       = 3
+  show_more   = true
+
+# -----------------------------------------------------------------------------
+# 8. The map — embed
 # -----------------------------------------------------------------------------
 [[sections]]
   type   = "embed"

@@ -152,6 +152,7 @@ of each partial in `layouts/partials/sections/`.
 | `section-header` | Centred title + subtitle, no body content. Use as a header above an embed or content area. | `title`, `subtitle` |
 | `embed` | Generic responsive iframe (SnazzyMaps, YouTube, etc.). | `url`, `height`, `width`, `title` |
 | `bso-membership` | Eligibility notice for BSO Groups (POR 3.2.1.1). Wraps `partials/bso-membership-notice.html`. | site-level `[params.bsoMembershipNotice]` |
+| `news-grid` | Latest news cards on the home page (or any page). Opt-in via `params.features.news = true`. See **News & Camp Reports** below. | `title`, `subtitle`, `count`, `show_more` |
 | `palette-showcase` | Theme's own palette reference page. Lists every palette in `data/palettes.toml`. | `title`, `intro` |
 | `prose` | Free-form Markdown body — the escape hatch. | `title`, `body` |
 
@@ -174,6 +175,117 @@ Example:
   title       = "Where we meet"
   title_color = "primary"   # heading in Scouts Purple
 ```
+
+---
+
+## News & Camp Reports
+
+The theme ships an opt-in news feature: dated posts for camp write-ups,
+badge presentations, milestone announcements, and similar updates.
+Renders as a paginated listing at `/news/`, individual post pages at
+`/news/<slug>/`, per-section filter views at
+`/news/sections/<scout-section>/`, and an optional latest-posts block on
+the home page.
+
+### Turning it on
+
+In your site's `hugo.toml`:
+
+```toml
+[params.features]
+  news = true                # opt-in; default off
+
+[params.news]
+  posts_per_page        = 12     # listing pagination
+  default_count_on_home = 3      # default cards shown by news-grid
+  show_author           = true   # render leader nickname/role byline
+  show_reading_time     = false  # not used in v1; kept for forward compat
+
+# Single shared taxonomy across content types (news, events, galleries…)
+[taxonomies]
+  section = "sections"
+
+# Suppress Hugo's auto taxonomy term/list pages — the theme ships
+# per-content-type filter pages at /news/sections/<key>/ instead.
+disableKinds = ["taxonomy", "term"]
+```
+
+The feature is hard-gated: with `params.features.news = false` (the
+default), no news routes render and the `news-grid` home block is
+silent.
+
+### Authoring posts
+
+```bash
+hugo new news/2026-04-19-st-georges-parade.md
+```
+
+The archetype produces a front-matter skeleton with every field
+documented inline. Filename convention: `YYYY-MM-DD-kebab-case-title.md`.
+The date prefix is part of the URL; URLs are flat
+(`/news/2026-04-19-st-georges-parade/`, no year nesting).
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `title` | yes | Plain text |
+| `date` | yes | ISO-8601. Future dates are not built. |
+| `summary` | no | First ~30 words of body if omitted. |
+| `sections` | no | List of keys from `data/scout_sections.toml` (`squirrels`, `beavers`, `cubs`, `scouts`, `explorers`, `network`). Renders as colour-coded badges that link to the per-section filter view. |
+| `cover_image` | no | Filename relative to `assets/news/<slug>/`. JPG, WebP, or PNG — Hugo's pipeline produces resized WebP variants automatically. |
+| `cover_alt` | yes if `cover_image` set | Build fails without it. |
+| `author` | no | Free-text byline. **Use a leader nickname or role** ("Akela", "GSL", "Cub Leader"), not full personal names. |
+| `photo_consent` | yes if any image referenced | **Build fails** without `true` if a cover or any inline image is present. See **Photo consent** below. |
+| `draft` | no | Standard Hugo. |
+
+Inline images: drop them in the same folder as the post (under
+`assets/news/<slug>/`) and reference them in Markdown — Hugo's image
+render hooks resize and convert them to WebP.
+
+### Photo consent
+
+Per SPEC-COMMON §10, any post that references an image must set
+`photo_consent = true` to assert that every identifiable face has signed
+consent on file with the Group, or that faces are obscured. The build
+fails (with `errorf`) if an image is referenced but consent is unset.
+
+The lint covers both `cover_image` and inline body images (Markdown
+`![…]` and raw `<img>`).
+
+### The `news-grid` home block
+
+Add a latest-news block to your `_index.md` (or any page):
+
+```toml
+[[sections]]
+  type        = "news-grid"
+  id          = "news"
+  bg          = "muted"
+  title       = "Latest news"
+  title_color = "primary"   # tints heading with the active palette's primary
+  subtitle    = "Camp write-ups, badges, and what we've been up to."
+  count       = 3        # default 3, max 12
+  show_more   = true     # link to /news/
+```
+
+When `params.features.news = false`, the block renders nothing — no
+heading, no empty shell.
+
+`title_color` accepts the same values as on every other section type
+(`primary`, `secondary`, `tertiary`, `accent`) and tints the heading
+using the active palette. Omit it for default body colour.
+
+### Section filter views
+
+The shared `section = "sections"` taxonomy lets posts be tagged with
+one or more Scout sections. Filter views ship at
+`/news/sections/<scout-section>/` for all six section keys (Squirrels
+through Network), shipped as Hugo content sections inside the theme.
+Section badges on news cards link to these filter views.
+
+If a Group does not run a particular section, the filter view will
+show "No news posts yet" — this is harmless and self-corrects once
+posts tagged with that section exist. The page returns HTTP 200, not a
+404, which keeps any existing inbound links stable.
 
 ---
 

@@ -1,0 +1,62 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  News post — /news/<slug>/.
+  Implements the photo-consent lint per SPEC-COMMON §10.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.news -}}
+
+  {{- /* cover_alt is mandatory when cover_image is set. */ -}}
+  {{- if and .Params.cover_image (not .Params.cover_alt) -}}
+    {{- errorf "news post %q: cover_image is set but cover_alt is empty. cover_alt is required for accessibility." .File.LogicalName -}}
+  {{- end -}}
+
+  {{- /* Photo-consent lint. If any image is referenced (cover OR inline in
+         the body — Markdown !\[ or raw <img>), photo_consent must be true. */ -}}
+  {{- $imgPattern := `!\[|<img` -}}
+  {{- $hasInline := gt (len (findRE $imgPattern .RawContent)) 0 -}}
+  {{- $hasImage := or .Params.cover_image $hasInline -}}
+  {{- if and $hasImage (ne .Params.photo_consent true) -}}
+    {{- errorf "news post %q references an image but photo_consent is not true. Set photo_consent = true in front-matter once signed consent is on file. See SPEC-COMMON §10." .File.LogicalName -}}
+  {{- end -}}
+
+  <article class="section s-news s-news--single reveal">
+    <div class="container s-news__container">
+      {{- with .Params.cover_image -}}
+        {{- $coverPath := printf "news/%s/%s" $.File.ContentBaseName . -}}
+        {{- $img := resources.Get $coverPath -}}
+        {{- if not $img -}}
+          {{- errorf "news post %q: cover_image %q not found. Expected at assets/%s." $.File.LogicalName . $coverPath -}}
+        {{- else -}}
+          {{- $small  := $img.Resize "640x webp q82" -}}
+          {{- $medium := $img.Resize "1280x webp q82" -}}
+          {{- $large  := $img.Resize "1920x webp q82" -}}
+          <figure class="s-news__cover">
+            <img src="{{ $medium.RelPermalink }}"
+                 srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 1280w, {{ $large.RelPermalink }} 1920w"
+                 sizes="(max-width: 700px) 100vw, 1280px"
+                 alt="{{ $.Params.cover_alt }}"
+                 loading="lazy">
+          </figure>
+        {{- end -}}
+      {{- end }}
+
+      <header class="s-news__post-head">
+        <h1 class="s-news__post-title display-2">{{ .Title }}</h1>
+        {{- partial "news-meta.html" . }}
+      </header>
+
+      <div class="s-news__post-body display-7">
+        {{ .Content }}
+      </div>
+
+      <footer class="s-news__post-foot">
+        <a class="btn btn-primary-outline" href="{{ "/news/" | relURL }}">← {{ i18n "newsBackToList" }}</a>
+      </footer>
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

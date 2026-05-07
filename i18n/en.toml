@@ -25,3 +25,41 @@ other = "Volunteering's a different story. Anyone over 18 is welcome to help out
 
 [bsoNoticeRuleReference]
 other = "(This follows <a href=\"https://www.scouts.org.uk/por/3-membership/32-membership/\">POR 3.2.1.1</a> — The Scout Association's rule for every BSO group.)"
+
+# -----------------------------------------------------------------------------
+# News & Camp Reports — used by partials/news-card.html, news-meta.html, and
+# layouts/news/{list,single}.html. Override in your site's i18n/en.toml to
+# adjust wording. SPEC-01 in the project knowledge documents the full feature.
+# -----------------------------------------------------------------------------
+[newsHeading]
+other = "Latest news"
+
+[newsByLine]
+other = "by {{ .Author }}"
+
+[newsReadMore]
+other = "Read more"
+
+[newsViewAll]
+other = "View all news"
+
+[newsNoPosts]
+other = "No news posts yet — check back soon."
+
+[newsSectionBadge]
+other = "Scout sections featured"
+
+[newsBackToList]
+other = "Back to all news"
+
+[newsFilterHeading]
+other = "News from {{ .Section }}"
+
+[newsPaginationPrev]
+other = "Newer"
+
+[newsPaginationNext]
+other = "Older"
+
+[newsPaginationStatus]
+other = "Page {{ .Current }} of {{ .Total }}"

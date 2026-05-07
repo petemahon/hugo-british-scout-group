@@ -1,0 +1,75 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  News listing — /news/. Reverse-chronological, paginated.
+  See SPEC-01 in the project knowledge for the full schema.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.news -}}
+  {{- $pageSize := (site.Params.news.posts_per_page | default 12) -}}
+  {{- $posts := where .Site.RegularPages "Section" "news" -}}
+  {{- $posts = $posts.ByDate.Reverse -}}
+  {{- $isFilter := .Params.scout_section -}}
+  {{- if $isFilter -}}
+    {{- $posts = where $posts "Params.sections" "intersect" (slice .Params.scout_section) -}}
+  {{- end -}}
+  {{- $paginator := .Paginate $posts $pageSize -}}
+
+  <section class="section s-news s-news--list reveal">
+    <div class="container">
+      <header class="s-news__head">
+        <h1 class="s-news__title display-2">
+          {{- if $isFilter -}}
+            {{- $sectionMeta := "" -}}
+            {{- range hugo.Data.scout_sections.items -}}
+              {{- if eq .key $isFilter }}{{ $sectionMeta = . }}{{ end -}}
+            {{- end -}}
+            {{- with $sectionMeta -}}
+              {{- i18n "newsFilterHeading" (dict "Section" .name) -}}
+            {{- else -}}
+              {{- $.Title -}}
+            {{- end -}}
+          {{- else -}}
+            {{- with .Title }}{{ . }}{{ else }}{{ i18n "newsHeading" }}{{ end -}}
+          {{- end -}}
+        </h1>
+        {{- with .Description }}<p class="s-news__intro display-7">{{ . | safeHTML }}</p>{{ end }}
+        {{- if $isFilter }}
+          <p class="s-news__back display-7">
+            <a href="{{ "/news/" | relURL }}">← {{ i18n "newsBackToList" }}</a>
+          </p>
+        {{- end }}
+      </header>
+
+      {{- if eq (len $paginator.Pages) 0 }}
+        <p class="s-news__empty display-7">{{ i18n "newsNoPosts" }}</p>
+      {{- else }}
+        <div class="s-news__grid">
+          {{- range $paginator.Pages }}
+            {{- partial "news-card.html" . -}}
+          {{- end }}
+        </div>
+        {{- if gt $paginator.TotalPages 1 }}
+          <nav class="s-news__pagination" aria-label="News pagination">
+            {{- if $paginator.HasPrev }}
+              <a class="btn btn-primary-outline" href="{{ $paginator.Prev.URL }}" rel="prev">← {{ i18n "newsPaginationPrev" }}</a>
+            {{- else }}
+              <span class="s-news__pagination-spacer"></span>
+            {{- end }}
+            <span class="s-news__pagination-status">
+              {{- i18n "newsPaginationStatus" (dict "Current" $paginator.PageNumber "Total" $paginator.TotalPages) -}}
+            </span>
+            {{- if $paginator.HasNext }}
+              <a class="btn btn-primary-outline" href="{{ $paginator.Next.URL }}" rel="next">{{ i18n "newsPaginationNext" }} →</a>
+            {{- else }}
+              <span class="s-news__pagination-spacer"></span>
+            {{- end }}
+          </nav>
+        {{- end }}
+      {{- end }}
+    </div>
+  </section>
+{{- end -}}
+{{ end }}
