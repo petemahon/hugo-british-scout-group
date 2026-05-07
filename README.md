@@ -22,9 +22,9 @@ guidelines.
   and responsive layout are all pure CSS.
 - **Designed for GitHub Pages**, with a working build workflow in the example
   site.
-- **Brand-compliant by default**: ships zero copyrighted imagery. You bring
-  your own Group photos and download Scout logos from
-  [scoutsbrand.org.uk](https://scoutsbrand.org.uk).
+- **Brand-compliant by default**: ships zero copyrighted imagery with the exception
+  of placeholders for demonstration under the Fair Use Act. You bring your own
+  Group photos and download Scout logos from [scoutsbrand.org.uk](https://scoutsbrand.org.uk).
 
 ---
 
@@ -268,10 +268,13 @@ If you cloned with submodules, ensure the workflow's checkout step uses
 
 ## Brand assets — what you need to download yourself
 
-This theme **does not redistribute** any Scout logos or brand images. Each
-Group must download what it needs from
+This theme contains section logos as at May 2026. Each
+Group must download alternative images, if desired, from
 [scoutsbrand.org.uk](https://scoutsbrand.org.uk) and place the files under
-`assets/images/` in your site (not the theme).
+`assets/images/` in your site (not the theme). It is strongly recommended
+to generate a custom logo for the header bar with your group name, and to
+re-generate the volunteering image further down the page. These are both
+available in the brand centre.
 
 The minimum set for a typical home page:
 
@@ -383,9 +386,7 @@ themes/british-scout-group/assets/images/
 **Section logo specifications:**
 
 - **Format**: WebP (lossless or lossy ≥85% quality both fine)
-- **Dimensions**: square aspect ratio, 500-700px on each side. The original
-  Mobirise build used 661×661 for sections and 500×500 for Network — these
-  are good targets but anything in that range works.
+- **Dimensions**: square aspect ratio, 500-700px on each side. 
 - **Background**: transparent (the theme renders them inside a white card)
 - **File size**: aim for under 30 KB each — the placeholders are ~12-17 KB
 - **Filename**: lowercase, exactly as listed above (`squirrels.webp` not
