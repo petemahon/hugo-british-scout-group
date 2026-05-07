@@ -104,7 +104,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   title_color = "secondary"
   text        = "Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers.<br><br>We are always looking for more people to join us, and there are lots of options. Whether you have an hour every two months, or can give your time weekly, we <strong>need</strong> you.<br><br>It's time to embrace your next big adventure. Volunteer with 1st Anytown Scouts and be the best role model.<br><br>Aged 18-25? You can volunteer too, as a member of the Scout Network.<br><br>Get in touch below to find out more."
   [sections.image]
-    src = "images/placeholder-volunteer.svg"
+    src = "images/volunteer/role-model.webp"
     alt = "Volunteer with Scouts"
   [[sections.buttons]]
     label    = "I want to volunteer"

@@ -345,6 +345,22 @@ viewports rather than leaving an empty trailing column.
   alt = "Network Scouts Logo"
 ```
 
+**Volunteer "role model" poster** — the theme ships a generic
+"Volunteer with Scouts" poster at `assets/images/volunteer/role-model.webp`
+for use in the `two-col-image-cta` section. Reference it from `_index.md`:
+
+```toml
+[sections.image]
+  src = "images/volunteer/role-model.webp"
+  alt = "Volunteer with Scouts"
+```
+
+If your Group has a Group-name-customised version of the poster (e.g.
+"Volunteer with 1st Anytown Scouts"), drop it at the **same path** in
+your site's assets — `assets/images/volunteer/role-model.webp` — and
+Hugo's resource resolution will use yours instead of the theme's. No
+config change needed; the override is purely path-based.
+
 ---
 
 ## For theme maintainers — how to update the brand logos
@@ -352,16 +368,19 @@ viewports rather than leaving an empty trailing column.
 Place fresh WebP files at exactly these paths in the theme repo:
 
 ```
-themes/british-scout-group/assets/images/sections/
-  ├── squirrels.webp     (Squirrels section, 4-6 years)
-  ├── beavers.webp       (Beavers section, 6-8 years)
-  ├── cubs.webp          (Cubs section, 8-10½ years)
-  ├── scouts.webp        (Scouts section, 10½-14 years)
-  ├── explorers.webp     (Explorers section, 14-18 years)
-  └── network.webp       (Network section, 18-25 years)
+themes/british-scout-group/assets/images/
+  ├── sections/
+  │   ├── squirrels.webp     (Squirrels section, 4-6 years)
+  │   ├── beavers.webp       (Beavers section, 6-8 years)
+  │   ├── cubs.webp          (Cubs section, 8-10½ years)
+  │   ├── scouts.webp        (Scouts section, 10½-14 years)
+  │   ├── explorers.webp     (Explorers section, 14-18 years)
+  │   └── network.webp       (Network section, 18-25 years)
+  └── volunteer/
+      └── role-model.webp    (Generic "Volunteer with Scouts" poster)
 ```
 
-**Specifications:**
+**Section logo specifications:**
 
 - **Format**: WebP (lossless or lossy ≥85% quality both fine)
 - **Dimensions**: square aspect ratio, 500-700px on each side. The original
@@ -371,6 +390,17 @@ themes/british-scout-group/assets/images/sections/
 - **File size**: aim for under 30 KB each — the placeholders are ~12-17 KB
 - **Filename**: lowercase, exactly as listed above (`squirrels.webp` not
   `Squirrels.webp` or `squirrels-logo.webp`)
+
+**Volunteer poster specifications:**
+
+- **Format**: WebP
+- **Dimensions**: vertical aspect ratio (~1036×1465 or similar)
+- **Content**: the GENERIC "Volunteer with Scouts" version (no specific
+  Group name baked in). Groups that want a Group-name-customised poster
+  drop their own at the same path in their site's assets — Hugo's
+  resource resolution lets the Group's version win without any code
+  change.
+- **File size**: aim for under 50 KB
 
 After replacing files, commit and push to the theme repo. Group sites
 pick up the new logos by bumping their submodule.
