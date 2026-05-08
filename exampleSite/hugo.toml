@@ -26,6 +26,40 @@ disableKinds = ["taxonomy", "term"]
   unsafe = true
 
 # -----------------------------------------------------------------------------
+# Custom output formats — used by the Events feature (SPEC-02).
+#
+#   EventCalendar              — per-event .ics, rendered as event.ics next
+#                                to each event's index.html.
+#   EventsAggregateCalendar    — single feed of all upcoming events,
+#                                rendered at /events/all.ics so parents can
+#                                subscribe once.
+#   Calendar                   — generic .ics output format kept available
+#                                for any future per-page calendar use.
+#
+# Wired up via `outputs` and a `[cascade]` block in
+# content/events/_index.md. See SPEC-02.
+# -----------------------------------------------------------------------------
+[mediaTypes."text/calendar"]
+  suffixes = ["ics"]
+
+[outputFormats.Calendar]
+  mediaType      = "text/calendar"
+  isPlainText    = true
+  notAlternative = true
+
+[outputFormats.EventCalendar]
+  mediaType      = "text/calendar"
+  baseName       = "event"
+  isPlainText    = true
+  notAlternative = true
+
+[outputFormats.EventsAggregateCalendar]
+  mediaType      = "text/calendar"
+  baseName       = "all"
+  isPlainText    = true
+  notAlternative = true
+
+# -----------------------------------------------------------------------------
 # Theme params
 # -----------------------------------------------------------------------------
 [params]
@@ -74,7 +108,8 @@ disableKinds = ["taxonomy", "term"]
 # feature. See DECISIONS.md for the full rationale.
 # -----------------------------------------------------------------------------
 [params.features]
-  news = true
+  news   = true
+  events = true
 
 # -----------------------------------------------------------------------------
 # News & Camp Reports — see SPEC-01.
@@ -84,6 +119,21 @@ disableKinds = ["taxonomy", "term"]
   default_count_on_home = 3      # default cards in the news-grid home block
   show_author           = true   # render leader nickname/role in byline
   show_reading_time     = false  # pure-Hugo, no JS
+
+# -----------------------------------------------------------------------------
+# Events with .ics download — see SPEC-02.
+#   timezone              IANA TZ used for events that don't override it.
+#   show_past_archive     If true, /events/past/ is built (a sub-section
+#                         that uses the same list template with archive=true).
+#   upcoming_window_days  Reserved for future use — listings are currently
+#                         filtered by `Date >= now`.
+#   default_count_on_home Default `count` for the events-upcoming home block.
+# -----------------------------------------------------------------------------
+[params.events]
+  timezone              = "Europe/London"
+  show_past_archive     = false
+  upcoming_window_days  = 365
+  default_count_on_home = 4
 
 # -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.

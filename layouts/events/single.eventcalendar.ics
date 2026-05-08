@@ -1,0 +1,19 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Per-event .ics output — one VEVENT in a VCALENDAR wrapper.
+  Output format: EventCalendar (declared in hugo.toml).
+  Renders to /events/<slug>/event.ics next to the index.html.
+
+  RFC 5545 compliant: UTF-8, CRLF line endings, single VEVENT.
+*/ -}}
+{{- $crlf := "\r\n" -}}
+BEGIN:VCALENDAR{{ $crlf -}}
+VERSION:2.0{{ $crlf -}}
+PRODID:-//Hugo British Scout Group theme//EN{{ $crlf -}}
+CALSCALE:GREGORIAN{{ $crlf -}}
+METHOD:PUBLISH{{ $crlf -}}
+{{- partial "event-vevent.ics" . -}}
+END:VCALENDAR{{ $crlf -}}

@@ -1,0 +1,29 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Aggregate /events/all.ics — every upcoming event in one VCALENDAR.
+  Output format: EventsAggregateCalendar (declared in hugo.toml).
+
+  Subscription target: parents add this URL once to their calendar app
+  and every upcoming event flows in. Cancelled-upcoming events are
+  INCLUDED so subscribers see the cancellation propagate (the partial
+  emits STATUS:CANCELLED for them).
+
+  RFC 5545 compliant: UTF-8, CRLF line endings, one VEVENT per event.
+*/ -}}
+{{- $crlf := "\r\n" -}}
+{{- $now := now -}}
+{{- $events := where site.RegularPages "Section" "events" -}}
+{{- $events = where $events "Date" ">=" $now -}}
+{{- $events = $events.ByDate -}}
+BEGIN:VCALENDAR{{ $crlf -}}
+VERSION:2.0{{ $crlf -}}
+PRODID:-//Hugo British Scout Group theme//EN{{ $crlf -}}
+CALSCALE:GREGORIAN{{ $crlf -}}
+METHOD:PUBLISH{{ $crlf -}}
+{{- range $events -}}
+  {{- partial "event-vevent.ics" . -}}
+{{- end -}}
+END:VCALENDAR{{ $crlf -}}

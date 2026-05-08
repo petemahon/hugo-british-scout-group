@@ -113,17 +113,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     external = true
 
 # -----------------------------------------------------------------------------
-# 6. Where we meet — section-header (acts as title for the map below)
-# -----------------------------------------------------------------------------
-[[sections]]
-  type        = "section-header"
-  id          = "where-we-meet"
-  title       = "Where we meet"
-  title_color = "primary"
-  subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
-
-# -----------------------------------------------------------------------------
-# 7. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
+# 6. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
 # -----------------------------------------------------------------------------
 [[sections]]
   type        = "news-grid"
@@ -134,6 +124,17 @@ description = "Skills for Life — example Scout Group home page using the Briti
   subtitle    = "Camp write-ups, badge presentations, and what's been happening across the Group."
   count       = 3
   show_more   = true
+
+
+# -----------------------------------------------------------------------------
+# 7. Where we meet — section-header (acts as title for the map below)
+# -----------------------------------------------------------------------------
+[[sections]]
+  type        = "section-header"
+  id          = "where-we-meet"
+  title       = "Where we meet"
+  title_color = "primary"
+  subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
 # 8. The map — embed

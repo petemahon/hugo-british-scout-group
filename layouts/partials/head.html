@@ -36,12 +36,14 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 
-<!-- Palette injection (chosen palette overrides default tokens) -->
-{{ partial "palette-style.html" . }}
-
 <!-- Theme CSS (compiled, fingerprinted, minified in production) -->
 {{- $css := resources.Get "css/theme.css" -}}
 {{- if hugo.IsProduction -}}
   {{- $css = $css | minify | fingerprint -}}
 {{- end -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+
+<!-- Palette injection — MUST come AFTER the external theme.css so the
+     selected palette overrides theme.css's :root fallback tokens.
+     CSS cascade: same-specificity selectors are won by source order. -->
+{{ partial "palette-style.html" . }}

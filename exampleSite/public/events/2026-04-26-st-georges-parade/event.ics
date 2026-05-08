@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hugo British Scout Group theme//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-04-26-st-georges-parade@localhost:1313
+DTSTAMP:20260508T083637Z
+DTSTART;TZID=Europe/London:20260426T093000
+DTEND;TZID=Europe/London:20260426T110000
+SUMMARY:St George's Day Parade
+DESCRIPTION:The whole Group joins our District for the annual St George&amp\;rsquo\;s Day Parade. Meet at Anytown Parish Church for inspection at 09:30\, then we march to the war memorial for the act of remembrance and the Scout promise.\nParents are very welcome to come along and watch.\n
+LOCATION:Anytown Parish Church
+URL:http://localhost:1313/events/2026-04-26-st-georges-parade/
+END:VEVENT
+END:VCALENDAR

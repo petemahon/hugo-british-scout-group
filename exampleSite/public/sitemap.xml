@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-19T11:00:00+00:00</lastmod>
+    <lastmod>2027-07-04T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/</loc>
-    <lastmod>2026-04-19T11:00:00+00:00</lastmod>
+    <lastmod>2027-07-04T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/2027-07-04-summer-fete-preview/</loc>
+    <lastmod>2027-07-04T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/</loc>
+    <lastmod>2026-07-12T13:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-07-12-summer-fete/</loc>
+    <lastmod>2026-07-12T13:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/2026-04-25-district-camp-draft/</loc>
+    <lastmod>2026-04-25T18:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/2026-04-19-st-georges-day/</loc>
     <lastmod>2026-04-19T11:00:00+00:00</lastmod>

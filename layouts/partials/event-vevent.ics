@@ -1,0 +1,101 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  event-vevent — emits one RFC 5545 VEVENT block for an event Page.
+  Called by:
+    layouts/events/single.eventcalendar.ics
+    layouts/events/list.eventsaggregatecalendar.ics
+
+  Receives a Page representing one event.
+
+  Date semantics (SPEC-02):
+    - $page.Date is the event start time. (front-matter `date` field.)
+    - $page.PublishDate is when the event was added to the site;
+      authors normally leave the archetype's auto-filled value alone.
+      It exists so Hugo's --buildFuture=false build flag (which checks
+      PublishDate when set) still includes future events.
+
+  Line endings are CRLF per RFC 5545 §3.1. Every logical line ends with
+  the literal {{ "\\r\\n" }} sequence; template-source line breaks are
+  trimmed via {{- -}}.
+
+  TODO (later step): RFC 5545 §3.1 line folding for lines >75 octets.
+*/ -}}
+{{- $page := . -}}
+{{- $crlf := "\r\n" -}}
+
+{{- /* Timezone: per-event override > site default > Europe/London */ -}}
+{{- $tz := $page.Params.timezone | default site.Params.events.timezone | default "Europe/London" -}}
+
+{{- /* Event start = the page's Date, full stop. */ -}}
+{{- $start := $page.Date -}}
+
+{{- /* End: explicit, or default by event type. */ -}}
+{{- $end := $page.Params.end -}}
+{{- if not $end -}}
+  {{- if $page.Params.all_day -}}
+    {{- /* Single-day all-day default — same date as start. */ -}}
+    {{- $end = $start -}}
+  {{- else -}}
+    {{- /* Default = start + 1h30. */ -}}
+    {{- $end = $start.Add (time.Duration "minute" 90) -}}
+  {{- end -}}
+{{- else -}}
+  {{- /* Make sure we have a time.Time, not a string. */ -}}
+  {{- $end = $end | time -}}
+{{- end -}}
+
+{{- /* For all-day events, RFC 5545 §3.6.1 says DTEND is exclusive: it
+       represents the day AFTER the last day of the event. Shift by 24h
+       so authors can write the LAST day of the event in front-matter
+       and still produce a correct .ics. */ -}}
+{{- if $page.Params.all_day -}}
+  {{- $end = $end.Add (time.Duration "hour" 24) -}}
+{{- end -}}
+
+{{- /* UID host = host portion of site.BaseURL. Stable across rebuilds. */ -}}
+{{- $host := "" -}}
+{{- with site.BaseURL -}}
+  {{- $host = (urls.Parse .).Host -}}
+{{- end -}}
+{{- $uid := printf "%s@%s" $page.File.ContentBaseName $host -}}
+
+{{- /* RFC 5545 §3.3.11 text escaping: \, ;, ,, and newlines.
+       Order matters: backslash MUST be escaped first. */ -}}
+{{- $summary := $page.Title -}}
+{{- $summary = $summary | replaceRE `\\` `\\\\` | replaceRE `;` `\;` | replaceRE `,` `\,` | replaceRE "\n" `\n` -}}
+
+{{- $description := $page.Params.summary -}}
+{{- if not $description -}}
+  {{- $description = $page.Plain | truncate 500 -}}
+{{- end -}}
+{{- $description = $description | replaceRE `\\` `\\\\` | replaceRE `;` `\;` | replaceRE `,` `\,` | replaceRE "\n" `\n` -}}
+
+{{- $location := $page.Params.location | default "" -}}
+{{- $location = $location | replaceRE `\\` `\\\\` | replaceRE `;` `\;` | replaceRE `,` `\,` | replaceRE "\n" `\n` -}}
+
+{{- $now := now -}}
+BEGIN:VEVENT{{ $crlf -}}
+UID:{{ $uid }}{{ $crlf -}}
+DTSTAMP:{{ $now.UTC.Format "20060102T150405Z" }}{{ $crlf -}}
+{{- if $page.Params.all_day -}}
+DTSTART;VALUE=DATE:{{ $start.Format "20060102" }}{{ $crlf -}}
+DTEND;VALUE=DATE:{{ $end.Format "20060102" }}{{ $crlf -}}
+{{- else -}}
+DTSTART;TZID={{ $tz }}:{{ $start.Format "20060102T150405" }}{{ $crlf -}}
+DTEND;TZID={{ $tz }}:{{ $end.Format "20060102T150405" }}{{ $crlf -}}
+{{- end -}}
+SUMMARY:{{ $summary }}{{ $crlf -}}
+{{- with $description -}}
+DESCRIPTION:{{ . }}{{ $crlf -}}
+{{- end -}}
+{{- with $location -}}
+LOCATION:{{ . }}{{ $crlf -}}
+{{- end -}}
+URL:{{ $page.Permalink }}{{ $crlf -}}
+{{- if $page.Params.cancelled -}}
+STATUS:CANCELLED{{ $crlf -}}
+{{- end -}}
+END:VEVENT{{ $crlf -}}

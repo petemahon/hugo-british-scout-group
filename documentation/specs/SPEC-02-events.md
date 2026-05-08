@@ -56,9 +56,9 @@ Slug convention: `YYYY-MM-DD-kebab-case-title.md`.
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `title` | string | yes | — | Event title |
+| `publishDate` | datetime | yes | - | When the event was added to the site. Always past at deploy time so Hugo's `--buildFuture=false` build includes future events. The archetype auto-fills with the moment of `hugo new`; authors normally leave it alone. |
 | `date` | datetime | yes | — | Event start. Used by Hugo for sort and listing. |
-| `start` | datetime | no | `date` | Same as `date` if omitted |
-| `end` | datetime | no | `start + 2h` | Used in `.ics` |
+| `end` | datetime | no | `date + 1h30` | Used in `.ics` |
 | `all_day` | bool | no | false | If true, `.ics` uses `VALUE=DATE` |
 | `timezone` | string | no | `params.events.timezone` | IANA TZ, e.g. "Europe/Brussels" |
 | `location` | string | yes | — | Venue name, e.g. "St Mary's Hall" |
