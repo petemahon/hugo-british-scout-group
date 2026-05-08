@@ -19,6 +19,14 @@ dress       = "Activity uniform"
 cost        = "Free"
 sections    = ["beavers", "cubs", "scouts"]
 draft       = false
+
+# Demo-roll metadata — used only by scripts/roll-example-dates.py to
+# keep the example site's events looking fresh against the build time.
+# Group sites consuming the theme do NOT need a [demo] block — real
+# Group events have real fixed dates.
+[demo]
+  target_offset_days = 65    # event happens ~9 weeks from build time
+  publish_lead_days  = 23    # public listing about 3 weeks ago
 +++
 
 Our annual Summer Fete on the Hut grounds — bouncy castle, BBQ, raffle,
