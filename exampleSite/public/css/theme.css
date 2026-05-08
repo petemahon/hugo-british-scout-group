@@ -110,7 +110,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Typography display scale (matches Mobirise's display-N classes) */
 .display-1 { font-size: var(--display-1); line-height: 1;   font-weight: 400; }
-.display-2 { font-size: var(--display-2); line-height: 1;   font-weight: 400; }
+.display-2 { font-size: var(--display-2); line-height: 1;   font-weight: 700; } /* section titles — heavy */
 .display-3 { font-size: var(--display-3); line-height: 1.1; font-weight: 400; }
 .display-4 { font-size: var(--display-4); line-height: 1.5; font-weight: 400; }
 .display-5 { font-size: var(--display-5); line-height: 1.5; font-weight: 400; }
@@ -411,7 +411,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 991px) {
   .s-two-col-cta__grid { grid-template-columns: 1fr; gap: 2rem; }
 }
-.s-two-col-cta__title { margin: 0 0 1rem; font-weight: 700; }
+.s-two-col-cta__title { margin: 0 0 1rem; }
 .s-two-col-cta__buttons {
   margin-top: 1.5rem;
   display: flex;
@@ -444,7 +444,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 991px) {
   .s-two-col-image__grid { grid-template-columns: 1fr; gap: 2rem; }
 }
-.s-two-col-image__title { margin: 0 0 1.5rem; font-weight: 700; }
+.s-two-col-image__title { margin: 0 0 1.5rem; }
 .s-two-col-image__buttons { margin-top: 1rem; }
 
 /* -----------------------------------------------------------------------------
@@ -460,7 +460,7 @@ p:last-child { margin-bottom: 0; }
   text-align: center;
   max-width: 64rem;
 }
-.s-section-grid__title    { margin: 0 0 1.5rem; font-weight: 700; }
+.s-section-grid__title    { margin: 0 0 1.5rem; }
 .s-section-grid__subtitle { margin: 0; color: var(--text-muted); }
 
 /* Responsive cards layout: explicit 5 / 3 / 2 / 1 column breakpoints.
@@ -534,7 +534,7 @@ p:last-child { margin-bottom: 0; }
   text-align: center;
   max-width: 70rem;
 }
-.s-stacked__title { margin: 0 0 1.5rem; font-weight: 700; }
+.s-stacked__title { margin: 0 0 1.5rem; }
 .s-stacked__intro { margin: 0; color: var(--text-muted); }
 
 .s-stacked__grid {
@@ -587,7 +587,7 @@ p:last-child { margin-bottom: 0; }
    12. SECTION: SECTION-HEADER (centred title + subtitle, no body)
    ----------------------------------------------------------------------------- */
 .s-section-header { text-align: center; }
-.s-section-header__title    { margin: 0 0 1.5rem; font-weight: 700; }
+.s-section-header__title    { margin: 0 0 1.5rem; }
 .s-section-header__subtitle { margin: 0 auto; max-width: 56rem; color: var(--text-muted); }
 
 /* -----------------------------------------------------------------------------
@@ -789,7 +789,7 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
   margin-bottom: 2.5rem;
 }
 .s-news__title {
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.5rem;
 }
 .s-news__subtitle,
 .s-news__intro {
@@ -854,6 +854,7 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.3;
+  font-weight: 700;
 }
 .s-news-card__title a {
   color: var(--text);
