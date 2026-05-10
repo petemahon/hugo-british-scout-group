@@ -5,47 +5,43 @@
 
   Events listing — /events/.
 
-  Step 1 (SPEC-02): minimal future-only listing as plain links. Card
-  rendering, section filter chips, the past-archive branch and
-  pagination arrive in subsequent SPEC-02 steps.
+  Renders the future-only events grid (acceptance criterion #1 — past
+  events hidden by default; archive route is its own sub-section, see
+  SPEC-02 step 9). Each card is rendered by the shared event-card.html
+  partial so home-page block, listing and per-section term page all
+  look the same.
 */ -}}
 {{ define "main" }}
 {{- if site.Params.features.events -}}
   {{- $now := now -}}
   {{- $events := where .Site.RegularPages "Section" "events" -}}
-  {{- $events = where $events "Date" ">=" $now -}}
-  {{- $events = $events.ByDate -}}
+  {{- $events =  where $events "Date" ">=" $now -}}
+  {{- $events =  $events.ByDate -}}
 
   <section class="section s-events s-events--list reveal">
     <div class="container">
       <header class="s-events__head">
         <h1 class="s-events__title display-2">
-          {{- with .Title }}{{ . }}{{ else }}Events{{ end -}}
+          {{- with .Title }}{{ . }}{{ else }}{{ i18n "eventsHeading" | default "Events" }}{{ end -}}
         </h1>
         {{- with .Description }}
           <p class="s-events__intro display-7">{{ . | safeHTML }}</p>
         {{- end }}
         <p class="s-events__feed display-7">
-          <a href="all.ics">Subscribe to all upcoming events (.ics)</a>
+          <a href="all.ics">{{ i18n "eventsSubscribe" | default "Subscribe to all upcoming events (.ics)" }}</a>
         </p>
       </header>
 
       {{- if eq (len $events) 0 }}
-        <p class="s-events__empty display-7">No upcoming events.</p>
+        <p class="s-events__empty display-7">
+          {{- i18n "eventsNoneUpcoming" | default "No upcoming events." -}}
+        </p>
       {{- else }}
-        <ul class="s-events__list">
+        <div class="s-events__grid">
           {{- range $events }}
-            <li class="s-events__list-item">
-              <a href="{{ .RelPermalink }}">
-                <strong>{{ .Title }}</strong> —
-                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                  {{ .Date.Format "2 January 2006, 15:04" }}
-                </time>
-                {{- with .Params.location }} · {{ . }}{{ end }}
-              </a>
-            </li>
+            {{ partial "event-card.html" . }}
           {{- end }}
-        </ul>
+        </div>
       {{- end }}
     </div>
   </section>

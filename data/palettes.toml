@@ -45,6 +45,8 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
+  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  text_on_warning   = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Adventure — outdoorsy, energetic. Good for active Scout Groups.
@@ -64,6 +66,8 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
+  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  text_on_warning   = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Coastal — Sea Scouts and waterside groups.
@@ -83,6 +87,8 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
+  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  text_on_warning   = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Vibrant — bold, youthful, high-energy.
@@ -102,6 +108,8 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
+  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  text_on_warning   = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Network — for Scout Network groups (18-25). Black-led, sophisticated.
@@ -121,3 +129,5 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
+  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  text_on_warning   = "#ffffff"

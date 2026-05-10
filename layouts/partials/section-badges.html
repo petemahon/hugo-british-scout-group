@@ -1,0 +1,47 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  section-badges — render Scout-section pills for any feature.
+
+  Receives a context dict:
+    keys           (list of strings)  Section keys: "cubs", "scouts", ...
+    url_prefix     (string)           URL prefix the pill anchors point to,
+                                      e.g. "/news/sections/" or
+                                      "/events/sections/". Trailing slash
+                                      required.
+    aria_label_key (string)           i18n key for the <ul>'s aria-label.
+                                      e.g. "newsSectionBadge",
+                                      "eventsSectionBadge".
+
+  Renders nothing when `keys` is empty or unset, so callers can invoke
+  unconditionally without an outer `with`.
+
+  Section colour comes from data/scout_sections.toml via inline CSS
+  custom properties (`--badge-bg`, `--badge-fg`) — never hardcoded.
+
+  Pattern lifted from layouts/partials/news-meta.html. A future cleanup
+  should refactor news-meta to call this partial too; for now the
+  inline copy in news-meta is left untouched to keep the diff minimal.
+*/ -}}
+{{- $keys     := .keys           -}}
+{{- $prefix   := .url_prefix     -}}
+{{- $ariaKey  := .aria_label_key -}}
+{{- if $keys -}}
+  {{- $items := hugo.Data.scout_sections.items -}}
+  <ul class="section-badges" aria-label="{{ i18n $ariaKey }}">
+    {{- range $keys }}
+      {{- $key := . -}}
+      {{- $section := "" -}}
+      {{- range $items -}}
+        {{- if eq .key $key }}{{ $section = . }}{{ end -}}
+      {{- end -}}
+      {{- with $section }}
+        <li class="section-badges__pill" style="--badge-bg: {{ .color }}; --badge-fg: {{ .text_color }};">
+          <a href="{{ printf "%s%s/" $prefix .key | relURL }}">{{ .name }}</a>
+        </li>
+      {{- end -}}
+    {{- end }}
+  </ul>
+{{- end -}}

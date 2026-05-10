@@ -1,0 +1,41 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  event-meta — date pill + cancelled badge + time/location strip for
+  an event Page.
+
+  Receives a Page via dot.
+
+  Layout:
+    [ DAY ]   [Cancelled]    13:00 – 17:00
+    [ Mon ]   <cancellation_note?>   Anytown Scout Hut
+    [Year ]
+*/ -}}
+{{- $page := . -}}
+<div class="event-meta">
+  <div class="event-meta__date-pill">
+    <span class="event-meta__day">{{ $page.Date.Format "2" }}</span>
+    <span class="event-meta__month">{{ $page.Date.Format "Jan" }}</span>
+    <span class="event-meta__year">{{ $page.Date.Format "2006" }}</span>
+  </div>
+  <div class="event-meta__details">
+    {{- if $page.Params.cancelled }}
+      <p class="event-meta__badges">
+        <span class="event-meta__badge event-meta__badge--cancelled">
+          {{- i18n "eventsCancelled" | default "Cancelled" -}}
+        </span>
+      </p>
+      {{- with $page.Params.cancellation_note }}
+        <p class="event-meta__cancellation-note">{{ . | safeHTML }}</p>
+      {{- end }}
+    {{- end }}
+    <p class="event-meta__time">
+      {{- partial "event-times.html" $page -}}
+    </p>
+    {{- with $page.Params.location }}
+      <p class="event-meta__location">{{ . }}</p>
+    {{- end }}
+  </div>
+</div>

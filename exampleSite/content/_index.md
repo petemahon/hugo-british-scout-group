@@ -95,7 +95,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     alt = "Network Scouts Logo"
 
 # -----------------------------------------------------------------------------
-# 5. Volunteer — two-col-image-cta
+# 6. Volunteer — two-col-image-cta
 # -----------------------------------------------------------------------------
 [[sections]]
   type        = "two-col-image-cta"
@@ -113,7 +113,19 @@ description = "Skills for Life — example Scout Group home page using the Briti
     external = true
 
 # -----------------------------------------------------------------------------
-# 6. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
+# 7. Whats coming up — events-upcoming (opt-in via params.features.events)
+# -----------------------------------------------------------------------------
+[[sections]]
+  type        = "events-upcoming"
+  id          = "whats-on"
+  title       = "What's coming up"
+  title_color = "primary"
+  subtitle    = "Camps, parades and the rest of the diary. Subscribe to <a href=\"/events/all.ics\">all upcoming events</a> to keep your calendar in sync."
+  count       = 3
+  show_more   = true
+
+# -----------------------------------------------------------------------------
+# 8. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
 # -----------------------------------------------------------------------------
 [[sections]]
   type        = "news-grid"
@@ -127,7 +139,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
 
 
 # -----------------------------------------------------------------------------
-# 7. Where we meet — section-header (acts as title for the map below)
+# 9. Where we meet — section-header (acts as title for the map below)
 # -----------------------------------------------------------------------------
 [[sections]]
   type        = "section-header"
@@ -137,7 +149,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
-# 8. The map — embed
+# 10. The map — embed
 # -----------------------------------------------------------------------------
 [[sections]]
   type   = "embed"

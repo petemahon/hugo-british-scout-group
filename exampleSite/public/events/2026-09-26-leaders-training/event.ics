@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hugo British Scout Group theme//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-leaders-training@localhost:1313
+DTSTAMP:20260509T130627Z
+DTSTART;TZID=Europe/London:20260926T193000
+DTEND;TZID=Europe/London:20260926T210000
+SUMMARY:Leaders' Safeguarding Refresher
+DESCRIPTION:A short refresher on safeguarding policy and the YP-protection module for all leaders\, helpers and exec members. Plenty of time for questions and a cuppa.\nMandatory if your check is up for renewal in the next six months.\n
+LOCATION:Anytown Scout Hut
+URL:http://localhost:1313/events/2026-09-26-leaders-training/
+STATUS:CANCELLED
+END:VEVENT
+END:VCALENDAR

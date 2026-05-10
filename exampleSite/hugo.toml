@@ -98,7 +98,7 @@ disableKinds = ["taxonomy", "term"]
   cubs      = { enable = true }
   scouts    = { enable = true }
   explorers = { enable = true }
-  network   = { enable = true }   # opt-in; default off (see DECISIONS.md)
+  network   = { enable = false }   # opt-in; default off (see DECISIONS.md)
 
 # -----------------------------------------------------------------------------
 # Feature flags — every theme feature defaults OFF and is opted into here.

@@ -1,0 +1,41 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  event-card — reusable per-event card.
+
+  Receives a Page via dot.
+
+  Used by:
+    layouts/events/list.html                       (events index)
+    layouts/events/term.html                       (per-section filter — SPEC-02 step 9)
+    layouts/partials/sections/events-upcoming.html (home-page block)
+
+  Container is an <article>, NOT a wrapping <a>, so the inner anchors
+  (title, section pills, "Details →") nest correctly per HTML5. Mirrors
+  SPEC-01's news-card structure.
+*/ -}}
+{{- $page := . -}}
+{{- $cancelled := $page.Params.cancelled -}}
+<article class="event-card{{ if $cancelled }} event-card--cancelled{{ end }}">
+  <h3 class="event-card__title">
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+  </h3>
+
+  {{ partial "event-meta.html" $page }}
+
+  {{- with $page.Params.audience }}
+    <p class="event-card__audience">{{ . }}</p>
+  {{- end }}
+
+  {{ partial "section-badges.html" (dict
+       "keys"           $page.Params.sections
+       "url_prefix"     "/events/sections/"
+       "aria_label_key" "eventsSectionBadge"
+  ) }}
+
+  <p class="event-card__cta">
+    <a href="{{ $page.RelPermalink }}">{{ i18n "eventsDetails" | default "Details" }} &rarr;</a>
+  </p>
+</article>

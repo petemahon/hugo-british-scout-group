@@ -1,0 +1,75 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  events-upcoming — home-page block, "What's coming up".
+
+  Front-matter (under [[sections]] in content/_index.md):
+    type        (string)  must be "events-upcoming"
+    id          (string)  optional anchor
+    title       (string)  optional heading
+    title_color (string)  optional — primary | secondary | tertiary | accent
+    subtitle    (string)  optional, HTML allowed
+    bg          (string)  optional — primary | secondary | tertiary | muted
+    count       (int)     optional, defaults to params.events.default_count_on_home
+    show_more   (bool)    optional, default true; renders "See all events ->"
+
+  Renders nothing when:
+    - params.features.events is false (per SPEC-COMMON §2 opt-in policy)
+    - there are no upcoming events to show
+
+  Cancelled-but-upcoming events ARE rendered — the card and meta partials
+  surface the Cancelled state visually. Spec acceptance criterion #5.
+*/ -}}
+{{- if site.Params.features.events -}}
+
+  {{- $id          := .id          | default "" -}}
+  {{- $title       := .title       | default (i18n "eventsUpcomingHeading" | default "What's coming up") -}}
+  {{- $title_color := .title_color | default "" -}}
+  {{- $subtitle    := .subtitle    | default "" -}}
+  {{- $bg          := .bg          | default "" -}}
+  {{- $count       := .count       | default site.Params.events.default_count_on_home | default 4 -}}
+  {{- $show_more   := .show_more -}}
+  {{- if eq $show_more nil -}}
+    {{- $show_more = true -}}
+  {{- end -}}
+
+  {{- /* Upcoming = future-dated, regardless of cancellation status. */ -}}
+  {{- $now    := now -}}
+  {{- $events := where site.RegularPages "Section" "events" -}}
+  {{- $events =  where $events "Date" ">=" $now -}}
+  {{- $events =  $events.ByDate -}}
+  {{- $events =  first $count $events -}}
+
+  {{- if gt (len $events) 0 -}}
+    <section{{ with $id }} id="{{ . }}"{{ end }}
+             class="section s-events-upcoming{{ with $bg }} s-bg--{{ . }}{{ end }} reveal">
+      <div class="container">
+        <header class="s-events-upcoming__head">
+          <h2 class="s-events-upcoming__title display-2{{ with $title_color }} text-{{ . }}{{ end }}">
+            {{- $title -}}
+          </h2>
+          {{- with $subtitle }}
+            <p class="s-events-upcoming__subtitle display-7">{{ . | safeHTML }}</p>
+          {{- end }}
+        </header>
+
+        <div class="s-events-upcoming__grid">
+          {{- range $events }}
+            {{ partial "event-card.html" . }}
+          {{- end }}
+        </div>
+
+        {{- if $show_more }}
+          <p class="s-events-upcoming__more">
+            <a class="btn btn-primary-outline" href="{{ "/events/" | relURL }}">
+              {{- i18n "eventsSeeAll" | default "See all events" }} &rarr;
+            </a>
+          </p>
+        {{- end }}
+      </div>
+    </section>
+  {{- end -}}
+
+{{- end -}}

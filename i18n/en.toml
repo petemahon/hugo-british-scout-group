@@ -63,3 +63,9 @@ other = "Older"
 
 [newsPaginationStatus]
 other = "Page {{ .Current }} of {{ .Total }}"
+
+[eventsSectionBadge]
+other = "Scout sections this event covers"
+
+[eventsDetails]
+other = "Details"

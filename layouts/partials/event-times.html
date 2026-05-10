@@ -1,0 +1,30 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  event-times — render the time portion of an event.
+
+  Receives a Page via dot.
+
+  Step 5 (SPEC-02): single time line. All-day events render "All day".
+  Step 8 will extend this to render dual times (times_local + times_uk)
+  for BSO Groups whenever both fields are present.
+
+  Output is a single inline element — wrap in your own block if you
+  want layout (event-meta does this).
+*/ -}}
+{{- $page  := . -}}
+{{- $start := $page.Date -}}
+{{- $end   := $page.Params.end | default ($start.Add (time.Duration "minute" 90)) -}}
+{{- if $page.Params.all_day -}}
+  <span class="event-times__all-day">{{ i18n "eventsAllDay" | default "All day" }}</span>
+{{- else -}}
+  <span class="event-times">
+    <time datetime="{{ $start.Format "2006-01-02T15:04:05Z07:00" }}">{{ $start.Format "15:04" }}</time>
+    {{- if $end -}}
+      &nbsp;&ndash;&nbsp;
+      <time datetime="{{ ($end | time).Format "2006-01-02T15:04:05Z07:00" }}">{{ ($end | time).Format "15:04" }}</time>
+    {{- end -}}
+  </span>
+{{- end -}}
