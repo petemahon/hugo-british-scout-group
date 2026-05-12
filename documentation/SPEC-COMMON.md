@@ -92,9 +92,12 @@ banner.
   table as `(string, HTML allowed)`. Otherwise they are escaped.
 - Required fields fail the build with a clear `errorf` message. Optional
   fields fall back to documented defaults.
-- en-GB throughout: `colour`, `programme`, `organisation`, `behaviour`,
-  `licence`, `centre`, `enrolled`. The build does not lint this; reviewers
-  do.
+- en-GB throughout visitor-facing text and documentation prose:
+  `colour`, `programme`, `organisation`, `behaviour`, `licence`,
+  `centre`, `enrolled`. Code identifiers (TOML field keys, CSS class
+  names, template variables) follow source-code conventions and may
+  use US spelling where idiomatic — see DECISIONS.md §"en-GB scope".
+  The build does not lint this; reviewers do.
 
 ## 5. Image and asset paths
 
@@ -160,9 +163,16 @@ without flagging.
 
 ## 7. Section-badge colours
 
-`data/scout_sections.toml` carries a `colour` field per section
-(challenge-badge outer-ring colour). Used by section badges across
-news cards, event cards, gallery covers, and joining cards.
+`data/scout_sections.toml` carries `color` and `text_color` fields per
+section. `color` is the challenge-badge outer-ring colour (used as the
+badge background); `text_color` is the foreground for legibility on
+that background. Used by section badges across news cards, event
+cards, gallery covers, and joining cards.
+
+The field keys use US spelling because they are code identifiers; the
+en-GB rule applies to visitor-facing text and documentation prose (see
+DECISIONS.md §"en-GB scope"). The badge **values** below are the
+visitor-facing brand colours.
 
 | Section | Hex |
 | --- | --- |

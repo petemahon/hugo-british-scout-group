@@ -1,0 +1,73 @@
+/* =============================================================================
+   British Scout Group — Hugo theme
+   theme.css
+   -----------------------------------------------------------------------------
+   ALL editable design tokens are at the top of this file.
+   To realign with a future change to the Scouts brand:
+     1. Update the palette in your site's hugo.toml `palette` param
+        (or edit data/palettes.toml in the theme to add a new preset).
+     2. Edit the Design Tokens block below if non-colour tokens change.
+   The palette tokens (--primary, --secondary, etc.) are injected at runtime
+   from the chosen palette via partials/palette-style.html — you should not
+   need to edit the :root block here unless changing fallback defaults.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. PALETTE TOKENS — fallback defaults (overridden per-site by palette-style)
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Brand colours (Scouts Purple + Teal — classic-purple palette) */
+  --primary:           #7413dc;
+  --primary-hover:     #8e34ee;
+  --secondary:         #088486;
+  --secondary-hover:   #0bb3b6;
+  --tertiary:          #205b41;
+  --accent:            #ff912a;
+
+  /* Surface colours */
+  --bg:                #ffffff;
+  --bg-muted:          #f7f7f7;
+
+  /* Text colours */
+  --text:              #232323;
+  --text-muted:        #5a5a5a;
+  --text-on-primary:   #ffffff;
+  --text-on-secondary: #ffffff;
+}
+
+/* -----------------------------------------------------------------------------
+   2. DESIGN TOKENS — non-colour structural values
+   Only edit these if the visual language itself needs to change.
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Typography */
+  --font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display-1: 5rem;     /* hero titles */
+  --display-2: 4rem;     /* section titles */
+  --display-3: 3rem;
+  --display-4: 1.4rem;   /* nav links */
+  --display-5: 2rem;     /* card titles */
+  --display-7: 1.4rem;   /* body / button text */
+
+  /* Layout */
+  --container-max:  1320px;
+  --gutter-lg:      2rem;     /* >= 768px */
+  --gutter-sm:      1rem;     /* < 768px  */
+
+  /* Component shape */
+  --radius-card:    2rem;     /* images, cards, video frames */
+  --radius-btn:     1.5rem;   /* buttons — soft rounded, not pill */
+  --radius-nav:     2rem;     /* nav itself, and nav items */
+
+  /* Border weights */
+  --btn-border:     2px;
+
+  /* Section vertical rhythm */
+  --section-py:     6rem;     /* top + bottom padding for sections */
+  --section-py-sm:  3rem;     /* on small screens */
+  --hero-py-top:    5rem;     /* hero starts close under the floating nav */
+
+  /* Motion */
+  --transition:     0.25s ease;
+}
+

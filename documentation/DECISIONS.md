@@ -123,6 +123,34 @@ the theme's `exampleSite`. Consuming sites do not include it.
 - **axe-core CI** runs on PRs against the rendered example site.
   Fails the PR but doesn't block deploy.
 
+## Demo data
+
+- The theme repo's `exampleSite` keeps its example events looking
+  fresh against build time via `scripts/roll-example-dates.py` and a
+  `[demo]` table in each example event's TOML front-matter.
+- Contract: each `[demo]` block has `target_offset_days` (event
+  happens this many days from `now`) and `publish_lead_days`
+  (`publishDate` set this many days before `now`). The script rewrites
+  `date`, `end` (preserving duration) and `publishDate` in place.
+- The committed dates in git are the canonical "last known good"
+  example dates; the script overwrites them in-flight before every
+  `hugo serve` and CI build of the theme's Pages preview. The
+  working tree's modified events should NOT be committed; `make clean`
+  reverts.
+- Theme-repo only. Group sites consuming the theme have no `[demo]`
+  blocks; the script never touches them. Real Group events have real
+  fixed dates.
+
+## en-GB scope
+
+- en-GB applies to visitor-facing text and documentation prose.
+- Code identifiers — TOML field keys, CSS class names, template
+  variables, Hugo data-file keys — follow source-code conventions and
+  may use US spelling where idiomatic. Examples: `color` /
+  `text_color` in `data/scout_sections.toml`, `bg` / `bg_muted` in
+  palette data. en-GB linting applies to what users read, not what
+  developers type.
+
 ## Working method
 
 - Confirm design decisions before implementing. Don't assume.

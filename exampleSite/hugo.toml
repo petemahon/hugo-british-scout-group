@@ -4,7 +4,9 @@
 baseURL      = "https://example.com/"             # CHANGE ME
 title        = "1st Anytown Scouts"               # CHANGE ME
 theme        = "british-scout-group"
+
 enableRobotsTXT = true
+
 # This theme is hardcoded to British English (en-GB). The <html lang="en-GB">
 # attribute is set in baseof.html — do not configure other locales.
 
@@ -65,11 +67,37 @@ disableKinds = ["taxonomy", "term"]
 [params]
   # Pick one of: classic-purple, adventure, coastal, vibrant, network
   # Or add your own to data/palettes.toml. See /palettes/ for a visual ref.
+  
   palette         = "classic-purple"
 
+  # ── Group identity used by the hero (SPEC: hero, deliverable 4) ─────────
+  # The home-page hero splits the site title into three pieces so the
+  # optional intro animation can fly the "prefix" portion up to the nav.
+  # Keeping the split consistent with `title` is the author's responsibility
+  # — the theme does not validate it.
+  #
+  #   Convention:  title  ==  groupPrefix + " " + groupSuffix
+  #
+  #   Example:   title         = "1st Anytown Scouts"   (top of this file)
+  #              groupPrefix   = "1st Anytown"          (the part that flies)
+  #              groupSuffix   = "Scouts"               (the part that stays)
+  #
+  # `place` drives the default hero eyebrow, rendered as
+  # "Skills for life · {place}". Leave it unset to show just "Skills for life".
+  # An individual hero section can still override the eyebrow per-page via
+  # `eyebrow = "…"` in content/_index.md.
+  groupPrefix     = "1st Anytown"                       # CHANGE ME
+  groupSuffix     = "Scouts"                            # CHANGE ME
+  place           = "Anytown"                           # CHANGE ME
+
+  # Opt-in scroll-driven em-flight animation on the home page. Requires
+  # groupPrefix + groupSuffix in [params]. Without them, a build-time warnf
+  # fires and the heading falls back to a single un-split <h1>. Degrades
+  # gracefully on pre-Baseline-2026 browsers and honours prefers-reduced-motion.
+
+  heroIntro = true
+
   description     = "Skills for Life — placeholder description for the example Scout Group site."
-  logo            = "images/placeholder-logo.svg"      # CHANGE ME (under your assets/)
-  logoAlt         = "1st Anytown Scouts logo"          # CHANGE ME
   favicon         = "images/favicon.png"               # CHANGE ME (optional)
 
   copyrightOwner  = "1st Anytown Scouts"               # CHANGE ME
@@ -108,8 +136,8 @@ disableKinds = ["taxonomy", "term"]
 # feature. See DECISIONS.md for the full rationale.
 # -----------------------------------------------------------------------------
 [params.features]
-  news   = true
-  events = true
+  news      = true
+  events    = true
 
 # -----------------------------------------------------------------------------
 # News & Camp Reports — see SPEC-01.

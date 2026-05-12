@@ -1,0 +1,12 @@
+/* -----------------------------------------------------------------------------
+   16. FOOTER
+   ----------------------------------------------------------------------------- */
+.site-footer {
+  padding: 4rem 0;
+  text-align: center;
+  font-size: var(--display-7);
+}
+/* Default footer is the muted bg with muted text */
+.site-footer.s-bg-muted { color: var(--text-muted); }
+.site-footer p { margin: 0; }
+

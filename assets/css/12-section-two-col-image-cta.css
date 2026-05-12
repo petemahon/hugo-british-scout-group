@@ -1,0 +1,15 @@
+/* -----------------------------------------------------------------------------
+   9. SECTION: TWO-COL IMAGE + CTA  (image left | title+text+button right)
+   ----------------------------------------------------------------------------- */
+.s-two-col-image__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .s-two-col-image__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.s-two-col-image__title { margin: 0 0 1.5rem; }
+.s-two-col-image__buttons { margin-top: 1rem; }
+

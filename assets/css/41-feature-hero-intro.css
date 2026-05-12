@@ -1,0 +1,234 @@
+/* -----------------------------------------------------------------------------
+   41. FEATURE: HERO INTRO ANIMATION  (opt-in, off by default)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Three-phase scroll-driven choreography for the home-page hero:
+
+     Phase 1 (em-fly, scroll 0 → 400px)
+       The em in the h1 (`groupPrefix`) detaches and flies up to the nav,
+       scaling down to land just right of the nav fleur. In the LAST 40 px
+       of this phase, the em fades out and the nav-name fades+expands in,
+       so the visual handoff is seamless.
+
+     Phase 2 (gap-close, scroll 400 → 700px)
+       The em-slot collapses from 1lh to 0, closing the gap left by the
+       flown em. "Welcome to" and "Scouts." now read on two visible lines.
+
+     Phase 3 (neon-pulse, scroll 700 → 1000px)
+       A 0% → 50% → 100% text-shadow pulse on the two static h1 pieces.
+
+   ENABLEMENT
+   This file is always concatenated into theme.css but is gated by a body
+   class. The animation runs only when:
+     - `params.heroIntro = true` is set in the site's hugo.toml, AND
+     - the browser supports both `animation-timeline: scroll()` and
+       `anchor-name` (both Baseline 2026 — Chrome 115+, Safari 26+), AND
+     - the user has not requested reduced motion.
+
+   The body class is set by layouts/_default/baseof.html. Without the class,
+   nothing in this file matches; the static hero from 10-section-hero.css
+   renders unaltered.
+
+   FALLBACK
+   For browsers below the baseline, or for users with reduced-motion
+   preference: the @supports-not and prefers-reduced-motion blocks at the
+   bottom of this file revert the parallax container and the nav-name to
+   their static-readable states. No layout depends on the animation.
+
+   NAV INTEGRATION
+   The hook is `anchor-name: --nav-fleur` on `.site-nav__fleur` (set by
+   04-nav.css). The em flies to that anchor. The nav-name override
+   (max-width: 0, opacity: 0 in the source, transitioning to visible) is
+   scoped to `body.has-hero-intro` so the nav stays fully independent of
+   this feature when the animation is off.
+   ----------------------------------------------------------------------------- */
+
+/* Scroll budget — keep in sync with the animation-range values below.
+   Defined globally because the parallax container depends on the total
+   budget and the keyframe ranges use the same anchors. */
+:root {
+  --hero-intro-budget:     1200px;
+  --hero-intro-fly-end:     400px;
+  --hero-intro-gap-start:   400px;
+  --hero-intro-gap-end:     700px;
+  --hero-intro-glow-start:  700px;
+  --hero-intro-glow-end:   1000px;
+}
+
+/* Pin the hero using sticky inside a tall container. The container height
+   (100vh + intro budget) defines exactly how long the hero stays put while
+   the intro animation plays. Wrapper is added by the hero partial only when
+   the animation is enabled. */
+body.has-hero-intro .s-hero__parallax {
+  position: relative;
+  height: calc(100vh + var(--hero-intro-budget));
+}
+body.has-hero-intro .s-hero {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* When the intro is on, the nav-name starts hidden and fades in synchronously
+   with the em arrival. This override is scoped to body.has-hero-intro so the
+   nav default (visible name) is unaffected for sites without the feature. */
+body.has-hero-intro .site-nav__name {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 380px) {
+  body.has-hero-intro .site-nav__name { white-space: normal; }
+}
+
+/* ─── CSS-only scroll choreography ─────────────────────────────
+   Requires: animation-timeline + anchor positioning (Baseline 2026). */
+@supports (animation-timeline: scroll()) and (anchor-name: --x) {
+
+  /* Phase 1 — em flight.
+     Two parallel animations: em-fly moves it from h1 source to nav-fleur,
+     em-fade fades it out in the last 40 px so the static nav-name takes
+     over the visual without a positional snap. */
+  body.has-hero-intro .s-hero h1 em {
+    position: fixed;
+    position-anchor: --nav-fleur;
+    transform-origin: top left;
+    z-index: 60;
+    will-change: top, left, transform, opacity;
+    animation: hero-intro-em-fly linear both,
+               hero-intro-em-fade linear both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range:
+      0 var(--hero-intro-fly-end),
+      calc(var(--hero-intro-fly-end) - 40px) var(--hero-intro-fly-end);
+  }
+  @keyframes hero-intro-em-fly {
+    from {
+      top:  anchor(--hero-em-source top);
+      left: anchor(--hero-em-source left);
+      transform: scale(1);
+    }
+    to {
+      top:  calc(anchor(--nav-fleur center) - 7px);
+      left: anchor(--nav-fleur right);
+      translate: 0.5rem 0;
+      transform: scale(0.21);
+    }
+  }
+  /* Mobile em is smaller in the source h1, so it needs a larger landing
+     scale to reach the nav's ~14 px target. */
+  @media (max-width: 767px) {
+    @keyframes hero-intro-em-fly {
+      from {
+        top:  anchor(--hero-em-source top);
+        left: anchor(--hero-em-source left);
+        transform: scale(1);
+      }
+      to {
+        top:  calc(anchor(--nav-fleur center) - 7px);
+        left: anchor(--nav-fleur right);
+        translate: 0.5rem 0;
+        transform: scale(0.44);
+      }
+    }
+  }
+  @keyframes hero-intro-em-fade {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  /* Nav-name appears as the em arrives — same 40 px crossfade window. */
+  body.has-hero-intro .site-nav__name {
+    animation: hero-intro-nav-name-arrive linear both;
+    animation-timeline: scroll(root);
+    animation-range: calc(var(--hero-intro-fly-end) - 40px) var(--hero-intro-fly-end);
+  }
+  @keyframes hero-intro-nav-name-arrive {
+    to { max-width: clamp(140px, 60vw, 320px); opacity: 1; }
+  }
+
+  /* Phase 2 — gap close (em-slot collapses to zero height). */
+  body.has-hero-intro .s-hero__em-slot {
+    animation: hero-intro-gap-close linear both;
+    animation-timeline: scroll(root);
+    animation-range: var(--hero-intro-gap-start) var(--hero-intro-gap-end);
+  }
+  @keyframes hero-intro-gap-close {
+    from { height: 1lh; }
+    to   { height: 0;   }
+  }
+
+  /* Phase 3 — neon glow pulse on the static h1 pieces. */
+  body.has-hero-intro .s-hero__welcome,
+  body.has-hero-intro .s-hero__suffix {
+    animation: hero-intro-neon-pulse linear both;
+    animation-timeline: scroll(root);
+    animation-range: var(--hero-intro-glow-start) var(--hero-intro-glow-end);
+  }
+  @keyframes hero-intro-neon-pulse {
+    0%, 100% { text-shadow: none; }
+    50% {
+      text-shadow:
+        0 0 7px  #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px var(--primary),
+        0 0 82px var(--primary),
+        0 0 92px var(--primary),
+        0 0 102px var(--primary);
+    }
+  }
+}
+
+/* ─── Fallback ─────────────────────────────────────────────────
+   Browser lacks scroll-driven animation OR anchor positioning: nav-name
+   shows in primary colour, no pinning, no animation. Static three-line h1
+   (the em-slot keeps its 1lh source position). */
+@supports not ((animation-timeline: scroll()) and (anchor-name: --x)) {
+  body.has-hero-intro .site-nav__name {
+    max-width: clamp(140px, 60vw, 320px);
+    opacity: 1;
+  }
+  body.has-hero-intro .s-hero__parallax {
+    height: auto;
+  }
+  body.has-hero-intro .s-hero {
+    position: relative;
+    min-height: 0;
+  }
+}
+
+/* ─── Reduced-motion ───────────────────────────────────────────
+   Same fallback shape but additionally cancels any inherited animations. */
+@media (prefers-reduced-motion: reduce) {
+  body.has-hero-intro .site-nav__name {
+    max-width: clamp(140px, 60vw, 320px);
+    opacity: 1;
+    animation: none;
+  }
+  body.has-hero-intro .s-hero h1 em {
+    position: static;
+    animation: none;
+    opacity: 1;
+  }
+  body.has-hero-intro .s-hero__em-slot {
+    height: auto;
+    animation: none;
+  }
+  body.has-hero-intro .s-hero__welcome,
+  body.has-hero-intro .s-hero__suffix {
+    animation: none;
+  }
+  body.has-hero-intro .s-hero__parallax {
+    height: auto;
+  }
+  body.has-hero-intro .s-hero {
+    position: relative;
+    min-height: 0;
+  }
+}

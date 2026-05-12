@@ -16,14 +16,22 @@ District Camp.
 ## Acceptance criteria
 
 1. A new page exists at `/events/` listing upcoming events in
-   chronological order. Past events are hidden by default.
+   chronological order. Past events are hidden by default. The listing
+   filter compares each event's `date` against `now`. Hugo's
+   `--buildFuture=false` deploy gate is satisfied by `publishDate`,
+   which the archetype auto-fills to the moment of `hugo new`; without
+   that distinction, a deploy with `--buildFuture=false` would exclude
+   every upcoming event, breaking the entire feature.
 2. Each event has its own page at `/events/<slug>/` with all fields
    below plus a "Download to calendar" link to a sibling `event.ics`
    file.
 3. Hugo generates the `.ics` via a custom output format. The `.ics` is
    valid per RFC 5545 (test against iCal / Outlook / Google Calendar).
 4. **Aggregate `/events/all.ics`** is generated at build time —
-   parents can subscribe once to get every upcoming event.
+   parents can subscribe once to get every upcoming event. The
+   aggregate includes cancelled-upcoming events (with
+   `STATUS:CANCELLED`) so subscribers see the cancellation propagate
+   to their own calendar; it excludes past events.
 5. Home-page section block `events-upcoming` shows the next *N* events.
 6. Past events accessible via `/events/past/` when
    `params.events.show_past_archive = true`.
@@ -126,6 +134,10 @@ Both must emit valid VEVENTs (UTF-8, CRLF line endings, `UID:<slug>@<host>`,
 `SUMMARY`, `DESCRIPTION` plain-text-escaped, `LOCATION`, `URL`,
 `STATUS:CANCELLED` if applicable).
 
+`<host>` is the host portion of `site.BaseURL`, parsed via
+`urls.Parse` (e.g. `1stadscouts.org`). Stable across rebuilds so a
+calendar subscriber's events update in place rather than duplicating.
+
 ## Section partial: `events-upcoming`
 
 ```toml
@@ -181,7 +193,10 @@ events/past/_index.md` is its own section, falls back to the parent
 
 ## CSS-only baseline
 
-- Date pill (large day, small month) using CSS Grid for layout.
+- Date pill: stacked vertically — large day number, abbreviated
+  month (e.g. "Jul"), year. Year always shown. CSS Grid for the
+  internal stack; outer container is `event-meta` (date pill on left,
+  details on right).
 - "Cancelled" badge: solid `var(--warning)` background — see DECISIONS.md.
 - Past events visible only when `params.events.show_past_archive` is
   true; the listing template filters by `now`.
@@ -219,6 +234,7 @@ the feature README.
 | Q2.2 | **Single template** (`layouts/events/list.html`) branching on `.Params.archive` set by `content/events/past/_index.md`. Hugo natural sub-section pattern. |
 | Q2.3 | **Single VEVENT** for multi-day events with `DTSTART`/`DTEND` spanning the period. |
 | Q2.4 | **Yes** — aggregate `/events/all.ics` feed via custom output format on the events list page. Material UX win for parents. |
+| Q2.5 | **Demo-roller** — example event dates are kept fresh in the theme repo only via `scripts/roll-example-dates.py` and a `[demo]` block in each example event's front-matter. Cross-cutting form documented in DECISIONS.md. Group sites consuming the theme have no `[demo]` blocks and the script ignores their events. |
 
 ## Out of scope (cross-references)
 

@@ -1,0 +1,110 @@
+/* -----------------------------------------------------------------------------
+   03. COMPONENTS: BUTTONS
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Restyled in deliverable 4 (hero) to the new design language. All existing
+   class names are preserved — only the visual styling changes. New additions:
+     .btn-ghost      — quiet secondary button (transparent + ink-coloured text)
+     .btn .arr       — optional arrow span that nudges right on hover
+
+   Markup pattern:
+     <a class="btn btn-primary" href="…">Join the Group <span class="arr">→</span></a>
+     <a class="btn btn-ghost"   href="…">Volunteer with us</a>
+   ----------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 13px 20px;
+  border: var(--btn-border) solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color     var(--transition),
+    color            var(--transition),
+    transform        var(--transition),
+    box-shadow       var(--transition);
+}
+@media (min-width: 768px) {
+  .btn { padding: 14px 22px; }
+}
+
+.btn + .btn { margin-left: 0.5rem; margin-top: 0.5rem; }
+
+/* Animated arrow nudge — additive; markup uses <span class="arr">→</span>. */
+.btn .arr { transition: transform 0.2s ease; }
+.btn:hover .arr,
+.btn:focus-visible .arr { transform: translateX(3px); }
+
+/* ── Primary ───────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-on-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: var(--text-on-primary);
+  transform: translateY(-1px);
+  /* Palette-aware drop shadow — adapts to whichever palette is in use. */
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+/* ── Primary outline ───────────────────────────────────────── */
+.btn-primary-outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-primary-outline:hover,
+.btn-primary-outline:focus-visible {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+
+/* ── Ghost (quiet secondary — used in the hero alongside primary) ── */
+.btn-ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--text) 15%, transparent);
+  color: var(--text);
+}
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--text);
+}
+
+/* ── Secondary ─────────────────────────────────────────────── */
+.btn-secondary {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--text-on-secondary);
+}
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  color: var(--text-on-secondary);
+}
+
+/* ── Tertiary ──────────────────────────────────────────────── */
+.btn-tertiary {
+  background: var(--tertiary);
+  border-color: var(--tertiary);
+  color: #ffffff;
+}
+.btn-tertiary:hover,
+.btn-tertiary:focus-visible {
+  background: color-mix(in srgb, var(--tertiary) 80%, white);
+  border-color: color-mix(in srgb, var(--tertiary) 80%, white);
+}

@@ -1,0 +1,202 @@
+/* -----------------------------------------------------------------------------
+   10. SECTION: HERO
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   New hero layout (replaces the previous centred title-only hero).
+
+   Two-column on desktop, stacked on mobile:
+     LEFT  : eyebrow + split-h1 (welcome + em-slot + suffix) + lede + buttons
+     RIGHT : optional photo with optional stat tile overlay
+
+   The h1 is split into three spans so the optional intro animation can fly
+   the em up to the nav. When the animation feature is OFF (the default), this
+   file alone produces a static, fully-readable hero. The animation override
+   lives in 41-feature-hero-intro.css and is gated by body.has-hero-intro.
+
+   Extension hooks for the intro animation (inert when unused):
+     .s-hero__em-slot  carries  anchor-name: --hero-em-source
+     .s-hero h1 em     has      transform-origin: top left
+   ----------------------------------------------------------------------------- */
+
+.s-hero {
+  padding: 5.75rem 0 3.5rem;
+  background-color: var(--bg);
+}
+@media (min-width: 768px) {
+  .s-hero { padding: 7.25rem 0 5rem; }
+}
+
+.s-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .s-hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+}
+
+/* ── Eyebrow ───────────────────────────────────────────────── */
+.s-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .s-hero__eyebrow {
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+  }
+}
+.s-hero__eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ── Heading and em-slot ───────────────────────────────────── */
+.s-hero h1 {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+  row-gap: 0;
+  align-items: baseline;
+  max-width: 14ch;
+  margin: 0 0 1rem;
+  font-size: clamp(34px, 8vw, 68px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-wrap: balance;
+  position: relative;
+  isolation: isolate;
+}
+@media (min-width: 768px) {
+  .s-hero h1 { margin-bottom: 1.375rem; }
+}
+.s-hero h1 em {
+  display: inline-block;
+  margin: 0;
+  font-style: normal;
+  color: var(--primary);
+  vertical-align: baseline;
+  white-space: nowrap;
+  overflow: visible;
+  /* Origin needed by the optional intro animation; harmless without it. */
+  transform-origin: left top;
+}
+/* The em-slot forces the em onto its own line so its source position is
+   predictable across every viewport. It also exposes the anchor target the
+   optional intro animation fires off from. */
+.s-hero__em-slot {
+  flex: 0 0 100%;
+  height: 1lh;
+  overflow: hidden;
+  anchor-name: --hero-em-source;
+}
+.s-hero__welcome,
+.s-hero__suffix {
+  display: inline-block;
+}
+
+/* ── Lede ──────────────────────────────────────────────────── */
+.s-hero__lede {
+  max-width: 50ch;
+  margin: 0 0 1.75rem;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .s-hero__lede {
+    font-size: 18px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ── Button row ────────────────────────────────────────────── */
+.s-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+.s-hero__buttons .btn + .btn {
+  /* Override the global .btn + .btn margins; the flex `gap` handles spacing. */
+  margin-left: 0;
+  margin-top: 0;
+}
+
+/* ── Photo + stat tile ─────────────────────────────────────── */
+.s-hero__photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(20, 17, 14, 0.12);
+}
+@media (min-width: 900px) {
+  .s-hero__photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(20, 17, 14, 0.12);
+  }
+}
+.s-hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.s-hero__stat {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+}
+@media (min-width: 768px) {
+  .s-hero__stat {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    padding: 1.125rem 1.25rem;
+    gap: 1.5rem;
+    border-radius: 16px;
+  }
+}
+.s-hero__stat-num {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .s-hero__stat-num { font-size: 36px; }
+}
+.s-hero__stat-lbl {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .s-hero__stat-lbl { font-size: 13px; }
+}

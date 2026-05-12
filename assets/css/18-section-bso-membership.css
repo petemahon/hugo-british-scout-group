@@ -1,0 +1,32 @@
+/* -----------------------------------------------------------------------------
+   15. SECTION: BSO MEMBERSHIP NOTICE
+   The bso-membership-notice partial sits inside the s-bso-membership section
+   wrapper. The wrapper handles bg/padding/centring; the partial renders the
+   inner content. Class names are BEM-style and unique to the partial so
+   they're easy to alias if a downstream theme wants to restyle.
+   ----------------------------------------------------------------------------- */
+.s-bso-membership .bso-membership-notice {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+.bso-membership-notice__heading {
+  margin: 0 0 1.5rem;
+  font-size: var(--display-2);
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+}
+.bso-membership-notice__intro,
+.bso-membership-notice__association,
+.bso-membership-notice__volunteering {
+  margin: 0 0 1rem;
+  font-size: var(--display-7);
+  line-height: 1.5;
+}
+.bso-membership-notice__rule-reference {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  opacity: 0.75;
+}
+.bso-membership-notice__rule-reference small { font-size: 0.95rem; }
+

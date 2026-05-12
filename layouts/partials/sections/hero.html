@@ -1,32 +1,150 @@
 {{- /*
-  hero — large centred title and intro text.
-  Params:
-    title           (string, required)  Main headline.
-    text            (string)            Supporting paragraph (HTML allowed).
-    background      (string)            Optional background image path (relative to assets/).
-    background_url  (string)            Or absolute URL.
-    bg              (string)            Section bg tone: muted | primary | secondary | tertiary | accent | dark
-    id              (string)            Optional anchor id (defaults to "hero").
-*/ -}}
-{{- $bg := "" -}}
-{{- with .background }}
-  {{- with resources.Get . }}{{ $bg = .RelPermalink }}{{ end -}}
-{{- end -}}
-{{- if eq $bg "" }}{{ $bg = .background_url | default "" }}{{ end -}}
-{{- $id := .id | default "hero" -}}
-{{- $bgClass := "" -}}
-{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
-{{- $titleClass := "" -}}
-{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
 
-<section id="{{ $id }}" class="s-hero reveal {{ $bgClass }}"
-  {{- if $bg }} style="background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('{{ $bg }}');"{{ end }}>
+  hero — large home-page banner with split heading, lede, button row,
+         optional photo and optional stat tile.
+
+  Schema (in [[sections]] under content/_index.md):
+
+    type     = "hero"                  (required)
+    id       = "hero"                  (optional; defaults to "hero")
+    eyebrow  = "Skills for life · …"   (optional; overrides the default
+                                        which is `i18n "heroEyebrow"`
+                                        plus " · {site.Params.place}"
+                                        when `place` is set)
+    lede     = "Fun and friendship …"  (optional; supporting paragraph,
+                                        plain text — HTML is escaped)
+    photo       = "images/hero/photo.webp"   (optional, see "Photo" below)
+    photo_alt   = "Cubs gathered round a small fire at night"
+                                       (optional but recommended; meaningful
+                                        alt text)
+
+    [sections.stat]                    (optional; only renders if photo is
+                                        set, as it overlays the photo)
+      number = "300+"
+      label  = "Young people across<br>5 sections, 4 nights a week."
+
+    [[sections.buttons]]               (optional; 0–N buttons)
+      label    = "Join the Group"
+      url      = "/#join"
+      style    = "primary"             (one of: primary, ghost,
+                                        primary-outline, secondary, tertiary)
+      external = false                 (optional; if true, opens in new tab
+                                        with rel="noopener")
+      arrow    = true                  (optional; appends the animated arrow)
+
+  Heading model — read from site.Params (NOT from the section entry):
+
+    title         = "1st Anytown Scouts"   (Hugo's site title; full name)
+    groupPrefix   = "1st Anytown"          (the flying-em part)
+    groupSuffix   = "Scouts"               (the suffix that stays)
+    place         = "Anytown"              (used in the default eyebrow)
+
+  Convention: site.Title == groupPrefix + " " + groupSuffix. The author is
+  responsible for keeping these consistent; the theme does not validate.
+
+  If groupPrefix or groupSuffix is missing, the h1 renders as the full
+  site.Title in a single piece. The optional intro animation requires
+  both — when site.Params.heroIntro is true but the split params are
+  missing, the partial emits a warnf at build time.
+
+  Photo
+  -----
+  The theme ships a default placeholder at `images/hero/photo.webp` so the
+  hero renders out-of-the-box looking like a real Group's page. To use your
+  Group's own photo:
+    • Drop a file at `assets/images/hero/photo.webp` in your site repo
+      (Hugo's resource lookup picks the site's copy before the theme's).
+    • Or set `photo` in the section front matter to a different asset path.
+  Guidance:
+    • Format: WebP preferred, JPEG/PNG acceptable.
+    • Size:   1280 × 960 minimum (object-fit: cover crops to 4:3 on mobile
+              and 4:5 on desktop, so subjects should sit comfortably inside
+              both crops).
+    • Weight: ≤ 80 KB. Compress with cwebp or ImageOptim.
+    • Subject: identifiable young people require photo_consent (see
+               SPEC-COMMON §10 — the same policy applies here).
+  Set `photo = false` (boolean) to suppress the photo entirely and render
+  the hero as a single full-width text column.
+*/ -}}
+
+{{- $id := .id | default "hero" -}}
+
+{{- /* Heading model — sourced from site params, not the section entry. */ -}}
+{{- $fullTitle := site.Title -}}
+{{- $prefix    := site.Params.groupPrefix -}}
+{{- $suffix    := site.Params.groupSuffix -}}
+{{- $place     := site.Params.place -}}
+{{- $hasSplit  := and $prefix $suffix -}}
+
+{{- /* Eyebrow: per-section override, else i18n default + place suffix. */ -}}
+{{- $eyebrow := .eyebrow -}}
+{{- if not $eyebrow -}}
+  {{- $base := i18n "heroEyebrow" | default "Skills for life" -}}
+  {{- if $place -}}
+    {{- $eyebrow = printf "%s · %s" $base $place -}}
+  {{- else -}}
+    {{- $eyebrow = $base -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Photo: explicit false → no photo. Unset → theme default. String → resolve. */ -}}
+{{- $photoSrc := .photo -}}
+{{- if eq $photoSrc nil }}{{ $photoSrc = "images/hero/photo.webp" }}{{ end -}}
+{{- $photoURL := "" -}}
+{{- if and $photoSrc (ne $photoSrc false) -}}
+  {{- with resources.Get $photoSrc -}}{{ $photoURL = .RelPermalink }}{{ end -}}
+{{- end -}}
+{{- $photoAlt := .photo_alt | default (i18n "heroPhotoAlt" | default "") -}}
+
+{{- /* Stat tile only meaningful when there is a photo to overlay. */ -}}
+{{- $stat := .stat -}}
+{{- if not $photoURL }}{{ $stat = false }}{{ end -}}
+
+{{- /* Intro animation gate. Build-time guard: warn if enabled without splits. */ -}}
+{{- $introOn := eq site.Params.heroIntro true -}}
+{{- if and $introOn (not $hasSplit) -}}
+  {{- warnf "hero: site.Params.heroIntro is true but groupPrefix and/or groupSuffix is missing — the intro animation has no em to fly. Set both in hugo.toml, or set heroIntro = false." -}}
+{{- end -}}
+
+{{ if $introOn }}<section class="s-hero__parallax">{{ end }}
+<section id="{{ $id }}" class="s-hero">
   <div class="container">
-    <div class="s-hero__inner">
-      <h1 class="s-hero__title display-1 {{ $titleClass }}">{{ .title }}</h1>
-      {{- with .text }}
-        <p class="s-hero__text display-7">{{ . | safeHTML }}</p>
+    <div class="s-hero__grid">
+      <div class="s-hero__copy">
+        {{- with $eyebrow }}<span class="s-hero__eyebrow">{{ . }}</span>{{ end }}
+        <h1>
+          {{- if $hasSplit -}}
+            <span class="s-hero__welcome">{{ i18n "heroWelcomeTo" | default "Welcome to" }} </span><span class="s-hero__em-slot"><em>{{ $prefix }}</em></span><span class="s-hero__suffix"> {{ $suffix }}.</span>
+          {{- else -}}
+            {{ $fullTitle }}
+          {{- end -}}
+        </h1>
+        {{- with .lede }}<p class="s-hero__lede">{{ . }}</p>{{ end }}
+        {{- with .buttons }}
+        <div class="s-hero__buttons">
+          {{- range . -}}
+          {{- $style := .style | default "primary" -}}
+          <a class="btn btn-{{ $style }}" href="{{ .url | safeURL }}"
+             {{- if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}{{ if .arrow }} <span class="arr">&rarr;</span>{{ end }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+      {{- with $photoURL }}
+      <div class="s-hero__photo">
+        <img src="{{ . }}" alt="{{ $photoAlt }}" loading="eager" decoding="async">
+        {{- with $stat }}
+        <div class="s-hero__stat">
+          <div class="s-hero__stat-num">{{ .number }}</div>
+          <div class="s-hero__stat-lbl">{{ .label | safeHTML }}</div>
+        </div>
+        {{- end }}
+      </div>
       {{- end }}
     </div>
   </div>
 </section>
+{{ if $introOn }}</section>{{ end }}

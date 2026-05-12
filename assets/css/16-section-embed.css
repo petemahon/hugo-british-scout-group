@@ -1,0 +1,15 @@
+/* -----------------------------------------------------------------------------
+   13. SECTION: EMBED (iframe — maps, video etc.)
+   ----------------------------------------------------------------------------- */
+.s-embed {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.s-embed__frame {
+  width: 90%;
+  border: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+

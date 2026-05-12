@@ -69,3 +69,17 @@ other = "Scout sections this event covers"
 
 [eventsDetails]
 other = "Details"
+
+[eventsTimeLocal]
+other = "Local time"
+
+[eventsTimeUk]
+other = "UK time"# Hero — added by deliverable 4 (hero with intro animation).
+[heroEyebrow]
+other = "Skills for life"
+
+[heroWelcomeTo]
+other = "Welcome to"
+
+[heroPhotoAlt]
+other = "Scouts gathered round a small fire at night, lighting it together in the rain"

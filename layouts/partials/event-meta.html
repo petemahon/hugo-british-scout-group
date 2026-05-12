@@ -12,6 +12,11 @@
     [ DAY ]   [Cancelled]    13:00 – 17:00
     [ Mon ]   <cancellation_note?>   Anytown Scout Hut
     [Year ]
+
+  Note: the time slot is a <div>, not a <p>, because the dual-time
+  mode in event-times.html emits a <dl> — block-level content cannot
+  legally nest inside <p>. Single-time and all-day modes still emit
+  inline content, so the <div> wraps an inline child in those cases.
 */ -}}
 {{- $page := . -}}
 <div class="event-meta">
@@ -31,9 +36,9 @@
         <p class="event-meta__cancellation-note">{{ . | safeHTML }}</p>
       {{- end }}
     {{- end }}
-    <p class="event-meta__time">
+    <div class="event-meta__time">
       {{- partial "event-times.html" $page -}}
-    </p>
+    </div>
     {{- with $page.Params.location }}
       <p class="event-meta__location">{{ . }}</p>
     {{- end }}

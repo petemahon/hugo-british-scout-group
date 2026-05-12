@@ -1,39 +1,89 @@
-{{- $logoSrc := site.Params.logo -}}
-{{- $logoURL := "" -}}
-{{- with $logoSrc -}}
-  {{- if hasPrefix . "http" -}}{{ $logoURL = . }}
-  {{- else -}}
-    {{- with resources.Get . -}}{{ $logoURL = .RelPermalink }}
-    {{- else -}}{{ $logoURL = $logoSrc | relURL }}{{- /* fall back to static/ */ -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $logoAlt := site.Params.logoAlt | default site.Title -}}
-{{- $menu := site.Menus.main -}}
+{{- /*
+  Site header — pill-shaped sticky nav at the top of every page.
 
-<nav class="site-nav" aria-label="Primary">
+  Structure (desktop, wide-to-narrow):
+    [fleur][group name]   [link][link][link]   [CTA button]   [burger]
+                          └─ .site-nav__links ─┘    └────────── only burger
+                                                                shows below
+                                                                ~960px ─────┐
+                                                                            │
+  When the viewport is below 960px:                                         │
+    [fleur][group name]                              [burger] ──────────────┘
+    └─ .site-nav__brand ─┘
+    Burger toggles the mobile drawer below.
+
+  Inputs:
+    site.Title                    Full group name (e.g. "1st Anytown Scouts").
+                                  Shown as the brand text.
+    site.Menus.main               Hugo menu entries; rendered as desktop pills
+                                  AND inside the mobile drawer.
+    site.Params.navCta            Optional. { label = "…", url = "…" }.
+                                  Renders the right-aligned CTA pill on
+                                  desktop and as the highlighted last item
+                                  in the mobile drawer. Omit to hide.
+
+  The fleur icon is rendered via <use href="#fleur"/> — the symbol must be
+  defined by partials/svg-defs.html, which baseof.html includes just inside
+  <body>.
+
+  When the hero-intro animation feature is also enabled (separate spec),
+  the .site-nav__name fades in via a scroll-driven animation. By default
+  it is visible always; the override is owned by the hero-intro CSS file.
+*/ -}}
+{{- $menu  := site.Menus.main -}}
+{{- $cta   := site.Params.navCta -}}
+
+<header class="site-nav" role="banner" aria-label="Site header">
+
+  {{- /* The checkbox driving the burger / mobile-drawer (pure CSS — no JS).
+        Hidden from a11y tree + tab order; the label below is the user-facing
+        button and carries the accessible name. */}}
+  {{- if $menu }}
+  <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
+         aria-hidden="true" tabindex="-1">
+  {{- end }}
+
   <div class="site-nav__inner">
-    <a class="site-nav__brand" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} home">
-      {{- with $logoURL }}
-        <img src="{{ . }}" alt="{{ $logoAlt }}">
-      {{- else }}
-        <strong>{{ site.Title }}</strong>
-      {{- end }}
+
+    <a class="site-nav__brand" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} — home">
+      <svg class="site-nav__fleur" aria-hidden="true"><use href="#fleur"/></svg>
+      <span class="site-nav__name">{{ site.Title }}</span>
     </a>
 
     {{- if $menu }}
-      <input class="site-nav__toggle-cb" type="checkbox" id="nav-toggle" aria-hidden="true">
-      <label class="site-nav__toggle" for="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </label>
-
-      <ul class="site-nav__menu">
+    <nav class="site-nav__links" aria-label="{{ i18n "navPrimaryAria" | default "Primary navigation" }}">
+      <ul class="site-nav__list">
         {{- range $menu }}
-          <li>
-            <a class="site-nav__link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-          </li>
+        <li><a class="site-nav__link" href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
         {{- end }}
       </ul>
+    </nav>
     {{- end }}
+
+    {{- with $cta }}
+    <a class="site-nav__cta" href="{{ .url | safeURL }}">{{ .label }}</a>
+    {{- end }}
+
+    {{- if $menu }}
+    <label for="site-nav-toggle" class="site-nav__burger"
+           aria-label="{{ i18n "navToggleAria" | default "Open menu" }}">
+      <span></span><span></span><span></span>
+    </label>
+    {{- end }}
+
   </div>
-</nav>
+
+  {{- if $menu }}
+  <nav class="site-nav__mobile" aria-label="{{ i18n "navMobileAria" | default "Mobile navigation" }}">
+    <ul class="site-nav__mobile-list">
+      {{- range $menu }}
+      <li><a class="site-nav__mobile-link" href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
+      {{- end }}
+      {{- with $cta }}
+      <li><a class="site-nav__mobile-cta" href="{{ .url | safeURL }}">{{ .label }} &rarr;</a></li>
+      {{- end }}
+    </ul>
+  </nav>
+  {{- end }}
+
+</header>

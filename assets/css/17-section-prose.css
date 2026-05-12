@@ -1,0 +1,10 @@
+/* -----------------------------------------------------------------------------
+   14. SECTION: PROSE (free-form Markdown)
+   ----------------------------------------------------------------------------- */
+.s-prose__inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+.s-prose__inner h2 { font-size: var(--display-2); margin: 0 0 1.5rem; line-height: 1; }
+.s-prose__inner h3 { font-size: var(--display-3); margin: 2rem 0 1rem; }
+

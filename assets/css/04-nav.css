@@ -1,0 +1,247 @@
+/* -----------------------------------------------------------------------------
+   04. SITE NAV (floating, rounded pill — fleur + group name + menu + burger)
+   The brand is fleur + name, never a custom logo. Group identity comes from
+   site.Title (full name e.g. "1st Anytown Scouts"). The fleur uses
+   currentColor so it tints to var(--primary) via the .site-nav__fleur rule.
+
+   Pure CSS:
+   • Sticky pill at the top of the viewport
+   • Burger menu via a checkbox-hack (no JS)
+   • Mobile drawer slides down underneath the pill
+   • Hover/focus highlight on desktop nav links
+
+   Extension hook:
+   • The .site-nav__name is visible by default. When the optional hero-intro
+     animation feature is enabled, a scroll-driven animation in
+     41-feature-hero-intro.css overrides this rule to fade the name in
+     synchronously with the hero em flight. That override does NOT live in
+     this file so the nav stays independent of the hero feature.
+   ----------------------------------------------------------------------------- */
+
+.site-nav {
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+@media (min-width: 768px) {
+  .site-nav { top: 16px; padding: 0 16px; }
+}
+
+/* The checkbox is hidden but functionally controls the mobile drawer. */
+.site-nav__toggle-cb {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.site-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg, #ffffff);
+  border-radius: var(--radius-nav, 999px);
+  padding: 6px 6px 6px 14px;
+  box-shadow: 0 6px 24px rgba(20, 17, 14, 0.06),
+              0 1px 3px  rgba(20, 17, 14, 0.04);
+  border: 1px solid rgba(20, 17, 14, 0.05);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .site-nav__inner { gap: 24px; padding: 8px 8px 8px 16px; }
+}
+
+/* ── Brand: fleur + group name ────────────────────────────── */
+.site-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--text, #14110e);
+  text-decoration: none;
+  overflow: hidden;
+  min-width: 0;
+}
+.site-nav__fleur {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--primary);              /* SVG fill="currentColor" inherits */
+  /* anchor-name target for the hero-intro em-flight (feature-gated) */
+  anchor-name: --nav-fleur;
+}
+@media (min-width: 768px) {
+  .site-nav__fleur { width: 36px; height: 36px; }
+}
+.site-nav__name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Permit the name to wrap on very tiny screens where it would clip badly. */
+@media (max-width: 380px) {
+  .site-nav__name { white-space: normal; }
+}
+
+/* ── Desktop links list ───────────────────────────────────── */
+.site-nav__links {
+  display: none;
+  margin-left: auto;
+}
+@media (min-width: 960px) {
+  .site-nav__links { display: block; }
+}
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+.site-nav__link {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-muted, #5a5a5a);
+  transition: background-color var(--transition, 0.25s ease),
+              color           var(--transition, 0.25s ease);
+}
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  background: var(--bg-muted, #f7f7f7);
+  color: var(--text, #14110e);
+}
+.site-nav__link[aria-current="page"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ── CTA button (optional, right of links on desktop) ─────── */
+.site-nav__cta {
+  display: none;
+  background: var(--primary);
+  color: var(--primary-on, #ffffff);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background var(--transition, 0.25s ease),
+              transform  var(--transition, 0.25s ease);
+}
+@media (min-width: 960px) {
+  .site-nav__cta { display: inline-flex; }
+}
+.site-nav__cta:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ── Burger toggle (mobile only) ──────────────────────────── */
+.site-nav__burger {
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition, 0.25s ease);
+}
+.site-nav__burger:hover { background: var(--bg-muted, #f7f7f7); }
+.site-nav__burger span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--text, #14110e);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.site-nav__burger span + span { margin-top: 5px; }
+@media (min-width: 960px) {
+  .site-nav__burger { display: none; }
+}
+
+/* Burger → X transition driven by the checkbox state */
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(2) {
+  opacity: 0;
+}
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ────────────────────────────────────────── */
+.site-nav__mobile {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg, #ffffff);
+  border-radius: 22px;
+  padding: 0 12px;
+  box-shadow: 0 20px 50px rgba(20, 17, 14, 0.12);
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease,
+              opacity    0.2s ease,
+              padding    0.25s ease;
+}
+.site-nav__toggle-cb:checked ~ .site-nav__mobile {
+  max-height: 500px;
+  opacity: 1;
+  padding: 12px;
+  pointer-events: auto;
+}
+@media (min-width: 960px) {
+  .site-nav__mobile { display: none; }
+}
+.site-nav__mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.site-nav__mobile-link,
+.site-nav__mobile-cta {
+  display: block;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text, #14110e);
+  text-decoration: none;
+}
+.site-nav__mobile-link:hover,
+.site-nav__mobile-link:focus-visible {
+  background: var(--bg-muted, #f7f7f7);
+}
+.site-nav__mobile-cta {
+  background: var(--primary);
+  color: var(--primary-on, #ffffff);
+  margin-top: 8px;
+  text-align: center;
+}

@@ -219,186 +219,564 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* -----------------------------------------------------------------------------
-   5. BUTTONS
+   03. COMPONENTS: BUTTONS
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Restyled in deliverable 4 (hero) to the new design language. All existing
+   class names are preserved — only the visual styling changes. New additions:
+     .btn-ghost      — quiet secondary button (transparent + ink-coloured text)
+     .btn .arr       — optional arrow span that nudges right on hover
+
+   Markup pattern:
+     <a class="btn btn-primary" href="…">Join the Group <span class="arr">→</span></a>
+     <a class="btn btn-ghost"   href="…">Volunteer with us</a>
    ----------------------------------------------------------------------------- */
+
 .btn {
-  display: inline-block;
-  padding: 1.25rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 13px 20px;
   border: var(--btn-border) solid transparent;
-  border-radius: var(--radius-btn);
+  border-radius: 12px;
   font-family: inherit;
-  font-size: var(--display-7);
-  font-weight: 500;
-  line-height: 1.3;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color     var(--transition),
+    color            var(--transition),
+    transform        var(--transition),
+    box-shadow       var(--transition);
 }
-@media (max-width: 767px) {
-  .btn { padding: 0.75rem 1.5rem; }
+@media (min-width: 768px) {
+  .btn { padding: 14px 22px; }
 }
 
 .btn + .btn { margin-left: 0.5rem; margin-top: 0.5rem; }
 
+/* Animated arrow nudge — additive; markup uses <span class="arr">→</span>. */
+.btn .arr { transition: transform 0.2s ease; }
+.btn:hover .arr,
+.btn:focus-visible .arr { transform: translateX(3px); }
+
+/* ── Primary ───────────────────────────────────────────────── */
 .btn-primary {
   background: var(--primary);
   border-color: var(--primary);
   color: var(--text-on-primary);
 }
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:focus-visible {
   background: var(--primary-hover);
   border-color: var(--primary-hover);
   color: var(--text-on-primary);
+  transform: translateY(-1px);
+  /* Palette-aware drop shadow — adapts to whichever palette is in use. */
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
+/* ── Primary outline ───────────────────────────────────────── */
 .btn-primary-outline {
   background: transparent;
   border-color: var(--primary);
   color: var(--primary);
 }
-.btn-primary-outline:hover, .btn-primary-outline:focus {
+.btn-primary-outline:hover,
+.btn-primary-outline:focus-visible {
   background: var(--primary);
   color: var(--text-on-primary);
 }
 
+/* ── Ghost (quiet secondary — used in the hero alongside primary) ── */
+.btn-ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--text) 15%, transparent);
+  color: var(--text);
+}
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--text);
+}
+
+/* ── Secondary ─────────────────────────────────────────────── */
 .btn-secondary {
   background: var(--secondary);
   border-color: var(--secondary);
   color: var(--text-on-secondary);
 }
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
   background: var(--secondary-hover);
   border-color: var(--secondary-hover);
   color: var(--text-on-secondary);
 }
 
+/* ── Tertiary ──────────────────────────────────────────────── */
 .btn-tertiary {
   background: var(--tertiary);
   border-color: var(--tertiary);
   color: #ffffff;
 }
-.btn-tertiary:hover, .btn-tertiary:focus {
+.btn-tertiary:hover,
+.btn-tertiary:focus-visible {
   background: color-mix(in srgb, var(--tertiary) 80%, white);
   border-color: color-mix(in srgb, var(--tertiary) 80%, white);
 }
-
 /* -----------------------------------------------------------------------------
-   6. SITE NAV (floating, rounded, sticky)
-   Matches the original Mobirise pattern — a rounded pill that floats just
-   inside the viewport edges, with semi-transparent background and a backdrop
-   blur on browsers that support it. Falls back to opaque white otherwise.
+   04. SITE NAV (floating, rounded pill — fleur + group name + menu + burger)
+   The brand is fleur + name, never a custom logo. Group identity comes from
+   site.Title (full name e.g. "1st Anytown Scouts"). The fleur uses
+   currentColor so it tints to var(--primary) via the .site-nav__fleur rule.
+
+   Pure CSS:
+   • Sticky pill at the top of the viewport
+   • Burger menu via a checkbox-hack (no JS)
+   • Mobile drawer slides down underneath the pill
+   • Hover/focus highlight on desktop nav links
+
+   Extension hook:
+   • The .site-nav__name is visible by default. When the optional hero-intro
+     animation feature is enabled, a scroll-driven animation in
+     41-feature-hero-intro.css overrides this rule to fade the name in
+     synchronously with the hero em flight. That override does NOT live in
+     this file so the nav stays independent of the hero feature.
    ----------------------------------------------------------------------------- */
+
 .site-nav {
-  position: sticky;
-  top: 1rem;
-  z-index: 1000;
-  margin: 1rem auto 0;
-  width: calc(100% - 2rem);
-  max-width: var(--container-max);
-  background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: saturate(150%) blur(12px);
-  backdrop-filter: saturate(150%) blur(12px);
-  border-radius: var(--radius-nav);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+@media (min-width: 768px) {
+  .site-nav { top: 16px; padding: 0 16px; }
+}
+
+/* The checkbox is hidden but functionally controls the mobile drawer. */
+.site-nav__toggle-cb {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
 }
 
 .site-nav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.5rem 1.5rem;
+  gap: 12px;
+  background: var(--bg, #ffffff);
+  border-radius: var(--radius-nav, 999px);
+  padding: 6px 6px 6px 14px;
+  box-shadow: 0 6px 24px rgba(20, 17, 14, 0.06),
+              0 1px 3px  rgba(20, 17, 14, 0.04);
+  border: 1px solid rgba(20, 17, 14, 0.05);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .site-nav__inner { gap: 24px; padding: 8px 8px 8px 16px; }
 }
 
-.site-nav__brand img {
-  height: 3.6rem;
-  width: auto;
-  border-radius: 0;
-}
-
-.site-nav__menu {
-  list-style: none;
+/* ── Brand: fleur + group name ────────────────────────────── */
+.site-nav__brand {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--text, #14110e);
+  text-decoration: none;
+  overflow: hidden;
+  min-width: 0;
+}
+.site-nav__fleur {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--primary);              /* SVG fill="currentColor" inherits */
+  /* anchor-name target for the hero-intro em-flight (feature-gated) */
+  anchor-name: --nav-fleur;
+}
+@media (min-width: 768px) {
+  .site-nav__fleur { width: 36px; height: 36px; }
+}
+.site-nav__name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Permit the name to wrap on very tiny screens where it would clip badly. */
+@media (max-width: 380px) {
+  .site-nav__name { white-space: normal; }
+}
+
+/* ── Desktop links list ───────────────────────────────────── */
+.site-nav__links {
+  display: none;
+  margin-left: auto;
+}
+@media (min-width: 960px) {
+  .site-nav__links { display: block; }
+}
+.site-nav__list {
+  list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 4px;
 }
-
 .site-nav__link {
   display: inline-block;
-  padding: 0.75rem 1rem;
-  font-size: var(--display-4);
-  color: var(--primary);
-  border-radius: var(--radius-nav);
-  transition: background-color var(--transition);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-muted, #5a5a5a);
+  transition: background-color var(--transition, 0.25s ease),
+              color           var(--transition, 0.25s ease);
 }
-.site-nav__link:hover {
-  background: rgba(0, 0, 0, 0.06);
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  background: var(--bg-muted, #f7f7f7);
+  color: var(--text, #14110e);
+}
+.site-nav__link[aria-current="page"] {
   color: var(--primary);
+  font-weight: 600;
 }
 
-/* Mobile toggle */
-.site-nav__toggle-cb { display: none; }
-.site-nav__toggle {
+/* ── CTA button (optional, right of links on desktop) ─────── */
+.site-nav__cta {
   display: none;
-  background: transparent;
-  border: 0;
-  width: 44px; height: 44px;
-  padding: 8px;
-  cursor: pointer;
-}
-.site-nav__toggle span {
-  display: block;
-  width: 100%; height: 3px;
-  margin: 5px 0;
   background: var(--primary);
+  color: var(--primary-on, #ffffff);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background var(--transition, 0.25s ease),
+              transform  var(--transition, 0.25s ease);
+}
+@media (min-width: 960px) {
+  .site-nav__cta { display: inline-flex; }
+}
+.site-nav__cta:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ── Burger toggle (mobile only) ──────────────────────────── */
+.site-nav__burger {
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition, 0.25s ease);
+}
+.site-nav__burger:hover { background: var(--bg-muted, #f7f7f7); }
+.site-nav__burger span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--text, #14110e);
   border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.site-nav__burger span + span { margin-top: 5px; }
+@media (min-width: 960px) {
+  .site-nav__burger { display: none; }
 }
 
-@media (max-width: 991px) {
-  .site-nav__toggle { display: block; }
-  .site-nav__menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    flex-direction: column;
-    background: var(--bg);
-    padding: 1rem 2rem 2rem;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  }
-  /* Pure-CSS open state */
-  .site-nav__toggle-cb:checked ~ .site-nav__menu { display: flex; }
+/* Burger → X transition driven by the checkbox state */
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(2) {
+  opacity: 0;
+}
+.site-nav__toggle-cb:checked ~ .site-nav__inner .site-nav__burger span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* -----------------------------------------------------------------------------
-   7. SECTION: HERO
-   ----------------------------------------------------------------------------- */
-.s-hero {
-  padding-top: var(--hero-py-top);
-  padding-bottom: var(--section-py);
+/* ── Mobile drawer ────────────────────────────────────────── */
+.site-nav__mobile {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg, #ffffff);
+  border-radius: 22px;
+  padding: 0 12px;
+  box-shadow: 0 20px 50px rgba(20, 17, 14, 0.12);
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease,
+              opacity    0.2s ease,
+              padding    0.25s ease;
+}
+.site-nav__toggle-cb:checked ~ .site-nav__mobile {
+  max-height: 500px;
+  opacity: 1;
+  padding: 12px;
+  pointer-events: auto;
+}
+@media (min-width: 960px) {
+  .site-nav__mobile { display: none; }
+}
+.site-nav__mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.site-nav__mobile-link,
+.site-nav__mobile-cta {
+  display: block;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text, #14110e);
+  text-decoration: none;
+}
+.site-nav__mobile-link:hover,
+.site-nav__mobile-link:focus-visible {
+  background: var(--bg-muted, #f7f7f7);
+}
+.site-nav__mobile-cta {
+  background: var(--primary);
+  color: var(--primary-on, #ffffff);
+  margin-top: 8px;
   text-align: center;
+}
+/* -----------------------------------------------------------------------------
+   10. SECTION: HERO
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   New hero layout (replaces the previous centred title-only hero).
+
+   Two-column on desktop, stacked on mobile:
+     LEFT  : eyebrow + split-h1 (welcome + em-slot + suffix) + lede + buttons
+     RIGHT : optional photo with optional stat tile overlay
+
+   The h1 is split into three spans so the optional intro animation can fly
+   the em up to the nav. When the animation feature is OFF (the default), this
+   file alone produces a static, fully-readable hero. The animation override
+   lives in 41-feature-hero-intro.css and is gated by body.has-hero-intro.
+
+   Extension hooks for the intro animation (inert when unused):
+     .s-hero__em-slot  carries  anchor-name: --hero-em-source
+     .s-hero h1 em     has      transform-origin: top left
+   ----------------------------------------------------------------------------- */
+
+.s-hero {
+  padding: 5.75rem 0 3.5rem;
   background-color: var(--bg);
-  background-size: cover;
-  background-position: center;
 }
-.s-hero__inner {
-  max-width: 60rem;
-  margin: 0 auto;
+@media (min-width: 768px) {
+  .s-hero { padding: 7.25rem 0 5rem; }
 }
-.s-hero__title { margin: 0 0 1.5rem; font-weight: 700; color: var(--primary); }
-.s-hero__text  { margin: 0 0 1.5rem; }
 
-/* Hero on a coloured bg: title inherits white from .s-bg-* rules above */
-.s-bg-primary   .s-hero__title,
-.s-bg-secondary .s-hero__title,
-.s-bg-tertiary  .s-hero__title,
-.s-bg-dark      .s-hero__title { color: inherit; }
-.s-bg-accent    .s-hero__title { color: #000000; }
+.s-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .s-hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+}
 
+/* ── Eyebrow ───────────────────────────────────────────────── */
+.s-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .s-hero__eyebrow {
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+  }
+}
+.s-hero__eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ── Heading and em-slot ───────────────────────────────────── */
+.s-hero h1 {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+  row-gap: 0;
+  align-items: baseline;
+  max-width: 14ch;
+  margin: 0 0 1rem;
+  font-size: clamp(34px, 8vw, 68px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-wrap: balance;
+  position: relative;
+  isolation: isolate;
+}
+@media (min-width: 768px) {
+  .s-hero h1 { margin-bottom: 1.375rem; }
+}
+.s-hero h1 em {
+  display: inline-block;
+  margin: 0;
+  font-style: normal;
+  color: var(--primary);
+  vertical-align: baseline;
+  white-space: nowrap;
+  overflow: visible;
+  /* Origin needed by the optional intro animation; harmless without it. */
+  transform-origin: left top;
+}
+/* The em-slot forces the em onto its own line so its source position is
+   predictable across every viewport. It also exposes the anchor target the
+   optional intro animation fires off from. */
+.s-hero__em-slot {
+  flex: 0 0 100%;
+  height: 1lh;
+  overflow: hidden;
+  anchor-name: --hero-em-source;
+}
+.s-hero__welcome,
+.s-hero__suffix {
+  display: inline-block;
+}
+
+/* ── Lede ──────────────────────────────────────────────────── */
+.s-hero__lede {
+  max-width: 50ch;
+  margin: 0 0 1.75rem;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .s-hero__lede {
+    font-size: 18px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ── Button row ────────────────────────────────────────────── */
+.s-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+.s-hero__buttons .btn + .btn {
+  /* Override the global .btn + .btn margins; the flex `gap` handles spacing. */
+  margin-left: 0;
+  margin-top: 0;
+}
+
+/* ── Photo + stat tile ─────────────────────────────────────── */
+.s-hero__photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(20, 17, 14, 0.12);
+}
+@media (min-width: 900px) {
+  .s-hero__photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(20, 17, 14, 0.12);
+  }
+}
+.s-hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.s-hero__stat {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+}
+@media (min-width: 768px) {
+  .s-hero__stat {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    padding: 1.125rem 1.25rem;
+    gap: 1.5rem;
+    border-radius: 16px;
+  }
+}
+.s-hero__stat-num {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .s-hero__stat-num { font-size: 36px; }
+}
+.s-hero__stat-lbl {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .s-hero__stat-lbl { font-size: 13px; }
+}
 /* -----------------------------------------------------------------------------
    8. SECTION: TWO-COL CTA  (text left | text+buttons right)
    ----------------------------------------------------------------------------- */
@@ -1115,6 +1493,40 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
   font-style: italic;
 }
 
+/* ----- event-times (single and BSO dual-time rendering) --------------- */
+
+/* Single-time and all-day modes render inline <span>s — no extra
+   rules needed; .event-meta__time inherits .event-meta__details > *
+   spacing and `font-weight: 600` from .event-meta__time. */
+
+/* Dual-time mode (BSO pattern: times_local + times_uk both set).
+   Renders as a <dl> with two <div class="event-times__pair"> children,
+   each containing a screen-reader-only <dt> and a visible <dd>. Stacked
+   on narrow viewports, side-by-side at >=48em. The 48em breakpoint
+   matches the nav's mobile/desktop split so we don't introduce a new
+   one. */
+.event-times--dual {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.event-times__pair {
+  display: block;
+}
+.event-times__pair dd {
+  margin: 0;
+}
+@media (min-width: 48em) {
+  .event-times--dual {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: 0.1rem;
+    align-items: baseline;
+  }
+}
+
 /* ----- section-badges (shared across news, events, future features) ---- */
 
 .section-badges {
@@ -1141,4 +1553,237 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
 .section-badges__pill a:hover,
 .section-badges__pill a:focus-visible {
   text-decoration: underline;
+}/* -----------------------------------------------------------------------------
+   41. FEATURE: HERO INTRO ANIMATION  (opt-in, off by default)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Three-phase scroll-driven choreography for the home-page hero:
+
+     Phase 1 (em-fly, scroll 0 → 400px)
+       The em in the h1 (`groupPrefix`) detaches and flies up to the nav,
+       scaling down to land just right of the nav fleur. In the LAST 40 px
+       of this phase, the em fades out and the nav-name fades+expands in,
+       so the visual handoff is seamless.
+
+     Phase 2 (gap-close, scroll 400 → 700px)
+       The em-slot collapses from 1lh to 0, closing the gap left by the
+       flown em. "Welcome to" and "Scouts." now read on two visible lines.
+
+     Phase 3 (neon-pulse, scroll 700 → 1000px)
+       A 0% → 50% → 100% text-shadow pulse on the two static h1 pieces.
+
+   ENABLEMENT
+   This file is always concatenated into theme.css but is gated by a body
+   class. The animation runs only when:
+     - `params.heroIntro = true` is set in the site's hugo.toml, AND
+     - the browser supports both `animation-timeline: scroll()` and
+       `anchor-name` (both Baseline 2026 — Chrome 115+, Safari 26+), AND
+     - the user has not requested reduced motion.
+
+   The body class is set by layouts/_default/baseof.html. Without the class,
+   nothing in this file matches; the static hero from 10-section-hero.css
+   renders unaltered.
+
+   FALLBACK
+   For browsers below the baseline, or for users with reduced-motion
+   preference: the @supports-not and prefers-reduced-motion blocks at the
+   bottom of this file revert the parallax container and the nav-name to
+   their static-readable states. No layout depends on the animation.
+
+   NAV INTEGRATION
+   The hook is `anchor-name: --nav-fleur` on `.site-nav__fleur` (set by
+   04-nav.css). The em flies to that anchor. The nav-name override
+   (max-width: 0, opacity: 0 in the source, transitioning to visible) is
+   scoped to `body.has-hero-intro` so the nav stays fully independent of
+   this feature when the animation is off.
+   ----------------------------------------------------------------------------- */
+
+/* Scroll budget — keep in sync with the animation-range values below.
+   Defined globally because the parallax container depends on the total
+   budget and the keyframe ranges use the same anchors. */
+:root {
+  --hero-intro-budget:     1200px;
+  --hero-intro-fly-end:     400px;
+  --hero-intro-gap-start:   400px;
+  --hero-intro-gap-end:     700px;
+  --hero-intro-glow-start:  700px;
+  --hero-intro-glow-end:   1000px;
+}
+
+/* Pin the hero using sticky inside a tall container. The container height
+   (100vh + intro budget) defines exactly how long the hero stays put while
+   the intro animation plays. Wrapper is added by the hero partial only when
+   the animation is enabled. */
+body.has-hero-intro .s-hero__parallax {
+  position: relative;
+  height: calc(100vh + var(--hero-intro-budget));
+}
+body.has-hero-intro .s-hero {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* When the intro is on, the nav-name starts hidden and fades in synchronously
+   with the em arrival. This override is scoped to body.has-hero-intro so the
+   nav default (visible name) is unaffected for sites without the feature. */
+body.has-hero-intro .site-nav__name {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 380px) {
+  body.has-hero-intro .site-nav__name { white-space: normal; }
+}
+
+/* ─── CSS-only scroll choreography ─────────────────────────────
+   Requires: animation-timeline + anchor positioning (Baseline 2026). */
+@supports (animation-timeline: scroll()) and (anchor-name: --x) {
+
+  /* Phase 1 — em flight.
+     Two parallel animations: em-fly moves it from h1 source to nav-fleur,
+     em-fade fades it out in the last 40 px so the static nav-name takes
+     over the visual without a positional snap. */
+  body.has-hero-intro .s-hero h1 em {
+    position: fixed;
+    position-anchor: --nav-fleur;
+    transform-origin: top left;
+    z-index: 60;
+    will-change: top, left, transform, opacity;
+    animation: hero-intro-em-fly linear both,
+               hero-intro-em-fade linear both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range:
+      0 var(--hero-intro-fly-end),
+      calc(var(--hero-intro-fly-end) - 40px) var(--hero-intro-fly-end);
+  }
+  @keyframes hero-intro-em-fly {
+    from {
+      top:  anchor(--hero-em-source top);
+      left: anchor(--hero-em-source left);
+      transform: scale(1);
+    }
+    to {
+      top:  calc(anchor(--nav-fleur center) - 7px);
+      left: anchor(--nav-fleur right);
+      translate: 0.5rem 0;
+      transform: scale(0.21);
+    }
+  }
+  /* Mobile em is smaller in the source h1, so it needs a larger landing
+     scale to reach the nav's ~14 px target. */
+  @media (max-width: 767px) {
+    @keyframes hero-intro-em-fly {
+      from {
+        top:  anchor(--hero-em-source top);
+        left: anchor(--hero-em-source left);
+        transform: scale(1);
+      }
+      to {
+        top:  calc(anchor(--nav-fleur center) - 7px);
+        left: anchor(--nav-fleur right);
+        translate: 0.5rem 0;
+        transform: scale(0.44);
+      }
+    }
+  }
+  @keyframes hero-intro-em-fade {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  /* Nav-name appears as the em arrives — same 40 px crossfade window. */
+  body.has-hero-intro .site-nav__name {
+    animation: hero-intro-nav-name-arrive linear both;
+    animation-timeline: scroll(root);
+    animation-range: calc(var(--hero-intro-fly-end) - 40px) var(--hero-intro-fly-end);
+  }
+  @keyframes hero-intro-nav-name-arrive {
+    to { max-width: clamp(140px, 60vw, 320px); opacity: 1; }
+  }
+
+  /* Phase 2 — gap close (em-slot collapses to zero height). */
+  body.has-hero-intro .s-hero__em-slot {
+    animation: hero-intro-gap-close linear both;
+    animation-timeline: scroll(root);
+    animation-range: var(--hero-intro-gap-start) var(--hero-intro-gap-end);
+  }
+  @keyframes hero-intro-gap-close {
+    from { height: 1lh; }
+    to   { height: 0;   }
+  }
+
+  /* Phase 3 — neon glow pulse on the static h1 pieces. */
+  body.has-hero-intro .s-hero__welcome,
+  body.has-hero-intro .s-hero__suffix {
+    animation: hero-intro-neon-pulse linear both;
+    animation-timeline: scroll(root);
+    animation-range: var(--hero-intro-glow-start) var(--hero-intro-glow-end);
+  }
+  @keyframes hero-intro-neon-pulse {
+    0%, 100% { text-shadow: none; }
+    50% {
+      text-shadow:
+        0 0 7px  #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px var(--primary),
+        0 0 82px var(--primary),
+        0 0 92px var(--primary),
+        0 0 102px var(--primary);
+    }
+  }
+}
+
+/* ─── Fallback ─────────────────────────────────────────────────
+   Browser lacks scroll-driven animation OR anchor positioning: nav-name
+   shows in primary colour, no pinning, no animation. Static three-line h1
+   (the em-slot keeps its 1lh source position). */
+@supports not ((animation-timeline: scroll()) and (anchor-name: --x)) {
+  body.has-hero-intro .site-nav__name {
+    max-width: clamp(140px, 60vw, 320px);
+    opacity: 1;
+  }
+  body.has-hero-intro .s-hero__parallax {
+    height: auto;
+  }
+  body.has-hero-intro .s-hero {
+    position: relative;
+    min-height: 0;
+  }
+}
+
+/* ─── Reduced-motion ───────────────────────────────────────────
+   Same fallback shape but additionally cancels any inherited animations. */
+@media (prefers-reduced-motion: reduce) {
+  body.has-hero-intro .site-nav__name {
+    max-width: clamp(140px, 60vw, 320px);
+    opacity: 1;
+    animation: none;
+  }
+  body.has-hero-intro .s-hero h1 em {
+    position: static;
+    animation: none;
+    opacity: 1;
+  }
+  body.has-hero-intro .s-hero__em-slot {
+    height: auto;
+    animation: none;
+  }
+  body.has-hero-intro .s-hero__welcome,
+  body.has-hero-intro .s-hero__suffix {
+    animation: none;
+  }
+  body.has-hero-intro .s-hero__parallax {
+    height: auto;
+  }
+  body.has-hero-intro .s-hero {
+    position: relative;
+    min-height: 0;
+  }
 }

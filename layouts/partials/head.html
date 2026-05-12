@@ -36,8 +36,13 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 
-<!-- Theme CSS (compiled, fingerprinted, minified in production) -->
-{{- $css := resources.Get "css/theme.css" -}}
+<!-- Theme CSS — assets/css/*.css globbed in numeric-prefix order, concatenated
+     to a single bundle, then minified+fingerprinted in production.
+     The numeric prefix (00-, 01-, …, 40-) enforces concat ordering since
+     resources.Match returns files sorted alphabetically. To add a new
+     section type, drop in a new file with the next prefix; no template edit. -->
+{{- $cssFiles := resources.Match "css/*.css" -}}
+{{- $css := $cssFiles | resources.Concat "css/theme.css" -}}
 {{- if hugo.IsProduction -}}
   {{- $css = $css | minify | fingerprint -}}
 {{- end -}}

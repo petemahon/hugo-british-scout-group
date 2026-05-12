@@ -1,5 +1,5 @@
 +++
-title = "1st Anytown Scouts"
+title = "1st Anytown Scouts" # optional; only used if you want different from site.Title
 description = "Skills for Life — example Scout Group home page using the British Scout Group theme."
 
 # Each [[sections]] entry is rendered by the partial in
@@ -10,10 +10,31 @@ description = "Skills for Life — example Scout Group home page using the Briti
 # 1. Hero
 # -----------------------------------------------------------------------------
 [[sections]]
-  type  = "hero"
-  id    = "hero"
-  title = "Welcome to 1st Anytown Scouts"
-  text  = "1st Anytown Scouts provides fun and friendship, challenge and everyday adventure to over 300 young people in Anytown, for both boys and girls aged 6 to 18."
+  type    = "hero"
+  id      = "hero"                       # optional, defaults to "hero"
+  eyebrow = "Skills for life · Anytown"  # optional; default builds from
+                                          # i18n "heroEyebrow" + place
+  lede    = "Fun and friendship …"       # optional supporting paragraph
+  photo   = "images/hero/photo.webp"     # optional (default theme photo)
+                                          # set photo = false to suppress
+  photo_alt = "Cubs round a fire at night, lighting it together"
+
+  [sections.stat]                         # optional; only renders if
+    number = "300+"                       # photo is set (overlays it)
+    label  = "Young people across<br>5 sections, 4 nights a week."
+
+  [[sections.buttons]]                    # optional; 0–N buttons
+    label = "Join the Group"
+    url   = "/#join"
+    style = "primary"                     # primary | ghost |
+                                          # primary-outline | secondary
+                                          # | tertiary
+    arrow = true                          # appends the animated arrow
+  
+  [[sections.buttons]]
+    label = "Volunteer with us"
+    url   = "/#volunteer"
+    style = "ghost"
 
 # -----------------------------------------------------------------------------
 # 2. Join us — two-column CTA

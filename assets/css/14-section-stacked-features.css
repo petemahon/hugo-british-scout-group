@@ -1,0 +1,57 @@
+/* -----------------------------------------------------------------------------
+   11. SECTION: STACKED-FEATURES (header + left text-stack | right image)
+   ----------------------------------------------------------------------------- */
+.s-stacked__head {
+  margin: 0 auto 3rem;
+  text-align: center;
+  max-width: 70rem;
+}
+.s-stacked__title { margin: 0 0 1.5rem; }
+.s-stacked__intro { margin: 0; color: var(--text-muted); }
+
+.s-stacked__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .s-stacked__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.s-stacked__items { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Each item is a white pill so the section's coloured background frames it
+   nicely. Item titles take the palette's primary colour (Scouts Purple in
+   the classic palette) — set `title_color = "..."` on the section to change. */
+.s-stacked__item {
+  background: var(--bg);
+  color: var(--text);
+  border-radius: var(--radius-card);
+  padding: 2rem 2.5rem;
+}
+@media (max-width: 767px) {
+  .s-stacked__item { padding: 1.5rem 1.75rem; }
+}
+.s-stacked__item-title {
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+.s-stacked__item-body { margin: 0; }
+
+/* Item title in palette primary — higher specificity than the
+   ".s-bg-* :is(h1..h6) { color: ...; }" rule, so this wins inside white pills. */
+.s-stacked__item .s-stacked__item-title { color: var(--primary); }
+.s-bg-primary .s-stacked__item .s-stacked__item-title { color: var(--secondary); }
+
+/* Inline link inside a white pill: brand purple, no underline, hover-only
+   underline. This overrides the white-underlined rule applied by .s-bg-* a. */
+.s-stacked__item a:not(.btn) {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.s-stacked__item a:not(.btn):hover { text-decoration: underline; }
+
+.s-stacked__image img { width: 100%; height: auto; }
+

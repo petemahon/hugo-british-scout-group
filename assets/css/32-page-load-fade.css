@@ -1,0 +1,24 @@
+/* -----------------------------------------------------------------------------
+   18. PAGE-LOAD FADE-IN
+   A simple, universally-supported fade-in for sections on first render.
+   Replaces Mobirise's animate.css + JS observer pair. No scroll-driven
+   timeline, so content stays visible for screen readers, screenshots, RSS,
+   and search-engine snapshots. Honours prefers-reduced-motion.
+   ----------------------------------------------------------------------------- */
+.reveal {
+  animation: reveal-in 0.6s ease-out both;
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* Stagger the first few sections so they don't all fade in at once */
+main > .reveal:nth-child(1) { animation-delay: 0s; }
+main > .reveal:nth-child(2) { animation-delay: 0.1s; }
+main > .reveal:nth-child(3) { animation-delay: 0.2s; }
+main > .reveal:nth-child(4) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+}
+
