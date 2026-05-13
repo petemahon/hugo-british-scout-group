@@ -1,7 +1,0 @@
-/* -----------------------------------------------------------------------------
-   12. SECTION: SECTION-HEADER (centred title + subtitle, no body)
-   ----------------------------------------------------------------------------- */
-.s-section-header { text-align: center; }
-.s-section-header__title    { margin: 0 0 1.5rem; }
-.s-section-header__subtitle { margin: 0 auto; max-width: 56rem; color: var(--text-muted); }
-

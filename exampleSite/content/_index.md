@@ -40,25 +40,32 @@ description = "Skills for Life — example Scout Group home page using the Briti
 # 2. Join us — two-column CTA
 # -----------------------------------------------------------------------------
 [[sections]]
-  type = "two-col-cta"
-  id   = "join"
-  bg   = "muted"
-  [sections.left]
-    title = "Joining us couldn't be easier"
-    text  = "Register your interest to join 1st Anytown Scouts. We welcome everyone to join us, and will give priority to young people who have a parent willing to volunteer some of their time to help out. No previous experience necessary!<br><br>If you would like to both volunteer and register a Young Person, please ensure you complete <strong>both</strong> entry forms on this page."
-  [sections.right]
-    title = "Join 1st Anytown Scouts"
-    text  = "For each young person you would like to register, fill out an entry form below. Adults above the age of 18 are welcome to volunteer and do not need to have a child in Scouting."
-    [[sections.right.buttons]]
-      label    = "Add a Young Person to the Waiting List"
-      url      = "https://forms.example.com/join"
-      style    = "primary"
-      external = true
-    [[sections.right.buttons]]
-      label    = "Register interest as a Volunteer"
-      url      = "https://forms.example.com/volunteer"
-      style    = "primary-outline"
-      external = true
+  type     = "join"
+  id       = "join"
+  bg       = "muted"
+  eyebrow  = "Join Us"
+  title    = "Joining couldn't be easier."
+  subtitle = "Register your interest below - for your child, yourself, or both. We give priority to families who are happy to volunteer their time alongside us."
+
+  [[sections.cards]]
+    icon  = "waitlist"
+    title = "Add a young person"
+    text  = "For each child you'd like to register, fill out an entry form."
+    [sections.cards.button]
+      label = "Add to waiting list"
+      url   = "/joining/"
+      style = "primary"
+      arrow = true
+
+  [[sections.cards]]
+    icon    = "volunteer"
+    variant = "accent"
+    title   = "Volunteer with us"
+    text    = "Anyone over 18 is welcome."
+    [sections.cards.button]
+      label = "Register as volunteer"
+      url   = "/volunteer/"
+      style = "ghost"
 
 # -----------------------------------------------------------------------------
 # 3. Our Sections — section-grid

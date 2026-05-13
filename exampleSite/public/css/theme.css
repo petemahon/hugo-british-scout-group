@@ -576,6 +576,122 @@ p:last-child { margin-bottom: 0; }
   text-align: center;
 }
 /* -----------------------------------------------------------------------------
+   05. COMPONENTS: SECT-HEAD & EYEBROW
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Cross-cutting section-head pattern used by every section below the hero.
+
+   Two classes, both bare (no `s-` prefix) — they're not scoped to any one
+   section. They join `.btn`, `.container` and `.reveal` as the theme's
+   cross-cutting component layer.
+
+   .eyebrow         Small primary-coloured uppercase lead-in with a 22 px
+                    line decoration before the text (e.g. "Join Us", "Our
+                    Sections", "What's coming up"). Usable standalone — the
+                    hero consumes it directly.
+
+   .sect-head       Container for the eyebrow + h2 + optional supporting
+                    paragraph. Centred by default. When an .eyebrow sits
+                    inside a .sect-head, a matching trailing line decoration
+                    is added so the eyebrow reads "— TEXT —".
+
+   .sect-head--left BEM modifier — strips the centring and the trailing
+                    line decoration. Used by sections whose body is a
+                    left-aligned grid (events, news, meet, …).
+
+   Markup pattern (centred):
+
+     <div class="sect-head">
+       <span class="eyebrow">Join Us</span>
+       <h2>Joining couldn't be easier.</h2>
+       <p>Register your interest below…</p>
+     </div>
+
+   Markup pattern (left-aligned):
+
+     <div class="sect-head sect-head--left">
+       <span class="eyebrow">What's coming up</span>
+       <h2>Camps, parades and meetings.</h2>
+     </div>
+
+   Future variants — .eyebrow-yellow (volunteer band) and the network
+   section's black eyebrow row — ship with their respective section
+   deliverables. D5 establishes the pattern only.
+   ----------------------------------------------------------------------------- */
+
+/* ── Eyebrow (usable standalone or inside .sect-head) ─────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+  }
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ── Section head — centred default ───────────────────────────── */
+.sect-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .sect-head { margin-bottom: 3rem; }
+}
+.sect-head .eyebrow { justify-content: center; }
+.sect-head .eyebrow::before,
+.sect-head .eyebrow::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+.sect-head h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .sect-head h2 { margin-bottom: 1rem; }
+}
+.sect-head p {
+  max-width: 60ch;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .sect-head p { font-size: 17px; }
+}
+
+/* ── Left-aligned modifier ────────────────────────────────────── */
+.sect-head--left {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.sect-head--left .eyebrow { justify-content: flex-start; }
+.sect-head--left .eyebrow::after { display: none; }
+.sect-head--left p { margin: 0; }
+/* -----------------------------------------------------------------------------
    10. SECTION: HERO
    Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
@@ -618,29 +734,11 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ── Eyebrow ───────────────────────────────────────────────── */
-.s-hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-@media (min-width: 768px) {
-  .s-hero__eyebrow {
-    font-size: 12px;
-    margin-bottom: 1.25rem;
-  }
-}
-.s-hero__eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: var(--primary);
-}
+/* The hero consumes the shared `.eyebrow` component, which lives in
+   05-components-sect-head.css. The bespoke `.s-hero__eyebrow` rules
+   that lived here in D4 were folded into the shared component in D5 —
+   they were byte-identical, and the hero is now one consumer among
+   many (Join, Sections, Events, News, Meet, …). */
 
 /* ── Heading and em-slot ───────────────────────────────────── */
 .s-hero h1 {
@@ -962,12 +1060,158 @@ p:last-child { margin-bottom: 0; }
 .s-stacked__image img { width: 100%; height: auto; }
 
 /* -----------------------------------------------------------------------------
-   12. SECTION: SECTION-HEADER (centred title + subtitle, no body)
-   ----------------------------------------------------------------------------- */
-.s-section-header { text-align: center; }
-.s-section-header__title    { margin: 0 0 1.5rem; }
-.s-section-header__subtitle { margin: 0 auto; max-width: 56rem; color: var(--text-muted); }
+   14. SECTION: JOIN
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Responsive grid of call-to-action cards inviting visitors to join (or
+   volunteer with) the Group. Default is two cards; the partial accepts
+   any N. Mobile: cards stack, each card is a 2-column grid with icon left
+   and text right. Desktop (≥ 768 px): cards sit side-by-side and switch
+   to block flow so the icon stacks above the text.
 
+   The card consumes the cross-cutting .btn styles for buttons and tints
+   its icon-circle background with palette tokens via color-mix. The
+   accent variant uses --accent in place of --primary; otherwise the
+   variant is structurally identical.
+   ----------------------------------------------------------------------------- */
+
+/* The outer section uses the theme's standard .section padding (from
+   02-layout.css) and the standard .s-bg-* tones (from 02-layout.css).
+   No bespoke padding overrides — the mockup's 56 px / 80 px values
+   were a one-off; the theme's --section-py is the correct cross-section
+   rhythm. */
+
+.s-join__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;       /* 14 px — mockup */
+}
+@media (min-width: 768px) {
+  .s-join__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;       /* 24 px — mockup */
+  }
+}
+/* Three or more cards: wrap onto a second row at desktop sizes. The
+   grid expands to as many equal columns as cards fit; minmax stops a
+   single very-narrow column from pulling siblings down. */
+@media (min-width: 1024px) {
+  .s-join__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.s-join__card {
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 1.5rem;     /* 24 px */
+  border: 1px solid rgba(20, 17, 14, 0.05);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.125rem;       /* 18 px */
+  align-items: start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+@media (min-width: 768px) {
+  .s-join__card {
+    display: block;
+    padding: 2.25rem;  /* 36 px */
+    border-radius: 24px;
+  }
+}
+.s-join__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(20, 17, 14, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .s-join__card { transition: box-shadow 0.2s; }
+  .s-join__card:hover { transform: none; }
+}
+
+.s-join__card h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0 0 0.375rem;          /* 6 px */
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  .s-join__card h3 {
+    font-size: 26px;
+    margin: 0 0 0.75rem;         /* 12 px */
+  }
+}
+
+.s-join__card p {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 1rem;              /* 16 px */
+  font-size: 14.5px;
+}
+@media (min-width: 768px) {
+  .s-join__card p {
+    line-height: 1.55;
+    margin-bottom: 1.5rem;       /* 24 px */
+    font-size: 16px;
+  }
+}
+
+/* ── Icon circle ──────────────────────────────────────────── */
+.s-join__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  grid-row: span 3;              /* mobile: spans the full text column */
+}
+@media (min-width: 768px) {
+  .s-join__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    grid-row: auto;
+    margin-bottom: 1.25rem;      /* 20 px */
+  }
+}
+.s-join__icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Accent variant — colour-tinted icon background using --accent.
+   Used for the volunteer card in the canonical layout. */
+.s-join__card--accent .s-join__icon {
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+/* Buttons inside join cards take a slightly tighter scale than the
+   global .btn defaults — matches the mockup. */
+.s-join__card .btn {
+  font-size: 14px;
+  padding: 0.6875rem 1rem;       /* 11 / 16 px */
+}
+@media (min-width: 768px) {
+  .s-join__card .btn {
+    font-size: 15px;
+    padding: 0.875rem 1.375rem;  /* 14 / 22 px */
+  }
+}
+
+/* No-icon fallback. If a card omits `icon`, the .s-join__icon div is
+   still rendered (and is empty). On mobile it would occupy column 1
+   with no visible content; collapse it. */
+.s-join__icon:empty {
+  display: none;
+}
+.s-join__icon:empty + .s-join__card-body {
+  grid-column: 1 / -1;
+}
 /* -----------------------------------------------------------------------------
    13. SECTION: EMBED (iframe — maps, video etc.)
    ----------------------------------------------------------------------------- */
