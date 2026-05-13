@@ -1,0 +1,23 @@
+--- a/documentation/DECISIONS.md	2026-05-13 07:15:28.389211286 +0000
++++ b/documentation/DECISIONS.md	2026-05-13 07:15:34.833211319 +0000
+@@ -5,10 +5,15 @@
+ - All hex values come from the Scouts Brand Guidelines 2023. Editing
+   these to realign with future Scouts brand updates is the expected
+   maintenance path; adding a sixth named palette is a flag-not-change.
+-- Theme ships zero copyrighted brand imagery. Generic placeholder WebPs
+-  ship at `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.webp`
+-  and `assets/images/volunteer/role-model.webp`. Groups override at the
+-  same path with their own files — Hugo's resource resolution prefers
+-  the site over the theme.
++- Theme ships the **official Scouts section logo SVGs** at
++  `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
++  downloaded from https://scoutsbrand.org.uk by the theme maintainer.
++  Groups DO NOT override these — brand asset maintenance is centralised
++  in the theme. When The Scout Association updates a logo, the theme
++  is updated and every Group picks up the new asset by bumping their
++  submodule.
++- **Other generic placeholder imagery** (e.g. `assets/images/volunteer/role-model.webp`)
++  ships as before; Groups override at the same path with their own
++  files — Hugo's resource resolution prefers the site over the theme.
+ 
+ ## Scout sections (the age groups)

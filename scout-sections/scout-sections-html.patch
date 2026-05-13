@@ -1,0 +1,160 @@
+--- a/layouts/partials/sections/scout-sections.html	2026-05-13 07:13:05.001210570 +0000
++++ b/layouts/partials/sections/scout-sections.html	2026-05-13 07:13:47.885210784 +0000
+@@ -1,13 +1,14 @@
+ {{- /*
+-  scout-sections — auto-renders the standard UK Scout sections.
++  Hugo British Scout Group theme
++  CC BY-SA 4.0 © Peter Mahon
++  https://github.com/petemahon/hugo-british-scout-group
++
++  scout-sections — auto-renders the standard UK Scout sections (Squirrels
++                   through Network, six in total). Each section's metadata
++                   and identity colour live in data/scout_sections.toml;
++                   Groups only choose which ones they run.
+ 
+-  Section metadata (age, URL, alt text) is fixed and lives in the theme's
+-  data/scout_sections.toml — Groups DO NOT edit it.
+-
+-  Per-Group settings (enable on/off) live in hugo.toml. Logos ship with the
+-  theme — Groups should not override them so brand compliance is centrally
+-  controlled. (A per-Group `logo` override is honoured if set, for edge
+-  cases, but isn't documented in the public README.)
++  Per-Group config (in the site's hugo.toml):
+ 
+       [params.scoutSections]
+         squirrels = { enable = true }
+@@ -18,71 +19,91 @@
+         network   = { enable = true }   # opt-in; default off
+ 
+   Default behaviour: a section IS rendered unless its data entry sets
+-  `default_enabled = false` or the Group sets `enable = false`. The only
+-  default-off section is Network (18–25), which is a separate provision
+-  from the under-18 youth sections — Groups running a Network opt in
+-  explicitly. Network's metadata is still loaded for badge rendering by
+-  other features (news, events, galleries) regardless of this setting.
+-
+-  If the theme's logo file isn't found (e.g. if you've placed your own at
+-  the same path), the partial renders the card without an image rather
+-  than breaking.
++  `default_enabled = false` (only Network) or the Group sets `enable = false`.
+ 
+   Section params (front matter):
+     id           (string)  Anchor id, e.g. "sections".
+-    bg           (string)  Section bg tone — see partials/footer for values.
++    bg           (string)  s-bg-<value> on the outer <section>.
++    eyebrow      (string)  Optional uppercase lead-in above the h2.
+     title        (string)  Heading above the cards.
+     title_color  (string)  Tint the heading with a palette colour.
+-    subtitle     (string)  Sub-paragraph (HTML allowed).
+-    button_label (string)  Default label for all card buttons. Default: "Learn more".
+-    button_style (string)  Default style for all card buttons. Default: "primary".
++    subtitle     (string)  Supporting paragraph (HTML allowed).
++    align        (string)  "left" → .sect-head--left. Default centred.
++    button_label (string)  Label for every card's Learn-more affordance.
++                           Default: "Learn more".
++
++  Breaking changes in D7 (visual application of the design system):
++    1. Schema field `button_style` is no longer accepted. The new design
++       fixes the button look to .s-scout-sections__btn — primary-coloured
++       pill at desktop, hidden on mobile. The on-card Learn-more is no
++       longer pluggable per-section.
++    2. Per-Group `logo` override (previously honoured for edge cases via
++       `params.scoutSections.<key>.logo`) is no longer read. Logos ship
++       with the theme; Groups can't substitute their own. Brand asset
++       maintenance stays centralised. See documentation/DECISIONS.md.
++    3. Subtitle wrapper changes from <div> to <p> via the shared
++       .sect-head pattern (same caveat as D5's section-header migration:
++       block-level HTML inside subtitles will produce invalid HTML; plain
++       text and inline HTML are unaffected).
++    4. The outer <section> class changes from `s-section-grid` to
++       `s-scout-sections`. The shared generic `section-grid` partial
++       still exists for non-Scout-section grids; the two no longer share
++       CSS rules.
++
++  Logos
++  -----
++  Each section's SVG is inlined into the card via resources.Get + .Content,
++  so its native brand colours render at any size and the CSS sizing rules
++  in .s-scout-sections__logo apply directly. The theme ships the official
++  Scout section logo SVGs at assets/images/sections/<key>.svg (see
++  documentation/DECISIONS.md for the centralised-brand-maintenance policy).
+ */ -}}
+ {{- $id := .id | default "" -}}
+ {{- $bgClass := "" -}}
+ {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+ {{- $titleClass := "" -}}
+ {{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
++{{- $headClass := "sect-head" -}}
++{{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
++{{- $hasHead := or .eyebrow .title .subtitle -}}
+ {{- $defaultLabel := .button_label | default "Learn more" -}}
+-{{- $defaultStyle := .button_style | default "primary" -}}
+ {{- $userConfig := site.Params.scoutSections | default dict -}}
+-
+-<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-section-grid reveal {{ $bgClass }}">
++<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-scout-sections reveal {{ $bgClass }}">
+   <div class="container">
+-    <div class="s-section-grid__head">
+-      {{- with .title }}<h2 class="s-section-grid__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
+-      {{- with .subtitle }}<div class="s-section-grid__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
++    {{- if $hasHead }}
++    <div class="{{ $headClass }}">
++      {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
++      {{- with .title }}<h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ . }}</h2>{{ end }}
++      {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+     </div>
+-    <div class="s-section-grid__cards">
++    {{- end }}
++    <div class="s-scout-sections__grid">
+       {{- range hugo.Data.scout_sections.items }}
+         {{- $key := .key -}}
+         {{- $user := index $userConfig $key | default dict -}}
+-        {{- /* Should this card render?
+-               1. Baseline comes from data: `default_enabled` (omit = true).
+-               2. Group's `params.scoutSections.<key>.enable` overrides if
+-                  explicitly set to true or false. */ -}}
++        {{- /* Render gate:
++                1. Baseline comes from data: `default_enabled` (omit = true).
++                2. Group's `params.scoutSections.<key>.enable` overrides if
++                   explicitly set to true or false. */ -}}
+         {{- $defaultEnabled := ne .default_enabled false -}}
+         {{- $shouldRender := $defaultEnabled -}}
+         {{- if eq $user.enable true }}{{ $shouldRender = true }}{{ end -}}
+         {{- if eq $user.enable false }}{{ $shouldRender = false }}{{ end -}}
+-        {{- if $shouldRender }}
+-          {{- /* Logo: per-Group override wins if set; otherwise the theme's
+-                 shipped logo from data/scout_sections.toml. */ -}}
+-          {{- $logoPath := $user.logo | default .logo -}}
+-          {{- $img := "" -}}
+-          {{- with $logoPath -}}
+-            {{- if hasPrefix . "http" -}}{{ $img = . }}
+-            {{- else -}}{{- with resources.Get . }}{{ $img = .RelPermalink }}{{ end -}}
+-            {{- end -}}
+-          {{- end -}}
+-          <article class="s-card">
+-            {{- if $img }}
+-              <img class="s-card__img" src="{{ $img }}" alt="{{ .alt }}" loading="lazy">
+-            {{- end }}
+-            <h3 class="s-card__title display-5">{{ .ages }}</h3>
+-            <div class="s-card__footer">
+-              <a class="btn btn-{{ $defaultStyle }}" href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ $defaultLabel }}</a>
+-            </div>
+-          </article>
++        {{- if $shouldRender -}}
++        {{- $logoSVG := "" -}}
++        {{- with resources.Get .logo -}}{{ $logoSVG = .Content }}{{ end -}}
++        <a class="s-scout-sections__card"
++           data-sec="{{ $key }}"
++           style="--sec: {{ .color }};"
++           href="{{ .url | safeURL }}" target="_blank" rel="noopener"
++           aria-label="Learn more about {{ .name }} ({{ .ages }})">
++          <div class="s-scout-sections__logo" aria-hidden="true">{{ $logoSVG | safeHTML }}</div>
++          <div class="s-scout-sections__info">
++            <span class="s-scout-sections__age">{{ .ages }}</span>
++            <span class="s-scout-sections__lm">{{ $defaultLabel }} <span class="arr">&rarr;</span></span>
++          </div>
++          <span class="s-scout-sections__btn">{{ $defaultLabel }}</span>
++        </a>
+         {{- end }}
+       {{- end }}
+     </div>

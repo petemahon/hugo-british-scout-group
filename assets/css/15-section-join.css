@@ -1,0 +1,153 @@
+/* -----------------------------------------------------------------------------
+   14. SECTION: JOIN
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Responsive grid of call-to-action cards inviting visitors to join (or
+   volunteer with) the Group. Default is two cards; the partial accepts
+   any N. Mobile: cards stack, each card is a 2-column grid with icon left
+   and text right. Desktop (≥ 768 px): cards sit side-by-side and switch
+   to block flow so the icon stacks above the text.
+
+   The card consumes the cross-cutting .btn styles for buttons and tints
+   its icon-circle background with palette tokens via color-mix. The
+   accent variant uses --accent in place of --primary; otherwise the
+   variant is structurally identical.
+   ----------------------------------------------------------------------------- */
+
+/* The outer section uses the theme's standard .section padding (from
+   02-layout.css) and the standard .s-bg-* tones (from 02-layout.css).
+   No bespoke padding overrides — the mockup's 56 px / 80 px values
+   were a one-off; the theme's --section-py is the correct cross-section
+   rhythm. */
+
+.s-join__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;       /* 14 px — mockup */
+}
+@media (min-width: 768px) {
+  .s-join__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;       /* 24 px — mockup */
+  }
+}
+/* Three or more cards: wrap onto a second row at desktop sizes. The
+   grid expands to as many equal columns as cards fit; minmax stops a
+   single very-narrow column from pulling siblings down. */
+@media (min-width: 1024px) {
+  .s-join__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.s-join__card {
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 1.5rem;     /* 24 px */
+  border: 1px solid rgba(20, 17, 14, 0.05);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.125rem;       /* 18 px */
+  align-items: start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+@media (min-width: 768px) {
+  .s-join__card {
+    display: block;
+    padding: 2.25rem;  /* 36 px */
+    border-radius: 24px;
+  }
+}
+.s-join__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(20, 17, 14, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .s-join__card { transition: box-shadow 0.2s; }
+  .s-join__card:hover { transform: none; }
+}
+
+.s-join__card h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0 0 0.375rem;          /* 6 px */
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  .s-join__card h3 {
+    font-size: 26px;
+    margin: 0 0 0.75rem;         /* 12 px */
+  }
+}
+
+.s-join__card p {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 1rem;              /* 16 px */
+  font-size: 14.5px;
+}
+@media (min-width: 768px) {
+  .s-join__card p {
+    line-height: 1.55;
+    margin-bottom: 1.5rem;       /* 24 px */
+    font-size: 16px;
+  }
+}
+
+/* ── Icon circle ──────────────────────────────────────────── */
+.s-join__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  grid-row: span 3;              /* mobile: spans the full text column */
+}
+@media (min-width: 768px) {
+  .s-join__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    grid-row: auto;
+    margin-bottom: 1.25rem;      /* 20 px */
+  }
+}
+.s-join__icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Accent variant — colour-tinted icon background using --accent.
+   Used for the volunteer card in the canonical layout. */
+.s-join__card--accent .s-join__icon {
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+/* Buttons inside join cards take a slightly tighter scale than the
+   global .btn defaults — matches the mockup. */
+.s-join__card .btn {
+  font-size: 14px;
+  padding: 0.6875rem 1rem;       /* 11 / 16 px */
+}
+@media (min-width: 768px) {
+  .s-join__card .btn {
+    font-size: 15px;
+    padding: 0.875rem 1.375rem;  /* 14 / 22 px */
+  }
+}
+
+/* No-icon fallback. If a card omits `icon`, the .s-join__icon div is
+   still rendered (and is empty). On mobile it would occupy column 1
+   with no visible content; collapse it. */
+.s-join__icon:empty {
+  display: none;
+}
+.s-join__icon:empty + .s-join__card-body {
+  grid-column: 1 / -1;
+}

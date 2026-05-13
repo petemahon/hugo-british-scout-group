@@ -44,11 +44,12 @@ adoption by other UK Scout Groups — particularly BSO Groups.
 - **No backend services, no third-party tracking scripts** (no
   analytics, social embeds, comment systems, payment widgets,
   livechat, tracking font CDNs).
-- **No copyrighted Scout brand imagery** ships in the theme repo.
-  Every theme-path visual asset is a generic placeholder; Groups
-  override at the same path in their site repo. Real Scout brand
-  assets come from https://scoutsbrand.org.uk and Groups download
-  them themselves.
+- **Official Scout section logo SVGs** ship in the theme at
+  `assets/images/sections/<key>.svg`, downloaded from
+  https://scoutsbrand.org.uk by the theme maintainer. Groups do
+  NOT override these — brand asset maintenance is centralised.
+  **Other visual assets** shipped at theme paths are generic
+  placeholders; Groups override at the same path in their site repo.
 - **Group-specific values live only in the consuming site's
   `hugo.toml` and `content/`.** Nothing in the theme code may
   reference Abu Dhabi, the BSO Group's name, or any Group's

@@ -194,11 +194,11 @@ p:last-child { margin-bottom: 0; }
 .s-bg-tertiary  .s-section-header__subtitle,
 .s-bg-dark      .s-section-header__subtitle { color: rgba(255,255,255,0.85); }
 
-.s-bg-primary   a:not(.btn),
-.s-bg-secondary a:not(.btn),
-.s-bg-tertiary  a:not(.btn),
-.s-bg-dark      a:not(.btn) { color: inherit; text-decoration: underline; }
-.s-bg-accent    a:not(.btn) { color: #000000; text-decoration: underline; }
+.s-bg-primary   a:not(.btn):not(.styled-link),
+.s-bg-secondary a:not(.btn):not(.styled-link),
+.s-bg-tertiary  a:not(.btn):not(.styled-link),
+.s-bg-dark      a:not(.btn):not(.styled-link) { color: inherit; text-decoration: underline; }
+.s-bg-accent    a:not(.btn):not(.styled-link) { color: #000000; text-decoration: underline; }
 
 /* Title colour overrides — pass `title_color = "primary" | "secondary" |
    "tertiary" | "accent"` on a section to tint its main heading. */
@@ -218,6 +218,13 @@ p:last-child { margin-bottom: 0; }
   border: 0;
 }
 
+
+/* Sentinel class — opts an anchor out of any auto-applied link
+   decoration (notably the dark-bg underline rule above). Use on any
+   anchor that's styled as a card, badge or other self-contained
+   component rather than as a text link. Separate from .btn, which
+   carries actual button styling; .styled-link is purely a marker. */
+a.styled-link { text-decoration: none; }
 /* -----------------------------------------------------------------------------
    03. COMPONENTS: BUTTONS
    Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
@@ -691,7 +698,30 @@ p:last-child { margin-bottom: 0; }
 .sect-head--left .eyebrow { justify-content: flex-start; }
 .sect-head--left .eyebrow::after { display: none; }
 .sect-head--left p { margin: 0; }
-/* -----------------------------------------------------------------------------
+
+/* When the parent section sits on a coloured/dark palette bg, the
+   eyebrow and subtitle should follow the section's text colour (which
+   .s-bg-* in 02-layout.css already sets to --text-on-<bg>) rather than
+   asserting --primary / --text-muted (designed for the white-card case
+   and poor-contrast on coloured bgs). currentColor inherits the right
+   on-bg colour set by .s-bg-* without us needing per-bg overrides.
+
+   :where() keeps specificity low so site-level overrides still win. */
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow {
+  color: currentColor;
+}
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow::before,
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow::after {
+  background: currentColor;
+}
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head p {
+  color: currentColor;
+  opacity: 0.85;   /* a touch muted, preserving the title/subtitle hierarchy */
+}/* -----------------------------------------------------------------------------
    10. SECTION: HERO
    Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
@@ -1308,6 +1338,233 @@ p:last-child { margin-bottom: 0; }
   border-top: 1px solid rgba(0,0,0,0.06);
 }
 
+/* -----------------------------------------------------------------------------
+   20. SECTION: SCOUT-SECTIONS
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Responsive grid of N cards (1–6, typically 5) auto-rendered from
+   data/scout_sections.toml. Each card links to its section's
+   scouts.org.uk page. The whole card is a single anchor — no nested
+   anchors, big touch target, screen-reader-friendly.
+
+   Layout: option A on desktop (≥ 768 px), option B on mobile.
+
+   Option A — desktop, vertical:
+     ┌─────────────────────────────┐
+     │ ━━━━━━━━━━━━━━━━━━━━━━━━━━  │ ← top accent strip (section colour)
+     │           [LOGO]            │
+     │          4 to 6 years       │
+     │      [   Learn more   ]     │ ← button-look (non-interactive)
+     └─────────────────────────────┘
+
+   Option B — mobile, horizontal:
+     ┌─┬─────────────────────────┐
+     │ │ [LOGO]    4 to 6 years  │
+     │ │           Learn more →  │ ← inline text, no button-look
+     └─┴─────────────────────────┘
+       ↑ side accent strip (section colour)
+
+   The section's identity colour is delivered to .s-scout-sections__card
+   via an inline `--sec` custom property set by the partial from
+   data/scout_sections.toml's `color` field — the same value used by
+   section badges elsewhere in the theme (news cards, event cards, etc).
+
+   The Learn-more affordance is *non-interactive* — it's a styled
+   <span class="s-scout-sections__btn"> inside the parent <a>. Visual
+   feedback on hover comes from the parent anchor's :hover state
+   cascading down. Keyboard focus lands on the parent <a>, where the
+   default focus ring covers the entire card.
+
+   Card-count overrides:
+     - Default: 3 per row at ≥ 768 px (handles 1, 2, 3, 5, 6).
+     - Exactly 4: 2×2 instead of 3+1, via :has(). Older browsers
+       (Firefox ≤ 120) degrade to 3+1 — still readable.
+   ----------------------------------------------------------------------------- */
+
+/* The outer section uses the theme's standard .section padding (from
+   02-layout.css) and the standard .s-bg-* tones (from 02-layout.css).
+   No bespoke padding overrides — the mockup's 64 px / 96 px values are
+   a one-off; --section-py is the correct cross-section rhythm. */
+
+.s-scout-sections__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;        /* 16 px — mockup */
+}
+@media (min-width: 768px) {
+  .s-scout-sections__grid { gap: 1.25rem; }  /* 20 px */
+}
+
+/* ── Mobile: single-column horizontal cards ─────────────────── */
+.s-scout-sections__card {
+  flex: 0 0 100%;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 18px;
+  padding: 1.125rem 1.375rem;   /* 18 / 22 px */
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.125rem;                /* 18 px */
+  min-height: 84px;
+}
+.s-scout-sections__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(20, 17, 14, 0.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .s-scout-sections__card { transition: box-shadow 0.2s ease; }
+  .s-scout-sections__card:hover { transform: none; }
+}
+
+/* Inherit text colour for the card body, regardless of section bg tone.
+   The outer .s-bg-* rules in 02-layout.css cascade text colours onto
+   descendants — but the card's interior is a white pill, so we want
+   the body to use the default text colour. */
+.s-bg-primary   .s-scout-sections__card,
+.s-bg-secondary .s-scout-sections__card,
+.s-bg-tertiary  .s-scout-sections__card,
+.s-bg-accent    .s-scout-sections__card,
+.s-bg-dark      .s-scout-sections__card { color: var(--text); }
+
+/* Coloured accent strip — vertical on mobile (left edge),
+   horizontal on desktop (top edge). Width and height swap. */
+.s-scout-sections__card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--sec);
+  transition: width 0.2s, height 0.2s;
+}
+.s-scout-sections__card:hover::before { width: 10px; }
+
+/* ── Logo frame ────────────────────────────────────────────── */
+.s-scout-sections__logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 44px;
+}
+.s-scout-sections__logo svg {
+  max-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* ── Info column (mobile: age + inline "Learn more"; right-aligned) ── */
+.s-scout-sections__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 0.25rem;
+}
+.s-scout-sections__age {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.s-scout-sections__lm {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13.5px;
+}
+.s-scout-sections__lm .arr {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.s-scout-sections__card:hover .s-scout-sections__lm .arr {
+  transform: translateX(3px);
+}
+
+/* The button-look only renders at ≥ 768 px (option A); hidden on mobile. */
+.s-scout-sections__btn { display: none; }
+
+/* ── Desktop: vertical card (option A) ─────────────────────── */
+@media (min-width: 768px) {
+  .s-scout-sections__card {
+    flex: 0 0 calc(33.333% - 0.875rem); /* three across, gap-aware */
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem 1.375rem 1.25rem;   /* 24 / 22 / 20 px */
+    min-height: 0;
+    gap: 0;
+  }
+
+  /* Switch the accent strip from side to top */
+  .s-scout-sections__card::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 6px;
+  }
+  .s-scout-sections__card:hover::before {
+    width: auto;
+    height: 10px;
+  }
+
+  .s-scout-sections__logo {
+    height: 64px;
+    justify-content: center;
+    margin-bottom: 1.125rem;   /* 18 px */
+  }
+
+  .s-scout-sections__info {
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0;
+  }
+  .s-scout-sections__age {
+    font-size: 17px;
+    margin-bottom: 0.875rem;   /* 14 px */
+  }
+
+  /* Hide the inline-text "Learn more →"; show the button-look instead. */
+  .s-scout-sections__lm { display: none; }
+
+  .s-scout-sections__btn {
+    display: block;
+    background: var(--primary);
+    color: var(--text-on-primary);
+    padding: 0.625rem 1rem;    /* 10 / 16 px */
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: background 0.15s ease;
+    margin-top: auto;          /* glue button to card bottom — uniform heights */
+  }
+  .s-scout-sections__card:hover .s-scout-sections__btn {
+    background: var(--primary-hover);
+  }
+
+  /* Exactly 4 cards: 2×2 instead of 3+1. Modern :has() — Firefox ≥ 121,
+     Safari ≥ 15.4, Chrome ≥ 105. Older browsers fall back to 3+1, still
+     functional. */
+  .s-scout-sections__grid:has(> .s-scout-sections__card:nth-child(4):last-child)
+    .s-scout-sections__card {
+    flex: 0 0 calc(50% - 0.625rem);
+    max-width: 380px;
+  }
+}
 /* -----------------------------------------------------------------------------
    16. FOOTER
    ----------------------------------------------------------------------------- */

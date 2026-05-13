@@ -1,0 +1,140 @@
+/* -----------------------------------------------------------------------------
+   05. COMPONENTS: SECT-HEAD & EYEBROW
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Cross-cutting section-head pattern used by every section below the hero.
+
+   Two classes, both bare (no `s-` prefix) — they're not scoped to any one
+   section. They join `.btn`, `.container` and `.reveal` as the theme's
+   cross-cutting component layer.
+
+   .eyebrow         Small primary-coloured uppercase lead-in with a 22 px
+                    line decoration before the text (e.g. "Join Us", "Our
+                    Sections", "What's coming up"). Usable standalone — the
+                    hero consumes it directly.
+
+   .sect-head       Container for the eyebrow + h2 + optional supporting
+                    paragraph. Centred by default. When an .eyebrow sits
+                    inside a .sect-head, a matching trailing line decoration
+                    is added so the eyebrow reads "— TEXT —".
+
+   .sect-head--left BEM modifier — strips the centring and the trailing
+                    line decoration. Used by sections whose body is a
+                    left-aligned grid (events, news, meet, …).
+
+   Markup pattern (centred):
+
+     <div class="sect-head">
+       <span class="eyebrow">Join Us</span>
+       <h2>Joining couldn't be easier.</h2>
+       <p>Register your interest below…</p>
+     </div>
+
+   Markup pattern (left-aligned):
+
+     <div class="sect-head sect-head--left">
+       <span class="eyebrow">What's coming up</span>
+       <h2>Camps, parades and meetings.</h2>
+     </div>
+
+   Future variants — .eyebrow-yellow (volunteer band) and the network
+   section's black eyebrow row — ship with their respective section
+   deliverables. D5 establishes the pattern only.
+   ----------------------------------------------------------------------------- */
+
+/* ── Eyebrow (usable standalone or inside .sect-head) ─────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+  }
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ── Section head — centred default ───────────────────────────── */
+.sect-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .sect-head { margin-bottom: 3rem; }
+}
+.sect-head .eyebrow { justify-content: center; }
+.sect-head .eyebrow::before,
+.sect-head .eyebrow::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+.sect-head h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .sect-head h2 { margin-bottom: 1rem; }
+}
+.sect-head p {
+  max-width: 60ch;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .sect-head p { font-size: 17px; }
+}
+
+/* ── Left-aligned modifier ────────────────────────────────────── */
+.sect-head--left {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.sect-head--left .eyebrow { justify-content: flex-start; }
+.sect-head--left .eyebrow::after { display: none; }
+.sect-head--left p { margin: 0; }
+
+/* When the parent section sits on a coloured/dark palette bg, the
+   eyebrow and subtitle should follow the section's text colour (which
+   .s-bg-* in 02-layout.css already sets to --text-on-<bg>) rather than
+   asserting --primary / --text-muted (designed for the white-card case
+   and poor-contrast on coloured bgs). currentColor inherits the right
+   on-bg colour set by .s-bg-* without us needing per-bg overrides.
+
+   :where() keeps specificity low so site-level overrides still win. */
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow {
+  color: currentColor;
+}
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow::before,
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head .eyebrow::after {
+  background: currentColor;
+}
+:where(.s-bg-primary, .s-bg-secondary, .s-bg-tertiary, .s-bg-accent, .s-bg-dark)
+  .sect-head p {
+  color: currentColor;
+  opacity: 0.85;   /* a touch muted, preserving the title/subtitle hierarchy */
+}

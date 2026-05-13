@@ -41,29 +41,11 @@
 }
 
 /* ── Eyebrow ───────────────────────────────────────────────── */
-.s-hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-@media (min-width: 768px) {
-  .s-hero__eyebrow {
-    font-size: 12px;
-    margin-bottom: 1.25rem;
-  }
-}
-.s-hero__eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: var(--primary);
-}
+/* The hero consumes the shared `.eyebrow` component, which lives in
+   05-components-sect-head.css. The bespoke `.s-hero__eyebrow` rules
+   that lived here in D4 were folded into the shared component in D5 —
+   they were byte-identical, and the hero is now one consumer among
+   many (Join, Sections, Events, News, Meet, …). */
 
 /* ── Heading and em-slot ───────────────────────────────────── */
 .s-hero h1 {

@@ -1,0 +1,119 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  join — call-to-action cards inviting visitors to join (or volunteer with)
+         the Group. Renders an optional .sect-head followed by a responsive
+         grid of N cards (default 2, no upper bound).
+
+  Schema (in [[sections]] under content/_index.md):
+
+    type        = "join"                  (required)
+    id          = "join"                  (optional anchor id; default "join")
+    eyebrow     = "Join us"               (optional)
+    title       = "Joining couldn't be easier."   (optional)
+    subtitle    = "Register your interest …"      (optional; HTML ok)
+    align       = "left"                  (optional; "left" applies
+                                            .sect-head--left to the head.
+                                            Default centred.)
+    bg          = "muted"                 (optional; applies s-bg-muted
+                                            on the outer <section>.
+                                            Mockup uses muted.)
+    title_color = "primary"               (optional; applies s-title-primary
+                                            on the <h2>. Inert for now —
+                                            kept for cross-section
+                                            consistency.)
+
+    [[sections.cards]]                    (required if you want cards;
+                                            no upper bound — typical use is 2)
+      icon  = "waitlist"                  (optional; resolves to an SVG at
+                                            assets/images/join/icons/<icon>.svg
+                                            and inlines it. Theme ships
+                                            `waitlist` and `volunteer`.
+                                            Groups can drop in their own
+                                            SVGs at the same path or with
+                                            any other name.)
+      variant = "accent"                  (optional; "accent" applies the
+                                            --accent-tinted icon background.
+                                            Default is --primary-tinted.)
+      title = "Add a young person"        (required)
+      text  = "For each child you'd …"    (optional; HTML ok)
+
+      [sections.cards.button]             (optional)
+        label    = "Add to waiting list"
+        url      = "/joining/"
+        style    = "primary"              (default; "ghost", "outline" all
+                                            map to .btn-<style>)
+        arrow    = true                   (appends the → glyph used by the
+                                            theme's primary CTA convention)
+        external = false                  (true → target="_blank" rel="noopener")
+
+  Front matter is intentionally minimal; the cards array carries the variation.
+  Per Peter's D5 design call, every section partial accepts the shared head
+  pattern (eyebrow, title, subtitle, align) so the head reads consistently
+  across the home page without each section reinventing the wrapper.
+
+  SVG icons
+  ---------
+  Icons are inlined (not <img>-referenced) so they pick up `currentColor`
+  from .s-join__icon and tint with the palette automatically. Each icon
+  file in the theme uses `stroke="currentColor"` and `fill="none"`.
+
+  Asset-override pattern: drop a file at `assets/images/join/icons/<name>.svg`
+  in the consuming site to replace the theme's icon. Hugo's resource lookup
+  prefers the site's copy over the theme's.
+
+  Build-time guard: if `icon` is set but the resolved SVG resource is
+  missing, the icon container renders empty (no warnf — Groups may
+  deliberately want an unstyled card with no icon by leaving `icon`
+  unset). Setting `icon` to a known-bad name silently degrades; this
+  is the same behaviour as the hero's photo lookup.
+*/ -}}
+{{- $id := .id | default "join" -}}
+{{- $bgClass := "" -}}
+{{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+{{- $titleClass := "" -}}
+{{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $headClass := "sect-head" -}}
+{{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
+{{- $hasHead := or .eyebrow .title .subtitle -}}
+<section id="{{ $id }}" class="section s-join reveal {{ $bgClass }}">
+  <div class="container">
+    {{- if $hasHead }}
+    <div class="{{ $headClass }}">
+      {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+      {{- with .title }}<h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ . }}</h2>{{ end }}
+      {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+    </div>
+    {{- end }}
+    {{- with .cards }}
+    <div class="s-join__grid">
+      {{- range . -}}
+      {{- $cardClass := "s-join__card" -}}
+      {{- if eq .variant "accent" }}{{ $cardClass = "s-join__card s-join__card--accent" }}{{ end }}
+      <div class="{{ $cardClass }}">
+        {{- $iconSVG := "" -}}
+        {{- with .icon -}}
+          {{- $iconPath := printf "images/join/icons/%s.svg" . -}}
+          {{- with resources.Get $iconPath -}}{{ $iconSVG = .Content }}{{ end -}}
+        {{- end }}
+        <div class="s-join__icon" aria-hidden="true">{{ $iconSVG | safeHTML }}</div>
+        <div class="s-join__card-body">
+          {{- with .title }}<h3>{{ . }}</h3>{{ end }}
+          {{- with .text }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{- with .button }}
+            {{- $style := .style | default "primary" -}}
+            <a class="btn btn-{{ $style }}" href="{{ .url | safeURL }}"
+              {{- if .external }} target="_blank" rel="noopener"{{ end }}>
+              {{- .label -}}
+              {{- if .arrow }} <span class="arr">&rarr;</span>{{ end -}}
+            </a>
+          {{- end }}
+        </div>
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>

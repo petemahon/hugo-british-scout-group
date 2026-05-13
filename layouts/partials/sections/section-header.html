@@ -1,19 +1,65 @@
 {{- /*
-  section-header — centred title + subtitle only. Useful as a header above an
-  embed or a content area that follows.
-  Params:
-    id        (string)
-    title     (string)
-    subtitle  (string, HTML ok)
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  section-header — standalone section header: optional eyebrow + h2 +
+                   optional supporting paragraph. Useful as a header above
+                   an embed, a content block, or any subsequent section.
+
+  Schema (in [[sections]] under content/_index.md):
+
+    type        = "section-header"        (required)
+    id          = "where-we-meet"         (optional anchor id)
+    eyebrow     = "Find us"               (optional small uppercase lead-in;
+                                            renders a 22 px line decoration
+                                            before AND after the text when
+                                            the head is centred — and only
+                                            before when align = "left")
+    title       = "Anytown Scout huts."   (required for the partial to
+                                            render anything visible)
+    subtitle    = "Four sections, three…" (optional supporting paragraph;
+                                            see "subtitle" note below)
+    align       = "left"                  (optional; "left" applies the
+                                            sect-head--left modifier. Any
+                                            other value, or unset, renders
+                                            the default centred head.)
+    bg          = "muted"                 (optional; applies s-bg-muted on
+                                            the outer <section>)
+    title_color = "primary"               (optional; applies s-title-primary
+                                            on the <h2>)
+
+  D5 migration note (changed in deliverable 5 of ~14)
+  ---------------------------------------------------
+  Before D5, this partial wrapped the subtitle in a <div> so block-level
+  HTML inside was passed through verbatim. From D5 onwards, the subtitle
+  is wrapped in a <p> so the shared `.sect-head p` styling applies.
+
+  This is a breaking change for any subtitle that contains block-level
+  HTML (<ul>, <div>, <h3>, …) — those produce invalid HTML when nested
+  inside a <p>. Subtitles using only inline HTML (<br>, <em>, <strong>,
+  <a>) continue to work unchanged.
+
+  The outer <section class="section s-section-header reveal …"> wrapper
+  is preserved so the section keeps its existing padding, background and
+  fade-in behaviour. The bespoke `.s-section-header` / `__title` /
+  `__subtitle` CSS rules from D2 were removed in D5 in favour of the
+  shared `.sect-head` component — but the `.s-section-header` class
+  itself survives as an inert hook for any downstream override.
 */ -}}
 {{- $id := .id | default "" -}}
 {{- $bgClass := "" -}}
 {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
 {{- $titleClass := "" -}}
 {{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $headClass := "sect-head" -}}
+{{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
 <section{{ with $id }} id="{{ . }}"{{ end }} class="section s-section-header reveal {{ $bgClass }}">
   <div class="container">
-    {{- with .title }}<h2 class="s-section-header__title display-2 {{ $titleClass }}">{{ . }}</h2>{{ end }}
-    {{- with .subtitle }}<div class="s-section-header__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
+    <div class="{{ $headClass }}">
+      {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+      {{- with .title }}<h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ . }}</h2>{{ end }}
+      {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+    </div>
   </div>
 </section>

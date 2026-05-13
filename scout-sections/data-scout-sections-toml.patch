@@ -1,0 +1,68 @@
+--- a/data/scout_sections.toml	2026-05-13 07:14:22.801210959 +0000
++++ b/data/scout_sections.toml	2026-05-13 07:14:32.040528577 +0000
+@@ -40,16 +40,15 @@
+ # Network event. Only the home-page card is suppressed by default.
+ #
+ # Logos are official Scouts brand assets, downloaded from
+-# https://scoutsbrand.org.uk by the theme maintainer. Groups should NOT
+-# substitute their own logos — the brand is centrally controlled.
+-# (An optional per-Group `logo` override exists in the partial for edge
+-# cases, but it isn't documented in the public README.)
++# https://scoutsbrand.org.uk by the theme maintainer. Groups DO NOT
++# substitute their own logos — the brand is centrally controlled and
++# the partial does not read a per-Group `logo` override.
+ 
+ [[items]]
+   key         = "squirrels"
+   name        = "Squirrels"
+   ages        = "4 to 6 years"
+-  logo        = "images/sections/squirrels.webp"
++  logo        = "images/sections/squirrels.svg"
+   url         = "https://www.scouts.org.uk/squirrels"
+   alt         = "Logo for Squirrels Section"
+   color       = "#25B755"
+@@ -59,7 +58,7 @@
+   key         = "beavers"
+   name        = "Beavers"
+   ages        = "6 to 8 years"
+-  logo        = "images/sections/beavers.webp"
++  logo        = "images/sections/beavers.svg"
+   url         = "https://www.scouts.org.uk/beavers"
+   alt         = "Logo for Beavers Section"
+   color       = "#003982"
+@@ -69,7 +68,7 @@
+   key         = "cubs"
+   name        = "Cubs"
+   ages        = "8 to 10 ½ years"
+-  logo        = "images/sections/cubs.webp"
++  logo        = "images/sections/cubs.svg"
+   url         = "https://www.scouts.org.uk/cubs"
+   alt         = "Logo for Cubs Section"
+   color       = "#F7EF27"
+@@ -79,7 +78,7 @@
+   key         = "scouts"
+   name        = "Scouts"
+   ages        = "10 ½ to 14 years"
+-  logo        = "images/sections/scouts.webp"
++  logo        = "images/sections/scouts.svg"
+   url         = "https://www.scouts.org.uk/scouts"
+   alt         = "Logo for Scouts Section"
+   color       = "#E22E12"
+@@ -89,7 +88,7 @@
+   key         = "explorers"
+   name        = "Explorers"
+   ages        = "14 to 18 years"
+-  logo        = "images/sections/explorers.webp"
++  logo        = "images/sections/explorers.svg"
+   url         = "https://www.scouts.org.uk/explorers"
+   alt         = "Logo for Explorers Section"
+   color       = "#088486"
+@@ -99,7 +98,7 @@
+   key             = "network"
+   name            = "Network"
+   ages            = "18 to 25 years"
+-  logo            = "images/sections/network.webp"
++  logo            = "images/sections/network.svg"
+   url             = "https://www.scouts.org.uk/network/"
+   alt             = "Logo for Scout Network"
+   color           = "#000000"

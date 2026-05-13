@@ -66,11 +66,11 @@
 .s-bg-tertiary  .s-section-header__subtitle,
 .s-bg-dark      .s-section-header__subtitle { color: rgba(255,255,255,0.85); }
 
-.s-bg-primary   a:not(.btn),
-.s-bg-secondary a:not(.btn),
-.s-bg-tertiary  a:not(.btn),
-.s-bg-dark      a:not(.btn) { color: inherit; text-decoration: underline; }
-.s-bg-accent    a:not(.btn) { color: #000000; text-decoration: underline; }
+.s-bg-primary   a:not(.btn):not(.styled-link),
+.s-bg-secondary a:not(.btn):not(.styled-link),
+.s-bg-tertiary  a:not(.btn):not(.styled-link),
+.s-bg-dark      a:not(.btn):not(.styled-link) { color: inherit; text-decoration: underline; }
+.s-bg-accent    a:not(.btn):not(.styled-link) { color: #000000; text-decoration: underline; }
 
 /* Title colour overrides — pass `title_color = "primary" | "secondary" |
    "tertiary" | "accent"` on a section to tint its main heading. */
@@ -90,3 +90,10 @@
   border: 0;
 }
 
+
+/* Sentinel class — opts an anchor out of any auto-applied link
+   decoration (notably the dark-bg underline rule above). Use on any
+   anchor that's styled as a card, badge or other self-contained
+   component rather than as a text link. Separate from .btn, which
+   carries actual button styling; .styled-link is purely a marker. */
+a.styled-link { text-decoration: none; }

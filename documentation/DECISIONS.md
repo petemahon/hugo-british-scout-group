@@ -40,11 +40,29 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
 - All hex values come from the Scouts Brand Guidelines 2023. Editing
   these to realign with future Scouts brand updates is the expected
   maintenance path; adding a sixth named palette is a flag-not-change.
-- Theme ships zero copyrighted brand imagery. Generic placeholder WebPs
-  ship at `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.webp`
-  and `assets/images/volunteer/role-model.webp`. Groups override at the
-  same path with their own files — Hugo's resource resolution prefers
-  the site over the theme.
+- Theme ships the **official Scouts section logo SVGs** at
+  `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
+  downloaded from https://scoutsbrand.org.uk by the theme maintainer.
+  Groups DO NOT override these — brand asset maintenance is centralised
+  in the theme. When The Scout Association updates a logo, the theme
+  is updated and every Group picks up the new asset by bumping their
+  submodule.
+- **Other generic placeholder imagery** (e.g. `assets/images/volunteer/role-model.webp`)
+  ships as before; Groups override at the same path with their own
+  files — Hugo's resource resolution prefers the site over the theme.
+## Link-decoration sentinels
+
+- `02-layout.css` auto-applies `text-decoration: underline` to anchors
+  inside dark-bg sections (`.s-bg-primary`, `.s-bg-secondary`,
+  `.s-bg-tertiary`, `.s-bg-dark`) so raw links remain distinguishable
+  from body text. Two classes opt out:
+  - `.btn` — anchors carrying full button styling.
+  - `.styled-link` — sentinel marker for anchors that are styled cards,
+    badges or other self-contained components (no own visual treatment,
+    just an opt-out flag).
+- New section types whose anchors are card-like or button-like wear
+  `.styled-link` from day one. Do not add new entries to the
+  `:not(.btn):not(.styled-link)` chain.
 
 ## Scout sections (the age groups)
 

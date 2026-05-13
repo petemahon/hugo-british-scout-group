@@ -114,7 +114,7 @@
   <div class="container">
     <div class="s-hero__grid">
       <div class="s-hero__copy">
-        {{- with $eyebrow }}<span class="s-hero__eyebrow">{{ . }}</span>{{ end }}
+        {{- with $eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
         <h1>
           {{- if $hasSplit -}}
             <span class="s-hero__welcome">{{ i18n "heroWelcomeTo" | default "Welcome to" }} </span><span class="s-hero__em-slot"><em>{{ $prefix }}</em></span><span class="s-hero__suffix"> {{ $suffix }}.</span>

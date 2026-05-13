@@ -1,0 +1,187 @@
+SCOUT-SECTIONS — VERIFICATION LOG
+==================================
+
+ENVIRONMENT
+-----------
+Hugo extended v0.123.7 (Ubuntu apt package). Theme min_version is
+0.156, and the live workflow pins 0.157.0. The GitHub releases asset
+CDN is not in this container's network allowlist, so the
+production-pinned 0.157.0 build is the receiving end's responsibility.
+
+Local rig workaround:
+  The post-D7 partial uses `hugo.Data.scout_sections.items` (matching
+  the existing partial style and theme convention). `hugo.Data` was
+  introduced in Hugo 0.123.x and the rig hits a "can't evaluate field
+  Data in type interface {}" error on the precise build of 0.123.7
+  used here. For the rig only, the line was rewritten to
+  `site.Data.scout_sections.items` — the older idiom that works on
+  any Hugo ≥ 0.40. The deliverable's patch keeps `hugo.Data` matching
+  the rest of the theme.
+
+Verification rig is a minimal Hugo site against the post-D6 theme
+tree plus all D7 changes:
+
+  - 00-tokens.css, 01-reset.css (minimal), 02-layout.css (minimal),
+    03-components-buttons.css, 05-components-sect-head.css (D5),
+    10-section-hero.css (D5-patched), 15-section-join.css (D6),
+    17-section-scout-sections.css (NEW D7), 41-feature-hero-intro.css
+  - hero.html, section-header.html (D5), join.html (D6),
+    scout-sections.html (NEW D7)
+  - data/scout_sections.toml (D7-patched, .webp → .svg)
+  - assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg
+    (NEW D7 placeholders)
+
+01-reset.css and 02-layout.css in the rig are minimal stand-ins for
+the real theme's reset and layout — only enough to give `.container`
+a max-width and `box-sizing: border-box` globally. The real theme
+ships these properly via `assets/css/01-reset.css` and
+`assets/css/02-layout.css`. Without the box-sizing reset, cards
+render 19 px wider than expected because their `max-width: 380px`
+is interpreted as content-box width instead of border-box.
+
+TEST 1 — Patches apply on a clean post-D6 tree
+-----------------------------------------------
+Set up: current-theme-state + D5 deltas + D6 tarball applied.
+Created stand-in files at:
+  - documentation/DECISIONS.md
+  - documentation/SPEC-COMMON.md
+  - CLAUDE.md
+each containing the pre-D7 region the patch expects.
+
+Patches applied with `patch -p1`:
+
+  CLAUDE-md.patch                          ✓
+  data-scout-sections-toml.patch           ✓
+  documentation-DECISIONS-md.patch         ✓
+  documentation-SPEC-COMMON-md.patch       ✓
+  scout-sections-html.patch                ✓
+
+Zero fuzz, zero rejected hunks across all five patches.
+
+Post-apply assertions:
+  - DECISIONS.md contains "official Scouts section logo SVGs"      ✓
+  - SPEC-COMMON.md contains "official Scout section logo SVGs"     ✓
+  - CLAUDE.md contains "Official Scout section logo SVGs"          ✓
+  - data/scout_sections.toml has 6 .svg references                 ✓
+  - layouts/partials/sections/scout-sections.html has the new
+    .s-scout-sections classes                                       ✓
+
+TEST 2 — Build with default 5 sections
+---------------------------------------
+Site config: `[params.scoutSections]` with squirrels, beavers, cubs,
+scouts, explorers all `enable = true`. Network not configured (data
+file says default_enabled = false).
+
+Build result: clean, 12 ms, zero WARN, zero errorf  ✓
+
+Rendered cards: 5  ✓
+SVGs inlined:    5  ✓
+Per-section --sec inline styles emitted:
+  data-sec="squirrels" style="--sec: #25B755;"    ✓
+  data-sec="beavers"   style="--sec: #003982;"    ✓
+  data-sec="cubs"      style="--sec: #F7EF27;"    ✓
+  data-sec="scouts"    style="--sec: #E22E12;"    ✓
+  data-sec="explorers" style="--sec: #088486;"    ✓
+
+Visual layout at 1280 × 1200 desktop:
+  Row 1: Squirrels, Beavers, Cubs            (3 cards)
+  Row 2: Scouts, Explorers                   (2 cards, centred)
+  Last row centring: justify-content: center handles it.
+
+Visual layout at 380 × 1200 mobile:
+  All 5 cards stack vertically, each with:
+    - Left accent strip (section identity colour)
+    - Inline LOGO + age + Learn-more → text
+    - No button-look (display: none on .s-scout-sections__btn)
+
+Hover (first card on desktop):
+  Card lifts 2 px (translateY(-2px))
+  Box shadow appears
+  Top accent strip thickens from 6 px to 10 px
+  All three transitions complete within 0.2 s
+
+TEST 3 — Build with 6 sections (Network enabled)
+-------------------------------------------------
+Site config: all 6 sections `enable = true` including network.
+
+Build result: clean, 13 ms, zero WARN, zero errorf  ✓
+Rendered cards: 6  ✓
+
+Visual layout at 1280 × 1200 desktop:
+  Row 1: Squirrels, Beavers, Cubs             (3 cards)
+  Row 2: Scouts, Explorers, Network           (3 cards)
+  Network card displays with black accent strip and inverted
+  white-on-black logo (matching data-file color = "#000000").
+
+TEST 4 — Build with exactly 4 sections (:has() override)
+---------------------------------------------------------
+Site config: squirrels = { enable = false }, others on. Network not
+configured. Result: 4 active sections.
+
+Build result: clean, 16 ms, zero WARN, zero errorf  ✓
+Rendered cards: 4  ✓
+
+Visual layout at 1280 × 1200 desktop:
+  Row 1: Beavers, Cubs       (2 cards)
+  Row 2: Scouts, Explorers   (2 cards)
+
+The :has() rule `.s-scout-sections__grid:has(>
+.s-scout-sections__card:nth-child(4):last-child)` fires, overriding
+the default 3-across to 2×2. Cards take flex-basis calc(50% -
+0.625rem) instead of the default calc(33.333% - 0.875rem).
+
+TEST 5 — CSS bundle assertion
+------------------------------
+Minified bundle public/css/theme.min.css. New rules confirmed
+present:
+
+  .s-scout-sections__grid                      (base + 1 responsive + 2 :has overrides)
+  .s-scout-sections__card                      (base + responsive + hover
+                                                + prefers-reduced-motion)
+  .s-scout-sections__card::before              (base + responsive)
+  .s-scout-sections__logo                      (base + responsive)
+  .s-scout-sections__logo svg
+  .s-scout-sections__info                      (base + responsive)
+  .s-scout-sections__age                       (base + responsive)
+  .s-scout-sections__lm                        (base + .arr hover transform)
+  .s-scout-sections__btn                       (base + hover)
+
+All rules from 17-section-scout-sections.css present in the bundle.
+No leftover .sec-card / .sec-grid / .logo-frame mockup names.
+
+TEST 6 — Accessibility spot-checks
+-----------------------------------
+- Card's `<a>` carries `aria-label="Learn more about Squirrels (4 to
+  6 years)"` (and equivalents for each section).             ✓
+- Inner `.s-scout-sections__logo` carries `aria-hidden="true"`. ✓
+- No nested anchors anywhere on the page.                     ✓
+- The button-look `<span class="s-scout-sections__btn">` is
+  non-focusable and does not capture clicks; the parent `<a>`
+  handles them.                                                ✓
+- Focus state: tabbing through the page lands on each card's
+  `<a>` and shows the default browser focus ring around the
+  entire card. (No `:focus-visible` styling has been customised;
+  the existing global rules apply.)                            ✓
+
+TEST 7 — Screenshots (Playwright + Chromium)
+---------------------------------------------
+Generated 5 PNGs of the rendered site:
+
+  5card-desktop.png          5 cards in 3+2 layout, centred
+  5card-mobile.png           5 cards stacked vertically (option B layout)
+  5card-hover.png            First card lifted, accent strip thickened
+  6card-desktop.png          6 cards in 3+3 layout, including Network
+  4card-desktop.png          4 cards in 2×2 layout (:has override)
+
+VERIFIED ON THE LIVE-PINNED HUGO VERSION
+-----------------------------------------
+Not done here — Hugo 0.157.0 archives are not reachable. Two checks
+left to the receiving end:
+
+1. The deliverable's partial uses `hugo.Data.scout_sections.items`
+   (matching the existing partial style). Confirm this builds on
+   0.157.0 — should, since the existing partial uses the same call.
+
+2. Visual smoke check on the real exampleSite with all its other
+   sections present (this rig only renders the scout-sections block
+   to keep test surface small).

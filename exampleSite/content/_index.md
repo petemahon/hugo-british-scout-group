@@ -51,7 +51,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     icon  = "waitlist"
     title = "Add a young person"
     text  = "For each child you'd like to register, fill out an entry form."
-    [sections.cards.button]
+    [sections.cards.button] 
       label = "Add to waiting list"
       url   = "/joining/"
       style = "primary"
@@ -79,10 +79,11 @@ description = "Skills for Life — example Scout Group home page using the Briti
   type     = "scout-sections"
   id       = "sections"
   bg       = "tertiary"
+  eyebrow  = "Age groups"   # small uppercase lead-in above the h2
+  align    = "centre"         # default centred; "left" → left-aligned head  
   title    = "Our Sections"
   subtitle = "There is a place in Scouts for almost all ages, either as a member of one of the sections below, or as a volunteer. Clicking the Learn More buttons below will take you to the UK Scouts website for further information.<br><br>Sections meet on weekday evenings, during school term-time. To see timings for each group, check the map further down the page."
   button_label = "Learn more"
-  button_style = "primary"
 
 # -----------------------------------------------------------------------------
 # 4. Who can join — BSO membership eligibility (POR 3.2.1.1)

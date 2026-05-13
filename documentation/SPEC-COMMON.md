@@ -15,9 +15,11 @@ flag it.
   reason — see DECISIONS.md.
 - No backend services. No third-party scripts (analytics, social embeds,
   comment systems, payment widgets, livechat, font CDNs that track).
-- The theme repo ships zero copyrighted Scout brand imagery. Every visual
-  asset shipped at a theme path is a generic placeholder; Groups override
-  at the same path in their site repo.
+- The theme repo ships the **official Scout section logo SVGs** at
+  `assets/images/sections/<key>.svg` — these are maintained centrally
+  by the theme and Groups DO NOT override them. **Other visual assets**
+  shipped at theme paths remain generic placeholders; Groups override
+  them at the same path in their site repo.
 - Group-specific values live only in the consuming site's `hugo.toml` and
   `content/`. Nothing in the theme code may reference Abu Dhabi, the BSO
   Group's name, or any Group's specifics. Peter's name in `LICENSE` is
