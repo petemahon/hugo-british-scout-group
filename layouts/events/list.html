@@ -6,43 +6,86 @@
   Events listing — /events/.
 
   Renders the future-only events grid (acceptance criterion #1 — past
-  events hidden by default; archive route is its own sub-section, see
-  SPEC-02 step 9). Each card is rendered by the shared event-card.html
-  partial so home-page block, listing and per-section term page all
-  look the same.
+  events hidden by default; archive route is its own sub-section). Each
+  card is rendered by the shared event-card.html partial so home-page
+  block, listing and per-section term page all look the same.
+
+  D8 visual update
+  ----------------
+    - Page head adopts the shared .sect-head sect-head--left pattern
+      with an eyebrow + h1 + subtitle paragraph. The Subscribe link
+      lives inside that subtitle (Q8 = A from the D8 design choices).
+    - Grid markup mirrors the home-block carousel/grid shell so the
+      same CSS (.s-events__grid in 21-section-events.css) drives both.
+
+  The past archive uses Hugo's natural sub-section pattern:
+  content/events/past/_index.md is its own section, falls back to this
+  template, and branches on .Params.archive = true to invert the filter.
 */ -}}
 {{ define "main" }}
 {{- if site.Params.features.events -}}
   {{- $now := now -}}
+  {{- $archive := .Params.archive | default false -}}
   {{- $events := where .Site.RegularPages "Section" "events" -}}
-  {{- $events =  where $events "Date" ">=" $now -}}
-  {{- $events =  $events.ByDate -}}
+  {{- if $archive -}}
+    {{- $events = where $events "Date" "<" $now -}}
+    {{- $events = $events.ByDate.Reverse -}}
+  {{- else -}}
+    {{- $events = where $events "Date" ">=" $now -}}
+    {{- $events = $events.ByDate -}}
+  {{- end -}}
+
+  {{- /* Heading text — Hugo's parser doesn't accept `else if` directly
+         after `with`, so compute the heading text into a variable first
+         (with `if .Title` rather than `with .Title`). */ -}}
+  {{- $headingText := "" -}}
+  {{- if .Title -}}
+    {{- $headingText = .Title -}}
+  {{- else if $archive -}}
+    {{- $headingText = i18n "eventsArchiveHeading" | default "What we've done" -}}
+  {{- else -}}
+    {{- $headingText = i18n "eventsHeading" | default "Camps, parades and the rest of the diary." -}}
+  {{- end -}}
 
   <section class="section s-events s-events--list reveal">
     <div class="container">
-      <header class="s-events__head">
-        <h1 class="s-events__title display-2">
-          {{- with .Title }}{{ . }}{{ else }}{{ i18n "eventsHeading" | default "Events" }}{{ end -}}
-        </h1>
-        {{- with .Description }}
-          <p class="s-events__intro display-7">{{ . | safeHTML }}</p>
-        {{- end }}
-        <p class="s-events__feed display-7">
-          <a href="all.ics">{{ i18n "eventsSubscribe" | default "Subscribe to all upcoming events (.ics)" }}</a>
+
+      <div class="sect-head sect-head--left">
+        <span class="eyebrow">
+          {{- if $archive }}{{ i18n "eventsArchiveEyebrow" | default "Past events" }}
+          {{- else }}{{ i18n "eventsAllEyebrow" | default "All events" }}{{ end -}}
+        </span>
+        <h1>{{ $headingText }}</h1>
+        <p>
+          {{- with .Description }}{{ . | safeHTML }} {{ end -}}
+          {{- if not $archive -}}
+            {{- i18n "eventsSubscribeIntro" | default "Past events drop out automatically." }}
+            <a href="all.ics" download>{{ i18n "eventsSubscribeLink" | default "Subscribe to all upcoming events (.ics)" }}</a>
+            {{ i18n "eventsSubscribeOutro" | default "to keep your calendar in sync." -}}
+          {{- end -}}
         </p>
-      </header>
+      </div>
 
       {{- if eq (len $events) 0 }}
         <p class="s-events__empty display-7">
-          {{- i18n "eventsNoneUpcoming" | default "No upcoming events." -}}
+          {{- if $archive }}
+            {{- i18n "eventsNonePast" | default "No past events archived yet." -}}
+          {{- else }}
+            {{- i18n "eventsNoneUpcoming" | default "No upcoming events." -}}
+          {{- end -}}
         </p>
       {{- else }}
-        <div class="s-events__grid">
-          {{- range $events }}
-            {{ partial "event-card.html" . }}
-          {{- end }}
+        <div class="s-events-upcoming__grid-shell">
+          <div class="s-events__grid">
+            {{- range $events }}
+              {{ partial "event-card.html" . }}
+            {{- end }}
+          </div>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--left"  aria-hidden="true"></span>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--right" aria-hidden="true"></span>
         </div>
       {{- end }}
+
     </div>
   </section>
 {{- end -}}

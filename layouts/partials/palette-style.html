@@ -1,7 +1,17 @@
 {{- /*
-  Reads the palette key from site params (Site.Params.palette) and emits a
-  :root CSS block overriding the colour tokens with that palette's values.
-  Falls back to "classic-purple" if the requested palette isn't defined.
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  palette-style — reads the palette key from site params
+  (Site.Params.palette) and emits a :root CSS block overriding the colour
+  tokens with that palette's values. Falls back to "classic-purple" if
+  the requested palette isn't defined.
+
+  D8 added --postponed and --text-on-postponed (Postponed event pills).
+  D8 also changed --warning's hex from Scouts Red (#ed3f23) to a darker
+  scarlet (#d4351c) so it's visually distinct from Scouts Red, which is
+  the Scouts section's identity colour.
 */ -}}
 {{- $key := site.Params.palette | default "classic-purple" -}}
 {{- $palette := index hugo.Data.palettes $key -}}
@@ -12,20 +22,22 @@
 {{- with $palette }}
 <style>
 :root {
-  --primary:           {{ .primary }};
-  --primary-hover:     {{ .primary_hover }};
-  --secondary:         {{ .secondary }};
-  --secondary-hover:   {{ .secondary_hover }};
-  --tertiary:          {{ .tertiary }};
-  --accent:            {{ .accent }};
-  --bg:                {{ .bg }};
-  --bg-muted:          {{ .bg_muted }};
-  --text:              {{ .text }};
-  --text-muted:        {{ .text_muted }};
-  --text-on-primary:   {{ .text_on_primary }};
-  --text-on-secondary: {{ .text_on_secondary }};
-  --warning:           {{ .warning }};
-  --text-on-warning:   {{ .text_on_warning }};
+  --primary:             {{ .primary }};
+  --primary-hover:       {{ .primary_hover }};
+  --secondary:           {{ .secondary }};
+  --secondary-hover:     {{ .secondary_hover }};
+  --tertiary:            {{ .tertiary }};
+  --accent:              {{ .accent }};
+  --bg:                  {{ .bg }};
+  --bg-muted:            {{ .bg_muted }};
+  --text:                {{ .text }};
+  --text-muted:          {{ .text_muted }};
+  --text-on-primary:     {{ .text_on_primary }};
+  --text-on-secondary:   {{ .text_on_secondary }};
+  --warning:             {{ .warning }};
+  --text-on-warning:     {{ .text_on_warning }};
+  --postponed:           {{ .postponed }};
+  --text-on-postponed:   {{ .text_on_postponed }};
 }
 </style>
 {{- end }}

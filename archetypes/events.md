@@ -1,92 +1,72 @@
 +++
-# Filename convention: YYYY-MM-DD-kebab-case-title.md
-# Hugo will render this at /events/<filename-without-extension>/.
-# See SPEC-02 in the project knowledge for the full schema.
+# Title shown on the listing, the single page, and the calendar SUMMARY.
+title       = "{{ replace .Name "-" " " | title }}"
 
-title = "{{ replace .Name "-" " " | title }}"
+# Event start time — the source-of-truth start, used by the listing
+# filter, by Hugo's sort, and as DTSTART in the .ics.
+# ISO-8601 with a timezone offset. The offset should match the
+# `timezone` field below (or the site default).
+date        = {{ .Date }}
 
-# When -----------------------------------------------------------------------
-# `date` IS the event start time. Required. Used for sort, by the listing
-# template's `Date >= now` filter, and as DTSTART in the .ics. Edit the
-# auto-filled value below to the actual event start.
-date = {{ .Date }}
-
-# `publishDate` is when this event was added to the site. The archetype
-# sets it to the moment of `hugo new` and you should normally leave it
-# alone — it's guaranteed in the past at any later build, so Hugo's
-# `--buildFuture=false` deploy policy still includes future events.
-# (Without publishDate set, Hugo's future check uses `date` itself,
-# which would suppress every upcoming event.)
+# When the event was added to the site. Set in the past so Hugo's
+# `--buildFuture=false` build still includes this future event.
+# Auto-filled to NOW at `hugo new` time, which is exactly what we want.
 publishDate = {{ .Date }}
 
-# Optional explicit end. Defaults to:
-#   - date + 1h30 for timed events
-#   - same date for all-day events (single-day; .ics still emits the
-#     RFC-5545-correct exclusive end of the next day)
-# end   = ""
+# Optional explicit end. Omit to default to date + 1h30.
+# end       = "2026-07-12T17:00:00+01:00"
 
-# all_day  = false           # If true, the .ics uses VALUE=DATE (no times).
-# timezone = ""              # IANA TZ. Defaults to params.events.timezone.
+# Per-event timezone override (site default is set in hugo.toml under
+# [params.events]). Drives the TZID parameter on DTSTART/DTEND in the
+# .ics. This is the SOURCE-OF-TRUTH timezone for the event.
+# timezone  = "Europe/London"
 
-# Where ----------------------------------------------------------------------
-# Required. Venue name only — the headline location string.
-location = ""
-
-# address  = ""              # Optional full street address.
-# map_url  = ""              # Optional. OpenStreetMap or Google Maps —
-#                            # whichever you prefer; theme is map-agnostic.
-
-# Who ------------------------------------------------------------------------
-# `sections` is the shared taxonomy. Values are keys from
-# data/scout_sections.toml: squirrels, beavers, cubs, scouts, explorers,
-# network. Renders as colour-coded badges; links to the per-section filter.
-sections = []
-
-# audience = ""              # "Cubs only", "Whole Group", "Parents welcome".
-# dress    = ""              # "Full uniform", "Activity uniform", "Mufti".
-
-# Cost & RSVP ----------------------------------------------------------------
-# cost          = ""         # Free text — "£25", "Free", "€10 per Cub".
-# cost_includes = ""         # "Activities, food, accommodation".
-# cost_pay_url  = ""         # External payment link only — never a form.
-
-# rsvp_to       = ""         # Generic Group email — gsl@1stanytown.org.uk.
-#                            # NEVER a personal address.
-# rsvp_deadline = ""         # Optional ISO-8601.
-
-# Kit (cross-references SPEC-05 once that ships) -----------------------------
-# kit_list_ref   = ""        # Slug of a local kit list.
-# kit_list_url   = ""        # External kit list link if not local.
-# additional_kit = ""        # Per-event additions on top of the referenced
-#                            # list. HTML allowed.
-
-# Cancellation ---------------------------------------------------------------
-# cancelled         = false  # Renders Cancelled badge + STATUS:CANCELLED.
-# cancellation_note = ""     # Optional explanation alongside the badge.
-
-# Image (optional) -----------------------------------------------------------
-# Drop the image at assets/events/<slug>/cover.jpg in your site repo.
-# cover_image   = "cover.jpg"
-# cover_alt     = ""         # Required when cover_image is set.
-# photo_consent = true       # Required when ANY image is referenced.
-#                            # See SPEC-COMMON §10 for the rule.
-
-# BSO dual times (optional) --------------------------------------------------
-# When an event is held overseas, render both local and UK times. Both must
-# be set for dual rendering; otherwise only the single time line shows.
-# Pattern lifted verbatim from britishscoutingoverseas.org.uk.
+# Single-time-zone groups can skip times_local and times_uk; date
+# already drives the time. For BSO events with parents in two zones,
+# set BOTH and the single-event page will render both. The card view
+# (home block + listing) shows times_local only.
 # times_local = "20:30 (Brussels)"
 # times_uk    = "19:30 (UK)"
 
-# External event (optional) --------------------------------------------------
-# Use when the event is hosted by another body (District camp, World
-# Jamboree). The Group's events page will still list it, with the link
-# label going out to the host's page.
-# external_url       = ""
-# external_url_label = "More information"
+location    = ""
+# address     = "12 Hut Lane, Anytown, AT1 2BC"     # optional, single page only
+audience    = ""
+dress       = ""
+cost        = ""
 
-draft = true
+# Sections taxonomy. Renders coloured pill badges on the card and on
+# the single page. Allowed keys: squirrels, beavers, cubs, scouts,
+# explorers, network. Leave empty for events that aren't section-
+# specific (e.g. leader training).
+sections    = []
+
+# ─── Status (D8) ───────────────────────────────────────────────────
+# Allowed values:
+#   "active"      (default) — event is happening as advertised.
+#   "cancelled"   event is off. The card and single page show a red
+#                 Cancelled pill; the per-event .ics still renders
+#                 (with an empty VCALENDAR body); the event is omitted
+#                 from /events/all.ics so subscribers' calendar items
+#                 disappear on next refresh.
+#   "postponed"   event has been rescheduled. Update `date` and `end`
+#                 to the NEW time and BUMP `revision` by 1 (see below).
+#                 The card and single page show an amber Postponed pill;
+#                 the .ics emits the new date with DESCRIPTION prefixed
+#                 "Note: new date/time. " and SEQUENCE bumped, so
+#                 subscriber calendars update the meeting in place.
+status      = "active"
+
+# Bump this integer each time you change the date of an existing
+# event. Required for status="postponed" to propagate cleanly to
+# subscribed calendars (the .ics will emit SEQUENCE:1 even if you
+# leave revision at 0, but bumping it here keeps the metadata honest
+# for any future re-postponement). Defaults to 0; ignored unless the
+# event has been rescheduled.
+# revision    = 1
+
+draft       = true
 +++
 
-Brief description of the event. The first paragraph or so will be used
-as the .ics DESCRIPTION when no `summary` field is set.
+A short paragraph or two describing the event. This becomes the
+DESCRIPTION field in the .ics if `summary` isn't set in the
+front-matter, truncated to 500 characters.

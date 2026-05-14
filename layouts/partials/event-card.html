@@ -3,39 +3,103 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  event-card — reusable per-event card.
+  event-card — reusable per-event card (D8 rev-2 visual).
 
   Receives a Page via dot.
 
   Used by:
     layouts/events/list.html                       (events index)
-    layouts/events/term.html                       (per-section filter — SPEC-02 step 9)
+    layouts/events/term.html                       (per-section filter)
     layouts/partials/sections/events-upcoming.html (home-page block)
 
-  Container is an <article>, NOT a wrapping <a>, so the inner anchors
-  (title, section pills, "Details →") nest correctly per HTML5. Mirrors
-  SPEC-01's news-card structure.
+  Structural changes from the pre-D8 card
+  ---------------------------------------
+    - Container is now a single <a> wrapping the whole card. .styled-link
+      sentinel keeps it out of the dark-bg auto-underline rule. The
+      separate "Details →" CTA is dropped — the whole card is the click
+      target.
+    - <h3> downgraded to <h4>. The events block's section <h2> stays
+      the page's only event-level h2.
+    - event-meta.html and event-times.html are not invoked here; their
+      structure is inlined as a 2-col grid (date pill | body) with a
+      single meta line combining time / location / audience.
+    - section-badges.html is not invoked either; we render section pills
+      directly so they can sit as <li> non-anchors inside the outer card
+      <a> (no nested anchors).
+    - Status pills (Cancelled / Postponed) are rendered inline ahead of
+      section pills in the same .badges row.
+
+  Time rendering
+  --------------
+  Cards always show ONE time, even for dual-time (BSO) events:
+    1. all_day -> "All day" if all_day=true, else
+    2. times_local if set, else
+    3. start time HH:MM (with optional end if .Params.end set).
+  The full dual-time rendering is reserved for the single-event page,
+  where there's room.
 */ -}}
 {{- $page := . -}}
-{{- $cancelled := $page.Params.cancelled -}}
-<article class="event-card{{ if $cancelled }} event-card--cancelled{{ end }}">
-  <h3 class="event-card__title">
-    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-  </h3>
 
-  {{ partial "event-meta.html" $page }}
+{{- $status    := $page.Params.status | default "active" -}}
+{{- $cancelled := eq $status "cancelled" -}}
+{{- $postponed := eq $status "postponed" -}}
 
-  {{- with $page.Params.audience }}
-    <p class="event-card__audience">{{ . }}</p>
-  {{- end }}
+{{- /* Build the single time fragment for the meta line. */ -}}
+{{- $timeFrag := "" -}}
+{{- if $page.Params.all_day -}}
+  {{- $timeFrag = i18n "eventsAllDay" | default "All day" -}}
+{{- else if $page.Params.times_local -}}
+  {{- $timeFrag = $page.Params.times_local -}}
+{{- else -}}
+  {{- $start := $page.Date.Format "15:04" -}}
+  {{- $endParam := $page.Params.end -}}
+  {{- if $endParam -}}
+    {{- $end := ($endParam | time).Format "15:04" -}}
+    {{- $timeFrag = printf "%s – %s" $start $end -}}
+  {{- else -}}
+    {{- $timeFrag = $start -}}
+  {{- end -}}
+{{- end -}}
 
-  {{ partial "section-badges.html" (dict
-       "keys"           $page.Params.sections
-       "url_prefix"     "/events/sections/"
-       "aria_label_key" "eventsSectionBadge"
-  ) }}
-
-  <p class="event-card__cta">
-    <a href="{{ $page.RelPermalink }}">{{ i18n "eventsDetails" | default "Details" }} &rarr;</a>
-  </p>
-</article>
+<a class="ev-card styled-link{{ if $cancelled }} ev-card--cancelled{{ end }}{{ if $postponed }} ev-card--postponed{{ end }}"
+   href="{{ $page.RelPermalink }}">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">{{ $page.Date.Format "2" }}</span>
+    <span class="ev-date__m">{{ $page.Date.Format "Jan" }}</span>
+    <span class="ev-date__y">{{ $page.Date.Format "2006" }}</span>
+  </div>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">{{ $page.Title }}</h4>
+    <p class="ev-card__meta">
+      {{- with $timeFrag }}<span>{{ . }}</span>{{ end -}}
+      {{- with $page.Params.location }}<span>{{ . }}</span>{{ end -}}
+      {{- with $page.Params.audience }}<span>{{ . }}</span>{{ end -}}
+    </p>
+    <ul class="badges" aria-label="{{ i18n "eventsBadgesLabel" | default "Event details" }}">
+      {{- if $cancelled }}
+        <li class="badges__status badges__status--cancelled">
+          {{- i18n "eventsCancelled" | default "Cancelled" -}}
+        </li>
+      {{- end }}
+      {{- if $postponed }}
+        <li class="badges__status badges__status--postponed">
+          {{- i18n "eventsPostponed" | default "Postponed" -}}
+        </li>
+      {{- end }}
+      {{- $items := hugo.Data.scout_sections.items -}}
+      {{- range $page.Params.sections }}
+        {{- $key := . -}}
+        {{- $section := "" -}}
+        {{- range $items -}}
+          {{- if eq .key $key }}{{ $section = . }}{{ end -}}
+        {{- end -}}
+        {{- with $section }}
+          <li class="badges__pill" style="--sec: {{ .color }};">{{ .name }}</li>
+        {{- end -}}
+      {{- end }}
+    </ul>
+  </div>
+  <span class="sr-only">
+    {{- i18n "eventsAriaCardLink" (dict "Title" $page.Title) | default (printf "View details for %s" $page.Title) -}}
+  </span>
+</a>

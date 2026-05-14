@@ -7,6 +7,15 @@ other = "All Rights Reserved"
 [toggleMenu]
 other = "Toggle menu"
 
+[heroEyebrow]
+other = "Skills for life"
+
+[heroWelcomeTo]
+other = "Welcome to"
+
+[heroPhotoAlt]
+other = "Scouts gathered round a small fire at night, lighting it together in the rain"
+
 # -----------------------------------------------------------------------------
 # BSO Membership Notice — used by partials/bso-membership-notice.html
 # Override these in your site's i18n/en.toml to change the wording.
@@ -64,6 +73,14 @@ other = "Older"
 [newsPaginationStatus]
 other = "Page {{ .Current }} of {{ .Total }}"
 
+[newsFilterByLabel]
+other = "Filter news by section"
+
+# -----------------------------------------------------------------------------
+# Events 
+# -----------------------------------------------------------------------------
+
+
 [eventsSectionBadge]
 other = "Scout sections this event covers"
 
@@ -75,11 +92,42 @@ other = "Local time"
 
 [eventsTimeUk]
 other = "UK time"# Hero — added by deliverable 4 (hero with intro animation).
-[heroEyebrow]
-other = "Skills for life"
 
-[heroWelcomeTo]
-other = "Welcome to"
+[eventsBadgesLabel]
+other = "Event details"
 
-[heroPhotoAlt]
-other = "Scouts gathered round a small fire at night, lighting it together in the rain"
+[eventsAriaCardLink]
+other = "View details for {{ .Title }}"
+
+[eventsAllEyebrow]
+other = "All events"
+
+[eventsArchiveEyebrow]
+other = "Past events"
+
+[eventsArchiveHeading]
+other = "What we've done"
+
+[eventsSubscribeIntro]
+other = "Past events drop out automatically."
+
+[eventsSubscribeLink]
+other = "Subscribe to all upcoming events (.ics)"
+
+[eventsSubscribeOutro]
+other = "to keep your calendar in sync."
+
+[eventsNonePast]
+other = "No past events archived yet."
+
+[eventsPostponed]
+other = "Postponed"
+
+[eventsPostponedICSNote]
+other = "Note: new date/time. "
+
+[eventsPostponedHelpText]
+other = "This event has been rescheduled. The new date and time are shown here. Your calendar will update automatically if you subscribed to our events feed."
+
+[eventsFilterByLabel]
+other = "Filter events by section"

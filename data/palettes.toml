@@ -23,6 +23,16 @@
 # Text-on-colour values are chosen to meet WCAG AA contrast (per the
 # brand guidelines' "Recommended combinations" page).
 #
+# --warning and --postponed are app-functionality colours, not brand
+# palette entries. They are intentionally non-Scouts hex codes so they
+# never collide with any section identity colour:
+#   --warning   = #d4351c    Darker scarlet than Scouts Red, signals
+#                            "alert / cancelled". Distinct from
+#                            Scouts Red (#E22E12 = Scouts section colour).
+#   --postponed = #d97706    Amber. Distinct from Scouts Orange
+#                            (#ff912a = accent) and Cubs yellow
+#                            (#F7EF27). Signals "delayed / paused".
+#
 # To add a palette: copy a block, give it a unique key, change the hexes.
 # To select a palette: set palette = "<key>" in the site's hugo.toml params.
 
@@ -45,8 +55,10 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
-  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
+  postponed         = "#d97706"  # App amber — non-section colour
+  text_on_postponed = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Adventure — outdoorsy, energetic. Good for active Scout Groups.
@@ -66,8 +78,10 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
-  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
+  postponed         = "#d97706"  # App amber — non-section colour
+  text_on_postponed = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Coastal — Sea Scouts and waterside groups.
@@ -87,8 +101,10 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
-  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
+  postponed         = "#d97706"  # App amber — non-section colour
+  text_on_postponed = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Vibrant — bold, youthful, high-energy.
@@ -108,8 +124,10 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
-  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
+  postponed         = "#d97706"  # App amber — non-section colour
+  text_on_postponed = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Network — for Scout Network groups (18-25). Black-led, sophisticated.
@@ -129,5 +147,7 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f7f7f7"
-  warning           = "#ed3f23"   # Scouts Red — universal stop/cancellation accent
+  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
+  postponed         = "#d97706"  # App amber — non-section colour
+  text_on_postponed = "#ffffff"

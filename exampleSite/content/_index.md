@@ -80,7 +80,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   id       = "sections"
   bg       = "tertiary"
   eyebrow  = "Age groups"   # small uppercase lead-in above the h2
-  align    = "centre"         # default centred; "left" → left-aligned head  
+  #align    = "left"         # default centred; "left" → left-aligned head  
   title    = "Our Sections"
   subtitle = "There is a place in Scouts for almost all ages, either as a member of one of the sections below, or as a volunteer. Clicking the Learn More buttons below will take you to the UK Scouts website for further information.<br><br>Sections meet on weekday evenings, during school term-time. To see timings for each group, check the map further down the page."
   button_label = "Learn more"
@@ -145,14 +145,13 @@ description = "Skills for Life — example Scout Group home page using the Briti
 # 7. Whats coming up — events-upcoming (opt-in via params.features.events)
 # -----------------------------------------------------------------------------
 [[sections]]
-  type        = "events-upcoming"
-  id          = "whats-on"
-  title       = "What's coming up"
-  title_color = "primary"
-  subtitle    = "Camps, parades and the rest of the diary. Subscribe to <a href=\"/events/all.ics\">all upcoming events</a> to keep your calendar in sync."
-  count       = 3
-  show_more   = true
-
+  type    = "events-upcoming"
+  id      = "whats-on"
+  align   = "left"
+  eyebrow = "What's coming up"
+  title   = "Camps, parades and meetings."
+  count   = 3
+  
 # -----------------------------------------------------------------------------
 # 8. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
 # -----------------------------------------------------------------------------
@@ -161,8 +160,8 @@ description = "Skills for Life — example Scout Group home page using the Briti
   id          = "news"
   bg          = "muted"
   title       = "Latest news"
-  title_color = "primary"   # match the brand-purple weight of other section headings
-  subtitle    = "Camp write-ups, badge presentations, and what's been happening across the Group."
+  title_color = "primary"
+  subtitle    = "Camp write-ups, badge presentations…"
   count       = 3
   show_more   = true
 

@@ -3,15 +3,24 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Aggregate /events/all.ics — every upcoming event in one VCALENDAR.
-  Output format: EventsAggregateCalendar (declared in hugo.toml).
+  Aggregate /events/all.ics — every upcoming non-cancelled event in
+  one VCALENDAR. Output format: EventsAggregateCalendar (declared in
+  hugo.toml).
 
-  Subscription target: parents add this URL once to their calendar app
-  and every upcoming event flows in. Cancelled-upcoming events are
-  INCLUDED so subscribers see the cancellation propagate (the partial
-  emits STATUS:CANCELLED for them).
+  D8 status-model change
+  ----------------------
+  Cancelled events are OMITTED from the aggregate feed entirely (no
+  VEVENT, no STATUS:CANCELLED line). When an event is cancelled, it
+  disappears from the feed; calendar apps polling the URL will then
+  remove the corresponding meeting from the subscriber's calendar on
+  next refresh. This is the cleanest UX for parents.
 
-  RFC 5545 compliant: UTF-8, CRLF line endings, one VEVENT per event.
+  Postponed events ARE included — with their NEW DTSTART/DTEND, a
+  prepended DESCRIPTION note, and SEQUENCE bumped so subscriber apps
+  update the meeting in place.
+
+  RFC 5545 compliant: UTF-8, CRLF line endings, one VEVENT per active
+  or postponed upcoming event.
 */ -}}
 {{- $crlf := "\r\n" -}}
 {{- $now := now -}}
@@ -24,6 +33,12 @@ PRODID:-//Hugo British Scout Group theme//EN{{ $crlf -}}
 CALSCALE:GREGORIAN{{ $crlf -}}
 METHOD:PUBLISH{{ $crlf -}}
 {{- range $events -}}
-  {{- partial "event-vevent.ics" . -}}
+  {{- /* Skip cancelled events. event-vevent.ics is also defensive
+         and emits nothing for cancelled status, but filtering here
+         saves the partial call and keeps the intent clear. */ -}}
+  {{- $status := .Params.status | default "active" -}}
+  {{- if ne $status "cancelled" -}}
+    {{- partial "event-vevent.ics" . -}}
+  {{- end -}}
 {{- end -}}
 END:VCALENDAR{{ $crlf -}}

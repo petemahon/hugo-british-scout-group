@@ -40,6 +40,20 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
 - All hex values come from the Scouts Brand Guidelines 2023. Editing
   these to realign with future Scouts brand updates is the expected
   maintenance path; adding a sixth named palette is a flag-not-change.
+- **Two palette tokens are app-functionality colours, not brand
+  palette entries:**
+  - `--warning` (`#d4351c`) — scarlet, used for the Cancelled pill
+    on event cards (SPEC-02), cancelled programme rows (SPEC-03),
+    expired vacancies (SPEC-09), the hall fully-booked banner
+    (SPEC-08), and other alert states. Distinct from Scouts Red
+    (`#E22E12`, the Scouts section's identity colour) so the two
+    never visually collide on a card or page.
+  - `--postponed` (`#d97706`) — amber, used for the Postponed pill
+    on event cards. Distinct from any Scouts brand colour: not Scouts
+    Orange (`#ff912a` = `--accent`), not Cubs yellow (`#F7EF27`).
+  Both values are uniform across all five palette presets. They are
+  not brand colours and are not expected to change when the Scouts
+  Brand Guidelines update.  
 - Theme ships the **official Scouts section logo SVGs** at
   `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
   downloaded from https://scoutsbrand.org.uk by the theme maintainer.
@@ -81,6 +95,31 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
   association). Text overridable via standard Hugo i18n in `i18n/en.toml`.
 - BSO features are an optional add-on. The theme does not assume a
   Group is BSO.
+
+## Event status model (SPEC-02 / D8)
+
+- Event front-matter uses an enum `status = "active" | "cancelled" |
+  "postponed"`. Default `"active"`. Replaces the older `cancelled: bool`
+  field (retired in D8).
+- An optional `revision` int (default 0) tracks the number of times
+  an event has been rescheduled. The `event.ics` SEQUENCE counter is
+  set to `max(revision, status == "postponed" ? 1 : 0)`. Bumping
+  `revision` is required only when re-postponing an already-postponed
+  event; the first postponement is handled automatically.
+- `.ics` output behaviour per status:
+  - `active`: VEVENT emitted normally.
+  - `cancelled`: per-event `event.ics` renders a well-formed empty
+    VCALENDAR (no VEVENT); event is omitted from `/events/all.ics`.
+    The URL stays valid for any bookmarked subscriber, and their
+    calendar app removes the meeting on next poll. STATUS:CANCELLED
+    is no longer emitted (retired with the old boolean schema).
+  - `postponed`: VEVENT emitted with the new DTSTART/DTEND; DESCRIPTION
+    prefixed with the i18n string `eventsPostponedICSNote` ("Note: new
+    date/time. "); SEQUENCE bumped so subscriber apps update the
+    meeting in place rather than duplicating.
+- Site rendering: cards and single pages show a coloured status pill
+  (red for cancelled, amber for postponed) ahead of the section
+  badges. Active events show no status pill.  
 
 ## Palette reference page
 

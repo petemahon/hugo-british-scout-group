@@ -25,20 +25,22 @@
 
 <style>
 :root {
-  --primary:           #7413dc;
-  --primary-hover:     #8e34ee;
-  --secondary:         #088486;
-  --secondary-hover:   #0bb3b6;
-  --tertiary:          #205b41;
-  --accent:            #ff912a;
-  --bg:                #ffffff;
-  --bg-muted:          #f7f7f7;
-  --text:              #232323;
-  --text-muted:        #5a5a5a;
-  --text-on-primary:   #ffffff;
-  --text-on-secondary: #ffffff;
-  --warning:           #ed3f23;
-  --text-on-warning:   #ffffff;
+  --primary:             #7413dc;
+  --primary-hover:       #8e34ee;
+  --secondary:           #088486;
+  --secondary-hover:     #0bb3b6;
+  --tertiary:            #205b41;
+  --accent:              #ff912a;
+  --bg:                  #ffffff;
+  --bg-muted:            #f7f7f7;
+  --text:                #232323;
+  --text-muted:          #5a5a5a;
+  --text-on-primary:     #ffffff;
+  --text-on-secondary:   #ffffff;
+  --warning:             #d4351c;
+  --text-on-warning:     #ffffff;
+  --postponed:           #d97706;
+  --text-on-postponed:   #ffffff;
 }
 </style>
 
@@ -102,115 +104,57 @@
   <main>
     <section class="section s-events s-events--list reveal">
     <div class="container">
-      <header class="s-events__head">
-        <h1 class="s-events__title display-2">Events</h1>
-          <p class="s-events__intro display-7">Camps, parades, badge presentations, and the rest of what's coming up at 1st Anytown Scouts.</p>
-        <p class="s-events__feed display-7">
-          <a href="all.ics">Subscribe to all upcoming events (.ics)</a>
-        </p>
-      </header>
-        <div class="s-events__grid">
-            <article class="event-card">
-  <h3 class="event-card__title">
-    <a href="/events/2026-07-12-summer-fete/">Summer Fete</a>
-  </h3>
 
-  <div class="event-meta">
-  <div class="event-meta__date-pill">
-    <span class="event-meta__day">12</span>
-    <span class="event-meta__month">Jul</span>
-    <span class="event-meta__year">2026</span>
+      <div class="sect-head sect-head--left">
+        <span class="eyebrow">All events</span>
+        <h1>Events</h1>
+        <p>Camps, parades, badge presentations, and the rest of what's coming up at 1st Anytown Scouts. Past events drop out automatically.
+            <a href="all.ics" download>Subscribe to all upcoming events (.ics)</a>
+            to keep your calendar in sync.</p>
+      </div>
+        <div class="s-events-upcoming__grid-shell">
+          <div class="s-events__grid">
+              <a class="ev-card styled-link"
+   href="/events/2026-07-12-summer-fete/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">12</span>
+    <span class="ev-date__m">Jul</span>
+    <span class="ev-date__y">2026</span>
   </div>
-  <div class="event-meta__details">
-    <div class="event-meta__time"><span class="event-times">
-    <time datetime="2026-07-12T13:00:00&#43;01:00">13:00</time>&nbsp;&ndash;&nbsp;
-      <time datetime="2026-07-12T17:00:00&#43;01:00">17:00</time></span></div>
-      <p class="event-meta__location">Anytown Scout Hut</p>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">Summer Fete</h4>
+    <p class="ev-card__meta"><span>13:00 – 17:00</span><span>Anytown Scout Hut</span><span>Whole Group &#43; parents</span></p>
+    <ul class="badges" aria-label="Event details">
+          <li class="badges__pill" style="--sec: #003982;">Beavers</li>
+          <li class="badges__pill" style="--sec: #F7EF27;">Cubs</li>
+          <li class="badges__pill" style="--sec: #E22E12;">Scouts</li>
+    </ul>
   </div>
-</div>
+  <span class="sr-only">View details for Summer Fete</span>
+</a>
 
-    <p class="event-card__audience">Whole Group &#43; parents</p>
-
-  <ul class="section-badges" aria-label="Scout sections this event covers">
-        <li class="section-badges__pill" style="--badge-bg: #003982; --badge-fg: #FFFFFF;">
-          <a href="/events/sections/beavers/">Beavers</a>
-        </li>
-        <li class="section-badges__pill" style="--badge-bg: #F7EF27; --badge-fg: #000000;">
-          <a href="/events/sections/cubs/">Cubs</a>
-        </li>
-        <li class="section-badges__pill" style="--badge-bg: #E22E12; --badge-fg: #FFFFFF;">
-          <a href="/events/sections/scouts/">Scouts</a>
-        </li>
-  </ul>
-
-  <p class="event-card__cta">
-    <a href="/events/2026-07-12-summer-fete/">Details &rarr;</a>
-  </p>
-</article>
-
-            <article class="event-card">
-  <h3 class="event-card__title">
-    <a href="/events/2026-08-14-cubs-summer-camp/">Cubs Summer Camp</a>
-  </h3>
-
-  <div class="event-meta">
-  <div class="event-meta__date-pill">
-    <span class="event-meta__day">14</span>
-    <span class="event-meta__month">Aug</span>
-    <span class="event-meta__year">2026</span>
+              <a class="ev-card styled-link"
+   href="/events/2026-08-14-cubs-summer-camp/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">14</span>
+    <span class="ev-date__m">Aug</span>
+    <span class="ev-date__y">2026</span>
   </div>
-  <div class="event-meta__details">
-    <div class="event-meta__time"><span class="event-times__all-day">All day</span></div>
-      <p class="event-meta__location">Pioneer Camp, Buckinghamshire</p>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">Cubs Summer Camp</h4>
+    <p class="ev-card__meta"><span>All day</span><span>Pioneer Camp, Buckinghamshire</span><span>Cubs only</span></p>
+    <ul class="badges" aria-label="Event details">
+          <li class="badges__pill" style="--sec: #F7EF27;">Cubs</li>
+    </ul>
   </div>
-</div>
+  <span class="sr-only">View details for Cubs Summer Camp</span>
+</a>
 
-    <p class="event-card__audience">Cubs only</p>
-
-  <ul class="section-badges" aria-label="Scout sections this event covers">
-        <li class="section-badges__pill" style="--badge-bg: #F7EF27; --badge-fg: #000000;">
-          <a href="/events/sections/cubs/">Cubs</a>
-        </li>
-  </ul>
-
-  <p class="event-card__cta">
-    <a href="/events/2026-08-14-cubs-summer-camp/">Details &rarr;</a>
-  </p>
-</article>
-
-            <article class="event-card event-card--cancelled">
-  <h3 class="event-card__title">
-    <a href="/events/2026-09-26-leaders-training/">Leaders&#39; Safeguarding Refresher</a>
-  </h3>
-
-  <div class="event-meta">
-  <div class="event-meta__date-pill">
-    <span class="event-meta__day">26</span>
-    <span class="event-meta__month">Sep</span>
-    <span class="event-meta__year">2026</span>
-  </div>
-  <div class="event-meta__details">
-      <p class="event-meta__badges">
-        <span class="event-meta__badge event-meta__badge--cancelled">Cancelled</span>
-      </p>
-        <p class="event-meta__cancellation-note">Postponed — new date will be confirmed once the District training calendar is published.</p>
-    <div class="event-meta__time"><span class="event-times">
-    <time datetime="2026-09-26T19:30:00&#43;01:00">19:30</time>&nbsp;&ndash;&nbsp;
-      <time datetime="2026-09-26T21:00:00&#43;01:00">21:00</time></span></div>
-      <p class="event-meta__location">Anytown Scout Hut</p>
-  </div>
-</div>
-
-    <p class="event-card__audience">All Group volunteers</p>
-
-  
-
-  <p class="event-card__cta">
-    <a href="/events/2026-09-26-leaders-training/">Details &rarr;</a>
-  </p>
-</article>
-
+          </div>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--left"  aria-hidden="true"></span>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--right" aria-hidden="true"></span>
         </div>
+
     </div>
   </section>
   </main>

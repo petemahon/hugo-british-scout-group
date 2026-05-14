@@ -3,11 +3,21 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Per-event .ics output — one VEVENT in a VCALENDAR wrapper.
+  Per-event event.ics — single VEVENT for one event Page.
   Output format: EventCalendar (declared in hugo.toml).
-  Renders to /events/<slug>/event.ics next to the index.html.
 
-  RFC 5545 compliant: UTF-8, CRLF line endings, single VEVENT.
+  D8 status-model change
+  ----------------------
+  When an event has status = "cancelled" the file still renders, but
+  the VCALENDAR body contains no VEVENT. A subscriber who has the file
+  URL bookmarked will see the meeting disappear from their calendar
+  on the next refresh; the URL stays HTTP 200 so nothing breaks.
+
+  Active and postponed events emit normally via event-vevent.ics.
+  Postponed events get a DESCRIPTION prefix and SEQUENCE bump in
+  that partial.
+
+  RFC 5545 compliant: UTF-8, CRLF line endings.
 */ -}}
 {{- $crlf := "\r\n" -}}
 BEGIN:VCALENDAR{{ $crlf -}}

@@ -1,0 +1,570 @@
+/* =============================================================================
+   21. SECTION: EVENTS — events-upcoming home block, /events/ listing,
+                        /events/sections/<key>/ taxonomy term page.
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   This file owns every selector under .s-events-upcoming, .s-events, .ev-card,
+   .ev-date, .ev-body, .ev-meta and the .badges-row (dot-prefix section pills)
+   used inside event cards. Migrated from the legacy block in
+   40-section-news.css as part of D8.
+
+   Visual reference: design-source-of-truth/complete-design-mockup-rev2.html,
+   the .events / .ev-card block (mockup lines 884–951, 1405–1440).
+
+   Pure CSS, no JavaScript. Breakpoint at 768px (the theme's standard).
+
+   Behavioural model
+   -----------------
+     < 768px       Horizontal-scroll carousel. Cards take 84% of viewport width
+                   so card 2 peeks in by ~16%. Scroll-snap mandatory, so a
+                   swipe lands snapped on the next card.
+
+     ≥ 768px       3-column grid that wraps cleanly to additional rows for
+                   more than 3 events. No horizontal scroll, no chevrons.
+
+   Mobile chevron indicators
+   -------------------------
+   Two chevrons (one each side, outside the card grid) act as visual cues
+   that more content lies in that direction.
+
+     Modern browsers (Chrome 115+, Safari 26+):
+       Scroll-driven CSS animations fade each chevron in/out based on the
+       carousel's scrollLeft. Left chevron is invisible at scrollLeft=0,
+       full at scrollLeft>0. Right chevron is the reverse — full when more
+       content lies to the right, fading to invisible as the last card
+       comes flush with the viewport.
+
+     Older browsers (Firefox release, Safari < 26):
+       The @supports query below leaves both chevrons at opacity:0.55,
+       statically. Less smart but never broken. Static-fallback chevrons
+       are still visually correct in the most common case (3+ cards) where
+       both ends of the scroll have content beyond.
+
+   The chevrons are non-interactive — they're affordance markers, not
+   controls. Swipe is the input on mobile.
+   ============================================================================= */
+
+
+/* ── Section wrapper ───────────────────────────────────────── */
+.s-events-upcoming {
+  padding: 56px 0 64px;
+}
+@media (min-width: 768px) {
+  .s-events-upcoming { padding: 96px 0; }
+}
+
+/* The events-upcoming partial uses the shared .sect-head pattern (set in
+   05-components-sect-head.css). The right-aligned "See all events →" link
+   coexists with the head via a flex row that only appears at desktop. */
+.s-events-upcoming__head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 768px) {
+  .s-events-upcoming__head-row { margin-bottom: 1.5rem; }
+}
+.s-events-upcoming__head-row .sect-head {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+.s-events-upcoming__seeall {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  align-self: flex-end;
+  padding-bottom: 4px;
+  transition: gap 0.2s ease;
+}
+.s-events-upcoming__seeall:hover,
+.s-events-upcoming__seeall:focus-visible {
+  gap: 10px;
+}
+/* On narrow viewports the link drops below the head text rather than
+   wrapping awkwardly mid-row. */
+@media (max-width: 767.9px) {
+  .s-events-upcoming__head-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .s-events-upcoming__seeall {
+    align-self: flex-start;
+    padding-bottom: 0;
+  }
+}
+
+
+/* ── Grid + carousel ───────────────────────────────────────── */
+
+/* The grid is wrapped in a positioning shell so chevron indicators can
+   sit absolutely on its left/right edges without affecting layout flow. */
+.s-events-upcoming__grid-shell {
+  position: relative;
+}
+
+.s-events-upcoming__grid,
+.s-events__grid {
+  /* Mobile: horizontal carousel.
+     The negative margin + matching padding bleeds the carousel past
+     the .container gutter so cards align with the gutter while leaving
+     scroll runway beyond. */
+  display: grid;
+  gap: 14px;
+  grid-auto-flow: column;
+  grid-auto-columns: 84%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 20px 24px;
+  margin: 0 -20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 17, 14, 0.18) transparent;
+}
+.s-events-upcoming__grid::-webkit-scrollbar,
+.s-events__grid::-webkit-scrollbar { height: 6px; }
+.s-events-upcoming__grid::-webkit-scrollbar-track,
+.s-events__grid::-webkit-scrollbar-track { background: transparent; }
+.s-events-upcoming__grid::-webkit-scrollbar-thumb,
+.s-events__grid::-webkit-scrollbar-thumb {
+  background: rgba(20, 17, 14, 0.18);
+  border-radius: 4px;
+}
+
+.ev-card { scroll-snap-align: start; }
+
+@media (min-width: 768px) {
+  .s-events-upcoming__grid,
+  .s-events__grid {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-columns: auto;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+  }
+  .ev-card { scroll-snap-align: none; }
+}
+
+
+/* ── Mobile scroll-indicator chevrons ──────────────────────── */
+
+/* Render only below the desktop breakpoint — desktop is a wrap-to-row
+   grid with no horizontal scroll, so chevrons are meaningless. */
+.s-events-upcoming__chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 0.5px solid rgba(20, 17, 14, 0.1);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  /* Static-fallback opacity; the @supports block below upgrades. */
+  opacity: 0.55;
+}
+.s-events-upcoming__chevron--left  { left: 6px; }
+.s-events-upcoming__chevron--right { right: 6px; }
+.s-events-upcoming__chevron::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.s-events-upcoming__chevron--left::before  { transform: rotate(-135deg); margin-left: 2px; }
+.s-events-upcoming__chevron--right::before { transform: rotate(45deg);   margin-right: 2px; }
+
+@media (min-width: 768px) {
+  .s-events-upcoming__chevron { display: none; }
+}
+
+/* Scroll-driven fade — modern browsers only. Each chevron's opacity is
+   keyframed against the carousel's horizontal scroll progress (0–100%).
+   In unsupported browsers this block is silently ignored and the static
+   opacity above remains. */
+@supports (animation-timeline: scroll(x)) {
+  @media (max-width: 767.9px) {
+    .s-events-upcoming__chevron {
+      opacity: 0;
+      animation-duration: 1ms;       /* token; timeline drives progress */
+      animation-fill-mode: both;
+      animation-timeline: --ev-scroll;
+      animation-range: 0% 100%;
+    }
+    .s-events-upcoming__grid {
+      scroll-timeline-name: --ev-scroll;
+      scroll-timeline-axis: x;
+    }
+    .s-events-upcoming__chevron--left  { animation-name: ev-chev-left;  }
+    .s-events-upcoming__chevron--right { animation-name: ev-chev-right; }
+  }
+  @keyframes ev-chev-left {
+    0%   { opacity: 0;    }
+    8%   { opacity: 0.85; }
+    100% { opacity: 0.85; }
+  }
+  @keyframes ev-chev-right {
+    0%   { opacity: 0.85; }
+    92%  { opacity: 0.85; }
+    100% { opacity: 0;    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s-events-upcoming__chevron { animation: none !important; opacity: 0.55; }
+}
+
+
+/* ── Event card ────────────────────────────────────────────── */
+
+/* The card is a single anchor wrapping all internals — bigger touch
+   target, no nested anchors. The `.styled-link` sentinel opts out of
+   the dark-bg auto-underline rule per DECISIONS.md. */
+.ev-card {
+  background: var(--bg, #ffffff);
+  border-radius: 18px;
+  padding: 18px;
+  border: 0.5px solid rgba(20, 17, 14, 0.06);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (min-width: 768px) {
+  .ev-card {
+    padding: 24px;
+    border-radius: 20px;
+    gap: 20px;
+  }
+}
+.ev-card:hover,
+.ev-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(20, 17, 14, 0.06);
+}
+.ev-card:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-card:hover,
+  .ev-card:focus-visible {
+    transform: none;
+  }
+}
+
+
+/* ── Date pill (fixed 56 / 64 px square) ──────────────────── */
+
+.ev-date {
+  width: 56px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--primary);
+  color: var(--text-on-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .ev-date { width: 64px; border-radius: 14px; }
+}
+.ev-date__d { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+@media (min-width: 768px) {
+  .ev-date__d { font-size: 26px; }
+}
+.ev-date__m {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .ev-date__m { font-size: 11px; margin-top: 4px; }
+}
+.ev-date__y {
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+
+/* ── Card body — title, meta, badges ──────────────────────── */
+
+.ev-card__body { min-width: 0; }   /* prevent grid-row overflow from long titles */
+
+.ev-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text, #14110e);
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .ev-card__title { font-size: 17px; }
+}
+
+/* Single meta line combining time / location / audience with middle-dot
+   separators. The Hugo template emits each fragment inside a <span>;
+   adjacent siblings get a ::before separator so missing fields don't
+   leave orphan dots. */
+.ev-card__meta {
+  font-size: 12.5px;
+  color: var(--text-muted, #5a5a5a);
+  margin: 0 0 8px;
+  line-height: 1.45;
+}
+@media (min-width: 768px) {
+  .ev-card__meta { font-size: 13px; margin-bottom: 10px; line-height: 1.5; }
+}
+.ev-card__meta > span + span::before {
+  content: " · ";
+  margin: 0 4px;
+  color: var(--text-muted);
+}
+
+
+/* ── Section + status pills (dot-prefix style) ────────────── */
+
+/* These rules apply to ANY .badges usage — event-card meta row, news
+   card meta row, the Stage C section-shortcut nav pills above the
+   events grid, anywhere else a .badges list is rendered. The
+   .ev-card-scoped rules below add only card-specific size bumps. */
+.badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.badges__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px 3px 7px;
+  border-radius: 999px;
+  background: #f1efe8;
+  color: #14110e;
+  line-height: 1.2;
+}
+.badges__pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sec, #888);
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .ev-card .badges__pill { font-size: 11px; padding: 4px 10px 4px 8px; }
+  .ev-card .badges__pill::before { width: 9px; height: 9px; }
+}
+
+/* The status pills (Cancelled / Postponed) sit in the same .badges
+   container before the section pills. They use solid colour fills
+   rather than the dot-prefix style — they're event-state
+   indicators, not section identity. */
+.badges__status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+.badges__status--cancelled {
+  background: var(--warning);
+  color: var(--text-on-warning, #ffffff);
+}
+.badges__status--postponed {
+  background: var(--postponed);
+  color: var(--text-on-postponed, #ffffff);
+}
+@media (min-width: 768px) {
+  .ev-card .badges__status { font-size: 11px; padding: 4px 10px; }
+}
+
+
+/* ── "Subscribe to all events (.ics)" button below the grid ── */
+
+.s-events-upcoming__subscribe {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .s-events-upcoming__subscribe { margin-top: 2rem; }
+}
+
+
+/* =============================================================================
+   /events/ listing page + /events/sections/<key>/ term page
+   ============================================================================= */
+
+.s-events {
+  padding: 56px 0 80px;
+}
+@media (min-width: 768px) {
+  .s-events { padding: 96px 0 120px; }
+}
+
+.s-events--single .s-events__container {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.s-events__feed {
+  margin: 0 0 1rem;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.s-events__feed a { color: var(--primary); text-decoration: underline; }
+
+.s-events__empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}
+
+
+/* ── Single-event page (kept lightweight; substantive rebuild is later) ── */
+
+.s-events__post-head { margin-bottom: 2rem; }
+.s-events__post-title { margin: 0 0 0.75rem; }
+.s-events__post-meta {
+  color: var(--text-muted);
+  margin: 0;
+}
+.s-events__post-body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.s-events__post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+.s-events__post-foot {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.s-events__ics {
+  margin: 2rem 0;
+}
+
+
+/* ── Print ────────────────────────────────────────────────── */
+
+@media print {
+  .s-events-upcoming__chevron,
+  .s-events-upcoming__seeall,
+  .s-events-upcoming__subscribe,
+  .s-events__feed,
+  .s-events__post-foot { display: none; }
+  .ev-card {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
+
+
+/* =============================================================================
+   D8 STAGE C — Section-shortcut pill row
+   -----------------------------------------------------------------------------
+   Append this block to assets/css/21-section-events.css.
+
+   The pill row sits between the section head and the card grid on the
+   events-upcoming home block (and, in D9, the news-grid home block).
+   Pills use the same .badges__pill dot-prefix style as event-card section
+   badges; the .badges--nav modifier makes the inner anchors look like
+   interactive controls rather than identity labels.
+   ============================================================================= */
+
+.s-events-upcoming__pills {
+  margin: 0 0 1rem;
+}
+@media (min-width: 768px) {
+  .s-events-upcoming__pills { margin-bottom: 1.5rem; }
+}
+
+.badges--nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.badges--nav .badges__pill {
+  /* Inherits the base .badges__pill dot-prefix style. The modifier
+     adds interactive affordances: padding for a comfortable touch
+     target, hover/focus transitions, and the anchor unwrap. */
+  padding: 4px 10px 4px 8px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.badges--nav .badges__pill:hover,
+.badges--nav .badges__pill:focus-within {
+  background: #e7e4d8;
+  transform: translateY(-1px);
+}
+.badges--nav .badges__pill a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.badges--nav .badges__pill a:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badges--nav .badges__pill:hover,
+  .badges--nav .badges__pill:focus-within { transform: none; }
+}
+
+@media print {
+  .s-events-upcoming__pills { display: none; }
+}

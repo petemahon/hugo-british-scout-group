@@ -27,25 +27,40 @@ District Camp.
    file.
 3. Hugo generates the `.ics` via a custom output format. The `.ics` is
    valid per RFC 5545 (test against iCal / Outlook / Google Calendar).
-4. **Aggregate `/events/all.ics`** is generated at build time —
-   parents can subscribe once to get every upcoming event. The
-   aggregate includes cancelled-upcoming events (with
-   `STATUS:CANCELLED`) so subscribers see the cancellation propagate
-   to their own calendar; it excludes past events.
+4. **Aggregate `/events/all.ics`** is generated at build time —parents
+   can subscribe once to get every upcoming event. The aggregate
+   **excludes cancelled events** (status="cancelled"): when an event
+   is cancelled it is omitted from the feed entirely, and subscribers'
+   calendar apps remove the meeting on next refresh. Postponed events
+   ARE included with their new date and a prefixed DESCRIPTION ("Note:
+   new date/time. "). Past events are excluded.
 5. Home-page section block `events-upcoming` shows the next *N* events.
 6. Past events accessible via `/events/past/` when
    `params.events.show_past_archive = true`.
-7. Cancelled events render with a clear "Cancelled" badge using the
-   new `--warning` palette token (see DECISIONS.md). The `.ics`
-   includes `STATUS:CANCELLED`.
+7. **Cancelled events** render with a red Cancelled pill using the
+    `--warning` palette token (`#d4351c`, see DECISIONS.md) ahead of
+    the section badges. The per-event `event.ics` renders a
+    well-formed but empty VCALENDAR (no VEVENT) so the URL stays
+    valid for bookmarked subscribers and their calendar removes the
+    meeting on next poll. The event is omitted from `/events/all.ics`.
+    `STATUS:CANCELLED` is no longer emitted.
+7b. **Postponed events** render with an amber Postponed pill using
+    the `--postponed` palette token (`#d97706`) ahead of the section
+    badges. The `date` field reflects the NEW date. The per-event
+    `event.ics` and aggregate `/events/all.ics` emit the event with
+    new DTSTART/DTEND, DESCRIPTION prefixed `"Note: new date/time. "`,
+    and SEQUENCE bumped to at least 1 so subscriber calendars update
+    the meeting in place rather than duplicating.
 8. **Multi-day events** (camps) emit a single `VEVENT` with `DTSTART`
    and `DTEND` spanning the period, not daily VEVENTs.
 9. BSO mode: events render two times when `times_local` and `times_uk`
    are both set (e.g. "20:30 (Brussels) / 19:30 (UK)").
 10. Feature is fully gated by `params.features.events` (defaulting OFF).
 11. The example site exercises: an upcoming event with all fields, a
-    minimal event (just title/date/location), a cancelled event, a
-    past event, a BSO event with dual times, a multi-day camp.
+    minimal event (just title/date/location), a cancelled event
+    (`status="cancelled"`), a postponed event (`status="postponed"`,
+    `revision=1`), a past event, a BSO event with dual times, a
+    multi-day camp.
 
 ## Content layout
 
@@ -83,8 +98,8 @@ Slug convention: `YYYY-MM-DD-kebab-case-title.md`.
 | `rsvp_to` | string | no | — | Generic Group email, never personal |
 | `rsvp_deadline` | datetime | no | — | Optional |
 | `cost_pay_url` | string | no | — | External payment link only |
-| `cancelled` | bool | no | false | If true, `STATUS:CANCELLED` in `.ics` |
-| `cancellation_note` | string | no | "" | Renders alongside Cancelled badge |
+| `status` | string | no | `"active"` | `"active"`, `"cancelled"`, or `"postponed"`. Cancelled = red pill + removed from .ics feeds. Postponed = amber pill + .ics emitted with new date and bumped SEQUENCE. |
+| `revision` | int | no | 0 | Bumped each time `date` changes on an existing event. SEQUENCE in the .ics is `max(revision, postponed ? 1 : 0)`. Required for re-postponing; first postponement handled automatically. |
 | `cover_image` | string | no | — | Path under `assets/events/<slug>/` |
 | `cover_alt` | string | yes if image | — | |
 | `photo_consent` | bool | yes if image | — | See SPEC-COMMON §10 |
@@ -197,7 +212,12 @@ events/past/_index.md` is its own section, falls back to the parent
   month (e.g. "Jul"), year. Year always shown. CSS Grid for the
   internal stack; outer container is `event-meta` (date pill on left,
   details on right).
-- "Cancelled" badge: solid `var(--warning)` background — see DECISIONS.md.
+- **Cancelled pill**: solid `var(--warning)` (`#d4351c`) background with
+  `var(--text-on-warning)` text. Sits ahead of section badges in the same
+  `.badges` row on the event card.
+- **Postponed pill**: solid `var(--postponed)` (`#d97706`) background with
+  `var(--text-on-postponed)` text. Same position as the Cancelled pill;
+  mutually exclusive (an event is either active, cancelled, or postponed).
 - Past events visible only when `params.events.show_past_archive` is
   true; the listing template filters by `now`.
 - Two-time rendering for BSO: a `<dl>` pair, both visible in mobile
@@ -230,7 +250,7 @@ the feature README.
 
 | Q | Decision |
 | --- | --- |
-| Q2.1 | **Yes** — new `--warning` palette token added across all five palette presets. See DECISIONS.md for token definition. |
+> | Q2.1 | **Status enum** replaces the cancelled boolean. Three states (`active`, `cancelled`, `postponed`), each with distinct site rendering and .ics behaviour. Cancelled events are OMITTED from .ics feeds entirely (cleanest UX — calendar subscribers see the meeting disappear). Postponed events are emitted with the new date, a prefixed DESCRIPTION and bumped SEQUENCE so subscriber apps update in place. New `--warning` (`#d4351c`) and `--postponed` (`#d97706`) palette tokens added across all five presets; both are app-functionality colours, not brand palette entries (see DECISIONS.md). |
 | Q2.2 | **Single template** (`layouts/events/list.html`) branching on `.Params.archive` set by `content/events/past/_index.md`. Hugo natural sub-section pattern. |
 | Q2.3 | **Single VEVENT** for multi-day events with `DTSTART`/`DTEND` spanning the period. |
 | Q2.4 | **Yes** — aggregate `/events/all.ics` feed via custom output format on the events list page. Material UX win for parents. |

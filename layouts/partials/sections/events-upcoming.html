@@ -6,68 +6,142 @@
   events-upcoming — home-page block, "What's coming up".
 
   Front-matter (under [[sections]] in content/_index.md):
-    type        (string)  must be "events-upcoming"
-    id          (string)  optional anchor
-    title       (string)  optional heading
-    title_color (string)  optional — primary | secondary | tertiary | accent
-    subtitle    (string)  optional, HTML allowed
-    bg          (string)  optional — primary | secondary | tertiary | muted
-    count       (int)     optional, defaults to params.events.default_count_on_home
-    show_more   (bool)    optional, default true; renders "See all events ->"
+    type        (string)   must be "events-upcoming"
+    id          (string)   optional anchor
+    eyebrow     (string)   optional — small uppercase lead-in over the h2
+    title       (string)   optional heading
+    subtitle    (string)   optional, HTML allowed — escape hatch for
+                           freeform prose. When unset (recommended),
+                           the section-shortcut pill row (D8 Stage C)
+                           takes this slot automatically.
+    align       (string)   "left" applies sect-head--left (recommended);
+                           anything else (or unset) keeps the head
+                           centred. The rev-2 mockup uses left.
+    bg          (string)   optional — primary | secondary | tertiary | muted
+    count       (int)      optional, defaults to params.events.default_count_on_home;
+                           fallback default is 3. Use multiples of 3 for a
+                           clean desktop grid.
+    show_more   (bool)     optional, default true; renders inline
+                           "See all events →" link in the section head.
+    show_subscribe (bool)  optional, default true; renders the
+                           "Subscribe to all events (.ics) →" outline
+                           button below the card grid.
+    show_section_pills (bool)
+                           optional, default true; when true AND no
+                           freeform subtitle is set, renders the
+                           section-shortcut pill row.
 
-  Renders nothing when:
-    - params.features.events is false (per SPEC-COMMON §2 opt-in policy)
-    - there are no upcoming events to show
+  Section-shortcut pills (D8 Stage C)
+  -----------------------------------
+  Below the h2 (and above the card grid), a row of dot-prefix pills
+  links to each section's taxonomy term page (/events/sections/<key>/).
+  Pills only render for sections that have at least one FUTURE event
+  tagged — built at deploy time. Sections without future events don't
+  get a pill. Order follows the canonical age order from
+  data/scout_sections.toml.
 
-  Cancelled-but-upcoming events ARE rendered — the card and meta partials
-  surface the Cancelled state visually. Spec acceptance criterion #5.
+  Cancelled-but-upcoming events
+  -----------------------------
+  Still rendered (the card surfaces the Cancelled state visually).
+  Cancelled events DO count towards a section having pills (they are
+  upcoming events from a UX standpoint — parents may want to navigate
+  to the section's listing to confirm the cancellation in context).
 */ -}}
 {{- if site.Params.features.events -}}
 
-  {{- $id          := .id          | default "" -}}
-  {{- $title       := .title       | default (i18n "eventsUpcomingHeading" | default "What's coming up") -}}
-  {{- $title_color := .title_color | default "" -}}
-  {{- $subtitle    := .subtitle    | default "" -}}
-  {{- $bg          := .bg          | default "" -}}
-  {{- $count       := .count       | default site.Params.events.default_count_on_home | default 4 -}}
-  {{- $show_more   := .show_more -}}
-  {{- if eq $show_more nil -}}
-    {{- $show_more = true -}}
-  {{- end -}}
+  {{- $id            := .id            | default "" -}}
+  {{- $eyebrow       := .eyebrow       | default "" -}}
+  {{- $title         := .title         | default (i18n "eventsUpcomingHeading" | default "What's coming up") -}}
+  {{- $subtitle      := .subtitle      | default "" -}}
+  {{- $bg            := .bg            | default "" -}}
+  {{- $count         := .count         | default site.Params.events.default_count_on_home | default 3 -}}
+
+  {{- $show_more := .show_more -}}
+  {{- if eq $show_more nil -}}{{- $show_more = true -}}{{- end -}}
+
+  {{- $show_subscribe := .show_subscribe -}}
+  {{- if eq $show_subscribe nil -}}{{- $show_subscribe = true -}}{{- end -}}
+
+  {{- $show_section_pills := .show_section_pills -}}
+  {{- if eq $show_section_pills nil -}}{{- $show_section_pills = true -}}{{- end -}}
+
+  {{- $headClass := "sect-head" -}}
+  {{- if eq .align "left" -}}{{- $headClass = "sect-head sect-head--left" -}}{{- end -}}
 
   {{- /* Upcoming = future-dated, regardless of cancellation status. */ -}}
   {{- $now    := now -}}
-  {{- $events := where site.RegularPages "Section" "events" -}}
-  {{- $events =  where $events "Date" ">=" $now -}}
-  {{- $events =  $events.ByDate -}}
-  {{- $events =  first $count $events -}}
+  {{- $allUpcoming := where site.RegularPages "Section" "events" -}}
+  {{- $allUpcoming =  where $allUpcoming "Date" ">=" $now -}}
+  {{- $events := first $count ($allUpcoming.ByDate) -}}
+
+  {{- /* Section-shortcut pill row: the set of sections with at least
+         one future event, sorted by canonical age order from
+         data/scout_sections.toml. */ -}}
+  {{- $sectionsWithEvents := slice -}}
+  {{- range $allUpcoming -}}
+    {{- range .Params.sections -}}
+      {{- if not (in $sectionsWithEvents .) -}}
+        {{- $sectionsWithEvents = $sectionsWithEvents | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $orderedPillSections := slice -}}
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- if in $sectionsWithEvents .key -}}
+      {{- $orderedPillSections = $orderedPillSections | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $renderPills := and $show_section_pills (eq $subtitle "") (gt (len $orderedPillSections) 0) -}}
 
   {{- if gt (len $events) 0 -}}
     <section{{ with $id }} id="{{ . }}"{{ end }}
-             class="section s-events-upcoming{{ with $bg }} s-bg--{{ . }}{{ end }} reveal">
+             class="section s-events-upcoming{{ with $bg }} s-bg-{{ . }}{{ end }} reveal">
       <div class="container">
-        <header class="s-events-upcoming__head">
-          <h2 class="s-events-upcoming__title display-2{{ with $title_color }} text-{{ . }}{{ end }}">
-            {{- $title -}}
-          </h2>
-          {{- with $subtitle }}
-            <p class="s-events-upcoming__subtitle display-7">{{ . | safeHTML }}</p>
-          {{- end }}
-        </header>
 
-        <div class="s-events-upcoming__grid">
-          {{- range $events }}
-            {{ partial "event-card.html" . }}
+        <div class="s-events-upcoming__head-row">
+          <div class="{{ $headClass }}">
+            {{- with $eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+            <h2>{{ $title }}</h2>
+            {{- with $subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+          </div>
+          {{- if $show_more }}
+            <a class="s-events-upcoming__seeall styled-link" href="{{ "/events/" | relURL }}">
+              {{- i18n "eventsSeeAll" | default "See all events" }} &rarr;
+            </a>
           {{- end }}
         </div>
 
-        {{- if $show_more }}
-          <p class="s-events-upcoming__more">
-            <a class="btn btn-primary-outline" href="{{ "/events/" | relURL }}">
-              {{- i18n "eventsSeeAll" | default "See all events" }} &rarr;
+        {{- if $renderPills }}
+          <nav class="s-events-upcoming__pills"
+               aria-label="{{ i18n "eventsFilterByLabel" | default "Filter events by section" }}">
+            <ul class="badges badges--nav">
+              {{- range $orderedPillSections }}
+                <li class="badges__pill" style="--sec: {{ .color }};">
+                  <a href="{{ printf "/events/sections/%s/" .key | relURL }}" class="styled-link">{{ .name }}</a>
+                </li>
+              {{- end }}
+            </ul>
+          </nav>
+        {{- end }}
+
+        <div class="s-events-upcoming__grid-shell">
+          <div class="s-events-upcoming__grid">
+            {{- range $events }}
+              {{ partial "event-card.html" . }}
+            {{- end }}
+          </div>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--left"  aria-hidden="true"></span>
+          <span class="s-events-upcoming__chevron s-events-upcoming__chevron--right" aria-hidden="true"></span>
+        </div>
+
+        {{- if $show_subscribe }}
+          <p class="s-events-upcoming__subscribe">
+            <a class="btn btn-primary-outline" href="{{ "/events/all.ics" | relURL }}" download>
+              {{- i18n "eventsSubscribe" | default "Subscribe to all events (.ics)" }} &rarr;
             </a>
           </p>
         {{- end }}
+
       </div>
     </section>
   {{- end -}}

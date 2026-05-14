@@ -142,13 +142,11 @@ CSS custom properties already emitted by `partials/palette-style.html`:
 
 | Token | Use |
 | --- | --- |
-| `--primary`, `--primary-hover` | Section-grid bg, primary buttons |
-| `--secondary`, `--secondary-hover` | Secondary buttons, accents |
-| `--tertiary` | "Our Sections" bg |
-| `--accent` | Network section bg, callouts |
-| `--text`, `--text-muted` | Body and de-emphasised copy |
-| `--text-on-primary`, `--text-on-secondary` | Text inside coloured blocks |
-| `--bg`, `--bg-muted` | Page bg, alternating section bg |
+| `--warning` | Cancelled events (SPEC-02), cancelled programme rows (SPEC-03), expired vacancies (SPEC-09), hall fully-booked banner (SPEC-08). Hex `#d4351c` across all palettes — chosen to be distinct from Scouts Red so a Cancelled pill never collides visually with a Scouts section pill. |
+| `--postponed` | Postponed events (SPEC-02). Hex `#d97706` across all palettes — amber, distinct from every section identity colour. |
+| `--status-open` | Open joining badge (SPEC-06) |
+| `--status-waiting` | Waiting-list joining badge (SPEC-06) |
+| `--status-closed` | Closed joining badge (SPEC-06) |
 
 **New tokens added by this roadmap** (defined per palette in
 `data/palettes.toml`):
