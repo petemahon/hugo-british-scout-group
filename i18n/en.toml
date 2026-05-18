@@ -137,7 +137,7 @@ other = "Filter events by section"
 # Override these in your site's i18n/en.toml to change the wording.
 # -----------------------------------------------------------------------------
 [networkFeatureEyebrow]
-other = "Network · 18–25"
+other = "· 18–25"
 
 [networkFeatureHeading]
 other = "Maybe you're over 18. But not over Scouts."

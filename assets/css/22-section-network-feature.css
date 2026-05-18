@@ -100,6 +100,8 @@
    (from 05-components-sect-head.css) otherwise paints a 22 px primary-
    tinted dash before the text; here we want only the wordmark+text. */
 .s-network-feature__eyebrow {
+  display: inline-block;   /* override shared .eyebrow's display: block */
+  line-height: 1;          /* match the logo's tight 22 px box */
   color: var(--scouts-black);
   margin-bottom: 0;
 }
