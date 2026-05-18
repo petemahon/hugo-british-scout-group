@@ -36,6 +36,19 @@
 }
 
 /* -----------------------------------------------------------------------------
+   1b. BRAND-ANCHOR TOKENS — fixed across every palette preset.
+   These are Scouts identity colours that DO NOT change when the site palette
+   changes. Used by sections whose brand identity is colour-anchored (e.g. the
+   Network feature band is always Scouts Orange, regardless of palette).
+   Hex values from the Scouts Brand Guidelines 2023.
+   ----------------------------------------------------------------------------- */
+:root {
+  --scouts-orange:       #ff912a;
+  --scouts-black:        #0d0d0d;
+  --scouts-black-hover:  #2a2a2a;
+}
+
+/* -----------------------------------------------------------------------------
    2. DESIGN TOKENS — non-colour structural values
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */

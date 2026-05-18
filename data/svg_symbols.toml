@@ -1,0 +1,34 @@
+# data/svg_symbols.toml — Inline SVG <symbol> registry.
+#
+# Each entry below becomes a <symbol id="..."> emitted by
+# layouts/partials/svg-defs.html, ready for <use href="#id"/> from
+# anywhere on the page. See the partial's comment header for the full
+# mechanism.
+#
+# Sites don't normally edit this file — the theme's is the source of
+# truth. To register a SITE-SPECIFIC symbol (e.g. a Group's own
+# logomark), add an entry in the site's own data/svg_symbols.toml;
+# Hugo's data-file merge semantics combine the lists.
+#
+# Schema
+# ------
+#   id      Required. The HTML id used by <use href="#id"/>. Must be
+#           unique across all symbols. Keep it short and kebab-cased.
+#   source  Required. Path to the source SVG, relative to /assets/.
+#           Convention:
+#             assets/svg/<name>.svg              — generic marks (fleur)
+#             assets/images/sections/<name>.svg  — section wordmarks
+#                                                  (squirrels, beavers,
+#                                                  cubs, scouts,
+#                                                  explorers, network)
+#
+# viewBox and root-level fill are read directly from the source SVG;
+# nothing to track here.
+
+[[symbols]]
+  id     = "fleur"
+  source = "svg/fleur.svg"
+
+[[symbols]]
+  id     = "logo-network"
+  source = "images/sections/network.svg"

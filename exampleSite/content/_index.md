@@ -94,34 +94,13 @@ description = "Skills for Life — example Scout Group home page using the Briti
   bg   = "muted"
 
 # -----------------------------------------------------------------------------
-# 5. Network 18-25 — stacked-features
+# 5. Network 18-25 — network-feature (opt-in via params.features.network_feature)
 # -----------------------------------------------------------------------------
 [[sections]]
-  type  = "stacked-features"
-  id    = "network"
-  bg    = "accent"
-  title = "Maybe you're over 18. But not over Scouts."
-  intro = "Network members start small but think big, always challenging themselves to do more and be more."
-
-  [[sections.items]]
-    title = "Aged 18-25?"
-    body  = "Try more. See more. Do more. At Scout Network, you'll stand on your own two feet, and make memories to last a lifetime."
-  [[sections.items]]
-    title = "Being part of Network"
-    body  = "When you join Network, you'll be introduced to lots of new activities, people and things. Find out more about what we get up to and how you can get involved."
-    [sections.items.link]
-      label = "Discover how you can be a part of Network"
-      url   = "https://www.scouts.org.uk/network/being-part-of-network/"
-  [[sections.items]]
-    title = "Awards"
-    body  = "The Scout Network programme is based around projects and events. Network members start small but think big, always challenging themselves to do more and be more. It all starts with an award."
-    [sections.items.link]
-      label = "Learn about awards"
-      url   = "https://www.scouts.org.uk/network/awards/"
-
-  [sections.image]
-    src = "images/sections/network.webp"
-    alt = "Network Scouts Logo"
+  type    = "network-feature"
+  id      = "network"
+  # eyebrow, title, intro, cta_label, cta_href all use theme defaults via i18n.
+  # [[sections.points]] is omitted — the theme renders the three default points.
 
 # -----------------------------------------------------------------------------
 # 6. Volunteer — two-col-image-cta

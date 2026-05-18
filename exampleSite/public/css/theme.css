@@ -36,6 +36,19 @@
 }
 
 /* -----------------------------------------------------------------------------
+   1b. BRAND-ANCHOR TOKENS — fixed across every palette preset.
+   These are Scouts identity colours that DO NOT change when the site palette
+   changes. Used by sections whose brand identity is colour-anchored (e.g. the
+   Network feature band is always Scouts Orange, regardless of palette).
+   Hex values from the Scouts Brand Guidelines 2023.
+   ----------------------------------------------------------------------------- */
+:root {
+  --scouts-orange:       #ff912a;
+  --scouts-black:        #0d0d0d;
+  --scouts-black-hover:  #2a2a2a;
+}
+
+/* -----------------------------------------------------------------------------
    2. DESIGN TOKENS — non-colour structural values
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */
@@ -234,6 +247,7 @@ a.styled-link { text-decoration: none; }
    class names are preserved — only the visual styling changes. New additions:
      .btn-ghost      — quiet secondary button (transparent + ink-coloured text)
      .btn .arr       — optional arrow span that nudges right on hover
+     .btn-dark
 
    Markup pattern:
      <a class="btn btn-primary" href="…">Join the Group <span class="arr">→</span></a>
@@ -309,6 +323,23 @@ a.styled-link { text-decoration: none; }
 .btn-ghost:hover,
 .btn-ghost:focus-visible {
   border-color: var(--text);
+}
+
+/* ── Dark (used on brand-anchor coloured bands, e.g. Network feature) ── */
+/* Dark CTA — black background, white text. Used on coloured-band
+   sections (Network feature, future volunteer band) where the
+   theme's primary CTA colour would clash with the section's
+   brand-anchor background. */
+.btn-dark {
+  background: var(--scouts-black);
+  color: #fff;
+  border: var(--btn-border) solid var(--scouts-black);
+}
+.btn-dark:hover,
+.btn-dark:focus-visible {
+  background: var(--scouts-black-hover, #2a2a2a);
+  border-color: var(--scouts-black-hover, #2a2a2a);
+  color: #fff;
 }
 
 /* ── Secondary ─────────────────────────────────────────────── */
@@ -2134,6 +2165,227 @@ a.styled-link { text-decoration: none; }
 
 @media print {
   .s-events-upcoming__pills { display: none; }
+}
+/* =============================================================================
+   22. SECTION: NETWORK FEATURE — "Maybe you're over 18. But not over Scouts."
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   This file owns every .s-network-feature* selector.
+
+   Visual reference: design-source-of-truth/mockup-rev2.html, the .network
+   block.
+
+   The background is ALWAYS Scouts Orange regardless of the site's palette
+   — Network's identity colour is brand-anchor, not palette-relative. The
+   number circles use var(--primary) so they take on the site palette,
+   giving a subtle palette signature inside the brand-fixed band.
+
+   The Network wordmark is rendered via <use href="#logo-network"/>, sourced
+   from assets/images/sections/network.svg by the data-driven svg-defs
+   partial (data/svg_symbols.toml). The wordmark's colour comes from the
+   source SVG's hardcoded fill="black" — intentional, matches the section-
+   badge convention. No CSS colour override here.
+
+   Pure CSS, no JavaScript. Breakpoint at 768px and 900px (the mockup's
+   second tier — slightly different from the theme's 1024px convention,
+   kept verbatim from the mockup where it controls the lede/points grid
+   split and the decorative blob visibility).
+   ============================================================================= */
+
+/* ── Section wrapper — brand-anchor orange ───────────────────── */
+.s-network-feature {
+  background: var(--scouts-orange);
+  color: var(--scouts-black);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .s-network-feature { padding: 96px 0; }
+}
+
+/* Decorative radial-gradient blob — desktop only, print-hidden. */
+.s-network-feature::after {
+  content: "";
+  position: absolute;
+  right: -100px; top: 50%;
+  transform: translateY(-50%);
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,.06) 0%, transparent 70%);
+  display: none;
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .s-network-feature::after { display: block; }
+}
+
+/* ── Two-column grid: lede left, points right ─────────────── */
+.s-network-feature__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .s-network-feature__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+/* ── Lede column ─────────────────────────────────────────── */
+.s-network-feature__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) {
+  .s-network-feature__eyebrow-row {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+}
+
+.s-network-feature__logo {
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+}
+.s-network-feature__logo svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .s-network-feature__logo { height: 24px; }
+}
+
+/* Suppress the .eyebrow::before line decoration inside this section —
+   the wordmark logo is the visual lead-in instead. The .eyebrow class
+   (from 05-components-sect-head.css) otherwise paints a 22 px primary-
+   tinted dash before the text; here we want only the wordmark+text. */
+.s-network-feature__eyebrow {
+  color: var(--scouts-black);
+  margin-bottom: 0;
+}
+.s-network-feature__eyebrow::before { display: none; }
+
+.s-network-feature__title {
+  font-size: clamp(30px, 7vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin: 0 0 14px;
+  text-wrap: balance;
+  color: var(--scouts-black);
+}
+@media (min-width: 768px) {
+  .s-network-feature__title { margin-bottom: 18px; }
+}
+
+.s-network-feature__intro {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 50ch;
+  opacity: 0.85;
+  margin: 0 0 22px;
+}
+@media (min-width: 768px) {
+  .s-network-feature__intro {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+}
+
+.s-network-feature__cta {
+  /* .btn-dark in 03-components-buttons.css handles the visual; the
+     section-scoped rule just controls outer spacing if needed. No
+     overrides here for now. */
+}
+
+/* ── Points column ─────────────────────────────────────── */
+.s-network-feature__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .s-network-feature__points { gap: 14px; }
+}
+
+.s-network-feature__point {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .s-network-feature__point {
+    border-radius: 16px;
+    padding: 18px 22px;
+    gap: 16px;
+  }
+}
+
+.s-network-feature__num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text-on-primary, #fff);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .s-network-feature__num {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.s-network-feature__point-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 3px;
+  color: var(--scouts-black);
+}
+@media (min-width: 768px) {
+  .s-network-feature__point-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+}
+
+.s-network-feature__point-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: none;
+  line-height: 1.45;
+}
+@media (min-width: 768px) {
+  .s-network-feature__point-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* ── Print ───────────────────────────────────────────── */
+@media print {
+  .s-network-feature::after { display: none; }
+  .s-network-feature__cta { display: none; }
+  .s-network-feature__point { background: #fff; border: 1px solid #ccc; }
 }
 /* -----------------------------------------------------------------------------
    16. FOOTER

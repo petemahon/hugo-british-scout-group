@@ -7,6 +7,7 @@
    class names are preserved — only the visual styling changes. New additions:
      .btn-ghost      — quiet secondary button (transparent + ink-coloured text)
      .btn .arr       — optional arrow span that nudges right on hover
+     .btn-dark
 
    Markup pattern:
      <a class="btn btn-primary" href="…">Join the Group <span class="arr">→</span></a>
@@ -82,6 +83,23 @@
 .btn-ghost:hover,
 .btn-ghost:focus-visible {
   border-color: var(--text);
+}
+
+/* ── Dark (used on brand-anchor coloured bands, e.g. Network feature) ── */
+/* Dark CTA — black background, white text. Used on coloured-band
+   sections (Network feature, future volunteer band) where the
+   theme's primary CTA colour would clash with the section's
+   brand-anchor background. */
+.btn-dark {
+  background: var(--scouts-black);
+  color: #fff;
+  border: var(--btn-border) solid var(--scouts-black);
+}
+.btn-dark:hover,
+.btn-dark:focus-visible {
+  background: var(--scouts-black-hover, #2a2a2a);
+  border-color: var(--scouts-black-hover, #2a2a2a);
+  color: #fff;
 }
 
 /* ── Secondary ─────────────────────────────────────────────── */

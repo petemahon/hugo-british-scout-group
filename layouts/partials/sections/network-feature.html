@@ -1,0 +1,109 @@
+{{- /*
+  network-feature — the "Maybe you're over 18. But not over Scouts."
+  band. A two-column section pitching Scout Network (18–25) to home-page
+  visitors, with the Network wordmark + eyebrow on one row, a big black
+  display heading, intro paragraph, dark CTA on the left, and a stack of
+  three numbered point cards on the right.
+
+  This section is OPT-IN. It renders nothing unless
+  `params.features.network_feature = true` in the consuming site's
+  `hugo.toml`. The example site enables it; new sites default to off.
+
+  Visual contract:
+    • Background is ALWAYS Scouts Orange (`--scouts-orange`), regardless
+      of the site palette. Network's brand identity colour is a fixed
+      anchor, not a palette-relative choice. The `bg` front-matter field
+      is therefore deliberately ignored.
+    • Number circles use `var(--primary)` so they take on the site's
+      palette tint — giving the brand-anchored band a subtle palette
+      signature. Classic-purple sites get purple circles; network-palette
+      sites get black; coastal gets teal.
+
+  Front-matter schema (every field optional):
+
+      [[sections]]
+        type        = "network-feature"
+        id          = "network"               # optional anchor id
+        eyebrow     = "Network · 18–25"        # optional; falls back to i18n
+        title       = "Maybe you're over 18. …" # optional; falls back to i18n
+        intro       = "Network members start…" # optional; falls back to i18n; HTML ok
+        cta_label   = "Find out more"          # optional; falls back to i18n
+        cta_href    = "https://…/network/"    # optional; falls back to i18n
+        [[sections.points]]
+          title = "…"
+          body  = "…"
+
+  If `[[sections.points]]` is omitted entirely, the three i18n-default
+  points render. Supplying any points overrides the defaults wholesale.
+
+  The Network wordmark is rendered via <use href="#logo-network"/>; the
+  symbol is sourced from assets/images/sections/network.svg by the
+  data-driven svg-defs partial (see data/svg_symbols.toml).
+
+  See `documentation/D10-SPEC.md` for the full design rationale and
+  `assets/css/22-section-network-feature.css` for the visual rules.
+*/ -}}
+
+{{- /* Opt-in gate. The feature defaults off; example site sets the flag true.
+       We read site.Params.features defensively — when the [params.features]
+       block is absent entirely, this evaluates to false and the whole partial
+       emits nothing. */ -}}
+{{- $featureOn := false -}}
+{{- with site.Params.features -}}
+  {{- if eq .network_feature true -}}{{- $featureOn = true -}}{{- end -}}
+{{- end -}}
+{{- if $featureOn -}}
+
+{{- $id := .id | default "" -}}
+
+{{- /* Eyebrow / title / intro / CTA: front-matter override → i18n default. */ -}}
+{{- $eyebrow  := .eyebrow   | default (i18n "networkFeatureEyebrow")  -}}
+{{- $title    := .title     | default (i18n "networkFeatureHeading")  -}}
+{{- $intro    := .intro     | default (i18n "networkFeatureIntro")    -}}
+{{- $ctaLabel := .cta_label | default (i18n "networkFeatureCtaLabel") -}}
+{{- $ctaHref  := .cta_href  | default (i18n "networkFeatureCtaHref")  -}}
+
+{{- /* Points: front-matter list wholesale overrides defaults.
+       When omitted, three i18n-default points render. */ -}}
+{{- $points := .points -}}
+{{- if not $points -}}
+  {{- $points = slice
+    (dict "title" (i18n "networkFeaturePoint1Title") "body" (i18n "networkFeaturePoint1Body"))
+    (dict "title" (i18n "networkFeaturePoint2Title") "body" (i18n "networkFeaturePoint2Body"))
+    (dict "title" (i18n "networkFeaturePoint3Title") "body" (i18n "networkFeaturePoint3Body"))
+  -}}
+{{- end -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-network-feature reveal">
+  <div class="container s-network-feature__grid">
+
+    <div class="s-network-feature__lede">
+      <div class="s-network-feature__eyebrow-row">
+        <span class="s-network-feature__logo" aria-hidden="true">
+          <svg viewBox="0 0 130 29"><use href="#logo-network"/></svg>
+        </span>
+        <span class="eyebrow s-network-feature__eyebrow">{{ $eyebrow }}</span>
+      </div>
+      <h2 class="s-network-feature__title">{{ $title }}</h2>
+      <p class="s-network-feature__intro">{{ $intro | safeHTML }}</p>
+      <a class="btn btn-dark s-network-feature__cta" href="{{ $ctaHref | safeURL }}">
+        {{ $ctaLabel }} <span class="arr" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+
+    <ul class="s-network-feature__points" role="list">
+      {{- range $i, $p := $points }}
+      <li class="s-network-feature__point">
+        <div class="s-network-feature__num" aria-hidden="true">{{ add $i 1 }}</div>
+        <div class="s-network-feature__point-body">
+          <h4 class="s-network-feature__point-title">{{ .title }}</h4>
+          <p class="s-network-feature__point-text">{{ .body | safeHTML }}</p>
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+
+  </div>
+</section>
+
+{{- end -}}

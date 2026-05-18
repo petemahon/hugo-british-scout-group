@@ -131,3 +131,37 @@ other = "This event has been rescheduled. The new date and time are shown here. 
 
 [eventsFilterByLabel]
 other = "Filter events by section"
+
+# -----------------------------------------------------------------------------
+# Network feature section — used by partials/sections/network-feature.html.
+# Override these in your site's i18n/en.toml to change the wording.
+# -----------------------------------------------------------------------------
+[networkFeatureEyebrow]
+other = "Network · 18–25"
+
+[networkFeatureHeading]
+other = "Maybe you're over 18. But not over Scouts."
+
+[networkFeatureIntro]
+other = "Network members start small but think big — always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it."
+
+[networkFeatureCtaLabel]
+other = "Find out more"
+
+[networkFeatureCtaHref]
+other = "https://www.scouts.org.uk/network/"
+
+[networkFeaturePoint1Title]
+other = "Aged 18–25?"
+[networkFeaturePoint1Body]
+other = "Stand on your own two feet, and make memories to last a lifetime."
+
+[networkFeaturePoint2Title]
+other = "Scout & DofE awards"
+[networkFeaturePoint2Body]
+other = "Top awards, real challenges. A clear path from your first hike to your last."
+
+[networkFeaturePoint3Title]
+other = "Travel, lead, give back"
+[networkFeaturePoint3Body]
+other = "International expeditions, leader training, community service projects."

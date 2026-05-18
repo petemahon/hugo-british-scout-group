@@ -138,6 +138,8 @@ disableKinds = ["taxonomy", "term"]
 [params.features]
   news      = true
   events    = true
+  network_feature = true
+
 
 # -----------------------------------------------------------------------------
 # News & Camp Reports — see SPEC-01.
