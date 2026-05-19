@@ -165,3 +165,44 @@ other = "Top awards, real challenges. A clear path from your first hike to your 
 other = "Travel, lead, give back"
 [networkFeaturePoint3Body]
 other = "International expeditions, leader training, community service projects."
+# -----------------------------------------------------------------------------
+# Volunteer-feature section — used by partials/sections/volunteer-feature.html.
+# Override these in your site's i18n/en.toml to change the wording.
+# -----------------------------------------------------------------------------
+[volunteerFeatureEyebrow]
+other = "Volunteer"
+
+[volunteerFeatureHeading]
+other = "Register to volunteer."
+
+[volunteerFeatureBody1]
+other = "Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers."
+
+[volunteerFeatureBody2]
+other = "We're always looking for more people to join us — whether you have an hour every two months, or can give your time weekly, we <strong>need</strong> you."
+
+[volunteerFeatureNetworkNote]
+other = "Aged 18–25? You can volunteer too, as a member of the Scout Network."
+
+[volunteerFeatureCtaLabel]
+other = "I want to volunteer"
+
+[volunteerFeatureCtaHref]
+other = "https://www.scouts.org.uk/volunteer/"
+
+# ── Role-model poster variant defaults
+[volunteerFeaturePosterTag]
+other = "Volunteer with Scouts"
+
+[volunteerFeaturePosterHeadline]
+other = "You look like a role model."
+
+[volunteerFeaturePosterHash]
+other = "#SkillsForLife"
+
+# ── Stat-yellow poster variant defaults (Scouts UK campaign figure)
+[volunteerFeatureStatLineA]
+other = "27% of parents and carers of our young people said they'd volunteer."
+
+[volunteerFeatureStatLineB]
+other = "However, 49% said they'd never been asked."

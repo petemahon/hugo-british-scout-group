@@ -238,9 +238,10 @@ maintain.
 
 ```toml
 [params.features]
-  news            = true       # SPEC-01
-  events          = true       # SPEC-02
-  network_feature = true       # Network 18–25 brand-anchor band
+  news              = true     # SPEC-01
+  events            = true     # SPEC-02
+  network_feature   = true     # Network 18–25 brand-anchor band
+  volunteer_feature = true     # "Register to volunteer." brand-anchor band (D11)
 ```
 
 ---
@@ -265,6 +266,7 @@ relies on these keys).
 | `palette-showcase`   | Renders all five palettes (used on `/palettes/`).                                  |
 | `prose`              | Free-form Markdown content, constrained to a readable width.                       |
 | `network-feature`    | The Network 18–25 brand-anchor band on Scouts Orange.                              |
+| `volunteer-feature`  | The "Register to volunteer." brand-anchor band on Scouts Purple.                   |
 | `events-upcoming`    | Home-page block listing future events with `.ics` downloads (requires `events`).   |
 | `news-grid`          | Home-page block listing recent news posts (requires `news`).                       |
 | `join` / `where-we-meet` | Stable nav-anchor sections.                                                    |
@@ -369,6 +371,39 @@ That's the minimum. Override the eyebrow, title, intro, CTA, and the
 three point cards via front-matter or via `i18n/en.toml`. See
 [Customising](#customising) below.
 
+### Volunteer recruitment section
+
+A dedicated home-page band promoting adult volunteer recruitment.
+Renders on a Scouts-Purple **brand-anchor** background that does
+not change when the site palette changes — volunteer recruitment is
+a national Scouts UK campaign with consistent purple branding. The
+eyebrow and CTA are Scouts Yellow, mirroring the canonical brand-
+poster pairing.
+
+```toml
+[params.features]
+  volunteer_feature = true
+```
+
+```toml
+[[sections]]
+  type    = "volunteer-feature"
+  id      = "volunteer"
+  variant = "role-model"   # or "stat-yellow"
+```
+
+Two poster variants ship: `role-model` (purple poster, centred
+white fleur, "You look like a role model." headline — the canonical
+Scouts brand-poster styling) and `stat-yellow` (yellow poster, the
+campaign's 27% / 49% volunteering statistic). Override the eyebrow,
+heading, body paragraphs, network note, CTA and per-variant poster
+copy via front-matter or via `i18n/en.toml`. See
+[Customising](#customising) below.
+
+The section uses CSS container queries for poster typography
+scaling (Baseline 2024) and emits only the chosen variant's markup
+at render time. No JavaScript.
+
 ### BSO membership notice
 
 Renders the eligibility statement aligned with POR 3.2.1.1 for
@@ -420,6 +455,7 @@ adding a new module is a drop-in:
 11-section-two-col-cta.css
 …
 22-section-network-feature.css (D10)
+23-section-volunteer-feature.css (D11)
 30-footer.css
 40-print.css
 41-feature-hero-intro.css      (opt-in, gated by body class)

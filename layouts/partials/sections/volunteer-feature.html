@@ -1,0 +1,144 @@
+{{- /*
+  volunteer-feature — the "Register to volunteer." band. A two-column
+  section pitching adult volunteering to home-page visitors, with a
+  Scouts-brand poster on one side (one of two pure-typography variants,
+  no image) and a yellow eyebrow + display heading + body copy + yellow
+  CTA on the other.
+
+  This section is OPT-IN. It renders nothing unless
+  `params.features.volunteer_feature = true` in the consuming site's
+  `hugo.toml`. The example site enables it; new sites default to off.
+
+  Visual contract:
+    • Background is ALWAYS Scouts Purple (`--scouts-purple`), regardless
+      of the site palette. Volunteer recruitment is a national Scouts
+      UK campaign with consistent purple branding; the poster's yellow
+      tag pill is designed to read on purple. The `bg` front-matter
+      field is therefore deliberately ignored.
+    • Eyebrow text colour and CTA background are ALWAYS Scouts Yellow
+      (`--scouts-yellow`), brand-anchored for the same reason.
+    • Poster sits LEFT of the text column at desktop, ABOVE at mobile.
+      No `direction` field — the layout is opinionated. Groups wanting
+      the other direction can use `two-col-image-cta` instead.
+    • Typography uses the theme's default Inter Tight throughout. The
+      mockup's Nunito Sans / Manrope declarations on poster h3 and
+      stat-copy were dropped — Inter Tight at weight 900 handles the
+      display weight, and a second Google Fonts family is overhead
+      for ~5 words of typography.
+
+  Front-matter schema (every field optional):
+
+      [[sections]]
+        type            = "volunteer-feature"
+        id              = "volunteer"             # optional anchor id
+        variant         = "role-model"            # "role-model" | "stat-yellow"
+        eyebrow         = "Volunteer"             # optional; i18n default
+        title           = "Register to volunteer." # optional; i18n default
+        body1           = "Our amazing teams …"   # optional; i18n default; HTML ok
+        body2           = "We're always looking…" # optional; i18n default; HTML ok
+        network_note    = "Aged 18–25? …"         # optional; i18n default; HTML ok.
+                                                    To suppress entirely, override
+                                                    the i18n key to an empty string
+                                                    in the site's i18n/en.toml.
+        cta_label       = "I want to volunteer"   # optional; i18n default
+        cta_href        = "https://…/volunteer/"  # optional; i18n default
+
+        # Role-model variant fields (used when variant = "role-model"):
+        poster_tag      = "Volunteer with Scouts" # optional; i18n default
+        poster_headline = "You look like a role model." # optional; i18n default
+        poster_hash     = "#SkillsForLife"        # optional; i18n default
+
+        # Stat-yellow variant fields (used when variant = "stat-yellow"):
+        stat_line_a     = "27% of parents …"      # optional; i18n default
+        stat_line_b     = "However, 49% said …"   # optional; i18n default
+
+  The fleur SVG is rendered via <use href="#fleur"/>; the symbol is
+  registered in data/svg_symbols.toml and its source SVG has
+  fill="currentColor" so the white/black inheritance works via CSS
+  `color` in both variants.
+
+  See `documentation/D11-SPEC.md` for the full design rationale and
+  `assets/css/23-section-volunteer-feature.css` for the visual rules.
+*/ -}}
+
+{{- /* Opt-in gate. The feature defaults off; example site sets the flag true.
+       We read site.Params.features defensively — when the [params.features]
+       block is absent entirely, this evaluates to false and the whole partial
+       emits nothing. */ -}}
+{{- $featureOn := false -}}
+{{- with site.Params.features -}}
+  {{- if eq .volunteer_feature true -}}{{- $featureOn = true -}}{{- end -}}
+{{- end -}}
+{{- if $featureOn -}}
+
+{{- $id := .id | default "" -}}
+
+{{- /* Variant — accept only the two documented values; anything else
+       (including omission) falls back to role-model. */ -}}
+{{- $variant := .variant | default "role-model" -}}
+{{- if and (ne $variant "role-model") (ne $variant "stat-yellow") -}}
+  {{- $variant = "role-model" -}}
+{{- end -}}
+
+{{- /* Eyebrow / title / body / network note / CTA: front-matter override → i18n default. */ -}}
+{{- $eyebrow     := .eyebrow      | default (i18n "volunteerFeatureEyebrow")     -}}
+{{- $title       := .title        | default (i18n "volunteerFeatureHeading")     -}}
+{{- $body1       := .body1        | default (i18n "volunteerFeatureBody1")       -}}
+{{- $body2       := .body2        | default (i18n "volunteerFeatureBody2")       -}}
+{{- $networkNote := .network_note | default (i18n "volunteerFeatureNetworkNote") -}}
+{{- $ctaLabel    := .cta_label    | default (i18n "volunteerFeatureCtaLabel")    -}}
+{{- $ctaHref     := .cta_href     | default (i18n "volunteerFeatureCtaHref")     -}}
+
+{{- /* Per-variant poster copy: front-matter override → i18n default. */ -}}
+{{- $posterTag      := .poster_tag      | default (i18n "volunteerFeaturePosterTag")      -}}
+{{- $posterHeadline := .poster_headline | default (i18n "volunteerFeaturePosterHeadline") -}}
+{{- $posterHash     := .poster_hash     | default (i18n "volunteerFeaturePosterHash")     -}}
+{{- $statLineA      := .stat_line_a     | default (i18n "volunteerFeatureStatLineA")      -}}
+{{- $statLineB      := .stat_line_b     | default (i18n "volunteerFeatureStatLineB")      -}}
+
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-volunteer-feature reveal">
+  <div class="container s-volunteer-feature__grid">
+
+    {{- /* Poster column — only the chosen variant's markup is emitted.
+           Pure typography in both variants; no image. */ -}}
+    <div class="s-volunteer-feature__poster s-volunteer-feature__poster--{{ $variant }}">
+      {{- if eq $variant "role-model" }}
+      <div class="s-volunteer-feature__poster-text">
+        <span class="s-volunteer-feature__poster-tag">{{ $posterTag }}</span>
+        <svg class="s-volunteer-feature__fleur s-volunteer-feature__fleur--white" aria-hidden="true"><use href="#fleur"/></svg>
+        <div class="s-volunteer-feature__poster-footer">
+          <h3 class="s-volunteer-feature__poster-headline">{{ $posterHeadline }}</h3>
+          <div class="s-volunteer-feature__poster-hash">{{ $posterHash }}</div>
+        </div>
+      </div>
+      {{- else }}
+      <div class="s-volunteer-feature__poster-stat">
+        <p class="s-volunteer-feature__stat-copy">
+          {{ $statLineA | safeHTML }}
+          <span class="s-volunteer-feature__stat-gap" aria-hidden="true"></span>
+          {{ $statLineB | safeHTML }}
+        </p>
+        <svg class="s-volunteer-feature__fleur s-volunteer-feature__fleur--black" aria-hidden="true"><use href="#fleur"/></svg>
+      </div>
+      {{- end }}
+    </div>
+
+    <div class="s-volunteer-feature__text">
+      <span class="eyebrow eyebrow-yellow s-volunteer-feature__eyebrow">{{ $eyebrow }}</span>
+      <h2 class="s-volunteer-feature__title">{{ $title }}</h2>
+      <p class="s-volunteer-feature__body">{{ $body1 | safeHTML }}</p>
+      <p class="s-volunteer-feature__body">{{ $body2 | safeHTML }}</p>
+      {{- with $networkNote }}
+      <p class="s-volunteer-feature__network-note">{{ . | safeHTML }}</p>
+      {{- end }}
+      <div class="s-volunteer-feature__cta-row">
+        <a class="btn btn-yellow s-volunteer-feature__cta" href="{{ $ctaHref | safeURL }}">
+          {{ $ctaLabel }} <span class="arr" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{- end -}}

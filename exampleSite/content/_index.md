@@ -103,22 +103,19 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # [[sections.points]] is omitted — the theme renders the three default points.
 
 # -----------------------------------------------------------------------------
-# 6. Volunteer — two-col-image-cta
+# 6. Volunteer — volunteer-feature brand-anchor band (D11)
+# Opt-in via params.features.volunteer_feature in hugo.toml. Always renders
+# on Scouts Purple regardless of palette. The text column ships the canonical
+# i18n-default copy; the poster ships in the default `role-model` variant.
+# Switch the example to the `stat-yellow` variant by uncommenting `variant`.
 # -----------------------------------------------------------------------------
 [[sections]]
-  type        = "two-col-image-cta"
-  id          = "volunteer"
-  title       = "Register to Volunteer"
-  title_color = "secondary"
-  text        = "Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers.<br><br>We are always looking for more people to join us, and there are lots of options. Whether you have an hour every two months, or can give your time weekly, we <strong>need</strong> you.<br><br>It's time to embrace your next big adventure. Volunteer with 1st Anytown Scouts and be the best role model.<br><br>Aged 18-25? You can volunteer too, as a member of the Scout Network.<br><br>Get in touch below to find out more."
-  [sections.image]
-    src = "images/volunteer/role-model.webp"
-    alt = "Volunteer with Scouts"
-  [[sections.buttons]]
-    label    = "I want to volunteer"
-    url      = "https://forms.example.com/volunteer"
-    style    = "secondary"
-    external = true
+  type    = "volunteer-feature"
+  id      = "volunteer"
+  # variant = "stat-yellow"   # default "role-model"; uncomment to switch
+  # eyebrow, title, body1, body2, network_note, cta_label, cta_href,
+  # poster_tag, poster_headline, poster_hash, stat_line_a, stat_line_b
+  # all use theme defaults via i18n.
 
 # -----------------------------------------------------------------------------
 # 7. Whats coming up — events-upcoming (opt-in via params.features.events)

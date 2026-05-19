@@ -26,9 +26,12 @@
        ↑ side accent strip (section colour)
 
    The section's identity colour is delivered to .s-scout-sections__card
-   via an inline `--sec` custom property set by the partial from
-   data/scout_sections.toml's `color` field — the same value used by
-   section badges elsewhere in the theme (news cards, event cards, etc).
+   via the `--sec` custom property, mapped from the card's
+   `data-sec="<key>"` attribute to one of the `--sec-<key>` brand-anchor
+   tokens in 00-tokens.css. These are the section's wordmark identity
+   colours from Scouts Brand Guidelines 2023 — DIFFERENT from
+   data/scout_sections.toml's `color` field, which is the badge
+   outer-ring colour used for badge pills elsewhere in the theme.
 
    The Learn-more affordance is *non-interactive* — it's a styled
    <span class="s-scout-sections__btn"> inside the parent <a>. Visual
@@ -64,7 +67,6 @@
   color: var(--text);
   border-radius: 18px;
   padding: 1.125rem 1.375rem;   /* 18 / 22 px */
-  border: 1px solid rgba(20, 17, 14, 0.06);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
@@ -93,6 +95,18 @@
 .s-bg-tertiary  .s-scout-sections__card,
 .s-bg-accent    .s-scout-sections__card,
 .s-bg-dark      .s-scout-sections__card { color: var(--text); }
+
+/* Per-section identity colour, applied via `--sec`. Each card carries
+   `data-sec="<key>"` from the partial; these rules map that to the
+   section's wordmark identity token in 00-tokens.css. The logos
+   themselves keep their NATIVE brand colours (preserved by each SVG's
+   own fill attributes — we don't override). */
+.s-scout-sections__card[data-sec="squirrels"] { --sec: var(--sec-squirrels); }
+.s-scout-sections__card[data-sec="beavers"]   { --sec: var(--sec-beavers); }
+.s-scout-sections__card[data-sec="cubs"]      { --sec: var(--sec-cubs); }
+.s-scout-sections__card[data-sec="scouts"]    { --sec: var(--sec-scouts); }
+.s-scout-sections__card[data-sec="explorers"] { --sec: var(--sec-explorers); }
+.s-scout-sections__card[data-sec="network"]   { --sec: var(--sec-network); }
 
 /* Coloured accent strip — vertical on mobile (left edge),
    horizontal on desktop (top edge). Width and height swap. */

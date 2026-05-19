@@ -44,8 +44,43 @@
    ----------------------------------------------------------------------------- */
 :root {
   --scouts-orange:       #ff912a;
+  --scouts-purple:       #7413dc;
+  --scouts-yellow:       #ffe627;
   --scouts-black:        #0d0d0d;
+
+  /* Brand-anchor hover variants. Used by CTAs and interactive elements
+     that sit on brand-anchor coloured bands and need a paired hover
+     colour that doesn't ride the site palette. Values: purple-hover
+     from the classic-purple palette; yellow-hover lifted from the
+     rev-2 design mockup; black-hover from D10. */
+  --scouts-purple-hover: #8e34ee;
+  --scouts-yellow-hover: #ffec5c;
   --scouts-black-hover:  #2a2a2a;
+}
+
+/* -----------------------------------------------------------------------------
+   1c. SECTION IDENTITY TOKENS — per-Scout-section wordmark colours.
+   The colours of the official Scouts wordmark logos (Squirrels, Beavers,
+   Cubs, Scouts, Explorers, Network), sourced from Scouts Brand Guidelines
+   2023. Fixed across every palette preset, like the brand-anchor tokens
+   above.
+
+   Used by the scout-sections card accent strip via
+   `.s-scout-sections__card[data-sec="<key>"] { --sec: var(--sec-<key>); }`
+   in 20-section-scout-sections.css.
+
+   These are DIFFERENT from data/scout_sections.toml's `color` field, which
+   is the section's BADGE outer-ring colour used for badge pills (news
+   cards, event cards, gallery covers). The two taxonomies don't overlap
+   and both are needed.
+   ----------------------------------------------------------------------------- */
+:root {
+  --sec-squirrels: #ed3f23;   /* Scouts Red */
+  --sec-beavers:   #006ddf;   /* Scouts Blue */
+  --sec-cubs:      #25b755;   /* Scouts Green */
+  --sec-scouts:    #205b41;   /* Scouts Forest Green */
+  --sec-explorers: #003982;   /* Scouts Navy */
+  --sec-network:   #ed3f23;   /* Scouts Red — same hex as Squirrels, distinct wordmark */
 }
 
 /* -----------------------------------------------------------------------------
@@ -340,6 +375,23 @@ a.styled-link { text-decoration: none; }
   background: var(--scouts-black-hover, #2a2a2a);
   border-color: var(--scouts-black-hover, #2a2a2a);
   color: #fff;
+}
+
+/* ── Yellow (used on the Scouts-Purple volunteer-feature band) ── */
+/* Yellow CTA — Scouts Yellow background, Scouts Black text. Mirrors
+   the canonical Scouts brand-poster pairing (the role-model poster
+   uses the same yellow-on-purple language for its tag pill). Hover
+   lifts to a slightly lighter yellow lifted from the rev-2 mockup. */
+.btn-yellow {
+  background: var(--scouts-yellow);
+  color: var(--scouts-black);
+  border: var(--btn-border) solid var(--scouts-yellow);
+}
+.btn-yellow:hover,
+.btn-yellow:focus-visible {
+  background: var(--scouts-yellow-hover, #ffec5c);
+  border-color: var(--scouts-yellow-hover, #ffec5c);
+  color: var(--scouts-black);
 }
 
 /* ── Secondary ─────────────────────────────────────────────── */
@@ -729,6 +781,25 @@ a.styled-link { text-decoration: none; }
 .sect-head--left .eyebrow { justify-content: flex-start; }
 .sect-head--left .eyebrow::after { display: none; }
 .sect-head--left p { margin: 0; }
+
+/* ── Yellow modifier ──────────────────────────────────────────── */
+/* Brand-anchor yellow eyebrow used inside the volunteer-feature
+   section's text column. Reserved by D5 (see header comment), shipped
+   in D11.
+
+   This is a colour-only modifier — the base .eyebrow rules above
+   supply the typography, line decoration, and spacing. The text and
+   the leading 22 px dash both become Scouts Yellow. The trailing
+   ::after dash is suppressed in the volunteer-feature module
+   (23-section-volunteer-feature.css) because that section's eyebrow
+   sits in a left-aligned context, not inside a centred .sect-head. */
+.eyebrow-yellow {
+  color: var(--scouts-yellow);
+}
+.eyebrow-yellow::before,
+.eyebrow-yellow::after {
+  background: var(--scouts-yellow);
+}
 
 /* When the parent section sits on a coloured/dark palette bg, the
    eyebrow and subtitle should follow the section's text colour (which
@@ -1397,9 +1468,12 @@ a.styled-link { text-decoration: none; }
        ↑ side accent strip (section colour)
 
    The section's identity colour is delivered to .s-scout-sections__card
-   via an inline `--sec` custom property set by the partial from
-   data/scout_sections.toml's `color` field — the same value used by
-   section badges elsewhere in the theme (news cards, event cards, etc).
+   via the `--sec` custom property, mapped from the card's
+   `data-sec="<key>"` attribute to one of the `--sec-<key>` brand-anchor
+   tokens in 00-tokens.css. These are the section's wordmark identity
+   colours from Scouts Brand Guidelines 2023 — DIFFERENT from
+   data/scout_sections.toml's `color` field, which is the badge
+   outer-ring colour used for badge pills elsewhere in the theme.
 
    The Learn-more affordance is *non-interactive* — it's a styled
    <span class="s-scout-sections__btn"> inside the parent <a>. Visual
@@ -1435,7 +1509,6 @@ a.styled-link { text-decoration: none; }
   color: var(--text);
   border-radius: 18px;
   padding: 1.125rem 1.375rem;   /* 18 / 22 px */
-  border: 1px solid rgba(20, 17, 14, 0.06);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
@@ -1464,6 +1537,18 @@ a.styled-link { text-decoration: none; }
 .s-bg-tertiary  .s-scout-sections__card,
 .s-bg-accent    .s-scout-sections__card,
 .s-bg-dark      .s-scout-sections__card { color: var(--text); }
+
+/* Per-section identity colour, applied via `--sec`. Each card carries
+   `data-sec="<key>"` from the partial; these rules map that to the
+   section's wordmark identity token in 00-tokens.css. The logos
+   themselves keep their NATIVE brand colours (preserved by each SVG's
+   own fill attributes — we don't override). */
+.s-scout-sections__card[data-sec="squirrels"] { --sec: var(--sec-squirrels); }
+.s-scout-sections__card[data-sec="beavers"]   { --sec: var(--sec-beavers); }
+.s-scout-sections__card[data-sec="cubs"]      { --sec: var(--sec-cubs); }
+.s-scout-sections__card[data-sec="scouts"]    { --sec: var(--sec-scouts); }
+.s-scout-sections__card[data-sec="explorers"] { --sec: var(--sec-explorers); }
+.s-scout-sections__card[data-sec="network"]   { --sec: var(--sec-network); }
 
 /* Coloured accent strip — vertical on mobile (left edge),
    horizontal on desktop (top edge). Width and height swap. */
@@ -2388,6 +2473,264 @@ a.styled-link { text-decoration: none; }
   .s-network-feature::after { display: none; }
   .s-network-feature__cta { display: none; }
   .s-network-feature__point { background: #fff; border: 1px solid #ccc; }
+}
+/* =============================================================================
+   23. SECTION: VOLUNTEER FEATURE — "Register to volunteer."
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   This file owns every .s-volunteer-feature* selector.
+
+   Visual reference: design-source-of-truth/mockup-rev2.html, the .volunteer
+   block (mockup lines 774–880).
+
+   The background is ALWAYS Scouts Purple regardless of the site's palette
+   — volunteer recruitment is a national Scouts UK campaign with consistent
+   purple branding. The yellow eyebrow and yellow CTA are also brand-anchor:
+   the poster's tag pill is yellow-on-purple, the CTA mirrors that pairing
+   on the text side.
+
+   Two poster variants, switched by a single class on the wrapper:
+     .s-volunteer-feature__poster--role-model
+         Scouts Purple background, white fleur in the centre, yellow tag
+         pill at top-left, white display headline + #SkillsForLife hash
+         at bottom. The canonical Scouts brand-poster styling.
+
+     .s-volunteer-feature__poster--stat-yellow
+         Scouts Yellow background, black fleur bottom-right, large black
+         display copy with the campaign's 27%/49% statistic.
+
+   The partial renders ONLY the chosen variant's markup — there is no
+   both-rendered-and-hidden gymnastics from the mockup. Each variant's
+   inner-content selectors are therefore unscoped to the variant
+   modifier; the appropriate inner element is the only one present.
+
+   Container queries (`container-type: inline-size`, `cqi` units) scale
+   the poster typography to the rendered poster width. Baseline 2024,
+   acceptable under the theme's Baseline 2026 target.
+
+   Pure CSS, no JavaScript. Breakpoint at 768px and 900px matches D10's
+   network-feature module so the two brand-anchor bands feel symmetric.
+   ============================================================================= */
+
+/* ── Section wrapper — brand-anchor purple ───────────────────── */
+.s-volunteer-feature {
+  background: var(--scouts-purple);
+  color: #fff;
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .s-volunteer-feature { padding: 96px 0; }
+}
+
+/* ── Two-column grid: poster left, text right ─────────────── */
+.s-volunteer-feature__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .s-volunteer-feature__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+  }
+}
+
+/* ── Poster (shared shell across both variants) ────────────── */
+.s-volunteer-feature__poster {
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  container-type: inline-size;
+}
+@media (min-width: 900px) {
+  .s-volunteer-feature__poster {
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    max-width: none;
+  }
+}
+
+/* ── Variant 1: Role-model ─────────────────────────────────── */
+.s-volunteer-feature__poster--role-model {
+  background: var(--scouts-purple);
+}
+
+.s-volunteer-feature__poster-text {
+  position: absolute;
+  inset: 0;
+  padding: clamp(20px, 5cqi, 36px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(14px, 3.5cqi, 24px);
+  z-index: 1;
+}
+
+.s-volunteer-feature__poster-tag {
+  background: var(--scouts-yellow);
+  color: var(--scouts-black);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  justify-self: start;
+}
+
+.s-volunteer-feature__fleur--white {
+  width: 100%;
+  height: 100%;
+  max-width: 62%;
+  aspect-ratio: 1;
+  place-self: center;
+  color: #fff;   /* SVG inherits via fill="currentColor" on the source */
+}
+
+.s-volunteer-feature__poster-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.s-volunteer-feature__poster-headline {
+  font-size: clamp(26px, 7.2cqi, 52px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+}
+
+.s-volunteer-feature__poster-hash {
+  font-size: clamp(13px, 3.4cqi, 18px);
+  font-weight: 800;
+  opacity: 0.9;
+  color: #fff;
+}
+
+/* ── Variant 2: Stat-yellow ────────────────────────────────── */
+.s-volunteer-feature__poster--stat-yellow {
+  background: var(--scouts-yellow);
+  color: var(--scouts-black);
+}
+
+.s-volunteer-feature__poster-stat {
+  position: absolute;
+  inset: 0;
+  padding: clamp(20px, 5cqi, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(16px, 4cqi, 28px);
+}
+
+.s-volunteer-feature__stat-copy {
+  font-weight: 900;
+  font-size: clamp(20px, 8.4cqi, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--scouts-black);
+}
+
+.s-volunteer-feature__stat-gap {
+  display: block;
+  height: clamp(10px, 3cqi, 22px);
+}
+
+.s-volunteer-feature__fleur--black {
+  align-self: flex-end;
+  width: clamp(48px, 16cqi, 110px);
+  aspect-ratio: 1;
+  color: var(--scouts-black);   /* SVG inherits via fill="currentColor" */
+}
+
+/* ── Text column ───────────────────────────────────────────── */
+/* The shared .eyebrow base supplies the line-decoration; the
+   .eyebrow-yellow modifier in 05-components-sect-head.css supplies
+   the yellow colour. Inside this section we suppress the trailing
+   ::after — this is a left-aligned context, not a centred .sect-head. */
+.s-volunteer-feature__eyebrow {
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) {
+  .s-volunteer-feature__eyebrow { margin-bottom: 18px; }
+}
+.s-volunteer-feature__eyebrow::after { display: none; }
+
+.s-volunteer-feature__title {
+  font-size: clamp(30px, 6.5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  color: #fff;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .s-volunteer-feature__title { margin-bottom: 20px; }
+}
+
+.s-volunteer-feature__body {
+  font-size: 15.5px;
+  line-height: 1.55;
+  opacity: 0.92;
+  margin: 0 0 12px;
+  max-width: 50ch;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .s-volunteer-feature__body {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+}
+
+.s-volunteer-feature__network-note {
+  font-size: 14.5px;
+  line-height: 1.55;
+  opacity: 0.75;
+  margin: 0;
+  max-width: 50ch;
+  color: #fff;
+}
+
+.s-volunteer-feature__cta-row {
+  margin-top: 22px;
+}
+@media (min-width: 768px) {
+  .s-volunteer-feature__cta-row { margin-top: 28px; }
+}
+
+.s-volunteer-feature__cta {
+  /* .btn-yellow in 03-components-buttons.css handles the visual; the
+     section-scoped rule is reserved for outer spacing if needed. No
+     overrides here for now. */
+}
+
+/* ── Print ─────────────────────────────────────────────────── */
+@media print {
+  .s-volunteer-feature__poster   { display: none; }
+  .s-volunteer-feature__cta-row  { display: none; }
+  .s-volunteer-feature__grid     { grid-template-columns: 1fr; }
+  /* The Scouts-Purple background is preserved on the text column to
+     match D10's brand-anchor pattern. The poster and CTA are removed
+     (image-heavy / non-interactive in print); the volunteer-recruitment
+     prose remains the useful content on a printed page. Groups that
+     want a fully-flipped print stylesheet can override in their site
+     CSS. */
 }
 /* -----------------------------------------------------------------------------
    16. FOOTER

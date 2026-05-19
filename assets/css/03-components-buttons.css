@@ -102,6 +102,23 @@
   color: #fff;
 }
 
+/* ── Yellow (used on the Scouts-Purple volunteer-feature band) ── */
+/* Yellow CTA — Scouts Yellow background, Scouts Black text. Mirrors
+   the canonical Scouts brand-poster pairing (the role-model poster
+   uses the same yellow-on-purple language for its tag pill). Hover
+   lifts to a slightly lighter yellow lifted from the rev-2 mockup. */
+.btn-yellow {
+  background: var(--scouts-yellow);
+  color: var(--scouts-black);
+  border: var(--btn-border) solid var(--scouts-yellow);
+}
+.btn-yellow:hover,
+.btn-yellow:focus-visible {
+  background: var(--scouts-yellow-hover, #ffec5c);
+  border-color: var(--scouts-yellow-hover, #ffec5c);
+  color: var(--scouts-black);
+}
+
 /* ── Secondary ─────────────────────────────────────────────── */
 .btn-secondary {
   background: var(--secondary);

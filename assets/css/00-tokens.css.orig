@@ -59,31 +59,6 @@
 }
 
 /* -----------------------------------------------------------------------------
-   1c. SECTION IDENTITY TOKENS — per-Scout-section wordmark colours.
-   The colours of the official Scouts wordmark logos (Squirrels, Beavers,
-   Cubs, Scouts, Explorers, Network), sourced from Scouts Brand Guidelines
-   2023. Fixed across every palette preset, like the brand-anchor tokens
-   above.
-
-   Used by the scout-sections card accent strip via
-   `.s-scout-sections__card[data-sec="<key>"] { --sec: var(--sec-<key>); }`
-   in 20-section-scout-sections.css.
-
-   These are DIFFERENT from data/scout_sections.toml's `color` field, which
-   is the section's BADGE outer-ring colour used for badge pills (news
-   cards, event cards, gallery covers). The two taxonomies don't overlap
-   and both are needed.
-   ----------------------------------------------------------------------------- */
-:root {
-  --sec-squirrels: #ed3f23;   /* Scouts Red */
-  --sec-beavers:   #006ddf;   /* Scouts Blue */
-  --sec-cubs:      #25b755;   /* Scouts Green */
-  --sec-scouts:    #205b41;   /* Scouts Forest Green */
-  --sec-explorers: #003982;   /* Scouts Navy */
-  --sec-network:   #ed3f23;   /* Scouts Red — same hex as Squirrels, distinct wordmark */
-}
-
-/* -----------------------------------------------------------------------------
    2. DESIGN TOKENS — non-colour structural values
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */

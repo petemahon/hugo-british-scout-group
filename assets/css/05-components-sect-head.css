@@ -115,6 +115,25 @@
 .sect-head--left .eyebrow::after { display: none; }
 .sect-head--left p { margin: 0; }
 
+/* ── Yellow modifier ──────────────────────────────────────────── */
+/* Brand-anchor yellow eyebrow used inside the volunteer-feature
+   section's text column. Reserved by D5 (see header comment), shipped
+   in D11.
+
+   This is a colour-only modifier — the base .eyebrow rules above
+   supply the typography, line decoration, and spacing. The text and
+   the leading 22 px dash both become Scouts Yellow. The trailing
+   ::after dash is suppressed in the volunteer-feature module
+   (23-section-volunteer-feature.css) because that section's eyebrow
+   sits in a left-aligned context, not inside a centred .sect-head. */
+.eyebrow-yellow {
+  color: var(--scouts-yellow);
+}
+.eyebrow-yellow::before,
+.eyebrow-yellow::after {
+  background: var(--scouts-yellow);
+}
+
 /* When the parent section sits on a coloured/dark palette bg, the
    eyebrow and subtitle should follow the section's text colour (which
    .s-bg-* in 02-layout.css already sets to --text-on-<bg>) rather than

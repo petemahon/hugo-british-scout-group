@@ -68,7 +68,7 @@ disableKinds = ["taxonomy", "term"]
   # Pick one of: classic-purple, adventure, coastal, vibrant, network
   # Or add your own to data/palettes.toml. See /palettes/ for a visual ref.
   
-  palette         = "classic-purple"
+  palette         = "adventure"
 
   # ── Group identity used by the hero (SPEC: hero, deliverable 4) ─────────
   # The home-page hero splits the site title into three pieces so the
@@ -139,6 +139,7 @@ disableKinds = ["taxonomy", "term"]
   news      = true
   events    = true
   network_feature = true
+  volunteer_feature = true
 
 
 # -----------------------------------------------------------------------------
