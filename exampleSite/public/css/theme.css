@@ -2732,6 +2732,121 @@ a.styled-link { text-decoration: none; }
      want a fully-flipped print stylesheet can override in their site
      CSS. */
 }
+/* =============================================================================
+   24. SECTION: BSO MEMBERSHIP NOTICE
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Visual upgrade of the BSO POR 3.2.1.1 membership-notice card. This is the
+   theme's most distinctive feature for British Scouting Overseas Groups;
+   the wording is canonical and is NOT changed by D12. Visuals only.
+
+   The outer section wrapper (`.s-bso-membership`) inherits the standard
+   `--section-py` padding rhythm and the optional `.s-bg-*` tone from the
+   section partial. The inner `.bso-membership-notice` element (an
+   aria-labelledby'd <section> emitted by partials/bso-membership-notice.html)
+   becomes a centred white card holding the heading, three prose paragraphs,
+   and a small footnote referencing POR 3.2.1.1.
+
+   Visual reference: design-source-of-truth/mockup-rev2.html lines 757–771
+   (CSS) and 1360–1370 (HTML).
+
+   Why we keep the 1 px hairline border here (unlike the scout-sections
+   cards, where we removed it): the BSO card sits on a near-white muted
+   surface, so the border is the only thing defining the card edge. Scout-
+   sections cards sit on coloured bg with high contrast — different
+   context, same brand pattern.
+   ============================================================================= */
+
+/* ── Card ──────────────────────────────────────────────────── */
+.bso-membership-notice {
+  background: var(--bg);
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .bso-membership-notice {
+    padding: 40px 48px;
+    border-radius: 24px;
+  }
+}
+
+/* ── Heading ──────────────────────────────────────────────── */
+.bso-membership-notice__heading {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+@media (min-width: 768px) {
+  .bso-membership-notice__heading {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+/* ── Body paragraphs (intro / association / volunteering) ── */
+.bso-membership-notice__intro,
+.bso-membership-notice__association,
+.bso-membership-notice__volunteering {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+@media (min-width: 768px) {
+  .bso-membership-notice__intro,
+  .bso-membership-notice__association,
+  .bso-membership-notice__volunteering {
+    font-size: 16px;
+  }
+}
+
+/* ── Rule-reference footnote (POR 3.2.1.1) ────────────────── */
+/* The fainter colour uses color-mix to fade --text-muted toward the
+   card background, producing a "fainter than body" tier without
+   introducing a third text-colour token. */
+.bso-membership-notice__rule-reference {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--text-muted) 70%, var(--bg));
+  margin: 16px 0 0;
+}
+@media (min-width: 768px) {
+  .bso-membership-notice__rule-reference {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+}
+
+/* The inner <small> is kept for semantics (legal/fine-print marker).
+   Neutralise the UA default `font-size: smaller` so the paragraph rule
+   above is the only size source — otherwise the text double-shrinks. */
+.bso-membership-notice__rule-reference small {
+  font-size: inherit;
+}
+
+/* POR link inside the footnote. Primary-coloured, no underline, weight
+   600 — matches the mockup. The theme's auto-underline-on-coloured-bg
+   rule in 02-layout.css has higher specificity (0,3,1) than this rule
+   (0,1,1), so on `.s-bg-primary` / `.s-bg-dark` etc. the link gains an
+   underline. That's intentional and accessibility-friendly: white card
+   on dark section keeps the link visible. Hover/focus always show an
+   underline regardless of section bg. */
+.bso-membership-notice__rule-reference a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.bso-membership-notice__rule-reference a:hover,
+.bso-membership-notice__rule-reference a:focus-visible {
+  text-decoration: underline;
+}
 /* -----------------------------------------------------------------------------
    16. FOOTER
    ----------------------------------------------------------------------------- */
