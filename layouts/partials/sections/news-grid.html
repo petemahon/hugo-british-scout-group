@@ -10,8 +10,10 @@
 
   Section params (front-matter under [[sections]]):
     id          (string, optional)
+    eyebrow     (string, optional) — uppercase lead-in above the h2
     title       (string, optional) — falls back to i18n.newsHeading
     subtitle    (string, optional, HTML allowed)
+    align       (string, optional) — "left" → sect-head--left. Default centred.
     bg          (string, optional) — see partials/footer for values
     title_color (string, optional)
     count       (int, optional) — number of posts (default site.Params.news.default_count_on_home, max 12)
@@ -23,6 +25,8 @@
 {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
 {{- $titleClass := "" -}}
 {{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+{{- $headClass := "sect-head" -}}
+{{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
 {{- $defaultCount := (site.Params.news.default_count_on_home | default 3) -}}
 {{- $count := .count | default $defaultCount -}}
 {{- if gt $count 12 }}{{ $count = 12 }}{{ end -}}
@@ -33,17 +37,22 @@
 
 <section{{ with $id }} id="{{ . }}"{{ end }} class="section s-news s-news--grid reveal {{ $bgClass }}">
   <div class="container">
-    <div class="s-news__head">
-      <h2 class="s-news__title display-2 {{ $titleClass }}">{{ with .title }}{{ . }}{{ else }}{{ i18n "newsHeading" }}{{ end }}</h2>
-      {{- with .subtitle }}<div class="s-news__subtitle display-7">{{ . | safeHTML }}</div>{{ end }}
+    <div class="{{ $headClass }}">
+      {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+      <h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ with $.title }}{{ . }}{{ else }}{{ i18n "newsHeading" }}{{ end }}</h2>
+      {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
     </div>
 
     {{- if eq (len $posts) 0 }}
       <p class="s-news__empty display-7">{{ i18n "newsNoPosts" }}</p>
     {{- else }}
       <div class="s-news__grid">
-        {{- range $posts }}
-          {{- partial "news-card.html" . -}}
+        {{- /* The first card gets the feature modifier — bigger, spans
+               two rows at desktop. Subsequent cards stay standard size.
+               news-card.html accepts a dict here OR a Page directly
+               from legacy callers (listing/filter pages). */ -}}
+        {{- range $i, $post := $posts }}
+          {{- partial "news-card.html" (dict "page" $post "feature" (eq $i 0)) -}}
         {{- end }}
       </div>
       {{- if $showMore }}

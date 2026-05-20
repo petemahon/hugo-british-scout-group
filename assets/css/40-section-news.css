@@ -4,6 +4,12 @@
    pages (/news/sections/<scout-section>/), and the news-grid home block.
    See SPEC-01 for the feature scope. CSS-only: no JS, no fixed hex values
    (badge colours come via inline CSS custom properties from the data file).
+
+   D9 visual upgrade: the home news-grid block becomes a feature-card
+   layout — one large card spanning two rows at desktop, plus two small
+   cards. Listing pages, filter pages and single posts keep their
+   SPEC-01 styling. The D9 block sits below the shared card rules and
+   is scoped to .s-news--grid; nothing outside that scope changes.
    ----------------------------------------------------------------------------- */
 .s-news .container { max-width: 72rem; }
 
@@ -102,6 +108,146 @@
 }
 .s-news-card__readmore:hover { text-decoration: underline; }
 
+
+/* =============================================================================
+   D9 — HOME NEWS-GRID VISUAL UPGRADE
+   -----------------------------------------------------------------------------
+   All rules below are scoped to .s-news--grid (the section class the home
+   news-grid partial emits). Listing pages use .s-news--list; filter pages
+   use .s-news--list with a different head — neither matches these
+   selectors, so they keep their SPEC-01 styling unchanged.
+
+   Visual reference: design-source-of-truth/mockup-rev2.html lines 953–1006
+   (CSS) and 1442–1479 (HTML), the .news / .news-card / .news-card.feature
+   block.
+
+   Layout model
+   ------------
+     < 720 px        1 column (feature card no different from others)
+     720–1023 px     2 columns; feature card spans both
+     ≥ 1024 px       3 columns at 1.6fr / 1fr / 1fr; feature card
+                     occupies the left column and spans 2 rows
+   ============================================================================= */
+
+/* ── Home-grid layout (overrides the shared auto-fit grid for this scope) ─ */
+.s-news--grid .s-news__grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 720px) {
+  .s-news--grid .s-news__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .s-news--grid .s-news-card--feature { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  .s-news--grid .s-news__grid {
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 20px;
+  }
+  .s-news--grid .s-news-card--feature {
+    grid-column: auto;
+    grid-row: span 2;
+  }
+}
+
+/* ── Card visuals — scoped overrides of the shared SPEC-01 card rules ── */
+.s-news--grid .s-news-card {
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.s-news--grid .s-news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(20, 17, 14, 0.08);
+}
+@media (min-width: 1024px) {
+  .s-news--grid .s-news-card { border-radius: 20px; }
+}
+
+/* ── Cover aspect-ratios ───────────────────────────────────── */
+.s-news--grid .s-news-card__cover-link {
+  aspect-ratio: 16 / 10;
+}
+@media (min-width: 1024px) {
+  .s-news--grid .s-news-card__cover-link { aspect-ratio: 3 / 2; }
+  .s-news--grid .s-news-card--feature .s-news-card__cover-link {
+    aspect-ratio: 4 / 3.5;
+  }
+}
+
+/* ── Body padding ──────────────────────────────────────────── */
+.s-news--grid .s-news-card__body {
+  padding: 18px 20px 22px;
+  gap: 8px;
+}
+@media (min-width: 768px) {
+  .s-news--grid .s-news-card__body {
+    padding: 22px 24px 24px;
+    gap: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .s-news--grid .s-news-card--feature .s-news-card__body {
+    padding: 28px 32px 32px;
+  }
+}
+
+/* ── Title typography ──────────────────────────────────────── */
+.s-news--grid .s-news-card__title {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .s-news--grid .s-news-card__title { font-size: 18px; }
+}
+@media (min-width: 1024px) {
+  .s-news--grid .s-news-card--feature .s-news-card__title {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+}
+
+/* ── Summary typography ────────────────────────────────────── */
+.s-news--grid .s-news-card__summary {
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .s-news--grid .s-news-card__summary { line-height: 1.55; }
+}
+
+/* ── Read-more affordance ──────────────────────────────────── */
+/* Replaces the SPEC-01 underline-on-hover treatment with the rev-2
+   mockup's gap-shift: the .arr span (inserted by news-card.html in D9)
+   slides further from the text on hover. */
+.s-news--grid .s-news-card__readmore {
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+.s-news--grid .s-news-card__readmore:hover,
+.s-news--grid .s-news-card__readmore:focus-visible {
+  text-decoration: none;
+  gap: 10px;
+}
+
+/* ── Badge suppression on non-feature home cards ───────────── */
+/* Mockup shows badges on the feature card only — the smaller cards
+   get a tighter visual rhythm without them. Listing and filter pages
+   keep their badges (different scope). */
+.s-news--grid .s-news-card:not(.s-news-card--feature) .badges {
+  display: none;
+}
+
+
 /* -- Meta row: date · byline · section pills ------------------------------- */
 .s-news__meta {
   display: flex;
@@ -116,36 +262,24 @@
 }
 .s-news__author { font-style: italic; }
 
-/* Section pills — colour comes from inline `--badge-bg` / `--badge-fg`
-   custom properties set per section by the news-meta partial. The data
-   file (data/scout_sections.toml) is the single source of truth; no hex
-   values appear in this stylesheet. */
-.s-news__sections {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.s-news__section-pill {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: var(--badge-bg, var(--text-muted));
-  color: var(--badge-fg, var(--bg));
-}
-.s-news__section-pill a {
+/* Section badges — use the shared `.badges` / `.badges__pill` component
+   from 21-section-events.css. The component is markup-driven (cream pill
+   + section-coloured leading dot via inline `--sec`); the rules below
+   are news-specific extensions only:
+
+   News pills wrap their label in an <a> linking to the per-section
+   filter page (`/news/sections/<key>/`). Events pills are bare text
+   because the event card is itself one big anchor (nested anchors would
+   be invalid HTML). News cards are <article> wrappers with internal
+   links, so a pill-internal <a> is fine.
+
+   Without these overrides the link would inherit the theme's default
+   anchor colour + underline, breaking the pill aesthetic. */
+.s-news .badges__pill a {
   color: inherit;
   text-decoration: none;
 }
-.s-news__section-pill:hover { filter: brightness(0.92); }
-.s-news__section-pill a:focus-visible {
+.s-news .badges__pill a:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: 999px;

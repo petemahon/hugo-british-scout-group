@@ -13,8 +13,18 @@
   {{- if and (ne $showAuthor false) .Params.author }}
     <span class="s-news__author display-7">{{ i18n "newsByLine" (dict "Author" .Params.author) }}</span>
   {{- end }}
+  {{- /* Section badges — uses the shared `.badges` component from D8
+        (21-section-events.css). Pill bg is the component's fixed cream;
+        the leading dot is section-coloured via `--sec` set inline from
+        scout_sections.toml's `color` field (the badge outer-ring colour,
+        not the wordmark identity — same source as event badges).
+        The inner <a> is news-specific: it links to the per-section
+        filter page. Events pills don't have inner anchors because the
+        event card itself is one big <a>; news cards are <article>
+        wrappers with internal links, so nested-anchor invalidity
+        doesn't apply here. */ -}}
   {{- with .Params.sections }}
-    <ul class="s-news__sections" aria-label="{{ i18n "newsSectionBadge" }}">
+    <ul class="badges" aria-label="{{ i18n "newsSectionBadge" }}">
       {{- $items := hugo.Data.scout_sections.items -}}
       {{- range . }}
         {{- $key := . -}}
@@ -23,7 +33,7 @@
           {{- if eq .key $key }}{{ $section = . }}{{ end -}}
         {{- end -}}
         {{- with $section }}
-          <li class="s-news__section-pill" style="--badge-bg: {{ .color }}; --badge-fg: {{ .text_color }};">
+          <li class="badges__pill" style="--sec: {{ .color }};">
             <a href="{{ printf "/news/sections/%s/" .key | relURL }}">{{ .name }}</a>
           </li>
         {{- end -}}

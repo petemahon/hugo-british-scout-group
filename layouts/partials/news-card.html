@@ -3,33 +3,54 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  news-card — receives a Page (a news post) and renders a card.
+  news-card — renders a news post as an <article> card.
+
+  Accepts EITHER signature:
+    • a Page directly         — legacy callers (listing, filter pages)
+    • a dict {page, feature}  — D9 callers (news-grid home block)
+
+  When `feature` is true the card picks up the .s-news-card--feature
+  modifier, which the D9 visual rules in 40-section-news.css use to
+  bump typography and cover aspect-ratio (the "big card" in the home
+  3-card grid). On non-feature home cards, the meta-row badges are
+  suppressed via a CSS `:not(.s-news-card--feature)` rule scoped to
+  .s-news--grid. Listing and filter pages keep their badges.
 */ -}}
-<article class="s-news-card">
-  {{- with .Params.cover_image -}}
-    {{- $coverPath := printf "news/%s/%s" $.File.ContentBaseName . -}}
+{{- /* Page-or-dict detection. dict produces a Go map; reflect.IsMap
+       returns true for that and false for Page objects. */ -}}
+{{- $page := . -}}
+{{- $feature := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $page = .page -}}
+  {{- $feature = .feature | default false -}}
+{{- end -}}
+{{- $featureClass := "" -}}
+{{- if $feature }}{{ $featureClass = " s-news-card--feature" }}{{ end -}}
+<article class="s-news-card{{ $featureClass }}">
+  {{- with $page.Params.cover_image -}}
+    {{- $coverPath := printf "news/%s/%s" $page.File.ContentBaseName . -}}
     {{- $img := resources.Get $coverPath -}}
     {{- if $img -}}
       {{- $thumb  := $img.Resize "640x webp q82" -}}
       {{- $medium := $img.Resize "1280x webp q82" -}}
-      <a class="s-news-card__cover-link" href="{{ $.RelPermalink }}" aria-hidden="true" tabindex="-1">
+      <a class="s-news-card__cover-link" href="{{ $page.RelPermalink }}" aria-hidden="true" tabindex="-1">
         <img class="s-news-card__cover"
              src="{{ $thumb.RelPermalink }}"
              srcset="{{ $thumb.RelPermalink }} 640w, {{ $medium.RelPermalink }} 1280w"
              sizes="(max-width: 700px) 100vw, 400px"
-             alt="{{ $.Params.cover_alt }}"
+             alt="{{ $page.Params.cover_alt }}"
              loading="lazy">
       </a>
     {{- end -}}
   {{- end }}
   <div class="s-news-card__body">
-    <h3 class="s-news-card__title display-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    {{- partial "news-meta.html" . }}
-    {{- $summary := .Params.summary -}}
-    {{- if not $summary }}{{ $summary = .Summary }}{{ end -}}
+    <h3 class="s-news-card__title display-4"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
+    {{- partial "news-meta.html" $page }}
+    {{- $summary := $page.Params.summary -}}
+    {{- if not $summary }}{{ $summary = $page.Summary }}{{ end -}}
     {{- with $summary }}
       <p class="s-news-card__summary display-7">{{ . | safeHTML }}</p>
     {{- end }}
-    <a class="s-news-card__readmore" href="{{ .RelPermalink }}">{{ i18n "newsReadMore" }} →</a>
+    <a class="s-news-card__readmore" href="{{ $page.RelPermalink }}">{{ i18n "newsReadMore" }} <span class="arr" aria-hidden="true">&rarr;</span></a>
   </div>
 </article>
