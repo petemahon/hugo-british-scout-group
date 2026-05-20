@@ -11,8 +11,6 @@
    SPEC-01 styling. The D9 block sits below the shared card rules and
    is scoped to .s-news--grid; nothing outside that scope changes.
    ----------------------------------------------------------------------------- */
-.s-news .container { max-width: 72rem; }
-
 .s-news__head {
   text-align: center;
   margin-bottom: 2.5rem;

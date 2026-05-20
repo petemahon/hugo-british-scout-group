@@ -43,7 +43,7 @@
 .s-bg-secondary { background-color: var(--secondary); color: var(--text-on-secondary); }
 .s-bg-tertiary  { background-color: var(--tertiary);  color: #ffffff; }
 .s-bg-accent    { background-color: var(--accent);    color: #000000; }
-.s-bg-dark      { background-color: #003982;          color: #ffffff; } /* Scouts Navy */
+.s-bg-dark      { background-color: var(--scouts-navy); color: #ffffff; }
 
 /* When a section is on a coloured bg, headings, links, captions and muted
    text all need to adapt for legibility. */

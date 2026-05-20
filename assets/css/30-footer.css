@@ -1,12 +1,166 @@
-/* -----------------------------------------------------------------------------
-   16. FOOTER
-   ----------------------------------------------------------------------------- */
-.site-footer {
-  padding: 4rem 0;
-  text-align: center;
-  font-size: var(--display-7);
-}
-/* Default footer is the muted bg with muted text */
-.site-footer.s-bg-muted { color: var(--text-muted); }
-.site-footer p { margin: 0; }
+/* =============================================================================
+   30. FOOTER
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   D13 — visual application of the rev-2 design mockup.
 
+   The footer is a brand-anchor surface — always Scouts Navy, regardless
+   of the site palette. Same pattern as the volunteer-feature band
+   (Scouts Purple) and the network-feature band (Scouts Orange). The
+   pre-D13 `footerBg` mechanism is no longer honoured; sites with that
+   param set in hugo.toml render the brand-anchor footer regardless.
+
+   Visual reference: design-source-of-truth/mockup-rev2.html lines
+   1082–1107 (CSS) and 1526–1563 (HTML).
+
+   Layout:
+     <  560 px:  single column (brand + each column stacked)
+     ≥  560 px:  two columns (brand + columns wrap into a 2x2-ish layout)
+     ≥  900 px:  brand spans 2fr, three columns each 1fr (`2fr 1fr 1fr 1fr`)
+                  matching the mockup's four-up grid.
+
+   Anchors carry the `styled-link` sentinel class to opt out of the
+   dark-bg auto-underline rule in 02-layout.css.
+
+   Brand fleur is rendered via <use href="#fleur"/>; the source SVG has
+   `fill="currentColor"` so the white instance comes from CSS `color`.
+   ============================================================================= */
+
+/* ── Outer surface ─────────────────────────────────────────── */
+.site-footer {
+  background: var(--scouts-navy);
+  color: #fff;
+  padding: 48px 0 24px;
+}
+@media (min-width: 768px) {
+  .site-footer {
+    padding: 64px 0 28px;
+  }
+}
+
+/* ── Grid layout ───────────────────────────────────────────── */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+@media (min-width: 560px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 900px) {
+  .site-footer__grid {
+    /* 4-up: brand (2fr) + 3 link columns (1fr each). When fewer than 3
+       columns are configured, the empty grid cells collapse and the
+       remaining columns sit alongside the brand block. */
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+/* ── Brand block ───────────────────────────────────────────── */
+.site-footer__brand-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-footer__fleur {
+  width: 28px;
+  height: 28px;
+  color: #fff;        /* SVG inherits via fill="currentColor" */
+  flex-shrink: 0;
+}
+
+.site-footer__tagline {
+  font-size: 14.5px;
+  line-height: 1.55;
+  opacity: 0.75;
+  max-width: 30ch;
+  margin: 0;
+  color: #fff;
+}
+
+/* ── Link columns ──────────────────────────────────────────── */
+.site-footer__col-heading {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0 0 14px;
+  color: #fff;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer__list-item {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+}
+
+/* Anchors inside the footer carry .styled-link to opt out of the
+   dark-bg auto-underline rule in 02-layout.css. We then add hover
+   underline as the canonical link-affordance. Focus shows a ring; the
+   theme's default :focus-visible would inherit the body's text colour
+   on this dark surface and become invisible. */
+.site-footer__link {
+  color: inherit;
+}
+.site-footer__link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.site-footer__link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Bottom strap ─────────────────────────────────────────── */
+.site-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12.5px;
+  opacity: 0.7;
+  color: #fff;
+}
+
+/* ── Print ─────────────────────────────────────────────────── */
+@media print {
+  .site-footer {
+    background: none;
+    color: #000;
+    padding: 16px 0;
+    border-top: 1px solid #000;
+  }
+  .site-footer__grid,
+  .site-footer__fleur,
+  .site-footer__tagline { display: none; }
+  .site-footer__bottom {
+    border-top: none;
+    padding-top: 0;
+    opacity: 1;
+    font-size: 11px;
+  }
+}

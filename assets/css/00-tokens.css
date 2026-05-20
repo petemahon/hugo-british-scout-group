@@ -46,15 +46,17 @@
   --scouts-orange:       #ff912a;
   --scouts-purple:       #7413dc;
   --scouts-yellow:       #ffe627;
+  --scouts-navy:         #003982;
   --scouts-black:        #0d0d0d;
 
   /* Brand-anchor hover variants. Used by CTAs and interactive elements
      that sit on brand-anchor coloured bands and need a paired hover
      colour that doesn't ride the site palette. Values: purple-hover
      from the classic-purple palette; yellow-hover lifted from the
-     rev-2 design mockup; black-hover from D10. */
+     rev-2 design mockup; navy-hover from D13; black-hover from D10. */
   --scouts-purple-hover: #8e34ee;
   --scouts-yellow-hover: #ffec5c;
+  --scouts-navy-hover:   #14529e;
   --scouts-black-hover:  #2a2a2a;
 }
 
@@ -98,7 +100,7 @@
   --display-7: 1.4rem;   /* body / button text */
 
   /* Layout */
-  --container-max:  1320px;
+  --container-max:  1200px;
   --gutter-lg:      2rem;     /* >= 768px */
   --gutter-sm:      1rem;     /* < 768px  */
 

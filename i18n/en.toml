@@ -206,3 +206,10 @@ other = "27% of parents and carers of our young people said they'd volunteer."
 
 [volunteerFeatureStatLineB]
 other = "However, 49% said they'd never been asked."
+
+
+# -----------------------------------------------------------------------------
+# Footer — used by partials/footer.html.
+# -----------------------------------------------------------------------------
+[footerStrap]
+other = "Skills for Life · #SkillsForLife"

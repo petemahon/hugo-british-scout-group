@@ -1,22 +1,39 @@
 {{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
   embed — generic responsive iframe (SnazzyMaps, YouTube, etc.).
+
+  Visual contract (D13): default sizing is aspect-ratio driven by
+  16-section-embed.css (4:3 mobile, 16:9 desktop). Setting `height`
+  and/or `width` in front-matter emits inline styles that override the
+  CSS default — used when an embed needs explicit pixel sizing (rare).
+
   Params:
-    id      (string)
-    url     (string, required)  iframe src
-    title   (string)             accessibility title
-    height  (string)             default "600px"
-    width   (string)             default "90%"  (rendered as max-width)
+    id      (string, optional)
+    bg      (string, optional)   `s-bg-<value>` tone on the section
+    url     (string, required)   iframe src
+    title   (string, optional)   accessibility title
+    height  (string, optional)   explicit height override, e.g. "600px"
+    width   (string, optional)   explicit width override, e.g. "90%"
 */ -}}
 {{- $id := .id | default "" -}}
 {{- $bgClass := "" -}}
 {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
-{{- $height := .height | default "600px" -}}
-{{- $width := .width | default "90%" -}}
 {{- $title := .title | default "Embedded content" -}}
-<section{{ with $id }} id="{{ . }}"{{ end }} class="s-embed {{ $bgClass }}">
-  <iframe class="s-embed__frame"
-          src="{{ .url }}"
-          title="{{ $title }}"
-          loading="lazy"
-          style="height: {{ $height }}; width: {{ $width }};"></iframe>
+{{- /* Build inline style string only when height/width are explicitly set.
+       Without them, the iframe inherits the aspect-ratio rule from
+       16-section-embed.css. */ -}}
+{{- $style := "" -}}
+{{- with .height }}{{ $style = printf "%sheight: %s;" $style . }}{{ end -}}
+{{- with .width  }}{{ $style = printf "%swidth: %s;"  $style . }}{{ end -}}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section s-embed {{ $bgClass }}">
+  <div class="container">
+    <iframe class="s-embed__frame"
+            src="{{ .url }}"
+            title="{{ $title }}"
+            loading="lazy"
+            {{- with $style }} style="{{ . }}"{{ end }}></iframe>
+  </div>
 </section>

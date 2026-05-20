@@ -102,7 +102,43 @@ disableKinds = ["taxonomy", "term"]
 
   copyrightOwner  = "1st Anytown Scouts"               # CHANGE ME
   copyrightRights = "All Rights Reserved"
-  footerBg        = "dark"                              # Scouts Navy footer
+
+  # Note: pre-D13 the footer accepted a `footerBg` param controlling
+  # background tone (muted/primary/.../dark). D13 made the footer a
+  # brand-anchor surface — always Scouts Navy regardless of palette —
+  # and the param is now ignored. Removed here; safe to delete from
+  # consuming sites.
+
+# -----------------------------------------------------------------------------
+# Footer — see partials/footer.html for schema. All fields optional.
+# Up to four columns; the responsive grid handles 1/2/4 col layouts.
+# -----------------------------------------------------------------------------
+[params.footer]
+  tagline = "Skills for life in Anytown — and a slice of UK Scouting wherever you call home."
+
+  [[params.footer.columns]]
+    heading = "Visit"
+    items = [
+      { label = "Anytown Scout Hut" },
+      { label = "11 Hut Lane" },
+      { label = "Anytown" },
+    ]
+
+  [[params.footer.columns]]
+    heading = "Contact"
+    items = [
+      { label = "hello@anytown-scouts.org", url = "mailto:hello@anytown-scouts.org" },
+      { label = "+44 1234 567 890",          url = "tel:+441234567890" },
+      { label = "Instagram",                  url = "https://instagram.com/example" },
+    ]
+
+  [[params.footer.columns]]
+    heading = "About"
+    items = [
+      { label = "Safeguarding",            url = "https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/" },
+      { label = "Privacy",                 url = "/privacy/" },
+      { label = "Charity no. 1234567" },
+    ]
 
 # -----------------------------------------------------------------------------
 # BSO membership notice (POR 3.2.1.1)

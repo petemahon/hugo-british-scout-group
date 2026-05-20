@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>1st Anytown Scouts</title>
-    <link>http://localhost:1313/</link>
+    <link>https://example.com/</link>
     <description>Recent content on 1st Anytown Scouts</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 14 Aug 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cubs Summer Camp</title>
-      <link>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</link>
+      <link>https://example.com/events/2026-08-14-cubs-summer-camp/</link>
       <pubDate>Mon, 20 Apr 2026 10:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</guid>
+      <guid>https://example.com/events/2026-08-14-cubs-summer-camp/</guid>
       <description>&lt;p&gt;Three days under canvas at Pioneer Camp — Friday afternoon arrival,&#xA;Sunday afternoon collection. The Pack will be running a mix of&#xA;campcraft, water activities and the all-time-favourite night hike.&lt;/p&gt;&#xA;&lt;p&gt;Kit list and consent forms will be sent home four weeks ahead of camp.&#xA;Bursary support is available — speak to Akela in confidence if cost&#xA;would otherwise stop your Cub joining us.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Summer Fete</title>
-      <link>http://localhost:1313/events/2026-07-12-summer-fete/</link>
+      <link>https://example.com/events/2026-07-12-summer-fete/</link>
       <pubDate>Wed, 15 Apr 2026 10:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/events/2026-07-12-summer-fete/</guid>
+      <guid>https://example.com/events/2026-07-12-summer-fete/</guid>
       <description>&lt;p&gt;Our annual Summer Fete on the Hut grounds — bouncy castle, BBQ, raffle,&#xA;plus a chance for parents to meet the leadership team and learn about&#xA;the year ahead.&lt;/p&gt;&#xA;&lt;p&gt;Volunteers welcome — get in touch if you can help with the BBQ or the&#xA;gates rota.&lt;/p&gt;</description>
     </item>
     <item>
       <title>St George&#39;s Day Parade</title>
-      <link>http://localhost:1313/news/2026-04-19-st-georges-day/</link>
+      <link>https://example.com/news/2026-04-19-st-georges-day/</link>
       <pubDate>Sun, 19 Apr 2026 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/news/2026-04-19-st-georges-day/</guid>
+      <guid>https://example.com/news/2026-04-19-st-georges-day/</guid>
       <description>The whole Group turned out for our annual St George&amp;rsquo;s Day Parade — fresh neckers, polished shoes, and a piper to lead us in.</description>
     </item>
     <item>
       <title>Cubs Cooking Cup 2026</title>
-      <link>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</link>
+      <link>https://example.com/news/2026-03-30-cubs-cooking-cup/</link>
       <pubDate>Mon, 30 Mar 2026 19:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</guid>
+      <guid>https://example.com/news/2026-03-30-cubs-cooking-cup/</guid>
       <description>Six teams. Three courses. One champion. Notes from the most-contested Cooking Cup the Pack has ever seen.</description>
     </item>
     <item>
       <title>Squirrels start in September</title>
-      <link>http://localhost:1313/news/2026-02-15-squirrels-launch/</link>
+      <link>https://example.com/news/2026-02-15-squirrels-launch/</link>
       <pubDate>Sun, 15 Feb 2026 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/news/2026-02-15-squirrels-launch/</guid>
+      <guid>https://example.com/news/2026-02-15-squirrels-launch/</guid>
       <description>We&amp;rsquo;re delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.</description>
     </item>
   </channel>

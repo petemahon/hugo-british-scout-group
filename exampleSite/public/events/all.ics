@@ -4,25 +4,25 @@ PRODID:-//Hugo British Scout Group theme//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-07-12-summer-fete@localhost:1313
-DTSTAMP:20260519T135159Z
+UID:2026-07-12-summer-fete@example.com
+DTSTAMP:20260520T112043Z
 SEQUENCE:0
 DTSTART;TZID=Europe/London:20260712T130000
 DTEND;TZID=Europe/London:20260712T170000
 SUMMARY:Summer Fete
 DESCRIPTION:Our annual Summer Fete on the Hut grounds — bouncy castle\, BBQ\, raffle\, plus a chance for parents to meet the leadership team and learn about the year ahead.\nVolunteers welcome — get in touch if you can help with the BBQ or the gates rota.\n
 LOCATION:Anytown Scout Hut
-URL:http://localhost:1313/events/2026-07-12-summer-fete/
+URL:https://example.com/events/2026-07-12-summer-fete/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-08-14-cubs-summer-camp@localhost:1313
-DTSTAMP:20260519T135159Z
+UID:2026-08-14-cubs-summer-camp@example.com
+DTSTAMP:20260520T112043Z
 SEQUENCE:0
 DTSTART;VALUE=DATE:20260814
 DTEND;VALUE=DATE:20260817
 SUMMARY:Cubs Summer Camp
 DESCRIPTION:Three days under canvas at Pioneer Camp — Friday afternoon arrival\, Sunday afternoon collection. The Pack will be running a mix of campcraft\, water activities and the all-time-favourite night hike.\nKit list and consent forms will be sent home four weeks ahead of camp. Bursary support is available — speak to Akela in confidence if cost would otherwise stop your Cub joining us.\n
 LOCATION:Pioneer Camp\, Buckinghamshire
-URL:http://localhost:1313/events/2026-08-14-cubs-summer-camp/
+URL:https://example.com/events/2026-08-14-cubs-summer-camp/
 END:VEVENT
 END:VCALENDAR

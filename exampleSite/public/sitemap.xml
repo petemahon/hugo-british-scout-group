@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2026-08-14T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</loc>
+    <loc>https://example.com/events/2026-08-14-cubs-summer-camp/</loc>
     <lastmod>2026-08-14T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/events/</loc>
+    <loc>https://example.com/events/</loc>
     <lastmod>2026-08-14T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/events/2026-07-12-summer-fete/</loc>
+    <loc>https://example.com/events/2026-07-12-summer-fete/</loc>
     <lastmod>2026-07-12T13:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/</loc>
+    <loc>https://example.com/news/</loc>
     <lastmod>2026-04-19T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/2026-04-19-st-georges-day/</loc>
+    <loc>https://example.com/news/2026-04-19-st-georges-day/</loc>
     <lastmod>2026-04-19T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</loc>
+    <loc>https://example.com/news/2026-03-30-cubs-cooking-cup/</loc>
     <lastmod>2026-03-30T19:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/2026-02-15-squirrels-launch/</loc>
+    <loc>https://example.com/news/2026-02-15-squirrels-launch/</loc>
     <lastmod>2026-02-15T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/sections/beavers/</loc>
+    <loc>https://example.com/news/sections/beavers/</loc>
   </url><url>
-    <loc>http://localhost:1313/news/sections/cubs/</loc>
+    <loc>https://example.com/news/sections/cubs/</loc>
   </url><url>
-    <loc>http://localhost:1313/news/sections/explorers/</loc>
+    <loc>https://example.com/news/sections/explorers/</loc>
   </url><url>
-    <loc>http://localhost:1313/news/sections/network/</loc>
+    <loc>https://example.com/news/sections/network/</loc>
   </url><url>
-    <loc>http://localhost:1313/news/sections/scouts/</loc>
+    <loc>https://example.com/news/sections/scouts/</loc>
   </url><url>
-    <loc>http://localhost:1313/news/sections/squirrels/</loc>
+    <loc>https://example.com/news/sections/squirrels/</loc>
   </url><url>
-    <loc>http://localhost:1313/palettes/</loc>
+    <loc>https://example.com/palettes/</loc>
   </url>
 </urlset>

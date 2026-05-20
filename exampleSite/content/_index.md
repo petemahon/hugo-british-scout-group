@@ -147,10 +147,11 @@ description = "Skills for Life — example Scout Group home page using the Briti
 # 9. Where we meet — section-header (acts as title for the map below)
 # -----------------------------------------------------------------------------
 [[sections]]
-  type        = "section-header"
-  id          = "where-we-meet"
-  title       = "Where we meet"
-  title_color = "primary"
+  type     = "section-header"
+  id       = "where-we-meet"
+  align    = "left"
+  eyebrow  = "Where we meet"
+  title    = "Anytown Scout Group huts."
   subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
@@ -160,6 +161,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   type   = "embed"
   url    = "https://snazzymaps.com/embed/123456"   # CHANGE ME — your map ID
   title  = "Map of where we meet"
-  height = "600px"
-  width  = "90%"
+  # height / width omitted — the embed uses the D13 aspect-ratio default
+  # (4:3 mobile, 16:9 desktop). Set explicit values here only if you
+  # need a fixed-pixel iframe.
 +++

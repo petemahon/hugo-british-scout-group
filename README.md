@@ -457,7 +457,7 @@ adding a new module is a drop-in:
 22-section-network-feature.css (D10)
 23-section-volunteer-feature.css (D11)
 24-section-bso-membership.css (D12)
-30-footer.css
+30-footer.css                  (D13)
 40-print.css
 41-feature-hero-intro.css      (opt-in, gated by body class)
 ```

@@ -1,15 +1,54 @@
 /* -----------------------------------------------------------------------------
    13. SECTION: EMBED (iframe — maps, video etc.)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   -----------------------------------------------------------------------------
+   D13 — visual application of the rev-2 design mockup, "where we meet"
+   block. Applies to every `embed` section, but the canonical use case is
+   the home-page SnazzyMaps embed below the "Where we meet" section-header.
+
+   The default sizing is aspect-ratio driven: 4:3 mobile, 16:9 desktop,
+   matching the mockup. When an embed section in front-matter sets
+   explicit `height` / `width`, the partial emits those as inline styles
+   which override the CSS defaults (back-compat for any consumer who'd
+   pinned 600px height).
+
+   Visual reference: mockup-rev2.html lines 1008–1019.
    ----------------------------------------------------------------------------- */
+
 .s-embed {
-  display: flex;
-  justify-content: center;
+  /* The outer section uses standard --section-py padding from
+     02-layout.css. The visual frame lives on the inner iframe, not on
+     the section wrapper. The .container div inside handles width
+     constraint (--container-max) and side gutters; we don't need
+     flex-center on the section itself. The `padding: 0` zeroes the
+     section's vertical padding so the map sits flush against
+     adjacent sections — established embed behaviour pre-D13. */
   padding: 0;
 }
+
 .s-embed__frame {
-  width: 90%;
+  /* width 100% of the .container, which is itself capped at
+     --container-max (1320 px) and gutter-inset. On any viewport the
+     iframe leaves a visible strip of page background alongside it —
+     critical on touch devices so users can scroll past the map
+     without the iframe capturing the gesture. */
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
   border: 0;
-  border-radius: var(--radius-card);
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 12px 32px rgba(20, 17, 14, 0.08);
 }
 
+@media (min-width: 768px) {
+  .s-embed__frame {
+    aspect-ratio: 16 / 9;
+    border-radius: 24px;
+  }
+}
+
+/* When the section sets explicit height / width in front-matter, the
+   partial emits inline style attributes; those win on specificity and
+   the aspect-ratio default is overridden. The radius and shadow still
+   apply via the rules above. */

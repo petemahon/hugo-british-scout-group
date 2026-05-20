@@ -1,22 +1,124 @@
 {{- /*
-  The footer shows the Scout Group's copyright (e.g. "© 2026 1st Anytown Scouts").
-  Theme attribution lives only in the theme repo's LICENSE/README — it does NOT
-  appear on the rendered page.
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
 
-  Background tone is controlled by site param `footerBg`:
-    "" or unset    → muted (light grey, default)
-    "muted"        → light grey
-    "primary" / "secondary" / "tertiary" / "accent" / "dark"
-                   → palette colour
+  footer — the site's brand-anchor footer.
+
+  Visual contract:
+    Background is ALWAYS Scouts Navy (`var(--scouts-navy)`), regardless
+    of the site palette. The footer is a Scouts brand-anchor surface,
+    like the volunteer-feature band (Scouts Purple) and the
+    network-feature band (Scouts Orange). Light tone is not on offer.
+    Groups that want a different footer treatment override
+    `assets/css/30-footer.css` at the site level.
+
+  Schema:
+
+      [params]                       # already present in hugo.toml
+        copyrightOwner  = "1st Anytown Scouts"
+        copyrightRights = "All Rights Reserved"
+        groupPrefix     = "1st Anytown"
+        groupSuffix     = "Scouts"
+
+      [params.footer]                # D13 — all fields optional
+        tagline = "Skills for life in Anytown — and a slice of UK Scouting wherever you call home."
+
+        # 0–4 columns. The schema is identical across columns; the
+        # heading is rendered as an <h5> uppercase label, the items
+        # as a <ul> with optional links per item.
+        [[params.footer.columns]]
+          heading = "Visit"
+          items = [
+            { label = "Anytown Scout Hut" },
+            { label = "11 Hut Lane" },
+            { label = "Anytown" },
+          ]
+
+        [[params.footer.columns]]
+          heading = "Contact"
+          items = [
+            { label = "hello@anytown-scouts.org", url = "mailto:hello@anytown-scouts.org" },
+            { label = "+44 1234 567 890",          url = "tel:+441234567890" },
+            { label = "Instagram",                  url = "https://instagram.com/example" },
+          ]
+
+  Bottom strap:
+    Left:  copyright line — `© {year} {copyrightOwner} — {copyrightRights}`
+    Right: i18n `footerStrap` (default "Skills for Life · #SkillsForLife")
+
+  Note on the old `footerBg` param:
+    Pre-D13 the footer accepted `footerBg` (muted/primary/secondary/...).
+    D13 drops that mechanism — the footer is brand-anchor navy. Sites
+    with `footerBg` set in hugo.toml render with no visible effect; the
+    param is silently ignored. No build warning, no breakage — the
+    param just becomes dead weight in those configs. Documented in
+    D13-SPEC.md.
+
+  Fleur SVG: rendered via <use href="#fleur"/>, with the symbol defined
+  globally by partials/svg-defs.html (already wired in baseof.html).
 */ -}}
-{{- $year := now.Format "2006" -}}
-{{- $owner := site.Params.copyrightOwner | default site.Title -}}
-{{- $rights := site.Params.copyrightRights | default "All Rights Reserved" -}}
-{{- $bg := site.Params.footerBg | default "muted" -}}
-{{- $bgClass := printf "s-bg-%s" $bg -}}
+{{- $year         := now.Format "2006" -}}
+{{- $owner        := site.Params.copyrightOwner | default site.Title -}}
+{{- $rights       := site.Params.copyrightRights | default "All Rights Reserved" -}}
+{{- $groupPrefix  := site.Params.groupPrefix | default "" -}}
+{{- $groupSuffix  := site.Params.groupSuffix | default "" -}}
+{{- $groupName    := site.Title -}}
+{{- if and $groupPrefix $groupSuffix -}}
+  {{- $groupName = printf "%s %s" $groupPrefix $groupSuffix -}}
+{{- end -}}
+{{- $footer       := site.Params.footer | default dict -}}
+{{- $tagline      := $footer.tagline | default "" -}}
+{{- $columns      := $footer.columns | default slice -}}
+{{- $strap        := i18n "footerStrap" -}}
 
-<footer class="site-footer {{ $bgClass }}">
+<footer class="site-footer">
   <div class="container">
-    <p>&copy; Copyright {{ $year }} {{ $owner }} &mdash; {{ $rights }}</p>
+    <div class="site-footer__grid">
+
+      {{- /* Brand block — always rendered. */ -}}
+      <div class="site-footer__brand">
+        <div class="site-footer__brand-name">
+          <svg class="site-footer__fleur" aria-hidden="true"><use href="#fleur"/></svg>
+          <span>{{ $groupName }}</span>
+        </div>
+        {{- with $tagline }}
+          <p class="site-footer__tagline">{{ . | safeHTML }}</p>
+        {{- end }}
+      </div>
+
+      {{- /* Link columns — 0–4. The grid defined in 30-footer.css
+             handles the 1/2/4-column responsive layout regardless of
+             how many columns are configured. */ -}}
+      {{- range $columns }}
+        <div class="site-footer__col">
+          {{- with .heading }}
+            <h5 class="site-footer__col-heading">{{ . }}</h5>
+          {{- end }}
+          {{- with .items }}
+            <ul class="site-footer__list">
+              {{- range . }}
+                <li class="site-footer__list-item">
+                  {{- if .url }}
+                    <a class="styled-link site-footer__link" href="{{ .url | safeURL }}">{{ .label }}</a>
+                  {{- else }}
+                    {{ .label }}
+                  {{- end }}
+                </li>
+              {{- end }}
+            </ul>
+          {{- end }}
+        </div>
+      {{- end }}
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__copyright">&copy; {{ $year }} {{ $owner }} &mdash; {{ $rights }}</span>
+      {{- with $strap }}
+        <span class="site-footer__strap">{{ . }}</span>
+      {{- end }}
+    </div>
+
   </div>
 </footer>
