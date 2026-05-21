@@ -1,0 +1,72 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-moving-in — /bso/moving-in/ body. SPEC-10.
+
+  Renders the newly-arrived family pathway: intro, school-term anchor,
+  meeting locations summary, subscription block (currency-aware via
+  bso-subscription partial), uniform/kit help, volunteer ask, and an
+  optional downloadable induction PDF.
+
+  Context: the moving-in Page.
+*/ -}}
+<div class="s-bso__moving-in">
+
+  {{- with .Params.intro }}
+    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
+  {{- end }}
+
+  {{- with .Params.school_term_anchor }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoMovingInSchoolTermHeading" | default "School calendar" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Params.meeting_locations_summary }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoMovingInLocationsHeading" | default "Where we meet" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- if .Params.subscription_amount }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoMovingInSubsHeading" | default "Subs" }}</h3>
+      {{ partial "bso-subscription.html" (dict
+          "amount"   .Params.subscription_amount
+          "currency" (.Params.subscription_currency | default "GBP")
+          "period"   (.Params.subscription_period   | default "term")
+          "joining"  (.Params.joining_fee           | default "")
+          "page"     .) }}
+    </section>
+  {{- end }}
+
+  {{- with .Params.kit_purchase_help }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoMovingInKitHeading" | default "Uniform" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Params.parent_volunteer_ask }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoMovingInVolunteerHeading" | default "Volunteer with us" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Content }}
+    <div class="s-bso__body">{{ . }}</div>
+  {{- end }}
+
+  {{- with .Params.induction_pdf }}
+    <p class="s-bso__induction-link">
+      <a class="btn btn-primary" href="{{ . }}" download>
+        {{ i18n "bsoMovingInInductionCta" | default "Download the new-family induction pack (PDF)" }} &rarr;
+      </a>
+    </p>
+  {{- end }}
+</div>

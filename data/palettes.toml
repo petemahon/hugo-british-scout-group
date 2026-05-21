@@ -33,6 +33,19 @@
 #                            (#ff912a = accent) and Cubs yellow
 #                            (#F7EF27). Signals "delayed / paused".
 #
+# --status-open / --status-waiting / --status-closed (SPEC-06): the
+# three joining-status badge colours. Uniform across every palette
+# preset — status semantics shouldn't shift with the site's house
+# colours. Distinct from --warning (red) and --postponed (amber):
+#   --status-open    = #0a7b3a   Confident green, distinct from Scouts
+#                                Green (#25b755 = Squirrels) and from
+#                                Scouts Forest Green (#205b41).
+#   --status-waiting = #b45309   Deeper amber than --postponed so a
+#                                cross-page reader doesn't confuse
+#                                "Waiting list" with "Postponed event".
+#   --status-closed  = #6b7280   Neutral grey — "section not running"
+#                                isn't a warning, it's informational.
+#
 # To add a palette: copy a block, give it a unique key, change the hexes.
 # To select a palette: set palette = "<key>" in the site's hugo.toml params.
 
@@ -59,6 +72,12 @@
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
   text_on_postponed = "#ffffff"
+  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # status semantics shouldn't shift with the site's house colours.
+  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Adventure — outdoorsy, energetic. Good for active Scout Groups.
@@ -82,6 +101,12 @@
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
   text_on_postponed = "#ffffff"
+  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # status semantics shouldn't shift with the site's house colours.
+  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Coastal — Sea Scouts and waterside groups.
@@ -105,6 +130,12 @@
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
   text_on_postponed = "#ffffff"
+  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # status semantics shouldn't shift with the site's house colours.
+  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Vibrant — bold, youthful, high-energy.
@@ -128,6 +159,12 @@
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
   text_on_postponed = "#ffffff"
+  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # status semantics shouldn't shift with the site's house colours.
+  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
 # Network — for Scout Network groups (18-25). Black-led, sophisticated.
@@ -151,3 +188,9 @@
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
   text_on_postponed = "#ffffff"
+  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # status semantics shouldn't shift with the site's house colours.
+  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  text_on_status    = "#ffffff"

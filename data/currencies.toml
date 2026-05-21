@@ -1,0 +1,51 @@
+# data/currencies.toml — ISO 4217 → symbol map.
+#
+# Used by SPEC-06 (joining card fees), SPEC-09 (volunteer expense
+# claim wording) and SPEC-10 (BSO Joining Hub) to format fee values
+# without each partial reaching for hardcoded symbols.
+#
+# This is a curated subset, NOT the full ISO list. It covers the UK
+# (where most consuming Groups live) and the BSO Group host countries
+# where British Scouting Overseas has Groups today — Europe, the
+# United States, the Gulf, Singapore, and Hong Kong. Add an entry to
+# your site's own data/currencies.toml if your host country isn't
+# represented; Hugo merges data files (site over theme).
+#
+# Each `symbol` is the conventional pre-fix glyph used in copy
+# (`£30`, `€45`). `name` is the human-readable label for accessibility
+# and fallback rendering when a symbol can't be confidently used.
+
+[[currency]]
+  code   = "GBP"
+  symbol = "£"
+  name   = "Pound sterling"
+
+[[currency]]
+  code   = "EUR"
+  symbol = "€"
+  name   = "Euro"
+
+[[currency]]
+  code   = "USD"
+  symbol = "$"
+  name   = "US dollar"
+
+[[currency]]
+  code   = "AED"
+  symbol = "AED "
+  name   = "United Arab Emirates dirham"
+
+[[currency]]
+  code   = "CHF"
+  symbol = "CHF "
+  name   = "Swiss franc"
+
+[[currency]]
+  code   = "SGD"
+  symbol = "S$"
+  name   = "Singapore dollar"
+
+[[currency]]
+  code   = "HKD"
+  symbol = "HK$"
+  name   = "Hong Kong dollar"

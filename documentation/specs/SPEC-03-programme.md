@@ -236,7 +236,7 @@ programme planner.
 
 | Q | Decision |
 | --- | --- |
-| Q3.1 | **Opt-in** — `programme-current` home-page block is available but not added to the example site's home page. Per cross-cutting opt-in policy in DECISIONS.md. |
+| Q3.1 | **Wired into the example site** (revised 2026-05-21). `programme-current` is still opt-in at the framework level — every feature defaults OFF and Groups must set `params.features.programme = true` and add the `[[sections]]` block themselves. The example site now ships the block enabled so the demo exercises every section type alongside `news-grid` and `events-upcoming`. Original opt-in-out-of-example rationale: stale published content damages credibility. Trumped by: the example site is a demo, not a production Group, and the demo-roller already keeps event dates fresh; the programme example content is acceptable to revisit annually. |
 | Q3.2 | **INCLUDE in v1** — programme themes (Skills for Life curriculum) ship with the theme via `data/programme_themes.toml`. Encourages leaders to pay attention to curriculum balance and surfaces it for District. Renders as palette-coloured chips next to each meeting. |
 | Q3.3 | **Two fields** — `term_start` and `term_end`. Required for archive cutoff filter. |
 | Q3.4 | **Defer** — badges-working-towards (e.g. "this term we're working on the Naturalist badge") is a v2 enhancement, not in v1. |

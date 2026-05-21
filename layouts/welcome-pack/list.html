@@ -1,0 +1,65 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Welcome Pack cover — /welcome-pack/. SPEC-06.
+
+  Renders:
+    1. Eyebrow + h1 + intro body (.Content)
+    2. Optional version / last-reviewed strip (front-matter pack_version,
+       pack_reviewed_date)
+    3. Chapter nav via welcome-pack-nav partial
+    4. "Print all" link to /welcome-pack/print.html (only when
+       params.welcome_pack.print_route is true AND the format is enabled)
+
+  Feature gate: site.Params.features.welcome_pack.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.welcome_pack -}}
+  {{- /* Print link gates on the feature param. The actual print file
+         exists only when `outputs` in content/welcome-pack/_index.md
+         includes "WelcomePackPrint"; the param keeps the link off when
+         a Group disables the print route. */ -}}
+  {{- $showPrint := site.Params.welcome_pack.print_route | default true -}}
+
+  <section class="section s-welcome-pack s-welcome-pack--cover reveal">
+    <div class="container s-welcome-pack__container">
+
+      <header class="s-welcome-pack__cover-head">
+        <span class="eyebrow">{{ i18n "welcomePackEyebrow" | default "Welcome Pack" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "welcomePackHeading" | default "Everything new families need to know." }}{{ end }}</h1>
+        {{- with .Params.intro }}<p class="s-welcome-pack__intro display-7">{{ . | safeHTML }}</p>{{ end }}
+
+        {{- if or .Params.pack_version .Params.pack_reviewed_date }}
+          <p class="s-welcome-pack__meta display-7">
+            {{- with .Params.pack_version }}<span>v{{ . }}</span>{{ end -}}
+            {{- if and .Params.pack_version .Params.pack_reviewed_date }} · {{ end -}}
+            {{- with .Params.pack_reviewed_date }}<span>{{ i18n "welcomePackReviewed" | default "Last reviewed" }} {{ dateFormat "January 2006" . }}</span>{{ end -}}
+          </p>
+        {{- end }}
+      </header>
+
+      {{- with .Content }}
+        <div class="s-welcome-pack__cover-body display-7">{{ . }}</div>
+      {{- end }}
+
+      {{ partial "welcome-pack-nav.html" (dict "page" . "currentURL" "") }}
+
+      {{- if $showPrint }}
+        <p class="s-welcome-pack__print">
+          {{- /* Opens in a new tab — the print view is intentionally
+                 chrome-less (no site nav, no footer) so there's no way
+                 back to the cover from inside it. New-tab keeps the
+                 cover page available behind it. */ -}}
+          <a class="btn btn-primary"
+             href="print.html"
+             target="_blank"
+             rel="noopener">{{ i18n "welcomePackPrintLink" | default "Print or save the whole pack" }} &rarr;</a>
+        </p>
+      {{- end }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

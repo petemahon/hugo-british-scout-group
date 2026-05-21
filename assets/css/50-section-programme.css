@@ -1,0 +1,385 @@
+/* -----------------------------------------------------------------------------
+   25. PROGRAMME — s-programme
+   Termly programme listing (/programme/), single page (/programme/<slug>/),
+   and the opt-in programme-current home-page block. See SPEC-03 for the
+   feature scope.
+
+   CSS-only: no JS. Theme chips, cancelled rows and the home block's
+   collapsible <details> are all native HTML+CSS.
+   ----------------------------------------------------------------------------- */
+
+/* -- Listing page --------------------------------------------------------- */
+.s-programme--list .s-programme__empty {
+  color: var(--text-muted);
+  margin: 1.5rem 0;
+}
+
+.s-programme__section {
+  margin-block: 2.5rem;
+}
+.s-programme__section + .s-programme__section {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.s-programme__section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.s-programme__section-pip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.s-programme__section-pip--lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+}
+
+.s-programme__index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .s-programme__index { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .s-programme__index { grid-template-columns: repeat(3, 1fr); }
+}
+
+.s-programme__index-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.s-programme__index-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.s-programme__index-term {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.s-programme__index-dates {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.s-programme__index-anchor {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* -- Single page ---------------------------------------------------------- */
+.s-programme--single .s-programme__container {
+  max-width: 56rem;
+}
+
+.s-programme__breadcrumb {
+  margin: 0 0 1.5rem;
+}
+.s-programme__breadcrumb a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.s-programme__breadcrumb a:hover { text-decoration: underline; }
+
+.s-programme__title-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.s-programme__post-title {
+  margin: 0 0 0.5rem;
+}
+.s-programme__post-meta {
+  margin: 0;
+  color: var(--text-muted);
+}
+.s-programme__section-name {
+  font-weight: 600;
+  color: var(--text);
+}
+.s-programme__term-anchor {
+  font-style: italic;
+}
+
+.s-programme__district-badge {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--bg-muted);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.s-programme__intro {
+  margin-bottom: 1.5rem;
+}
+
+.s-programme__notes {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-muted);
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+}
+
+.s-programme__kit-link {
+  margin-top: 1.5rem;
+}
+
+.s-programme__post-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* -- Weeks table ---------------------------------------------------------- */
+.s-programme__table-shell {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.s-programme__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+}
+.s-programme__table thead {
+  background: var(--bg-muted);
+}
+.s-programme__table th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-muted);
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.s-programme__table td {
+  padding: 0.875rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.s-programme__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.s-programme__col-week  { width: 3.5rem; font-variant-numeric: tabular-nums; }
+.s-programme__col-date  { width: 7rem;   font-variant-numeric: tabular-nums; color: var(--text-muted); white-space: nowrap; }
+.s-programme__col-notes { color: var(--text-muted); }
+
+.s-programme__title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.s-programme__meeting-title {
+  font-weight: 600;
+}
+
+/* Cancelled rows */
+.s-programme__row--cancelled .s-programme__meeting-title {
+  color: var(--warning);
+  text-decoration: line-through;
+}
+.s-programme__cancelled-pill {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: var(--warning);
+  color: var(--text-on-warning);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.s-programme__cancellation-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--warning);
+  font-style: italic;
+}
+
+/* -- Theme chips ---------------------------------------------------------- */
+.s-programme__chips {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.s-programme__chip {
+  display: inline-block;
+  padding: 0.2rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  text-decoration: none;
+}
+a.s-programme__chip:hover {
+  filter: brightness(0.92);
+}
+
+/* -- Home-page block (programme-current) ---------------------------------- */
+.s-programme--current .s-programme__current-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.s-programme__current-item {
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.s-bg-muted .s-programme__current-item {
+  background: var(--bg);
+}
+
+.s-programme__current-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+.s-programme__current-summary::-webkit-details-marker { display: none; }
+.s-programme__current-section {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.s-programme__current-title {
+  flex-grow: 1;
+}
+.s-programme__current-chevron {
+  transition: transform 0.2s ease-out;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--text-muted);
+}
+.s-programme__current-item[open] .s-programme__current-chevron {
+  transform: rotate(90deg);
+}
+.s-programme__current-body {
+  padding: 0 1.25rem 1.25rem;
+}
+.s-programme__current-link {
+  margin: 1rem 0 0;
+}
+
+.s-programme__viewall {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------------
+   Print stylesheet — parents print one term's plan on one A4 sheet.
+   Strips chrome, lets the weeks table flow edge-to-edge, forces every
+   <details> open (home block), drops chip backgrounds (saves ink and
+   keeps row legible in monochrome).
+   ----------------------------------------------------------------------------- */
+@media print {
+  /* Hide site chrome */
+  .site-header,
+  .site-footer,
+  .s-back-to-top,
+  .s-programme__post-foot,
+  .s-programme__breadcrumb,
+  .s-programme__kit-link,
+  .s-programme__current-chevron {
+    display: none !important;
+  }
+
+  /* Page-level reset */
+  body { background: #ffffff; color: #000000; }
+  .section { padding: 0 !important; }
+  .container { max-width: none; padding: 0 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  /* Force every <details> open */
+  details, details > * { display: block !important; }
+  details > summary { list-style: none; }
+
+  /* Table fills the page */
+  .s-programme__table-shell {
+    overflow: visible;
+    border: 1px solid #000;
+    border-radius: 0;
+    margin: 0.5rem 0;
+  }
+  .s-programme__table th {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    border-bottom: 1px solid #000;
+  }
+  .s-programme__table td {
+    border-bottom: 1px solid #ccc;
+    color: #000;
+  }
+
+  /* Chips: drop the colour fill so monochrome prints stay readable;
+     keep a thin border so chips are still visually distinct. */
+  .s-programme__chip {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #000;
+    padding: 0.05rem 0.4rem;
+  }
+
+  /* Cancelled rows remain marked, but in monochrome */
+  .s-programme__row--cancelled .s-programme__meeting-title {
+    color: #000;
+    text-decoration: line-through;
+  }
+  .s-programme__cancelled-pill {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #000;
+  }
+}

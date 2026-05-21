@@ -1,0 +1,64 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Welcome Pack — concatenated print view. SPEC-06.
+
+  URL: /welcome-pack/print.html
+  Output format: WelcomePackPrint (configured in the site's hugo.toml).
+
+  Emits a SELF-CONTAINED HTML document (this layout does NOT extend
+  baseof.html) so the print view is a single linear flow with no site
+  chrome — perfect for "Save as PDF" via the browser's print dialogue.
+
+  We keep the site's CSS bundle linked so the print stylesheet in
+  52-section-welcome-pack.css and 51-section-joining.css applies and
+  body typography matches the rest of the site. Everything outside
+  that — no nav, no footer, no back-to-top — is omitted.
+*/ -}}
+{{- if site.Params.features.welcome_pack -}}
+{{- $chapters := where site.RegularPages "Section" "welcome-pack" -}}
+{{- $chapters = $chapters.ByWeight -}}
+{{- $cssFiles := resources.Match "css/*.css" -}}
+{{- $css := $cssFiles | resources.Concat "css/theme.css" -}}
+{{- if hugo.IsProduction -}}{{- $css = $css | minify | fingerprint -}}{{- end -}}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ i18n "welcomePackPrintTitle" | default "Welcome Pack — printable" }} · {{ site.Title }}</title>
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+  {{ partial "palette-style.html" . }}
+</head>
+<body class="welcome-pack-print">
+  <main>
+    <header class="s-welcome-pack-print__cover">
+      <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "welcomePackHeading" | default "Welcome Pack" }}{{ end }}</h1>
+      <p class="s-welcome-pack-print__group">{{ site.Title }}</p>
+      {{- if or .Params.pack_version .Params.pack_reviewed_date }}
+        <p class="s-welcome-pack-print__meta">
+          {{- with .Params.pack_version }}v{{ . }}{{ end -}}
+          {{- if and .Params.pack_version .Params.pack_reviewed_date }} · {{ end -}}
+          {{- with .Params.pack_reviewed_date }}{{ i18n "welcomePackReviewed" | default "Last reviewed" }} {{ dateFormat "January 2006" . }}{{ end -}}
+        </p>
+      {{- end }}
+      {{- with .Content }}<div class="s-welcome-pack-print__intro">{{ . }}</div>{{ end }}
+    </header>
+
+    {{- range $i, $ch := $chapters }}
+      <article class="s-welcome-pack-print__chapter">
+        <header>
+          <p class="s-welcome-pack-print__chapter-num">{{ i18n "welcomePackChapter" | default "Chapter" }} {{ add $i 1 }}</p>
+          <h2>{{ $ch.Title }}</h2>
+        </header>
+        <div class="s-welcome-pack-print__chapter-body">
+          {{ $ch.Content }}
+        </div>
+      </article>
+    {{- end }}
+  </main>
+</body>
+</html>
+{{- end -}}

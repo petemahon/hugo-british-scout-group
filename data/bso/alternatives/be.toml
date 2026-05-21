@@ -1,0 +1,32 @@
+# data/bso/alternatives/be.toml — WOSM-recognised scouting in Belgium.
+# Belgium's WOSM membership is held by a federation comprising four
+# constituent associations across the linguistic communities. Listed
+# below in alphabetical order of association name.
+
+[[organisation]]
+  name        = "Les Scouts"
+  url         = "https://lesscouts.be/"
+  language    = "French"
+  joining_url = "https://lesscouts.be/inscription"
+  description = "The largest French-speaking Catholic scouting association in Belgium."
+
+[[organisation]]
+  name        = "Scouts en Gidsen Vlaanderen"
+  url         = "https://www.scoutsengidsenvlaanderen.be/"
+  language    = "Dutch"
+  joining_url = "https://www.scoutsengidsenvlaanderen.be/word-lid"
+  description = "The largest Dutch-speaking scouting and guiding association in Belgium (Flanders)."
+
+[[organisation]]
+  name        = "Scouts et Guides Pluralistes"
+  url         = "https://www.sgp.be/"
+  language    = "French"
+  joining_url = ""
+  description = "French-speaking pluralist (non-confessional) scouts and guides."
+
+[[organisation]]
+  name        = "FOS Open Scouting"
+  url         = "https://www.fos.be/"
+  language    = "Dutch / French"
+  joining_url = ""
+  description = "Bilingual open-scouting federation; some BSO Groups co-badge for cross-community work."

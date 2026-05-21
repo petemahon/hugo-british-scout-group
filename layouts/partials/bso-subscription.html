@@ -1,0 +1,51 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-subscription — currency-aware fee block for the moving-in page
+  and any other BSO sub-page that surfaces subs. Reuses
+  data/currencies.toml (introduced in SPEC-06 / Q10.5).
+
+  Context (dict):
+    amount    (str)  REQUIRED — the fee value, e.g. "750"
+    currency  (str)  OPTIONAL — ISO 4217 (default "GBP")
+    period    (str)  OPTIONAL — "term" | "month" | "year" (default "term")
+    joining   (str)  OPTIONAL — one-off joining fee, same currency
+    page      (Page) OPTIONAL — passed through for errorf path on unknown
+                                currency code
+*/ -}}
+{{- $amount   := .amount   -}}
+{{- $currency := .currency | default "GBP" -}}
+{{- $period   := .period   | default "term" -}}
+{{- $joining  := .joining  | default "" -}}
+
+{{- /* Resolve the currency symbol from data/currencies.toml. Unknown
+       code falls back to the bare code (e.g. "XAF 50"). */ -}}
+{{- $symbol := $currency -}}
+{{- range hugo.Data.currencies.currency -}}
+  {{- if eq .code $currency }}{{ $symbol = .symbol }}{{ end -}}
+{{- end -}}
+
+{{- $periodLabel := "" -}}
+{{- if eq $period "term"  -}}{{- $periodLabel = i18n "joiningFeePerTerm"  | default "per term"  -}}{{- end -}}
+{{- if eq $period "month" -}}{{- $periodLabel = i18n "joiningFeePerMonth" | default "per month" -}}{{- end -}}
+{{- if eq $period "year"  -}}{{- $periodLabel = i18n "joiningFeePerYear"  | default "per year"  -}}{{- end -}}
+
+<dl class="s-bso__subscription">
+  <div class="s-bso__subscription-row">
+    <dt>{{ i18n "bsoSubscriptionLabel" | default "Subs" }}</dt>
+    <dd>
+      <span class="s-bso__subscription-amount">{{ $symbol }}{{ $amount }}</span>
+      <span class="s-bso__subscription-period">{{ $periodLabel }}</span>
+    </dd>
+  </div>
+  {{- with $joining }}
+    <div class="s-bso__subscription-row">
+      <dt>{{ i18n "bsoJoiningFeeLabel" | default "One-off joining fee" }}</dt>
+      <dd>
+        <span class="s-bso__subscription-amount">{{ $symbol }}{{ . }}</span>
+      </dd>
+    </div>
+  {{- end }}
+</dl>

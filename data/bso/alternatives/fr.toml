@@ -1,0 +1,25 @@
+# data/bso/alternatives/fr.toml — WOSM-recognised scouting in France.
+# France's WOSM membership is held by Scoutisme Français, a federation
+# of six member associations. The federation site is the authoritative
+# entry point; the larger constituents are listed below.
+
+[[organisation]]
+  name        = "Scoutisme Français"
+  url         = "https://www.scoutisme-francais.fr/"
+  language    = "French"
+  joining_url = ""
+  description = "The WOSM-recognised federation of all French scouting movements. Start here for an overview of every member association."
+
+[[organisation]]
+  name        = "Scouts et Guides de France"
+  url         = "https://www.sgdf.fr/"
+  language    = "French"
+  joining_url = "https://www.sgdf.fr/inscription"
+  description = "The largest Catholic scouting and guiding association in France; member of Scoutisme Français."
+
+[[organisation]]
+  name        = "Éclaireuses et Éclaireurs de France"
+  url         = "https://www.eedf.fr/"
+  language    = "French"
+  joining_url = ""
+  description = "The largest non-confessional French scouting movement; member of Scoutisme Français."

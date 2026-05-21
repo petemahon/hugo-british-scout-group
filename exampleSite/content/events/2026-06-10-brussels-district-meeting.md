@@ -4,14 +4,14 @@ title       = "Brussels District planning meeting"
 # Event start time (LOCAL clock at the event's timezone). For this event
 # the `timezone` field below is Europe/Brussels, so this 20:30 is local
 # Brussels wall-clock time. Used by Hugo for sort and listing.
-date        = 2026-06-10T20:30:00+02:00
+date        = 2026-06-04T20:30:00+02:00
 
 # When the event was added to the site. Set in the past so Hugo's
 # `--buildFuture=false` build still includes this future event.
-publishDate = 2026-05-25T19:00:00+02:00
+publishDate = 2026-05-16T19:00:00+02:00
 
 # Optional explicit end. Omit to default to date + 1h30.
-end         = 2026-06-10T22:00:00+02:00
+end         = 2026-06-04T22:00:00+02:00
 
 # Per-event timezone override (site default is Europe/London — see
 # exampleSite/hugo.toml). Drives the TZID parameter on DTSTART/DTEND in

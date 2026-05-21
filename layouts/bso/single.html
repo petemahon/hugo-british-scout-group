@@ -1,0 +1,53 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  /bso/<slug>/ — Generic per-page renderer for the BSO sub-pages.
+  SPEC-10.
+
+  Dispatches by .File.BaseFileName to the matching partial:
+    eligibility.md   → partials/bso-eligibility.html
+    moving-in.md     → partials/bso-moving-in.html
+    moving-out.md    → partials/bso-moving-out.html
+    host-scouting.md → partials/bso-host-scouting.html
+    home-range.md    → partials/bso-home-range.html
+
+  Gating: site.Params.bso AND params.features.bso_hub. Additionally,
+  home-range needs params.bso.show_home_range — when off, the page is
+  reachable by direct URL but the hub doesn't link to it (the URL
+  exists; the page renders with a small "this page is hidden" notice
+  in the dispatcher rather than a generic 404). The page can still
+  render as the canonical source for anyone with the link.
+*/ -}}
+{{ define "main" }}
+{{- if and (site.Params.bso.enabled | default false) (site.Params.features.bso_hub | default false) -}}
+
+  {{- $slug    := .File.BaseFileName -}}
+  {{- $partial := printf "bso-%s.html" $slug -}}
+
+  <article class="section s-bso s-bso--single reveal">
+    <div class="container s-bso__container">
+
+      <p class="s-bso__breadcrumb display-7">
+        <a href="{{ "/bso/" | relURL }}">&larr; {{ i18n "bsoBackToHub" | default "BSO information" }}</a>
+      </p>
+
+      <header class="s-bso__post-head">
+        <span class="eyebrow">{{ i18n "bsoHubEyebrow" | default "British Scouting Overseas" }}</span>
+        <h1 class="display-2">{{ .Title }}</h1>
+      </header>
+
+      {{- if templates.Exists (printf "partials/%s" $partial) }}
+        {{ partial $partial . }}
+      {{- else }}
+        {{- warnf "bso/single (%q): no partial %q exists for BSO slug %q. The default page body falls back to .Content." .File.LogicalName $partial $slug }}
+        <div class="s-bso__body">{{ .Content }}</div>
+      {{- end }}
+
+      {{ partial "bso-links-footer.html" . }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

@@ -1,0 +1,8 @@
+# data/bso/alternatives/sg.toml — WOSM-recognised scouting in Singapore.
+
+[[organisation]]
+  name        = "The Singapore Scout Association"
+  url         = "https://www.scouts.sg/"
+  language    = "English"
+  joining_url = "https://www.scouts.sg/join-us"
+  description = "The national WOSM-recognised scouting body of Singapore. English-medium; some BSO Groups in Singapore co-badge with local SSA units."

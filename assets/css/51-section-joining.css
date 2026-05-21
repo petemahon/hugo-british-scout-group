@@ -1,0 +1,322 @@
+/* -----------------------------------------------------------------------------
+   26. JOINING — s-joining
+   /join/ page rendered from content/join/_index.md + data/sections_status.toml.
+   Card-grid of one card per pack, palette-driven status badges via the new
+   --status-* tokens (SPEC-06).
+
+   CSS-only: no JS. FAQ accordion is <details>/<summary>; print stylesheet
+   forces every <details> open so a printed copy carries the full Q&A.
+   ----------------------------------------------------------------------------- */
+
+/* -- Page head + bridge links ------------------------------------------ */
+.s-joining__bridges {
+  margin: 2.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+.s-joining__bridges .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Override the global `.btn + .btn` adjacent-sibling rule (8px top
+   margin) inside the bridges row — flex `gap` already handles spacing,
+   and the inherited margin-top makes the second button sit lower than
+   the first. */
+.s-joining__bridges .btn + .btn {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+/* The BSO block on /join/ pairs the canonical bso-membership-notice
+   card with a small "Read the full eligibility rules →" affordance
+   sitting just under it. Constrained to the card's own 760 px max so
+   the CTA reads as anchored to the card rather than as a free-floating
+   link on the page. Both this and the optional summary inherit the
+   centred alignment for visual coherence. */
+.s-joining__bso-block {
+  margin: 2rem 0 3rem;
+}
+.s-joining__bso-summary {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  padding: 0 24px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.55;
+  text-align: center;
+}
+.s-joining__bso-cta {
+  max-width: 760px;
+  margin: 0.75rem auto 0;
+  padding: 0 24px;
+  text-align: center;
+  font-size: 14px;
+}
+.s-joining__bso-cta a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.s-joining__bso-cta a:hover,
+.s-joining__bso-cta a:focus-visible {
+  text-decoration: underline;
+}
+
+/* -- Card grid --------------------------------------------------------- */
+.s-joining__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* -- Card -------------------------------------------------------------- */
+.s-joining__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  position: relative;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.s-joining__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.s-joining__card[data-status="closed"] {
+  opacity: 0.85;
+}
+
+.s-joining__card-head {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.s-joining__logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.s-joining__logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.s-joining__card-titles {
+  min-width: 0;
+}
+.s-joining__pack-name {
+  margin: 0 0 0.125rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.s-joining__section-name {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.s-joining__ages {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* -- Status badge ------------------------------------------------------ */
+.s-joining__status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  color: var(--text-on-status);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  align-self: start;
+}
+.s-joining__status--open    { background: var(--status-open); }
+.s-joining__status--waiting { background: var(--status-waiting); }
+.s-joining__status--closed  { background: var(--status-closed); }
+
+/* -- Facts row --------------------------------------------------------- */
+.s-joining__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0.875rem 1rem;
+  background: var(--bg-muted);
+  border-radius: 0.5rem;
+}
+.s-joining__fact { margin: 0; }
+.s-joining__fact dt {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.s-joining__fact dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.s-joining__fact dd time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.s-joining__fee-period {
+  display: inline;
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* -- Description ------------------------------------------------------- */
+.s-joining__description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.s-joining__description p:first-child { margin-top: 0; }
+.s-joining__description p:last-child  { margin-bottom: 0; }
+
+/* -- BSO notes --------------------------------------------------------- */
+.s-joining__bso-notes {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--secondary);
+  background: rgba(0, 0, 0, 0.02);
+  font-size: 0.9rem;
+}
+.s-joining__bso-notes p { margin: 0.25rem 0; }
+.s-joining__bso-link    { display: inline-block; margin-top: 0.25rem; }
+
+/* -- Card footer ------------------------------------------------------- */
+.s-joining__card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+.s-joining__card-foot .btn {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* -- FAQ accordion ----------------------------------------------------- */
+.s-joining__faq {
+  margin: 3rem 0 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+/* Narrower reading column for the FAQ on desktop — full container
+   width feels overstretched against the question/answer rhythm. */
+@media (min-width: 768px) {
+  .s-joining__faq { max-width: 60%; }
+}
+.s-joining__faq-heading {
+  margin: 0 0 1.5rem;
+}
+.s-joining__faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.s-joining__faq-item {
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.s-joining__faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+.s-joining__faq-question::-webkit-details-marker { display: none; }
+.s-joining__faq-chevron {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: transform 0.2s ease-out;
+}
+.s-joining__faq-item[open] .s-joining__faq-chevron {
+  transform: rotate(90deg);
+}
+.s-joining__faq-answer {
+  padding: 0 1.25rem 1.25rem;
+  color: var(--text-muted);
+}
+.s-joining__faq-answer p:first-child { margin-top: 0; }
+.s-joining__faq-answer p:last-child  { margin-bottom: 0; }
+
+/* -----------------------------------------------------------------------------
+   Print stylesheet — parents who'd rather print a one-shot copy of the
+   joining info get the cards in a stacked, table-friendly layout, all
+   FAQ entries expanded.
+   ----------------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .site-footer,
+  .s-back-to-top,
+  .s-joining__bridges,
+  .s-joining__card-foot,
+  .s-joining__faq-chevron {
+    display: none !important;
+  }
+
+  body { background: #fff; color: #000; }
+  .section { padding: 0 !important; }
+  .container { max-width: none; padding: 0 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  .s-joining__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .s-joining__card {
+    break-inside: avoid;
+    border: 1px solid #000;
+    box-shadow: none !important;
+    transform: none !important;
+    page-break-inside: avoid;
+  }
+  .s-joining__status {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #000;
+  }
+  .s-joining__facts {
+    background: transparent;
+    border: 1px solid #ccc;
+  }
+
+  /* Force every FAQ entry expanded for the print copy. */
+  .s-joining__faq-item,
+  .s-joining__faq-item > * { display: block !important; }
+  .s-joining__faq-question { cursor: default; }
+}

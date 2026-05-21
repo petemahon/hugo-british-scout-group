@@ -29,7 +29,15 @@ silently revise.
 
 `hero`, `two-col-cta`, `two-col-image-cta`, `section-grid`,
 `stacked-features`, `scout-sections`, `section-header`, `embed`,
-`bso-membership`, `palette-showcase`, `prose`.
+`bso-membership`, `palette-showcase`, `prose`, `join`,
+`news-grid`, `events-upcoming`, `programme-current`,
+`network-feature`, `volunteer-feature`.
+
+The last five entries were added during the D5–D13 visual redesign
+sweep: `join` (two-card joining CTA), `news-grid` (SPEC-01 home block),
+`events-upcoming` (SPEC-02 home block), `network-feature` (Scout
+Network 18–25 brand-anchor band), `volunteer-feature` (volunteer
+recruitment brand-anchor band — Scouts Purple regardless of palette).
 
 Adding a new type is fine. Renaming or removing one is a flag-not-change.
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programme on 1st Anytown Scouts</title>
+    <link>http://localhost:1313/programme/</link>
+    <description>Recent content in Programme on 1st Anytown Scouts</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/programme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beavers — Summer Term 2026</title>
+      <link>http://localhost:1313/programme/beavers-summer-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/beavers-summer-2026/</guid>
+      <description>&lt;p&gt;A bright, gentle Summer term for Beavers — finishing with a Colony&#xA;sleepover at the hut.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cubs — Summer Term 2026</title>
+      <link>http://localhost:1313/programme/cubs-summer-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/cubs-summer-2026/</guid>
+      <description>&lt;p&gt;This term we&amp;rsquo;re building towards the &lt;strong&gt;Naturalist activity badge&lt;/strong&gt; and&#xA;a weekend Pack camp at Anytown Common. A typical Cubs term: fire-lighting,&#xA;map work, a community visit, and plenty of outdoor time. Half-term falls in&#xA;week 8 — no meeting that week.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scouts — Autumn Term 2025</title>
+      <link>http://localhost:1313/programme/scouts-autumn-2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/scouts-autumn-2025/</guid>
+      <description>&lt;p&gt;Last autumn&amp;rsquo;s Scouts programme — kept here for District audit and as a&#xA;demonstration of the archive view (set &lt;code&gt;params.programme.keep_archive&lt;/code&gt;&#xA;true to see it in the listing).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scouts — Autumn Term 2026</title>
+      <link>http://localhost:1313/programme/scouts-autumn-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/scouts-autumn-2026/</guid>
+      <description>&lt;p&gt;A look ahead to next autumn — published early so parents can plan&#xA;around the weekend hike and Remembrance parade.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

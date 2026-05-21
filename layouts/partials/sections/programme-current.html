@@ -1,0 +1,113 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  programme-current — home-page (or any-page) block showing the
+  current term's programme(s).
+
+  Gated by site.Params.features.programme. Renders one collapsible
+  <details> block per matching programme. "Current" = today falls
+  between term_start and term_end inclusive.
+
+  Per DECISIONS.md / SPEC-03 Q3.1 (revised 2026-05-21) this block is
+  wired into the example site so the demo exercises every section
+  type. Feature-level opt-in still applies: a consuming Group site
+  only renders it when params.features.programme is true AND a
+  programme-current entry is in its content/_index.md.
+
+  Section params (front-matter under [[sections]]):
+    id        (string, optional)  — anchor
+    eyebrow   (string, optional)  — small uppercase lead-in
+    title     (string, optional)  — falls back to i18n.programmeCurrentHeading
+    subtitle  (string, optional, HTML allowed)
+    align     (string, optional)  — "left" applies sect-head--left
+    bg        (string, optional)  — primary | secondary | tertiary | muted
+    density   (string, optional)  — "themes_only" | "full"; overrides
+                                    per-programme density site-wide
+                                    for this block only
+    sections  (list[string], opt) — filter to these section keys; empty
+                                    list = all sections
+    show_more (bool, optional)    — default true; renders the
+                                    "View all programmes →" button
+                                    under the cards, linking to
+                                    /programme/. Set false to suppress.
+*/ -}}
+{{- if site.Params.features.programme -}}
+
+  {{- $id       := .id       | default "" -}}
+  {{- $eyebrow  := .eyebrow  | default "" -}}
+  {{- $title    := .title    | default (i18n "programmeCurrentHeading" | default "This term's programme") -}}
+  {{- $subtitle := .subtitle | default "" -}}
+  {{- $bg       := .bg       | default "" -}}
+  {{- $density  := .density  | default "" -}}
+  {{- $filter   := .sections | default slice -}}
+  {{- $showMore := true -}}
+  {{- if isset . "show_more" }}{{ $showMore = .show_more }}{{ end -}}
+
+  {{- $headClass := "sect-head" -}}
+  {{- if eq .align "left" -}}{{- $headClass = "sect-head sect-head--left" -}}{{- end -}}
+
+  {{- $now := now -}}
+  {{- $all := where site.RegularPages "Section" "programme" -}}
+  {{- $all = where $all "Params.term_start" "<=" $now -}}
+  {{- $all = where $all "Params.term_end"   ">=" $now -}}
+  {{- if gt (len $filter) 0 -}}
+    {{- $all = where $all "Params.section" "in" $filter -}}
+  {{- end -}}
+  {{- $all = sort $all "Params.section" "asc" -}}
+
+  {{- if gt (len $all) 0 }}
+    <section{{ with $id }} id="{{ . }}"{{ end }}
+             class="section s-programme s-programme--current{{ with $bg }} s-bg-{{ . }}{{ end }} reveal">
+      <div class="container">
+
+        <div class="{{ $headClass }}">
+          {{- with $eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+          <h2>{{ $title }}</h2>
+          {{- with $subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+        </div>
+
+        <div class="s-programme__current-list">
+          {{- range $programme := $all -}}
+            {{- $sectionMeta := "" -}}
+            {{- $sectionKey := $programme.Params.section -}}
+            {{- range hugo.Data.scout_sections.items -}}
+              {{- if eq .key $sectionKey }}{{ $sectionMeta = . }}{{ end -}}
+            {{- end -}}
+            <details class="s-programme__current-item">
+              <summary class="s-programme__current-summary">
+                {{- with $sectionMeta }}
+                  <span class="s-programme__section-pip"
+                        style="background: {{ .color }}; color: {{ .text_color }};"
+                        aria-hidden="true">{{ substr .name 0 1 }}</span>
+                  <span class="s-programme__current-section">{{ .name }}</span>
+                {{- end }}
+                <span class="s-programme__current-title">{{ .Title }}</span>
+                <span class="s-programme__current-chevron" aria-hidden="true">&rsaquo;</span>
+              </summary>
+              <div class="s-programme__current-body">
+                {{ partial "programme-table.html" (dict "page" . "density" $density) }}
+                <p class="s-programme__current-link">
+                  <a class="styled-link" href="{{ .RelPermalink }}">
+                    {{ i18n "programmeViewFull" | default "Open the full term page" }} &rarr;
+                  </a>
+                </p>
+              </div>
+            </details>
+          {{- end }}
+        </div>
+
+        {{- if $showMore }}
+          <p class="s-programme__viewall">
+            <a class="btn btn-primary" href="{{ "/programme/" | relURL }}">
+              {{- i18n "programmeViewAll" | default "View all programmes" }} &rarr;
+            </a>
+          </p>
+        {{- end }}
+
+      </div>
+    </section>
+  {{- end -}}
+
+{{- end -}}

@@ -2,46 +2,186 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>1st Anytown Scouts</title>
-    <link>https://example.com/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 1st Anytown Scouts</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2026 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Dec 2026 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About the Group</title>
+      <link>http://localhost:1313/welcome-pack/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/welcome-pack/about/</guid>
+      <description>Who we are, where we meet, and what young people get from us.</description>
+    </item>
+    <item>
+      <title>What does a typical meeting look like?</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>&lt;p&gt;Meetings run from arrival through investiture-style opening to a mix of&#xA;games, badge work and outdoor activity, then a closing circle. Squirrels&#xA;and Beavers run shorter sessions; Cubs, Scouts and Explorers run longer.&#xA;Specific timings per section are on the cards above.&lt;/p&gt;&#xA;&lt;p&gt;Most weeks we&amp;rsquo;re indoors at the hut, but we head outside whenever the&#xA;weather and programme allow. Patrol/Six leaders run smaller groups&#xA;within the meeting.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Do I have to volunteer to get my child a place?</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>&lt;p&gt;No — but it helps. We have a long-standing principle that families who&#xA;join in get priority on the waiting list. There&amp;rsquo;s a role for every&#xA;amount of time you can give, from washing-up after camp to running a&#xA;section. See &lt;a href=&#34;http://localhost:1313/#volunteer&#34;&gt;the volunteer page&lt;/a&gt; for what we need.&lt;/p&gt;&#xA;&lt;p&gt;Many parents volunteer for one or two terms while their child is&#xA;settling in. There&amp;rsquo;s no expectation it becomes a long-term commitment&#xA;unless you want it to.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What each section does</title>
+      <link>http://localhost:1313/welcome-pack/sections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/welcome-pack/sections/</guid>
+      <description>A quick read on each age group, what they do, and how they progress.</description>
+    </item>
+    <item>
+      <title>Can my child come to a try-it session first?</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description>&lt;p&gt;Yes — every section runs a few trial weeks at the start of each term.&#xA;Once you&amp;rsquo;re on the waiting list, the section leader will be in touch&#xA;with try-it dates as places come up.&lt;/p&gt;&#xA;&lt;p&gt;We don&amp;rsquo;t run open evenings as a rule — section meetings are busy and&#xA;better suited to one child at a time joining in for a few weeks before&#xA;formally enrolling.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to join</title>
+      <link>http://localhost:1313/welcome-pack/joining/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/welcome-pack/joining/</guid>
+      <description>Waiting list, subs, what to bring on the first night.</description>
+    </item>
+    <item>
+      <title>Safeguarding &amp; photo policy</title>
+      <link>http://localhost:1313/welcome-pack/safeguarding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/welcome-pack/safeguarding/</guid>
+      <description>How we keep young people safe and how we handle photos.</description>
+    </item>
+    <item>
+      <title>The year at a glance</title>
+      <link>http://localhost:1313/welcome-pack/calendar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/welcome-pack/calendar/</guid>
+      <description>Termly rhythms and the fixtures every family should know about.</description>
+    </item>
+    <item>
+      <title>District Rally</title>
+      <link>http://localhost:1313/events/2026-11-22-district-rally/</link>
+      <pubDate>Sun, 22 Mar 2026 09:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/events/2026-11-22-district-rally/</guid>
+      <description>&lt;p&gt;The District Rally has been &lt;strong&gt;rescheduled&lt;/strong&gt; from October to late&#xA;November to align with the District&amp;rsquo;s outdoor programme. Same venue,&#xA;new date — full Group day with backwoods cooking, pioneering, a wide&#xA;game in the afternoon, and the District flag ceremony to finish.&lt;/p&gt;&#xA;&lt;p&gt;If you subscribed to our events calendar you don&amp;rsquo;t need to do&#xA;anything; the meeting will update automatically.&lt;/p&gt;&#xA;&lt;p&gt;Bring a packed lunch and a warm layer.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leaders&#39; Safeguarding Refresher</title>
+      <link>http://localhost:1313/events/2026-09-26-leaders-training/</link>
+      <pubDate>Sun, 15 Feb 2026 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/events/2026-09-26-leaders-training/</guid>
+      <description>&lt;p&gt;This event has been cancelled. The District training calendar is&#xA;being revised and we&amp;rsquo;ll publish a new date once the new programme is&#xA;confirmed — keep an eye on the events page.&lt;/p&gt;&#xA;&lt;p&gt;Volunteers who had this in their calendar via our subscription feed&#xA;will see the meeting disappear automatically.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Cubs Summer Camp</title>
-      <link>https://example.com/events/2026-08-14-cubs-summer-camp/</link>
-      <pubDate>Mon, 20 Apr 2026 10:00:00 +0100</pubDate>
-      <guid>https://example.com/events/2026-08-14-cubs-summer-camp/</guid>
+      <link>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</link>
+      <pubDate>Sun, 03 May 2026 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</guid>
       <description>&lt;p&gt;Three days under canvas at Pioneer Camp — Friday afternoon arrival,&#xA;Sunday afternoon collection. The Pack will be running a mix of&#xA;campcraft, water activities and the all-time-favourite night hike.&lt;/p&gt;&#xA;&lt;p&gt;Kit list and consent forms will be sent home four weeks ahead of camp.&#xA;Bursary support is available — speak to Akela in confidence if cost&#xA;would otherwise stop your Cub joining us.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Summer Fete</title>
-      <link>https://example.com/events/2026-07-12-summer-fete/</link>
-      <pubDate>Wed, 15 Apr 2026 10:00:00 +0100</pubDate>
-      <guid>https://example.com/events/2026-07-12-summer-fete/</guid>
+      <link>http://localhost:1313/events/2026-07-12-summer-fete/</link>
+      <pubDate>Tue, 28 Apr 2026 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/events/2026-07-12-summer-fete/</guid>
       <description>&lt;p&gt;Our annual Summer Fete on the Hut grounds — bouncy castle, BBQ, raffle,&#xA;plus a chance for parents to meet the leadership team and learn about&#xA;the year ahead.&lt;/p&gt;&#xA;&lt;p&gt;Volunteers welcome — get in touch if you can help with the BBQ or the&#xA;gates rota.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Brussels District planning meeting</title>
+      <link>http://localhost:1313/events/2026-06-10-brussels-district-meeting/</link>
+      <pubDate>Sat, 16 May 2026 19:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/events/2026-06-10-brussels-district-meeting/</guid>
+      <description>&lt;p&gt;A short planning call for Section Leaders and Assistants across the&#xA;Brussels District ahead of the autumn term. We&amp;rsquo;ll cover the term card,&#xA;the District camp shortlist, safeguarding refresher dates, and any&#xA;help needed on the volunteer rota.&lt;/p&gt;&#xA;&lt;p&gt;Dial-in details will be sent by email the day before. If you can&amp;rsquo;t&#xA;make it, drop the GSL a note and we&amp;rsquo;ll fold your input into the notes.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>St George&#39;s Day Parade</title>
-      <link>https://example.com/news/2026-04-19-st-georges-day/</link>
+      <link>http://localhost:1313/news/2026-04-19-st-georges-day/</link>
       <pubDate>Sun, 19 Apr 2026 11:00:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-04-19-st-georges-day/</guid>
+      <guid>http://localhost:1313/news/2026-04-19-st-georges-day/</guid>
       <description>The whole Group turned out for our annual St George&amp;rsquo;s Day Parade — fresh neckers, polished shoes, and a piper to lead us in.</description>
     </item>
     <item>
       <title>Cubs Cooking Cup 2026</title>
-      <link>https://example.com/news/2026-03-30-cubs-cooking-cup/</link>
+      <link>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</link>
       <pubDate>Mon, 30 Mar 2026 19:30:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-03-30-cubs-cooking-cup/</guid>
+      <guid>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</guid>
       <description>Six teams. Three courses. One champion. Notes from the most-contested Cooking Cup the Pack has ever seen.</description>
     </item>
     <item>
       <title>Squirrels start in September</title>
-      <link>https://example.com/news/2026-02-15-squirrels-launch/</link>
+      <link>http://localhost:1313/news/2026-02-15-squirrels-launch/</link>
       <pubDate>Sun, 15 Feb 2026 10:00:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-02-15-squirrels-launch/</guid>
+      <guid>http://localhost:1313/news/2026-02-15-squirrels-launch/</guid>
       <description>We&amp;rsquo;re delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.</description>
+    </item>
+    <item>
+      <title>Beavers — Summer Term 2026</title>
+      <link>http://localhost:1313/programme/beavers-summer-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/beavers-summer-2026/</guid>
+      <description>&lt;p&gt;A bright, gentle Summer term for Beavers — finishing with a Colony&#xA;sleepover at the hut.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cubs — Summer Term 2026</title>
+      <link>http://localhost:1313/programme/cubs-summer-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/cubs-summer-2026/</guid>
+      <description>&lt;p&gt;This term we&amp;rsquo;re building towards the &lt;strong&gt;Naturalist activity badge&lt;/strong&gt; and&#xA;a weekend Pack camp at Anytown Common. A typical Cubs term: fire-lighting,&#xA;map work, a community visit, and plenty of outdoor time. Half-term falls in&#xA;week 8 — no meeting that week.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home range and InTouch</title>
+      <link>http://localhost:1313/bso/home-range/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bso/home-range/</guid>
+      <description>&lt;p&gt;This page is gated by &lt;code&gt;params.bso.show_home_range&lt;/code&gt; in your site&amp;rsquo;s&#xA;&lt;code&gt;hugo.toml&lt;/code&gt;. Default is &lt;strong&gt;false&lt;/strong&gt; — most BSO Groups don&amp;rsquo;t need a&#xA;formal home-range publication. Flip the param to &lt;code&gt;true&lt;/code&gt; to surface&#xA;the link in the &lt;code&gt;/bso/&lt;/code&gt; hub.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Moving on</title>
+      <link>http://localhost:1313/bso/moving-out/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bso/moving-out/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Moving to the United Arab Emirates</title>
+      <link>http://localhost:1313/bso/moving-in/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bso/moving-in/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scouting in the United Arab Emirates</title>
+      <link>http://localhost:1313/bso/host-scouting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bso/host-scouting/</guid>
+      <description>&lt;p&gt;The data behind this page lives in &lt;code&gt;data/bso/alternatives/ae.toml&lt;/code&gt; —&#xA;your Group edits this file to add or correct entries. The theme&#xA;ships a starter dataset for the eight most-common BSO host&#xA;countries: NL, BE, FR, DE, ES, AE, SG, US.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scouts — Autumn Term 2025</title>
+      <link>http://localhost:1313/programme/scouts-autumn-2025/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/scouts-autumn-2025/</guid>
+      <description>&lt;p&gt;Last autumn&amp;rsquo;s Scouts programme — kept here for District audit and as a&#xA;demonstration of the archive view (set &lt;code&gt;params.programme.keep_archive&lt;/code&gt;&#xA;true to see it in the listing).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scouts — Autumn Term 2026</title>
+      <link>http://localhost:1313/programme/scouts-autumn-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/programme/scouts-autumn-2026/</guid>
+      <description>&lt;p&gt;A look ahead to next autumn — published early so parents can plan&#xA;around the weekend hike and Remembrance parade.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Who can join 1st Anytown Scouts</title>
+      <link>http://localhost:1313/bso/eligibility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bso/eligibility/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

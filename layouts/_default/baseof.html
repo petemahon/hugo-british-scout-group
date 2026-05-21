@@ -3,7 +3,7 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body id="top"{{ if eq site.Params.heroIntro true }} class="has-hero-intro"{{ end }}>
+<body id="top"{{ if and (eq site.Params.heroIntro true) .IsHome }} class="has-hero-intro"{{ end }}>
   {{ partial "svg-defs.html" . }}
   {{ partial "header.html" . }}
   <main>

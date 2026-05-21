@@ -1,0 +1,77 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  /join/ — Joining page. SPEC-06.
+
+  Structure top-to-bottom:
+    1. Page head (eyebrow + h1 + intro paragraph + Welcome-Pack link)
+    2. BSO membership notice + per-page eligibility summary (when
+       site.Params.bso is true; both opt-in via param settings)
+    3. Joining grid (one card per pack, from data/sections_status.toml)
+    4. FAQ accordion (when content/join/faq/*.md files exist)
+    5. Footer bridge to /welcome-pack/ and /volunteer/ (SPEC-09)
+
+  Feature gate: site.Params.features.joining. Off-flag → empty body.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.joining -}}
+  {{- $isBSO    := site.Params.bso | default false -}}
+  {{- $welcomeURL := .Params.welcome_pack_url | default "/welcome-pack/" -}}
+  {{- $welcomeLabel := .Params.welcome_pack_label | default (i18n "joiningWelcomePackLink" | default "Read our Welcome Pack") -}}
+  {{- $volunteerLabel := .Params.volunteer_link_text | default (i18n "joiningVolunteerCta" | default "We need you too") -}}
+  {{- $showWelcomePack := and ($welcomeURL) (or site.Params.features.welcome_pack (not (hasPrefix $welcomeURL "/welcome-pack"))) -}}
+
+  <section class="section s-joining s-joining--list reveal">
+    <div class="container">
+
+      <div class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "joiningEyebrow" | default "Join us" }}</span>
+        <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "joiningHeading" | default "Add your child to a Pack — or join us as a volunteer." }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+        {{- with .Content }}<div class="s-joining__intro-body">{{ . }}</div>{{ end }}
+      </div>
+
+      {{- /* Bridge buttons sit OUTSIDE .sect-head--left so the
+             component's `.sect-head--left p { margin: 0 }` rule
+             doesn't outrank our margin-top. */}}
+      <div class="s-joining__bridges">
+        {{- if $showWelcomePack }}
+          <a class="btn btn-primary-outline" href="{{ $welcomeURL | relURL }}">{{ $welcomeLabel }} &rarr;</a>
+        {{- end }}
+        {{- if site.Params.features.volunteer_feature }}
+          <a class="btn btn-primary-outline" href="{{ "/#volunteer" | relURL }}">{{ $volunteerLabel }} &rarr;</a>
+        {{- end }}
+      </div>
+
+      {{- if $isBSO }}
+        {{- /* The bso-membership-notice partial is the canonical POR 3.2.1.1
+               block. We render it once on /join/ (cross-cutting decision —
+               not on the home page, not on /bso/eligibility/) and append a
+               single CTA into /bso/eligibility/ for visitors who want the
+               longer expansion. An optional `bso_eligibility_summary`
+               front-matter field still renders extra prose between the
+               two if a Group wants to add it — the example site leaves
+               that empty. */ -}}
+        <div class="s-joining__bso-block">
+          {{ partial "bso-membership-notice.html" . }}
+          {{- with .Params.bso_eligibility_summary }}
+            <div class="s-joining__bso-summary">{{ . | safeHTML }}</div>
+          {{- end }}
+          <p class="s-joining__bso-cta">
+            <a class="styled-link" href="{{ "/bso/eligibility/" | relURL }}">
+              {{- i18n "joiningBsoReadEligibility" | default "Read the full eligibility rules" }} &rarr;
+            </a>
+          </p>
+        </div>
+      {{- end }}
+
+      {{ partial "joining-grid.html" . }}
+
+      {{ partial "joining-faq.html" . }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

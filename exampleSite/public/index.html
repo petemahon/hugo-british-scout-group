@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-	<meta name="generator" content="Hugo 0.161.1">
+	<meta name="generator" content="Hugo 0.161.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>1st Anytown Scouts</title>
@@ -11,7 +11,7 @@
 <meta property="og:title" content="1st Anytown Scouts">
 <meta property="og:description" content="Skills for Life — example Scout Group home page using the British Scout Group theme.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://example.com/">
+<meta property="og:url" content="http://localhost:1313/">
 <link rel="icon" href="/images/favicon.png">
 
 
@@ -20,7 +20,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 
-<link rel="stylesheet" href="/css/theme.min.61e0c07e4fce0fa31866e3fa77424da77b4041150fa94ffde1f1516e2afa60a9.css" integrity="sha256-YeDAfk/OD6MYZuP6d0JNp3tAQRUPqU/94fFRbir6YKk=">
+<link rel="stylesheet" href="/css/theme.css">
 
 
 
@@ -42,6 +42,10 @@
   --text-on-warning:     #ffffff;
   --postponed:           #d97706;
   --text-on-postponed:   #ffffff;
+  --status-open:         #0a7b3a;
+  --status-waiting:      #b45309;
+  --status-closed:       #6b7280;
+  --text-on-status:      #ffffff;
 }
 </style>
 
@@ -151,7 +155,7 @@
       <div class="s-join__card">
         <div class="s-join__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0L8 6m4 2 4-2"/><circle cx="12" cy="14" r="6"/></svg>
 </div>
-        <div class="s-join__card-body"><h3>Add a young person</h3><p>For each child you'd like to register, fill out an entry form.</p><a class="btn btn-primary" href="/joining/">Add to waiting list <span class="arr">&rarr;</span></a>
+        <div class="s-join__card-body"><h3>Add a young person</h3><p>For each child you'd like to register, fill out an entry form.</p><a class="btn btn-primary" href="/join/">Add to waiting list <span class="arr">&rarr;</span></a>
         </div>
       </div>
       <div class="s-join__card s-join__card--accent">
@@ -297,20 +301,6 @@
 
       
     
-        <section id="membership" class="section s-bso-membership reveal s-bg-muted">
-  <div class="container">
-<section class="bso-membership-notice" aria-labelledby="bso-membership-notice-heading">
-    <h2 id="bso-membership-notice-heading" class="bso-membership-notice__heading">Who can join</h2>
-    <p class="bso-membership-notice__intro">BSO is a slice of UK Scouting, here for families living in Anytown. Whether you&#39;ve moved here from the UK or somewhere else, our doors are open.</p>
-    <p class="bso-membership-notice__association">Every country has its own home of Scouting. Here, that&#39;s Anytown Scout Association — and if you&#39;re a national of Anytown, they&#39;d love to have you.</p>
-    <p class="bso-membership-notice__volunteering">Volunteering&#39;s a different story. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of Anytown.</p>
-    <p class="bso-membership-notice__rule-reference"><small>(This follows <a href="https://www.scouts.org.uk/por/3-membership/32-membership/">POR 3.2.1.1</a> — The Scout Association's rule for every BSO group.)</small></p>
-  </section>
-  </div>
-</section>
-
-      
-    
         <section id="network" class="section s-network-feature reveal">
   <div class="container s-network-feature__grid">
 
@@ -385,6 +375,386 @@
 </section>
       
     
+        
+    <section id="this-term"
+             class="section s-programme s-programme--current s-bg-muted reveal">
+      <div class="container">
+
+        <div class="sect-head sect-head--left"><span class="eyebrow">This term</span>
+          <h2>What we&#39;re doing right now.</h2><p>Click a section to see this term's weekly meeting plan and the Skills for Life themes we're covering.</p>
+        </div>
+
+        <div class="s-programme__current-list"><details class="s-programme__current-item">
+              <summary class="s-programme__current-summary">
+                  <span class="s-programme__section-pip"
+                        style="background: #003982; color: #FFFFFF;"
+                        aria-hidden="true">B</span>
+                  <span class="s-programme__current-section">Beavers</span>
+                <span class="s-programme__current-title">Beavers — Summer Term 2026</span>
+                <span class="s-programme__current-chevron" aria-hidden="true">&rsaquo;</span>
+              </summary>
+              <div class="s-programme__current-body">
+                <div class="s-programme__table-shell">
+  <table class="s-programme__table" data-density="themes_only">
+    <thead>
+      <tr>
+        <th scope="col" class="s-programme__col-week">Wk</th>
+        <th scope="col" class="s-programme__col-date">Date</th>
+        <th scope="col" class="s-programme__col-title">Meeting</th>
+      </tr>
+    </thead>
+    <tbody><tr class="s-programme__row">
+          <td class="s-programme__col-week">1</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-15">Wed 15 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Welcome back &amp; friendship promises</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Beliefs and attitudes</span></li><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">2</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-22">Wed 22 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Springtime nature walk</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Have adventures</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">3</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-29">Wed 29 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Helping at home — kitchen skills</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Community impact</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">4</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-06">Wed 6 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Teamwork games</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Try new things</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">5</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-13">Wed 13 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Storytelling night — bring a book</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Beliefs and attitudes</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Try new things</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">6</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-20">Wed 20 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Mini-pioneering with broomsticks</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">7</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-03">Wed 3 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Community visit — local library</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Community impact</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">8</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-17">Wed 17 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Painting &amp; creative session</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Try new things</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Live up to our values</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">9</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-24">Wed 24 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Sleepover prep</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Have adventures</span></li><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">10</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-07-04">Sat 4 Jul</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Colony sleepover</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Have adventures</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">11</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-07-15">Wed 15 Jul</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">End-of-term party</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Live up to our values</span></li></ul>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+                <p class="s-programme__current-link">
+                  <a class="styled-link" href="/programme/beavers-summer-2026/">
+                    Open the full term page &rarr;
+                  </a>
+                </p>
+              </div>
+            </details><details class="s-programme__current-item">
+              <summary class="s-programme__current-summary">
+                  <span class="s-programme__section-pip"
+                        style="background: #F7EF27; color: #000000;"
+                        aria-hidden="true">C</span>
+                  <span class="s-programme__current-section">Cubs</span>
+                <span class="s-programme__current-title">Cubs — Summer Term 2026</span>
+                <span class="s-programme__current-chevron" aria-hidden="true">&rsaquo;</span>
+              </summary>
+              <div class="s-programme__current-body">
+                <div class="s-programme__table-shell">
+  <table class="s-programme__table" data-density="themes_only">
+    <thead>
+      <tr>
+        <th scope="col" class="s-programme__col-week">Wk</th>
+        <th scope="col" class="s-programme__col-date">Date</th>
+        <th scope="col" class="s-programme__col-title">Meeting</th>
+      </tr>
+    </thead>
+    <tbody><tr class="s-programme__row">
+          <td class="s-programme__col-week">1</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-15">Wed 15 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Welcome back &amp; investiture</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Beliefs and attitudes</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">2</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-22">Wed 22 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Map reading &amp; local geography</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">3</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-04-29">Wed 29 Apr</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Fire-lighting safety</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Try new things</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row s-programme__row--cancelled">
+          <td class="s-programme__col-week">4</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-06">Wed 6 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Community link visit</span>
+                <span class="s-programme__cancelled-pill">Cancelled</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #000000;">Community impact</span></li></ul>
+              <p class="s-programme__cancellation-note">Visit postponed to the autumn term; meeting cancelled.</p>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">5</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-13">Wed 13 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Knot relay &amp; team challenge</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">6</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-05-20">Wed 20 May</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Naturalist activity badge — part 1</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Live up to our values</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">7</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-03">Wed 3 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Naturalist activity badge — part 2</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Live up to our values</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">8</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-17">Wed 17 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Cooking on a single hob</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><a class="s-programme__chip styled-link"
+                 href="https://www.scouts.org.uk/skills-for-life/"
+                 style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;"
+                 rel="noopener">Skills for life</a></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Have adventures</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">9</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-06-24">Wed 24 Jun</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Pioneering basics</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">10</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-07-04">Sat 4 Jul</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">Pack camp — Anytown Common</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Have adventures</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: #ffffff;">Outdoor and adventure</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Teamwork and leadership</span></li></ul>
+          </td>
+        </tr><tr class="s-programme__row">
+          <td class="s-programme__col-week">11</td>
+          <td class="s-programme__col-date">
+            <time datetime="2026-07-15">Wed 15 Jul</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">End-of-term party &amp; badge presentations</span>
+            </div>
+              <ul class="s-programme__chips" aria-label="Skills for Life themes"><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Beliefs and attitudes</span></li><li><span class="s-programme__chip"
+                    style="--chip-bg: ZgotmplZ; --chip-fg: ZgotmplZ;">Live up to our values</span></li></ul>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+                <p class="s-programme__current-link">
+                  <a class="styled-link" href="/programme/cubs-summer-2026/">
+                    Open the full term page &rarr;
+                  </a>
+                </p>
+              </div>
+            </details>
+        </div>
+          <p class="s-programme__viewall">
+            <a class="btn btn-primary" href="/programme/">View all programmes &rarr;
+            </a>
+          </p>
+
+      </div>
+    </section>
+      
+    
         <section id="whats-on"
              class="section s-events-upcoming reveal">
       <div class="container">
@@ -408,15 +778,34 @@
                 <li class="badges__pill" style="--sec: #E22E12;">
                   <a href="/events/sections/scouts/" class="styled-link">Scouts</a>
                 </li>
+                <li class="badges__pill" style="--sec: #088486;">
+                  <a href="/events/sections/explorers/" class="styled-link">Explorers</a>
+                </li>
             </ul>
           </nav>
 
         <div class="s-events-upcoming__grid-shell">
           <div class="s-events-upcoming__grid">
               <a class="ev-card styled-link"
+   href="/events/2026-06-10-brussels-district-meeting/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">4</span>
+    <span class="ev-date__m">Jun</span>
+    <span class="ev-date__y">2026</span>
+  </div>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">Brussels District planning meeting</h4>
+    <p class="ev-card__meta"><span>20:30 (Brussels)</span><span>Online (Microsoft Teams)</span><span>Section Leaders &#43; Assistants</span></p>
+    <ul class="badges" aria-label="Event details">
+    </ul>
+  </div>
+  <span class="sr-only">View details for Brussels District planning meeting</span>
+</a>
+
+              <a class="ev-card styled-link"
    href="/events/2026-07-12-summer-fete/">
   <div class="ev-date" aria-hidden="true">
-    <span class="ev-date__d">12</span>
+    <span class="ev-date__d">25</span>
     <span class="ev-date__m">Jul</span>
     <span class="ev-date__y">2026</span>
   </div>
@@ -435,7 +824,7 @@
               <a class="ev-card styled-link"
    href="/events/2026-08-14-cubs-summer-camp/">
   <div class="ev-date" aria-hidden="true">
-    <span class="ev-date__d">14</span>
+    <span class="ev-date__d">29</span>
     <span class="ev-date__m">Aug</span>
     <span class="ev-date__y">2026</span>
   </div>

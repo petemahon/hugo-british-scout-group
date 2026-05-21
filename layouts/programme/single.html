@@ -1,0 +1,100 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Programme single page — /programme/<slug>/.
+
+  Required front-matter: section, term, term_start, term_end, weeks
+  (validated below; partial programme-table.html also errors on
+  missing weeks).
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.programme -}}
+
+  {{- /* Required-field guards. */ -}}
+  {{- if not .Params.section -}}
+    {{- errorf "programme %q: `section` is required (one of squirrels|beavers|cubs|scouts|explorers|network)." .File.LogicalName -}}
+  {{- end -}}
+  {{- if not .Params.term -}}
+    {{- errorf "programme %q: `term` is required (display label, e.g. \"Summer 2026\")." .File.LogicalName -}}
+  {{- end -}}
+  {{- if not .Params.term_start -}}
+    {{- errorf "programme %q: `term_start` is required." .File.LogicalName -}}
+  {{- end -}}
+  {{- if not .Params.term_end -}}
+    {{- errorf "programme %q: `term_end` is required." .File.LogicalName -}}
+  {{- end -}}
+
+  {{- /* Resolve section metadata from data/scout_sections.toml so we can
+         render the section pip + name + URL. Unknown section key errors. */ -}}
+  {{- $sectionKey  := .Params.section -}}
+  {{- $sectionMeta := "" -}}
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- if eq .key $sectionKey }}{{ $sectionMeta = . }}{{ end -}}
+  {{- end -}}
+  {{- if not $sectionMeta -}}
+    {{- errorf "programme %q: section %q is not a known section key. Allowed: squirrels|beavers|cubs|scouts|explorers|network." .File.LogicalName $sectionKey -}}
+  {{- end -}}
+
+  <article class="section s-programme s-programme--single reveal">
+    <div class="container s-programme__container">
+
+      <header class="s-programme__post-head">
+        <p class="s-programme__breadcrumb display-7">
+          <a href="{{ "/programme/" | relURL }}">&larr; {{ i18n "programmeBackToList" | default "All programmes" }}</a>
+        </p>
+
+        <div class="s-programme__title-block">
+          <span class="s-programme__section-pip s-programme__section-pip--lg"
+                style="background: {{ $sectionMeta.color }}; color: {{ $sectionMeta.text_color }};"
+                aria-hidden="true">{{ substr $sectionMeta.name 0 1 }}</span>
+          <div>
+            <h1 class="s-programme__post-title display-2">{{ .Title }}</h1>
+            <p class="s-programme__post-meta display-7">
+              <span class="s-programme__section-name">{{ $sectionMeta.name }}</span>
+              &middot;
+              <time datetime="{{ dateFormat "2006-01-02" .Params.term_start }}">{{ dateFormat "2 January 2006" .Params.term_start }}</time>
+              &ndash;
+              <time datetime="{{ dateFormat "2006-01-02" .Params.term_end }}">{{ dateFormat "2 January 2006" .Params.term_end }}</time>
+              {{- with .Params.term_anchor }} &middot; <span class="s-programme__term-anchor">{{ . }}</span>{{ end }}
+            </p>
+            {{- if and .Params.district_approved (site.Params.programme.show_district_approved_badge | default true) }}
+              <p class="s-programme__district-badge"
+                 title="{{ i18n "programmeDistrictApprovedHelp" | default "Approved by the District per POR 9.1.2.1." }}">
+                {{ i18n "programmeDistrictApproved" | default "District approved" }}
+              </p>
+            {{- end }}
+          </div>
+        </div>
+      </header>
+
+      {{- with .Content }}
+        <div class="s-programme__intro display-7">{{ . }}</div>
+      {{- end }}
+
+      {{ partial "programme-table.html" (dict "page" .) }}
+
+      {{- with .Params.notes }}
+        <aside class="s-programme__notes display-7">
+          {{ . | safeHTML }}
+        </aside>
+      {{- end }}
+
+      {{- with .Params.kit_list_ref }}
+        <p class="s-programme__kit-link display-7">
+          <a class="btn btn-primary-outline" href="{{ . | relURL }}">{{ i18n "programmeKitListLink" | default "Term kit list" }} &rarr;</a>
+        </p>
+      {{- end }}
+
+      <footer class="s-programme__post-foot">
+        <a class="btn btn-primary-outline" href="{{ "/programme/" | relURL }}">&larr; {{ i18n "programmeBackToList" | default "All programmes" }}</a>
+        {{- /* No JS print button — parents use Ctrl/Cmd+P. The print
+               stylesheet in 50-section-programme.css scopes the page to
+               table + heading and forces <details> open. */ -}}
+      </footer>
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

@@ -1,0 +1,134 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  joining-card — one card per pack. SPEC-06.
+
+  Context (dict):
+    sectionMeta   (map)   data/scout_sections.toml entry for the section
+                          (provides logo, ages, color, text_color, url)
+    pack          (map)   data/sections_status.toml entry for this pack
+    page          (Page)  the /join/ list page; used for fallback
+                          page-level fields (osm_waiting_list_url,
+                          enquiry_email)
+    isBSO         (bool)  site.Params.bso
+
+  Build warnings:
+    - status = "waiting" with no `waiting_url` AND no per-pack
+      `contact_email` AND no page-level OSM URL AND no page-level
+      enquiry email is a dead-end card — warnf at build.
+*/ -}}
+{{- $sectionMeta := .sectionMeta -}}
+{{- $pack        := .pack -}}
+{{- $page        := .page -}}
+{{- $isBSO       := .isBSO -}}
+
+{{- $status      := $pack.status | default "open" -}}
+{{- $packName    := $pack.pack_name | default "" -}}
+{{- $email       := $pack.contact_email | default $page.Params.enquiry_email | default "" -}}
+{{- $waitingURL  := $pack.waiting_url | default $page.Params.osm_waiting_list_url | default "" -}}
+
+{{- /* Dead-end-card guard: a waiting card with no CTA target is useless. */ -}}
+{{- if and (eq $status "waiting") (eq $waitingURL "") (eq $email "") -}}
+  {{- warnf "joining-card: section %q pack %q is status=waiting but has no waiting_url, no contact_email, and the page has no osm_waiting_list_url / enquiry_email fallback. The card will render without a CTA." $sectionMeta.key $packName -}}
+{{- end -}}
+
+{{- /* Logo: inline SVG content from assets/images/sections/<key>.svg
+       so its native brand colours render and CSS sizes the box. */ -}}
+{{- $logoSVG := "" -}}
+{{- with resources.Get $sectionMeta.logo -}}{{ $logoSVG = .Content -}}{{- end -}}
+
+{{- /* Status label — from i18n; falls back to a sensible default. */ -}}
+{{- $statusLabel := "" -}}
+{{- if eq $status "open"    -}}{{- $statusLabel = i18n "joiningStatusOpen"    | default "Open"           -}}{{- end -}}
+{{- if eq $status "waiting" -}}{{- $statusLabel = i18n "joiningStatusWaiting" | default "Waiting list"   -}}{{- end -}}
+{{- if eq $status "closed"  -}}{{- $statusLabel = i18n "joiningStatusClosed"  | default "Not running"    -}}{{- end -}}
+
+{{- /* Fee rendering — look up currency symbol from data/currencies.toml.
+       Cards without a fee value omit the line entirely. */ -}}
+{{- $feeBlock := "" -}}
+{{- if $pack.fee -}}
+  {{- $currencyCode   := $pack.fee_currency | default "GBP" -}}
+  {{- $currencySymbol := $currencyCode -}}
+  {{- range hugo.Data.currencies.currency -}}
+    {{- if eq .code $currencyCode }}{{ $currencySymbol = .symbol }}{{ end -}}
+  {{- end -}}
+  {{- $period := $pack.fee_period | default "term" -}}
+  {{- $periodLabel := "" -}}
+  {{- if eq $period "term"  -}}{{- $periodLabel = i18n "joiningFeePerTerm"  | default "per term"  -}}{{- end -}}
+  {{- if eq $period "month" -}}{{- $periodLabel = i18n "joiningFeePerMonth" | default "per month" -}}{{- end -}}
+  {{- if eq $period "year"  -}}{{- $periodLabel = i18n "joiningFeePerYear"  | default "per year"  -}}{{- end -}}
+  {{- $feeBlock = printf "%s%s <span class=\"s-joining__fee-period\">%s</span>" $currencySymbol $pack.fee $periodLabel -}}
+{{- end -}}
+
+<article class="s-joining__card" data-status="{{ $status }}" data-section="{{ $sectionMeta.key }}">
+
+  <header class="s-joining__card-head">
+    <div class="s-joining__logo" aria-hidden="true">{{ $logoSVG | safeHTML }}</div>
+    <div class="s-joining__card-titles">
+      {{- with $packName }}<p class="s-joining__pack-name">{{ . }}</p>{{ end }}
+      <h2 class="s-joining__section-name">{{ $sectionMeta.name }}</h2>
+      <p class="s-joining__ages">{{ $sectionMeta.ages }}</p>
+    </div>
+    <span class="s-joining__status s-joining__status--{{ $status }}">{{ $statusLabel }}</span>
+  </header>
+
+  <dl class="s-joining__facts">
+    <div class="s-joining__fact">
+      <dt>{{ i18n "joiningMeetingNight" | default "Meets" }}</dt>
+      <dd>
+        {{ $pack.meeting_night }}<br>
+        <time>{{ $pack.meeting_start }}&nbsp;&ndash;&nbsp;{{ $pack.meeting_end }}</time>
+      </dd>
+    </div>
+    {{- if $feeBlock }}
+    <div class="s-joining__fact">
+      <dt>{{ i18n "joiningFee" | default "Subs" }}</dt>
+      <dd>{{ $feeBlock | safeHTML }}</dd>
+    </div>
+    {{- end }}
+  </dl>
+
+  {{- with $pack.description }}
+    <div class="s-joining__description">{{ . | safeHTML }}</div>
+  {{- end }}
+
+  {{- /* BSO branch — render BSO-only notes (language + nationality) ONLY
+         when params.bso = true. Per-pack overrides take precedence over
+         the page-level summary which lives in joining-grid. */ -}}
+  {{- if $isBSO }}
+    {{- if or $pack.bso_language $pack.bso_nationality_note }}
+      <div class="s-joining__bso-notes">
+        {{- with $pack.bso_language }}
+          <p class="s-joining__bso-language"><strong>{{ i18n "joiningBsoLanguage" | default "Language" }}:</strong> {{ . | safeHTML }}</p>
+        {{- end }}
+        {{- with $pack.bso_nationality_note }}
+          <p class="s-joining__bso-nationality">
+            {{ . | safeHTML }}
+            <a class="styled-link s-joining__bso-link" href="{{ "/bso/eligibility/" | relURL }}">{{ i18n "joiningBsoSeeMore" | default "Read the eligibility rules" }} &rarr;</a>
+          </p>
+        {{- end }}
+      </div>
+    {{- end }}
+  {{- end }}
+
+  <footer class="s-joining__card-foot">
+    {{- if eq $status "closed" }}
+      {{- if $email }}
+        <a class="btn btn-primary-outline" href="mailto:{{ $email }}">{{ i18n "joiningContactCta" | default "Register interest" }}</a>
+      {{- end }}
+    {{- else if eq $status "waiting" }}
+      {{- if $waitingURL }}
+        <a class="btn btn-waiting" href="{{ $waitingURL | safeURL }}" rel="noopener">{{ i18n "joiningWaitlistCta" | default "Join the waiting list" }} &rarr;</a>
+      {{- else if $email }}
+        <a class="btn btn-waiting" href="mailto:{{ $email }}">{{ i18n "joiningWaitlistEmailCta" | default "Ask about the waiting list" }} &rarr;</a>
+      {{- end }}
+    {{- else }}{{/* open */}}
+      {{- if $email }}
+        <a class="btn btn-primary" href="mailto:{{ $email }}">{{ i18n "joiningContactCta" | default "Get in touch" }} &rarr;</a>
+      {{- end }}
+    {{- end }}
+  </footer>
+
+</article>

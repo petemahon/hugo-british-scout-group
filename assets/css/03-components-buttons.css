@@ -102,6 +102,24 @@
   color: #fff;
 }
 
+/* ── Waiting (joining cards in waiting-list state — SPEC-06) ── */
+/* Matches the amber --status-waiting badge so the CTA visually
+   reinforces the badge's "you're queueing, not enrolling" message
+   rather than reading as a confident primary action. */
+.btn-waiting {
+  background: var(--status-waiting);
+  border-color: var(--status-waiting);
+  color: var(--text-on-status);
+}
+.btn-waiting:hover,
+.btn-waiting:focus-visible {
+  background: color-mix(in srgb, var(--status-waiting) 85%, white);
+  border-color: color-mix(in srgb, var(--status-waiting) 85%, white);
+  color: var(--text-on-status);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--status-waiting) 25%, transparent);
+}
+
 /* ── Yellow (used on the Scouts-Purple volunteer-feature band) ── */
 /* Yellow CTA — Scouts Yellow background, Scouts Black text. Mirrors
    the canonical Scouts brand-poster pairing (the role-model poster

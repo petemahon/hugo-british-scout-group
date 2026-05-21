@@ -1,0 +1,46 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  joining-grid — iterates the canonical scout-section order, looks up
+  each enabled section's array of packs in data/sections_status.toml,
+  and emits one joining-card per pack.
+
+  Section enablement reuses the same gate as the scout-sections
+  partial: data file `default_enabled` (only Network is false) overridden
+  by `params.scoutSections.<key>.enable` when explicitly set.
+
+  Context: this partial is called with the /join/ page itself as `.`
+  so the inner card partial can fall back to page-level fields
+  (osm_waiting_list_url, enquiry_email).
+*/ -}}
+{{- $page       := . -}}
+{{- $isBSO      := site.Params.bso.enabled | default false -}}
+{{- $userConfig := site.Params.scoutSections | default dict -}}
+{{- $statusData := hugo.Data.sections_status -}}
+
+<div class="s-joining__grid">
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- $sectionMeta := . -}}
+    {{- $sectionKey  := .key -}}
+    {{- $user        := index $userConfig $sectionKey | default dict -}}
+    {{- $defaultOn   := ne .default_enabled false -}}
+    {{- $shouldRender := $defaultOn -}}
+    {{- if eq $user.enable true  }}{{ $shouldRender = true  }}{{ end -}}
+    {{- if eq $user.enable false }}{{ $shouldRender = false }}{{ end -}}
+
+    {{- if $shouldRender -}}
+      {{- $packs := index $statusData $sectionKey -}}
+      {{- if $packs -}}
+        {{- range $pack := $packs -}}
+          {{ partial "joining-card.html" (dict
+              "sectionMeta" $sectionMeta
+              "pack"        $pack
+              "page"        $page
+              "isBSO"       $isBSO) }}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</div>

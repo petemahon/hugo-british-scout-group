@@ -3,8 +3,8 @@
 Context for Claude Code working on the **Hugo British Scout Group**
 theme. Loaded automatically at the start of every session.
 
-If anything in this file conflicts with `documentation/specs/DECISIONS.md`
-or `documentation/specs/SPEC-COMMON.md`, those files win — they are the
+If anything in this file conflicts with `documentation/DECISIONS.md`
+or `documentation/SPEC-COMMON.md`, those files win — they are the
 authoritative source of truth. This file points at them.
 
 ---
@@ -65,14 +65,14 @@ Read these before changing anything substantial:
 
 | File | When to read |
 | --- | --- |
-| `documentation/specs/DECISIONS.md` | **Always.** Locked-in choices. Read before suggesting anything that touches palettes, the section types list, BSO, navigation, accessibility, demo data, or the en-GB scope rule. |
-| `documentation/specs/SPEC-COMMON.md` | **Always.** Shared conventions every feature spec assumes. Section partial idiom, palette tokens, taxonomies, image pipeline defaults, safeguarding lint pattern, i18n naming, build validation order. |
+| `documentation/DECISIONS.md` | **Always.** Locked-in choices. Read before suggesting anything that touches palettes, the section types list, BSO, navigation, accessibility, demo data, or the en-GB scope rule. |
+| `documentation/SPEC-COMMON.md` | **Always.** Shared conventions every feature spec assumes. Section partial idiom, palette tokens, taxonomies, image pipeline defaults, safeguarding lint pattern, i18n naming, build validation order. |
 | `documentation/specs/SPEC-NN-*.md` | When implementing that specific feature. |
-| `documentation/SPEC-02-handoff-2026-05-10.md` | When picking up SPEC-02 (Events) work — current acceptance status, deferred items, suggested next slice. |
+| `documentation/D13-SPEC.md` | Reference for the D5–D13 visual redesign sweep — closing deliverable, footer + where-we-meet contract, breaking changes. |
 
 Suggested recommended implementation order is in
-`documentation/specs/README.md` (the feature-pack README, distinct
-from the top-level `README.md`).
+`documentation/README.md` (the feature-pack README, distinct from the
+top-level `README.md`).
 
 ---
 
@@ -102,9 +102,11 @@ These take priority over Claude Code's general defaults:
 - **Handoff format note:** prior chat sessions used `.patch` files
   and tarballs because the chat couldn't touch the working tree.
   That pattern is obsolete under Claude Code — edits land directly
-  in files. The existing `documentation/SPEC-02-handoff-2026-05-10.md`
-  is a historical record; future handoff documents should describe
-  state and decisions, not delivery format.
+  in files. The SPEC-02 handoff doc that pattern produced has since
+  been retired (SPEC-02 is fully shipped). Future handoff documents,
+  if needed, should describe state and decisions, not delivery format
+  — `D13-SPEC.md` is the current reference shape for that kind of
+  closing-deliverable record.
 
 ---
 
@@ -181,11 +183,11 @@ hugo-british-scout-group/
 │       ├── events/                # example events (with [demo] blocks)
 │       └── palettes/_index.md     # palette reference page
 └── documentation/
-    ├── SPEC-02-handoff-2026-05-10.md
+    ├── DECISIONS.md
+    ├── SPEC-COMMON.md
+    ├── README.md                  # feature-pack reading order
+    ├── D13-SPEC.md                # D5-D13 redesign sweep closing record
     └── specs/
-        ├── DECISIONS.md
-        ├── README.md              # feature-pack reading order
-        ├── SPEC-COMMON.md
         └── SPEC-01-news.md … SPEC-12-accessibility.md
 ```
 
@@ -220,19 +222,41 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
 
 ## Current state snapshot (May 2026)
 
+- **D5–D13 visual redesign sweep:** shipped. Closing deliverable
+  documented in `documentation/D13-SPEC.md`.
 - **SPEC-01 News:** shipped.
-- **SPEC-02 Events:** in flight. Acceptance criteria 1–10 done.
-  BSO dual-time rendering (criterion #9) and example event landed in
-  the most recent chat session. Remaining: past archive sub-section
-  (criterion #6), richer `single.html`, `events/term.html`, README
-  section, RFC 5545 line-folding pass, and end-to-end .ics import
-  verification across Apple/Google/Outlook. See
-  `documentation/SPEC-02-handoff-2026-05-10.md` for the detailed
-  status and recommended next slice.
-- **SPEC-03 onwards:** not started.
+- **SPEC-02 Events:** shipped (past archive gated by
+  `params.events.show_past_archive`).
+- **SPEC-03 Termly Programme:** shipped. `data/programme_themes.toml`
+  ships an illustrative Skills-for-Life chip list with a TODO header
+  to reconcile against `scouts.org.uk/programme-planner/` before
+  going live. Q3.1 was revised 2026-05-21 to wire the
+  `programme-current` home block into the example site.
+- **SPEC-06 Joining & Welcome Pack:** shipped. `/join/` cards + FAQ
+  + BSO branch; `/welcome-pack/` content section with 5 starter
+  chapters and a `WelcomePackPrint` custom output format generating
+  `/welcome-pack/print.html`. Introduced `--status-{open,waiting,closed}`
+  palette tokens and a `.btn-waiting` button class (amber, matches
+  the waiting-list badge). `bso-membership-notice` is rendered
+  exactly once site-wide — on `/join/` — per the 2026-05-21
+  consolidation decision.
+- **SPEC-10 BSO Joining Hub:** shipped. `/bso/` hub plus five
+  sub-pages (eligibility, moving-in, moving-out, host-scouting,
+  optional home-range). Master switch is **`[params.bso].enabled`**,
+  not a scalar `bso = true` (the two collide in TOML). Theme ships
+  per-ISO host-country alternatives data for NL, BE, FR, DE, ES, AE,
+  SG, US. `data/sections_status.toml` ships as a host-country-generic
+  STARTER (uses "the host country" phrasing); the concrete UAE
+  configuration lives in `exampleSite/hugo.toml` only.
+- **Not started:** SPEC-04 Galleries, SPEC-05 Kit Lists, SPEC-07
+  History & Governance, SPEC-08 Hall Hire, SPEC-09 Fundraising &
+  Volunteering. Recommended next per
+  `documentation/README.md` is **SPEC-04 Galleries**.
 - **SPEC-11 (Nav) and SPEC-12 (Accessibility):** cross-cutting,
-  always-on, no opt-in flag. To be implemented late in the roadmap
-  as hardening passes over the per-feature specs already shipped.
+  always-on, no opt-in flag. To be implemented late as hardening
+  passes. `exampleSite/hugo.toml` still carries a static
+  `[[menu.main]]` block — will be replaced by SPEC-11's auto-built
+  nav at that point.
 
 ---
 

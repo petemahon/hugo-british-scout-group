@@ -1,0 +1,31 @@
+# data/bso/alternatives/de.toml — WOSM-recognised scouting in Germany.
+# Germany's WOSM membership is held by the Ring Deutscher
+# Pfadfinderverbände (RDP), a federation of three associations.
+
+[[organisation]]
+  name        = "Ring Deutscher Pfadfinderverbände (RDP)"
+  url         = "https://www.pfadfinden.de/"
+  language    = "German"
+  joining_url = ""
+  description = "The federation of three German scouting associations holding WOSM membership."
+
+[[organisation]]
+  name        = "Deutsche Pfadfinderschaft Sankt Georg (DPSG)"
+  url         = "https://dpsg.de/"
+  language    = "German"
+  joining_url = ""
+  description = "The largest Catholic scouting association in Germany; member of RDP."
+
+[[organisation]]
+  name        = "Verband Christlicher Pfadfinderinnen und Pfadfinder (VCP)"
+  url         = "https://www.vcp.de/"
+  language    = "German"
+  joining_url = ""
+  description = "Protestant scouting and guiding association; member of RDP."
+
+[[organisation]]
+  name        = "Bund der Pfadfinderinnen und Pfadfinder (BdP)"
+  url         = "https://www.pfadfinden.de/bdp/"
+  language    = "German"
+  joining_url = ""
+  description = "The non-confessional federation of guides and scouts; member of RDP."

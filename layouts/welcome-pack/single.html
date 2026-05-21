@@ -1,0 +1,82 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Welcome Pack chapter — /welcome-pack/<slug>/. SPEC-06.
+
+  Renders one chapter as a serif-body reading column with optional
+  intro image, prev/next chapter navigation (weight-ordered), and a
+  "Back to cover" link.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.welcome_pack -}}
+  {{- $chapters := where site.RegularPages "Section" "welcome-pack" -}}
+  {{- $chapters = $chapters.ByWeight -}}
+  {{- $prev    := "" -}}
+  {{- $next    := "" -}}
+  {{- $ordinal := 0 -}}
+  {{- range $i, $c := $chapters -}}
+    {{- if eq $c.RelPermalink $.RelPermalink -}}
+      {{- $ordinal = add $i 1 -}}
+      {{- if gt $i 0 }}{{ $prev = index $chapters (sub $i 1) }}{{ end -}}
+      {{- if lt $i (sub (len $chapters) 1) }}{{ $next = index $chapters (add $i 1) }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+
+  <article class="section s-welcome-pack s-welcome-pack--chapter reveal">
+    <div class="container s-welcome-pack__container">
+
+      <p class="s-welcome-pack__breadcrumb display-7">
+        <a href="{{ "/welcome-pack/" | relURL }}">&larr; {{ i18n "welcomePackBackToCover" | default "Welcome Pack cover" }}</a>
+      </p>
+
+      <header class="s-welcome-pack__chapter-head">
+        <p class="s-welcome-pack__chapter-num display-7">
+          {{ i18n "welcomePackChapter" | default "Chapter" }} {{ $ordinal }}
+        </p>
+        <h1 class="s-welcome-pack__chapter-title display-2">{{ .Title }}</h1>
+      </header>
+
+      {{- with .Params.intro_image -}}
+        {{- $imgPath := printf "welcome-pack/%s" . -}}
+        {{- $img := resources.Get $imgPath -}}
+        {{- if not $img -}}
+          {{- errorf "welcome-pack chapter %q: intro_image %q not found. Expected at assets/%s." $.File.LogicalName . $imgPath -}}
+        {{- else -}}
+          {{- $small  := $img.Resize "640x webp q82" -}}
+          {{- $medium := $img.Resize "1280x webp q82" -}}
+          {{- $large  := $img.Resize "1920x webp q82" -}}
+          <figure class="s-welcome-pack__chapter-image">
+            <img src="{{ $medium.RelPermalink }}"
+                 srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 1280w, {{ $large.RelPermalink }} 1920w"
+                 sizes="(max-width: 700px) 100vw, 1280px"
+                 alt="{{ $.Params.intro_alt }}"
+                 loading="lazy">
+          </figure>
+        {{- end -}}
+      {{- end }}
+
+      <div class="s-welcome-pack__chapter-body">
+        {{ .Content }}
+      </div>
+
+      <nav class="s-welcome-pack__chapter-nav" aria-label="{{ i18n "welcomePackChapterNavAria" | default "Chapter navigation" }}">
+        {{- with $prev }}
+          <a class="s-welcome-pack__chapter-prev styled-link" href="{{ .RelPermalink }}">
+            <span class="s-welcome-pack__chapter-nav-dir">&larr; {{ i18n "welcomePackPrev" | default "Previous" }}</span>
+            <span class="s-welcome-pack__chapter-nav-title">{{ .Title }}</span>
+          </a>
+        {{- end }}
+        {{- with $next }}
+          <a class="s-welcome-pack__chapter-next styled-link" href="{{ .RelPermalink }}">
+            <span class="s-welcome-pack__chapter-nav-dir">{{ i18n "welcomePackNext" | default "Next" }} &rarr;</span>
+            <span class="s-welcome-pack__chapter-nav-title">{{ .Title }}</span>
+          </a>
+        {{- end }}
+      </nav>
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

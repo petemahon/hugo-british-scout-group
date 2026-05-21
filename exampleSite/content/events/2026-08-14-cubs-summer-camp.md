@@ -1,13 +1,13 @@
 +++
 title       = "Cubs Summer Camp"
-date        = 2026-08-14T00:00:00+01:00
-publishDate = 2026-04-20T10:00:00+01:00
+date        = 2026-08-29T00:00:00+01:00
+publishDate = 2026-05-03T10:00:00+01:00
 
 # Multi-day, all-day. End date is the LAST day of camp; the .ics
 # template handles the RFC-5545 +24h DTEND shift automatically so
 # subscribers' calendars block out the right span.
 all_day     = true
-end         = 2026-08-16T00:00:00+01:00
+end         = 2026-08-31T00:00:00+01:00
 
 location    = "Pioneer Camp, Buckinghamshire"
 address     = "Pioneer Camp, Beech Lane, HP15 6XX"

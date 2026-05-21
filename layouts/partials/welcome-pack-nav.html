@@ -1,0 +1,41 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  welcome-pack-nav — chapter index reused on the Welcome Pack cover
+  page (/welcome-pack/) and on the concatenated print view
+  (/welcome-pack/print.html). SPEC-06.
+
+  Context (dict, both fields optional):
+    page        (Page)  the welcome-pack list page; used for the
+                        "current page" highlight when called from
+                        single.html (currentURL).
+    currentURL  (str)   the RelPermalink of the chapter currently
+                        being viewed; the matching nav entry gets
+                        the `is-current` class.
+*/ -}}
+{{- $currentURL := .currentURL | default "" -}}
+{{- $chapters := where site.RegularPages "Section" "welcome-pack" -}}
+{{- $chapters = $chapters.ByWeight -}}
+
+{{- if gt (len $chapters) 0 }}
+  <nav class="s-welcome-pack__nav" aria-label="{{ i18n "welcomePackNavAria" | default "Welcome Pack chapters" }}">
+    <ol class="s-welcome-pack__nav-list" role="list">
+      {{- range $i, $ch := $chapters }}
+        {{- $isCurrent := eq $ch.RelPermalink $currentURL }}
+        <li class="s-welcome-pack__nav-item{{ if $isCurrent }} is-current{{ end }}">
+          <a class="styled-link s-welcome-pack__nav-link" href="{{ $ch.RelPermalink }}">
+            <span class="s-welcome-pack__nav-num">{{ add $i 1 }}</span>
+            <span class="s-welcome-pack__nav-text">
+              <span class="s-welcome-pack__nav-title">{{ $ch.Title }}</span>
+              {{- with $ch.Params.summary }}
+                <span class="s-welcome-pack__nav-summary">{{ . }}</span>
+              {{- end }}
+            </span>
+          </a>
+        </li>
+      {{- end }}
+    </ol>
+  </nav>
+{{- end -}}

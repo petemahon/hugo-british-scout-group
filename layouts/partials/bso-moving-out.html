@@ -1,0 +1,53 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-moving-out — /bso/moving-out/ body. SPEC-10.
+
+  Four pathway blurbs (to another BSO Group, to the UK, to the
+  host-country NSO, records transfer) — each has an i18n default and
+  can be overridden per-page via front-matter. Closing CTA to the
+  BSO Area site.
+
+  Context: the moving-out Page.
+*/ -}}
+<div class="s-bso__moving-out">
+
+  {{- with .Params.intro }}
+    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
+  {{- end }}
+
+  <section class="s-bso__detail">
+    <h3>{{ i18n "bsoMovingOutToOtherBsoHeading" | default "Moving to another BSO country" }}</h3>
+    <p>{{ with .Params.to_other_bso_blurb }}{{ . | safeHTML }}{{ else }}{{ i18n "bsoMovingOutToOtherBsoBody" | default "If you're moving to another country contact us and we may be able to help find a group for you." | safeHTML }}{{ end }}</p>
+  </section>
+
+  <section class="s-bso__detail">
+    <h3>{{ i18n "bsoMovingOutToUkHeading" | default "Returning to the UK" }}</h3>
+    <p>{{ with .Params.to_uk_blurb }}{{ . | safeHTML }}{{ else }}{{ i18n "bsoMovingOutToUkBody" | default "Find your nearest UK Group at scouts.org.uk. Your child's Scouts record transfers automatically." | safeHTML }}{{ end }}</p>
+  </section>
+
+  <section class="s-bso__detail">
+    <h3>{{ i18n "bsoMovingOutToHostNsoHeading" | default "Continuing with the host-country NSO" }}</h3>
+    <p>{{ with .Params.to_host_nso_blurb }}{{ . | safeHTML }}{{ else }}{{ i18n "bsoMovingOutToHostNsoBody" | default "If you're staying in the host country we can introduce you to the local WOSM-recognised body." | safeHTML }}{{ end }}</p>
+  </section>
+
+  <section class="s-bso__detail">
+    <h3>{{ i18n "bsoMovingOutRecordsHeading" | default "Records transfer" }}</h3>
+    <p>{{ with .Params.records_transfer_blurb }}{{ . | safeHTML }}{{ else }}{{ i18n "bsoMovingOutRecordsBody" | default "Scouting records move with your child via OSM." | safeHTML }}{{ end }}</p>
+  </section>
+
+  {{- with .Content }}
+    <div class="s-bso__body">{{ . }}</div>
+  {{- end }}
+
+  {{- $bsoAreaUrl := .Params.bso_area_contact_url | default site.Params.bso.bso_area_url -}}
+  {{- with $bsoAreaUrl }}
+    <p class="s-bso__moving-out-cta">
+      <a class="btn btn-primary-outline" href="{{ . }}" rel="noopener">
+        {{ i18n "bsoMovingOutAreaCta" | default "BSO Area" }} &rarr;
+      </a>
+    </p>
+  {{- end }}
+</div>

@@ -2,42 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2026-08-14T00:00:00+01:00</lastmod>
+    <loc>http://localhost:1313/welcome-pack/about/</loc>
   </url><url>
-    <loc>https://example.com/events/2026-08-14-cubs-summer-camp/</loc>
-    <lastmod>2026-08-14T00:00:00+01:00</lastmod>
+    <loc>http://localhost:1313/welcome-pack/sections/</loc>
   </url><url>
-    <loc>https://example.com/events/</loc>
-    <lastmod>2026-08-14T00:00:00+01:00</lastmod>
+    <loc>http://localhost:1313/welcome-pack/joining/</loc>
   </url><url>
-    <loc>https://example.com/events/2026-07-12-summer-fete/</loc>
-    <lastmod>2026-07-12T13:00:00+01:00</lastmod>
+    <loc>http://localhost:1313/welcome-pack/safeguarding/</loc>
   </url><url>
-    <loc>https://example.com/news/</loc>
+    <loc>http://localhost:1313/welcome-pack/calendar/</loc>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-12-07T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-11-22-district-rally/</loc>
+    <lastmod>2026-12-07T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/</loc>
+    <lastmod>2026-12-07T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-09-26-leaders-training/</loc>
+    <lastmod>2026-10-08T19:30:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</loc>
+    <lastmod>2026-08-29T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-07-12-summer-fete/</loc>
+    <lastmod>2026-07-25T13:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/events/2026-06-10-brussels-district-meeting/</loc>
+    <lastmod>2026-06-04T20:30:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/</loc>
     <lastmod>2026-04-19T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/news/2026-04-19-st-georges-day/</loc>
+    <loc>http://localhost:1313/news/2026-04-19-st-georges-day/</loc>
     <lastmod>2026-04-19T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/news/2026-03-30-cubs-cooking-cup/</loc>
+    <loc>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</loc>
     <lastmod>2026-03-30T19:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/news/2026-02-15-squirrels-launch/</loc>
+    <loc>http://localhost:1313/news/2026-02-15-squirrels-launch/</loc>
     <lastmod>2026-02-15T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/news/sections/beavers/</loc>
+    <loc>http://localhost:1313/news/sections/beavers/</loc>
   </url><url>
-    <loc>https://example.com/news/sections/cubs/</loc>
+    <loc>http://localhost:1313/news/sections/cubs/</loc>
   </url><url>
-    <loc>https://example.com/news/sections/explorers/</loc>
+    <loc>http://localhost:1313/news/sections/explorers/</loc>
   </url><url>
-    <loc>https://example.com/news/sections/network/</loc>
+    <loc>http://localhost:1313/news/sections/network/</loc>
   </url><url>
-    <loc>https://example.com/news/sections/scouts/</loc>
+    <loc>http://localhost:1313/news/sections/scouts/</loc>
   </url><url>
-    <loc>https://example.com/news/sections/squirrels/</loc>
+    <loc>http://localhost:1313/news/sections/squirrels/</loc>
   </url><url>
-    <loc>https://example.com/palettes/</loc>
+    <loc>http://localhost:1313/welcome-pack/</loc>
+  </url><url>
+    <loc>http://localhost:1313/programme/beavers-summer-2026/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/</loc>
+  </url><url>
+    <loc>http://localhost:1313/programme/cubs-summer-2026/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/home-range/</loc>
+  </url><url>
+    <loc>http://localhost:1313/join/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/moving-out/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/moving-in/</loc>
+  </url><url>
+    <loc>http://localhost:1313/palettes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/programme/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/host-scouting/</loc>
+  </url><url>
+    <loc>http://localhost:1313/programme/scouts-autumn-2025/</loc>
+  </url><url>
+    <loc>http://localhost:1313/programme/scouts-autumn-2026/</loc>
+  </url><url>
+    <loc>http://localhost:1313/bso/eligibility/</loc>
   </url>
 </urlset>

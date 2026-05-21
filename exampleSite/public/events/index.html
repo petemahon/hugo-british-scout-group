@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Events</title>
@@ -10,7 +10,7 @@
 <meta property="og:title" content="Events">
 <meta property="og:description" content="Camps, parades, badge presentations, and the rest of what&#39;s coming up at 1st Anytown Scouts.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://example.com/events/">
+<meta property="og:url" content="http://localhost:1313/events/">
 <link rel="icon" href="/images/favicon.png">
 
 
@@ -19,7 +19,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 
-<link rel="stylesheet" href="/css/theme.min.61e0c07e4fce0fa31866e3fa77424da77b4041150fa94ffde1f1516e2afa60a9.css" integrity="sha256-YeDAfk/OD6MYZuP6d0JNp3tAQRUPqU/94fFRbir6YKk=">
+<link rel="stylesheet" href="/css/theme.css">
 
 
 
@@ -41,12 +41,16 @@
   --text-on-warning:     #ffffff;
   --postponed:           #d97706;
   --text-on-postponed:   #ffffff;
+  --status-open:         #0a7b3a;
+  --status-waiting:      #b45309;
+  --status-closed:       #6b7280;
+  --text-on-status:      #ffffff;
 }
 </style>
 
 
 </head>
-<body id="top" class="has-hero-intro">
+<body id="top">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fleur" viewBox="0 0 56 50" fill="currentColor">
     
   <title>Scouts fleur de lis</title>
@@ -129,9 +133,25 @@
         <div class="s-events-upcoming__grid-shell">
           <div class="s-events__grid">
               <a class="ev-card styled-link"
+   href="/events/2026-06-10-brussels-district-meeting/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">4</span>
+    <span class="ev-date__m">Jun</span>
+    <span class="ev-date__y">2026</span>
+  </div>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">Brussels District planning meeting</h4>
+    <p class="ev-card__meta"><span>20:30 (Brussels)</span><span>Online (Microsoft Teams)</span><span>Section Leaders &#43; Assistants</span></p>
+    <ul class="badges" aria-label="Event details">
+    </ul>
+  </div>
+  <span class="sr-only">View details for Brussels District planning meeting</span>
+</a>
+
+              <a class="ev-card styled-link"
    href="/events/2026-07-12-summer-fete/">
   <div class="ev-date" aria-hidden="true">
-    <span class="ev-date__d">12</span>
+    <span class="ev-date__d">25</span>
     <span class="ev-date__m">Jul</span>
     <span class="ev-date__y">2026</span>
   </div>
@@ -150,7 +170,7 @@
               <a class="ev-card styled-link"
    href="/events/2026-08-14-cubs-summer-camp/">
   <div class="ev-date" aria-hidden="true">
-    <span class="ev-date__d">14</span>
+    <span class="ev-date__d">29</span>
     <span class="ev-date__m">Aug</span>
     <span class="ev-date__y">2026</span>
   </div>
@@ -162,6 +182,44 @@
     </ul>
   </div>
   <span class="sr-only">View details for Cubs Summer Camp</span>
+</a>
+
+              <a class="ev-card styled-link ev-card--cancelled"
+   href="/events/2026-09-26-leaders-training/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">8</span>
+    <span class="ev-date__m">Oct</span>
+    <span class="ev-date__y">2026</span>
+  </div>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">Leaders&#39; Safeguarding Refresher</h4>
+    <p class="ev-card__meta"><span>19:30 – 21:00</span><span>Anytown Scout Hut</span><span>All Group volunteers</span></p>
+    <ul class="badges" aria-label="Event details">
+        <li class="badges__status badges__status--cancelled">Cancelled</li>
+    </ul>
+  </div>
+  <span class="sr-only">View details for Leaders&#39; Safeguarding Refresher</span>
+</a>
+
+              <a class="ev-card styled-link ev-card--postponed"
+   href="/events/2026-11-22-district-rally/">
+  <div class="ev-date" aria-hidden="true">
+    <span class="ev-date__d">7</span>
+    <span class="ev-date__m">Dec</span>
+    <span class="ev-date__y">2026</span>
+  </div>
+  <div class="ev-card__body">
+    <h4 class="ev-card__title">District Rally</h4>
+    <p class="ev-card__meta"><span>10:00 – 16:00</span><span>Anytown District Camp Site</span><span>Whole Group</span></p>
+    <ul class="badges" aria-label="Event details">
+        <li class="badges__status badges__status--postponed">Postponed</li>
+          <li class="badges__pill" style="--sec: #003982;">Beavers</li>
+          <li class="badges__pill" style="--sec: #F7EF27;">Cubs</li>
+          <li class="badges__pill" style="--sec: #E22E12;">Scouts</li>
+          <li class="badges__pill" style="--sec: #088486;">Explorers</li>
+    </ul>
+  </div>
+  <span class="sr-only">View details for District Rally</span>
 </a>
 
           </div>

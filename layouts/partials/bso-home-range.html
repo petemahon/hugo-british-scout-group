@@ -1,0 +1,74 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-home-range — /bso/home-range/ body. SPEC-10.
+
+  Static map image + InTouch policy summary. Page-level gate via
+  params.bso.show_home_range — when false, the dispatcher (single.html)
+  renders this partial only if the URL was reached directly (so the
+  content is still available to a deep link, just unlisted on the hub).
+
+  Context: the home-range Page.
+*/ -}}
+<div class="s-bso__home-range">
+
+  {{- with .Params.intro }}
+    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
+  {{- end }}
+
+  {{- /* Centre + radius summary line. */ -}}
+  {{- if or .Params.centre_label .Params.radius_label .Params.radius_km }}
+    <p class="s-bso__home-range-summary">
+      {{- with .Params.centre_label }}<strong>{{ . }}</strong>{{ end }}
+      {{- if .Params.radius_label }} &middot; {{ .Params.radius_label }}
+      {{- else if .Params.radius_km }} &middot; {{ printf "%v km radius" .Params.radius_km }}
+      {{- end }}
+    </p>
+  {{- end }}
+
+  {{- /* Static map image — must exist under assets/bso/. If missing,
+         errorf with the expected path. Group ships their own; theme
+         ships a generic placeholder. */ -}}
+  {{- with .Params.static_map_image -}}
+    {{- $imgPath := printf "bso/%s" . -}}
+    {{- $img := resources.Get $imgPath -}}
+    {{- if not $img -}}
+      {{- warnf "bso-home-range (%q): static_map_image %q not found. Expected at assets/%s. Page will render without the map image until you add it." $.File.LogicalName . $imgPath -}}
+    {{- else -}}
+      {{- $medium := $img.Resize "1280x webp q82" -}}
+      <figure class="s-bso__home-range-map">
+        <img src="{{ $medium.RelPermalink }}"
+             alt="{{ $.Params.static_map_alt }}"
+             loading="lazy">
+      </figure>
+    {{- end -}}
+  {{- end }}
+
+  {{- with .Params.intouch_policy_summary }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoHomeRangeInTouchHeading" | default "InTouch policy" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Params.cross_border_event_note }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoHomeRangeCrossBorderHeading" | default "Beyond the home range" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Content }}
+    <div class="s-bso__body">{{ . }}</div>
+  {{- end }}
+
+  {{- with .Params.policy_pdf }}
+    <p class="s-bso__home-range-policy-link">
+      <a class="btn btn-primary-outline" href="{{ . }}" download>
+        {{ i18n "bsoHomeRangePolicyCta" | default "Download the full InTouch policy (PDF)" }} &rarr;
+      </a>
+    </p>
+  {{- end }}
+</div>

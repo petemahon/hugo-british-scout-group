@@ -209,6 +209,308 @@ other = "However, 49% said they'd never been asked."
 
 
 # -----------------------------------------------------------------------------
+# Programme — used by layouts/programme/{list,single}.html, the table
+# partial, the chip partial and the programme-current home block.
+# Override in your site's i18n/en.toml to change wording. SPEC-03 in the
+# project knowledge documents the full feature.
+# -----------------------------------------------------------------------------
+[programmeEyebrow]
+other = "Termly programmes"
+
+[programmeHeading]
+other = "What we're doing this term"
+
+[programmeNoPosts]
+other = "No published programmes yet — check back at the start of next term."
+
+[programmeBackToList]
+other = "All programmes"
+
+[programmeCurrentHeading]
+other = "This term's programme"
+
+[programmeViewFull]
+other = "Open the full term page"
+
+[programmeViewAll]
+other = "View all programmes"
+
+[programmeColWeek]
+other = "Wk"
+
+[programmeColDate]
+other = "Date"
+
+[programmeColTitle]
+other = "Meeting"
+
+[programmeColNotes]
+other = "Notes / kit"
+
+[programmeCancelled]
+other = "Cancelled"
+
+[programmeThemesLabel]
+other = "Skills for Life themes"
+
+[programmeDistrictApproved]
+other = "District approved"
+
+[programmeDistrictApprovedHelp]
+other = "Approved by the District per POR 9.1.2.1."
+
+[programmeKitListLink]
+other = "Term kit list"
+
+# -----------------------------------------------------------------------------
+# Joining & Waiting List — used by layouts/join/list.html and the
+# joining-{card,grid,faq} partials. SPEC-06. Override in your site's
+# i18n/en.toml to change wording.
+# -----------------------------------------------------------------------------
+[joiningEyebrow]
+other = "Join us"
+
+[joiningHeading]
+other = "Add your child to a Pack — or join us as a volunteer."
+
+[joiningWelcomePackLink]
+other = "Read our Welcome Pack"
+
+[joiningVolunteerCta]
+other = "We need you too"
+
+[joiningStatusOpen]
+other = "Open"
+
+[joiningStatusWaiting]
+other = "Waiting list"
+
+[joiningStatusClosed]
+other = "Not running"
+
+[joiningMeetingNight]
+other = "Meets"
+
+[joiningFee]
+other = "Subs"
+
+[joiningFeePerTerm]
+other = "per term"
+
+[joiningFeePerMonth]
+other = "per month"
+
+[joiningFeePerYear]
+other = "per year"
+
+[joiningContactCta]
+other = "Get in touch"
+
+[joiningWaitlistCta]
+other = "Join the waiting list"
+
+[joiningWaitlistEmailCta]
+other = "Ask about the waiting list"
+
+[joiningBsoLanguage]
+other = "Language"
+
+[joiningBsoSeeMore]
+other = "Read the eligibility rules"
+
+[joiningBsoReadEligibility]
+other = "Read the full eligibility rules"
+
+[joiningFaqHeading]
+other = "Frequently asked questions"
+
+# -----------------------------------------------------------------------------
+# Welcome Pack — used by layouts/welcome-pack/* and welcome-pack-nav
+# partial. SPEC-06.
+# -----------------------------------------------------------------------------
+[welcomePackEyebrow]
+other = "Welcome Pack"
+
+[welcomePackHeading]
+other = "Everything new families need to know."
+
+[welcomePackNavAria]
+other = "Welcome Pack chapters"
+
+[welcomePackChapter]
+other = "Chapter"
+
+[welcomePackChapterNavAria]
+other = "Chapter navigation"
+
+[welcomePackPrev]
+other = "Previous"
+
+[welcomePackNext]
+other = "Next"
+
+[welcomePackBackToCover]
+other = "Welcome Pack cover"
+
+[welcomePackReviewed]
+other = "Last reviewed"
+
+[welcomePackPrintLink]
+other = "Print or save the whole pack"
+
+[welcomePackPrintTitle]
+other = "Welcome Pack — printable"
+
+# -----------------------------------------------------------------------------
+# BSO Joining Hub — used by layouts/bso/* and the bso-* partials.
+# SPEC-10. Override in your site's i18n/en.toml to change wording.
+# -----------------------------------------------------------------------------
+[bsoHubEyebrow]
+other = "British Scouting Overseas"
+
+[bsoHubHeading]
+other = "BSO information"
+
+[bsoBackToHub]
+other = "BSO information"
+
+# Default hub cards
+[bsoCardEligibilityTitle]
+other = "Who can join"
+
+[bsoCardEligibilityDescription]
+other = "POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility."
+
+[bsoCardMovingInTitle]
+other = "Moving to"
+
+[bsoCardMovingInDescription]
+other = "Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect."
+
+[bsoCardMovingOutTitle]
+other = "Moving on"
+
+[bsoCardMovingOutDescription]
+other = "Transferring to another BSO Group, returning to the UK, or joining the host-country NSO."
+
+[bsoCardHostScoutingTitle]
+other = "Scouting in"
+
+[bsoCardHostScoutingDescription]
+other = "The WOSM-recognised scouting bodies of the host country, with links and language notes."
+
+[bsoCardHomeRangeTitle]
+other = "Home range and InTouch"
+
+[bsoCardHomeRangeDescription]
+other = "Where the Group operates, plus our InTouch policy for activities and trips."
+
+# Eligibility sub-page
+[bsoEligibilityLanguageHeading]
+other = "Language"
+
+[bsoEligibilityNationalityHeading]
+other = "Nationality"
+
+[bsoEligibilityVolunteerHeading]
+other = "Volunteering"
+
+[bsoEligibilityVolunteerBody]
+other = "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles."
+
+[bsoEligibilityAlternativesHeading]
+other = "Not eligible for BSO?"
+
+# Moving-in sub-page
+[bsoMovingInSchoolTermHeading]
+other = "School calendar"
+
+[bsoMovingInLocationsHeading]
+other = "Where we meet"
+
+[bsoMovingInSubsHeading]
+other = "Subs"
+
+[bsoMovingInKitHeading]
+other = "Uniform"
+
+[bsoMovingInVolunteerHeading]
+other = "Volunteer with us"
+
+[bsoMovingInInductionCta]
+other = "Download the new-family induction pack (PDF)"
+
+[bsoSubscriptionLabel]
+other = "Subs"
+
+[bsoJoiningFeeLabel]
+other = "One-off joining fee"
+
+# Moving-out sub-page
+[bsoMovingOutToOtherBsoHeading]
+other = "Moving to another BSO country"
+
+[bsoMovingOutToOtherBsoBody]
+other = "If you're moving to another country contact us and we may be able to help find a group for you."
+
+[bsoMovingOutToUkHeading]
+other = "Returning to the UK"
+
+[bsoMovingOutToUkBody]
+other = "Find your nearest UK Group at scouts.org.uk. Your child's Scouts record transfers automatically."
+
+[bsoMovingOutToHostNsoHeading]
+other = "Continuing with the host-country NSO"
+
+[bsoMovingOutToHostNsoBody]
+other = "If you're staying in the host country we can introduce you to the local WOSM-recognised body."
+
+[bsoMovingOutRecordsHeading]
+other = "Records transfer"
+
+[bsoMovingOutRecordsBody]
+other = "Scouting records move with your child via OSM."
+
+[bsoMovingOutAreaCta]
+other = "BSO Area"
+
+# Host-scouting sub-page
+[bsoHostScoutingNoIso]
+other = "Host-country alternatives are not configured for this Group yet."
+
+[bsoHostScoutingNoData]
+other = "Host-country alternatives data is not available for this host country yet — your Group can add it to data/bso/alternatives/."
+
+[bsoHostScoutingOrgSiteLink]
+other = "Visit site"
+
+[bsoHostScoutingOrgJoinLink]
+other = "How to join"
+
+# Home-range sub-page
+[bsoHomeRangeInTouchHeading]
+other = "InTouch policy"
+
+[bsoHomeRangeCrossBorderHeading]
+other = "Beyond the home range"
+
+[bsoHomeRangePolicyCta]
+other = "Download the full InTouch policy (PDF)"
+
+# BSO links footer
+[bsoLinksFooterAria]
+other = "British Scouting Overseas links"
+
+[bsoLinksFooterIntro]
+other = "Part of British Scouting Overseas."
+
+[bsoLinksFooterArea]
+other = "BSO Area"
+
+[bsoLinksFooterDistrictSuffix]
+other = "District"
+
+# -----------------------------------------------------------------------------
 # Footer — used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]

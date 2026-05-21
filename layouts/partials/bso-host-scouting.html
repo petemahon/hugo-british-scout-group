@@ -1,0 +1,63 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-host-scouting — /bso/host-scouting/ body. SPEC-10.
+
+  Loads data/bso/alternatives/<host_country_iso>.toml and renders one
+  card per organisation (name, language, description, link, optional
+  joining link). Missing data file is a build warning — not an error —
+  so a Group can stand up the page before the data lands.
+
+  Context: the host-scouting Page.
+*/ -}}
+{{- $iso := .Params.host_country_iso | default site.Params.bso.host_country_iso | default "" -}}
+{{- $altsRoot := index hugo.Data.bso "alternatives" -}}
+{{- $alts := "" -}}
+{{- if $altsRoot -}}
+  {{- $alts = index $altsRoot $iso -}}
+{{- end -}}
+
+<div class="s-bso__host-scouting">
+
+  {{- with .Params.intro }}
+    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
+  {{- end }}
+
+  {{- with .Content }}
+    <div class="s-bso__body">{{ . }}</div>
+  {{- end }}
+
+  {{- if not $iso }}
+    {{- warnf "bso-host-scouting (%q): no host_country_iso set on the page and none in params.bso. Alternatives section will be empty." .File.LogicalName -}}
+    <p class="s-bso__host-scouting-empty">
+      {{ i18n "bsoHostScoutingNoIso" | default "Host-country alternatives are not configured for this Group yet." }}
+    </p>
+  {{- else if not $alts }}
+    {{- warnf "bso-host-scouting (%q): no data/bso/alternatives/%s.toml found. Add the file to populate this page." .File.LogicalName $iso -}}
+    <p class="s-bso__host-scouting-empty">
+      {{ i18n "bsoHostScoutingNoData" | default "Host-country alternatives data is not available for this host country yet — your Group can add it to data/bso/alternatives/." }}
+    </p>
+  {{- else }}
+    <ul class="s-bso__host-orgs" role="list">
+      {{- range $alts.organisation }}
+        <li class="s-bso__host-org">
+          <header class="s-bso__host-org-head">
+            <h3 class="s-bso__host-org-name">{{ .name }}</h3>
+            <span class="s-bso__host-org-lang">{{ .language }}</span>
+          </header>
+          {{- with .description }}
+            <p class="s-bso__host-org-description">{{ . | safeHTML }}</p>
+          {{- end }}
+          <p class="s-bso__host-org-links">
+            <a class="styled-link s-bso__host-org-site" href="{{ .url | safeURL }}" rel="noopener">{{ i18n "bsoHostScoutingOrgSiteLink" | default "Visit site" }} &rarr;</a>
+            {{- with .joining_url }}
+              <a class="styled-link s-bso__host-org-join" href="{{ . | safeURL }}" rel="noopener">{{ i18n "bsoHostScoutingOrgJoinLink" | default "How to join" }} &rarr;</a>
+            {{- end }}
+          </p>
+        </li>
+      {{- end }}
+    </ul>
+  {{- end }}
+</div>

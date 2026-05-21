@@ -1,0 +1,150 @@
+# data/sections_status.toml — joining-page card data (SPEC-06).
+#
+# This file ships as a STARTER intended to be replaced wholesale by
+# each consuming Group. The values below are generic placeholders
+# matching the theme's "1st Anytown Scouts" example Group — fictional
+# emails, fictional descriptions, generic "host country" phrasing in
+# the BSO nationality notes. NOTHING here is country-specific; the
+# host country is supplied at render time by the Group's hugo.toml
+# via [params.bso].host_country_name (SPEC-10) and surfaced in the
+# canonical bso-membership-notice partial on /join/.
+#
+# Each section (squirrels|beavers|cubs|scouts|explorers|network) is an
+# ARRAY of pack records. Single-pack Groups have one entry per section;
+# multi-pack Groups add more. `pack_name` renders only when populated,
+# so a single-pack entry can leave it empty.
+#
+# Field reference
+# ---------------
+# pack_name             "" = single-pack section, no name shown
+# status                "open" | "waiting" | "closed"
+# meeting_night         "Monday" … "Sunday"
+# meeting_start         "17:30" (24-hour)
+# meeting_end           "18:30"
+# fee                   Number as string, e.g. "30"
+# fee_currency          ISO 4217 (default "GBP"). See data/currencies.toml.
+# fee_period            "term" | "month" | "year"
+# contact_email         Per-pack email (falls back to enquiry_email)
+# description           HTML allowed; short paragraph describing the pack
+# waiting_url           OSM waiting-list URL; used when status="waiting"
+# bso_language          BSO only — language requirement, e.g. "English"
+# bso_nationality_note  BSO only — eligibility blurb, linked to /bso/eligibility/
+#
+# The example site below exercises SPEC-06 acceptance criterion #9:
+# Squirrels closed (not yet running), Beavers waiting list, Cubs
+# multi-pack, Scouts/Explorers open. Network is opt-in via
+# params.scoutSections; an example entry is provided commented-out.
+
+# Squirrels — section not yet running this term ("closed" / informational)
+[[squirrels]]
+  pack_name            = ""
+  status               = "closed"
+  meeting_night        = "Monday"
+  meeting_start        = "17:00"
+  meeting_end          = "18:00"
+  fee                  = "30"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "squirrels@1stanytown.org.uk"
+  description          = "We're working towards opening a Squirrel Drey. If you'd like to register your interest, drop us a line and we'll let you know as soon as we have a date."
+  waiting_url          = ""
+  bso_language         = "English"
+  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+
+# Beavers — open waiting list
+[[beavers]]
+  pack_name            = ""
+  status               = "waiting"
+  meeting_night        = "Tuesday"
+  meeting_start        = "17:30"
+  meeting_end          = "18:30"
+  fee                  = "35"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "beavers@1stanytown.org.uk"
+  description          = "Beavers (age 6 to 8) meet on Tuesday evenings. We have a strong waiting list at present; add your child's name and we'll be in touch as soon as a place comes up."
+  waiting_url          = "https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-beavers"
+  bso_language         = "English"
+  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+
+# Cubs — multi-pack (two Packs running on different nights)
+[[cubs]]
+  pack_name            = "Wednesday Pack"
+  status               = "open"
+  meeting_night        = "Wednesday"
+  meeting_start        = "18:00"
+  meeting_end          = "19:30"
+  fee                  = "40"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "cubs-wed@1stanytown.org.uk"
+  description          = "The Wednesday Pack has spaces for new Cubs joining in the Summer term. Sessions are a mix of badge work, games and outdoor activity."
+  waiting_url          = ""
+  bso_language         = "English"
+  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+
+[[cubs]]
+  pack_name            = "Friday Pack"
+  status               = "waiting"
+  meeting_night        = "Friday"
+  meeting_start        = "18:00"
+  meeting_end          = "19:30"
+  fee                  = "40"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "cubs-fri@1stanytown.org.uk"
+  description          = "The Friday Pack has a waiting list. Names roll over between terms; the Wednesday Pack is the quicker route in if your child is flexible on the night."
+  waiting_url          = "https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-cubs-friday"
+  bso_language         = "English"
+  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+
+# Scouts — open, single Troop
+[[scouts]]
+  pack_name            = ""
+  status               = "open"
+  meeting_night        = "Thursday"
+  meeting_start        = "19:00"
+  meeting_end          = "21:00"
+  fee                  = "45"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "scouts@1stanytown.org.uk"
+  description          = "Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule."
+  waiting_url          = ""
+  bso_language         = "English"
+  bso_nationality_note = "Open to young people who aren't nationals of the host country (POR 3.2.1.1)."
+
+# Explorers — open, single Unit
+[[explorers]]
+  pack_name            = ""
+  status               = "open"
+  meeting_night        = "Friday"
+  meeting_start        = "19:30"
+  meeting_end          = "21:30"
+  fee                  = "50"
+  fee_currency         = "GBP"
+  fee_period           = "term"
+  contact_email        = "explorers@1stanytown.org.uk"
+  description          = "Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar."
+  waiting_url          = ""
+  bso_language         = "English"
+  bso_nationality_note = "Open to young people who aren't nationals of the host country (POR 3.2.1.1)."
+
+# Network — opt-in via params.scoutSections in hugo.toml; not enabled
+# by default in the example site. Uncomment the block below and toggle
+# `network = { enable = true }` in hugo.toml to render the card.
+#
+# [[network]]
+#   pack_name            = ""
+#   status               = "open"
+#   meeting_night        = "Various"
+#   meeting_start        = "19:30"
+#   meeting_end          = "21:30"
+#   fee                  = "25"
+#   fee_currency         = "GBP"
+#   fee_period           = "term"
+#   contact_email        = "network@1stanytown.org.uk"
+#   description          = "Scout Network is the 18-25 section. Meets across the city for expeditions, top-award work, and community projects."
+#   waiting_url          = ""
+#   bso_language         = "English"
+#   bso_nationality_note = ""

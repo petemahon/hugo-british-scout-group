@@ -1,0 +1,12 @@
+# data/bso/alternatives/ae.toml — WOSM-recognised scouting in the UAE.
+# The Emirates Scout Association is the national WOSM-recognised body.
+# Membership is open to UAE nationals (girls and boys); BSO Groups
+# operate under a separate POR-3.2.1.1 agreement with the host
+# association.
+
+[[organisation]]
+  name        = "Emirates Scout Association"
+  url         = "https://www.uae-scouts.ae/"
+  language    = "Arabic"
+  joining_url = ""
+  description = "The national scouting body of the United Arab Emirates. Open to UAE national children; coordinates with BSO Groups across the country."

@@ -1,0 +1,59 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  programme-themes — renders the Skills for Life chip strip for one
+  meeting / one week.
+
+  Called from partials/programme-table.html (per-week row) and
+  partials/sections/programme-current.html (collapsed home block).
+
+  Context (dict):
+    keys    list[string]  REQUIRED — keys from data/programme_themes.toml
+    page    Page          REQUIRED — for errorf path on an unknown key
+
+  Pass-through rules:
+    - site.Params.programme.show_theme_chips = false suppresses ALL chips
+      across the site. Default true.
+    - Unknown keys errorf with the page path and the offending key.
+    - Each chip is a pill <span> with --chip-bg / --chip-fg custom
+      properties resolved from the theme's `palette` token under the
+      currently-active palette.
+*/ -}}
+{{- $page  := .page -}}
+{{- $keys  := .keys -}}
+{{- if and (site.Params.programme.show_theme_chips | default true) (gt (len $keys) 0) -}}
+  {{- $themes := hugo.Data.programme_themes.theme -}}
+  <ul class="s-programme__chips" aria-label="{{ i18n "programmeThemesLabel" | default "Skills for Life themes" }}">
+    {{- range $keys -}}
+      {{- $needle := . -}}
+      {{- $found := false -}}
+      {{- range $themes -}}
+        {{- if eq .key $needle -}}
+          {{- $found = true -}}
+          {{- $bgVar := printf "var(--%s)" .palette -}}
+          {{- $fgVar := "" -}}
+          {{- if eq .palette "primary"   -}}{{- $fgVar = "var(--text-on-primary)"   -}}{{- end -}}
+          {{- if eq .palette "secondary" -}}{{- $fgVar = "var(--text-on-secondary)" -}}{{- end -}}
+          {{- if eq .palette "tertiary"  -}}{{- $fgVar = "#ffffff"                  -}}{{- end -}}
+          {{- if eq .palette "accent"    -}}{{- $fgVar = "#000000"                  -}}{{- end -}}
+          <li>
+            {{- if .scouts_url -}}
+              <a class="s-programme__chip styled-link"
+                 href="{{ .scouts_url }}"
+                 style="--chip-bg: {{ $bgVar }}; --chip-fg: {{ $fgVar }};"
+                 rel="noopener">{{ .label }}</a>
+            {{- else -}}
+              <span class="s-programme__chip"
+                    style="--chip-bg: {{ $bgVar }}; --chip-fg: {{ $fgVar }};">{{ .label }}</span>
+            {{- end -}}
+          </li>
+        {{- end -}}
+      {{- end -}}
+      {{- if not $found -}}
+        {{- errorf "programme %q references unknown theme key %q. Add it to data/programme_themes.toml or fix the front-matter." $page.File.LogicalName $needle -}}
+      {{- end -}}
+    {{- end -}}
+  </ul>
+{{- end -}}

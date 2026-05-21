@@ -1,0 +1,17 @@
+# data/bso/alternatives/es.toml — WOSM-recognised scouting in Spain.
+# Spain's WOSM membership is held by the Federación de Escultismo en
+# España (FEE), comprising two main scouting federations.
+
+[[organisation]]
+  name        = "Scouts de España (ASDE)"
+  url         = "https://scout.es/"
+  language    = "Spanish"
+  joining_url = "https://scout.es/contacto/"
+  description = "Federación de Asociaciones de Scouts de España — the larger non-confessional scouting federation in Spain. Member of FEE / WOSM."
+
+[[organisation]]
+  name        = "Movimiento Scout Católico (MSC)"
+  url         = "https://www.scouts-msc.org/"
+  language    = "Spanish"
+  joining_url = ""
+  description = "The Catholic scouting movement in Spain. Member of FEE / WOSM alongside Scouts de España."

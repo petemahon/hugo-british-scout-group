@@ -1,0 +1,44 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  joining-faq — accordion of FAQ entries authored as Markdown files
+  under content/join/faq/*.md. SPEC-06.
+
+  Entries are sorted by Weight (filename order as fallback). Each entry
+  is rendered as a <details>/<summary> pair so the accordion needs no
+  JavaScript. The print stylesheet in 51-section-joining.css forces every
+  <details> open so a printed copy carries the full Q&A set.
+
+  Context: the /join/ page itself as `.`. The Markdown files are kept
+  out of the route tree by `cascade._build.render = "never"` in
+  content/join/_index.md, so they don't generate /join/faq/<slug>/ URLs.
+*/ -}}
+{{- /* FAQ pages live at content/join/faq/*.md and are kept out of the
+       route tree by `_build.render = "never"` in their front-matter.
+       _build.list = "always" keeps them in site.RegularPages so we can
+       iterate them here. */ -}}
+{{- $faqs := where site.RegularPages "File.Dir" "join/faq/" -}}
+{{- $faqs = $faqs.ByWeight -}}
+
+{{- if gt (len $faqs) 0 }}
+  <section class="s-joining__faq" aria-labelledby="joining-faq-heading">
+    <h2 id="joining-faq-heading" class="s-joining__faq-heading">
+      {{ i18n "joiningFaqHeading" | default "Frequently asked questions" }}
+    </h2>
+    <div class="s-joining__faq-list">
+      {{- range $faqs }}
+        <details class="s-joining__faq-item">
+          <summary class="s-joining__faq-question">
+            {{ .Title }}
+            <span class="s-joining__faq-chevron" aria-hidden="true">&rsaquo;</span>
+          </summary>
+          <div class="s-joining__faq-answer">
+            {{ .Content }}
+          </div>
+        </details>
+      {{- end }}
+    </div>
+  </section>
+{{- end -}}

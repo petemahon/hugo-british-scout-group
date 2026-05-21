@@ -1,0 +1,19 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-card — one card on the /bso/ hub page (SPEC-10).
+
+  Context (dict):
+    title        (str)  REQUIRED — card heading
+    description  (str)  REQUIRED — supporting body line
+    url          (str)  REQUIRED — link target (typically /bso/<slug>/)
+    eyebrow      (str)  OPTIONAL — small uppercase lead-in inside the card
+*/ -}}
+<a class="s-bso__card styled-link" href="{{ .url | relURL }}">
+  {{- with .eyebrow }}<span class="s-bso__card-eyebrow">{{ . }}</span>{{ end }}
+  <h2 class="s-bso__card-title">{{ .title }}</h2>
+  <p class="s-bso__card-description">{{ .description | safeHTML }}</p>
+  <span class="s-bso__card-chevron" aria-hidden="true">&rarr;</span>
+</a>

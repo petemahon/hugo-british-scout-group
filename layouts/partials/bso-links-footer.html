@@ -1,0 +1,42 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-links-footer — small in-content footer rendered at the bottom
+  of every BSO sub-page (and the hub). Links out to BSO Area and
+  the Group's BSO District. SPEC-10 Q10.1.
+
+  Renders nothing when neither bso_area_url nor district_url is set,
+  to avoid an empty shell.
+
+  Context: any page; reads only site.Params.bso.
+*/ -}}
+{{- $cfg := site.Params.bso | default dict -}}
+{{- $areaUrl := $cfg.bso_area_url | default "" -}}
+{{- $districtUrl := $cfg.district_url | default "" -}}
+{{- $districtName := $cfg.district | default "" -}}
+
+{{- if or $areaUrl $districtUrl -}}
+  <footer class="s-bso__links-footer" aria-label="{{ i18n "bsoLinksFooterAria" | default "British Scouting Overseas links" }}">
+    <p class="s-bso__links-footer-intro">
+      {{ i18n "bsoLinksFooterIntro" | default "1st Anytown Scouts is part of British Scouting Overseas." }}
+    </p>
+    <ul class="s-bso__links-footer-list" role="list">
+      {{- with $areaUrl }}
+        <li>
+          <a class="styled-link" href="{{ . | safeURL }}" rel="noopener">
+            {{ i18n "bsoLinksFooterArea" | default "BSO Area" }} &rarr;
+          </a>
+        </li>
+      {{- end }}
+      {{- if and $districtUrl $districtName }}
+        <li>
+          <a class="styled-link" href="{{ $districtUrl | safeURL }}" rel="noopener">
+            {{ $districtName }} {{ i18n "bsoLinksFooterDistrictSuffix" | default "District" }} &rarr;
+          </a>
+        </li>
+      {{- end }}
+    </ul>
+  </footer>
+{{- end -}}

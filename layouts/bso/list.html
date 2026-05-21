@@ -1,0 +1,76 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  /bso/ — Joining Hub cover page. SPEC-10.
+
+  Renders one card per BSO sub-page. The default card set is computed
+  from i18n + params.bso when content/bso/_index.md does NOT override
+  via a `cards` front-matter array. Order:
+    1. Eligibility
+    2. Moving in (to the host country)
+    3. Moving out
+    4. Host-country scouting (gated by params.bso.show_host_alternatives)
+    5. Home range / InTouch (gated by params.bso.show_home_range)
+
+  Gating: site.Params.bso AND params.features.bso_hub. With either
+  off, this list page emits nothing — Hugo still produces the URL
+  (because the _index.md exists) but the body is empty rather than
+  exposing a placeholder shell.
+*/ -}}
+{{ define "main" }}
+{{- if and (site.Params.bso.enabled | default false) (site.Params.features.bso_hub | default false) -}}
+
+  {{- $hostName := site.Params.bso.host_country_name | default "" -}}
+  {{- $cards := .Params.cards -}}
+
+  {{- /* Default card set when the front-matter override is absent. */ -}}
+  {{- if not $cards -}}
+    {{- $cards = slice
+        (dict "title"       (i18n "bsoCardEligibilityTitle"       | default "Who can join")
+              "description" (i18n "bsoCardEligibilityDescription" | default "POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility.")
+              "url"         "/bso/eligibility/")
+        (dict "title"       (printf "%s %s" (i18n "bsoCardMovingInTitle" | default "Moving to") $hostName)
+              "description" (i18n "bsoCardMovingInDescription" | default "Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect.")
+              "url"         "/bso/moving-in/")
+        (dict "title"       (i18n "bsoCardMovingOutTitle"       | default "Moving on")
+              "description" (i18n "bsoCardMovingOutDescription" | default "Transferring to another BSO Group, returning to the UK, or joining the host-country NSO.")
+              "url"         "/bso/moving-out/")
+    -}}
+    {{- if site.Params.bso.show_host_alternatives -}}
+      {{- $cards = $cards | append (dict
+          "title"       (printf "%s %s" (i18n "bsoCardHostScoutingTitle" | default "Scouting in") $hostName)
+          "description" (i18n "bsoCardHostScoutingDescription" | default "The WOSM-recognised scouting bodies of the host country, with links and language notes.")
+          "url"         "/bso/host-scouting/") -}}
+    {{- end -}}
+    {{- if site.Params.bso.show_home_range -}}
+      {{- $cards = $cards | append (dict
+          "title"       (i18n "bsoCardHomeRangeTitle"       | default "Home range and InTouch")
+          "description" (i18n "bsoCardHomeRangeDescription" | default "Where the Group operates, plus our InTouch policy for activities and trips.")
+          "url"         "/bso/home-range/") -}}
+    {{- end -}}
+  {{- end -}}
+
+  <section class="section s-bso s-bso--hub reveal">
+    <div class="container">
+
+      <div class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "bsoHubEyebrow" | default "British Scouting Overseas" }}</span>
+        <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "bsoHubHeading" | default "BSO information" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+        {{- with .Content }}<div class="s-bso__intro-body">{{ . }}</div>{{ end }}
+      </div>
+
+      <div class="s-bso__cards">
+        {{- range $cards }}
+          {{ partial "bso-card.html" . }}
+        {{- end }}
+      </div>
+
+      {{ partial "bso-links-footer.html" . }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

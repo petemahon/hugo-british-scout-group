@@ -1,0 +1,19 @@
+# data/bso/alternatives/us.toml — WOSM-recognised scouting in the USA.
+# Scouting America (formerly Boy Scouts of America until 2025) holds
+# WOSM membership; Girl Scouts of the USA holds WAGGGS membership.
+# Listed below for completeness — many BSO families in the US choose
+# Scouting America once their stay becomes permanent.
+
+[[organisation]]
+  name        = "Scouting America"
+  url         = "https://www.scouting.org/"
+  language    = "English"
+  joining_url = "https://www.scouting.org/programs/"
+  description = "The national WOSM-recognised scouting body of the United States. Rebranded from Boy Scouts of America (BSA) in February 2025; co-educational across all sections."
+
+[[organisation]]
+  name        = "Girl Scouts of the USA"
+  url         = "https://www.girlscouts.org/"
+  language    = "English"
+  joining_url = "https://www.girlscouts.org/en/join.html"
+  description = "The national WAGGGS-recognised girl-guiding body of the United States. Separate from Scouting America."

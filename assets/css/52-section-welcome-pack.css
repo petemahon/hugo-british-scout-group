@@ -1,0 +1,243 @@
+/* -----------------------------------------------------------------------------
+   27. WELCOME PACK — s-welcome-pack
+   /welcome-pack/ cover, per-chapter pages, and the concatenated
+   /welcome-pack/print.html view. SPEC-06.
+
+   No JS. Print view is a SELF-CONTAINED HTML document (rendered by
+   list.welcomepackprint.html) so opening it triggers a clean print
+   dialogue with no site chrome.
+   ----------------------------------------------------------------------------- */
+
+/* -- Cover page -------------------------------------------------------- */
+.s-welcome-pack__container {
+  max-width: 52rem;
+}
+
+.s-welcome-pack__cover-head {
+  margin-bottom: 1.5rem;
+}
+.s-welcome-pack__meta {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.s-welcome-pack__cover-body {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.s-welcome-pack__nav {
+  margin: 2rem 0;
+}
+.s-welcome-pack__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.s-welcome-pack__nav-link {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.s-welcome-pack__nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.s-welcome-pack__nav-item.is-current .s-welcome-pack__nav-link {
+  border-color: var(--primary);
+}
+.s-welcome-pack__nav-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.s-welcome-pack__nav-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.s-welcome-pack__nav-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.s-welcome-pack__nav-summary {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.s-welcome-pack__print {
+  margin: 2.5rem 0 0;
+}
+
+/* -- Per-chapter page -------------------------------------------------- */
+.s-welcome-pack__breadcrumb {
+  margin: 0 0 1.5rem;
+}
+.s-welcome-pack__breadcrumb a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.s-welcome-pack__breadcrumb a:hover { text-decoration: underline; }
+
+.s-welcome-pack__chapter-head {
+  margin-bottom: 1.5rem;
+}
+.s-welcome-pack__chapter-num {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.s-welcome-pack__chapter-title {
+  margin: 0.25rem 0 0;
+}
+
+.s-welcome-pack__chapter-image {
+  margin: 0 0 1.5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.s-welcome-pack__chapter-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.s-welcome-pack__chapter-body {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  /* Slightly wider measure than card descriptions — Welcome Pack reads
+     like a brochure, not a card-grid info dump. Stay under 70 ch for
+     comfortable line length. */
+  max-width: 38rem;
+}
+.s-welcome-pack__chapter-body h2,
+.s-welcome-pack__chapter-body h3 {
+  margin-top: 2rem;
+}
+.s-welcome-pack__chapter-body p,
+.s-welcome-pack__chapter-body ul,
+.s-welcome-pack__chapter-body ol {
+  margin: 1rem 0;
+}
+
+.s-welcome-pack__chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.s-welcome-pack__chapter-prev,
+.s-welcome-pack__chapter-next {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--text);
+  max-width: 16rem;
+}
+.s-welcome-pack__chapter-next { text-align: right; margin-left: auto; }
+.s-welcome-pack__chapter-nav-dir {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.s-welcome-pack__chapter-nav-title {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   Concatenated print view — /welcome-pack/print.html.
+   The HTML document this body class wraps is rendered by
+   list.welcomepackprint.html as a SELF-CONTAINED document (no header /
+   footer / site chrome), so a screen-rendered print view is also fine
+   for sharing as a single-page PDF.
+   ----------------------------------------------------------------------------- */
+body.welcome-pack-print {
+  background: var(--bg);
+  color: var(--text);
+}
+body.welcome-pack-print main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.6;
+}
+
+.s-welcome-pack-print__cover {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--primary);
+}
+.s-welcome-pack-print__cover h1 {
+  margin: 0;
+}
+.s-welcome-pack-print__group {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+.s-welcome-pack-print__meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.s-welcome-pack-print__intro {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.s-welcome-pack-print__chapter {
+  margin-bottom: 3rem;
+}
+.s-welcome-pack-print__chapter-num {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.s-welcome-pack-print__chapter header h2 {
+  margin: 0.25rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+  body.welcome-pack-print {
+    background: #fff;
+    color: #000;
+  }
+  body.welcome-pack-print main {
+    max-width: none;
+    padding: 0;
+  }
+  .s-welcome-pack-print__chapter {
+    page-break-inside: avoid;
+  }
+  .s-welcome-pack-print__chapter h2 {
+    page-break-after: avoid;
+  }
+}

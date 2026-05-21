@@ -1,0 +1,72 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  programme-table — renders the weeks table for a single programme.
+
+  Called from layouts/programme/single.html and from
+  partials/sections/programme-current.html (collapsed home block).
+
+  Context (dict):
+    page     Page    REQUIRED — the programme page (for .Params.weeks
+                                and errorf paths)
+    density  string  OPTIONAL — "themes_only" | "full". Overrides the
+                                page's own density when set, so the
+                                home block can force a denser/less-dense
+                                render than the single page.
+
+  Cancelled rows wear --warning; their title gets a strikethrough and a
+  small Cancelled pill. Notes column only renders when density="full".
+*/ -}}
+{{- $page    := .page -}}
+{{- $density := .density | default $page.Params.density | default (site.Params.programme.default_density | default "themes_only") -}}
+{{- $weeks   := $page.Params.weeks -}}
+{{- if not $weeks -}}
+  {{- errorf "programme %q has no [[weeks]] blocks. Every published programme needs at least one week." $page.File.LogicalName -}}
+{{- end -}}
+
+<div class="s-programme__table-shell">
+  <table class="s-programme__table" data-density="{{ $density }}">
+    <thead>
+      <tr>
+        <th scope="col" class="s-programme__col-week">{{ i18n "programmeColWeek" | default "Wk" }}</th>
+        <th scope="col" class="s-programme__col-date">{{ i18n "programmeColDate" | default "Date" }}</th>
+        <th scope="col" class="s-programme__col-title">{{ i18n "programmeColTitle" | default "Meeting" }}</th>
+        {{- if eq $density "full" }}
+          <th scope="col" class="s-programme__col-notes">{{ i18n "programmeColNotes" | default "Notes / kit" }}</th>
+        {{- end }}
+      </tr>
+    </thead>
+    <tbody>
+      {{- range $weeks }}
+        {{- $cancelled := .cancelled | default false -}}
+        <tr class="s-programme__row{{ if $cancelled }} s-programme__row--cancelled{{ end }}">
+          <td class="s-programme__col-week">{{ .number }}</td>
+          <td class="s-programme__col-date">
+            <time datetime="{{ dateFormat "2006-01-02" .date }}">{{ dateFormat "Mon 2 Jan" .date }}</time>
+          </td>
+          <td class="s-programme__col-title">
+            <div class="s-programme__title-row">
+              <span class="s-programme__meeting-title">{{ .title }}</span>
+              {{- if $cancelled }}
+                <span class="s-programme__cancelled-pill">{{ i18n "programmeCancelled" | default "Cancelled" }}</span>
+              {{- end }}
+            </div>
+            {{- with .themes }}
+              {{ partial "programme-themes.html" (dict "keys" . "page" $page) }}
+            {{- end }}
+            {{- if and $cancelled .cancellation_note }}
+              <p class="s-programme__cancellation-note">{{ .cancellation_note }}</p>
+            {{- end }}
+          </td>
+          {{- if eq $density "full" }}
+            <td class="s-programme__col-notes">
+              {{- with .notes }}{{ . | safeHTML }}{{ end -}}
+            </td>
+          {{- end }}
+        </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

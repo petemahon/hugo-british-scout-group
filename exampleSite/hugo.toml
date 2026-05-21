@@ -61,6 +61,15 @@ disableKinds = ["taxonomy", "term"]
   isPlainText    = true
   notAlternative = true
 
+# Welcome Pack — concatenated printable view (SPEC-06).
+# Rendered at /welcome-pack/print.html by layouts/welcome-pack/list.welcomepackprint.html.
+# Enabled on the welcome-pack section via `outputs = […]` in its _index.md.
+[outputFormats.WelcomePackPrint]
+  mediaType      = "text/html"
+  baseName       = "print"
+  isHTML         = true
+  notAlternative = true
+
 # -----------------------------------------------------------------------------
 # Theme params
 # -----------------------------------------------------------------------------
@@ -147,8 +156,51 @@ disableKinds = ["taxonomy", "term"]
 # -----------------------------------------------------------------------------
 [params.bsoMembershipNotice]
   enable                  = true
-  hostCountryName         = "Anytown"                   # CHANGE ME (e.g. "the United Arab Emirates")
-  hostScoutingAssociation = "Anytown Scout Association" # CHANGE ME
+  hostCountryName         = "the United Arab Emirates"  # CHANGE ME
+  hostScoutingAssociation = "Emirates Scout Association" # CHANGE ME
+
+# -----------------------------------------------------------------------------
+# BSO — site-level master switch + Joining Hub (SPEC-10) config.
+#
+# `enabled` is the site-wide master switch for every BSO render path:
+#   - the bso-membership-notice partial (also separately enabled via
+#     [params.bsoMembershipNotice].enable below);
+#   - the BSO branch on /join/ joining cards (per-pack language and
+#     nationality notes from data/sections_status.toml);
+#   - the entire /bso/ Joining Hub, which itself further gates via
+#     params.features.bso_hub.
+# Default false. The example site flips it true to exercise every BSO
+# render path. UK-only Groups leave it off and never encounter BSO.
+#
+#   host_country_iso        ISO 3166-1 alpha-2, lowercase. Used to load
+#                           data/bso/alternatives/<iso>.toml for the
+#                           host-scouting page. Theme ships starter
+#                           data for nl, be, fr, de, es, ae, sg, us.
+#   host_country_name       Display label (article allowed, e.g.
+#                           "the United Arab Emirates").
+#   host_association        Name of the WOSM-recognised NSO in the
+#                           host country (also surfaced in the
+#                           bso-membership-notice partial).
+#   show_home_range         When true, /bso/home-range/ renders an
+#                           InTouch-policy summary plus static map.
+#                           Default false (most Groups don't need this).
+#   show_host_alternatives  When true, /bso/host-scouting/ renders.
+#                           Default true.
+#   district / district_url BSO Area district context (e.g. "Middle
+#                           East and Asia"). Surfaced in the bso-links
+#                           footer alongside the BSO Area link.
+#   bso_area_url            BSO Area site root.
+# -----------------------------------------------------------------------------
+[params.bso]
+  enabled                = true
+  host_country_iso       = "ae"
+  host_country_name      = "the United Arab Emirates"
+  host_association       = "Emirates Scout Association"
+  show_home_range        = false
+  show_host_alternatives = true
+  district               = "Middle East and Asia"
+  district_url           = "https://www.britishscoutingoverseas.org.uk/"
+  bso_area_url           = "https://www.britishscoutingoverseas.org.uk/"
 
 # -----------------------------------------------------------------------------
 # Scout Sections — toggle which sections your Group runs.
@@ -172,9 +224,13 @@ disableKinds = ["taxonomy", "term"]
 # feature. See DECISIONS.md for the full rationale.
 # -----------------------------------------------------------------------------
 [params.features]
-  news      = true
-  events    = true
-  network_feature = true
+  news              = true
+  events            = true
+  programme         = true
+  joining           = true
+  welcome_pack      = true
+  bso_hub           = true
+  network_feature   = true
   volunteer_feature = true
 
 
@@ -201,6 +257,46 @@ disableKinds = ["taxonomy", "term"]
   show_past_archive     = false
   upcoming_window_days  = 365
   default_count_on_home = 4
+
+# -----------------------------------------------------------------------------
+# Termly Programme — see SPEC-03.
+#   keep_archive                  If true, past terms (term_end < today)
+#                                 remain on /programme/. Default false.
+#   default_density               Site-wide default for per-programme density.
+#                                 "themes_only" (safer) | "full" (with notes).
+#   show_district_approved_badge  Render the small POR 9.1.2.1 badge on
+#                                 programmes whose front-matter sets
+#                                 district_approved = true.
+#   show_theme_chips              Master switch for chip rendering; set
+#                                 false to drop chips everywhere.
+# -----------------------------------------------------------------------------
+[params.programme]
+  keep_archive                  = true
+  default_density               = "themes_only"
+  show_district_approved_badge  = true
+  show_theme_chips              = true
+
+# -----------------------------------------------------------------------------
+# Joining & Waiting List — see SPEC-06.
+#   show_currency        Render the currency symbol on every fee value.
+#                        Set false if your Group quotes a single currency
+#                        and would rather not repeat it on every card.
+#   card_layout          "grid" (default) | "stacked".
+#   show_volunteer_link  Renders the /#volunteer bridge in the page-head
+#                        button row. Bridges SPEC-06 to SPEC-09.
+# -----------------------------------------------------------------------------
+[params.joining]
+  show_currency        = true
+  card_layout          = "grid"
+  show_volunteer_link  = true
+
+# -----------------------------------------------------------------------------
+# Welcome Pack — see SPEC-06.
+#   print_route          Generate /welcome-pack/print.html (a single
+#                        concatenated HTML document). Default true.
+# -----------------------------------------------------------------------------
+[params.welcome_pack]
+  print_route = true
 
 # -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.

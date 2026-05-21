@@ -95,7 +95,6 @@ languageCode = "en-GB"
   place           = "Anytown"
   copyrightOwner  = "1st Anytown Scouts"
   copyrightRights = "All Rights Reserved"
-  footerBg        = "dark"                 # Scouts Navy footer
 
 [params.scoutSections]
   squirrels = { enable = false }
@@ -240,6 +239,10 @@ maintain.
 [params.features]
   news              = true     # SPEC-01
   events            = true     # SPEC-02
+  programme         = true     # SPEC-03 termly programmes
+  joining           = true     # SPEC-06 /join/ page
+  welcome_pack      = true     # SPEC-06 /welcome-pack/ content section
+  bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
   network_feature   = true     # Network 18–25 brand-anchor band
   volunteer_feature = true     # "Register to volunteer." brand-anchor band (D11)
 ```
@@ -269,6 +272,7 @@ relies on these keys).
 | `volunteer-feature`  | The "Register to volunteer." brand-anchor band on Scouts Purple.                   |
 | `events-upcoming`    | Home-page block listing future events with `.ics` downloads (requires `events`).   |
 | `news-grid`          | Home-page block listing recent news posts (requires `news`).                       |
+| `programme-current`  | Home-page block — collapsible "this term's programme" per section (requires `programme`). Opt-in: ships disabled by default. |
 | `join` / `where-we-meet` | Stable nav-anchor sections.                                                    |
 
 Each consuming-site section block in `content/_index.md` looks like:
@@ -347,6 +351,227 @@ For BSO Groups, events render in **dual time**: the host-country
 local time, with the UK equivalent in parentheses. Drive this by
 setting `params.events.timezone` to your local IANA TZ — the theme
 computes UK time at render.
+
+### Termly Programme (SPEC-03)
+
+A content section under `content/programme/` for publishing one
+sanitised, public-friendly summary per section per term. Each programme
+lists weekly meetings with **Skills for Life theme chips** sourced from
+`data/programme_themes.toml`. Encourages curriculum balance and
+surfaces it for District audit (POR 9.1.2.1).
+
+```toml
+[params.features]
+  programme = true
+
+[params.programme]
+  keep_archive                  = false           # show past terms?
+  default_density               = "themes_only"   # "themes_only" | "full"
+  show_district_approved_badge  = true
+  show_theme_chips              = true
+```
+
+Scaffold a new programme with:
+
+```sh
+hugo new programme/cubs-summer-2026.md
+```
+
+The archetype carries safeguarding guidance in its comment header:
+public programmes must not name young people, must not name external
+visitors without consent, and must not include addresses for activities
+at private venues. **Default density is `themes_only`** (no notes
+column) for that reason; switch to `density = "full"` only when every
+notes value has been reviewed.
+
+**Theme chips** are coloured pills next to each meeting title.
+Eight default themes blend the Skills for Life curriculum areas with
+the four top-line outcome statements; their `palette` token resolves
+under the active site palette so chips re-tint when the palette
+changes. The list in `data/programme_themes.toml` should be reconciled
+against [scouts.org.uk/programme-planner](https://www.scouts.org.uk/programme-planner/)
+before a Group goes live.
+
+**Print stylesheet** ships in the theme — parents press Ctrl/Cmd+P on
+a programme page to get a one-sheet A4 plan with chrome stripped,
+chips outlined in monochrome, and the weeks table edge-to-edge.
+
+**Optional home-page block.** A `programme-current` section type
+renders the current term as a list of collapsible `<details>` panels.
+**Per SPEC-03 it's NOT in the example site's home page by default** —
+opt in by pasting this into your `content/_index.md`:
+
+```toml
+[[sections]]
+  type      = "programme-current"
+  id        = "this-term"
+  align     = "left"
+  eyebrow   = "This term"
+  title     = "What we're doing right now"
+  bg        = "muted"
+  density   = "themes_only"          # overrides per-programme density
+  show_more = true                   # render "View all programmes →" button
+  # sections = ["beavers", "cubs"]   # optional filter; empty = all sections
+```
+
+### Joining & Waiting List (SPEC-06)
+
+A structured `/join/` page generated from a single Markdown file
+(`content/join/_index.md`) plus a data file
+(`data/sections_status.toml`) — one card per pack, showing current
+status (Open / Waiting list / Not running), age range, meeting night,
+fee, and a CTA into either OSM or `mailto:`. Multi-pack support is
+built in: a section with two Packs renders two cards.
+
+```toml
+[params.features]
+  joining      = true
+  welcome_pack = true
+
+[params.joining]
+  show_currency       = true
+  card_layout         = "grid"          # "grid" | "stacked"
+  show_volunteer_link = true            # bridge into SPEC-09
+
+[params.welcome_pack]
+  print_route = true                    # generate /welcome-pack/print.html
+```
+
+Each pack's status uses one of three new palette-token-driven badges:
+
+- `--status-open` — confident green, "ready to enrol"
+- `--status-waiting` — deeper amber than `--postponed` so an event
+  card and a joining card never read as the same state at a glance
+- `--status-closed` — neutral grey ("section not running this term"
+  is informational, not a warning)
+
+Token values are uniform across every palette preset — status
+semantics shouldn't shift with the site's house colours.
+
+**Multi-pack data pattern.** Each section key in
+`data/sections_status.toml` is an *array* of pack records. Single-pack
+groups have one entry per section; multi-pack groups add more. The
+`pack_name` field renders only when populated, so single-pack entries
+can leave it empty.
+
+```toml
+[[cubs]]
+  pack_name     = "Wednesday Pack"
+  status        = "open"
+  meeting_night = "Wednesday"
+  …
+
+[[cubs]]
+  pack_name     = "Friday Pack"
+  status        = "waiting"
+  meeting_night = "Friday"
+  …
+```
+
+**Fees and currencies.** Fee values are plain numbers; the symbol is
+looked up from `data/currencies.toml` by ISO 4217 code. The theme
+ships GBP plus the BSO-common host-country currencies (EUR, USD, AED,
+CHF, SGD, HKD); Groups in other host countries add their own currency
+to a site-side `data/currencies.toml` and Hugo merges the lists.
+
+**FAQ accordion.** Add Markdown files under `content/join/faq/*.md`
+— each `title` is the question, the body is the answer. They render
+inline on `/join/` as a `<details>`/`<summary>` accordion (pure CSS,
+forced open by the print stylesheet). FAQ files are kept out of the
+route tree by `_build.render = "never"` in their front-matter.
+
+**No forms on the static site.** Acceptance criterion: every CTA is
+either a `mailto:` or an external OSM URL — never a form that POSTs
+from the site. Build emits a warning if a `status = "waiting"` pack
+has no `waiting_url` AND no `contact_email` AND the page has no
+fallback (`osm_waiting_list_url`, `enquiry_email`).
+
+**BSO branch.** When `site.Params.bso = true`, the `bso-membership`
+notice partial renders above the cards plus a per-page eligibility
+summary; each pack card with `bso_language` or `bso_nationality_note`
+populated renders those fields as a small in-card note. The example
+site ships BSO fields populated but defaults `bso = false`; flip the
+flag to exercise the BSO render path end-to-end.
+
+### Welcome Pack (SPEC-06)
+
+A Hugo content section at `/welcome-pack/` with a cover page, a set
+of editable Markdown chapters (`about`, `sections`, `joining`,
+`safeguarding`, `calendar` in the starter pack), per-chapter
+navigation, and a concatenated print view at `/welcome-pack/print.html`
+that renders every chapter into a single self-contained HTML
+document for "Print → Save as PDF".
+
+The print view is a custom Hugo output format (`WelcomePackPrint`)
+defined in `exampleSite/hugo.toml` and enabled per-section via the
+`outputs` array in `content/welcome-pack/_index.md`. The print
+template (`layouts/welcome-pack/list.welcomepackprint.html`) does not
+extend `baseof.html` — it emits its own `<html>` document with no
+site chrome.
+
+The five starter chapters are **content** the Group edits, not theme
+code. The theme owns the cover page, the chapter nav, the per-chapter
+single template and the print view; the words in each chapter belong
+to the consuming site.
+
+```sh
+hugo new welcome-pack/about.md
+```
+
+### BSO Joining Hub (SPEC-10)
+
+A BSO-only content section at `/bso/` covering joining eligibility,
+moving-in/moving-out pathways, and the WOSM-recognised scouting
+bodies of the host country. Builds on the existing
+`bso-membership-notice` partial and the SPEC-06 joining cards (which
+cross-link to `/bso/eligibility/` for the per-pack `bso_nationality_note`).
+
+```toml
+[params.features]
+  bso_hub = true                        # opt-in even when bso.enabled = true
+
+[params.bso]
+  enabled                = true         # site-level master switch
+  host_country_iso       = "ae"         # ISO 3166-1 alpha-2 (lowercase)
+  host_country_name      = "the United Arab Emirates"
+  host_association       = "Emirates Scout Association"
+  show_home_range        = false
+  show_host_alternatives = true
+  district               = "Middle East and Asia"
+  district_url           = "https://www.britishscoutingoverseas.org.uk/"
+  bso_area_url           = "https://www.britishscoutingoverseas.org.uk/"
+```
+
+**End-to-end gating.** With `bso.enabled = false` *or* `bso_hub = false`,
+none of the `/bso/` pages render: the hub list page is empty, and
+the SPEC-06 joining cards' `/bso/eligibility/` link target becomes
+a 404. Groups that aren't BSO leave the master switch off and never
+encounter the feature.
+
+**Host-country alternatives data.** `data/bso/alternatives/<iso>.toml`
+holds the WOSM-recognised scouting bodies of each host country.
+The theme ships starter data for **NL, BE, FR, DE, ES, AE, SG, US**
+— the eight host countries with the largest BSO presence. Groups
+in other countries add their own file under the same path; Hugo
+merges site-side data files with theme-side ones.
+
+**Default-visible POR reference.** Each eligibility page's
+`por_reference_visible` field defaults `true`. The rationale (Q10.6):
+this isn't for people who are already part of BSO — it's a firm
+policy nod for those who are actively trying to bypass POR 3.2.1.1
+as a host-country national. Per-Group toggle to hide.
+
+**BSO links footer.** Every `/bso/*` page wears a small in-content
+footer linking to BSO Area and the Group's BSO District (above the
+standard site footer). Rendered by `bso-links-footer.html`,
+configurable via `[params.bso].district` / `district_url` /
+`bso_area_url`. Hides cleanly when none of those are set.
+
+**Home-range (optional).** When `[params.bso].show_home_range = true`,
+`/bso/home-range/` renders a static map image (Group ships their
+own under `assets/bso/home-range.png`) plus an InTouch policy
+summary. Default `false` — most BSO Groups don't need a formal
+home-range publication.
 
 ### Network feature band
 
@@ -458,8 +683,12 @@ adding a new module is a drop-in:
 23-section-volunteer-feature.css (D11)
 24-section-bso-membership.css (D12)
 30-footer.css                  (D13)
-40-print.css
+40-section-news.css            (SPEC-01)
 41-feature-hero-intro.css      (opt-in, gated by body class)
+50-section-programme.css       (SPEC-03)
+51-section-joining.css         (SPEC-06)
+52-section-welcome-pack.css    (SPEC-06)
+53-section-bso-hub.css         (SPEC-10)
 ```
 
 To override theme styles in your site, add a `assets/css/99-site.css`

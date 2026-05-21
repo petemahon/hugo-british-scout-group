@@ -53,7 +53,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     text  = "For each child you'd like to register, fill out an entry form."
     [sections.cards.button] 
       label = "Add to waiting list"
-      url   = "/joining/"
+      url   = "/join/"
       style = "primary"
       arrow = true
 
@@ -86,15 +86,14 @@ description = "Skills for Life — example Scout Group home page using the Briti
   button_label = "Learn more"
 
 # -----------------------------------------------------------------------------
-# 4. Who can join — BSO membership eligibility (POR 3.2.1.1)
-# -----------------------------------------------------------------------------
-[[sections]]
-  type = "bso-membership"
-  id   = "membership"
-  bg   = "muted"
-
-# -----------------------------------------------------------------------------
-# 5. Network 18-25 — network-feature (opt-in via params.features.network_feature)
+# 4. Network 18-25 — network-feature (opt-in via params.features.network_feature)
+#
+# Note: the home page used to carry a `bso-membership` section here
+# rendering the POR 3.2.1.1 notice. We removed it deliberately — the
+# canonical place for "who can join" prose is now the /join/ page,
+# which embeds the same partial in context with the joining cards.
+# The bso-membership section type still exists in the theme; Groups
+# that prefer the home-page placement can add it back here.
 # -----------------------------------------------------------------------------
 [[sections]]
   type    = "network-feature"
@@ -103,7 +102,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # [[sections.points]] is omitted — the theme renders the three default points.
 
 # -----------------------------------------------------------------------------
-# 6. Volunteer — volunteer-feature brand-anchor band (D11)
+# 5. Volunteer — volunteer-feature brand-anchor band (D11)
 # Opt-in via params.features.volunteer_feature in hugo.toml. Always renders
 # on Scouts Purple regardless of palette. The text column ships the canonical
 # i18n-default copy; the poster ships in the default `role-model` variant.
@@ -116,6 +115,29 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # eyebrow, title, body1, body2, network_note, cta_label, cta_href,
   # poster_tag, poster_headline, poster_hash, stat_line_a, stat_line_b
   # all use theme defaults via i18n.
+
+# -----------------------------------------------------------------------------
+# 6. This term's programme — programme-current (opt-in via
+#    params.features.programme). SPEC-03 Q3.1 was revised on 2026-05-21
+#    to wire this block into the example site so the demo exercises
+#    every section type; consuming Group sites still opt in by adding
+#    this block to their own content/_index.md.
+#
+#    Auto-detects "current" by term_start <= today <= term_end. Renders
+#    one collapsible <details> per matching programme. `density` here
+#    overrides each programme's own density so the home block stays
+#    consistently terse regardless of what each programme page chose.
+# -----------------------------------------------------------------------------
+[[sections]]
+  type     = "programme-current"
+  id       = "this-term"
+  bg       = "muted"
+  align    = "left"
+  eyebrow  = "This term"
+  title    = "What we're doing right now."
+  subtitle = "Click a section to see this term's weekly meeting plan and the Skills for Life themes we're covering."
+  density  = "themes_only"
+  # sections = ["beavers", "cubs"]   # optional filter; empty = all sections
 
 # -----------------------------------------------------------------------------
 # 7. Whats coming up — events-upcoming (opt-in via params.features.events)

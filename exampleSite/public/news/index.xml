@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>News from 1st Anytown Scouts on 1st Anytown Scouts</title>
-    <link>https://example.com/news/</link>
+    <link>http://localhost:1313/news/</link>
     <description>Recent content in News from 1st Anytown Scouts on 1st Anytown Scouts</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Apr 2026 11:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.com/news/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>St George&#39;s Day Parade</title>
-      <link>https://example.com/news/2026-04-19-st-georges-day/</link>
+      <link>http://localhost:1313/news/2026-04-19-st-georges-day/</link>
       <pubDate>Sun, 19 Apr 2026 11:00:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-04-19-st-georges-day/</guid>
+      <guid>http://localhost:1313/news/2026-04-19-st-georges-day/</guid>
       <description>The whole Group turned out for our annual St George&amp;rsquo;s Day Parade — fresh neckers, polished shoes, and a piper to lead us in.</description>
     </item>
     <item>
       <title>Cubs Cooking Cup 2026</title>
-      <link>https://example.com/news/2026-03-30-cubs-cooking-cup/</link>
+      <link>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</link>
       <pubDate>Mon, 30 Mar 2026 19:30:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-03-30-cubs-cooking-cup/</guid>
+      <guid>http://localhost:1313/news/2026-03-30-cubs-cooking-cup/</guid>
       <description>Six teams. Three courses. One champion. Notes from the most-contested Cooking Cup the Pack has ever seen.</description>
     </item>
     <item>
       <title>Squirrels start in September</title>
-      <link>https://example.com/news/2026-02-15-squirrels-launch/</link>
+      <link>http://localhost:1313/news/2026-02-15-squirrels-launch/</link>
       <pubDate>Sun, 15 Feb 2026 10:00:00 +0000</pubDate>
-      <guid>https://example.com/news/2026-02-15-squirrels-launch/</guid>
+      <guid>http://localhost:1313/news/2026-02-15-squirrels-launch/</guid>
       <description>We&amp;rsquo;re delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.</description>
     </item>
   </channel>

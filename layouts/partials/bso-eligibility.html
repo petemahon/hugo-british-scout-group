@@ -1,0 +1,70 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  bso-eligibility — /bso/eligibility/ body. Composes the existing
+  bso-membership-notice partial and adds the expanded language /
+  nationality / volunteer / host-country-alternatives prose.
+
+  Per SPEC-10 Q10.6 the POR 3.2.1.1 reference is visible by default;
+  per-page `por_reference_visible = false` hides the rule-reference
+  paragraph via a CSS suppression class — the bso-membership-notice
+  partial itself isn't modified.
+
+  Context: the eligibility Page.
+*/ -}}
+{{- /* The canonical full "Who can join" notice partial is no longer
+       rendered here — it lives on /join/ instead so visitors meet it
+       in the context of the joining cards rather than three times
+       across the site. The eligibility page expands the same point
+       in the Group's own voice with the language/nationality/
+       volunteering/alternatives detail below. A small POR 3.2.1.1
+       citation lands at the foot of the page when the page-level
+       `por_reference_visible` flag is true, so visitors who arrive
+       here directly from search still see the rule attribution. */ -}}
+{{- $showPor := .Params.por_reference_visible -}}
+{{- if eq $showPor nil }}{{ $showPor = true }}{{ end -}}
+
+<div class="s-bso__eligibility">
+
+  {{- with .Params.intro }}
+    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
+  {{- end }}
+
+  {{- with .Params.language_requirement }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoEligibilityLanguageHeading" | default "Language" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Params.nationality_filter }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoEligibilityNationalityHeading" | default "Nationality" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- if .Params.volunteer_eligibility_open }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoEligibilityVolunteerHeading" | default "Volunteering" }}</h3>
+      <p>{{ i18n "bsoEligibilityVolunteerBody" | default "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles." | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Params.host_country_alternatives_summary }}
+    <section class="s-bso__detail">
+      <h3>{{ i18n "bsoEligibilityAlternativesHeading" | default "Not eligible for BSO?" }}</h3>
+      <p>{{ . | safeHTML }}</p>
+    </section>
+  {{- end }}
+
+  {{- with .Content }}
+    <div class="s-bso__body">{{ . }}</div>
+  {{- end }}
+
+  {{- if $showPor }}
+    <p class="s-bso__por-footnote"><small>{{ i18n "bsoNoticeRuleReference" | safeHTML }}</small></p>
+  {{- end }}
+</div>

@@ -1,0 +1,87 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/scouts-overseas-hugo
+
+  Programme listing — /programme/.
+
+  Lists every published programme, grouped by Scout section (canonical
+  age order from data/scout_sections.toml), reverse chronological within
+  each section.
+
+  Filtering rules (SPEC-03 acceptance criterion #5):
+    - Past terms (term_end < today) hidden unless
+      params.programme.keep_archive = true.
+    - Future terms (term_start > today) are always shown so parents can
+      see what's coming up.
+    - The current term (term_start <= today <= term_end) is always shown.
+
+  Gated by site.Params.features.programme. If the flag is off this
+  template renders empty <main>; the route itself only exists because
+  the section /programme/ has an _index.md in content/.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.programme -}}
+  {{- $now        := now -}}
+  {{- $keepArchive := site.Params.programme.keep_archive | default false -}}
+  {{- $all        := where site.RegularPages "Section" "programme" -}}
+  {{- if not $keepArchive -}}
+    {{- $all = where $all "Params.term_end" ">=" $now -}}
+  {{- end -}}
+
+  <section class="section s-programme s-programme--list reveal">
+    <div class="container">
+
+      <div class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "programmeEyebrow" | default "Termly programmes" }}</span>
+        <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "programmeHeading" | default "What we're doing this term" }}{{ end }}</h1>
+        {{- with .Description }}<p>{{ . | safeHTML }}</p>{{ end }}
+      </div>
+
+      {{- if eq (len $all) 0 }}
+        <p class="s-programme__empty display-7">
+          {{- i18n "programmeNoPosts" | default "No published programmes yet — check back at the start of next term." -}}
+        </p>
+      {{- else }}
+        {{- /* Render one block per enabled section that has at least
+               one matching programme. Order follows the canonical
+               section order from data/scout_sections.toml. */ -}}
+        {{- range hugo.Data.scout_sections.items -}}
+          {{- $sectionKey  := .key -}}
+          {{- $sectionName := .name -}}
+          {{- $sectionColour := .color -}}
+          {{- $sectionTextColour := .text_color -}}
+          {{- $programmes := where $all "Params.section" $sectionKey -}}
+          {{- $programmes = sort $programmes "Params.term_start" "desc" -}}
+          {{- if gt (len $programmes) 0 }}
+            <div class="s-programme__section" id="{{ $sectionKey }}">
+              <h2 class="s-programme__section-heading">
+                <span class="s-programme__section-pip"
+                      style="background: {{ $sectionColour }}; color: {{ $sectionTextColour }};"
+                      aria-hidden="true">{{ substr $sectionName 0 1 }}</span>
+                {{ $sectionName }}
+              </h2>
+              <ul class="s-programme__index" role="list">
+                {{- range $programmes }}
+                  <li class="s-programme__index-item">
+                    <a class="styled-link s-programme__index-link" href="{{ .RelPermalink }}">
+                      <span class="s-programme__index-term">{{ with .Params.term }}{{ . }}{{ else }}{{ .Title }}{{ end }}</span>
+                      <span class="s-programme__index-dates">
+                        {{ dateFormat "2 January 2006" .Params.term_start }}
+                        &ndash;
+                        {{ dateFormat "2 January 2006" .Params.term_end }}
+                      </span>
+                      {{- with .Params.term_anchor }}<span class="s-programme__index-anchor">{{ . }}</span>{{ end }}
+                    </a>
+                  </li>
+                {{- end }}
+              </ul>
+            </div>
+          {{- end -}}
+        {{- end }}
+      {{- end }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}
