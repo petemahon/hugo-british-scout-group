@@ -100,6 +100,13 @@
       <description>&lt;p&gt;A short planning call for Section Leaders and Assistants across the&#xA;Brussels District ahead of the autumn term. We&amp;rsquo;ll cover the term card,&#xA;the District camp shortlist, safeguarding refresher dates, and any&#xA;help needed on the volunteer rota.&lt;/p&gt;&#xA;&lt;p&gt;Dial-in details will be sent by email the day before. If you can&amp;rsquo;t&#xA;make it, drop the GSL a note and we&amp;rsquo;ll fold your input into the notes.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Photo consent</title>
+      <link>http://localhost:1313/policies/photo-consent/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/policies/photo-consent/</guid>
+      <description>&lt;p&gt;This page is the starter wording shipped with the British Scout Group&#xA;theme. Replace the body below with the policy your Group has agreed&#xA;with its Trustees. Nothing on this page is rendered as a legal&#xA;instrument until you&amp;rsquo;ve reviewed it with your safeguarding lead.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-we-ask&#34;&gt;Why we ask&lt;/h2&gt;&#xA;&lt;p&gt;Some of what we do is naturally photogenic — camps, badge presentations,&#xA;parades. Sharing photos helps families see what their child has been&#xA;up to and shows prospective members what life in the Group is like.&#xA;We also have a duty of care to the young people in those photos.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>St George&#39;s Day Parade</title>
       <link>http://localhost:1313/news/2026-04-19-st-georges-day/</link>
       <pubDate>Sun, 19 Apr 2026 11:00:00 +0000</pubDate>
@@ -121,6 +128,55 @@
       <description>We&amp;rsquo;re delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.</description>
     </item>
     <item>
+      <title>001</title>
+      <link>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>001</title>
+      <link>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>001</title>
+      <link>http://localhost:1313/galleries/galleries/2026-08-14-cubs-summer-camp/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-08-14-cubs-summer-camp/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>002</title>
+      <link>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/002/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>002</title>
+      <link>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/002/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>003</title>
+      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/003/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/003/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Awards before the service</title>
+      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/002/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Beavers — Summer Term 2026</title>
       <link>http://localhost:1313/programme/beavers-summer-2026/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -140,6 +196,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/bso/home-range/</guid>
       <description>&lt;p&gt;This page is gated by &lt;code&gt;params.bso.show_home_range&lt;/code&gt; in your site&amp;rsquo;s&#xA;&lt;code&gt;hugo.toml&lt;/code&gt;. Default is &lt;strong&gt;false&lt;/strong&gt; — most BSO Groups don&amp;rsquo;t need a&#xA;formal home-range publication. Flip the param to &lt;code&gt;true&lt;/code&gt; to surface&#xA;the link in the &lt;code&gt;/bso/&lt;/code&gt; hub.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Map check at the second checkpoint</title>
+      <link>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/002/</guid>
+      <description></description>
     </item>
     <item>
       <title>Moving on</title>
@@ -175,6 +238,20 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/programme/scouts-autumn-2026/</guid>
       <description>&lt;p&gt;A look ahead to next autumn — published early so parents can plan&#xA;around the weekend hike and Remembrance parade.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting off as the light fades</title>
+      <link>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Squirrels and Beavers on parade outside the church</title>
+      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/001/</guid>
+      <description></description>
     </item>
     <item>
       <title>Who can join 1st Anytown Scouts</title>

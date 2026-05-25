@@ -13,9 +13,14 @@
   {{ else }}
     <section class="section">
       <div class="container">
-        <article class="s-prose__inner">
-          <h1 class="display-2">{{ .Title }}</h1>
-          {{ .Content }}
+        <article class="s-article reveal">
+          <header class="s-article__head">
+            <h1 class="s-article__title display-2">{{ .Title }}</h1>
+            {{- with .Description }}<p class="s-article__lede">{{ . }}</p>{{ end }}
+          </header>
+          <div class="s-article__body">
+            {{ .Content }}
+          </div>
         </article>
       </div>
     </section>

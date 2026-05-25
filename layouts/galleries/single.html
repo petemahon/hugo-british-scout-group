@@ -1,0 +1,122 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Gallery grid — /galleries/<slug>/. Listed by Hugo via the cascaded
+  layout="single" set in content/galleries/_index.md. Per-photo pages
+  are sub-pages of this section, registered by the adapter at
+  content/galleries/_content.gotmpl with layout="photo".
+
+  Implements the SPEC-COMMON §10 photo-consent lint and SPEC-04's
+  additional consent_log lint — both errorf at build time, never
+  rendered. cover_alt is required when cover is set.
+*/ -}}
+{{ define "main" }}
+{{- if not site.Params.features.galleries -}}
+{{- else -}}
+
+  {{- /* Image set — sub-pages added by the adapter, sorted by filename
+         so order matches alphabetical numeric naming (001, 002, …). */ -}}
+  {{- $photos := sort .Pages "Params.image_file" -}}
+  {{- $hasImages := gt (len $photos) 0 -}}
+
+  {{- /* Consent lints. Fire when ANY image is present (cover or grid). */ -}}
+  {{- if and $hasImages (ne .Params.photo_consent true) -}}
+    {{- errorf "gallery %q: photo_consent is not true. Set photo_consent = true in front-matter once signed consent is on file for every identifiable face, or until faces are obscured. See SPEC-COMMON §10." .File.LogicalName -}}
+  {{- end -}}
+  {{- if and $hasImages (eq (.Params.consent_log | default "") "") -}}
+    {{- errorf "gallery %q: consent_log is empty. Set consent_log to a short string pointing to where signed consent records are stored (e.g. \"OSM > Personal Details > Photo Consent\"). Never rendered; build-time lint only. See SPEC-04 §Safeguarding." .File.LogicalName -}}
+  {{- end -}}
+  {{- if and .Params.cover (eq (.Params.cover_alt | default "") "") -}}
+    {{- errorf "gallery %q: cover is set but cover_alt is empty. cover_alt is required for accessibility." .File.LogicalName -}}
+  {{- end -}}
+
+  {{- /* Cover resolution: explicit `cover` filename, else first photo. */ -}}
+  {{- $coverImage := "" -}}
+  {{- with .Params.cover -}}
+    {{- $coverImage = resources.Get (printf "galleries/%s/%s" $.File.ContentBaseName .) -}}
+    {{- if not $coverImage -}}
+      {{- errorf "gallery %q: cover %q not found. Expected at assets/galleries/%s/%s." $.File.LogicalName . $.File.ContentBaseName . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with index $photos 0 -}}
+      {{- $coverImage = resources.Get (printf "galleries/%s/%s" .Params.gallery_slug .Params.image_file) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $coverAlt := .Params.cover_alt | default (printf "Cover photo for %s" .Title) -}}
+
+  {{- /* Info notice when sidecar is missing — encourages captions. */ -}}
+  {{- if $hasImages -}}
+    {{- $sidecar := "" -}}
+    {{- with hugo.Data.galleries -}}{{- $sidecar = index . $.File.ContentBaseName -}}{{- end -}}
+    {{- if not $sidecar -}}
+      {{- warnf "gallery %q has %d image(s) but no sidecar at data/galleries/%s.toml. Add one to provide captions and alt text for accessibility." .File.LogicalName (len $photos) $.File.ContentBaseName -}}
+    {{- end -}}
+  {{- end -}}
+
+  <article class="section s-galleries s-galleries--single reveal">
+    <div class="container">
+
+      <header class="s-galleries__head">
+        <p class="eyebrow">
+          <a href="{{ "/galleries/" | relURL }}">{{ i18n "galleriesBackToList" }}</a>
+        </p>
+        <h1 class="s-galleries__title display-2">{{ .Title }}</h1>
+        {{- with .Params.summary }}<p class="s-galleries__summary display-7">{{ . }}</p>{{ end }}
+        {{- with .Params.note }}<p class="s-galleries__note display-7">{{ . | safeHTML }}</p>{{ end }}
+        {{- with .Params.sections }}
+          {{- $items := hugo.Data.scout_sections.items -}}
+          <ul class="section-badges" aria-label="{{ i18n "galleriesSectionBadge" }}">
+            {{- range . }}
+              {{- $key := . -}}
+              {{- range $items -}}
+                {{- if eq .key $key }}
+                  <li class="section-badges__pill section-badges__pill--static" style="--badge-bg: {{ .color }}; --badge-fg: {{ .text_color }};">
+                    <span>{{ .name }}</span>
+                  </li>
+                {{- end -}}
+              {{- end -}}
+            {{- end }}
+          </ul>
+        {{- end }}
+        {{- if or .Params.event_ref .Params.news_ref }}
+          <p class="s-galleries__crosslinks display-7">
+            {{- with .Params.event_ref }}
+              {{- $event := site.GetPage (printf "/events/%s" .) -}}
+              {{- with $event }}<a class="s-galleries__crosslink" href="{{ .RelPermalink }}">{{ i18n "galleriesFromEvent" }} {{ .Title }} →</a>{{ end -}}
+            {{- end }}
+            {{- with .Params.news_ref }}
+              {{- $news := site.GetPage (printf "/news/%s" .) -}}
+              {{- with $news }}<a class="s-galleries__crosslink" href="{{ .RelPermalink }}">{{ i18n "galleriesFromNews" }} {{ .Title }} →</a>{{ end -}}
+            {{- end }}
+          </p>
+        {{- end }}
+      </header>
+
+      {{- if $hasImages }}
+        <div class="s-galleries__grid">
+          {{- range $photos }}
+            {{- partial "gallery-thumbnail.html" . -}}
+          {{- end }}
+        </div>
+      {{- else }}
+        <p class="s-galleries__empty display-7">{{ i18n "galleriesEmpty" }}</p>
+      {{- end }}
+
+      {{- with .Params.video_links }}
+        {{- partial "gallery-video-links.html" (dict "links" . "slug" $.File.ContentBaseName) }}
+      {{- end }}
+
+      {{- if and (site.Params.galleries.show_consent_link | default true) site.Params.galleries.consent_policy_url }}
+        <footer class="s-galleries__foot">
+          <p class="display-7">
+            <a class="s-galleries__consent-link" href="{{ site.Params.galleries.consent_policy_url | relURL }}">{{ i18n "galleriesConsentPolicyLink" }} →</a>
+          </p>
+        </footer>
+      {{- end }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

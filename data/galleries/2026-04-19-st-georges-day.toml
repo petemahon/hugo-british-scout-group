@@ -1,0 +1,22 @@
+# Sidecar captions for /galleries/2026-04-19-st-georges-day/.
+# Optional: any image without an entry here still renders, with
+# alt text falling back to a generic gallery-derived string. Adding
+# entries here improves accessibility and OG-share previews.
+
+[[image]]
+  file          = "001.webp"
+  caption       = "Squirrels and Beavers on parade outside the church"
+  alt           = "A line of Squirrels and Beavers in uniform standing to attention on the church steps"
+  faces_blurred = false
+
+[[image]]
+  file          = "002.webp"
+  caption       = "Awards before the service"
+  alt           = "A Cub Scout receiving a chief scout silver award from the District Commissioner"
+  faces_blurred = false
+
+[[image]]
+  file          = "003.webp"
+  caption       = ""
+  alt           = "Scout colour party leading the parade up the high street"
+  faces_blurred = false

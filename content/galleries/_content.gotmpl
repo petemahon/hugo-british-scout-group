@@ -1,0 +1,87 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Galleries content adapter — SPEC-04.
+
+  For every gallery directory the consuming site has under
+  content/galleries/<slug>/, scan assets/galleries/<slug>/ for image
+  files and register one virtual photo Page per image at
+  /galleries/<slug>/<image-basename>/. Each photo page renders via
+  layouts/galleries/photo.html — set explicitly through layout="photo"
+  so the /galleries/ cascade (layout="single", kind=section only)
+  does not collide with the per-photo template.
+
+  Group ergonomics: drop an image into assets/galleries/<slug>/ and
+  it appears at the next rebuild. No per-photo .md bookkeeping. The
+  optional sidecar at data/galleries/<slug>.toml supplies captions,
+  alt text and faces_blurred flags per image; missing sidecar still
+  builds, with an info-level notice suggesting captions for a11y.
+
+  Gated by params.features.galleries — adapter is a no-op when the
+  feature is off, so a Group with no gallery content doesn't pay any
+  scan cost.
+*/ -}}
+
+{{- if not site.Params.features.galleries -}}
+{{- else -}}
+
+{{- $galleriesDir := "content/galleries" -}}
+{{- if fileExists $galleriesDir -}}
+
+  {{- range (os.ReadDir $galleriesDir) -}}
+    {{- if .IsDir -}}
+      {{- $slug := .Name -}}
+      {{- $assetDir := printf "assets/galleries/%s" $slug -}}
+
+      {{- if fileExists $assetDir -}}
+
+        {{- /* Captions sidecar — build a {filename -> meta} lookup so
+               each image registration can pull caption / alt /
+               faces_blurred without re-scanning the slice. */ -}}
+        {{- $byFile := dict -}}
+        {{- with hugo.Data.galleries -}}
+          {{- $sidecar := index . $slug -}}
+          {{- with $sidecar -}}
+            {{- range .image -}}
+              {{- $byFile = merge $byFile (dict .file .) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- range (os.ReadDir $assetDir) -}}
+          {{- $file := .Name -}}
+          {{- $lower := lower $file -}}
+          {{- if or (hasSuffix $lower ".jpg") (hasSuffix $lower ".jpeg") (hasSuffix $lower ".png") (hasSuffix $lower ".webp") -}}
+            {{- $base := strings.TrimSuffix (path.Ext $file) $file -}}
+            {{- $meta := index $byFile $file -}}
+            {{- $caption := "" -}}
+            {{- $alt := "" -}}
+            {{- $facesBlurred := false -}}
+            {{- with $meta -}}
+              {{- $caption = .caption | default "" -}}
+              {{- $alt = .alt | default "" -}}
+              {{- $facesBlurred = .faces_blurred | default false -}}
+            {{- end -}}
+            {{- $.AddPage (dict
+              "path" (printf "galleries/%s/%s" $slug $base)
+              "kind" "page"
+              "title" (or $caption $base)
+              "params" (dict
+                "layout" "photo"
+                "image_file" $file
+                "gallery_slug" $slug
+                "image_caption" $caption
+                "image_alt" $alt
+                "faces_blurred" $facesBlurred
+              )
+              "content" (dict "mediaType" "text/markdown" "value" "")
+            ) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}

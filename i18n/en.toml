@@ -511,6 +511,65 @@ other = "BSO Area"
 other = "District"
 
 # -----------------------------------------------------------------------------
+# Galleries — used by layouts/galleries/* and the gallery-* partials.
+# SPEC-04. Override in your site's i18n/en.toml to change wording.
+# -----------------------------------------------------------------------------
+[galleriesHeading]
+other = "Galleries"
+
+[galleriesEmptyList]
+other = "No galleries published yet — check back after the next camp."
+
+[galleriesEmpty]
+other = "No photos in this gallery yet."
+
+[galleriesBackToList]
+other = "← Galleries"
+
+[galleriesSectionBadge]
+other = "Scout sections in this gallery"
+
+[galleriesFromEvent]
+other = "From event:"
+
+[galleriesFromNews]
+other = "Camp report:"
+
+[galleriesItemCount]
+one   = "{{ .Count }} item"
+other = "{{ .Count }} items"
+
+[galleriesViewAll]
+other = "View all galleries"
+
+[galleriesFacesBlurred]
+other = "Faces obscured at parents' request"
+
+[galleriesFacesBlurredShort]
+other = "Faces obscured"
+
+[galleriesPhotoNavPrev]
+other = "Previous photo"
+
+[galleriesPhotoNavNext]
+other = "Next photo"
+
+[galleriesPhotoNavStatus]
+other = "{{ .Current }} of {{ .Total }}"
+
+[galleriesPhotoNavAria]
+other = "Photo navigation"
+
+[galleriesVideosHeading]
+other = "Watch"
+
+[galleriesVideoOpenCta]
+other = "Watch"
+
+[galleriesConsentPolicyLink]
+other = "How we handle photos"
+
+# -----------------------------------------------------------------------------
 # Footer — used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]

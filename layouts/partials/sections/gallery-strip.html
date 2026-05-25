@@ -1,0 +1,108 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  gallery-strip — home-page (or any-page) block showing the latest
+  gallery's cover plus a short row of thumbnails. Gated by
+  site.Params.features.galleries; renders nothing if off, or if no
+  galleries are published yet.
+
+  Section params (front-matter under [[sections]]):
+    id          (string, optional)
+    eyebrow     (string, optional)
+    title       (string, optional) — falls back to gallery title
+    subtitle    (string, optional, HTML allowed)
+    align       (string, optional) — "left" → sect-head--left
+    bg          (string, optional)
+    title_color (string, optional)
+    count       (int, optional, default 5, max 12) — thumbs after the cover
+    show_more   (bool, optional, default true) — render the "View all galleries" link
+*/ -}}
+{{- if site.Params.features.galleries -}}
+{{- $galleries := where site.RegularPages "Section" "galleries" -}}
+{{- $galleries = $galleries.ByDate.Reverse -}}
+{{- /* RegularPages doesn't include section pages; gallery roots are sections.
+       Use .Sections of the /galleries/ root instead. */ -}}
+{{- $galleriesRoot := site.GetPage "/galleries" -}}
+{{- $latest := "" -}}
+{{- with $galleriesRoot -}}
+  {{- $sorted := .Sections.ByDate.Reverse -}}
+  {{- with index $sorted 0 }}{{ $latest = . }}{{ end -}}
+{{- end -}}
+
+{{- if $latest -}}
+  {{- $id := .id | default "" -}}
+  {{- $bgClass := "" -}}
+  {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+  {{- $titleClass := "" -}}
+  {{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
+  {{- $headClass := "sect-head" -}}
+  {{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
+  {{- $count := .count | default 5 -}}
+  {{- if gt $count 12 }}{{ $count = 12 }}{{ end -}}
+  {{- $showMore := true -}}
+  {{- if isset . "show_more" }}{{ $showMore = .show_more }}{{ end -}}
+
+  {{- $photos := sort $latest.Pages "Params.image_file" -}}
+  {{- $coverFile := $latest.Params.cover -}}
+  {{- if eq $coverFile "" -}}
+    {{- with index $photos 0 -}}{{- $coverFile = .Params.image_file -}}{{- end -}}
+  {{- end -}}
+  {{- $coverImg := "" -}}
+  {{- with $coverFile -}}
+    {{- $coverImg = resources.Get (printf "galleries/%s/%s" $latest.File.ContentBaseName .) -}}
+  {{- end -}}
+  {{- $coverAlt := $latest.Params.cover_alt | default (printf "Cover photo for %s" $latest.Title) -}}
+  {{- $thumbs := first $count $photos -}}
+
+  <section{{ with $id }} id="{{ . }}"{{ end }} class="section s-gallery-strip reveal {{ $bgClass }}">
+    <div class="container">
+      <div class="{{ $headClass }}">
+        {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
+        <h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ with $.title }}{{ . }}{{ else }}{{ $latest.Title }}{{ end }}</h2>
+        {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+      </div>
+
+      <div class="s-gallery-strip__layout">
+        {{- with $coverImg }}
+          {{- $cMed := .Resize "1280x webp q82" -}}
+          {{- $cThumb := .Resize "640x webp q82" -}}
+          <a class="s-gallery-strip__cover" href="{{ $latest.RelPermalink }}">
+            <img src="{{ $cThumb.RelPermalink }}"
+                 srcset="{{ $cThumb.RelPermalink }} 640w, {{ $cMed.RelPermalink }} 1280w"
+                 sizes="(max-width: 700px) 100vw, 720px"
+                 alt="{{ $coverAlt }}"
+                 loading="lazy">
+            <span class="s-gallery-strip__cover-title">{{ $latest.Title }}</span>
+          </a>
+        {{- end }}
+
+        {{- if gt (len $thumbs) 0 }}
+          <ul class="s-gallery-strip__thumbs">
+            {{- range $thumbs }}
+              {{- $img := resources.Get (printf "galleries/%s/%s" .Params.gallery_slug .Params.image_file) -}}
+              {{- with $img -}}
+                {{- $t := .Resize "320x webp q82" -}}
+                <li>
+                  <a class="s-gallery-strip__thumb" href="{{ $.RelPermalink }}">
+                    <img src="{{ $t.RelPermalink }}"
+                         alt="{{ $.Params.image_alt | default (printf "Photo from %s" $latest.Title) }}"
+                         loading="lazy">
+                  </a>
+                </li>
+              {{- end -}}
+            {{- end }}
+          </ul>
+        {{- end }}
+      </div>
+
+      {{- if $showMore }}
+        <p class="s-gallery-strip__viewall">
+          <a class="btn btn-primary" href="{{ "/galleries/" | relURL }}">{{ i18n "galleriesViewAll" }} →</a>
+        </p>
+      {{- end }}
+    </div>
+  </section>
+{{- end -}}
+{{- end -}}

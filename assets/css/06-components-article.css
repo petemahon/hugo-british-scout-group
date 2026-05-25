@@ -1,0 +1,111 @@
+/* -----------------------------------------------------------------------------
+   6. ARTICLE — long-form Markdown body for flat content pages
+   Used by layouts/_default/single.html when a page has no [[sections]] array
+   (policies, terms, ad-hoc one-off pages). The prose SECTION partial
+   (`s-prose__inner`, see 17-section-prose.css) is for a single big section
+   heading plus body text and bumps h2 to display-2 (4rem). That sizing breaks
+   any flat Markdown page with multiple `##` subheadings — they all render at
+   hero scale next to body text. This component is the article-shaped
+   alternative: h2/h3 stay subordinate to the page title, margins follow
+   typographic rhythm, and line-length is capped for comfortable reading.
+   ----------------------------------------------------------------------------- */
+
+.s-article {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.s-article__head {
+  margin-bottom: 2rem;
+}
+.s-article__title {
+  margin: 0 0 0.75rem;
+}
+.s-article__lede {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.s-article__body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.s-article__body > :first-child { margin-top: 0; }
+.s-article__body > :last-child  { margin-bottom: 0; }
+
+.s-article__body p,
+.s-article__body ul,
+.s-article__body ol {
+  margin: 0 0 1.25rem;
+}
+.s-article__body ul,
+.s-article__body ol {
+  padding-left: 1.5rem;
+}
+.s-article__body li + li { margin-top: 0.35rem; }
+
+.s-article__body h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 2.5rem 0 0.75rem;
+}
+.s-article__body h3 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin: 2rem 0 0.6rem;
+}
+.s-article__body h4 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.s-article__body a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.s-article__body a:hover { color: var(--primary-hover); }
+
+.s-article__body strong { font-weight: 700; }
+.s-article__body em     { font-style: italic; }
+
+.s-article__body blockquote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--secondary);
+  background: var(--bg-muted);
+  border-radius: 0.25rem;
+  color: var(--text);
+}
+.s-article__body blockquote > :last-child { margin-bottom: 0; }
+
+.s-article__body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  background: var(--bg-muted);
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+}
+.s-article__body pre {
+  background: var(--bg-muted);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+.s-article__body pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.s-article__body hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 2rem 0;
+}

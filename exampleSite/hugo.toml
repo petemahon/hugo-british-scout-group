@@ -232,6 +232,7 @@ disableKinds = ["taxonomy", "term"]
   bso_hub           = true
   network_feature   = true
   volunteer_feature = true
+  galleries         = true
 
 
 # -----------------------------------------------------------------------------
@@ -297,6 +298,22 @@ disableKinds = ["taxonomy", "term"]
 # -----------------------------------------------------------------------------
 [params.welcome_pack]
   print_route = true
+
+# -----------------------------------------------------------------------------
+# Galleries — see SPEC-04.
+#   thumbs_per_row      Hint for the CSS Grid auto-fit (purely visual; the
+#                       grid is responsive regardless).
+#   show_captions       When true, captions in data/galleries/<slug>.toml
+#                       are surfaced over thumbnails on /galleries/<slug>/.
+#   show_consent_link   Render a footer link to the photo-consent policy
+#                       below each gallery grid.
+#   consent_policy_url  Path to the photo-consent policy page on this site.
+# -----------------------------------------------------------------------------
+[params.galleries]
+  thumbs_per_row     = 4
+  show_captions      = true
+  show_consent_link  = true
+  consent_policy_url = "/policies/photo-consent/"
 
 # -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.

@@ -166,7 +166,22 @@ description = "Skills for Life — example Scout Group home page using the Briti
 
 
 # -----------------------------------------------------------------------------
-# 9. Where we meet — section-header (acts as title for the map below)
+# 9. Latest gallery — gallery-strip (opt-in via params.features.galleries)
+# Renders the most recent gallery's cover plus a short row of thumbs and
+# a "View all galleries" CTA. Renders nothing if no galleries are
+# published yet (or if params.features.galleries is false).
+# -----------------------------------------------------------------------------
+[[sections]]
+  type      = "gallery-strip"
+  id        = "galleries"
+  align     = "left"
+  eyebrow   = "Lately"
+  title     = "From our latest camp."
+  count     = 5
+  show_more = true
+
+# -----------------------------------------------------------------------------
+# 10. Where we meet — section-header (acts as title for the map below)
 # -----------------------------------------------------------------------------
 [[sections]]
   type     = "section-header"
@@ -177,7 +192,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
-# 10. The map — embed
+# 11. The map — embed
 # -----------------------------------------------------------------------------
 [[sections]]
   type   = "embed"

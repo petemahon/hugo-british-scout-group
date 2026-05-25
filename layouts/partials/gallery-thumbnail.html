@@ -1,0 +1,36 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  gallery-thumbnail — one card in the grid on /galleries/<slug>/.
+  Receives a photo Page added by the adapter; pulls the source image
+  from assets/galleries/<slug>/<file>, produces a 320w + 640w WebP
+  pair, and links to the per-photo page at .RelPermalink.
+*/ -}}
+{{- $slug := .Params.gallery_slug -}}
+{{- $file := .Params.image_file -}}
+{{- $imgPath := printf "galleries/%s/%s" $slug $file -}}
+{{- $img := resources.Get $imgPath -}}
+{{- if not $img -}}
+  {{- errorf "gallery thumbnail: image %q not found at assets/%s. The content adapter registered this photo from the asset directory; if you deleted the source after a previous build, run a clean rebuild." $file $imgPath -}}
+{{- else -}}
+  {{- $thumb := $img.Resize "320x webp q82" -}}
+  {{- $med := $img.Resize "640x webp q82" -}}
+  {{- $alt := .Params.image_alt -}}
+  {{- if eq $alt "" -}}{{- $alt = printf "Photo from %s" (.CurrentSection.Title) -}}{{- end -}}
+  <a class="s-galleries__thumb" href="{{ .RelPermalink }}">
+    <img src="{{ $thumb.RelPermalink }}"
+         srcset="{{ $thumb.RelPermalink }} 320w, {{ $med.RelPermalink }} 640w"
+         sizes="(max-width: 700px) 50vw, 220px"
+         width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+         alt="{{ $alt }}"
+         loading="lazy">
+    {{- if .Params.faces_blurred }}
+      <span class="s-galleries__thumb-flag" aria-label="{{ i18n "galleriesFacesBlurred" }}">{{ i18n "galleriesFacesBlurredShort" }}</span>
+    {{- end }}
+    {{- with .Params.image_caption }}
+      <span class="s-galleries__thumb-caption">{{ . }}</span>
+    {{- end }}
+  </a>
+{{- end -}}

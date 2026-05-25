@@ -240,6 +240,7 @@ maintain.
   news              = true     # SPEC-01
   events            = true     # SPEC-02
   programme         = true     # SPEC-03 termly programmes
+  galleries         = true     # SPEC-04 photo galleries
   joining           = true     # SPEC-06 /join/ page
   welcome_pack      = true     # SPEC-06 /welcome-pack/ content section
   bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
@@ -272,6 +273,7 @@ relies on these keys).
 | `volunteer-feature`  | The "Register to volunteer." brand-anchor band on Scouts Purple.                   |
 | `events-upcoming`    | Home-page block listing future events with `.ics` downloads (requires `events`).   |
 | `news-grid`          | Home-page block listing recent news posts (requires `news`).                       |
+| `gallery-strip`      | Home-page block — latest gallery's cover plus a short row of thumbs (requires `galleries`). |
 | `programme-current`  | Home-page block — collapsible "this term's programme" per section (requires `programme`). Opt-in: ships disabled by default. |
 | `join` / `where-we-meet` | Stable nav-anchor sections.                                                    |
 
@@ -413,6 +415,133 @@ opt in by pasting this into your `content/_index.md`:
   show_more = true                   # render "View all programmes →" button
   # sections = ["beavers", "cubs"]   # optional filter; empty = all sections
 ```
+
+### Photo Galleries (SPEC-04)
+
+A `/galleries/` content section for camp and event photo galleries.
+The highest residual safeguarding surface in the roadmap — the build
+fails (`errorf`) on any gallery that resolves images without
+`photo_consent = true` and a non-empty `consent_log` in front-matter.
+Both lints are build-time only; the consent log is never rendered.
+
+```toml
+[params.features]
+  galleries = true
+
+[params.galleries]
+  thumbs_per_row     = 4
+  show_captions      = true
+  show_consent_link  = true
+  consent_policy_url = "/policies/photo-consent/"
+```
+
+Scaffold a new gallery with:
+
+```sh
+hugo new galleries/2026-summer-camp/_index.md
+```
+
+Then drop the photo files into `assets/galleries/2026-summer-camp/`.
+**No `.md` bookkeeping per photo** — a Hugo *content adapter* at
+`content/galleries/_content.gotmpl` walks each gallery's asset
+directory and registers one virtual `Page` per image at
+`/galleries/<slug>/<image-basename>/`. Add a JPG to the directory
+and it appears at the next rebuild.
+
+**Captions and alt text** live in an optional sidecar at
+`data/galleries/<slug>.toml`:
+
+```toml
+[[image]]
+  file          = "001.jpg"
+  caption       = "Cubs starting the obstacle course"
+  alt           = "A line of Cubs running between hay bales"
+  faces_blurred = false
+```
+
+Missing sidecar still builds — Hugo emits an `info`-level notice
+encouraging captions for accessibility. Setting `faces_blurred = true`
+surfaces a small "Faces obscured" pill on the thumbnail.
+
+**Per-photo Open Graph meta.** Each `/galleries/<slug>/<image>/` page
+emits its own `og:image` (the 1280w WebP resize), `og:title` (gallery
+title plus caption), and `og:description` (the image alt text). A
+parent sharing a single photo with grandparents shows that photo as
+the preview, not the home page hero.
+
+**Video links** are external-only — the gallery's front-matter accepts
+a `[[video_links]]` array of `{url, label, thumbnail?}` blocks that
+render as outbound cards. **No video files are hosted by the theme
+and no players are embedded** (YouTube, Vimeo, Facebook video URLs
+are recognised and labelled accordingly).
+
+**Time-based pruning is documented, not built.** Galleries from many
+years ago can become a maintenance and safeguarding burden. A GitHub
+Actions cron can prune galleries older than N years, but the theme
+deliberately doesn't ship one — a forgotten cron will keep pruning.
+The opt-in pattern, with the explicit warning:
+
+> **Warning.** A scheduled-prune cron will continue removing content
+> over time even if you forget about it. If your repo has no recent
+> commits and the cron is still scheduled, it will eventually prune
+> everything. Treat as opt-in only, with a calendar reminder to review.
+
+```yaml
+# .github/workflows/prune-galleries.yml — OPT-IN, READ THE WARNING
+name: Prune galleries older than 3 years
+on:
+  schedule:
+    - cron: "0 3 1 * *"   # 03:00 on the 1st of each month
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find and remove galleries older than 3 years
+        run: |
+          cutoff=$(date -d "3 years ago" +%Y-%m-%d)
+          find content/galleries -mindepth 1 -maxdepth 1 -type d | while read d; do
+            date=$(grep -m1 '^date' "$d/_index.md" | sed -E 's/.*= *//' | tr -d '"')
+            if [[ "$date" < "$cutoff" ]]; then
+              slug=$(basename "$d")
+              git rm -r "$d"
+              git rm -rf "assets/galleries/$slug" 2>/dev/null || true
+              git rm "data/galleries/$slug.toml" 2>/dev/null || true
+            fi
+          done
+      - name: Open PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: prune galleries older than 3 years"
+          branch: chore/prune-galleries
+          title: "Prune galleries older than 3 years"
+          body: |
+            Automated prune. **Review the diff before merging.**
+            Cron: monthly. Calendar reminder to review every quarter
+            so a forgotten cron does not silently prune everything.
+```
+
+The workflow opens a PR rather than committing directly — a human
+must review and merge each prune.
+
+**Safeguarding checklist** when publishing a gallery:
+
+1. Every identifiable face has signed consent on file, OR every face
+   is obscured.
+2. `photo_consent = true` is set in the gallery's `_index.md`.
+3. `consent_log` points to where the signed records are kept (OSM,
+   a shared drive folder, etc.).
+4. Image filenames are numeric (`001.jpg`) — never a young person's
+   name.
+5. Captions do not name young people.
+6. Source JPGs have been EXIF-stripped (`exiftool -all=`) to remove
+   GPS and device metadata before commit.
+7. The `consent-policy.md` page on the site documents the Group's
+   approach to handling photos.
 
 ### Joining & Waiting List (SPEC-06)
 
@@ -689,6 +818,7 @@ adding a new module is a drop-in:
 51-section-joining.css         (SPEC-06)
 52-section-welcome-pack.css    (SPEC-06)
 53-section-bso-hub.css         (SPEC-10)
+54-section-galleries.css       (SPEC-04)
 ```
 
 To override theme styles in your site, add a `assets/css/99-site.css`

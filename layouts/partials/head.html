@@ -4,6 +4,10 @@
 {{- end -}}
 {{- $description := .Params.description | default site.Params.description | default "" -}}
 {{- $ogImage := .Params.ogImage | default site.Params.ogImage -}}
+{{- /* Photo pages emit their own OG block via gallery-photo-og.html — the
+       per-photo title, alt-text-as-description, and the 1280w WebP as
+       og:image. Suppress the generic block below to avoid duplicate tags. */ -}}
+{{- $isPhotoPage := and site.Params.features.galleries (eq .Layout "photo") -}}
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +17,10 @@
 <meta name="description" content="{{ . }}">
 {{- end }}
 
+{{- if $isPhotoPage }}
+<!-- Open Graph / social — per-photo meta (SPEC-04) -->
+{{ partial "gallery-photo-og.html" . }}
+{{- else }}
 <!-- Open Graph / social -->
 <meta property="og:title" content="{{ $title }}">
 {{- with $description }}
@@ -24,6 +32,7 @@
 <meta property="og:image" content="{{ . | absURL }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ . | absURL }}">
+{{- end }}
 {{- end }}
 
 {{- with site.Params.favicon }}

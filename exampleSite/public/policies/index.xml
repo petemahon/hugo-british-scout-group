@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Policies on 1st Anytown Scouts</title>
+    <link>http://localhost:1313/policies/</link>
+    <description>Recent content in Policies on 1st Anytown Scouts</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/policies/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Photo consent</title>
+      <link>http://localhost:1313/policies/photo-consent/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/policies/photo-consent/</guid>
+      <description>&lt;p&gt;This page is the starter wording shipped with the British Scout Group&#xA;theme. Replace the body below with the policy your Group has agreed&#xA;with its Trustees. Nothing on this page is rendered as a legal&#xA;instrument until you&amp;rsquo;ve reviewed it with your safeguarding lead.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-we-ask&#34;&gt;Why we ask&lt;/h2&gt;&#xA;&lt;p&gt;Some of what we do is naturally photogenic — camps, badge presentations,&#xA;parades. Sharing photos helps families see what their child has been&#xA;up to and shows prospective members what life in the Group is like.&#xA;We also have a duty of care to the young people in those photos.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

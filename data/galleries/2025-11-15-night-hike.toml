@@ -1,0 +1,16 @@
+# Sidecar captions for /galleries/2025-11-15-night-hike/.
+# Every image in this gallery has faces obscured at the request of
+# parents who attended; the sidecar flags faces_blurred = true so the
+# grid thumbnails show the "Faces obscured" pill.
+
+[[image]]
+  file          = "001.webp"
+  caption       = "Setting off as the light fades"
+  alt           = "A line of Scouts with head-torches walking through woodland at dusk; faces obscured"
+  faces_blurred = true
+
+[[image]]
+  file          = "002.webp"
+  caption       = "Map check at the second checkpoint"
+  alt           = "A small group huddled around a map under torchlight; faces obscured"
+  faces_blurred = true

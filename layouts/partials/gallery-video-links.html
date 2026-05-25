@@ -1,0 +1,58 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  gallery-video-links — external video cards on /galleries/<slug>/.
+  Receives: { links: [...], slug: "<gallery-slug>" }
+  Each link block has: { url, label, thumbnail? }. Platform name is
+  inferred from the URL host so YouTube/Vimeo/Facebook get a visible
+  badge without authors having to type it.
+
+  No video is hosted by the site and no players are embedded — every
+  card is a plain anchor that opens in a new tab.
+*/ -}}
+{{- $links := .links -}}
+{{- $slug := .slug -}}
+{{- if $links }}
+  <section class="s-galleries__videos">
+    <h2 class="s-galleries__videos-head display-4">{{ i18n "galleriesVideosHeading" }}</h2>
+    <ul class="s-galleries__videos-grid">
+      {{- range $links }}
+        {{- $url := .url -}}
+        {{- $label := .label -}}
+        {{- $host := "" -}}
+        {{- with urls.Parse $url }}{{ $host = .Host }}{{ end -}}
+        {{- $platform := "" -}}
+        {{- if or (in $host "youtube.com") (eq $host "youtu.be") -}}
+          {{- $platform = "YouTube" -}}
+        {{- else if in $host "vimeo.com" -}}
+          {{- $platform = "Vimeo" -}}
+        {{- else if in $host "facebook.com" -}}
+          {{- $platform = "Facebook" -}}
+        {{- else if ne $host "" -}}
+          {{- $platform = $host -}}
+        {{- end -}}
+        {{- $thumb := "" -}}
+        {{- with .thumbnail -}}
+          {{- $thumb = resources.Get (printf "galleries/%s/%s" $slug .) -}}
+        {{- end -}}
+        <li>
+          <a class="s-galleries__video-card" href="{{ $url }}" target="_blank" rel="noopener external">
+            {{- with $thumb -}}
+              {{- $t := .Resize "640x webp q82" -}}
+              <img src="{{ $t.RelPermalink }}" alt="" loading="lazy" class="s-galleries__video-thumb">
+            {{- else -}}
+              <span class="s-galleries__video-thumb s-galleries__video-thumb--missing" aria-hidden="true"></span>
+            {{- end -}}
+            <span class="s-galleries__video-body">
+              {{- with $platform }}<span class="s-galleries__video-platform">{{ . }}</span>{{ end }}
+              <span class="s-galleries__video-label">{{ $label }}</span>
+              <span class="s-galleries__video-cta" aria-hidden="true">{{ i18n "galleriesVideoOpenCta" }} ↗</span>
+            </span>
+          </a>
+        </li>
+      {{- end }}
+    </ul>
+  </section>
+{{- end -}}

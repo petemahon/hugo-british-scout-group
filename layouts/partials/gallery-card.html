@@ -1,0 +1,53 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  gallery-card — one card on /galleries/ representing a single
+  gallery. Cover is the gallery's `cover` filename or, falling back,
+  the first photo registered by the adapter. Item count includes
+  photos plus any video links.
+*/ -}}
+{{- $g := . -}}
+{{- $photos := sort $g.Pages "Params.image_file" -}}
+{{- $coverFile := $g.Params.cover -}}
+{{- if eq $coverFile "" -}}
+  {{- with index $photos 0 -}}{{- $coverFile = .Params.image_file -}}{{- end -}}
+{{- end -}}
+{{- $cover := "" -}}
+{{- with $coverFile -}}
+  {{- $cover = resources.Get (printf "galleries/%s/%s" $g.File.ContentBaseName .) -}}
+{{- end -}}
+{{- $videoCount := len ($g.Params.video_links | default slice) -}}
+{{- $photoCount := len $photos -}}
+{{- $totalCount := add $photoCount $videoCount -}}
+
+<article class="s-gallery-card">
+  <a class="s-gallery-card__link" href="{{ $g.RelPermalink }}">
+    {{- with $cover -}}
+      {{- $thumb := .Resize "640x webp q82" -}}
+      {{- $med := .Resize "1280x webp q82" -}}
+      <img class="s-gallery-card__cover"
+           src="{{ $thumb.RelPermalink }}"
+           srcset="{{ $thumb.RelPermalink }} 640w, {{ $med.RelPermalink }} 1280w"
+           sizes="(max-width: 700px) 100vw, 400px"
+           alt="{{ $g.Params.cover_alt | default (printf "Cover photo for %s" $g.Title) }}"
+           loading="lazy">
+    {{- else -}}
+      <span class="s-gallery-card__cover s-gallery-card__cover--missing" aria-hidden="true"></span>
+    {{- end -}}
+    <div class="s-gallery-card__body">
+      <h3 class="s-gallery-card__title display-4">{{ $g.Title }}</h3>
+      <p class="s-gallery-card__meta display-8">
+        <time datetime="{{ $g.Date.Format "2006-01-02" }}">{{ $g.Date.Format "January 2006" }}</time>
+        <span class="s-gallery-card__dot" aria-hidden="true">·</span>
+        <span class="s-gallery-card__count">
+          {{- i18n "galleriesItemCount" (dict "Count" $totalCount) -}}
+        </span>
+      </p>
+      {{- with $g.Params.summary }}
+        <p class="s-gallery-card__summary display-7">{{ . }}</p>
+      {{- end }}
+    </div>
+  </a>
+</article>

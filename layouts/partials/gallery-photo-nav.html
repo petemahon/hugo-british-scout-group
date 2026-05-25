@@ -1,0 +1,34 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  gallery-photo-nav — prev/next links on per-photo pages, plus a
+  Back-to-gallery anchor. Sibling order matches the adapter's
+  alphabetical filename order so navigation aligns with the grid.
+*/ -}}
+{{- $siblings := sort .CurrentSection.Pages "Params.image_file" -}}
+{{- $idx := -1 -}}
+{{- range $i, $p := $siblings -}}
+  {{- if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end -}}
+{{- end -}}
+{{- $prev := "" -}}
+{{- $next := "" -}}
+{{- if gt $idx 0 }}{{ $prev = index $siblings (sub $idx 1) }}{{ end -}}
+{{- if and (ge $idx 0) (lt $idx (sub (len $siblings) 1)) }}{{ $next = index $siblings (add $idx 1) }}{{ end -}}
+
+<nav class="s-galleries__photo-nav" aria-label="{{ i18n "galleriesPhotoNavAria" }}">
+  {{- if $prev }}
+    <a class="s-galleries__photo-nav-link s-galleries__photo-nav-link--prev" href="{{ $prev.RelPermalink }}" rel="prev">← {{ i18n "galleriesPhotoNavPrev" }}</a>
+  {{- else }}
+    <span class="s-galleries__photo-nav-spacer"></span>
+  {{- end }}
+  <span class="s-galleries__photo-nav-status">
+    {{- i18n "galleriesPhotoNavStatus" (dict "Current" (add $idx 1) "Total" (len $siblings)) -}}
+  </span>
+  {{- if $next }}
+    <a class="s-galleries__photo-nav-link s-galleries__photo-nav-link--next" href="{{ $next.RelPermalink }}" rel="next">{{ i18n "galleriesPhotoNavNext" }} →</a>
+  {{- else }}
+    <span class="s-galleries__photo-nav-spacer"></span>
+  {{- end }}
+</nav>

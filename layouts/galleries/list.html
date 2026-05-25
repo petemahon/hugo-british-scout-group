@@ -1,0 +1,34 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Gallery listing — /galleries/. Reverse-chronological grid of every
+  published gallery's cover + item count. SPEC-04.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.galleries -}}
+  {{- $galleries := .Sections.ByDate.Reverse -}}
+
+  <section class="section s-galleries s-galleries--list reveal">
+    <div class="container">
+      <header class="s-galleries__list-head">
+        <h1 class="s-galleries__title display-2">
+          {{- with .Title }}{{ . }}{{ else }}{{ i18n "galleriesHeading" }}{{ end -}}
+        </h1>
+        {{- with .Description }}<p class="s-galleries__intro display-7">{{ . | safeHTML }}</p>{{ end }}
+      </header>
+
+      {{- if eq (len $galleries) 0 }}
+        <p class="s-galleries__empty display-7">{{ i18n "galleriesEmptyList" }}</p>
+      {{- else }}
+        <div class="s-galleries__list-grid">
+          {{- range $galleries }}
+            {{- partial "gallery-card.html" . -}}
+          {{- end }}
+        </div>
+      {{- end }}
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

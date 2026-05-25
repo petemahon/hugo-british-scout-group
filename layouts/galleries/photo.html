@@ -1,0 +1,60 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Per-photo full-size page — /galleries/<slug>/<image-basename>/.
+  Registered as a kind=page virtual Page by the adapter at
+  content/galleries/_content.gotmpl with layout="photo".
+
+  Per-photo Open Graph meta is emitted by gallery-photo-og.html,
+  delegated from partials/head.html when .Layout == "photo".
+*/ -}}
+{{ define "main" }}
+{{- if not site.Params.features.galleries -}}
+{{- else -}}
+
+  {{- $gallery := .CurrentSection -}}
+  {{- $slug := .Params.gallery_slug -}}
+  {{- $file := .Params.image_file -}}
+  {{- $imgPath := printf "galleries/%s/%s" $slug $file -}}
+  {{- $img := resources.Get $imgPath -}}
+  {{- if not $img -}}
+    {{- errorf "photo page %q: source image %q not found at assets/%s." .RelPermalink $file $imgPath -}}
+  {{- end -}}
+
+  {{- $medium := $img.Resize "1280x webp q82" -}}
+  {{- $large := $img.Resize "1920x webp q82" -}}
+  {{- $alt := .Params.image_alt -}}
+  {{- if eq $alt "" -}}{{- $alt = printf "Photo from %s" $gallery.Title -}}{{- end -}}
+
+  <article class="section s-galleries s-galleries--photo reveal">
+    <div class="container s-galleries__photo-container">
+
+      <header class="s-galleries__photo-head">
+        <p class="eyebrow">
+          <a href="{{ $gallery.RelPermalink }}">← {{ $gallery.Title }}</a>
+        </p>
+      </header>
+
+      <figure class="s-galleries__photo-figure">
+        <img class="s-galleries__photo-img"
+             src="{{ $medium.RelPermalink }}"
+             srcset="{{ $medium.RelPermalink }} 1280w, {{ $large.RelPermalink }} 1920w"
+             sizes="(max-width: 1280px) 100vw, 1280px"
+             width="{{ $medium.Width }}" height="{{ $medium.Height }}"
+             alt="{{ $alt }}">
+        {{- with .Params.image_caption }}
+          <figcaption class="s-galleries__photo-caption display-7">{{ . }}</figcaption>
+        {{- end }}
+        {{- if .Params.faces_blurred }}
+          <p class="s-galleries__photo-flag display-8"><span>{{ i18n "galleriesFacesBlurred" }}</span></p>
+        {{- end }}
+      </figure>
+
+      {{- partial "gallery-photo-nav.html" . }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}
