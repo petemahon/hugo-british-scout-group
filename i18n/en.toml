@@ -570,6 +570,61 @@ other = "Watch"
 other = "How we handle photos"
 
 # -----------------------------------------------------------------------------
+# Kit lists — used by layouts/kit-lists/* and the kit-list-* partials.
+# SPEC-05.
+# -----------------------------------------------------------------------------
+[kitListEyebrow]
+other = "Camp kit"
+
+[kitListHeading]
+other = "Kit lists"
+
+[kitListEmptyList]
+other = "No kit lists published yet — check back before the next camp."
+
+[kitListBackToList]
+other = "All kit lists"
+
+[kitListReviewed]
+other = "reviewed"
+
+[kitListReviewedBy]
+other = "by"
+
+[kitListPrintLink]
+other = "Print this list"
+
+[kitListPrintNameLabel]
+other = "Name"
+
+[kitListPhonePolicyHeading]
+other = "Mobile phones"
+
+# Neutral default phone-policy copy. Addressed to the young person,
+# names no Group, reproduces no external Group's wording. A Group can
+# override it via [params.kit_lists].default_phone_policy_text.
+[kitListPhonePolicyDefault]
+other = "Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive — we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us."
+
+[kitListCrossBorderHeading]
+other = "Travelling from abroad"
+
+[kitListNonEssentialHeading]
+other = "Please leave at home"
+
+[kitListEventLink]
+other = "Kit list for this camp"
+
+[kitListAdditionalHeading]
+other = "Also bring for this camp"
+
+[kitListViewFull]
+other = "View the full kit list"
+
+[kitListBrowseAll]
+other = "Browse all camp kit lists"
+
+# -----------------------------------------------------------------------------
 # Footer — used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]

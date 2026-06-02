@@ -47,6 +47,15 @@ description = "Skills for Life — example Scout Group home page using the Briti
   title    = "Joining couldn't be easier."
   subtitle = "Register your interest below - for your child, yourself, or both. We give priority to families who are happy to volunteer their time alongside us."
 
+  # Head CTA — sends visitors to the full /join/ page (section-by-section
+  # openings, meeting nights, fees, FAQ and the Welcome Pack) before they
+  # commit to a waiting-list or volunteer card below.
+  [sections.button]
+    label = "See how to join"
+    url   = "/join/"
+    style = "primary-outline"
+    arrow = true
+
   [[sections.cards]]
     icon  = "waitlist"
     title = "Add a young person"

@@ -1,0 +1,24 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  kit-phone-policy — reusable mobile-phone-policy block. SPEC-05.
+
+  Rendered only when a kit list opts in (front-matter `phone_policy = true`,
+  or the site default `[params.kit_lists].show_phone_policy_default`).
+  Off by default so each Group affirmatively chooses to publish a policy.
+
+  Copy resolution: the Group's own [params.kit_lists].default_phone_policy_text
+  wins; otherwise the theme's neutral i18n default. The theme default is
+  deliberately generic — it names no Group and reproduces no external
+  Group's wording.
+
+  Context: the kit-list Page (used only for any future per-page override).
+*/ -}}
+{{- $text := site.Params.kit_lists.default_phone_policy_text | default "" -}}
+{{- if eq $text "" }}{{ $text = i18n "kitListPhonePolicyDefault" }}{{ end -}}
+<aside class="s-kit-lists__phone-policy" aria-label="{{ i18n "kitListPhonePolicyHeading" | default "Mobile phones" }}">
+  <h2 class="s-kit-lists__phone-policy-heading">{{ i18n "kitListPhonePolicyHeading" | default "Mobile phones" }}</h2>
+  <p class="s-kit-lists__phone-policy-body">{{ $text | safeHTML }}</p>
+</aside>

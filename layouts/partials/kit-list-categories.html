@@ -1,0 +1,33 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  kit-list-categories — renders every [[categories]] block of a kit list
+  as a heading + item list, delegating each item row to kit-list-item.
+  Shared by layouts/kit-lists/single.html (mode "screen") and
+  single.kitlistprint.html (mode "print"). SPEC-05.
+
+  Context (dict):
+    page  (Page)   the kit-list page (its .Params.categories drives this)
+    mode  (string) "screen" | "print" — passed straight through to items
+*/ -}}
+{{- $page := .page -}}
+{{- $mode := .mode | default "screen" -}}
+{{- with $page.Params.categories }}
+  <div class="s-kit-lists__categories s-kit-lists__categories--{{ $mode }}">
+    {{- range . }}
+      <section class="s-kit-lists__category">
+        {{- with .name }}<h2 class="s-kit-lists__category-name">{{ . }}</h2>{{ end }}
+        {{- with .items }}
+          <ul class="s-kit-lists__items">
+            {{- range . }}
+              {{ partial "kit-list-item.html" (dict "item" . "mode" $mode) }}
+            {{- end }}
+          </ul>
+        {{- end }}
+        {{- with .notes }}<p class="s-kit-lists__category-notes">{{ . | safeHTML }}</p>{{ end }}
+      </section>
+    {{- end }}
+  </div>
+{{- end }}

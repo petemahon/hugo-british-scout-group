@@ -202,11 +202,14 @@ colour comes from `data/scout_sections.toml`).
 
 ## 9. BSO conditional rendering
 
-A site-wide flag already exists: `params.bso = true|false`.
+A site-wide master switch already exists: `[params.bso].enabled =
+true|false`. (It is a table key, not a scalar `bso = true` — the two
+collide in TOML.)
 
-- A feature that is general-purpose stays decoupled from this flag.
+- A feature that is general-purpose stays decoupled from this switch.
 - A feature that has BSO-specific extras (e.g. extra front-matter
-  fields, alternative copy) reads `site.Params.bso` and adapts. The
+  fields, alternative copy) reads `site.Params.bso.enabled` and
+  adapts. The
   BSO branch must never be the only branch — the non-BSO path is the
   default.
 - The `bso_hub` feature (SPEC-10) is the *only* feature whose entire

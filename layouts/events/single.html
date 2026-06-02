@@ -7,8 +7,12 @@
 
   Step 1 (SPEC-02): minimal scaffold — title, date, location, body, and
   a "download .ics" link to the sibling event.ics. The richer rendering
-  (date pill, dual times, cancelled badge, kit/RSVP/cost strip, cover
+  (date pill, dual times, cancelled badge, RSVP/cost strip, cover
   image, section badges) arrives in subsequent SPEC-02 steps.
+
+  SPEC-05 adds the kit strip: when `kit_list_ref` is set (and the
+  kit_lists feature is on), a link to the matching /kit-lists/<slug>/
+  plus any per-event `additional_kit` note.
 */ -}}
 {{ define "main" }}
 {{- if site.Params.features.events -}}
@@ -28,6 +32,24 @@
       <div class="s-events__post-body display-7">
         {{ .Content }}
       </div>
+
+      {{- if and site.Params.features.kit_lists .Params.kit_list_ref }}
+        {{- $kl := site.GetPage (printf "/kit-lists/%s" .Params.kit_list_ref) -}}
+        {{- if $kl }}
+          <aside class="s-kit-lists__event-strip" aria-label="{{ i18n "kitListEventLink" | default "Kit list for this camp" }}">
+            <p class="s-kit-lists__event-link">
+              <a class="styled-link" href="{{ $kl.RelPermalink }}">{{ i18n "kitListEventLink" | default "Kit list for this camp" }}: {{ $kl.Title }} &rarr;</a>
+            </p>
+            {{- with .Params.additional_kit }}
+              <p class="s-kit-lists__event-additional">
+                <strong>{{ i18n "kitListAdditionalHeading" | default "Also bring for this camp" }}:</strong> {{ . | safeHTML }}
+              </p>
+            {{- end }}
+          </aside>
+        {{- else }}
+          {{- warnf "event %q: kit_list_ref %q has no matching kit list at /kit-lists/%s/." .File.LogicalName .Params.kit_list_ref .Params.kit_list_ref -}}
+        {{- end }}
+      {{- end }}
 
       <p class="s-events__ics">
         <a class="btn btn-primary" href="event.ics" download>Add to calendar (.ics)</a>

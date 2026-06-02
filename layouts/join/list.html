@@ -8,7 +8,7 @@
   Structure top-to-bottom:
     1. Page head (eyebrow + h1 + intro paragraph + Welcome-Pack link)
     2. BSO membership notice + per-page eligibility summary (when
-       site.Params.bso is true; both opt-in via param settings)
+       site.Params.bso.enabled is true; both opt-in via param settings)
     3. Joining grid (one card per pack, from data/sections_status.toml)
     4. FAQ accordion (when content/join/faq/*.md files exist)
     5. Footer bridge to /welcome-pack/ and /volunteer/ (SPEC-09)
@@ -17,7 +17,7 @@
 */ -}}
 {{ define "main" }}
 {{- if site.Params.features.joining -}}
-  {{- $isBSO    := site.Params.bso | default false -}}
+  {{- $isBSO    := site.Params.bso.enabled | default false -}}
   {{- $welcomeURL := .Params.welcome_pack_url | default "/welcome-pack/" -}}
   {{- $welcomeLabel := .Params.welcome_pack_label | default (i18n "joiningWelcomePackLink" | default "Read our Welcome Pack") -}}
   {{- $volunteerLabel := .Params.volunteer_link_text | default (i18n "joiningVolunteerCta" | default "We need you too") -}}

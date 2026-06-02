@@ -36,3 +36,11 @@ direct you to local stockists.
 
 Comfortable clothes you don't mind getting dirty. Trainers, not school
 shoes. Water bottle. Layers — we go outside when we can.
+
+## Camps — what to pack
+
+Once your child is settling in, camps are where Scouting really comes
+alive. We publish a [kit list for every kind of camp](/kit-lists/) —
+weekends, summer camp, expeditions — so you know exactly what to pack
+(and what to leave at home). Each camp's event page links straight to
+the right list, and you can print any of them as a tick-off sheet.

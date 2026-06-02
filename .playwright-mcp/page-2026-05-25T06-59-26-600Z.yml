@@ -1,0 +1,111 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - heading "1st Anytown Scouts — Welcome Pack" [level=1] [ref=e4]
+    - paragraph [ref=e5]: 1st Anytown Scouts
+    - paragraph [ref=e6]: v2026.1 · Last reviewed April 2026
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Welcome to 1st Anytown Scouts. We’re a Group of around 300 young people across five sections, meeting four nights a week. This pack is the short version of what you need to know — sections, joining, subs, our safeguarding promise, and the year’s calendar.
+      - paragraph [ref=e9]: Click any chapter below to read it on its own; or use the “Print or save the whole pack” button at the foot of this page to grab the lot as a single document.
+  - article [ref=e10]:
+    - generic [ref=e11]:
+      - paragraph [ref=e12]: Chapter 1
+      - heading "About the Group" [level=2] [ref=e13]
+    - generic [ref=e14]:
+      - heading "A short history" [level=2] [ref=e15]
+      - paragraph [ref=e16]: 1st Anytown Scouts has been part of Anytown for over thirty years. We run five sections — Squirrels, Beavers, Cubs, Scouts and Explorers — plus a Network at city level for 18-25s. Our charity number is on the footer of every page.
+      - heading "What we’re here for" [level=2] [ref=e17]
+      - paragraph [ref=e18]: "Scouts gives young people skills for life: confidence, friendship, practical know-how, time outdoors, leadership. Every section does it in their own way — Squirrels through structured play, Explorers through expeditions and qualifications — but the through-line is the same."
+      - heading "Where we meet" [level=2] [ref=e19]
+      - paragraph [ref=e20]: The Anytown Scout Hut, 11 Hut Lane, Anytown. Map and section-by-section timings are on the home page.
+  - article [ref=e21]:
+    - generic [ref=e22]:
+      - paragraph [ref=e23]: Chapter 2
+      - heading "What each section does" [level=2] [ref=e24]
+    - generic [ref=e25]:
+      - heading "Squirrels (4–6)" [level=2] [ref=e26]
+      - paragraph [ref=e27]: Our youngest section. Squirrels meet weekly for short, play-based sessions where they learn about themselves, each other, and their local community. Lots of small-group games and short structured activities.
+      - heading "Beavers (6–8)" [level=2] [ref=e28]
+      - paragraph [ref=e29]: Beavers run a full meeting with games, badge work and the start of the outdoor side of Scouts. By the end of Beavers most young people have slept at the hut for a night or two.
+      - heading "Cubs (8–10½)" [level=2] [ref=e30]
+      - paragraph [ref=e31]: Cubs is the section where adventure becomes a regular thing. Camps, hikes, cooking on a single hob, first aid, swimming, navigation. A typical Cubs term carries one camp and one community-impact activity.
+      - heading "Scouts (10½–14)" [level=2] [ref=e32]
+      - paragraph [ref=e33]: Patrol-led. Scouts run their own programme alongside the leaders, with a strong outdoor calendar — expeditions, weekends away, Trangia cooking, pioneering, the big camps every summer.
+      - heading "Explorers (14–18)" [level=2] [ref=e34]
+      - paragraph [ref=e35]: Older Explorers run their own Unit. The Duke of Edinburgh’s Award, top-tier Scout awards, international expeditions, and community impact work. Strong bridge into volunteering as adults.
+  - article [ref=e36]:
+    - generic [ref=e37]:
+      - paragraph [ref=e38]: Chapter 3
+      - heading "How to join" [level=2] [ref=e39]
+    - generic [ref=e40]:
+      - heading "The waiting list" [level=2] [ref=e41]
+      - paragraph [ref=e42]:
+        - text: Add your child via the
+        - link "Join us page" [ref=e43] [cursor=pointer]:
+          - /url: /join/
+        - text: — there’s a card per section showing whether we have spaces or a waiting list. Each card has a link to either join the waiting list directly (we use Online Scout Manager — OSM) or to email the section leader.
+      - paragraph [ref=e44]: When a place comes up the leader will be in touch with trial-week dates. After two or three trial weeks, we’ll invite you to enrol formally.
+      - heading "Subs" [level=2] [ref=e45]
+      - paragraph [ref=e46]:
+        - text: Subs vary by section — see the cards on the
+        - link "Join us page" [ref=e47] [cursor=pointer]:
+          - /url: /join/
+        - text: for the current term’s amount. We don’t charge a joining fee; subs cover the term’s running costs, equipment hire, weekly badges and contribute to camp subsidies.
+      - paragraph [ref=e48]: If subs would be a barrier for your family, please tell us — we have a quiet hardship policy and no child has ever been turned away over money.
+      - heading "Uniform" [level=2] [ref=e49]
+      - paragraph [ref=e50]: A necker (£5) is the only thing you need on day one. The blue uniform shirt and badges come once your child is formally enrolled. We can direct you to local stockists.
+      - heading "First-night reminders" [level=2] [ref=e51]
+      - paragraph [ref=e52]: Comfortable clothes you don’t mind getting dirty. Trainers, not school shoes. Water bottle. Layers — we go outside when we can.
+  - article [ref=e53]:
+    - generic [ref=e54]:
+      - paragraph [ref=e55]: Chapter 4
+      - heading "Safeguarding & photo policy" [level=2] [ref=e56]
+    - generic [ref=e57]:
+      - heading "We follow Scouts UK safeguarding" [level=2] [ref=e58]
+      - paragraph [ref=e59]: 1st Anytown Scouts is a member group of The Scout Association. Every leader is DBS-checked (or holds the host-country equivalent for those volunteers who haven’t lived in the UK since age 10), trained, and operates under TSA’s safeguarding policy. We follow the Yellow Card “safe from harm” rules at every meeting and camp.
+      - heading "Photos and consent" [level=2] [ref=e60]
+      - paragraph [ref=e61]:
+        - text: We sometimes take photos at meetings and camps — for the noticeboard, for the website, and occasionally for the Group’s social media. We
+        - strong [ref=e62]: only
+        - text: share photos of young people whose families have signed our consent form, and we never share full names or contact details.
+      - paragraph [ref=e63]: If your consent changes at any time, tell the section leader and we’ll remove your child from future photos and pull any existing ones.
+      - heading "Health & medication" [level=2] [ref=e64]
+      - paragraph [ref=e65]: Health forms and medication consent are collected on paper at first-night enrolment — never on the website. The forms are stored securely at the hut and shared only with the section leaders and Camp Permit holder.
+      - heading "GDPR" [level=2] [ref=e66]
+      - paragraph [ref=e67]: "We hold the minimum data needed to run Scouts: names, dates of birth, contact details for parents, dietary and medical needs. Data lives in OSM (Online Scout Manager) under Scouts UK’s data-protection agreement. We don’t share it with anyone else. Email the GSL to remove your data; we’ll do it within 30 days."
+  - article [ref=e68]:
+    - generic [ref=e69]:
+      - paragraph [ref=e70]: Chapter 5
+      - heading "The year at a glance" [level=2] [ref=e71]
+    - generic [ref=e72]:
+      - heading "How the year works" [level=2] [ref=e73]
+      - paragraph [ref=e74]:
+        - text: We run three terms a year, broadly mapping to the local school calendar. Each section publishes a
+        - link "termly programme" [ref=e75] [cursor=pointer]:
+          - /url: /programme/
+        - text: in the first week — a week-by-week list of what’s happening, plus the Skills for Life themes we’re covering.
+      - heading "The fixed points" [level=2] [ref=e76]
+      - paragraph [ref=e77]: "A handful of dates every family should know about:"
+      - list [ref=e78]:
+        - listitem [ref=e79]:
+          - strong [ref=e80]: St George’s Day Parade
+          - text: — late April. The whole Group parades through the town in uniform.
+        - listitem [ref=e81]:
+          - strong [ref=e82]: Cub Camp / Scout Camp / Explorer Expedition
+          - text: — every summer term. Dates vary by section.
+        - listitem [ref=e83]:
+          - strong [ref=e84]: Remembrance Sunday
+          - text: — November. Uniform attendance at the local war memorial.
+        - listitem [ref=e85]:
+          - strong [ref=e86]: Group Christmas Party
+          - text: — last meeting of the autumn term.
+        - listitem [ref=e87]:
+          - strong [ref=e88]: AGM
+          - text: — March. Open to all families.
+      - heading "Where to see what’s coming up" [level=2] [ref=e89]
+      - paragraph [ref=e90]:
+        - text: The
+        - link "Events page" [ref=e91] [cursor=pointer]:
+          - /url: /events/
+        - text: carries the full diary with downloadable calendar feeds (
+        - code [ref=e92]: .ics
+        - text: ). Subscribe once and every camp, parade and training session lands in your calendar app.

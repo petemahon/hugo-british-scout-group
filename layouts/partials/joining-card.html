@@ -12,7 +12,7 @@
     page          (Page)  the /join/ list page; used for fallback
                           page-level fields (osm_waiting_list_url,
                           enquiry_email)
-    isBSO         (bool)  site.Params.bso
+    isBSO         (bool)  site.Params.bso.enabled
 
   Build warnings:
     - status = "waiting" with no `waiting_url` AND no per-pack
@@ -95,7 +95,7 @@
   {{- end }}
 
   {{- /* BSO branch — render BSO-only notes (language + nationality) ONLY
-         when params.bso = true. Per-pack overrides take precedence over
+         when params.bso.enabled = true. Per-pack overrides take precedence over
          the page-level summary which lives in joining-grid. */ -}}
   {{- if $isBSO }}
     {{- if or $pack.bso_language $pack.bso_nationality_note }}

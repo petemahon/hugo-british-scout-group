@@ -70,6 +70,16 @@ disableKinds = ["taxonomy", "term"]
   isHTML         = true
   notAlternative = true
 
+# Kit lists — per-list printable checkbox view (SPEC-05).
+# Rendered at /kit-lists/<slug>/print.html by single.kitlistprint.html.
+# Enabled on every kit-list page via the [cascade] in
+# content/kit-lists/_index.md.
+[outputFormats.KitListPrint]
+  mediaType      = "text/html"
+  baseName       = "print"
+  isHTML         = true
+  notAlternative = true
+
 # -----------------------------------------------------------------------------
 # Theme params
 # -----------------------------------------------------------------------------
@@ -233,6 +243,7 @@ disableKinds = ["taxonomy", "term"]
   network_feature   = true
   volunteer_feature = true
   galleries         = true
+  kit_lists         = true
 
 
 # -----------------------------------------------------------------------------
@@ -314,6 +325,23 @@ disableKinds = ["taxonomy", "term"]
   show_captions      = true
   show_consent_link  = true
   consent_policy_url = "/policies/photo-consent/"
+
+# -----------------------------------------------------------------------------
+# Kit lists — see SPEC-05.
+#   printable_route            Emit the /kit-lists/<slug>/print.html checkbox
+#                              view (requires the KitListPrint output format
+#                              above + the [cascade] in the section _index).
+#   show_phone_policy_default  When true, kit lists that don't set
+#                              `phone_policy` in front-matter still render the
+#                              mobile-phone-policy block. Default false — each
+#                              Group affirmatively opts in.
+#   default_phone_policy_text  Overrides the theme's neutral i18n default copy.
+#                              Leave blank to use the theme default.
+# -----------------------------------------------------------------------------
+[params.kit_lists]
+  printable_route           = true
+  show_phone_policy_default = false
+  default_phone_policy_text = ""
 
 # -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.

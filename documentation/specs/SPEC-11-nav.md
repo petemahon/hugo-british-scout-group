@@ -39,7 +39,7 @@ the nav appears.
 7. The build emits a single `<nav>` element rendered by
    `partials/header-nav.html`. No JavaScript files are loaded.
 8. The example site exercises the maximum-size nav (every feature on,
-   `params.bso = true`).
+   `[params.bso].enabled = true`).
 
 ## Hierarchy (locked)
 
@@ -49,7 +49,7 @@ but cannot reorder.
 
 | Top-level | Default URL | Children |
 | --- | --- | --- |
-| Join Us | `/joining/` (SPEC-06) → falls back to `#joining` anchor on home if SPEC-06 off | When `params.bso = true` AND `features.bso_hub = true`: "How to join" → `/joining/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
+| Join Us | `/joining/` (SPEC-06) → falls back to `#joining` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/joining/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
 | Our Sections | `#our-sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network`. |
 | What we do | First enabled child's URL | Latest news (`/news/` — SPEC-01); Events (`/events/` — SPEC-02); Programme (`/programme/` — SPEC-03); Galleries (`/galleries/` — SPEC-04). |
 | Get Involved | First enabled child's URL | Volunteer (`/volunteer/` — SPEC-09); Fundraising (`/fundraising/` anchor — SPEC-09); Hire the hall (`/hall-hire/` — SPEC-08). |
@@ -168,8 +168,8 @@ CSS lives under a new `/* ----- s-nav ----- */` banner.
 
 ## BSO notes
 
-The Join Us group's behaviour changes only when `params.bso = true`
-AND `params.features.bso_hub = true`:
+The Join Us group's behaviour changes only when
+`[params.bso].enabled = true` AND `params.features.bso_hub = true`:
 
 - Without BSO: Join Us is a direct top-level link to `/joining/` (or
   `#joining` anchor if SPEC-06 off).
@@ -224,16 +224,17 @@ No user data, no forms, no comments. Nothing GDPR-relevant.
 5. Add What we do; build with various combinations of news/events/etc.
    on and off; verify smart collapse and disappearance.
 6. Add Get Involved and About in turn; same testing pattern.
-7. Add the BSO branch to Join Us; verify with `params.bso = true` and
-   `features.bso_hub = true`.
+7. Add the BSO branch to Join Us; verify with
+   `[params.bso].enabled = true` and `features.bso_hub = true`.
 8. Add `params.nav.show_*` overrides; verify hiding behaviour.
 9. CSS — start with the desktop layout (pre-48em is mobile, breakpoint
    shared with existing theme).
 10. Add the mobile checkbox-hack toggle; verify on a narrow viewport.
 11. Active-state styling via `[aria-current]` selectors.
 12. i18n strings; build clean.
-13. exampleSite — set every feature flag to true, `params.bso = true`,
-    `features.bso_hub = true`. Confirm the maximum nav renders.
+13. exampleSite — set every feature flag to true,
+    `[params.bso].enabled = true`, `features.bso_hub = true`. Confirm
+    the maximum nav renders.
 14. README section, screenshots desktop + mobile + collapsed group.
 15. Update DECISIONS.md with the locked hierarchy.
 

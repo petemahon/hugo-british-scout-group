@@ -21,6 +21,19 @@
    were a one-off; the theme's --section-py is the correct cross-section
    rhythm. */
 
+/* ── Head CTA ──────────────────────────────────────────────────
+   Optional section-level button rendered inside the .sect-head, below
+   the subtitle and above the card grid (e.g. "See how to join →"
+   pointing at the full /join/ page). Inherits the head's text-align,
+   so it centres under the default head and left-aligns automatically
+   under .sect-head--left. */
+.s-join__head-cta {
+  margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .s-join__head-cta { margin-top: 1.75rem; }
+}
+
 .s-join__grid {
   display: grid;
   grid-template-columns: 1fr;

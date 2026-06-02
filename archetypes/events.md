@@ -34,6 +34,19 @@ audience    = ""
 dress       = ""
 cost        = ""
 
+# ─── Kit (SPEC-05) ─────────────────────────────────────────────────
+# Link this event to a reusable kit list at /kit-lists/<slug>/. When set
+# (and params.features.kit_lists is on), the event page shows a
+# "Kit list for this camp → <title>" link. Build warns if the slug has
+# no matching kit list.
+# kit_list_ref   = "cubs-weekend"
+#
+# Free text appended to the kit list for THIS event only — anything
+# beyond the standard list. Shown under the kit link on the event page,
+# and appended when the list is transcluded inline in the body below
+# with the kit-list shortcode (see the README for the exact syntax).
+# additional_kit = "Swimming kit, and £5 for the activity centre."
+
 # Sections taxonomy. Renders coloured pill badges on the card and on
 # the single page. Allowed keys: squirrels, beavers, cubs, scouts,
 # explorers, network. Leave empty for events that aren't section-

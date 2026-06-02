@@ -6,7 +6,21 @@
     <description>Recent content in Night Hike 2025 on 1st Anytown Scouts</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/galleries/2025-11-15-night-hike/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Map check at the second checkpoint</title>
+      <link>http://localhost:1313/galleries/2025-11-15-night-hike/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2025-11-15-night-hike/002/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Setting off as the light fades</title>
+      <link>http://localhost:1313/galleries/2025-11-15-night-hike/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2025-11-15-night-hike/001/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

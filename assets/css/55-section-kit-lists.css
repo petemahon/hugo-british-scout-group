@@ -1,0 +1,285 @@
+/* -----------------------------------------------------------------------------
+   55. SECTION: KIT LISTS
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Two views from one source (SPEC-05):
+     - On-screen (/kit-lists/<slug>/): categorised item rows, two columns
+       on wide screens. The kit-list page carries a `--sec` custom property
+       (the section's identity colour from data/scout_sections.toml) used
+       for a left accent on category headings.
+     - Print (/kit-lists/<slug>/print.html): a self-contained document
+       (body.kit-list-print) with checkbox rows, packed two-up, tuned for
+       A4 via @media print.
+   ----------------------------------------------------------------------------- */
+
+.s-kit-lists__container {
+  max-width: 56rem;
+}
+
+/* ── Head ─────────────────────────────────────────────────────── */
+.s-kit-lists__breadcrumb {
+  margin: 0 0 1rem;
+}
+.s-kit-lists__head {
+  margin-bottom: 2rem;
+}
+.s-kit-lists__title {
+  margin: 0.25rem 0 0.75rem;
+}
+.s-kit-lists__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.s-kit-lists__intro {
+  margin-bottom: 2rem;
+}
+
+/* ── Categories (on-screen) ───────────────────────────────────── */
+.s-kit-lists__categories--screen {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .s-kit-lists__categories--screen {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+  }
+}
+
+.s-kit-lists__category {
+  break-inside: avoid;
+}
+.s-kit-lists__category-name {
+  margin: 0 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--sec, var(--primary));
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.s-kit-lists__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.s-kit-lists__item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
+  line-height: 1.4;
+}
+.s-kit-lists__item-name {
+  font-weight: 600;
+}
+.s-kit-lists__qty {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--sec, var(--primary)) 14%, transparent);
+  color: color-mix(in oklab, var(--sec, var(--primary)) 80%, var(--text));
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.s-kit-lists__alt {
+  color: var(--text-muted);
+  font-size: 0.92em;
+}
+.s-kit-lists__category-notes {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ── Asides: phone policy, cross-border, non-essential ────────── */
+.s-kit-lists__phone-policy,
+.s-kit-lists__cross-border,
+.s-kit-lists__non-essential {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-muted, color-mix(in oklab, var(--primary) 5%, var(--bg)));
+}
+.s-kit-lists__phone-policy-heading,
+.s-kit-lists__cross-border-heading,
+.s-kit-lists__non-essential-heading {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.s-kit-lists__phone-policy-body {
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Index (/kit-lists/) ──────────────────────────────────────── */
+.s-kit-lists__group {
+  margin-bottom: 2rem;
+}
+.s-kit-lists__group-name {
+  margin: 0 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--sec, var(--primary));
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+.s-kit-lists__group-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.s-kit-lists__group-item {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
+}
+.s-kit-lists__group-tag {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--sec, var(--primary)) 12%, transparent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--text-muted);
+}
+.s-kit-lists__group-tag--climate {
+  background: color-mix(in oklab, var(--accent, var(--primary)) 14%, transparent);
+}
+
+/* ── Transcluded view ({{< kit-list >}}) + event strip ────────── */
+/* The embed reuses the screen category grid but sits inside another
+   page's flow (e.g. an event body), so it gets a contained card frame. */
+.s-kit-lists--embed {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(20, 17, 14, 0.1);
+  border-radius: 16px;
+  background: var(--bg-muted, color-mix(in oklab, var(--primary) 4%, var(--bg)));
+}
+.s-kit-lists__embed-title {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+.s-kit-lists__additional,
+.s-kit-lists__embed-link {
+  margin-top: 1.25rem;
+}
+.s-kit-lists__additional-heading {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* Compact strip shown on an event page when `kit_list_ref` is set. */
+.s-kit-lists__event-strip {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--primary) 5%, var(--bg));
+}
+.s-kit-lists__event-link {
+  margin: 0;
+  font-weight: 600;
+}
+.s-kit-lists__event-additional {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+}
+
+/* =============================================================================
+   PRINT VIEW — /kit-lists/<slug>/print.html (body.kit-list-print).
+   Self-contained document rendered by single.kitlistprint.html.
+   ============================================================================= */
+body.kit-list-print {
+  background: var(--bg);
+  color: var(--text);
+}
+body.kit-list-print main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.5;
+}
+.s-kit-lists-print__head {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--primary);
+}
+.s-kit-lists-print__head h1 {
+  margin: 0;
+}
+.s-kit-lists-print__group {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+}
+.s-kit-lists-print__name {
+  margin: 0.75rem 0 0;
+}
+.s-kit-lists-print__name-line {
+  display: inline-block;
+  min-width: 14rem;
+  border-bottom: 1px solid var(--text);
+}
+.s-kit-lists-print__foot {
+  margin-top: 2rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(20, 17, 14, 0.2);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Checkbox rows */
+.s-kit-lists__categories--print {
+  columns: 2;
+  column-gap: 2.5rem;
+}
+.s-kit-lists__categories--print .s-kit-lists__category {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+.s-kit-lists__check {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  cursor: default;
+}
+.s-kit-lists__check input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+@media print {
+  body.kit-list-print {
+    background: #fff;
+    color: #000;
+  }
+  body.kit-list-print main {
+    max-width: none;
+    padding: 0;
+  }
+  .s-kit-lists__category {
+    break-inside: avoid;
+  }
+  .s-kit-lists__category-name {
+    break-after: avoid;
+  }
+  /* Asides shouldn't be split across a page boundary. */
+  .s-kit-lists__phone-policy,
+  .s-kit-lists__cross-border,
+  .s-kit-lists__non-essential {
+    break-inside: avoid;
+    background: transparent;
+    border: 1px solid #000;
+  }
+}

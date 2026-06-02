@@ -25,6 +25,17 @@
                                             kept for cross-section
                                             consistency.)
 
+    [sections.button]                     (optional; a single section-level
+                                            CTA rendered in the head, below
+                                            the subtitle and above the card
+                                            grid. Use it to point visitors
+                                            at the full /join/ page.)
+      label    = "See how to join"
+      url      = "/join/"
+      style    = "primary-outline"        (default "primary"; any .btn-<style>)
+      arrow    = true                     (appends the → glyph)
+      external = false                    (true → target="_blank" rel="noopener")
+
     [[sections.cards]]                    (required if you want cards;
                                             no upper bound — typical use is 2)
       icon  = "waitlist"                  (optional; resolves to an SVG at
@@ -77,7 +88,7 @@
 {{- with .title_color }}{{ $titleClass = printf "s-title-%s" . }}{{ end -}}
 {{- $headClass := "sect-head" -}}
 {{- if eq .align "left" }}{{ $headClass = "sect-head sect-head--left" }}{{ end -}}
-{{- $hasHead := or .eyebrow .title .subtitle -}}
+{{- $hasHead := or .eyebrow .title .subtitle .button -}}
 <section id="{{ $id }}" class="section s-join reveal {{ $bgClass }}">
   <div class="container">
     {{- if $hasHead }}
@@ -85,6 +96,16 @@
       {{- with .eyebrow }}<span class="eyebrow">{{ . }}</span>{{ end }}
       {{- with .title }}<h2{{ with $titleClass }} class="{{ . }}"{{ end }}>{{ . }}</h2>{{ end }}
       {{- with .subtitle }}<p>{{ . | safeHTML }}</p>{{ end }}
+      {{- with .button }}
+        {{- $style := .style | default "primary" -}}
+        <div class="s-join__head-cta">
+          <a class="btn btn-{{ $style }}" href="{{ .url | safeURL }}"
+            {{- if .external }} target="_blank" rel="noopener"{{ end }}>
+            {{- .label -}}
+            {{- if .arrow }} <span class="arr">&rarr;</span>{{ end -}}
+          </a>
+        </div>
+      {{- end }}
     </div>
     {{- end }}
     {{- with .cards }}

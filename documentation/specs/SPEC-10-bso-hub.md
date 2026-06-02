@@ -16,8 +16,8 @@ A BSO-only content hub that surfaces:
 - Home-range / InTouch policy (operational reach, e.g. 1st The
   Hague's ~20 km radius around Voorschoten)
 
-The feature exists *only* when `site.Params.bso = true`. This is the
-single feature that's BSO-gated end-to-end.
+The feature exists *only* when `site.Params.bso.enabled = true`. This
+is the single feature that's BSO-gated end-to-end.
 
 The POR reference is rendered by default. Rationale: this is not for
 people who are part of BSO; it is a firm policy nod for those who are
@@ -31,9 +31,12 @@ Europe BSO), Northern Europe BSO (`/join/`), Central Brussels Scouts.
 
 1. `/bso/` index page rendering an overview with cards linking to:
    eligibility, moving in, moving out, host-country scouting options.
-2. `/bso/eligibility/` — embeds the existing `bso-membership` partial
-   (with POR 3.2.1.1 reference visible by default) plus expanded
-   language and nationality detail.
+2. `/bso/eligibility/` — expands the eligibility point in the Group's
+   own voice (language, nationality, volunteering, host-country
+   alternatives), with a POR 3.2.1.1 citation footnote visible by
+   default (`por_reference_visible`). The canonical
+   `bso-membership-notice` partial is NOT embedded here — per the
+   consolidation decision it renders once site-wide, on `/join/`.
 3. `/bso/moving-in/` — newly-arrived family pathway: how to enrol,
    school-term anchor, what to expect.
 4. `/bso/moving-out/` — leaving the host country: transfer to another
@@ -47,10 +50,10 @@ Europe BSO), Northern Europe BSO (`/join/`), Central Brussels Scouts.
    home range and the InTouch policy summary.
 8. **Small "BSO links" footer component** on every BSO sub-page
    linking to the BSO Area site and the District site.
-9. Feature gated end-to-end by `site.Params.bso`. With `bso = false`,
-   none of these pages render and links to them are suppressed in
-   menus.
-10. `params.features.bso_hub` (default OFF when `bso = true`) — even
+9. Feature gated end-to-end by `site.Params.bso.enabled`. With
+   `enabled = false`, none of these pages render and links to them are
+   suppressed in menus.
+10. `params.features.bso_hub` (default OFF when `enabled = true`) — even
     when BSO is on, the hub is opt-in per the cross-cutting opt-in
     policy. BSO Group enables it explicitly when ready.
 11. Example site exercises: a UAE BSO Group, a Netherlands BSO Group,
@@ -100,7 +103,7 @@ Moving out, Host-country scouting.
 | `nationality_filter` | string (HTML allowed) | no | "" | "Not nationals of <host country>" — POR 3.2.1.1 |
 | `volunteer_eligibility_open` | bool | no | true | Renders the "anyone over 18 can volunteer" line |
 | `host_country_alternatives_summary` | string (HTML allowed) | no | "" | Short blurb pointing to /bso/host-scouting/ |
-| `por_reference_visible` | bool | no | true | **Default true.** Renders the existing bso-membership partial with the POR 3.2.1.1 reference visible. Per-Group toggle to hide. |
+| `por_reference_visible` | bool | no | true | **Default true.** Renders a POR 3.2.1.1 citation footnote at the foot of the eligibility page. Per-Group toggle to hide. |
 
 ## Front-matter schema (`content/bso/moving-in.md`)
 
@@ -197,12 +200,11 @@ Moving out, Host-country scouting.
 ## hugo.toml additions
 
 ```toml
-bso = true                                  # already exists at site level
-
 [params.features]
-  bso_hub = false                           # default OFF — opt-in even when bso = true
+  bso_hub = false                           # default OFF — opt-in even when enabled = true
 
 [params.bso]
+  enabled           = true                  # site-wide master switch (table key, not a scalar)
   host_country_iso  = "nl"
   host_country_name = "the Netherlands"
   host_association  = "Scouting Nederland"
@@ -236,8 +238,9 @@ existing `bsoMembershipNotice` convention.
 ## CSS-only baseline
 
 - Hub page: card grid (4 cards default).
-- Eligibility: prose layout, with the `bso-membership` notice partial
-  embedded mid-page.
+- Eligibility: prose layout. The canonical membership notice is NOT
+  embedded here (it lives on `/join/`); a POR 3.2.1.1 citation
+  footnote renders at the foot of the page by default.
 - Host-scouting: cards listing each alternative NSO with language,
   description, link.
 - Home-range: image + prose. No interactive map.
@@ -246,9 +249,10 @@ existing `bsoMembershipNotice` convention.
 
 ## BSO notes — this is the BSO feature
 
-Everything here is BSO. The `bso` site-level flag must be true for
-any of this to render. The theme's `index.html` dispatcher gracefully
-omits any `bso-*` section types when `bso = false`.
+Everything here is BSO. The `[params.bso].enabled` site-level switch
+must be true for any of this to render. The theme's `index.html`
+dispatcher gracefully omits any `bso-*` section types when
+`enabled = false`.
 
 The data files in `data/bso/alternatives/` ship pre-populated for the
 most common BSO host countries (Netherlands, Belgium, France,
@@ -259,8 +263,10 @@ matching their `host_country_iso`.
 ## Safeguarding & GDPR
 
 - No data collection.
-- Eligibility prose is editorial; the canonical statement is the
-  existing `bso-membership` partial wired through to POR 3.2.1.1.
+- Eligibility prose is editorial; the canonical membership statement
+  is the `bso-membership-notice` partial, rendered once site-wide on
+  `/join/`. The eligibility page carries only the POR 3.2.1.1 citation
+  footnote.
 - Host-country alternatives are public information; safe to publish.
 - Home-range page must not show actual member home addresses.
 - InTouch policy: link to the Group's own PDF.
@@ -310,8 +316,8 @@ matching their `host_country_iso`.
 10. Wire SPEC-06 (Joining) cross-links to `/bso/eligibility/`.
 11. CSS, i18n strings (note: many already exist for the membership
     notice; new keys needed for hub headings and section labels).
-12. Test the gating: build with `bso = false` should show none of
-    these pages, no broken links.
+12. Test the gating: build with `[params.bso].enabled = false` should
+    show none of these pages, no broken links.
 13. Test all three reference patterns (NL, BE, AE) build clean with
     different `host_country_iso` values.
 14. README — a substantial section covering the BSO feature

@@ -1,0 +1,38 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  kit-list-item — one item row, shared by the on-screen and print views.
+  SPEC-05.
+
+  Context (dict):
+    item  (map)    a data/front-matter item: {name, quantity, alternative}
+    mode  (string) "screen" | "print"
+
+  screen: name (bold) + a "×N" quantity badge when quantity > 1 + the
+          alternative in muted text.
+  print:  the same, wrapped in a <label> with a checkbox so parents can
+          tick items off as they pack.
+*/ -}}
+{{- $item := .item -}}
+{{- $mode := .mode | default "screen" -}}
+{{- $name := $item.name -}}
+{{- $qty  := $item.quantity | default 1 -}}
+{{- $alt  := $item.alternative | default "" -}}
+{{- if eq $mode "print" -}}
+  <li class="s-kit-lists__item">
+    <label class="s-kit-lists__check">
+      <input type="checkbox">
+      <span class="s-kit-lists__item-name">{{ $name }}</span>
+      {{- if gt $qty 1 }} <span class="s-kit-lists__qty">&times;{{ $qty }}</span>{{ end -}}
+      {{- with $alt }} <span class="s-kit-lists__alt">&mdash; {{ . }}</span>{{ end -}}
+    </label>
+  </li>
+{{- else -}}
+  <li class="s-kit-lists__item">
+    <span class="s-kit-lists__item-name">{{ $name }}</span>
+    {{- if gt $qty 1 }} <span class="s-kit-lists__qty">&times;{{ $qty }}</span>{{ end -}}
+    {{- with $alt }} <span class="s-kit-lists__alt">&mdash; {{ . }}</span>{{ end -}}
+  </li>
+{{- end -}}

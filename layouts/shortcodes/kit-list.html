@@ -1,0 +1,43 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  kit-list shortcode — transclude a kit list inside another page's body.
+  SPEC-05.
+
+  Usage (e.g. in an event's Markdown body):
+    {{< kit-list "cubs-weekend" >}}
+
+  Renders the referenced list's categories inline (mode "screen"), a
+  link to the full kit-list page, and — when the HOST page carries an
+  `additional_kit` free-text field (events do) — appends it as an
+  "also bring for this camp" block. Renders nothing if the kit_lists
+  feature is off; warns at build if the slug doesn't resolve.
+*/ -}}
+{{- $slug := .Get 0 -}}
+{{- if not site.Params.features.kit_lists -}}
+{{- else if not $slug -}}
+  {{- warnf "kit-list shortcode in %q: no slug given. Pass the kit-list slug as the first argument, e.g. cubs-weekend." .Page.File.Path -}}
+{{- else -}}
+  {{- $kl := site.GetPage (printf "/kit-lists/%s" $slug) -}}
+  {{- if not $kl -}}
+    {{- warnf "kit-list shortcode in %q: no kit list found at /kit-lists/%s/." .Page.File.Path $slug -}}
+  {{- else -}}
+    <div class="s-kit-lists s-kit-lists--embed">
+      <h3 class="s-kit-lists__embed-title">
+        <a href="{{ $kl.RelPermalink }}">{{ $kl.Title }}</a>
+      </h3>
+      {{ partial "kit-list-categories.html" (dict "page" $kl "mode" "screen") }}
+      {{- with .Page.Params.additional_kit }}
+        <aside class="s-kit-lists__additional" aria-label="{{ i18n "kitListAdditionalHeading" | default "Also bring for this camp" }}">
+          <h4 class="s-kit-lists__additional-heading">{{ i18n "kitListAdditionalHeading" | default "Also bring for this camp" }}</h4>
+          <div class="s-kit-lists__additional-body">{{ . | safeHTML }}</div>
+        </aside>
+      {{- end }}
+      <p class="s-kit-lists__embed-link">
+        <a class="styled-link" href="{{ $kl.RelPermalink }}">{{ i18n "kitListViewFull" | default "View the full kit list" }} &rarr;</a>
+      </p>
+    </div>
+  {{- end -}}
+{{- end -}}

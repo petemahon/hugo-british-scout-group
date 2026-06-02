@@ -1,0 +1,84 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Kit list — on-screen view at /kit-lists/<slug>/. SPEC-05.
+
+  Renders the structured categories (via kit-list-categories, mode
+  "screen"), an optional mobile-phone-policy block, BSO cross-border
+  notes, a "please leave at home" list, and a link to the printable
+  checkbox view at /kit-lists/<slug>/print.html.
+
+  Feature gate: site.Params.features.kit_lists.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.kit_lists -}}
+  {{- /* Section metadata (name + identity colour) from the data file,
+         used for the eyebrow and the section accent. */ -}}
+  {{- $sectionKey  := .Params.section -}}
+  {{- $sectionName := $sectionKey -}}
+  {{- $sectionColor := "" -}}
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- if eq .key $sectionKey -}}
+      {{- $sectionName = .name -}}
+      {{- $sectionColor = .color -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $showPrint := site.Params.kit_lists.printable_route | default true -}}
+  {{- $phone := .Params.phone_policy -}}
+  {{- if eq $phone nil }}{{ $phone = site.Params.kit_lists.show_phone_policy_default | default false }}{{ end -}}
+
+  <article class="s-kit-lists s-kit-lists--single section reveal"{{ with $sectionColor }} style="--sec: {{ . }};"{{ end }}>
+    <div class="container s-kit-lists__container">
+
+      <p class="s-kit-lists__breadcrumb display-7">
+        <a href="{{ "/kit-lists/" | relURL }}">&larr; {{ i18n "kitListBackToList" | default "All kit lists" }}</a>
+      </p>
+
+      <header class="s-kit-lists__head">
+        <span class="eyebrow">{{ $sectionName }}{{ with .Params.camp_type }} · {{ . }}{{ end }}</span>
+        <h1 class="s-kit-lists__title display-2">{{ .Title }}</h1>
+
+        {{- if or .Params.version .Params.last_reviewed .Params.reviewed_by }}
+          <p class="s-kit-lists__meta display-7">
+            {{- with .Params.version }}<span>v{{ . }}</span>{{ end -}}
+            {{- with .Params.last_reviewed }} <span>{{ i18n "kitListReviewed" | default "reviewed" }} {{ dateFormat "2 January 2006" . }}</span>{{ end -}}
+            {{- with .Params.reviewed_by }} <span>{{ i18n "kitListReviewedBy" | default "by" }} {{ . }}</span>{{ end -}}
+          </p>
+        {{- end }}
+
+        {{- if $showPrint }}
+          <p class="s-kit-lists__print">
+            {{- /* New tab — the print view is chrome-less (no nav/footer),
+                   so there's no way back to this page from inside it. */ -}}
+            <a class="btn btn-primary" href="print.html" target="_blank" rel="noopener">{{ i18n "kitListPrintLink" | default "Print this list" }} &rarr;</a>
+          </p>
+        {{- end }}
+      </header>
+
+      {{- with .Params.intro }}<div class="s-kit-lists__intro display-7">{{ . | safeHTML }}</div>{{ end }}
+
+      {{ partial "kit-list-categories.html" (dict "page" . "mode" "screen") }}
+
+      {{- if $phone }}{{ partial "kit-phone-policy.html" . }}{{ end }}
+
+      {{- with .Params.cross_border_notes }}
+        <aside class="s-kit-lists__cross-border" aria-label="{{ i18n "kitListCrossBorderHeading" | default "Travelling from abroad" }}">
+          <h2 class="s-kit-lists__cross-border-heading">{{ i18n "kitListCrossBorderHeading" | default "Travelling from abroad" }}</h2>
+          <div class="s-kit-lists__cross-border-body display-7">{{ . | safeHTML }}</div>
+        </aside>
+      {{- end }}
+
+      {{- with .Params.non_essential }}
+        <aside class="s-kit-lists__non-essential" aria-label="{{ i18n "kitListNonEssentialHeading" | default "Please leave at home" }}">
+          <h2 class="s-kit-lists__non-essential-heading">{{ i18n "kitListNonEssentialHeading" | default "Please leave at home" }}</h2>
+          <div class="s-kit-lists__non-essential-body display-7">{{ . | safeHTML }}</div>
+        </aside>
+      {{- end }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

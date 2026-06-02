@@ -16,6 +16,12 @@ dress       = "Activity uniform on arrival"
 cost        = "£65 per Cub"
 cost_includes = "Activities, food, accommodation"
 sections    = ["cubs"]
+
+# Kit (SPEC-05): links to the reusable Cubs summer-camp list and adds a
+# couple of items specific to this camp.
+kit_list_ref   = "cubs-summer-camp"
+additional_kit = "A named refillable water bottle, and £5 in a named purse for the camp shop."
+
 draft       = false
 
 [demo]
@@ -27,6 +33,6 @@ Three days under canvas at Pioneer Camp — Friday afternoon arrival,
 Sunday afternoon collection. The Pack will be running a mix of
 campcraft, water activities and the all-time-favourite night hike.
 
-Kit list and consent forms will be sent home four weeks ahead of camp.
-Bursary support is available — speak to Akela in confidence if cost
-would otherwise stop your Cub joining us.
+The kit list for this camp is linked below; consent forms come home
+four weeks ahead. Bursary support is available — speak to Akela in
+confidence if cost would otherwise stop your Cub joining us.

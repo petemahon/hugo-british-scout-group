@@ -1,0 +1,56 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Kit lists index — /kit-lists/. SPEC-05.
+
+  Lists every published kit list grouped by section, in the canonical
+  scout-section order (data/scout_sections.toml). Each entry links to
+  the on-screen view; the camp-type and climate are surfaced as labels.
+
+  Feature gate: site.Params.features.kit_lists.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.kit_lists -}}
+  {{- $lists := where site.RegularPages "Section" "kit-lists" -}}
+
+  <section class="s-kit-lists s-kit-lists--list section reveal">
+    <div class="container s-kit-lists__container">
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "kitListEyebrow" | default "Camp kit" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "kitListHeading" | default "Kit lists" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+        {{- with .Content }}<div class="s-kit-lists__list-intro display-7">{{ . }}</div>{{ end }}
+      </header>
+
+      {{- if gt (len $lists) 0 }}
+        {{- range hugo.Data.scout_sections.items -}}
+          {{- $sectionKey := .key -}}
+          {{- $sectionName := .name -}}
+          {{- $sectionColor := .color -}}
+          {{- $inSection := where $lists "Params.section" $sectionKey -}}
+          {{- if gt (len $inSection) 0 }}
+            <section class="s-kit-lists__group" style="--sec: {{ $sectionColor }};">
+              <h2 class="s-kit-lists__group-name">{{ $sectionName }}</h2>
+              <ul class="s-kit-lists__group-items">
+                {{- range $inSection.ByTitle }}
+                  <li class="s-kit-lists__group-item">
+                    <a class="s-kit-lists__group-link styled-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{- with .Params.camp_type }}<span class="s-kit-lists__group-tag">{{ . }}</span>{{ end -}}
+                    {{- if and .Params.climate (ne .Params.climate "temperate") }}<span class="s-kit-lists__group-tag s-kit-lists__group-tag--climate">{{ .Params.climate }}</span>{{ end -}}
+                  </li>
+                {{- end }}
+              </ul>
+            </section>
+          {{- end }}
+        {{- end }}
+      {{- else }}
+        <p class="s-kit-lists__empty display-7">{{ i18n "kitListEmptyList" | default "No kit lists published yet." }}</p>
+      {{- end }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

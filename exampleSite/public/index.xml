@@ -83,7 +83,7 @@
       <link>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</link>
       <pubDate>Sun, 03 May 2026 10:00:00 +0100</pubDate>
       <guid>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</guid>
-      <description>&lt;p&gt;Three days under canvas at Pioneer Camp — Friday afternoon arrival,&#xA;Sunday afternoon collection. The Pack will be running a mix of&#xA;campcraft, water activities and the all-time-favourite night hike.&lt;/p&gt;&#xA;&lt;p&gt;Kit list and consent forms will be sent home four weeks ahead of camp.&#xA;Bursary support is available — speak to Akela in confidence if cost&#xA;would otherwise stop your Cub joining us.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Three days under canvas at Pioneer Camp — Friday afternoon arrival,&#xA;Sunday afternoon collection. The Pack will be running a mix of&#xA;campcraft, water activities and the all-time-favourite night hike.&lt;/p&gt;&#xA;&lt;p&gt;The kit list for this camp is linked below; consent forms come home&#xA;four weeks ahead. Bursary support is available — speak to Akela in&#xA;confidence if cost would otherwise stop your Cub joining us.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Summer Fete</title>
@@ -129,51 +129,51 @@
     </item>
     <item>
       <title>001</title>
-      <link>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/001/</link>
+      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/001/</guid>
+      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</guid>
       <description></description>
     </item>
     <item>
       <title>001</title>
-      <link>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/001/</link>
+      <link>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/001/</guid>
+      <guid>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</guid>
       <description></description>
     </item>
     <item>
       <title>001</title>
-      <link>http://localhost:1313/galleries/galleries/2026-08-14-cubs-summer-camp/001/</link>
+      <link>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-08-14-cubs-summer-camp/001/</guid>
+      <guid>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</guid>
       <description></description>
     </item>
     <item>
       <title>002</title>
-      <link>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/002/</link>
+      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-03-30-cubs-cooking-cup/002/</guid>
+      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</guid>
       <description></description>
     </item>
     <item>
       <title>002</title>
-      <link>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/002/</link>
+      <link>http://localhost:1313/galleries/2026-07-12-summer-fete/002/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-07-12-summer-fete/002/</guid>
+      <guid>http://localhost:1313/galleries/2026-07-12-summer-fete/002/</guid>
       <description></description>
     </item>
     <item>
       <title>003</title>
-      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/003/</link>
+      <link>http://localhost:1313/galleries/2026-04-19-st-georges-day/003/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/003/</guid>
+      <guid>http://localhost:1313/galleries/2026-04-19-st-georges-day/003/</guid>
       <description></description>
     </item>
     <item>
       <title>Awards before the service</title>
-      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/002/</link>
+      <link>http://localhost:1313/galleries/2026-04-19-st-georges-day/002/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/002/</guid>
+      <guid>http://localhost:1313/galleries/2026-04-19-st-georges-day/002/</guid>
       <description></description>
     </item>
     <item>
@@ -191,6 +191,41 @@
       <description>&lt;p&gt;This term we&amp;rsquo;re building towards the &lt;strong&gt;Naturalist activity badge&lt;/strong&gt; and&#xA;a weekend Pack camp at Anytown Common. A typical Cubs term: fire-lighting,&#xA;map work, a community visit, and plenty of outdoor time. Half-term falls in&#xA;week 8 — no meeting that week.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Cubs Summer Camp Kit List</title>
+      <link>http://localhost:1313/kit-lists/cubs-summer-camp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/cubs-summer-camp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cubs Summer Camp Kit List (desert climate)</title>
+      <link>http://localhost:1313/kit-lists/cubs-summer-camp-desert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/cubs-summer-camp-desert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cubs Weekend Camp Kit List</title>
+      <link>http://localhost:1313/kit-lists/cubs-weekend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/cubs-weekend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cubs Weekend Camp Kit List (desert climate)</title>
+      <link>http://localhost:1313/kit-lists/cubs-weekend-desert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/cubs-weekend-desert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Explorers Expedition Kit List</title>
+      <link>http://localhost:1313/kit-lists/explorers-expedition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/explorers-expedition/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Home range and InTouch</title>
       <link>http://localhost:1313/bso/home-range/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -199,9 +234,9 @@
     </item>
     <item>
       <title>Map check at the second checkpoint</title>
-      <link>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/002/</link>
+      <link>http://localhost:1313/galleries/2025-11-15-night-hike/002/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/002/</guid>
+      <guid>http://localhost:1313/galleries/2025-11-15-night-hike/002/</guid>
       <description></description>
     </item>
     <item>
@@ -240,17 +275,45 @@
       <description>&lt;p&gt;A look ahead to next autumn — published early so parents can plan&#xA;around the weekend hike and Remembrance parade.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Setting off as the light fades</title>
-      <link>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/001/</link>
+      <title>Scouts Summer Camp Kit List</title>
+      <link>http://localhost:1313/kit-lists/scouts-summer-camp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2025-11-15-night-hike/001/</guid>
+      <guid>http://localhost:1313/kit-lists/scouts-summer-camp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scouts Summer Camp Kit List (desert climate)</title>
+      <link>http://localhost:1313/kit-lists/scouts-summer-camp-desert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/scouts-summer-camp-desert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scouts Weekend Camp Kit List</title>
+      <link>http://localhost:1313/kit-lists/scouts-weekend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/scouts-weekend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scouts Weekend Camp Kit List (desert climate)</title>
+      <link>http://localhost:1313/kit-lists/scouts-weekend-desert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/kit-lists/scouts-weekend-desert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Setting off as the light fades</title>
+      <link>http://localhost:1313/galleries/2025-11-15-night-hike/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2025-11-15-night-hike/001/</guid>
       <description></description>
     </item>
     <item>
       <title>Squirrels and Beavers on parade outside the church</title>
-      <link>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/001/</link>
+      <link>http://localhost:1313/galleries/2026-04-19-st-georges-day/001/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/galleries/2026-04-19-st-georges-day/001/</guid>
+      <guid>http://localhost:1313/galleries/2026-04-19-st-georges-day/001/</guid>
       <description></description>
     </item>
     <item>

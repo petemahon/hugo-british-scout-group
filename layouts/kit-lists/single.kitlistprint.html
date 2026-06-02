@@ -1,0 +1,65 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Kit list — printable checkbox view. SPEC-05.
+
+  URL: /kit-lists/<slug>/print.html
+  Output format: KitListPrint (declared in the site's hugo.toml, enabled
+  on every kit-list page via the [cascade] in content/kit-lists/_index.md).
+
+  Emits a SELF-CONTAINED HTML document (does NOT extend baseof.html) so
+  the printable view is a single linear flow with no site chrome —
+  built for "Print → Save as PDF". The site CSS bundle stays linked so
+  the print rules in 55-section-kit-lists.css apply.
+*/ -}}
+{{- if site.Params.features.kit_lists -}}
+{{- $cssFiles := resources.Match "css/*.css" -}}
+{{- $css := $cssFiles | resources.Concat "css/theme.css" -}}
+{{- if hugo.IsProduction -}}{{- $css = $css | minify | fingerprint -}}{{- end -}}
+{{- $phone := .Params.phone_policy -}}
+{{- if eq $phone nil }}{{ $phone = site.Params.kit_lists.show_phone_policy_default | default false }}{{ end -}}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} · {{ site.Title }}</title>
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+  {{ partial "palette-style.html" . }}
+</head>
+<body class="kit-list-print">
+  <main>
+    <header class="s-kit-lists-print__head">
+      <h1>{{ .Title }}</h1>
+      <p class="s-kit-lists-print__group">{{ site.Title }}</p>
+      <p class="s-kit-lists-print__name">{{ i18n "kitListPrintNameLabel" | default "Name" }}: <span class="s-kit-lists-print__name-line"></span></p>
+    </header>
+
+    {{ partial "kit-list-categories.html" (dict "page" . "mode" "print") }}
+
+    {{- if $phone }}{{ partial "kit-phone-policy.html" . }}{{ end }}
+
+    {{- with .Params.cross_border_notes }}
+      <aside class="s-kit-lists__cross-border">
+        <h2>{{ i18n "kitListCrossBorderHeading" | default "Travelling from abroad" }}</h2>
+        <div>{{ . | safeHTML }}</div>
+      </aside>
+    {{- end }}
+
+    {{- with .Params.non_essential }}
+      <aside class="s-kit-lists__non-essential">
+        <h2>{{ i18n "kitListNonEssentialHeading" | default "Please leave at home" }}</h2>
+        <div>{{ . | safeHTML }}</div>
+      </aside>
+    {{- end }}
+
+    <footer class="s-kit-lists-print__foot">
+      {{- with .Params.version }}v{{ . }}{{ end -}}
+      {{- with .Params.last_reviewed }} · {{ i18n "kitListReviewed" | default "reviewed" }} {{ dateFormat "2 January 2006" . }}{{ end -}}
+    </footer>
+  </main>
+</body>
+</html>
+{{- end -}}

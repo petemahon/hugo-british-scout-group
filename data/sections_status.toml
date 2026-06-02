@@ -27,8 +27,25 @@
 # contact_email         Per-pack email (falls back to enquiry_email)
 # description           HTML allowed; short paragraph describing the pack
 # waiting_url           OSM waiting-list URL; used when status="waiting"
-# bso_language          BSO only — language requirement, e.g. "English"
-# bso_nationality_note  BSO only — eligibility blurb, linked to /bso/eligibility/
+# bso_language          BSO only, EXCEPTION-ONLY — set only when THIS pack
+#                       runs in a different language from the rest of the
+#                       Group (e.g. a French-speaking Colony in an otherwise
+#                       English Group). Leave "" when the Group is uniform.
+# bso_nationality_note  BSO only, EXCEPTION-ONLY — populate only if a specific
+#                       pack's eligibility genuinely differs. Nationality
+#                       eligibility (POR 3.2.1.1) is a GROUP-WIDE rule, so
+#                       normally leave "". When set, it links to
+#                       /bso/eligibility/.
+#
+# Why both BSO fields are left "" in the example below
+# ----------------------------------------------------
+# The canonical "who can join" statement (language + the POR 3.2.1.1
+# nationality rule) is rendered ONCE, at the top of /join/, by the
+# bso-membership-notice partial. Repeating it on every card is pure
+# duplication, so these per-pack fields are reserved for the rare case
+# where a single pack differs. To demonstrate a bilingual Group, you'd
+# set e.g. `bso_language = "French — this Colony runs in French"` on the
+# one pack that differs, and leave every other pack's field "".
 #
 # The example site below exercises SPEC-06 acceptance criterion #9:
 # Squirrels closed (not yet running), Beavers waiting list, Cubs
@@ -48,8 +65,8 @@
   contact_email        = "squirrels@1stanytown.org.uk"
   description          = "We're working towards opening a Squirrel Drey. If you'd like to register your interest, drop us a line and we'll let you know as soon as we have a date."
   waiting_url          = ""
-  bso_language         = "English"
-  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 # Beavers — open waiting list
 [[beavers]]
@@ -64,8 +81,8 @@
   contact_email        = "beavers@1stanytown.org.uk"
   description          = "Beavers (age 6 to 8) meet on Tuesday evenings. We have a strong waiting list at present; add your child's name and we'll be in touch as soon as a place comes up."
   waiting_url          = "https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-beavers"
-  bso_language         = "English"
-  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 # Cubs — multi-pack (two Packs running on different nights)
 [[cubs]]
@@ -80,8 +97,8 @@
   contact_email        = "cubs-wed@1stanytown.org.uk"
   description          = "The Wednesday Pack has spaces for new Cubs joining in the Summer term. Sessions are a mix of badge work, games and outdoor activity."
   waiting_url          = ""
-  bso_language         = "English"
-  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 [[cubs]]
   pack_name            = "Friday Pack"
@@ -95,8 +112,8 @@
   contact_email        = "cubs-fri@1stanytown.org.uk"
   description          = "The Friday Pack has a waiting list. Names roll over between terms; the Wednesday Pack is the quicker route in if your child is flexible on the night."
   waiting_url          = "https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-cubs-friday"
-  bso_language         = "English"
-  bso_nationality_note = "Open to children who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 # Scouts — open, single Troop
 [[scouts]]
@@ -111,8 +128,8 @@
   contact_email        = "scouts@1stanytown.org.uk"
   description          = "Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule."
   waiting_url          = ""
-  bso_language         = "English"
-  bso_nationality_note = "Open to young people who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 # Explorers — open, single Unit
 [[explorers]]
@@ -127,8 +144,8 @@
   contact_email        = "explorers@1stanytown.org.uk"
   description          = "Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar."
   waiting_url          = ""
-  bso_language         = "English"
-  bso_nationality_note = "Open to young people who aren't nationals of the host country (POR 3.2.1.1)."
+  bso_language         = ""
+  bso_nationality_note = ""
 
 # Network — opt-in via params.scoutSections in hugo.toml; not enabled
 # by default in the example site. Uncomment the block below and toggle
@@ -146,5 +163,5 @@
 #   contact_email        = "network@1stanytown.org.uk"
 #   description          = "Scout Network is the 18-25 section. Meets across the city for expeditions, top-award work, and community projects."
 #   waiting_url          = ""
-#   bso_language         = "English"
+#   bso_language         = ""
 #   bso_nationality_note = ""

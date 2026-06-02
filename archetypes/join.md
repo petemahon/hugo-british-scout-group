@@ -36,7 +36,7 @@ volunteer_link_text = "We need you too"
 
 # BSO Groups only — a short eligibility blurb that renders above the
 # cards (between the bso-membership notice and the grid). HTML allowed.
-# Ignored when site.Params.bso is false.
+# Ignored when site.Params.bso.enabled is false.
 bso_eligibility_summary = ""
 +++
 

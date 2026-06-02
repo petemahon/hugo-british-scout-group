@@ -86,6 +86,12 @@
         </div>
       {{- end }}
 
+      {{- if and site.Params.features.kit_lists (not $archive) }}
+        <p class="s-events__aside-link">
+          <a class="styled-link" href="{{ "/kit-lists/" | relURL }}">{{ i18n "kitListBrowseAll" | default "Browse all camp kit lists" }} &rarr;</a>
+        </p>
+      {{- end }}
+
     </div>
   </section>
 {{- end -}}

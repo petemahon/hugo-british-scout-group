@@ -241,6 +241,7 @@ maintain.
   events            = true     # SPEC-02
   programme         = true     # SPEC-03 termly programmes
   galleries         = true     # SPEC-04 photo galleries
+  kit_lists         = true     # SPEC-05 camp kit lists
   joining           = true     # SPEC-06 /join/ page
   welcome_pack      = true     # SPEC-06 /welcome-pack/ content section
   bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
@@ -543,6 +544,55 @@ must review and merge each prune.
 7. The `consent-policy.md` page on the site documents the Group's
    approach to handling photos.
 
+### Camp Kit Lists (SPEC-05)
+
+Reusable, versioned kit lists at `/kit-lists/`, grouped by section.
+Each list (`content/kit-lists/<slug>.md`) is **structured front-matter**
+— one or more `[[categories]]`, each with `[[categories.items]]` records
+carrying `name`, `quantity` (default 1) and a free-text `alternative`.
+Both views render from this one source:
+
+- **On-screen** at `/kit-lists/<slug>/` — categorised rows, a `×N`
+  quantity badge where quantity > 1, the alternative in muted text.
+- **Printable checkbox sheet** at `/kit-lists/<slug>/print.html` — a
+  self-contained document (no site chrome) with a checkbox per item, a
+  "Name: ___" line and a version/reviewed footer, for "Print → Save as
+  PDF".
+
+The print view is a custom Hugo output format (`KitListPrint`) defined
+in `exampleSite/hugo.toml` and enabled on every kit-list page via a
+`[cascade]` in `content/kit-lists/_index.md` (`outputs = ["html",
+"KitListPrint"]`). The print template
+(`layouts/kit-lists/single.kitlistprint.html`) does not extend
+`baseof.html`. **A consuming site must copy both the `KitListPrint`
+output-format block and the cascade** — the same opt-in pattern as the
+Welcome Pack's `WelcomePackPrint`.
+
+Optional per-list extras: a **mobile-phone-policy** block (`phone_policy
+= true`, or the `[params.kit_lists].show_phone_policy_default` site
+default; copy comes from `[params.kit_lists].default_phone_policy_text`
+or the theme's neutral i18n default), **BSO `cross_border_notes`**
+(passport, GHIC/insurance, currency, adapters), and a **"please leave at
+home"** list (`non_essential`). The starter pack ships nine lists —
+Cubs/Scouts weekend and summer, an Explorers expedition, plus
+desert-climate variants — as **content the Group edits**, not theme code.
+
+**Event integration (with SPEC-02):** an event with `kit_list_ref =
+"<slug>"` renders a "Kit list for this camp → …" link, and its free-text
+`additional_kit` shows alongside as a per-event note. To embed the full
+list inline in an event (or any page) body, use the shortcode:
+
+```
+{{< kit-list "cubs-weekend" >}}
+```
+
+When transcluded this way, the host page's `additional_kit` is appended
+under the list.
+
+```sh
+hugo new kit-lists/cubs-weekend.md
+```
+
 ### Joining & Waiting List (SPEC-06)
 
 A structured `/join/` page generated from a single Markdown file
@@ -615,12 +665,13 @@ from the site. Build emits a warning if a `status = "waiting"` pack
 has no `waiting_url` AND no `contact_email` AND the page has no
 fallback (`osm_waiting_list_url`, `enquiry_email`).
 
-**BSO branch.** When `site.Params.bso = true`, the `bso-membership`
-notice partial renders above the cards plus a per-page eligibility
-summary; each pack card with `bso_language` or `bso_nationality_note`
-populated renders those fields as a small in-card note. The example
-site ships BSO fields populated but defaults `bso = false`; flip the
-flag to exercise the BSO render path end-to-end.
+**BSO branch.** When `[params.bso].enabled = true`, the
+`bso-membership-notice` partial renders above the cards plus a
+per-page eligibility summary; each pack card with `bso_language` or
+`bso_nationality_note` populated renders those fields as a small
+in-card note. The example site ships BSO fields populated but a Group
+can default `enabled = false`; flip the switch to exercise the BSO
+render path end-to-end.
 
 ### Welcome Pack (SPEC-06)
 

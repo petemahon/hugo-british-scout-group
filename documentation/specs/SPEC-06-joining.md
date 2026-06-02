@@ -42,9 +42,9 @@ Sevenoaks (Welcome Pack pattern).
 6. The page links out to the Group's OSM waiting list URL or to a
    `mailto:` if the Group does not use OSM. The site itself never
    collects any data.
-7. BSO mode (`site.Params.bso = true`) renders the existing
-   `bso-membership` partial above the cards, plus per-card eligibility
-   strings.
+7. BSO mode (`[params.bso].enabled = true`) renders the existing
+   `bso-membership-notice` partial above the cards, plus per-card
+   eligibility strings.
 8. Feature gated by `params.features.joining` (default OFF).
 9. Example site exercises: a Group with all sections open, a Group
    with one waiting list, a Group with Squirrels closed (not yet
@@ -155,8 +155,8 @@ image, and a `weight` for ordering.
 
 - Group name, current academic year, version, last reviewed date.
 - A nav listing the chapters with brief descriptions.
-- "Print all" link to `/welcome-pack/print/` (compiles all chapters
-  into one printable page — see Layouts).
+- "Print all" link to `/welcome-pack/print.html` (compiles all
+  chapters into one printable page — see Layouts).
 
 **`about.md`** — About the Group
 
@@ -220,7 +220,7 @@ Body: free Markdown.
 | `layouts/join/single.html` | `/join/` page |
 | `layouts/welcome-pack/list.html` | `/welcome-pack/` cover page |
 | `layouts/welcome-pack/single.html` | Per-chapter page |
-| `layouts/welcome-pack/print.html` | `/welcome-pack/print/` — concatenated, print-styled |
+| `layouts/welcome-pack/list.welcomepackprint.html` | `/welcome-pack/print.html` — concatenated, print-styled (custom output format) |
 | `layouts/partials/joining-grid.html` | The cards |
 | `layouts/partials/joining-card.html` | Per-pack card |
 | `layouts/partials/joining-faq.html` | FAQ accordion |
@@ -267,10 +267,10 @@ The existing `params.scoutSections` toggles which cards render.
 
 ## BSO notes — first-class
 
-When `site.Params.bso = true`:
+When `[params.bso].enabled = true`:
 
-1. The `bso-membership` partial renders above the cards (the existing
-   POR 3.2.1.1 notice).
+1. The `bso-membership-notice` partial renders above the cards (the
+   existing POR 3.2.1.1 notice).
 2. Each pack card whose `bso_language` is non-empty renders the
    language requirement as a small note inside the card.
 3. Each pack card whose `bso_nationality_note` is non-empty renders
@@ -278,7 +278,7 @@ When `site.Params.bso = true`:
 4. Welcome Pack `safeguarding.md` chapter renders an additional
    block referencing POR 3.2.1.1 when BSO is enabled.
 
-When `site.Params.bso = false`, the BSO-specific fields are ignored.
+When `[params.bso].enabled = false`, the BSO-specific fields are ignored.
 
 ## Safeguarding & GDPR
 
@@ -298,7 +298,7 @@ When `site.Params.bso = false`, the BSO-specific fields are ignored.
 | --- | --- |
 | Q6.1 | **Yes** — three new palette tokens `--status-open`, `--status-waiting`, `--status-closed`. Defined per palette in `data/palettes.toml`. |
 | Q6.2 | **Multi-pack supported** — `data/sections_status.toml` uses array-per-section pattern (`[[cubs]]` repeated). Single-pack Groups have one entry; multi-pack Groups add more. `pack_name` field renders only when populated. |
-| Q6.3 | **Welcome Pack as printable Hugo content section** — `/welcome-pack/` with chapters; `/welcome-pack/print/` for the concatenated printable view. Starter content ships in `exampleSite/`. |
+| Q6.3 | **Welcome Pack as printable Hugo content section** — `/welcome-pack/` with chapters; `/welcome-pack/print.html` (a `WelcomePackPrint` custom output format on the section list page) for the concatenated printable view. Starter content ships in `exampleSite/`. |
 | Q6.4 | **No Word version** — superseded by Q6.3. The Markdown chapters in the starter pack are themselves the editable template. |
 | Q6.5 | **Yes** — print stylesheet forces `<details>` open. Standard accessibility. |
 
@@ -326,12 +326,13 @@ When `site.Params.bso = false`, the BSO-specific fields are ignored.
 7. Currency rendering using `data/currencies.toml`.
 8. Status badges using new tokens.
 9. FAQ section consuming `content/join/faq/*.md`.
-10. BSO branch: render `bso-membership` partial + per-pack
+10. BSO branch: render `bso-membership-notice` partial + per-pack
     eligibility notes.
 11. Welcome Pack section: `layouts/welcome-pack/list.html`,
     `single.html`, `print.html` (custom output format).
 12. Starter pack content in `exampleSite/content/welcome-pack/` —
-    six chapters covering the topics above.
+    five chapters (about, sections, joining, safeguarding, calendar)
+    plus the `_index.md` cover page, covering the topics above.
 13. Print stylesheets for both `/join/` and `/welcome-pack/print/`.
 14. Build warnings for missing waiting URL, missing contact email.
 15. CSS, i18n, README, screenshot.

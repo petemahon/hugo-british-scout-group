@@ -64,12 +64,25 @@
               {{- $alt = .alt | default "" -}}
               {{- $facesBlurred = .faces_blurred | default false -}}
             {{- end -}}
+            {{- /* `path` is relative to this adapter's own section
+                   (content/galleries/), so Hugo prepends `galleries/`
+                   for us — the slug/base alone places the photo page at
+                   /galleries/<slug>/<base>/ as a child of the gallery
+                   section. Prefixing `galleries/` here double-nests it
+                   (/galleries/galleries/…) and detaches it from the
+                   section, leaving .Pages empty for the grid + strip. */ -}}
+            {{- /* `layout` MUST be a top-level key of the AddPage map.
+                   Inside `params` it becomes an inert .Params.layout and
+                   the page falls back to layouts/galleries/single.html
+                   (the grid), which then finds no child pages and renders
+                   the "empty gallery" message. Top-level routes it to
+                   layouts/galleries/photo.html as intended. */ -}}
             {{- $.AddPage (dict
-              "path" (printf "galleries/%s/%s" $slug $base)
+              "path" (printf "%s/%s" $slug $base)
               "kind" "page"
+              "layout" "photo"
               "title" (or $caption $base)
               "params" (dict
-                "layout" "photo"
                 "image_file" $file
                 "gallery_slug" $slug
                 "image_caption" $caption
