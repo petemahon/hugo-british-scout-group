@@ -1,0 +1,98 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  header-nav-tree — builds the auto-nav as a slice of group dicts and
+  RETURNS it (no markup). SPEC-11. The desktop (header-nav.html) and
+  mobile (header-nav-mobile.html) renderers both consume this one tree,
+  so they can never diverge.
+
+  Hierarchy is hardcoded & ordered: Join Us · Our Sections · What we do ·
+  Get Involved · About. Each entry is derived from params.features.* and
+  hidden per-entry via params.nav.show_*. Smart-collapse: a feature group
+  with exactly one enabled child becomes a direct link (child's label);
+  zero enabled children → the group is dropped. Join Us and Our Sections
+  are bespoke; About always has the always-on "Where we meet" child.
+
+  Group dict shape:
+    { id, label, kind ("link"|"dropdown"), url, children }
+  Child dict shape:
+    { label, url, recruiting (bool, optional) }
+
+  Context: the current Page (for ancestor active-state + open-role count).
+*/ -}}
+{{- $page := . -}}
+{{- $nav := site.Params.nav | default dict -}}
+{{- $f := site.Params.features | default dict -}}
+{{- $groups := slice -}}
+
+{{- /* ── 1. Join Us ─────────────────────────────────────────── */ -}}
+{{- if ne $nav.show_join_us false -}}
+  {{- $joinUrl := cond ($f.joining | default false) "/join/" "/#join" -}}
+  {{- if and (site.Params.bso.enabled | default false) ($f.bso_hub | default false) -}}
+    {{- $children := slice
+        (dict "label" (i18n "navJoinUsHowToJoin") "url" ($joinUrl | relURL))
+        (dict "label" (i18n "navJoinUsBSO") "url" ("/bso/" | relURL)) -}}
+    {{- $groups = $groups | append (dict "id" "join" "label" (i18n "navJoinUs") "kind" "dropdown" "url" ($joinUrl | relURL) "children" $children) -}}
+  {{- else -}}
+    {{- $groups = $groups | append (dict "id" "join" "label" (i18n "navJoinUs") "kind" "link" "url" ($joinUrl | relURL) "children" slice) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ── 2. Our Sections (always a submenu of enabled sections) ─ */ -}}
+{{- if ne $nav.show_our_sections false -}}
+  {{- $userCfg := site.Params.scoutSections | default dict -}}
+  {{- $secChildren := slice -}}
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- $key := .key -}}
+    {{- $name := .name -}}
+    {{- $user := index $userCfg $key | default dict -}}
+    {{- $on := ne .default_enabled false -}}
+    {{- if eq $user.enable true }}{{ $on = true }}{{ end -}}
+    {{- if eq $user.enable false }}{{ $on = false }}{{ end -}}
+    {{- if $on -}}
+      {{- $secChildren = $secChildren | append (dict "label" $name "url" (printf "/#%s" $key | relURL)) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $secChildren) 0 -}}
+    {{- $groups = $groups | append (dict "id" "sections" "label" (i18n "navOurSections") "kind" "dropdown" "url" ("/#sections" | relURL) "children" $secChildren) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ── 3. What we do ──────────────────────────────────────── */ -}}
+{{- if ne $nav.show_what_we_do false -}}
+  {{- $c := slice -}}
+  {{- if $f.news }}{{ $c = $c | append (dict "label" (i18n "navWhatWeDoNews") "url" ("/news/" | relURL)) }}{{ end -}}
+  {{- if $f.events }}{{ $c = $c | append (dict "label" (i18n "navWhatWeDoEvents") "url" ("/events/" | relURL)) }}{{ end -}}
+  {{- if $f.programme }}{{ $c = $c | append (dict "label" (i18n "navWhatWeDoProgramme") "url" ("/programme/" | relURL)) }}{{ end -}}
+  {{- if $f.galleries }}{{ $c = $c | append (dict "label" (i18n "navWhatWeDoGalleries") "url" ("/galleries/" | relURL)) }}{{ end -}}
+  {{- $groups = $groups | append (partial "header-nav-collapse.html" (dict "id" "what-we-do" "label" (i18n "navWhatWeDo") "children" $c)) -}}
+{{- end -}}
+
+{{- /* ── 4. Get Involved ────────────────────────────────────── */ -}}
+{{- if ne $nav.show_get_involved false -}}
+  {{- $c := slice -}}
+  {{- if $f.fundraising -}}
+    {{- $recruiting := and (site.Params.volunteer_roles.nav_link | default true) (gt (len (partial "volunteer-roles-open.html" $page)) 0) -}}
+    {{- $c = $c | append (dict "label" (i18n "navGetInvolvedVolunteer") "url" ("/support-us/volunteer-roles/" | relURL) "recruiting" $recruiting) -}}
+    {{- $c = $c | append (dict "label" (i18n "navGetInvolvedFundraising") "url" ("/support-us/" | relURL)) -}}
+  {{- end -}}
+  {{- if $f.hall_hire }}{{ $c = $c | append (dict "label" (i18n "navGetInvolvedHall") "url" ("/hall-hire/" | relURL)) }}{{ end -}}
+  {{- $groups = $groups | append (partial "header-nav-collapse.html" (dict "id" "get-involved" "label" (i18n "navGetInvolved") "children" $c)) -}}
+{{- end -}}
+
+{{- /* ── 5. About (always-on "Where we meet" child) ─────────── */ -}}
+{{- if ne $nav.show_about false -}}
+  {{- $c := slice -}}
+  {{- if $f.history }}{{ $c = $c | append (dict "label" (i18n "navAboutHistory") "url" ("/about/history/" | relURL)) }}{{ end -}}
+  {{- if $f.governance }}{{ $c = $c | append (dict "label" (i18n "navAboutGovernance" | default "Governance") "url" ("/about/governance/" | relURL)) }}{{ end -}}
+  {{- if $f.kit_lists }}{{ $c = $c | append (dict "label" (i18n "navAboutKit") "url" ("/kit-lists/" | relURL)) }}{{ end -}}
+  {{- if ne $nav.show_where_we_meet false }}{{ $c = $c | append (dict "label" (i18n "navAboutWhereWeMeet") "url" ("/#where-we-meet" | relURL)) }}{{ end -}}
+  {{- $groups = $groups | append (partial "header-nav-collapse.html" (dict "id" "about" "label" (i18n "navAbout") "children" $c)) -}}
+{{- end -}}
+
+{{- /* Drop any nil entries produced by collapse on empty groups. */ -}}
+{{- $clean := slice -}}
+{{- range $groups }}{{ if . }}{{ $clean = $clean | append . }}{{ end }}{{ end -}}
+{{- return $clean -}}

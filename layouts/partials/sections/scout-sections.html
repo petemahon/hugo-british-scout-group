@@ -92,7 +92,8 @@
         {{- if $shouldRender -}}
         {{- $logoSVG := "" -}}
         {{- with resources.Get .logo -}}{{ $logoSVG = .Content }}{{ end -}}
-        <a class="s-scout-sections__card styled-link" 
+        <a class="s-scout-sections__card styled-link"
+           id="{{ $key }}"
            data-sec="{{ $key }}"
            href="{{ .url | safeURL }}" 
            target="_blank" 

@@ -128,9 +128,11 @@ any change is made:
   Group materials or scoutsbrand.org.uk downloads.
 - Renaming or removing any of the canonical section types listed in
   DECISIONS.md.
-- Renaming the three always-on nav anchors (`#joining`,
-  `#our-sections`, `#where-we-meet`) — these are part of the
-  theme's stable contract.
+- Renaming the three always-on nav anchors (`#join`,
+  `#sections`, `#where-we-meet`) — these are part of the
+  theme's stable contract. (Reconciled 2026-06-03 from the
+  originally-drafted `#joining`/`#our-sections` to the shipped
+  home-section IDs.)
 - The BSO membership notice copy (aligned with The Scout
   Association's POR 3.2.1.1 — don't reword without flagging).
 - Bumping `theme.toml` `min_version`.
@@ -314,13 +316,32 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
   is deferred to SPEC-11** (which rebuilds the nav and now documents
   ownership); `[params.volunteer_roles]` ships now for config
   stability. See [[hugo-front-matter-reserved-fields-and-context]].
-- **Not started:** SPEC-08 Hall Hire. See `documentation/README.md`
-  for the recommended implementation order.
-- **SPEC-11 (Nav) and SPEC-12 (Accessibility):** cross-cutting,
-  always-on, no opt-in flag. To be implemented late as hardening
-  passes. `exampleSite/hugo.toml` still carries a static
-  `[[menu.main]]` block — will be replaced by SPEC-11's auto-built
-  nav at that point.
+- **SPEC-08 Hall Hire:** shipped. Single informational page at
+  `/hall-hire/` — intro, address (+ link-only `map_url`),
+  capacity/dimensions, facility chips, multi-tier rate table (currency
+  from `data/currencies.toml`), deposit + cleaning fee, availability
+  note, "Scout activities take priority" disclaimer, T&Cs PDF link, and
+  an **email-only** enquiry CTA (no booking/calendar/payment). Photos
+  (`assets/hall-hire/photos/`, empty-hall/adult-only only) render in a
+  CSS-only strip, resized to WebP. `params.hall_hire.fully_booked = true`
+  shows a `--warning` banner; page still renders.
+- **SPEC-11 Navigation:** shipped. Auto-built hierarchical nav from
+  `params.features.*` (no `[[menu.main]]` — removed from the example).
+  Five locked top-level groups (Join Us · Our Sections · What we do ·
+  Get Involved · About) with smart-collapse (1 child → direct link) and
+  empty-group removal. Built by `partials/header-nav-tree.html` (returns
+  the tree) + `header-nav.html` (desktop dropdowns, hover/`:focus-within`)
+  + `header-nav-mobile.html` (`<details>` accordion drawer) +
+  `header-nav-collapse.html` (smart-collapse helper); `header.html`
+  builds the tree once and feeds both renderers. Pure CSS. Owns the
+  conditional "We're recruiting" flag (reads `volunteer-roles-open.html`).
+  Per-entry hide via `[params.nav].show_*`. Content pages get fixed-nav
+  clearance via a `body.is-home` class + `--nav-clear` (the home hero
+  stays full-bleed). Always-on anchors: `#join`, `#sections`,
+  `#where-we-meet`. See [[hugo-partial-return-and-details-accordion]].
+- **SPEC-12 Accessibility:** not started — the final cross-cutting
+  hardening pass (WCAG 2.2 AA: skip link, focus visibility, landmarks,
+  build-time alt/heading lints, axe-core CI). Depends on SPEC-11.
 
 ---
 

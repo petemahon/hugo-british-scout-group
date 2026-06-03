@@ -248,6 +248,7 @@ disableKinds = ["taxonomy", "term"]
   history           = true
   governance        = true
   fundraising       = true
+  hall_hire         = true
 
 
 # -----------------------------------------------------------------------------
@@ -391,6 +392,18 @@ disableKinds = ["taxonomy", "term"]
   nav_link_label = "We're recruiting"
 
 # -----------------------------------------------------------------------------
+# Hall hire — see SPEC-08.
+#   show_currency_symbol  Prefix rate amounts with the currency symbol
+#                         (from data/currencies.toml).
+#   fully_booked          When true, renders the --warning banner at the top
+#                         of /hall-hire/ and signals no new enquiries. The
+#                         page still renders in full. Flip to true to preview.
+# -----------------------------------------------------------------------------
+[params.hall_hire]
+  show_currency_symbol = true
+  fully_booked         = false
+
+# -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.
 # The values are the keys from data/scout_sections.toml. The auto-generated
 # taxonomy term/list pages are suppressed via top-level disableKinds (above);
@@ -400,34 +413,18 @@ disableKinds = ["taxonomy", "term"]
   section = "sections"
 
 # -----------------------------------------------------------------------------
-# Top navigation. The URLs are anchors into the home page sections.
+# Navigation (SPEC-11) is AUTO-BUILT from the feature flags above — there is
+# no [[menu.main]] to curate. Turning a feature on adds its nav entry;
+# turning it off removes it. Labels are customised via i18n (nav* keys);
+# order and hierarchy are owned by the theme.
+#
+# Optionally hide a specific auto-entry without disabling its feature
+# (all default true):
+#   [params.nav]
+#     show_join_us       = true
+#     show_our_sections  = true
+#     show_what_we_do    = true
+#     show_get_involved  = true
+#     show_about         = true
+#     show_where_we_meet = true
 # -----------------------------------------------------------------------------
-[[menu.main]]
-  name   = "Join Us"
-  url    = "/#join"
-  weight = 10
-
-[[menu.main]]
-  name   = "6 - 18 Years"
-  url    = "/#sections"
-  weight = 20
-
-[[menu.main]]
-  name   = "18-25 Years"
-  url    = "/#network"
-  weight = 30
-
-[[menu.main]]
-  name   = "Volunteer"
-  url    = "/#volunteer"
-  weight = 40
-
-[[menu.main]]
-  name   = "Where we meet"
-  url    = "/#where-we-meet"
-  weight = 50
-
-[[menu.main]]
-  name   = "Palettes"
-  url    = "/palettes/"
-  weight = 60

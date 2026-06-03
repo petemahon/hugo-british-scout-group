@@ -1,0 +1,23 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  header-nav-collapse — applies SPEC-11 smart-collapse to a feature
+  group and RETURNS a group dict (or false to drop it):
+    0 children → false        (empty group disappears entirely)
+    1 child    → a direct link using the CHILD's label + url (Q11.5)
+    2+ children → a dropdown using the GROUP's label
+
+  Context (dict): { id, label, children }
+*/ -}}
+{{- $children := .children | default slice -}}
+{{- $n := len $children -}}
+{{- $result := false -}}
+{{- if eq $n 1 -}}
+  {{- $only := index $children 0 -}}
+  {{- $result = dict "id" .id "label" $only.label "kind" "link" "url" $only.url "children" slice "recruiting" ($only.recruiting | default false) -}}
+{{- else if ge $n 2 -}}
+  {{- $result = dict "id" .id "label" .label "kind" "dropdown" "url" (index $children 0).url "children" $children -}}
+{{- end -}}
+{{- return $result -}}

@@ -3,7 +3,10 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body id="top"{{ if and (eq site.Params.heroIntro true) .IsHome }} class="has-hero-intro"{{ end }}>
+{{- $bodyClass := slice -}}
+{{- if .IsHome }}{{ $bodyClass = $bodyClass | append "is-home" }}{{ end -}}
+{{- if and (eq site.Params.heroIntro true) .IsHome }}{{ $bodyClass = $bodyClass | append "has-hero-intro" }}{{ end -}}
+<body id="top"{{ with $bodyClass }} class="{{ delimit . " " }}"{{ end }}>
   {{ partial "svg-defs.html" . }}
   {{ partial "header.html" . }}
   <main>

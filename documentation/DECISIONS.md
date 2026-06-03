@@ -154,13 +154,17 @@ the theme's `exampleSite`. Consuming sites do not include it.
   as a direct top-level link to that child. The group's i18n label
   isn't used in this case.
 - **Empty groups disappear entirely** — no shell, no placeholder.
-- Pure CSS. `:hover` (pointer devices) and `:focus-within`
+- Pure CSS. `:hover` (pointer devices, guarded) and `:focus-within`
   (keyboard) for desktop dropdowns; checkbox-hack hamburger for
-  mobile (<48em).
+  mobile, where each group is a `<details>`/`<summary>` **accordion**
+  (collapsed by default; the current page's group auto-opens).
 - **Three always-on anchors** that the nav can fall back to even
-  with no features enabled: `#joining`, `#our-sections`,
-  `#where-we-meet`. These IDs are part of the theme's stable
-  contract; renaming them is a flag-not-change event.
+  with no features enabled: `#join`, `#sections`, `#where-we-meet`.
+  These IDs are part of the theme's stable contract; renaming them is
+  a flag-not-change event. (Reconciled 2026-06-03 from the originally
+  drafted `#joining`/`#our-sections` to the shipped home-section IDs.)
+- **Shipped 2026-06-03.** Content pages clear the fixed nav via a
+  `body.is-home` class + `--nav-clear`; the home hero stays full-bleed.
 
 ## Accessibility (cross-cutting — SPEC-12)
 

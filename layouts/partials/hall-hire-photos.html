@@ -1,0 +1,40 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  hall-hire-photos — horizontal photo strip from the page's `photos`
+  blocks. SPEC-08. CSS-only horizontal scroll (no JS carousel). Source
+  files (any raster) live in assets/hall-hire/photos/; Hugo resizes them
+  to WebP here. A missing source errorf's (SPEC-COMMON §5) — never
+  silent. Renders nothing when there are no photos.
+
+  Safeguarding (SPEC-08): photos must be empty-hall or adult-only — no
+  identifiable young people.
+
+  Context: the hall-hire Page.
+*/ -}}
+{{- with .Params.photos }}
+  <ul class="s-hall__photos" aria-label="{{ i18n "hallPhotos" | default "Photos of the hall" }}">
+    {{- range . }}
+      {{- $path := printf "hall-hire/photos/%s" .src -}}
+      {{- $img := resources.Get $path -}}
+      {{- if not $img -}}
+        {{- errorf "hall-hire photo %q not found. Expected at assets/%s." .src $path -}}
+      {{- else -}}
+        {{- $small := $img.Resize "640x webp q82" -}}
+        {{- $large := $img.Resize "1280x webp q82" -}}
+        <li class="s-hall__photo">
+          <figure class="s-hall__photo-figure">
+            <img src="{{ $small.RelPermalink }}"
+                 srcset="{{ $small.RelPermalink }} 640w, {{ $large.RelPermalink }} 1280w"
+                 sizes="(max-width: 768px) 80vw, 420px"
+                 alt="{{ .alt }}"
+                 loading="lazy">
+            {{- with .caption }}<figcaption class="s-hall__photo-caption">{{ . }}</figcaption>{{ end }}
+          </figure>
+        </li>
+      {{- end -}}
+    {{- end }}
+  </ul>
+{{- end }}

@@ -1,0 +1,17 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  hall-hire-fully-booked — banner shown at the top of /hall-hire/ when
+  `params.hall_hire.fully_booked = true`. SPEC-08. Uses the --warning
+  palette token (shared with cancelled events). The page still renders
+  in full — the banner just signals new enquiries aren't being taken.
+
+  Context: the hall-hire Page.
+*/ -}}
+{{- if site.Params.hall_hire.fully_booked -}}
+  <div class="s-hall__fully-booked" role="status">
+    {{ i18n "hallFullyBooked" | default "Our hall is fully booked at the moment — we're not taking new hire enquiries just now. Please check back later." | safeHTML }}
+  </div>
+{{- end -}}

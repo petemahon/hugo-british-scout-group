@@ -124,6 +124,8 @@
   </url><url>
     <loc>http://localhost:1313/about/governance/</loc>
   </url><url>
+    <loc>http://localhost:1313/hall-hire/</loc>
+  </url><url>
     <loc>http://localhost:1313/bso/home-range/</loc>
   </url><url>
     <loc>http://localhost:1313/join/</loc>

@@ -247,6 +247,7 @@ maintain.
   history           = true     # SPEC-07 /about/history/
   governance        = true     # SPEC-07 /about/governance/ + charity footer
   fundraising       = true     # SPEC-09 /support-us/ + volunteer roles
+  hall_hire         = true     # SPEC-08 /hall-hire/
   bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
   network_feature   = true     # Network 18–25 brand-anchor band
   volunteer_feature = true     # "Register to volunteer." brand-anchor band (D11)
@@ -776,6 +777,26 @@ hugo new support-us/_index.md
 hugo new support-us/volunteer-roles/treasurer.md
 ```
 
+### Hall Hire (SPEC-08)
+
+Gated by `params.features.hall_hire`. A single informational page at
+`/hall-hire/` advertising the Scout Hut for community hire — intro,
+address (+ link-only map), capacity/dimensions, facility chips, a rate
+table (multiple tiers, currency from `data/currencies.toml`), optional
+deposit + cleaning fee, an availability note, a "Scout activities take
+priority" disclaimer, a T&Cs PDF link, and an **email-only** enquiry
+CTA. No booking system, calendar, or payment — by design.
+
+Photos render in a CSS-only horizontal strip (`assets/hall-hire/photos/`,
+resized to WebP at build). **Use empty-hall or adult-only photos — no
+identifiable young people** (safeguarding). Set
+`params.hall_hire.fully_booked = true` to show a `--warning` banner that
+signals new enquiries are paused; the page still renders in full.
+
+```sh
+hugo new hall-hire/_index.md
+```
+
 ### BSO Joining Hub (SPEC-10)
 
 A BSO-only content section at `/bso/` covering joining eligibility,
@@ -896,6 +917,38 @@ overseas Groups. The notice is a dedicated partial, configured via
 
 The wording is canonical and should not be reworded without
 consulting POR.
+
+### Navigation (SPEC-11)
+
+The site nav is **auto-built from your feature flags** — there is no
+`[[menu.main]]` to maintain. Turn a feature on and its entry appears;
+turn it off and it's gone. Five top-level groups render in a fixed,
+theme-owned order: **Join Us · Our Sections · What we do · Get Involved
+· About**. The theme handles:
+
+- **Smart collapse** — a group with one enabled child becomes a direct
+  top-level link (no dropdown); a group with no enabled children
+  disappears entirely.
+- **Always-on entries** — Join Us, Our Sections, and Where we meet are
+  always present (falling back to the `#join`, `#sections`,
+  `#where-we-meet` home anchors).
+- **Active state** — `aria-current="page"` on the current link,
+  `aria-current="true"` on its ancestor top-level entry.
+- **Desktop** dropdowns open on hover (pointer devices) and keyboard
+  `:focus-within`; **mobile** collapses to a checkbox-hack drawer where
+  each group is a `<details>` **accordion**. Pure CSS, no JavaScript.
+- The **"We're recruiting"** flag appears on the Volunteer-roles entry
+  when a role is open (SPEC-09).
+
+Customise labels via the `nav*` i18n keys; hide a specific entry without
+disabling its feature via `[params.nav].show_*` (all default `true`).
+Order and hierarchy are owned by the theme and not Group-configurable.
+
+```toml
+# No menu config needed. Optionally:
+[params.nav]
+  show_what_we_do = false   # hide a group from the auto-nav
+```
 
 ---
 

@@ -1,0 +1,138 @@
+- generic [active] [ref=e1]:
+  - banner "Site header" [ref=e2]:
+    - checkbox
+    - generic [ref=e3]:
+      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Join Us" [ref=e11] [cursor=pointer]:
+              - /url: /#join
+          - listitem [ref=e12]:
+            - link "6 - 18 Years" [ref=e13] [cursor=pointer]:
+              - /url: /#sections
+          - listitem [ref=e14]:
+            - link "18-25 Years" [ref=e15] [cursor=pointer]:
+              - /url: /#network
+          - listitem [ref=e16]:
+            - link "Volunteer" [ref=e17] [cursor=pointer]:
+              - /url: /#volunteer
+          - listitem [ref=e18]:
+            - link "Where we meet" [ref=e19] [cursor=pointer]:
+              - /url: /#where-we-meet
+          - listitem [ref=e20]:
+            - link "Palettes" [ref=e21] [cursor=pointer]:
+              - /url: /palettes/
+  - main [ref=e22]:
+    - article [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Hall hire
+          - heading "Hire our hall" [level=1] [ref=e27]
+          - generic [ref=e28]: Our Scout Hut is available for community hire when we're not using it — birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown.
+        - list "Photos of the hall" [ref=e29]:
+          - listitem [ref=e30]:
+            - figure "The main hall, set out for a meeting" [ref=e31]:
+              - img "The main hall laid out with trestle tables and folding chairs, under high white-painted roof trusses, with a serving hatch to the kitchen" [ref=e32]
+              - generic [ref=e33]: The main hall, set out for a meeting
+          - listitem [ref=e34]:
+            - figure "Set up for a private function" [ref=e35]:
+              - img "The hall set up for a catered function, with a buffet table of food in the foreground and guests seated at tables behind" [ref=e36]
+              - generic [ref=e37]: Set up for a private function
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]:
+                - term [ref=e42]: Where
+                - definition [ref=e43]:
+                  - text: Anytown Scout Hut, 11 Hut Lane, AT1 2BC ·
+                  - link "Map" [ref=e44] [cursor=pointer]:
+                    - /url: https://www.openstreetmap.org/search?query=Anytown
+              - generic [ref=e45]:
+                - term [ref=e46]: Capacity
+                - definition [ref=e47]: 60 seated · 90 standing
+              - generic [ref=e48]:
+                - term [ref=e49]: Size
+                - definition [ref=e50]: 12m × 8m · 96 m²
+            - list "Facilities" [ref=e51]:
+              - listitem [ref=e52]: Kitchen
+              - listitem [ref=e53]: Toilets
+              - listitem [ref=e54]: Disabled access
+              - listitem [ref=e55]: Parking
+              - listitem [ref=e56]: Stage
+              - listitem [ref=e57]: Wi-Fi
+          - table [ref=e59]:
+            - rowgroup [ref=e60]:
+              - row "Hire Rate" [ref=e61]:
+                - columnheader "Hire" [ref=e62]
+                - columnheader "Rate" [ref=e63]
+            - rowgroup [ref=e64]:
+              - row "Local resident, hourly Minimum two hours £16 per hour" [ref=e65]:
+                - cell "Local resident, hourly Minimum two hours" [ref=e66]:
+                  - text: Local resident, hourly
+                  - generic [ref=e67]: Minimum two hours
+                - cell "£16 per hour" [ref=e68]
+              - row "Commercial / regular booking, hourly £24 per hour" [ref=e69]:
+                - cell "Commercial / regular booking, hourly" [ref=e70]
+                - cell "£24 per hour" [ref=e71]
+              - row "Children's party (Saturday morning, 4 hours) Includes setup and clear-up time £80 per session" [ref=e72]:
+                - cell "Children's party (Saturday morning, 4 hours) Includes setup and clear-up time" [ref=e73]:
+                  - text: Children's party (Saturday morning, 4 hours)
+                  - generic [ref=e74]: Includes setup and clear-up time
+                - cell "£80 per session" [ref=e75]
+              - row "Whole day (community / charity) £120 per day" [ref=e76]:
+                - cell "Whole day (community / charity)" [ref=e77]
+                - cell "£120 per day" [ref=e78]
+        - paragraph [ref=e80]: We’re a registered charity and every penny of hire income goes back into Scouting for local young people. If you’re a community group or running a not-for-profit event, do ask — we can often be flexible on the rate.
+        - paragraph [ref=e81]: Scout activities always take priority — hire bookings are confirmed around our weekly programme and events.
+        - generic:
+          - paragraph
+  - contentinfo [ref=e82]:
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - img [ref=e87]
+            - generic [ref=e89]: 1st Anytown Scouts
+          - paragraph [ref=e90]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e91]:
+          - heading "Visit" [level=5] [ref=e92]
+          - list [ref=e93]:
+            - listitem [ref=e94]: Anytown Scout Hut
+            - listitem [ref=e95]: 11 Hut Lane
+            - listitem [ref=e96]: Anytown
+        - generic [ref=e97]:
+          - heading "Contact" [level=5] [ref=e98]
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - link "hello@anytown-scouts.org" [ref=e101] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e102]:
+              - link "+44 1234 567 890" [ref=e103] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e104]:
+              - link "Instagram" [ref=e105] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e106]:
+          - heading "About" [level=5] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "Safeguarding" [ref=e110] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e111]:
+              - link "Privacy" [ref=e112] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e113]:
+        - generic [ref=e114]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e115]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e117]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e118] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

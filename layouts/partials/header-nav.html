@@ -1,0 +1,57 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  header-nav — DESKTOP render of the auto-nav. SPEC-11. Consumes the
+  tree from header-nav-tree.html. Top-level "link" groups render as a
+  single pill; "dropdown" groups render a top link + a submenu that
+  opens on :hover / :focus-within (CSS in 04-nav.css). Active state:
+  aria-current="page" on the exact link, aria-current="true" on an
+  ancestor top-level entry.
+
+  Context (dict): { tree, page }
+*/ -}}
+{{- $tree := .tree -}}
+{{- $cur := .page.RelPermalink -}}
+<nav class="site-nav__links" aria-label="{{ i18n "navPrimaryAria" | default "Primary navigation" }}">
+  <ul class="site-nav__list">
+    {{- range $tree }}
+      {{- $g := . -}}
+      {{- if eq $g.kind "link" -}}
+        {{- $exact := eq $g.url $cur -}}
+        {{- $anc := and (not (strings.Contains $g.url "#")) (ne $g.url "/") (hasPrefix $cur $g.url) -}}
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="{{ $g.url }}"
+            {{- if $exact }} aria-current="page"{{ else if $anc }} aria-current="true"{{ end }}>
+            {{- $g.label -}}
+            {{- if $g.recruiting }} <span class="site-nav__flag">{{ i18n "navRecruitingFlag" | default "(NEW)" }}</span>{{ end -}}
+          </a>
+        </li>
+      {{- else -}}
+        {{- /* dropdown: ancestor-active if any child matches/contains current */ -}}
+        {{- $ancestor := false -}}
+        {{- range $g.children -}}
+          {{- if or (eq .url $cur) (and (not (strings.Contains .url "#")) (ne .url "/") (hasPrefix $cur .url)) -}}
+            {{- $ancestor = true -}}
+          {{- end -}}
+        {{- end -}}
+        <li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="{{ $g.url }}" aria-haspopup="true"
+            {{- if $ancestor }} aria-current="true"{{ end }}>{{ $g.label }} <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown">
+            {{- range $g.children -}}
+              {{- $exact := eq .url $cur -}}
+              <li>
+                <a class="site-nav__drop-link" href="{{ .url }}"{{ if $exact }} aria-current="page"{{ end }}>
+                  {{- .label -}}
+                  {{- if .recruiting }} <span class="site-nav__flag">{{ i18n "navRecruitingFlag" | default "(NEW)" }}</span>{{ end -}}
+                </a>
+              </li>
+            {{- end -}}
+          </ul>
+        </li>
+      {{- end -}}
+    {{- end }}
+  </ul>
+</nav>

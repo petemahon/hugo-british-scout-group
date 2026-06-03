@@ -1,0 +1,55 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  header-nav-mobile — MOBILE render of the auto-nav (inside the
+  checkbox-hack drawer). SPEC-11. Same tree as the desktop nav. Dropdown
+  groups render as <details>/<summary> ACCORDIONS (collapsed by default,
+  pure CSS, no JS), so the drawer stays short; the group containing the
+  current page opens automatically. Optional navCta is appended as the
+  highlighted last item.
+
+  Context (dict): { tree, page }
+*/ -}}
+{{- $tree := .tree -}}
+{{- $cur := .page.RelPermalink -}}
+<nav class="site-nav__mobile" aria-label="{{ i18n "navMobileAria" | default "Mobile navigation" }}">
+  <ul class="site-nav__mobile-list">
+    {{- range $tree }}
+      {{- $g := . -}}
+      {{- if eq $g.kind "link" -}}
+        <li>
+          <a class="site-nav__mobile-link" href="{{ $g.url }}"{{ if eq $g.url $cur }} aria-current="page"{{ end }}>
+            {{- $g.label -}}
+            {{- if $g.recruiting }} <span class="site-nav__flag">{{ i18n "navRecruitingFlag" | default "(NEW)" }}</span>{{ end -}}
+          </a>
+        </li>
+      {{- else -}}
+        {{- /* open the accordion if the current page lives in this group */ -}}
+        {{- $isOpen := false -}}
+        {{- range $g.children -}}
+          {{- if or (eq .url $cur) (and (not (strings.Contains .url "#")) (ne .url "/") (hasPrefix $cur .url)) }}{{ $isOpen = true }}{{ end -}}
+        {{- end -}}
+        <li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc"{{ if $isOpen }} open{{ end }}>
+            <summary class="site-nav__mobile-summary">{{ $g.label }}</summary>
+            <ul class="site-nav__mobile-sublist">
+              {{- range $g.children -}}
+                <li>
+                  <a class="site-nav__mobile-sublink" href="{{ .url }}"{{ if eq .url $cur }} aria-current="page"{{ end }}>
+                    {{- .label -}}
+                    {{- if .recruiting }} <span class="site-nav__flag">{{ i18n "navRecruitingFlag" | default "(NEW)" }}</span>{{ end -}}
+                  </a>
+                </li>
+              {{- end -}}
+            </ul>
+          </details>
+        </li>
+      {{- end -}}
+    {{- end }}
+    {{- with site.Params.navCta }}
+      <li><a class="site-nav__mobile-cta" href="{{ .url | safeURL }}">{{ .label }} &rarr;</a></li>
+    {{- end }}
+  </ul>
+</nav>

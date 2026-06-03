@@ -1,0 +1,17 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  hall-hire-facilities — pill chips from the page's `facilities`
+  string list. SPEC-08. Renders nothing when empty.
+
+  Context: the hall-hire Page.
+*/ -}}
+{{- with .Params.facilities }}
+  <ul class="s-hall__facilities" aria-label="{{ i18n "hallFacilities" | default "Facilities" }}">
+    {{- range . }}
+      <li class="s-hall__facility">{{ . }}</li>
+    {{- end }}
+  </ul>
+{{- end }}

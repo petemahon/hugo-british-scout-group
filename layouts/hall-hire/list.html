@@ -1,0 +1,93 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Hall hire — /hall-hire/. SPEC-08. Single informational page (section
+  root with no children). Fully-booked banner, intro, photo strip, the
+  facts (address/capacity/size/facilities) and hire details
+  (rates/fees/availability), the priority disclaimer, T&Cs link and an
+  email-only enquiry CTA. No booking system, no calendar, no payment.
+
+  Feature gate: site.Params.features.hall_hire.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.hall_hire -}}
+  <article class="section s-hall reveal">
+    <div class="container s-hall__container">
+
+      {{ partial "hall-hire-fully-booked.html" . }}
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "hallEyebrow" | default "Hall hire" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "hallHeading" | default "Hire our hall" }}{{ end }}</h1>
+        {{- with .Params.intro }}<div class="s-hall__intro display-7">{{ . | safeHTML }}</div>{{ end }}
+      </header>
+
+      {{ partial "hall-hire-photos.html" . }}
+
+      <div class="s-hall__layout">
+        <div class="s-hall__facts">
+          <dl class="s-hall__details">
+            {{- with .Params.address }}
+              <div class="s-hall__detail"><dt>{{ i18n "hallAddress" | default "Where" }}</dt>
+                <dd>{{ . }}{{ with $.Params.postcode }}, {{ . }}{{ end }}
+                  {{- with $.Params.map_url }} · <a class="styled-link" href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ i18n "hallMap" | default "Map" }}</a>{{ end }}</dd>
+              </div>
+            {{- end }}
+            {{- if or .Params.capacity_seated .Params.capacity_standing }}
+              <div class="s-hall__detail"><dt>{{ i18n "hallCapacity" | default "Capacity" }}</dt>
+                <dd>
+                  {{- with .Params.capacity_seated }}{{ . }} {{ i18n "hallSeated" | default "seated" }}{{ end -}}
+                  {{- if and .Params.capacity_seated .Params.capacity_standing }} · {{ end -}}
+                  {{- with .Params.capacity_standing }}{{ . }} {{ i18n "hallStanding" | default "standing" }}{{ end -}}
+                </dd>
+              </div>
+            {{- end }}
+            {{- if or .Params.dimensions .Params.floor_area_m2 }}
+              <div class="s-hall__detail"><dt>{{ i18n "hallSize" | default "Size" }}</dt>
+                <dd>
+                  {{- with .Params.dimensions }}{{ . }}{{ end -}}
+                  {{- with .Params.floor_area_m2 }}{{ if $.Params.dimensions }} · {{ end }}{{ . }} m²{{ end -}}
+                </dd>
+              </div>
+            {{- end }}
+          </dl>
+          {{ partial "hall-hire-facilities.html" . }}
+        </div>
+
+        <div class="s-hall__hire">
+          {{ partial "hall-hire-rates.html" . }}
+          {{- if or .Params.deposit .Params.cleaning_fee }}
+            <ul class="s-hall__fees">
+              {{- with .Params.deposit }}<li>{{ . }}</li>{{ end }}
+              {{- with .Params.cleaning_fee }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          {{- end }}
+          {{- with .Params.availability_note }}<p class="s-hall__availability">{{ . | safeHTML }}</p>{{ end }}
+        </div>
+      </div>
+
+      {{- with .Content }}<div class="s-hall__body display-7">{{ . }}</div>{{ end }}
+
+      {{- if ne .Params.priority_disclaimer false }}
+        <p class="s-hall__priority">{{ i18n "hallPriority" | default "Scout activities always take priority — hire bookings are confirmed around our weekly programme and events." }}</p>
+      {{- end }}
+
+      <div class="s-hall__enquiry">
+        {{- $terms := "" -}}
+        {{- with .Params.terms_pdf }}{{ $terms = . | relURL }}{{ end -}}
+        {{- with .Params.terms_url }}{{ $terms = . }}{{ end -}}
+        {{- with $terms }}
+          <p class="s-hall__terms"><a class="styled-link" href="{{ . | safeURL }}">{{ i18n "hallTerms" | default "Terms & conditions (PDF)" }} &rarr;</a></p>
+        {{- end }}
+        <p class="s-hall__contact">
+          {{- with .Params.enquiry_email }}<a class="btn btn-primary" href="mailto:{{ . }}">{{ i18n "hallEnquire" | default "Enquire about hire" }} &rarr;</a>{{ end }}
+          {{- with .Params.enquiry_phone }} <span class="s-hall__phone">{{ i18n "hallOrCall" | default "or call" }} <a href="tel:{{ . | replaceRE "[^+0-9]" "" }}">{{ . }}</a></span>{{ end }}
+        </p>
+      </div>
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

@@ -1,0 +1,49 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  hall-hire-rates — rate table from the page's `rates` front-matter.
+  SPEC-08. Currency symbol from data/currencies.toml (shared with
+  SPEC-06/09). Renders nothing when there are no rates.
+
+  Context: the hall-hire Page.
+*/ -}}
+{{- $showSym := site.Params.hall_hire.show_currency_symbol | default true -}}
+{{- with .Params.rates }}
+  <table class="s-hall__rates">
+    <thead>
+      <tr>
+        <th scope="col">{{ i18n "hallRateName" | default "Hire" }}</th>
+        <th scope="col">{{ i18n "hallRatePrice" | default "Rate" }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range . }}
+        {{- $code := .currency | default "GBP" -}}
+        {{- $sym := "" -}}
+        {{- if $showSym -}}
+          {{- $sym = $code -}}
+          {{- range hugo.Data.currencies.currency -}}
+            {{- if eq .code $code }}{{ $sym = .symbol }}{{ end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $periodLabel := index (dict
+            "hour"    (i18n "hallPerHour"    | default "per hour")
+            "session" (i18n "hallPerSession" | default "per session")
+            "day"     (i18n "hallPerDay"     | default "per day")
+            "weekend" (i18n "hallPerWeekend" | default "per weekend")) (.period | default "session") -}}
+        <tr>
+          <td class="s-hall__rate-name">
+            {{ .name }}
+            {{- with .notes }}<span class="s-hall__rate-notes">{{ . }}</span>{{ end }}
+          </td>
+          <td class="s-hall__rate-price">
+            <span class="s-hall__rate-amount">{{ with $sym }}{{ . }}{{ end }}{{ .amount }}</span>
+            {{- with $periodLabel }} <span class="s-hall__rate-period">{{ . }}</span>{{ end }}
+          </td>
+        </tr>
+      {{- end }}
+    </tbody>
+  </table>
+{{- end }}

@@ -1,47 +1,29 @@
 {{- /*
-  Site header — pill-shaped sticky nav at the top of every page.
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
 
-  Structure (desktop, wide-to-narrow):
-    [fleur][group name]   [link][link][link]   [CTA button]   [burger]
-                          └─ .site-nav__links ─┘    └────────── only burger
-                                                                shows below
-                                                                ~960px ─────┐
-                                                                            │
-  When the viewport is below 960px:                                         │
-    [fleur][group name]                              [burger] ──────────────┘
-    └─ .site-nav__brand ─┘
-    Burger toggles the mobile drawer below.
+  Site header — floating pill-shaped sticky nav at the top of every page.
 
-  Inputs:
-    site.Title                    Full group name (e.g. "1st Anytown Scouts").
-                                  Shown as the brand text.
-    site.Menus.main               Hugo menu entries; rendered as desktop pills
-                                  AND inside the mobile drawer.
-    site.Params.navCta            Optional. { label = "…", url = "…" }.
-                                  Renders the right-aligned CTA pill on
-                                  desktop and as the highlighted last item
-                                  in the mobile drawer. Omit to hide.
+  SPEC-11: the nav is AUTO-BUILT from params.features.* (no [[menu.main]]
+  config). header-nav-tree.html builds the hierarchy once; header-nav.html
+  renders it for desktop (inside the pill) and header-nav-mobile.html for
+  the mobile drawer. Both consume the same tree so they can't diverge.
 
-  The fleur icon is rendered via <use href="#fleur"/> — the symbol must be
-  defined by partials/svg-defs.html, which baseof.html includes just inside
-  <body>.
-
-  When the hero-intro animation feature is also enabled (separate spec),
-  the .site-nav__name fades in via a scroll-driven animation. By default
-  it is visible always; the override is owned by the hero-intro CSS file.
+  Brand = fleur + site.Title (never a custom logo). An optional CTA pill
+  (site.Params.navCta = { label, url }) renders right of the links on
+  desktop and as the highlighted last drawer item. The burger + drawer
+  are pure-CSS (checkbox hack).
 */ -}}
-{{- $menu  := site.Menus.main -}}
-{{- $cta   := site.Params.navCta -}}
+{{- $cta  := site.Params.navCta -}}
+{{- $tree := partial "header-nav-tree.html" . -}}
 
 <header class="site-nav" role="banner" aria-label="Site header">
 
-  {{- /* The checkbox driving the burger / mobile-drawer (pure CSS — no JS).
-        Hidden from a11y tree + tab order; the label below is the user-facing
-        button and carries the accessible name. */}}
-  {{- if $menu }}
+  {{- /* Pure-CSS mobile-drawer toggle. Hidden from a11y tree + tab order;
+        the <label> burger below carries the accessible name. */}}
   <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
          aria-hidden="true" tabindex="-1">
-  {{- end }}
 
   <div class="site-nav__inner">
 
@@ -50,40 +32,19 @@
       <span class="site-nav__name">{{ site.Title }}</span>
     </a>
 
-    {{- if $menu }}
-    <nav class="site-nav__links" aria-label="{{ i18n "navPrimaryAria" | default "Primary navigation" }}">
-      <ul class="site-nav__list">
-        {{- range $menu }}
-        <li><a class="site-nav__link" href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
-        {{- end }}
-      </ul>
-    </nav>
-    {{- end }}
+    {{ partial "header-nav.html" (dict "tree" $tree "page" .) }}
 
     {{- with $cta }}
     <a class="site-nav__cta" href="{{ .url | safeURL }}">{{ .label }}</a>
     {{- end }}
 
-    {{- if $menu }}
     <label for="site-nav-toggle" class="site-nav__burger"
            aria-label="{{ i18n "navToggleAria" | default "Open menu" }}">
       <span></span><span></span><span></span>
     </label>
-    {{- end }}
 
   </div>
 
-  {{- if $menu }}
-  <nav class="site-nav__mobile" aria-label="{{ i18n "navMobileAria" | default "Mobile navigation" }}">
-    <ul class="site-nav__mobile-list">
-      {{- range $menu }}
-      <li><a class="site-nav__mobile-link" href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
-      {{- end }}
-      {{- with $cta }}
-      <li><a class="site-nav__mobile-cta" href="{{ .url | safeURL }}">{{ .label }} &rarr;</a></li>
-      {{- end }}
-    </ul>
-  </nav>
-  {{- end }}
+  {{ partial "header-nav-mobile.html" (dict "tree" $tree "page" .) }}
 
 </header>

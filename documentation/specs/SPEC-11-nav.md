@@ -49,8 +49,8 @@ but cannot reorder.
 
 | Top-level | Default URL | Children |
 | --- | --- | --- |
-| Join Us | `/joining/` (SPEC-06) → falls back to `#joining` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/joining/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
-| Our Sections | `#our-sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network`. |
+| Join Us | `/join/` (SPEC-06) → falls back to `#join` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/join/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
+| Our Sections | `#sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network` — emitted as `id` on the home scout-section cards. |
 | What we do | First enabled child's URL | Latest news (`/news/` — SPEC-01); Events (`/events/` — SPEC-02); Programme (`/programme/` — SPEC-03); Galleries (`/galleries/` — SPEC-04). |
 | Get Involved | First enabled child's URL | Volunteer roles (`/support-us/volunteer-roles/` — SPEC-09); Support us / fundraising (`/support-us/` — SPEC-09); Hire the hall (`/hall-hire/` — SPEC-08). When SPEC-09 reports ≥1 open role AND `params.volunteer_roles.nav_link = true`, the Volunteer-roles entry carries the "We're recruiting" indicator (see below). |
 | About | First enabled child's URL | Our history (`/about/history/` — SPEC-07); Governance (`/about/governance/` — SPEC-07); Kit lists (`/kit-lists/` — SPEC-05); Where we meet (`#where-we-meet` home anchor — always on). |
@@ -64,9 +64,13 @@ one enabled child (smart collapse).
 Three nav entries point at home-page anchors that are not gated by any
 feature flag:
 
-- `#joining` — when SPEC-06 is off, Join Us nav falls back to this anchor.
-- `#our-sections` — Scout-sections home block, always on.
+- `#join` — when SPEC-06 is off, Join Us nav falls back to this anchor.
+- `#sections` — Scout-sections home block, always on.
 - `#where-we-meet` — the embedded map block, always on.
+
+(Reconciled 2026-06-03 to the shipped home-section IDs — `#join`,
+`#sections`, `#where-we-meet` — rather than the originally-drafted
+`#joining`/`#our-sections`, which never matched the content.)
 
 These anchor IDs are part of the theme's stable contract. The home-page
 section partials (existing `scout-sections`, future home-anchored

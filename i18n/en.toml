@@ -780,6 +780,144 @@ other = "We have open volunteer roles — a few hours from the right people keep
 other = "See open roles"
 
 # -----------------------------------------------------------------------------
+# Hall hire — used by layouts/hall-hire/* and the hall-hire-* partials.
+# SPEC-08.
+# -----------------------------------------------------------------------------
+[hallEyebrow]
+other = "Hall hire"
+
+[hallHeading]
+other = "Hire our hall"
+
+[hallAddress]
+other = "Where"
+
+[hallMap]
+other = "Map"
+
+[hallCapacity]
+other = "Capacity"
+
+[hallSeated]
+other = "seated"
+
+[hallStanding]
+other = "standing"
+
+[hallSize]
+other = "Size"
+
+[hallFacilities]
+other = "Facilities"
+
+[hallPhotos]
+other = "Photos of the hall"
+
+[hallRateName]
+other = "Hire"
+
+[hallRatePrice]
+other = "Rate"
+
+[hallPerHour]
+other = "per hour"
+
+[hallPerSession]
+other = "per session"
+
+[hallPerDay]
+other = "per day"
+
+[hallPerWeekend]
+other = "per weekend"
+
+[hallPriority]
+other = "Scout activities always take priority — hire bookings are confirmed around our weekly programme and events."
+
+[hallTerms]
+other = "Terms & conditions (PDF)"
+
+[hallEnquire]
+other = "Enquire about hire"
+
+[hallOrCall]
+other = "or call"
+
+[hallFullyBooked]
+other = "Our hall is fully booked at the moment — we're not taking new hire enquiries just now. Please check back later."
+
+# -----------------------------------------------------------------------------
+# Navigation — auto-built nav labels. SPEC-11. Group labels and the
+# mobile toggle; Groups override these to relabel without touching the
+# structure (which the theme owns).
+# -----------------------------------------------------------------------------
+[navJoinUs]
+other = "Join Us"
+
+[navOurSections]
+other = "Our Sections"
+
+[navWhatWeDo]
+other = "What we do"
+
+[navGetInvolved]
+other = "Get Involved"
+
+[navAbout]
+other = "About"
+
+[navJoinUsHowToJoin]
+other = "How to join"
+
+[navJoinUsBSO]
+other = "BSO eligibility"
+
+[navWhatWeDoNews]
+other = "Latest news"
+
+[navWhatWeDoEvents]
+other = "Events"
+
+[navWhatWeDoProgramme]
+other = "Programme"
+
+[navWhatWeDoGalleries]
+other = "Galleries"
+
+[navGetInvolvedVolunteer]
+other = "Volunteer roles"
+
+[navGetInvolvedFundraising]
+other = "Support us"
+
+[navGetInvolvedHall]
+other = "Hire the hall"
+
+[navAboutHistory]
+other = "Our history"
+
+[navAboutGovernance]
+other = "Governance"
+
+[navAboutKit]
+other = "Kit lists"
+
+[navAboutWhereWeMeet]
+other = "Where we meet"
+
+[navRecruitingFlag]
+other = "We're recruiting"
+
+[navPrimaryAria]
+other = "Primary navigation"
+
+[navMobileAria]
+other = "Mobile navigation"
+
+[navToggleAria]
+other = "Open menu"
+
+# -----------------------------------------------------------------------------
 # Footer — used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]
