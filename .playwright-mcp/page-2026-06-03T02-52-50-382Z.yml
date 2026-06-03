@@ -1,0 +1,95 @@
+- generic [active] [ref=e1]:
+  - banner "Site header" [ref=e2]:
+    - checkbox
+    - generic [ref=e3]:
+      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+        - generic [ref=e7]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Join Us" [ref=e11] [cursor=pointer]:
+              - /url: /#join
+          - listitem [ref=e12]:
+            - link "6 - 18 Years" [ref=e13] [cursor=pointer]:
+              - /url: /#sections
+          - listitem [ref=e14]:
+            - link "18-25 Years" [ref=e15] [cursor=pointer]:
+              - /url: /#network
+          - listitem [ref=e16]:
+            - link "Volunteer" [ref=e17] [cursor=pointer]:
+              - /url: /#volunteer
+          - listitem [ref=e18]:
+            - link "Where we meet" [ref=e19] [cursor=pointer]:
+              - /url: /#where-we-meet
+          - listitem [ref=e20]:
+            - link "Palettes" [ref=e21] [cursor=pointer]:
+              - /url: /palettes/
+  - main [ref=e22]:
+    - article [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Governance
+          - heading "Governance" [level=1] [ref=e27]
+          - paragraph [ref=e28]: We're a volunteer-run Group operating under British Scouting Overseas. A Trustee Board (our Group Executive) is responsible for our finances, our safeguarding duties and the upkeep of our equipment, and is accountable to parents at the Annual General Meeting.
+        - generic [ref=e29]:
+          - heading "Charity registration" [level=2] [ref=e30]
+          - paragraph [ref=e32]:
+            - text: "Registered charity:"
+            - link "British Scouting Overseas (1151702)" [ref=e33] [cursor=pointer]:
+              - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+            - text: · Charity Commission for England and Wales
+        - generic [ref=e34]:
+          - heading "Annual General Meeting" [level=2] [ref=e35]
+          - paragraph [ref=e36]:
+            - strong [ref=e37]: Tuesday 13 May 2026, 19:30
+          - paragraph [ref=e38]: The community centre hall (and online — link sent to all families)
+        - paragraph [ref=e40]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board — particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
+  - contentinfo [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - img [ref=e46]
+            - generic [ref=e48]: 1st Anytown Scouts
+          - paragraph [ref=e49]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e50]:
+          - heading "Visit" [level=5] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]: Anytown Scout Hut
+            - listitem [ref=e54]: 11 Hut Lane
+            - listitem [ref=e55]: Anytown
+        - generic [ref=e56]:
+          - heading "Contact" [level=5] [ref=e57]
+          - list [ref=e58]:
+            - listitem [ref=e59]:
+              - link "hello@anytown-scouts.org" [ref=e60] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e61]:
+              - link "+44 1234 567 890" [ref=e62] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e63]:
+              - link "Instagram" [ref=e64] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e65]:
+          - heading "About" [level=5] [ref=e66]
+          - list [ref=e67]:
+            - listitem [ref=e68]:
+              - link "Safeguarding" [ref=e69] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e70]:
+              - link "Privacy" [ref=e71] [cursor=pointer]:
+                - /url: /privacy/
+            - listitem [ref=e72]: Charity no. 1234567
+      - generic [ref=e73]:
+        - generic [ref=e74]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e75]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e77]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e78] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

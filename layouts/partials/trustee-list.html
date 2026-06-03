@@ -1,0 +1,26 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  trustee-list — the Group's Trustee Board, from data/trustees.toml
+  (`[[trustee]]` blocks). Renders a definition list; names only, no
+  contact details (SPEC-07 §Safeguarding). Renders nothing when the
+  data file is empty (the theme ships it empty by design).
+
+  Context: the governance Page (unused, passed for consistency).
+*/ -}}
+{{- $trustees := (index hugo.Data "trustees").trustee | default slice -}}
+{{- with $trustees }}
+  <dl class="s-governance__trustees">
+    {{- range . }}
+      <div class="s-governance__trustee">
+        <dt class="s-governance__trustee-name">{{ .name }}</dt>
+        <dd class="s-governance__trustee-role">
+          {{- .role -}}
+          {{- with .appointed }} <span class="s-governance__trustee-since">({{ i18n "governanceTrusteeSince" | default "trustee since" }} {{ . }})</span>{{ end -}}
+        </dd>
+      </div>
+    {{- end }}
+  </dl>
+{{- end }}

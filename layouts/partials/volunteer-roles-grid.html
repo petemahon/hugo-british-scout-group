@@ -1,0 +1,24 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  volunteer-roles-grid — the grid of currently-open roles on
+  /support-us/volunteer-roles/. SPEC-09. When none are open, renders
+  the page's `closed_message` (or the i18n default) instead.
+
+  Context: the volunteer-roles list Page (for closed_message).
+*/ -}}
+{{- $open := partial "volunteer-roles-open.html" . -}}
+{{- if gt (len $open) 0 }}
+  <div class="s-vol__grid">
+    {{- range $open }}
+      {{ partial "volunteer-role-card.html" . }}
+    {{- end }}
+  </div>
+{{- else }}
+  <p class="s-vol__closed display-7">
+    {{- with .Params.closed_message }}{{ . | safeHTML }}
+    {{- else }}{{ i18n "volunteerRolesClosed" | default "We're not actively recruiting right now, but please get in touch if you'd like to help." }}{{ end -}}
+  </p>
+{{- end }}

@@ -6,7 +6,7 @@
     <description>Recent content on 1st Anytown Scouts</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Dec 2026 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About the Group</title>
@@ -67,37 +67,58 @@
     <item>
       <title>District Rally</title>
       <link>http://localhost:1313/events/2026-11-22-district-rally/</link>
-      <pubDate>Sun, 22 Mar 2026 09:00:00 +0100</pubDate>
+      <pubDate>Sat, 04 Apr 2026 09:00:00 +0100</pubDate>
       <guid>http://localhost:1313/events/2026-11-22-district-rally/</guid>
       <description>&lt;p&gt;The District Rally has been &lt;strong&gt;rescheduled&lt;/strong&gt; from October to late&#xA;November to align with the District&amp;rsquo;s outdoor programme. Same venue,&#xA;new date — full Group day with backwoods cooking, pioneering, a wide&#xA;game in the afternoon, and the District flag ceremony to finish.&lt;/p&gt;&#xA;&lt;p&gt;If you subscribed to our events calendar you don&amp;rsquo;t need to do&#xA;anything; the meeting will update automatically.&lt;/p&gt;&#xA;&lt;p&gt;Bring a packed lunch and a warm layer.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Leaders&#39; Safeguarding Refresher</title>
       <link>http://localhost:1313/events/2026-09-26-leaders-training/</link>
-      <pubDate>Sun, 15 Feb 2026 10:00:00 +0100</pubDate>
+      <pubDate>Sat, 28 Feb 2026 10:00:00 +0100</pubDate>
       <guid>http://localhost:1313/events/2026-09-26-leaders-training/</guid>
       <description>&lt;p&gt;This event has been cancelled. The District training calendar is&#xA;being revised and we&amp;rsquo;ll publish a new date once the new programme is&#xA;confirmed — keep an eye on the events page.&lt;/p&gt;&#xA;&lt;p&gt;Volunteers who had this in their calendar via our subscription feed&#xA;will see the meeting disappear automatically.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cubs Summer Camp</title>
       <link>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</link>
-      <pubDate>Sun, 03 May 2026 10:00:00 +0100</pubDate>
+      <pubDate>Sat, 16 May 2026 10:00:00 +0100</pubDate>
       <guid>http://localhost:1313/events/2026-08-14-cubs-summer-camp/</guid>
       <description>&lt;p&gt;Three days under canvas at Pioneer Camp — Friday afternoon arrival,&#xA;Sunday afternoon collection. The Pack will be running a mix of&#xA;campcraft, water activities and the all-time-favourite night hike.&lt;/p&gt;&#xA;&lt;p&gt;The kit list for this camp is linked below; consent forms come home&#xA;four weeks ahead. Bursary support is available — speak to Akela in&#xA;confidence if cost would otherwise stop your Cub joining us.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Summer Fete</title>
       <link>http://localhost:1313/events/2026-07-12-summer-fete/</link>
-      <pubDate>Tue, 28 Apr 2026 10:00:00 +0100</pubDate>
+      <pubDate>Mon, 11 May 2026 10:00:00 +0100</pubDate>
       <guid>http://localhost:1313/events/2026-07-12-summer-fete/</guid>
       <description>&lt;p&gt;Our annual Summer Fete on the Hut grounds — bouncy castle, BBQ, raffle,&#xA;plus a chance for parents to meet the leadership team and learn about&#xA;the year ahead.&lt;/p&gt;&#xA;&lt;p&gt;Volunteers welcome — get in touch if you can help with the BBQ or the&#xA;gates rota.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Brussels District planning meeting</title>
       <link>http://localhost:1313/events/2026-06-10-brussels-district-meeting/</link>
-      <pubDate>Sat, 16 May 2026 19:00:00 +0200</pubDate>
+      <pubDate>Fri, 29 May 2026 19:00:00 +0200</pubDate>
       <guid>http://localhost:1313/events/2026-06-10-brussels-district-meeting/</guid>
       <description>&lt;p&gt;A short planning call for Section Leaders and Assistants across the&#xA;Brussels District ahead of the autumn term. We&amp;rsquo;ll cover the term card,&#xA;the District camp shortlist, safeguarding refresher dates, and any&#xA;help needed on the volunteer rota.&lt;/p&gt;&#xA;&lt;p&gt;Dial-in details will be sent by email the day before. If you can&amp;rsquo;t&#xA;make it, drop the GSL a note and we&amp;rsquo;ll fold your input into the notes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assistant Cub Leader</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/assistant-cub-leader/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/assistant-cub-leader/</guid>
+      <description>&lt;p&gt;Help run our Wednesday Cub Pack: games, badge work, the occasional bit&#xA;of controlled chaos, and the camps that Cubs remember for years. You&amp;rsquo;d&#xA;work alongside Akela and the rest of the team — no experience needed,&#xA;just reliability and a sense of humour. We&amp;rsquo;ll fund and book your&#xA;training, and you&amp;rsquo;ll never be on your own with the Pack.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fundraising Lead</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/fundraising-lead/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/fundraising-lead/</guid>
+      <description>&lt;p&gt;Coordinate the Group&amp;rsquo;s fundraising calendar — Christmas Post, the 100&#xA;Club, and the seasonal events. (This role is currently filled; the&#xA;front-matter &lt;code&gt;published = false&lt;/code&gt; keeps it off the live listing.)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Group Treasurer</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/treasurer/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/treasurer/</guid>
+      <description>&lt;p&gt;Keep the Group&amp;rsquo;s finances healthy: pay the bills, bank the takings,&#xA;keep the books, and present the accounts at the AGM. It&amp;rsquo;s a Trustee&#xA;role, so it carries real responsibility — but it&amp;rsquo;s very doable&#xA;remotely, which makes it a great fit for a UK-based parent or&#xA;supporter who can&amp;rsquo;t get to weekly meetings. Bookkeeping or finance&#xA;experience is welcome but not essential; the outgoing Treasurer will&#xA;hand over thoroughly.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Photo consent</title>
@@ -105,6 +126,13 @@
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/policies/photo-consent/</guid>
       <description>&lt;p&gt;This page is the starter wording shipped with the British Scout Group&#xA;theme. Replace the body below with the policy your Group has agreed&#xA;with its Trustees. Nothing on this page is rendered as a legal&#xA;instrument until you&amp;rsquo;ve reviewed it with your safeguarding lead.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-we-ask&#34;&gt;Why we ask&lt;/h2&gt;&#xA;&lt;p&gt;Some of what we do is naturally photogenic — camps, badge presentations,&#xA;parades. Sharing photos helps families see what their child has been&#xA;up to and shows prospective members what life in the Group is like.&#xA;We also have a duty of care to the young people in those photos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Trustee (Group Executive)</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/trustee/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/trustee/</guid>
+      <description>&lt;p&gt;Our Trustee Board (the Group Executive) looks after the Group&amp;rsquo;s money,&#xA;property, safeguarding duties and overall direction. We&amp;rsquo;re looking for&#xA;people with skills in finance, fundraising, premises, HR or law — but&#xA;also just sensible people who care about local young people. Meetings&#xA;can be joined online, so this works well for supporters living away&#xA;from the area, including back in the UK.&lt;/p&gt;</description>
     </item>
     <item>
       <title>St George&#39;s Day Parade</title>
@@ -126,34 +154,6 @@
       <pubDate>Sun, 15 Feb 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/news/2026-02-15-squirrels-launch/</guid>
       <description>We&amp;rsquo;re delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.</description>
-    </item>
-    <item>
-      <title>001</title>
-      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>001</title>
-      <link>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>001</title>
-      <link>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>002</title>
-      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</guid>
-      <description></description>
     </item>
     <item>
       <title>002</title>
@@ -226,11 +226,25 @@
       <description></description>
     </item>
     <item>
+      <title>Governance</title>
+      <link>http://localhost:1313/about/governance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/governance/</guid>
+      <description>&lt;p&gt;Every parent and carer of a member is welcome at the AGM, where the&#xA;Trustee Board reports on the year, presents the accounts, and stands&#xA;for re-election. We&amp;rsquo;d genuinely welcome more hands on the board —&#xA;particularly anyone with finance, fundraising or premises experience.&#xA;If that might be you, have a word with any of the trustees listed&#xA;above.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Home range and InTouch</title>
       <link>http://localhost:1313/bso/home-range/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/bso/home-range/</guid>
       <description>&lt;p&gt;This page is gated by &lt;code&gt;params.bso.show_home_range&lt;/code&gt; in your site&amp;rsquo;s&#xA;&lt;code&gt;hugo.toml&lt;/code&gt;. Default is &lt;strong&gt;false&lt;/strong&gt; — most BSO Groups don&amp;rsquo;t need a&#xA;formal home-range publication. Flip the param to &lt;code&gt;true&lt;/code&gt; to surface&#xA;the link in the &lt;code&gt;/bso/&lt;/code&gt; hub.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Judging the bake-off</title>
+      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/001/</guid>
+      <description></description>
     </item>
     <item>
       <title>Map check at the second checkpoint</title>
@@ -251,6 +265,27 @@
       <link>http://localhost:1313/bso/moving-in/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/bso/moving-in/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Our history</title>
+      <link>http://localhost:1313/about/history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/history/</guid>
+      <description>&lt;p&gt;We started in 1974 with six children and two borrowed trestle tables.&#xA;A pair of parents who had run Scout sections back in the UK found&#xA;themselves overseas, far from the nearest Group, and decided their own&#xA;children — and their friends — shouldn&amp;rsquo;t miss out. The first meetings&#xA;ran in a villa majlis; within a few years we had affiliated to British&#xA;Scouting Overseas and were running the same programme, and working&#xA;towards the same awards, as Groups at home.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pitching tents on arrival</title>
+      <link>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2026-08-14-cubs-summer-camp/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plating up</title>
+      <link>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2026-03-30-cubs-cooking-cup/002/</guid>
       <description></description>
     </item>
     <item>
@@ -314,6 +349,13 @@
       <link>http://localhost:1313/galleries/2026-04-19-st-georges-day/001/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/galleries/2026-04-19-st-georges-day/001/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The tombola stall</title>
+      <link>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/galleries/2026-07-12-summer-fete/001/</guid>
       <description></description>
     </item>
     <item>

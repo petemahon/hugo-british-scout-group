@@ -1,0 +1,25 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  volunteer-roles-open — returns the slice of currently-OPEN volunteer
+  roles. SPEC-09. Single source of truth for "open" so the listing
+  grid, the homepage recruitment banner, and (from SPEC-11) the nav
+  link all agree.
+
+  Open = published is not false AND (no `closes` date OR closes is
+  today/future). Future-dated pages are already excluded by the deploy
+  policy's --buildFuture=false.
+
+  Usage: {{ $open := partial "volunteer-roles-open.html" . }}
+*/ -}}
+{{- $open := slice -}}
+{{- with site.GetPage "/support-us/volunteer-roles" -}}
+  {{- range .RegularPages -}}
+    {{- if and (ne .Params.role_open false) (or (not .Params.closes) (ge .Params.closes now)) -}}
+      {{- $open = $open | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $open -}}

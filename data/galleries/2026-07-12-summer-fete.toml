@@ -1,0 +1,13 @@
+# Sidecar captions for /galleries/2026-07-12-summer-fete/.
+
+[[image]]
+  file          = "001.webp"
+  caption       = "The tombola stall"
+  alt           = "A busy tombola stall at the summer fete with prizes lined up"
+  faces_blurred = false
+
+[[image]]
+  file          = "002.webp"
+  caption       = ""
+  alt           = "Bunting and a crowd on the field at the Group summer fete"
+  faces_blurred = false

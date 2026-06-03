@@ -23,13 +23,13 @@ volunteer induction guidance.
    open vacancies as cards.
 3. **Homepage banner block** `volunteer-recruitment-banner` (a new
    section type) renders only when at least one volunteer role is
-   currently open (published and not past `closes` date). Suppressed
-   silently otherwise.
+   currently open (`role_open` not false and not past `closes` date).
+   Suppressed silently otherwise.
 4. **Nav link** "We're recruiting" appears in the main menu when at
    least one role is open. Hidden when no roles open. Configurable
    via `params.volunteer_roles.nav_link = true`.
 5. Per-role pages at `/support-us/volunteer-roles/<slug>/`. Closed
-   (past `closes` date or `published = false`) vacancies don't
+   (past `closes` date or `role_open = false`) vacancies don't
    render.
 6. **`remote = true` per-role flag** marks specific roles as
    remote-friendly with a "Remote OK" badge. Important for BSO
@@ -123,7 +123,7 @@ Each `fundraising_activities` block:
 | `closes` | date | no | — | Vacancy hidden after this date |
 | `apply_email` | string | yes | — | Generic Group email |
 | `apply_url` | string | no | — | External application link if used |
-| `published` | bool | no | true | Soft-disable without deleting |
+| `role_open` | bool | no | true | Soft-disable without deleting. **NB:** named `role_open`, not `published` — Hugo reserves `published` as a date field. |
 
 Body: free Markdown — what the role involves, who'd suit it.
 
@@ -174,9 +174,18 @@ flows past as if the block weren't there.
   nav_link_label = "We're recruiting"
 ```
 
-The nav-link logic lives in the nav partial in `baseof.html`: it
-counts published, future-dated roles and shows the link only if
-count > 0.
+The nav-link logic lives in the nav partial: it counts open roles and
+shows the link only if count > 0.
+
+**Deferred to SPEC-11 (decided 2026-06-03).** AC4's conditional
+"We're recruiting" nav link is owned by SPEC-11, which rebuilds the
+nav from feature flags — adding the logic to the current static
+`[[menu.main]]` header would be throwaway work. SPEC-09 ships the
+single source of truth the nav link needs — `partials/volunteer-roles-open.html`
+(the open-role count) — plus the homepage `volunteer-recruitment-banner`,
+which already gives a prominent conditional entry point. The
+`[params.volunteer_roles]` block (`nav_link`, `nav_link_label`) ships
+now so the config is stable; SPEC-11 is its consumer.
 
 ## Asset paths
 

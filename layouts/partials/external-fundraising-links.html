@@ -1,0 +1,33 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  external-fundraising-links — URL-only links to third-party giving
+  platforms set in the support-us front-matter. SPEC-09. No logos
+  (copyright — Q9.1); plain text labels. Renders nothing if none set.
+
+  Context: the support-us Page.
+*/ -}}
+{{- $p := .Params -}}
+{{- $links := slice -}}
+{{- with $p.donate_url }}{{ $links = $links | append (dict "label" ($p.donate_label | default (i18n "fundraisingDonate" | default "Donate")) "url" .) }}{{ end -}}
+{{- with $p.easyfundraising_url }}{{ $links = $links | append (dict "label" "easyfundraising" "url" .) }}{{ end -}}
+{{- with $p.amazon_smile_url }}{{ $links = $links | append (dict "label" "AmazonSmile" "url" .) }}{{ end -}}
+{{- with $p.localgiving_url }}{{ $links = $links | append (dict "label" "Localgiving" "url" .) }}{{ end -}}
+{{- with $p.justgiving_url }}{{ $links = $links | append (dict "label" "JustGiving" "url" .) }}{{ end -}}
+{{- with $p.stewardship_url }}{{ $links = $links | append (dict "label" "Stewardship" "url" .) }}{{ end -}}
+{{- with $links }}
+  <div class="s-support__external">
+    {{- if site.Params.fundraising.show_external_links_section_heading | default true }}
+      <h2 class="s-support__external-heading">{{ i18n "fundraisingExternalHeading" | default "Give online" }}</h2>
+    {{- end }}
+    <ul class="s-support__external-list">
+      {{- range . }}
+        <li class="s-support__external-item">
+          <a class="btn btn-primary-outline" href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .label }}</a>
+        </li>
+      {{- end }}
+    </ul>
+  </div>
+{{- end }}

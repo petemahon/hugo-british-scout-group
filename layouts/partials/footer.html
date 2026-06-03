@@ -120,5 +120,14 @@
       {{- end }}
     </div>
 
+    {{- /* Charity-info (SPEC-07). A charity number only surfaces here when
+           the Group runs a governance page AND has opted the block into the
+           footer — a charity number is never shown without a governance
+           page. The partial itself no-ops unless a number is configured.
+           Hidden in print via 56-section-about.css. */ -}}
+    {{- if and site.Params.features.governance (site.Params.governance.show_in_footer | default false) }}
+      {{ partial "charity-info.html" . }}
+    {{- end }}
+
   </div>
 </footer>

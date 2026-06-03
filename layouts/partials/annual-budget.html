@@ -1,0 +1,45 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  annual-budget — high-level income/expenditure transparency block from
+  the page's inline `annual_budget` front-matter. SPEC-09. Currency
+  symbol comes from data/currencies.toml (shared with SPEC-06/10).
+  Renders nothing when the block is absent.
+
+  Context: the support-us Page.
+*/ -}}
+{{- with .Params.annual_budget }}
+  {{- $code := .currency | default "GBP" -}}
+  {{- $sym := $code -}}
+  {{- range hugo.Data.currencies.currency -}}
+    {{- if eq .code $code }}{{ $sym = .symbol }}{{ end -}}
+  {{- end -}}
+  <section class="s-support__budget">
+    <h2 class="s-support__budget-heading">
+      {{ i18n "budgetHeading" | default "Where the money goes" }}
+      {{- with .year }} <span class="s-support__budget-year">{{ . }}</span>{{ end }}
+    </h2>
+    <dl class="s-support__budget-figures">
+      {{- with .income }}
+        <div class="s-support__budget-fig">
+          <dt>{{ i18n "budgetIncome" | default "Income" }}</dt>
+          <dd>{{ $sym }}{{ . }}</dd>
+        </div>
+      {{- end }}
+      {{- with .expenditure }}
+        <div class="s-support__budget-fig">
+          <dt>{{ i18n "budgetExpenditure" | default "Expenditure" }}</dt>
+          <dd>{{ $sym }}{{ . }}</dd>
+        </div>
+      {{- end }}
+    </dl>
+    {{- with .reserves_label }}<p class="s-support__budget-reserves">{{ . | safeHTML }}</p>{{ end }}
+    {{- with .reports_link }}
+      <p class="s-support__budget-reports">
+        <a class="styled-link" href="{{ . | relURL }}">{{ i18n "budgetReportsLink" | default "Read our full accounts" }} &rarr;</a>
+      </p>
+    {{- end }}
+  </section>
+{{- end }}

@@ -1,0 +1,44 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  history-timeline — CSS-only vertical timeline for the Group history
+  page. SPEC-07. Reads data/history_timeline.toml (`[[entry]]` blocks),
+  sorted by year ascending. Renders nothing when the data file is empty.
+
+  Context: the history Page (used for image error messages).
+*/ -}}
+{{- $entries := (index hugo.Data "history_timeline").entry | default slice -}}
+{{- with $entries }}
+  {{- $sorted := sort . "year" }}
+  <ol class="s-history__timeline" aria-label="{{ i18n "historyTimelineAria" | default "Group history timeline" }}">
+    {{- range $sorted }}
+      {{- $e := . }}
+      <li class="s-history__tl-entry">
+        <span class="s-history__tl-year">{{ $e.year }}</span>
+        <div class="s-history__tl-body">
+          <h3 class="s-history__tl-title">{{ $e.title }}</h3>
+          {{- with $e.detail }}<p class="s-history__tl-detail">{{ . | safeHTML }}</p>{{ end }}
+          {{- with $e.image }}
+            {{- $path := printf "about/timeline/%s" . -}}
+            {{- $img := resources.Get $path -}}
+            {{- if not $img -}}
+              {{- errorf "history timeline: image %q not found. Expected at assets/%s." . $path -}}
+            {{- else -}}
+              {{- $small := $img.Resize "640x webp q82" -}}
+              {{- $med := $img.Resize "1280x webp q82" -}}
+              <figure class="s-history__tl-figure">
+                <img src="{{ $small.RelPermalink }}"
+                     srcset="{{ $small.RelPermalink }} 640w, {{ $med.RelPermalink }} 1280w"
+                     sizes="(max-width: 700px) 100vw, 480px"
+                     alt="{{ $e.image_alt }}"
+                     loading="lazy">
+              </figure>
+            {{- end -}}
+          {{- end }}
+        </div>
+      </li>
+    {{- end }}
+  </ol>
+{{- end }}

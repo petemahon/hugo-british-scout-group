@@ -1,0 +1,25 @@
+# data/history_timeline.toml — optional sidebar/section timeline for the
+# Group history page (SPEC-07, /about/history/).
+#
+# This file ships EMPTY. Each consuming Group adds its own dated beats.
+# The example site provides a worked 8-entry timeline in
+# exampleSite/data/history_timeline.toml, which overrides this file.
+#
+# Each entry:
+#   year       (int, required)
+#   title      (string, required)
+#   detail     (string, HTML allowed, optional)
+#   image      (filename under assets/about/timeline/, optional)
+#   image_alt  (string, required if image is set — SPEC-COMMON §10)
+#
+# [[entry]]
+#   year      = 1908
+#   title     = "First Cub Pack formed"
+#   detail    = "The first six members met in St Mary's Hall."
+#
+# [[entry]]
+#   year      = 1950
+#   title     = "New HQ opened"
+#   detail    = "The current Scout Hut on Church Lane opened, funded by jumble sales."
+#   image     = "1950-hq-opening.jpg"
+#   image_alt = "Black-and-white photo of the new Scout Hut, 1950"

@@ -1,0 +1,33 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  agm-archive — lists AGM-related documents from data/reports.toml as
+  PDF download links, newest year first. SPEC-07. Renders an empty-state
+  line when the manifest is empty. (The filesystem-drift warning lives in
+  layouts/about/reports/list.html, which renders once.)
+
+  Context: the current Page (unused; data is global).
+*/ -}}
+{{- $reports := (index hugo.Data "reports").report | default slice -}}
+{{- $typeLabels := dict
+    "annual_report" (i18n "reportsTypeAnnualReport" | default "Annual Report")
+    "agm_minutes"   (i18n "reportsTypeAgmMinutes" | default "AGM minutes")
+    "other"         (i18n "reportsTypeOther" | default "Document") -}}
+{{- with $reports }}
+  {{- $sorted := sort . "year" "desc" }}
+  <ul class="s-reports__list">
+    {{- range $sorted }}
+      {{- $type := .type | default "other" }}
+      <li class="s-reports__item">
+        <a class="s-reports__link" href="{{ (printf "/about/reports/%s" .filename) | relURL }}" download>
+          <span class="s-reports__label">{{ .label }}</span>
+          <span class="s-reports__type">{{ index $typeLabels $type | default $type }}</span>
+        </a>
+      </li>
+    {{- end }}
+  </ul>
+{{- else }}
+  <p class="s-reports__empty display-7">{{ i18n "reportsEmpty" | default "No reports published yet." }}</p>
+{{- end }}

@@ -1,0 +1,54 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  AGM / reports archive — /about/reports/. SPEC-07.
+
+  Lists the documents in data/reports.toml (via agm-archive). Also runs
+  the drift check: any *.pdf in static/about/reports/ that isn't listed
+  in the manifest triggers a build warning, so the folder and the
+  manifest can't silently diverge.
+
+  Feature gate: site.Params.features.governance.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.governance -}}
+
+  {{- /* Drift check: warn on unlisted PDFs in static/about/reports/. */ -}}
+  {{- $dir := "static/about/reports" -}}
+  {{- $listed := slice -}}
+  {{- range (index hugo.Data "reports").report | default slice -}}
+    {{- $listed = $listed | append .filename -}}
+  {{- end -}}
+  {{- if fileExists $dir -}}
+    {{- range (os.ReadDir $dir) -}}
+      {{- $f := .Name -}}
+      {{- if hasSuffix (lower $f) ".pdf" -}}
+        {{- if not (in $listed $f) -}}
+          {{- warnf "reports archive: %q exists in %s but is not listed in data/reports.toml. Add it to the manifest or remove the file." $f $dir -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  <section class="section s-reports reveal">
+    <div class="container s-reports__container">
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "reportsEyebrow" | default "Accounts & minutes" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "reportsHeading" | default "Trustees' reports & AGM minutes" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+        {{- with .Content }}<div class="s-reports__intro display-7">{{ . }}</div>{{ end }}
+      </header>
+
+      {{ partial "agm-archive.html" . }}
+
+      <p class="s-reports__back display-7">
+        <a class="styled-link" href="{{ "/about/governance/" | relURL }}">&larr; {{ i18n "reportsBackToGovernance" | default "Back to governance" }}</a>
+      </p>
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

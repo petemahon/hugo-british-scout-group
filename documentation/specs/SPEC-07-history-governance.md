@@ -245,7 +245,7 @@ Groups have rich histories. The BSO Hub (SPEC-10) cross-links to
 
 | Q | Decision |
 | --- | --- |
-| Q7.1 | **Charity info config-gated**, displayed in every non-printing footer when configured. Hidden in print. Most BSO Groups will configure with BSO Area's charity number 1151702. |
+| Q7.1 | **Charity info config-gated**, displayed in every non-printing footer when configured. Hidden in print. Most BSO Groups will configure with BSO Area's charity number 1151702. **Revised 2026-06-02:** the footer block additionally requires `params.features.governance` to be on (and `show_in_footer` true) — a charity number never surfaces without a governance page, though a governance page may run with no charity listed. This supersedes the original "independent of features.governance" reading. |
 | Q7.2 | **Manifest** (`data/reports.toml`) with build warning when filesystem PDFs aren't in the manifest. Best of both — explicit ordering plus drift detection. |
 | Q7.3 | **Empty starter** for `data/trustees.toml` with comment-rich example. Don't ship placeholder names. |
 | Q7.4 | **Combine** — single archive of AGM-related documents (Trustee Annual Reports + AGM minutes). The `type` enum distinguishes them. |

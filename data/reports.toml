@@ -1,0 +1,13 @@
+# data/reports.toml — manifest of AGM-related documents (Trustees'
+# Annual Reports AND AGM minutes) listed on /about/reports/ (SPEC-07).
+#
+# Ships EMPTY. Each consuming Group lists its own documents here AND
+# drops the matching PDFs into static/about/reports/. The build emits a
+# warning for any PDF in that folder that ISN'T listed here, so the
+# manifest and the filesystem can't silently drift apart.
+#
+# [[report]]
+#   filename = "2024-trustees-annual-report.pdf"   # must exist in static/about/reports/
+#   label    = "2024 Trustees' Annual Report"
+#   year     = 2024
+#   type     = "annual_report"      # "annual_report" | "agm_minutes" | "other"

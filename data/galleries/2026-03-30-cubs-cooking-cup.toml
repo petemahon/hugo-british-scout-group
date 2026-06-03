@@ -1,0 +1,15 @@
+# Sidecar captions for /galleries/2026-03-30-cubs-cooking-cup/.
+# Provides alt text (accessibility) and captions; one image carries
+# faces_blurred = true to exercise that flag.
+
+[[image]]
+  file          = "001.webp"
+  caption       = "Judging the bake-off"
+  alt           = "A Cub leader tasting a dish at the Cubs cooking competition"
+  faces_blurred = false
+
+[[image]]
+  file          = "002.webp"
+  caption       = "Plating up"
+  alt           = "Cubs presenting their cooked meal at the serving table, faces obscured"
+  faces_blurred = true

@@ -3,14 +3,14 @@ title       = "Leaders' Safeguarding Refresher"
 
 # Event start time — the source-of-truth start, used by the listing
 # filter, by Hugo's sort, and as DTSTART in the .ics.
-date        = 2026-10-08T19:30:00+01:00
+date        = 2026-10-21T19:30:00+01:00
 
 # When the event was added to the site. Set in the past so Hugo's
 # `--buildFuture=false` build still includes this future event.
-publishDate = 2026-02-15T10:00:00+01:00
+publishDate = 2026-02-28T10:00:00+01:00
 
 # Optional explicit end. Omit to default to date + 1h30.
-end         = 2026-10-08T21:00:00+01:00
+end         = 2026-10-21T21:00:00+01:00
 
 location    = "Anytown Scout Hut"
 audience    = "All Group volunteers"

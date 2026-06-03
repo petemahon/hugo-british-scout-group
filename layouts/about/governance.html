@@ -1,0 +1,71 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Governance — /about/governance/. SPEC-07.
+
+  Charity registration (optional — a Group may have a Trustee Board but
+  no charity of its own), AGM details, the Trustee Board from
+  data/trustees.toml, and (Phase 2) the AGM/reports archive.
+
+  Feature gate: site.Params.features.governance.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.governance -}}
+  {{- $g := site.Params.governance | default dict -}}
+  {{- $hasCharity := or ($g.charity_number | default "") (and ($g.charity_secondary | default false) ($g.charity_secondary_number | default "")) -}}
+
+  <article class="section s-governance reveal">
+    <div class="container s-governance__container">
+
+      <header class="s-governance__head">
+        <span class="eyebrow">{{ i18n "governanceEyebrow" | default "Governance" }}</span>
+        <h1 class="s-governance__title display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "governanceHeading" | default "How the Group is run" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p class="s-governance__intro display-7">{{ . | safeHTML }}</p>{{ end }}
+      </header>
+
+      {{- if $hasCharity }}
+        <section class="s-governance__charity">
+          <h2>{{ i18n "governanceCharityHeading" | default "Charity registration" }}</h2>
+          {{ partial "charity-info.html" . }}
+        </section>
+      {{- end }}
+
+      {{- if or .Params.agm_date .Params.agm_location .Params.agm_papers_url }}
+        <section class="s-governance__agm">
+          <h2>{{ i18n "governanceAgmHeading" | default "Annual General Meeting" }}</h2>
+          {{- with .Params.agm_date }}<p class="s-governance__agm-date"><strong>{{ . }}</strong></p>{{ end }}
+          {{- with .Params.agm_location }}<p class="s-governance__agm-location">{{ . }}</p>{{ end }}
+          {{- with .Params.agm_papers_url }}
+            <p class="s-governance__agm-papers"><a class="styled-link" href="{{ . | relURL }}">{{ i18n "governanceAgmPapers" | default "AGM papers (PDF)" }} &rarr;</a></p>
+          {{- end }}
+        </section>
+      {{- end }}
+
+      {{- $trustees := (index hugo.Data "trustees").trustee | default slice }}
+      {{- with $trustees }}
+        <section class="s-governance__board">
+          <h2>{{ i18n "governanceBoardHeading" | default "Trustee Board" }}</h2>
+          {{ partial "trustee-list.html" $ }}
+        </section>
+      {{- end }}
+
+      {{- with .Content }}
+        <div class="s-governance__body display-7">{{ . }}</div>
+      {{- end }}
+
+      {{- $reports := (index hugo.Data "reports").report | default slice }}
+      {{- if and (.Params.show_reports_archive | default true) (gt (len $reports) 0) }}
+        <section class="s-governance__reports">
+          <h2>{{ i18n "governanceReportsHeading" | default "Reports & accounts" }}</h2>
+          <p class="s-governance__reports-link">
+            <a class="styled-link" href="{{ "/about/reports/" | relURL }}">{{ i18n "governanceReportsLink" | default "Trustees' Annual Reports and AGM minutes" }} &rarr;</a>
+          </p>
+        </section>
+      {{- end }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

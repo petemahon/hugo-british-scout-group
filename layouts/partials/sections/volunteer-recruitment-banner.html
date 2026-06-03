@@ -1,0 +1,37 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  volunteer-recruitment-banner — home-page band that appears ONLY when
+  at least one volunteer role is currently open. SPEC-09. When none are
+  open (or the fundraising feature is off), it renders nothing and the
+  home page flows past as if the block weren't there.
+
+  Schema (in [[sections]] under content/_index.md):
+    type     = "volunteer-recruitment-banner"   (required)
+    id       = "volunteer-banner"                (optional anchor id)
+    title    = "We're recruiting"                (optional; i18n default)
+    message  = "Help us run the Group…"          (optional; i18n default)
+    cta_text = "See open roles"                  (optional; i18n default)
+    bg       = "primary"                         (optional; s-bg-* tone)
+*/ -}}
+{{- if site.Params.features.fundraising -}}
+  {{- $open := partial "volunteer-roles-open.html" . -}}
+  {{- if gt (len $open) 0 -}}
+    {{- $id := .id | default "volunteer-banner" -}}
+    {{- $bgClass := "s-bg-primary" -}}
+    {{- with .bg }}{{ $bgClass = printf "s-bg-%s" . }}{{ end -}}
+    <section id="{{ $id }}" class="section s-vol-banner reveal {{ $bgClass }}">
+      <div class="container s-vol-banner__inner">
+        <div class="s-vol-banner__text">
+          <h2 class="s-vol-banner__title">{{ with .title }}{{ . }}{{ else }}{{ i18n "volunteerBannerTitle" | default "We're recruiting" }}{{ end }}</h2>
+          <p class="s-vol-banner__message">{{ with .message }}{{ . | safeHTML }}{{ else }}{{ i18n "volunteerBannerMessage" | default "We have open volunteer roles — a few hours from the right people keeps Scouting running here." }}{{ end }}</p>
+        </div>
+        <a class="btn btn-primary s-vol-banner__cta" href="{{ "/support-us/volunteer-roles/" | relURL }}">
+          {{- with .cta_text }}{{ . }}{{ else }}{{ i18n "volunteerBannerCta" | default "See open roles" }}{{ end }} &rarr;
+        </a>
+      </div>
+    </section>
+  {{- end -}}
+{{- end -}}

@@ -156,8 +156,9 @@ disableKinds = ["taxonomy", "term"]
     items = [
       { label = "Safeguarding",            url = "https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/" },
       { label = "Privacy",                 url = "/privacy/" },
-      { label = "Charity no. 1234567" },
     ]
+    # Charity number is rendered by the charity-info block (SPEC-07), driven
+    # by [params.governance] — no need to hardcode it as a footer item.
 
 # -----------------------------------------------------------------------------
 # BSO membership notice (POR 3.2.1.1)
@@ -244,6 +245,9 @@ disableKinds = ["taxonomy", "term"]
   volunteer_feature = true
   galleries         = true
   kit_lists         = true
+  history           = true
+  governance        = true
+  fundraising       = true
 
 
 # -----------------------------------------------------------------------------
@@ -342,6 +346,49 @@ disableKinds = ["taxonomy", "term"]
   printable_route           = true
   show_phone_policy_default = false
   default_phone_policy_text = ""
+
+# -----------------------------------------------------------------------------
+# Governance / charity info — see SPEC-07.
+#   show_in_footer  When true (and features.governance is on AND a charity
+#                   number is set), the charity-info block renders in every
+#                   non-printing footer. A charity number never surfaces
+#                   without a governance page; a governance page can exist
+#                   with no charity listed.
+#   charity_*       Primary registration. This example uses British Scouting
+#                   Overseas' real England & Wales charity number — most BSO
+#                   Groups operate under it rather than registering separately.
+#   charity_secondary_*  Optional second jurisdiction (e.g. a BSO Group that
+#                   is ALSO a host-country legal entity — 1st Brussels is a
+#                   Belgian ASBL, BE1013020290). Left off here; uncomment and
+#                   set charity_secondary = true to exercise the dual block.
+# -----------------------------------------------------------------------------
+[params.governance]
+  show_in_footer = true
+  charity_number = "1151702"
+  charity_name   = "British Scouting Overseas"
+  regulator      = "Charity Commission for England and Wales"
+  charity_url    = "https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702"
+  # charity_secondary           = true
+  # charity_secondary_number    = "BE1013020290"
+  # charity_secondary_regulator = "Belgium (ASBL)"
+  # charity_secondary_url       = ""
+
+# -----------------------------------------------------------------------------
+# Fundraising & volunteering — see SPEC-09.
+#   show_giftaid                         Render the Gift Aid PDF link when set.
+#   show_external_links_section_heading  Heading above the giving-links block.
+# The "We're recruiting" conditional nav link is owned by SPEC-11 (it
+# rebuilds the nav); the [params.volunteer_roles] block below ships now so
+# the config is stable, and SPEC-11 consumes it. SPEC-09 already shows the
+# conditional homepage recruitment banner.
+# -----------------------------------------------------------------------------
+[params.fundraising]
+  show_giftaid                        = true
+  show_external_links_section_heading = true
+
+[params.volunteer_roles]
+  nav_link       = true                # consumed by SPEC-11's nav
+  nav_link_label = "We're recruiting"
 
 # -----------------------------------------------------------------------------
 # Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.

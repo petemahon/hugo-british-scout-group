@@ -1,0 +1,241 @@
+/* -----------------------------------------------------------------------------
+   57. SECTION: SUPPORT US — FUNDRAISING & VOLUNTEERING
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   /support-us/ — fundraising page (intro, external giving links,
+   activities, annual-budget). Volunteer-roles grid/cards, the "Remote OK"
+   badge, and the recruitment banner are added in the volunteer-roles step.
+   ----------------------------------------------------------------------------- */
+
+.s-support__container {
+  max-width: 60rem;
+}
+.s-support__body {
+  margin-bottom: 2rem;
+}
+
+/* ── External giving links (URL-only) ─────────────────────────── */
+.s-support__external {
+  margin: 0 0 2.5rem;
+}
+.s-support__external-heading {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+}
+.s-support__external-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.s-support__external-item {
+  margin: 0;
+}
+
+/* ── Fundraising activities ───────────────────────────────────── */
+.s-support__activities-section {
+  margin-bottom: 2.5rem;
+}
+.s-support__activities-heading {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+}
+.s-support__activities {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .s-support__activities {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+.s-support__activity {
+  background: var(--bg-muted, color-mix(in oklab, var(--primary) 4%, var(--bg)));
+  border: 1px solid rgba(20, 17, 14, 0.06);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+}
+.s-support__activity-name {
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.s-support__activity-when {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  font-weight: 700;
+}
+.s-support__activity-detail {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Annual budget ────────────────────────────────────────────── */
+.s-support__budget {
+  margin: 0 0 2.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--primary) 6%, var(--bg));
+}
+.s-support__budget-heading {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+}
+.s-support__budget-year {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.s-support__budget-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  margin: 0 0 1rem;
+}
+.s-support__budget-fig {
+  margin: 0;
+}
+.s-support__budget-fig dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.s-support__budget-fig dd {
+  margin: 0.1rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.s-support__budget-reserves {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+}
+.s-support__giftaid {
+  margin: 1.5rem 0 0;
+}
+
+/* ── Volunteer roles ──────────────────────────────────────────── */
+.s-vol__container {
+  max-width: 60rem;
+}
+.s-vol__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .s-vol__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+.s-vol__card {
+  background: var(--bg);
+  border: 1px solid rgba(20, 17, 14, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.s-vol__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(20, 17, 14, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .s-vol__card { transition: box-shadow 0.2s; }
+  .s-vol__card:hover { transform: none; }
+}
+.s-vol__card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+  min-height: 1.4rem;
+}
+.s-vol__card-title {
+  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.s-vol__card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.s-vol__card-title a:hover { text-decoration: underline; }
+.s-vol__card-time {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+.s-vol__card-summary {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+/* Tag (section) + Remote badge */
+.s-vol__tag,
+.s-vol__badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.s-vol__tag {
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: color-mix(in oklab, var(--primary) 80%, var(--text));
+}
+.s-vol__badge--remote {
+  background: transparent;
+  border: 1px solid var(--accent, var(--primary));
+  color: color-mix(in oklab, var(--accent, var(--primary)) 85%, var(--text));
+}
+
+/* Role detail */
+.s-vol__single-title { margin: 0.3rem 0 1rem; }
+.s-vol__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 0 0 1.5rem;
+}
+.s-vol__meta-item { margin: 0; }
+.s-vol__meta-item dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.s-vol__meta-item dd { margin: 0.1rem 0 0; font-weight: 600; }
+.s-vol__apply { margin-top: 1.5rem; }
+.s-vol__back { margin-top: 1.5rem; }
+
+/* ── Recruitment banner (conditional home band) ──────────────── */
+.s-vol-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+}
+.s-vol-banner__title {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+}
+.s-vol-banner__message {
+  margin: 0;
+  max-width: 48ch;
+  opacity: 0.95;
+}
+.s-vol-banner__cta {
+  flex: 0 0 auto;
+}

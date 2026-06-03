@@ -52,8 +52,8 @@ but cannot reorder.
 | Join Us | `/joining/` (SPEC-06) → falls back to `#joining` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/joining/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
 | Our Sections | `#our-sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network`. |
 | What we do | First enabled child's URL | Latest news (`/news/` — SPEC-01); Events (`/events/` — SPEC-02); Programme (`/programme/` — SPEC-03); Galleries (`/galleries/` — SPEC-04). |
-| Get Involved | First enabled child's URL | Volunteer (`/volunteer/` — SPEC-09); Fundraising (`/fundraising/` anchor — SPEC-09); Hire the hall (`/hall-hire/` — SPEC-08). |
-| About | First enabled child's URL | Our history (`/history/` — SPEC-07); Kit lists (`/kit-lists/` — SPEC-05); Where we meet (`#where-we-meet` home anchor — always on). |
+| Get Involved | First enabled child's URL | Volunteer roles (`/support-us/volunteer-roles/` — SPEC-09); Support us / fundraising (`/support-us/` — SPEC-09); Hire the hall (`/hall-hire/` — SPEC-08). When SPEC-09 reports ≥1 open role AND `params.volunteer_roles.nav_link = true`, the Volunteer-roles entry carries the "We're recruiting" indicator (see below). |
+| About | First enabled child's URL | Our history (`/about/history/` — SPEC-07); Governance (`/about/governance/` — SPEC-07); Kit lists (`/kit-lists/` — SPEC-05); Where we meet (`#where-we-meet` home anchor — always on). |
 
 The minimum nav (no features) reads: **Join Us · Our Sections · Where we meet**.
 The "Where we meet" entry promotes to top-level when About has only that
@@ -136,9 +136,16 @@ navMobileToggleAria    = "Open the main navigation"
 navRecruitingFlag      = "(NEW)"
 ```
 
-The "We're recruiting" indicator inside the Volunteer entry uses
-`navRecruitingFlag`, rendered only when SPEC-09 reports at least one
-open role.
+**SPEC-11 owns the conditional "We're recruiting" nav indicator** —
+SPEC-09's AC4 was deliberately deferred here, since the nav is rebuilt
+by this spec. The Volunteer-roles entry carries the indicator — gated
+by `params.volunteer_roles.nav_link` (default true) — only when at
+least one volunteer role is currently open. The open-role count comes
+from the shipped `partials/volunteer-roles-open.html` (the single
+source of truth already used by the homepage recruitment banner); the
+nav partial MUST call that same partial so the banner and the nav
+indicator can never disagree. `navRecruitingFlag` supplies the
+indicator text.
 
 ## CSS-only baseline
 

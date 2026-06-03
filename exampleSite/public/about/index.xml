@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on 1st Anytown Scouts</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on 1st Anytown Scouts</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Governance</title>
+      <link>http://localhost:1313/about/governance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/governance/</guid>
+      <description>&lt;p&gt;Every parent and carer of a member is welcome at the AGM, where the&#xA;Trustee Board reports on the year, presents the accounts, and stands&#xA;for re-election. We&amp;rsquo;d genuinely welcome more hands on the board —&#xA;particularly anyone with finance, fundraising or premises experience.&#xA;If that might be you, have a word with any of the trustees listed&#xA;above.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Our history</title>
+      <link>http://localhost:1313/about/history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/history/</guid>
+      <description>&lt;p&gt;We started in 1974 with six children and two borrowed trestle tables.&#xA;A pair of parents who had run Scout sections back in the UK found&#xA;themselves overseas, far from the nearest Group, and decided their own&#xA;children — and their friends — shouldn&amp;rsquo;t miss out. The first meetings&#xA;ran in a villa majlis; within a few years we had affiliated to British&#xA;Scouting Overseas and were running the same programme, and working&#xA;towards the same awards, as Groups at home.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

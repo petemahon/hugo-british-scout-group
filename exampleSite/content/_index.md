@@ -73,7 +73,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     text    = "Anyone over 18 is welcome."
     [sections.cards.button]
       label = "Register as volunteer"
-      url   = "/volunteer/"
+      url   = "/support-us/volunteer-roles/"
       style = "ghost"
 
 # -----------------------------------------------------------------------------
@@ -111,17 +111,32 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # [[sections.points]] is omitted — the theme renders the three default points.
 
 # -----------------------------------------------------------------------------
+# 5a. Recruitment banner — volunteer-recruitment-banner (SPEC-09).
+# Conditional: renders ONLY when at least one volunteer role is currently
+# open (data/content under content/support-us/volunteer-roles/). When no
+# roles are open, the home page flows straight past it. Gated by
+# params.features.fundraising.
+# -----------------------------------------------------------------------------
+[[sections]]
+  type     = "volunteer-recruitment-banner"
+  id       = "volunteer-banner"
+  # title, message, cta_text all use theme defaults via i18n.
+  bg       = "primary"
+
+# -----------------------------------------------------------------------------
 # 5. Volunteer — volunteer-feature brand-anchor band (D11)
 # Opt-in via params.features.volunteer_feature in hugo.toml. Always renders
 # on Scouts Purple regardless of palette. The text column ships the canonical
 # i18n-default copy; the poster ships in the default `role-model` variant.
 # Switch the example to the `stat-yellow` variant by uncommenting `variant`.
+# The CTA points at the real volunteer-roles page (SPEC-09).
 # -----------------------------------------------------------------------------
 [[sections]]
-  type    = "volunteer-feature"
-  id      = "volunteer"
+  type     = "volunteer-feature"
+  id       = "volunteer"
+  cta_href = "/support-us/volunteer-roles/"
   # variant = "stat-yellow"   # default "role-model"; uncomment to switch
-  # eyebrow, title, body1, body2, network_note, cta_label, cta_href,
+  # eyebrow, title, body1, body2, network_note, cta_label,
   # poster_tag, poster_headline, poster_hash, stat_line_a, stat_line_b
   # all use theme defaults via i18n.
 

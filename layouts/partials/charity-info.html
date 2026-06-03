@@ -1,0 +1,49 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  charity-info — registered-charity line(s): name, number, regulator,
+  with an optional link to the public register entry. Supports a
+  secondary jurisdiction (e.g. a BSO Group that is also a host-country
+  legal entity) via the charity_secondary_* params.
+
+  Renders only when a charity number is configured. CALLERS gate
+  visibility:
+    - the governance page (/about/governance/) renders it whenever a
+      number is set (the page is already behind features.governance);
+    - footer.html renders it only when features.governance AND
+      [params.governance].show_in_footer are both true (a charity
+      number can't surface without a governance page — SPEC-07, revised
+      Q7.1). The footer copy is hidden in print via @media print.
+
+  Reads [params.governance]. Context: the current Page.
+*/ -}}
+{{- $g := site.Params.governance | default dict -}}
+{{- $num := $g.charity_number | default "" -}}
+{{- $name := $g.charity_name | default site.Title -}}
+{{- $reg := $g.regulator | default "" -}}
+{{- $url := $g.charity_url | default "" -}}
+{{- $secOn := $g.charity_secondary | default false -}}
+{{- $secNum := $g.charity_secondary_number | default "" -}}
+{{- $secReg := $g.charity_secondary_regulator | default "" -}}
+{{- $secUrl := $g.charity_secondary_url | default "" -}}
+{{- if or $num (and $secOn $secNum) }}
+  <div class="charity-info">
+    {{- if $num }}
+      <p class="charity-info__line">
+        {{ i18n "governanceRegisteredCharity" | default "Registered charity" }}:
+        {{- if $url }} <a class="charity-info__link" href="{{ $url | safeURL }}" rel="noopener">{{ $name }} ({{ $num }})</a>
+        {{- else }} {{ $name }} ({{ $num }}){{ end -}}
+        {{- with $reg }} · {{ . }}{{ end }}
+      </p>
+    {{- end }}
+    {{- if and $secOn $secNum }}
+      <p class="charity-info__line charity-info__line--secondary">
+        {{- if $secUrl }}<a class="charity-info__link" href="{{ $secUrl | safeURL }}" rel="noopener">{{ $secNum }}</a>
+        {{- else }}{{ $secNum }}{{ end -}}
+        {{- with $secReg }} · {{ . }}{{ end }}
+      </p>
+    {{- end }}
+  </div>
+{{- end }}

@@ -273,6 +273,25 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
   the waiting-list badge). `bso-membership-notice` is rendered
   exactly once site-wide — on `/join/` — per the 2026-05-21
   consolidation decision.
+- **SPEC-07 History & Governance:** shipped. `/about/history/`
+  (long-form Markdown + CSS-only timeline from
+  `data/history_timeline.toml`, `timeline_position` sidebar/top/bottom)
+  and `/about/governance/` (charity registration, AGM, Trustee Board
+  from `data/trustees.toml`, link to the reports archive). Reports
+  archive at `/about/reports/` lists `data/reports.toml` (PDFs in
+  `static/about/reports/`) with a build **warning** for any PDF not in
+  the manifest. **Charity-info footer** (`charity-info.html`) renders in
+  every non-printing footer (hidden in print) only when
+  `features.governance` AND `[params.governance].show_in_footer` AND a
+  charity number are set — **revised Q7.1:** a charity number never
+  surfaces without a governance page, though a governance page may run
+  with none. `charity_secondary_*` supports a dual jurisdiction (e.g.
+  a Belgian ASBL). Theme ships `data/trustees.toml` + `data/reports.toml`
+  **empty**; the example's data lives in **`exampleSite/data/`** (the
+  first project-level data dir — note Hugo's watcher needs a server
+  restart to pick up a newly-created data dir). All theme data reads use
+  `hugo.Data` (NOT `site.Data`, deprecated in 0.156). See
+  [[hugo-data-accessor-and-project-data]].
 - **SPEC-10 BSO Joining Hub:** shipped. `/bso/` hub plus five
   sub-pages (eligibility, moving-in, moving-out, host-scouting,
   optional home-range). Master switch is **`[params.bso].enabled`**,
@@ -281,8 +300,21 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
   SG, US. `data/sections_status.toml` ships as a host-country-generic
   STARTER (uses "the host country" phrasing); the concrete UAE
   configuration lives in `exampleSite/hugo.toml` only.
-- **Not started:** SPEC-07 History & Governance, SPEC-08 Hall Hire,
-  SPEC-09 Fundraising & Volunteering. See `documentation/README.md`
+- **SPEC-09 Fundraising & Volunteering:** shipped. `/support-us/`
+  fundraising page (URL-only external giving links, activities, inline
+  `annual_budget` block using `data/currencies.toml`, optional Gift Aid
+  PDF) + `/support-us/volunteer-roles/` (per-role pages, `remote`
+  "Remote OK" badge, `closes`-date + soft-disable filtering). The
+  soft-disable flag is **`role_open`** (NOT `published` — Hugo reserves
+  `published` as a date field). `partials/volunteer-roles-open.html` is
+  the single source of truth for "open"; the conditional
+  `volunteer-recruitment-banner` home section and (later) the nav link
+  both read it. The Join card + volunteer-feature CTAs now point at
+  `/support-us/volunteer-roles/`. **AC4's "We're recruiting" nav link
+  is deferred to SPEC-11** (which rebuilds the nav and now documents
+  ownership); `[params.volunteer_roles]` ships now for config
+  stability. See [[hugo-front-matter-reserved-fields-and-context]].
+- **Not started:** SPEC-08 Hall Hire. See `documentation/README.md`
   for the recommended implementation order.
 - **SPEC-11 (Nav) and SPEC-12 (Accessibility):** cross-cutting,
   always-on, no opt-in flag. To be implemented late as hardening

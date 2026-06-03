@@ -1,0 +1,29 @@
+# exampleSite trustee board — overrides the empty theme starter with
+# illustrative (fictional) names to demonstrate the governance page.
+# Real Groups list their actual board; names are public on the
+# regulator's register, but no contact details are shown.
+
+[[trustee]]
+  name      = "Sarah Whitfield"
+  role      = "Chair of Trustees"
+  appointed = 2022
+
+[[trustee]]
+  name      = "Imran Qureshi"
+  role      = "Treasurer"
+  appointed = 2023
+
+[[trustee]]
+  name      = "Helen Osei"
+  role      = "Secretary"
+  appointed = 2021
+
+[[trustee]]
+  name      = "David Lindqvist"
+  role      = "Group Scout Leader (ex officio)"
+  appointed = 2020
+
+[[trustee]]
+  name = "Priya Nair"
+  role = "Trustee"
+  appointed = 2024

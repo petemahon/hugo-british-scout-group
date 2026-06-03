@@ -1,0 +1,238 @@
+/* -----------------------------------------------------------------------------
+   56. SECTION: ABOUT — HISTORY & GOVERNANCE
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   /about/history/  — narrative + CSS-only vertical timeline (sidebar/top/
+                      bottom placement).
+   /about/governance/ — charity registration, AGM, Trustee Board.
+   .charity-info    — shared block used on the governance page AND, when
+                      configured, in the site footer (navy); hidden in print.
+   ----------------------------------------------------------------------------- */
+
+.s-history__container,
+.s-governance__container {
+  max-width: 60rem;
+}
+
+/* ── History head + cover ─────────────────────────────────────── */
+.s-history__title {
+  margin: 0.25rem 0 0.5rem;
+}
+.s-history__founded {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+.s-history__cover {
+  margin: 0 0 2rem;
+}
+.s-history__cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+}
+
+/* ── Sidebar layout: prose + timeline side by side on wide screens ── */
+.s-history__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 900px) {
+  .s-history--tl-sidebar .s-history__layout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* ── Timeline (CSS-only vertical line) ────────────────────────── */
+.s-history__timeline {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.s-history__tl-entry {
+  position: relative;
+  padding: 0 0 1.5rem 1.75rem;
+  border-left: 2px solid color-mix(in oklab, var(--primary) 25%, transparent);
+}
+.s-history__tl-entry:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+.s-history__tl-entry::before {
+  content: "";
+  position: absolute;
+  left: -0.46rem;
+  top: 0.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--bg);
+}
+.s-history__tl-year {
+  display: block;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--primary);
+  line-height: 1;
+}
+.s-history__tl-title {
+  margin: 0.3rem 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.s-history__tl-detail {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.s-history__tl-figure {
+  margin: 0.6rem 0 0;
+}
+.s-history__tl-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.s-history__wikipedia {
+  margin-top: 1.5rem;
+}
+
+/* ── Governance ───────────────────────────────────────────────── */
+.s-governance__title {
+  margin: 0.25rem 0 0.5rem;
+}
+.s-governance__intro {
+  margin: 0 0 2rem;
+}
+.s-governance__charity,
+.s-governance__agm,
+.s-governance__board {
+  margin-bottom: 2rem;
+}
+.s-governance__charity h2,
+.s-governance__agm h2,
+.s-governance__board h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+}
+.s-governance__agm-date {
+  margin: 0 0 0.25rem;
+}
+.s-governance__agm-location {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+}
+
+/* Trustee definition list */
+.s-governance__trustees {
+  margin: 0;
+}
+.s-governance__trustee {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
+}
+.s-governance__trustee-name {
+  margin: 0;
+  font-weight: 700;
+}
+.s-governance__trustee-role {
+  margin: 0;
+  color: var(--text-muted);
+}
+.s-governance__trustee-since {
+  font-size: 0.9em;
+}
+
+/* ── Charity-info block (governance page + footer) ────────────── */
+.s-governance__charity .charity-info__line {
+  margin: 0 0 0.4rem;
+}
+/* In the navy footer, the charity line is small and light. */
+.site-footer .charity-info {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+.site-footer .charity-info__line {
+  margin: 0;
+}
+.site-footer .charity-info__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.s-governance__reports {
+  margin-bottom: 2rem;
+}
+
+/* ── Reports archive (/about/reports/) ────────────────────────── */
+.s-reports__container {
+  max-width: 48rem;
+}
+.s-reports__list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+.s-reports__item {
+  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
+}
+.s-reports__link {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  padding: 0.75rem 0 0.75rem 1.75rem;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+/* CSS-only PDF glyph — a small document mark, no icon font, no SVG. */
+.s-reports__link::before {
+  content: "PDF";
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent);
+  border-radius: 3px;
+  padding: 0.05rem 0.2rem;
+  line-height: 1;
+}
+.s-reports__link:hover .s-reports__label {
+  text-decoration: underline;
+}
+.s-reports__label {
+  font-weight: 600;
+}
+.s-reports__type {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.s-reports__back {
+  margin-top: 1.5rem;
+}
+
+@media print {
+  .charity-info {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Volunteer roles listing — /support-us/volunteer-roles/. SPEC-09.
+  Renders the grid of currently-open roles (or the closed message).
+
+  Feature gate: site.Params.features.fundraising.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.fundraising -}}
+  <section class="section s-vol s-vol--list reveal">
+    <div class="container s-vol__container">
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "volunteerRolesEyebrow" | default "Volunteer" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "volunteerRolesHeading" | default "Volunteer with us" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+      </header>
+
+      {{ partial "volunteer-roles-grid.html" . }}
+
+      <p class="s-vol__back display-7">
+        <a class="styled-link" href="{{ "/support-us/" | relURL }}">&larr; {{ i18n "volunteerRolesBackToSupport" | default "Back to Support us" }}</a>
+      </p>
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

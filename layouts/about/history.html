@@ -1,0 +1,91 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Group history — /about/history/. SPEC-07.
+
+  Long-form narrative (.Content) with an optional CSS-only timeline from
+  data/history_timeline.toml. `timeline_position` places it: "sidebar"
+  (two columns ≥ 900px), "top", or "bottom".
+
+  Photo-consent lint (SPEC-COMMON §10): a cover image requires both
+  cover_alt and photo_consent = true.
+
+  Feature gate: site.Params.features.history.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.history -}}
+  {{- $showTimeline := .Params.show_timeline | default true -}}
+  {{- $pos := .Params.timeline_position | default "sidebar" -}}
+
+  {{- /* Cover image + consent lint. */ -}}
+  {{- $cover := "" -}}
+  {{- with .Params.cover_image -}}
+    {{- if ne $.Params.photo_consent true -}}
+      {{- errorf "history page: cover_image %q is set but photo_consent is not true. See SPEC-COMMON §10." . -}}
+    {{- end -}}
+    {{- if eq ($.Params.cover_alt | default "") "" -}}
+      {{- errorf "history page: cover_image %q is set but cover_alt is empty." . -}}
+    {{- end -}}
+    {{- $path := printf "about/%s" . -}}
+    {{- $img := resources.Get $path -}}
+    {{- if not $img -}}
+      {{- errorf "history page: cover_image %q not found. Expected at assets/%s." . $path -}}
+    {{- else -}}
+      {{- $cover = $img -}}
+    {{- end -}}
+  {{- end -}}
+
+  <article class="section s-history reveal s-history--tl-{{ $pos }}">
+    <div class="container s-history__container">
+
+      <header class="s-history__head">
+        <span class="eyebrow">{{ i18n "historyEyebrow" | default "Our story" }}</span>
+        <h1 class="s-history__title display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "historyHeading" | default "Our history" }}{{ end }}</h1>
+        {{- with .Params.founded }}
+          <p class="s-history__founded">{{ i18n "historyFounded" | default "Founded" }} <strong>{{ . }}</strong></p>
+        {{- end }}
+      </header>
+
+      {{- with $cover }}
+        {{- $small := .Resize "640x webp q82" -}}
+        {{- $med := .Resize "1280x webp q82" -}}
+        {{- $large := .Resize "1920x webp q82" -}}
+        <figure class="s-history__cover">
+          <img src="{{ $med.RelPermalink }}"
+               srcset="{{ $small.RelPermalink }} 640w, {{ $med.RelPermalink }} 1280w, {{ $large.RelPermalink }} 1920w"
+               sizes="(max-width: 1000px) 100vw, 1000px"
+               alt="{{ $.Params.cover_alt }}"
+               loading="lazy">
+        </figure>
+      {{- end }}
+
+      {{- if and $showTimeline (eq $pos "top") }}
+        {{ partial "history-timeline.html" . }}
+      {{- end }}
+
+      <div class="s-history__layout">
+        <div class="s-history__body display-7">
+          {{ .Content }}
+          {{- with .Params.wikipedia_url }}
+            <p class="s-history__wikipedia">
+              <a class="styled-link" href="{{ . | safeURL }}" rel="noopener">{{ i18n "historyWikipediaLink" | default "See our entry on Wikipedia's oldest Scout Groups" }} &rarr;</a>
+            </p>
+          {{- end }}
+        </div>
+        {{- if and $showTimeline (eq $pos "sidebar") }}
+          <aside class="s-history__aside" aria-label="{{ i18n "historyTimelineAria" | default "Group history timeline" }}">
+            {{ partial "history-timeline.html" . }}
+          </aside>
+        {{- end }}
+      </div>
+
+      {{- if and $showTimeline (eq $pos "bottom") }}
+        {{ partial "history-timeline.html" . }}
+      {{- end }}
+
+    </div>
+  </article>
+{{- end -}}
+{{ end }}

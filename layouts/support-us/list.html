@@ -1,0 +1,49 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Support us / fundraising page — /support-us/. SPEC-09.
+
+  Section root (volunteer-roles is a sub-section). Renders the intro +
+  body, recurring fundraising activities, URL-only external giving
+  links, an optional Gift Aid PDF link, and an optional high-level
+  annual-budget block. The link across to the volunteer-roles page is
+  added in step 2 of the build.
+
+  Feature gate: site.Params.features.fundraising.
+*/ -}}
+{{ define "main" }}
+{{- if site.Params.features.fundraising -}}
+  <section class="section s-support s-support--list reveal">
+    <div class="container s-support__container">
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ i18n "supportUsEyebrow" | default "Support us" }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "supportUsHeading" | default "Help keep us going" }}{{ end }}</h1>
+        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+      </header>
+
+      {{- with .Content }}<div class="s-support__body display-7">{{ . }}</div>{{ end }}
+
+      {{ partial "external-fundraising-links.html" . }}
+
+      {{- with .Params.fundraising_activities }}
+        <section class="s-support__activities-section">
+          <h2 class="s-support__activities-heading">{{ i18n "fundraisingActivitiesHeading" | default "What we run" }}</h2>
+          {{ partial "fundraising-activities.html" $ }}
+        </section>
+      {{- end }}
+
+      {{ partial "annual-budget.html" . }}
+
+      {{- if and (site.Params.fundraising.show_giftaid | default true) .Params.giftaid_pdf }}
+        <p class="s-support__giftaid">
+          <a class="styled-link" href="{{ .Params.giftaid_pdf | relURL }}" download>{{ i18n "fundraisingGiftAid" | default "Boost your gift with Gift Aid (PDF)" }} &rarr;</a>
+        </p>
+      {{- end }}
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

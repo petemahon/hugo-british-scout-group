@@ -1,0 +1,31 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  volunteer-role-card — one open role on the listing grid. SPEC-09.
+  Shows title, an optional section tag, the "Remote OK" badge, time
+  commitment, a DBS note, and a link to the role's detail page.
+
+  Context: the role Page.
+*/ -}}
+{{- $role := . -}}
+{{- $sectionName := "" -}}
+{{- with $role.Params.section -}}
+  {{- $key := . -}}
+  {{- range hugo.Data.scout_sections.items -}}
+    {{- if eq .key $key }}{{ $sectionName = .name }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+<article class="s-vol__card">
+  <div class="s-vol__card-badges">
+    {{- with $sectionName }}<span class="s-vol__tag">{{ . }}</span>{{ end }}
+    {{- if $role.Params.remote }}<span class="s-vol__badge s-vol__badge--remote">{{ i18n "volunteerRemoteBadge" | default "Remote OK" }}</span>{{ end }}
+  </div>
+  <h3 class="s-vol__card-title"><a href="{{ $role.RelPermalink }}">{{ $role.Title }}</a></h3>
+  {{- with $role.Params.time_commitment }}<p class="s-vol__card-time">{{ . }}</p>{{ end }}
+  {{- with $role.Summary }}<p class="s-vol__card-summary">{{ . }}</p>{{ end }}
+  <p class="s-vol__card-more">
+    <a class="styled-link" href="{{ $role.RelPermalink }}">{{ i18n "volunteerRoleMore" | default "About this role" }} &rarr;</a>
+  </p>
+</article>

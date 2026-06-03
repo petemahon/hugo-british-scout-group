@@ -1,0 +1,48 @@
+# exampleSite history timeline — overrides the empty theme starter.
+# A worked, fictional 50-year history for a British Scouting Overseas
+# Group. Groups replace this with their own beats.
+
+[[entry]]
+  year   = 1974
+  title  = "A handful of families start a Pack"
+  detail = "Six children met in a borrowed villa majlis, run by two parents who had been Scout leaders back in the UK."
+
+[[entry]]
+  year   = 1978
+  title  = "Registered with British Scouting Overseas"
+  detail = "The Group formally affiliated to BSO, giving members the same programme and awards as Groups at home."
+
+[[entry]]
+  year   = 1983
+  title  = "First desert camp"
+  detail = "An overnight camp in the dunes became the fixture that still defines the Group's year."
+
+[[entry]]
+  year   = 1991
+  title  = "Scout Troop opens"
+  detail = "Growing numbers meant the older section could finally run its own programme."
+
+[[entry]]
+  year   = 1999
+  title  = "Moved to the current HQ"
+  detail = "A long-term home at the community centre, with storage for camp kit and a proper meeting hall."
+
+[[entry]]
+  year   = 2008
+  title  = "Explorer Unit founded"
+  detail = "14-18s gained their own section, with an expedition programme across the region."
+
+[[entry]]
+  year   = 2015
+  title  = "Squirrels and a second Cub Pack"
+  detail = "Demand from younger families and a waiting list prompted two new sections in one busy year."
+
+[[entry]]
+  year   = 2019
+  title  = "50 young people at summer camp"
+  detail = "The Group's largest camp to date, with alumni leaders returning to help run it."
+
+[[entry]]
+  year   = 2024
+  title  = "Fiftieth anniversary"
+  detail = "Half a century of Scouting overseas, marked with a reunion of former members now scattered around the world."

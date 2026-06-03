@@ -625,6 +625,161 @@ other = "View the full kit list"
 other = "Browse all camp kit lists"
 
 # -----------------------------------------------------------------------------
+# History & Governance — used by layouts/about/* and the history-timeline,
+# trustee-list and charity-info partials. SPEC-07.
+# -----------------------------------------------------------------------------
+[historyEyebrow]
+other = "Our story"
+
+[historyHeading]
+other = "Our history"
+
+[historyFounded]
+other = "Founded"
+
+[historyTimelineAria]
+other = "Group history timeline"
+
+[historyWikipediaLink]
+other = "See our entry on Wikipedia's oldest Scout Groups"
+
+[governanceEyebrow]
+other = "Governance"
+
+[governanceHeading]
+other = "How the Group is run"
+
+[governanceCharityHeading]
+other = "Charity registration"
+
+[governanceRegisteredCharity]
+other = "Registered charity"
+
+[governanceAgmHeading]
+other = "Annual General Meeting"
+
+[governanceAgmPapers]
+other = "AGM papers (PDF)"
+
+[governanceBoardHeading]
+other = "Trustee Board"
+
+[governanceTrusteeSince]
+other = "trustee since"
+
+[governanceReportsHeading]
+other = "Reports & accounts"
+
+[governanceReportsLink]
+other = "Trustees' Annual Reports and AGM minutes"
+
+[reportsEyebrow]
+other = "Accounts & minutes"
+
+[reportsHeading]
+other = "Trustees' reports & AGM minutes"
+
+[reportsEmpty]
+other = "No reports published yet — they'll appear here after the next AGM."
+
+[reportsBackToGovernance]
+other = "Back to governance"
+
+[reportsTypeAnnualReport]
+other = "Annual Report"
+
+[reportsTypeAgmMinutes]
+other = "AGM minutes"
+
+[reportsTypeOther]
+other = "Document"
+
+# -----------------------------------------------------------------------------
+# Fundraising & volunteering — used by layouts/support-us/* and the
+# fundraising / volunteer partials. SPEC-09.
+# -----------------------------------------------------------------------------
+[supportUsEyebrow]
+other = "Support us"
+
+[supportUsHeading]
+other = "Help keep us going"
+
+[fundraisingActivitiesHeading]
+other = "What we run"
+
+[fundraisingActivityContact]
+other = "Get involved"
+
+[fundraisingExternalHeading]
+other = "Give online"
+
+[fundraisingDonate]
+other = "Donate"
+
+[fundraisingGiftAid]
+other = "Boost your gift with Gift Aid (PDF)"
+
+[budgetHeading]
+other = "Where the money goes"
+
+[budgetIncome]
+other = "Income"
+
+[budgetExpenditure]
+other = "Expenditure"
+
+[budgetReportsLink]
+other = "Read our full accounts"
+
+[volunteerRolesEyebrow]
+other = "Volunteer"
+
+[volunteerRolesHeading]
+other = "Volunteer with us"
+
+[volunteerRolesBackToSupport]
+other = "Back to Support us"
+
+[volunteerRolesBackToList]
+other = "All volunteer roles"
+
+[volunteerRolesClosed]
+other = "We're not actively recruiting right now, but please get in touch if you'd like to help."
+
+[volunteerRoleClosedNotice]
+other = "This role is no longer open — see our current volunteer roles above."
+
+[volunteerRemoteBadge]
+other = "Remote OK"
+
+[volunteerRoleMore]
+other = "About this role"
+
+[volunteerTimeCommitment]
+other = "Time"
+
+[volunteerStartDate]
+other = "Starts"
+
+[volunteerDbs]
+other = "Safeguarding"
+
+[volunteerDbsNote]
+other = "A DBS check is required for this role."
+
+[volunteerApply]
+other = "Apply for this role"
+
+[volunteerBannerTitle]
+other = "We're recruiting"
+
+[volunteerBannerMessage]
+other = "We have open volunteer roles — a few hours from the right people keeps Scouting running here."
+
+[volunteerBannerCta]
+other = "See open roles"
+
+# -----------------------------------------------------------------------------
 # Footer — used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]

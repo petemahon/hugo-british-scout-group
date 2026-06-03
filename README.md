@@ -244,6 +244,9 @@ maintain.
   kit_lists         = true     # SPEC-05 camp kit lists
   joining           = true     # SPEC-06 /join/ page
   welcome_pack      = true     # SPEC-06 /welcome-pack/ content section
+  history           = true     # SPEC-07 /about/history/
+  governance        = true     # SPEC-07 /about/governance/ + charity footer
+  fundraising       = true     # SPEC-09 /support-us/ + volunteer roles
   bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
   network_feature   = true     # Network 18–25 brand-anchor band
   volunteer_feature = true     # "Register to volunteer." brand-anchor band (D11)
@@ -696,6 +699,81 @@ to the consuming site.
 
 ```sh
 hugo new welcome-pack/about.md
+```
+
+### Group History & Governance (SPEC-07)
+
+Two independently-gated pages under `/about/`:
+
+- **`/about/history/`** (`params.features.history`) — a long-form
+  Markdown history with an optional CSS-only timeline driven by
+  `data/history_timeline.toml`. `timeline_position` places it as a
+  `sidebar` (two columns on wide screens), `top`, or `bottom`. A cover
+  image triggers the SPEC-COMMON §10 photo-consent lint.
+- **`/about/governance/`** (`params.features.governance`) — charity
+  registration, AGM details, the Trustee Board (`data/trustees.toml` —
+  names only, no contact details), and a link to the reports archive.
+
+**Reports archive** at `/about/reports/` lists Trustees' Annual Reports
+and AGM minutes from a `data/reports.toml` manifest, with the PDFs in
+`static/about/reports/`. The build **warns** about any PDF in that
+folder not listed in the manifest, so the two can't drift apart.
+
+**Charity-info footer.** When `params.features.governance` is on, a
+charity number is configured, and `[params.governance].show_in_footer`
+is true, a small charity-registration line renders in every
+non-printing footer (hidden in print). A charity number never appears
+without a governance page, but a governance page can run with no
+charity listed at all. Most BSO Groups operate under British Scouting
+Overseas' England & Wales registration (charity **1151702**) rather
+than registering separately, and simply set `charity_number =
+"1151702"`. A Group that is *also* a host-country legal entity (e.g.
+1st Brussels is a Belgian ASBL) can add the `charity_secondary_*`
+block for the second jurisdiction.
+
+The theme ships `data/trustees.toml` and `data/reports.toml` **empty**
+(comment-rich) — no placeholder names, no placeholder documents.
+
+```sh
+hugo new about/history.md
+hugo new about/governance.md
+```
+
+### Fundraising & Volunteering (SPEC-09)
+
+Gated by `params.features.fundraising`. Two linked areas under
+`/support-us/`:
+
+- **`/support-us/`** — a fundraising page: an intro, URL-only links to
+  external giving platforms (no logos — copyright), recurring
+  fundraising activities, an optional Gift Aid PDF link, and an
+  optional high-level `annual_budget` block (currency from
+  `data/currencies.toml`, with a cross-link to the SPEC-07 reports
+  archive).
+- **`/support-us/volunteer-roles/`** — open vacancies as cards, each
+  linking to a per-role page (`/support-us/volunteer-roles/<slug>/`). A
+  role is **open** when `role_open` isn't false and its `closes` date
+  hasn't passed; closed/retired roles drop off the listing and their
+  page shows a "no longer open" notice. `remote = true` adds a
+  **"Remote OK"** badge — relevant for BSO Groups recruiting UK-based
+  remote volunteers (per-role, not site-wide). DBS is stated, never
+  collected (the archetype documents the residency-since-age-10 nuance).
+
+A new **`volunteer-recruitment-banner`** home section renders **only
+when at least one role is open** (and `features.fundraising` is on),
+linking to the roles page; when nothing's open it outputs nothing and
+the page flows past. Both the banner and (from SPEC-11) the nav link
+read the same `partials/volunteer-roles-open.html`, so they can't
+disagree.
+
+The **conditional "We're recruiting" nav link** (AC4) is owned by
+**SPEC-11**, which rebuilds the nav — the `[params.volunteer_roles]`
+config ships now so it's stable, and the homepage banner is the
+interim entry point.
+
+```sh
+hugo new support-us/_index.md
+hugo new support-us/volunteer-roles/treasurer.md
 ```
 
 ### BSO Joining Hub (SPEC-10)

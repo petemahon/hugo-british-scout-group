@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Volunteer with us on 1st Anytown Scouts</title>
+    <link>http://localhost:1313/support-us/volunteer-roles/</link>
+    <description>Recent content in Volunteer with us on 1st Anytown Scouts</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/support-us/volunteer-roles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assistant Cub Leader</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/assistant-cub-leader/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/assistant-cub-leader/</guid>
+      <description>&lt;p&gt;Help run our Wednesday Cub Pack: games, badge work, the occasional bit&#xA;of controlled chaos, and the camps that Cubs remember for years. You&amp;rsquo;d&#xA;work alongside Akela and the rest of the team — no experience needed,&#xA;just reliability and a sense of humour. We&amp;rsquo;ll fund and book your&#xA;training, and you&amp;rsquo;ll never be on your own with the Pack.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fundraising Lead</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/fundraising-lead/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/fundraising-lead/</guid>
+      <description>&lt;p&gt;Coordinate the Group&amp;rsquo;s fundraising calendar — Christmas Post, the 100&#xA;Club, and the seasonal events. (This role is currently filled; the&#xA;front-matter &lt;code&gt;published = false&lt;/code&gt; keeps it off the live listing.)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Group Treasurer</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/treasurer/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/treasurer/</guid>
+      <description>&lt;p&gt;Keep the Group&amp;rsquo;s finances healthy: pay the bills, bank the takings,&#xA;keep the books, and present the accounts at the AGM. It&amp;rsquo;s a Trustee&#xA;role, so it carries real responsibility — but it&amp;rsquo;s very doable&#xA;remotely, which makes it a great fit for a UK-based parent or&#xA;supporter who can&amp;rsquo;t get to weekly meetings. Bookkeeping or finance&#xA;experience is welcome but not essential; the outgoing Treasurer will&#xA;hand over thoroughly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Trustee (Group Executive)</title>
+      <link>http://localhost:1313/support-us/volunteer-roles/trustee/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/support-us/volunteer-roles/trustee/</guid>
+      <description>&lt;p&gt;Our Trustee Board (the Group Executive) looks after the Group&amp;rsquo;s money,&#xA;property, safeguarding duties and overall direction. We&amp;rsquo;re looking for&#xA;people with skills in finance, fundraising, premises, HR or law — but&#xA;also just sensible people who care about local young people. Meetings&#xA;can be joined online, so this works well for supporters living away&#xA;from the area, including back in the UK.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

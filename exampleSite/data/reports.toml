@@ -1,0 +1,22 @@
+# exampleSite reports manifest — overrides the empty theme starter.
+# These three entries match the placeholder PDFs in
+# exampleSite/static/about/reports/. Groups replace both the manifest
+# entries and the PDFs with their real documents.
+
+[[report]]
+  filename = "2024-trustees-annual-report.pdf"
+  label    = "2024 Trustees' Annual Report"
+  year     = 2024
+  type     = "annual_report"
+
+[[report]]
+  filename = "2024-agm-minutes.pdf"
+  label    = "2024 AGM Minutes"
+  year     = 2024
+  type     = "agm_minutes"
+
+[[report]]
+  filename = "2023-trustees-annual-report.pdf"
+  label    = "2023 Trustees' Annual Report"
+  year     = 2023
+  type     = "annual_report"
