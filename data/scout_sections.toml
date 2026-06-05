@@ -16,6 +16,12 @@
 # Order here = render order, mirroring The Scout Association's canonical
 # ordering: Squirrels → Network.
 #
+# blurb
+# -----
+# One short, Group-generic line describing what the section does. Shown in
+# the vertical desktop card on the `scout-sections` home block (hidden on the
+# compact mobile rows). Optional — omit to fall back to the logo + age only.
+#
 # Identity colours
 # ----------------
 # `colour` is the section's identity background colour (sourced from the
@@ -48,6 +54,7 @@
   key         = "squirrels"
   name        = "Squirrels"
   ages        = "4 to 6 years"
+  blurb       = "First steps into the outdoors — games, friendship and giving everything a go."
   logo        = "images/sections/squirrels.svg"
   url         = "https://www.scouts.org.uk/squirrels"
   alt         = "Logo for Squirrels Section"
@@ -58,6 +65,7 @@
   key         = "beavers"
   name        = "Beavers"
   ages        = "6 to 8 years"
+  blurb       = "Crafts, games and the first taste of camp, where lifelong friendships start."
   logo        = "images/sections/beavers.svg"
   url         = "https://www.scouts.org.uk/beavers"
   alt         = "Logo for Beavers Section"
@@ -68,6 +76,7 @@
   key         = "cubs"
   name        = "Cubs"
   ages        = "8 to 10 ½ years"
+  blurb       = "Hikes, badges and first sleepovers — plenty of chances to get stuck in."
   logo        = "images/sections/cubs.svg"
   url         = "https://www.scouts.org.uk/cubs"
   alt         = "Logo for Cubs Section"
@@ -78,6 +87,7 @@
   key         = "scouts"
   name        = "Scouts"
   ages        = "10 ½ to 14 years"
+  blurb       = "Bigger expeditions, real responsibility and the chance to lead the adventure."
   logo        = "images/sections/scouts.svg"
   url         = "https://www.scouts.org.uk/scouts"
   alt         = "Logo for Scouts Section"
@@ -88,6 +98,7 @@
   key         = "explorers"
   name        = "Explorers"
   ages        = "14 to 18 years"
+  blurb       = "Self-led units, top awards and international travel — the path to King's Scout."
   logo        = "images/sections/explorers.svg"
   url         = "https://www.scouts.org.uk/explorers"
   alt         = "Logo for Explorers Section"
@@ -98,6 +109,7 @@
   key             = "network"
   name            = "Network"
   ages            = "18 to 25 years"
+  blurb           = "Awards, expeditions and a community that gets it — Scouting on your terms."
   logo            = "images/sections/network.svg"
   url             = "https://www.scouts.org.uk/network/"
   alt             = "Logo for Scout Network"

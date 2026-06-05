@@ -339,9 +339,45 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
   clearance via a `body.is-home` class + `--nav-clear` (the home hero
   stays full-bleed). Always-on anchors: `#join`, `#sections`,
   `#where-we-meet`. See [[hugo-partial-return-and-details-accordion]].
-- **SPEC-12 Accessibility:** not started — the final cross-cutting
-  hardening pass (WCAG 2.2 AA: skip link, focus visibility, landmarks,
-  build-time alt/heading lints, axe-core CI). Depends on SPEC-11.
+- **SPEC-12 Accessibility:** shipped. The final cross-cutting WCAG 2.2
+  AA hardening pass. Skip link (`.skip-link`, first `<body>` child,
+  targets `<main id="main">`) + `a11ySkipToContent` i18n. New
+  `--focus-ring` palette token (per palette in `data/palettes.toml`,
+  emitted by `palette-style.html`, fallback `--primary`); `vibrant`
+  overrides to Scouts Purple `#7413dc` since Scouts Red on white is
+  only ~3.9:1. New `07-a11y.css` banner: global `:focus-visible` ring
+  (**no `outline:none` anywhere**), `.skip-link`, `.sr-only`, and a
+  global `prefers-reduced-motion` kill-switch. Two build-time lints:
+  `partials/audit-headings.html` (errorf if a page's `.Content` body
+  renders an `<h1>` — the page title is the only permitted `<h1>`) and
+  `partials/audit-image.html` (shared single-source alt lint; news /
+  galleries / history / hall-hire call it — the old inline news lint
+  was refactored to it). Heading contract documented in
+  **SPEC-COMMON §17**. Contrast audited in CI by dependency-free
+  `tools/audit-contrast.mjs` (declared pairs only; `text_on_<accent>`
+  tokens judged at the 3.0:1 large-text bar since they only label bold
+  chrome). Theme-repo `.github/workflows/a11y.yml` runs the contrast
+  audit (push + PR) and `@axe-core/cli` (PR only) over one page per
+  template family — it creates the `exampleSite/themes/british-scout-group`
+  symlink, rolls demo dates, then builds with Hugo 0.157.0. Heading
+  audit was **downgraded** from the spec's brittle per-partial
+  `audit-claim` running-list to this reliable body-scan subset
+  (decided 2026-06-04, all four SPEC-12 Q-slate recommendations
+  accepted). A follow-up **full audit (2026-06-04)** then: (a) fixed the
+  **mobile-nav keyboard gap** — the SPEC-11 burger checkbox was
+  `tabindex="-1" aria-hidden` (drawer pointer-only); it's now a
+  visually-hidden but **focusable** named control, burger is an
+  `aria-hidden` proxy, closed drawer uses `visibility:hidden`, checkbox
+  is `display:none` ≥960px, and the focus ring is **relocated** to the
+  burger (the theme's one deliberate `outline:none` — focus moved, not
+  removed); (b) added the alt lint to **welcome-pack** `intro_image`,
+  **bso-home-range** `static_map_image`, and the **two-col-image-cta** /
+  **stacked-features** CTA partials (so the alt audit is truly uniform);
+  (c) added `tabindex="-1"` to `<main>` so the skip link moves focus, not
+  just scroll; (d) corrected the §17 contract — the home-only **hero is
+  the one section partial that emits `<h1>`** (the home page's title);
+  (e) added `bg_muted` pairs to the contrast script. **All roadmap specs
+  (01–12) now shipped.**
 
 ---
 

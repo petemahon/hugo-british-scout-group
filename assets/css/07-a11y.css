@@ -1,0 +1,81 @@
+/* -----------------------------------------------------------------------------
+   7. ACCESSIBILITY (SPEC-12)
+   Cross-cutting WCAG 2.2 AA hardening. Always on — no feature flag.
+
+   Contents:
+     a. Skip link            — first focusable element; visible only on focus.
+     b. Global focus ring    — consistent :focus-visible across the theme.
+     c. .sr-only             — visually-hidden-but-screen-reader-visible text.
+     d. Reduced motion       — global kill-switch for animation/transition.
+
+   The --focus-ring token is emitted per-palette by palette-style.html
+   (data/palettes.toml `focus_ring`), falling back to --primary. Every
+   interactive element across the theme already references
+   `var(--focus-ring, var(--primary))`; this file supplies the universal
+   default so nothing is ever left with no visible focus indicator.
+   ----------------------------------------------------------------------------- */
+
+/* ── a. Skip to main content ─────────────────────────────────────────────── */
+/* First child of <body>. Off-screen until focused, then slides into view. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--focus-ring, var(--primary));
+  border-radius: var(--radius-btn, 0.5rem);
+  transition: top var(--transition, 0.25s ease);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* ── b. Global focus ring ────────────────────────────────────────────────── */
+/* Every focusable control shows a visible focus indicator (SPEC-12 AC3).
+   Keyboard focus is shown; pointer focus is not (`:focus-visible`). The one
+   `outline: none` in the theme is on the sr-only mobile-nav toggle in
+   04-nav.css, whose indicator is RELOCATED to the burger it controls —
+   focus is moved, never removed. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
+}
+
+/* ── c. Screen-reader-only utility ───────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── d. Reduced motion ───────────────────────────────────────────────────── */
+/* Honour prefers-reduced-motion globally: neutralise every animation and
+   transition, and disable smooth scrolling. The .reveal fade-in already
+   self-disables in 32-page-load-fade.css; this is the catch-all for hover
+   transitions, the hero intro, caret rotations, etc. (SPEC-12 AC6 / Q12.6). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

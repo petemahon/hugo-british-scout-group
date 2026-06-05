@@ -1,0 +1,116 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: British Scouting Overseas
+        - heading "British Scouting Overseas — at 1st Anytown" [level=1] [ref=e31]
+        - paragraph [ref=e32]:
+          - text: 1st Anytown Scouts is part of
+          - strong [ref=e33]: British Scouting Overseas
+          - text: (BSO), a District of The Scout Association for UK families living abroad. This area of the site covers who can join, what to expect when you move to the UAE, where to go when you move on, and the WOSM-recognised scouting bodies of the United Arab Emirates.
+      - generic [ref=e34]:
+        - link "Who can join POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility." [ref=e35] [cursor=pointer]:
+          - /url: /bso/eligibility/
+          - heading "Who can join" [level=2] [ref=e36]
+          - paragraph [ref=e37]: POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility.
+          - generic [ref=e38]: →
+        - link "Moving to the United Arab Emirates Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect." [ref=e39] [cursor=pointer]:
+          - /url: /bso/moving-in/
+          - heading "Moving to the United Arab Emirates" [level=2] [ref=e40]
+          - paragraph [ref=e41]: Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect.
+          - generic [ref=e42]: →
+        - link "Moving on Transferring to another BSO Group, returning to the UK, or joining the host-country NSO." [ref=e43] [cursor=pointer]:
+          - /url: /bso/moving-out/
+          - heading "Moving on" [level=2] [ref=e44]
+          - paragraph [ref=e45]: Transferring to another BSO Group, returning to the UK, or joining the host-country NSO.
+          - generic [ref=e46]: →
+        - link "Scouting in the United Arab Emirates The WOSM-recognised scouting bodies of the host country, with links and language notes." [ref=e47] [cursor=pointer]:
+          - /url: /bso/host-scouting/
+          - heading "Scouting in the United Arab Emirates" [level=2] [ref=e48]
+          - paragraph [ref=e49]: The WOSM-recognised scouting bodies of the host country, with links and language notes.
+          - generic [ref=e50]: →
+      - generic "British Scouting Overseas links" [ref=e51]:
+        - paragraph [ref=e52]: Part of British Scouting Overseas.
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - link "BSO Area →" [ref=e55] [cursor=pointer]:
+              - /url: https://www.britishscoutingoverseas.org.uk/
+          - listitem [ref=e56]:
+            - link "Middle East and Asia District →" [ref=e57] [cursor=pointer]:
+              - /url: https://www.britishscoutingoverseas.org.uk/
+  - contentinfo [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - img [ref=e63]
+            - generic [ref=e65]: 1st Anytown Scouts
+          - paragraph [ref=e66]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e67]:
+          - heading "Visit" [level=5] [ref=e68]
+          - list [ref=e69]:
+            - listitem [ref=e70]: Anytown Scout Hut
+            - listitem [ref=e71]: 11 Hut Lane
+            - listitem [ref=e72]: Anytown
+        - generic [ref=e73]:
+          - heading "Contact" [level=5] [ref=e74]
+          - list [ref=e75]:
+            - listitem [ref=e76]:
+              - link "hello@anytown-scouts.org" [ref=e77] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e78]:
+              - link "+44 1234 567 890" [ref=e79] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e80]:
+              - link "Instagram" [ref=e81] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e82]:
+          - heading "About" [level=5] [ref=e83]
+          - list [ref=e84]:
+            - listitem [ref=e85]:
+              - link "Safeguarding" [ref=e86] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e87]:
+              - link "Privacy" [ref=e88] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e89]:
+        - generic [ref=e90]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e91]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e93]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e94] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

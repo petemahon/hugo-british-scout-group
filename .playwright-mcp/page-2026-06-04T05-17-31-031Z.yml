@@ -1,0 +1,133 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Camp kit
+        - heading "Kit lists" [level=1] [ref=e31]
+        - paragraph [ref=e32]: "What to pack for each kind of camp. Print any list as a checkbox sheet and tick items off as you pack — and remember, if there's something you don't have, just ask: we'd always rather lend kit than have anyone miss out."
+        - paragraph [ref=e34]: Pick the list that matches the camp. Each one shows a version and the date a leader last checked it, so you know it’s current.
+      - generic [ref=e35]:
+        - heading "Cubs" [level=2] [ref=e36]
+        - list [ref=e37]:
+          - listitem [ref=e38]:
+            - link "Cubs Summer Camp Kit List" [ref=e39] [cursor=pointer]:
+              - /url: /kit-lists/cubs-summer-camp/
+            - generic [ref=e40]: summer
+          - listitem [ref=e41]:
+            - link "Cubs Summer Camp Kit List (desert climate)" [ref=e42] [cursor=pointer]:
+              - /url: /kit-lists/cubs-summer-camp-desert/
+            - generic [ref=e43]: summer
+            - generic [ref=e44]: desert
+          - listitem [ref=e45]:
+            - link "Cubs Weekend Camp Kit List" [ref=e46] [cursor=pointer]:
+              - /url: /kit-lists/cubs-weekend/
+            - generic [ref=e47]: weekend
+          - listitem [ref=e48]:
+            - link "Cubs Weekend Camp Kit List (desert climate)" [ref=e49] [cursor=pointer]:
+              - /url: /kit-lists/cubs-weekend-desert/
+            - generic [ref=e50]: weekend
+            - generic [ref=e51]: desert
+      - generic [ref=e52]:
+        - heading "Scouts" [level=2] [ref=e53]
+        - list [ref=e54]:
+          - listitem [ref=e55]:
+            - link "Scouts Summer Camp Kit List" [ref=e56] [cursor=pointer]:
+              - /url: /kit-lists/scouts-summer-camp/
+            - generic [ref=e57]: summer
+          - listitem [ref=e58]:
+            - link "Scouts Summer Camp Kit List (desert climate)" [ref=e59] [cursor=pointer]:
+              - /url: /kit-lists/scouts-summer-camp-desert/
+            - generic [ref=e60]: summer
+            - generic [ref=e61]: desert
+          - listitem [ref=e62]:
+            - link "Scouts Weekend Camp Kit List" [ref=e63] [cursor=pointer]:
+              - /url: /kit-lists/scouts-weekend/
+            - generic [ref=e64]: weekend
+          - listitem [ref=e65]:
+            - link "Scouts Weekend Camp Kit List (desert climate)" [ref=e66] [cursor=pointer]:
+              - /url: /kit-lists/scouts-weekend-desert/
+            - generic [ref=e67]: weekend
+            - generic [ref=e68]: desert
+      - generic [ref=e69]:
+        - heading "Explorers" [level=2] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "Explorers Expedition Kit List" [ref=e73] [cursor=pointer]:
+              - /url: /kit-lists/explorers-expedition/
+            - generic [ref=e74]: expedition
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - img [ref=e80]
+            - generic [ref=e82]: 1st Anytown Scouts
+          - paragraph [ref=e83]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e84]:
+          - heading "Visit" [level=5] [ref=e85]
+          - list [ref=e86]:
+            - listitem [ref=e87]: Anytown Scout Hut
+            - listitem [ref=e88]: 11 Hut Lane
+            - listitem [ref=e89]: Anytown
+        - generic [ref=e90]:
+          - heading "Contact" [level=5] [ref=e91]
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "hello@anytown-scouts.org" [ref=e94] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e95]:
+              - link "+44 1234 567 890" [ref=e96] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e97]:
+              - link "Instagram" [ref=e98] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e99]:
+          - heading "About" [level=5] [ref=e100]
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - link "Safeguarding" [ref=e103] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e104]:
+              - link "Privacy" [ref=e105] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e106]:
+        - generic [ref=e107]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e108]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e110]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e111] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

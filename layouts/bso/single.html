@@ -27,11 +27,9 @@
   {{- $partial := printf "bso-%s.html" $slug -}}
 
   <article class="section s-bso s-bso--single reveal">
-    <div class="container s-bso__container">
+    <div class="container s-bso__container{{ if eq $slug "eligibility" }} pb-page{{ end }}">
 
-      <p class="s-bso__breadcrumb display-7">
-        <a href="{{ "/bso/" | relURL }}">&larr; {{ i18n "bsoBackToHub" | default "BSO information" }}</a>
-      </p>
+      {{ partial "back-link.html" . }}
 
       <header class="s-bso__post-head">
         <span class="eyebrow">{{ i18n "bsoHubEyebrow" | default "British Scouting Overseas" }}</span>

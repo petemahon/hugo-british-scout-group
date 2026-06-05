@@ -1,0 +1,141 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - heading "Theme palettes" [level=2] [ref=e30]
+        - generic [ref=e31]:
+          - text: Every palette below uses only colours from the official Scouts brand guidelines. Pick the one that fits your Group, then set
+          - code [ref=e32]: params.palette
+          - text: in your
+          - code [ref=e33]: hugo.toml
+          - text: to the key shown on each card.
+          - text: To preview a palette in context, change the value in
+          - code [ref=e34]: exampleSite/hugo.toml
+          - text: and reload — every section on the home page will update.
+      - generic [ref=e35]:
+        - article [ref=e36]:
+          - generic [ref=e37]:
+            - heading "Adventure" [level=3] [ref=e38]
+            - paragraph [ref=e39]: Forest Green primary with Orange secondary. Outdoorsy and energetic.
+          - generic [ref=e40]:
+            - generic "Primary" [ref=e41]: "#205b41"
+            - generic "Secondary" [ref=e42]: "#ff912a"
+            - generic "Tertiary" [ref=e43]: "#7413dc"
+            - generic "Accent" [ref=e44]: "#ffe627"
+          - code [ref=e46]: "# in hugo.toml: [params] palette = \"adventure\""
+        - article [ref=e47]:
+          - generic [ref=e48]:
+            - heading "Classic Purple" [level=3] [ref=e49]
+            - paragraph [ref=e50]: Scouts Purple primary with Teal secondary. The default UK Scouts house style.
+          - generic [ref=e51]:
+            - generic "Primary" [ref=e52]: "#7413dc"
+            - generic "Secondary" [ref=e53]: "#088486"
+            - generic "Tertiary" [ref=e54]: "#205b41"
+            - generic "Accent" [ref=e55]: "#ff912a"
+          - code [ref=e57]: "# in hugo.toml: [params] palette = \"classic-purple\""
+        - article [ref=e58]:
+          - generic [ref=e59]:
+            - heading "Coastal" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Navy primary with Blue secondary. For Sea Scout Groups and waterside settings.
+          - generic [ref=e62]:
+            - generic "Primary" [ref=e63]: "#003982"
+            - generic "Secondary" [ref=e64]: "#006ddf"
+            - generic "Tertiary" [ref=e65]: "#088486"
+            - generic "Accent" [ref=e66]: "#ff912a"
+          - code [ref=e68]: "# in hugo.toml: [params] palette = \"coastal\""
+        - article [ref=e69]:
+          - generic [ref=e70]:
+            - heading "Network" [level=3] [ref=e71]
+            - paragraph [ref=e72]: Black primary with Purple secondary. The Scout Network look — older, more sophisticated.
+          - generic [ref=e73]:
+            - generic "Primary" [ref=e74]: "#000000"
+            - generic "Secondary" [ref=e75]: "#7413dc"
+            - generic "Tertiary" [ref=e76]: "#088486"
+            - generic "Accent" [ref=e77]: "#ff912a"
+          - code [ref=e79]: "# in hugo.toml: [params] palette = \"network\""
+        - article [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Vibrant" [level=3] [ref=e82]
+            - paragraph [ref=e83]: Red primary with Pink secondary. Bold, youthful, attention-grabbing.
+          - generic [ref=e84]:
+            - generic "Primary" [ref=e85]: "#ed3f23"
+            - generic "Secondary" [ref=e86]: "#ffb4e5"
+            - generic "Tertiary" [ref=e87]: "#7413dc"
+            - generic "Accent" [ref=e88]: "#ffe627"
+          - code [ref=e90]: "# in hugo.toml: [params] palette = \"vibrant\""
+  - contentinfo [ref=e91]:
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - img [ref=e96]
+            - generic [ref=e98]: 1st Anytown Scouts
+          - paragraph [ref=e99]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e100]:
+          - heading "Visit" [level=5] [ref=e101]
+          - list [ref=e102]:
+            - listitem [ref=e103]: Anytown Scout Hut
+            - listitem [ref=e104]: 11 Hut Lane
+            - listitem [ref=e105]: Anytown
+        - generic [ref=e106]:
+          - heading "Contact" [level=5] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "hello@anytown-scouts.org" [ref=e110] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e111]:
+              - link "+44 1234 567 890" [ref=e112] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e113]:
+              - link "Instagram" [ref=e114] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e115]:
+          - heading "About" [level=5] [ref=e116]
+          - list [ref=e117]:
+            - listitem [ref=e118]:
+              - link "Safeguarding" [ref=e119] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e120]:
+              - link "Privacy" [ref=e121] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e122]:
+        - generic [ref=e123]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e124]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e126]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e127] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

@@ -25,9 +25,7 @@
     {{- if ne $.Params.photo_consent true -}}
       {{- errorf "history page: cover_image %q is set but photo_consent is not true. See SPEC-COMMON §10." . -}}
     {{- end -}}
-    {{- if eq ($.Params.cover_alt | default "") "" -}}
-      {{- errorf "history page: cover_image %q is set but cover_alt is empty." . -}}
-    {{- end -}}
+    {{- partial "audit-image.html" (dict "image" . "alt" $.Params.cover_alt "field" "cover_alt" "context" "history page") -}}
     {{- $path := printf "about/%s" . -}}
     {{- $img := resources.Get $path -}}
     {{- if not $img -}}

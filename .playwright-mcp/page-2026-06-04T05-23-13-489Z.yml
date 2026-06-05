@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: All events
+        - heading "Events" [level=1] [ref=e19]
+        - paragraph [ref=e20]:
+          - text: Camps, parades, badge presentations, and the rest of what's coming up at 1st Anytown Scouts. Past events drop out automatically.
+          - link "Subscribe to all upcoming events (.ics)" [ref=e21] [cursor=pointer]:
+            - /url: all.ics
+          - text: to keep your calendar in sync.
+      - generic [ref=e23]:
+        - link "Brussels District planning meeting 20:30 (Brussels) · Online (Microsoft Teams) · Section Leaders + Assistants Event details View details for Brussels District planning meeting" [ref=e24] [cursor=pointer]:
+          - /url: /events/2026-06-10-brussels-district-meeting/
+          - generic [ref=e25]:
+            - generic [ref=e26]: "18"
+            - generic [ref=e27]: Jun
+            - generic [ref=e28]: "2026"
+          - generic [ref=e29]:
+            - heading "Brussels District planning meeting" [level=4] [ref=e30]
+            - paragraph [ref=e31]: 20:30 (Brussels) · Online (Microsoft Teams) · Section Leaders + Assistants
+            - list "Event details"
+          - generic [ref=e32]: View details for Brussels District planning meeting
+        - link "Summer Fete 13:00 – 17:00 · Anytown Scout Hut · Whole Group + parents Event details View details for Summer Fete" [ref=e33] [cursor=pointer]:
+          - /url: /events/2026-07-12-summer-fete/
+          - generic [ref=e34]:
+            - generic [ref=e35]: "8"
+            - generic [ref=e36]: Aug
+            - generic [ref=e37]: "2026"
+          - generic [ref=e38]:
+            - heading "Summer Fete" [level=4] [ref=e39]
+            - paragraph [ref=e40]: 13:00 – 17:00 · Anytown Scout Hut · Whole Group + parents
+            - list "Event details" [ref=e41]:
+              - listitem [ref=e42]: Beavers
+              - listitem [ref=e43]: Cubs
+              - listitem [ref=e44]: Scouts
+          - generic [ref=e45]: View details for Summer Fete
+        - link "Cubs Summer Camp All day · Pioneer Camp, Buckinghamshire · Cubs only Event details View details for Cubs Summer Camp" [ref=e46] [cursor=pointer]:
+          - /url: /events/2026-08-14-cubs-summer-camp/
+          - generic [ref=e47]:
+            - generic [ref=e48]: "12"
+            - generic [ref=e49]: Sep
+            - generic [ref=e50]: "2026"
+          - generic [ref=e51]:
+            - heading "Cubs Summer Camp" [level=4] [ref=e52]
+            - paragraph [ref=e53]: All day · Pioneer Camp, Buckinghamshire · Cubs only
+            - list "Event details" [ref=e54]:
+              - listitem [ref=e55]: Cubs
+          - generic [ref=e56]: View details for Cubs Summer Camp
+        - link "Leaders' Safeguarding Refresher 19:30 – 21:00 · Anytown Scout Hut · All Group volunteers Event details View details for Leaders' Safeguarding Refresher" [ref=e57] [cursor=pointer]:
+          - /url: /events/2026-09-26-leaders-training/
+          - generic [ref=e58]:
+            - generic [ref=e59]: "22"
+            - generic [ref=e60]: Oct
+            - generic [ref=e61]: "2026"
+          - generic [ref=e62]:
+            - heading "Leaders' Safeguarding Refresher" [level=4] [ref=e63]
+            - paragraph [ref=e64]: 19:30 – 21:00 · Anytown Scout Hut · All Group volunteers
+            - list "Event details" [ref=e65]:
+              - listitem [ref=e66]: Cancelled
+          - generic [ref=e67]: View details for Leaders' Safeguarding Refresher
+        - link "District Rally 10:00 – 16:00 · Anytown District Camp Site · Whole Group Event details View details for District Rally" [ref=e68] [cursor=pointer]:
+          - /url: /events/2026-11-22-district-rally/
+          - generic [ref=e69]:
+            - generic [ref=e70]: "21"
+            - generic [ref=e71]: Dec
+            - generic [ref=e72]: "2026"
+          - generic [ref=e73]:
+            - heading "District Rally" [level=4] [ref=e74]
+            - paragraph [ref=e75]: 10:00 – 16:00 · Anytown District Camp Site · Whole Group
+            - list "Event details" [ref=e76]:
+              - listitem [ref=e77]: Postponed
+              - listitem [ref=e78]: Beavers
+              - listitem [ref=e79]: Cubs
+              - listitem [ref=e80]: Scouts
+              - listitem [ref=e81]: Explorers
+          - generic [ref=e82]: View details for District Rally
+      - paragraph [ref=e83]:
+        - link "Browse all camp kit lists →" [ref=e84] [cursor=pointer]:
+          - /url: /kit-lists/
+  - contentinfo [ref=e85]:
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - img [ref=e90]
+            - generic [ref=e92]: 1st Anytown Scouts
+          - paragraph [ref=e93]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e94]:
+          - heading "Visit" [level=5] [ref=e95]
+          - list [ref=e96]:
+            - listitem [ref=e97]: Anytown Scout Hut
+            - listitem [ref=e98]: 11 Hut Lane
+            - listitem [ref=e99]: Anytown
+        - generic [ref=e100]:
+          - heading "Contact" [level=5] [ref=e101]
+          - list [ref=e102]:
+            - listitem [ref=e103]:
+              - link "hello@anytown-scouts.org" [ref=e104] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e105]:
+              - link "+44 1234 567 890" [ref=e106] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e107]:
+              - link "Instagram" [ref=e108] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e109]:
+          - heading "About" [level=5] [ref=e110]
+          - list [ref=e111]:
+            - listitem [ref=e112]:
+              - link "Safeguarding" [ref=e113] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e114]:
+              - link "Privacy" [ref=e115] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e116]:
+        - generic [ref=e117]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e118]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e120]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e121] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

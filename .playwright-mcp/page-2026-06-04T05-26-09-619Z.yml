@@ -1,0 +1,86 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - article [ref=e17]:
+      - generic [ref=e18]:
+        - heading "Photo consent" [level=1] [ref=e19]
+        - paragraph [ref=e20]: How we handle photographs of young people at 1st Anytown Scouts.
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: This page is the starter wording shipped with the British Scout Group theme. Replace the body below with the policy your Group has agreed with its Trustees. Nothing on this page is rendered as a legal instrument until you’ve reviewed it with your safeguarding lead.
+        - heading "Why we ask" [level=2] [ref=e23]
+        - paragraph [ref=e24]: Some of what we do is naturally photogenic — camps, badge presentations, parades. Sharing photos helps families see what their child has been up to and shows prospective members what life in the Group is like. We also have a duty of care to the young people in those photos.
+        - heading "What we ask of parents and carers" [level=2] [ref=e25]
+        - paragraph [ref=e26]: "When a young person joins, you’ll be asked to tick a photo-consent box on their OSM record. You can change your answer at any time: contact the Group Lead Volunteer and we will update the record and remove any already-published photos that include your child."
+        - heading "How we use photos" [level=2] [ref=e27]
+        - list [ref=e28]:
+          - listitem [ref=e29]:
+            - strong [ref=e30]: Our website.
+            - text: Galleries on this site are reviewed by the safeguarding lead before publication. Captions never identify a young person by name.
+          - listitem [ref=e31]:
+            - strong [ref=e32]: Group communications.
+            - text: Newsletters and Group-wide messages on the parents’ channel use the same consent setting.
+          - listitem [ref=e33]:
+            - strong [ref=e34]: Scouts UK and District.
+            - text: Occasionally District or Headquarters ask for photos for their own publications. We tell them which records have consent and only forward those.
+        - heading "What we don’t do" [level=2] [ref=e35]
+        - list [ref=e36]:
+          - listitem [ref=e37]: We don’t post photos on social media platforms that we don’t own (no Facebook, Instagram or TikTok presence for this Group).
+          - listitem [ref=e38]: We don’t sell photos.
+          - listitem [ref=e39]: We don’t embed third-party tracking on this site.
+        - heading "Right to be forgotten" [level=2] [ref=e40]
+        - paragraph [ref=e41]: Email the Group Lead Volunteer and we’ll remove any photo at your request, no questions asked. Removal usually takes effect within two working days.
+        - heading "Where signed records are kept" [level=2] [ref=e42]
+        - paragraph [ref=e43]: Signed photo-consent records are stored against each young person’s record in OSM. Paper consent forms from camps are kept by the camp leader for the duration of the activity and then logged in OSM.
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - img [ref=e49]
+            - generic [ref=e51]: 1st Anytown Scouts
+          - paragraph [ref=e52]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e53]:
+          - heading "Visit" [level=5] [ref=e54]
+          - list [ref=e55]:
+            - listitem [ref=e56]: Anytown Scout Hut
+            - listitem [ref=e57]: 11 Hut Lane
+            - listitem [ref=e58]: Anytown
+        - generic [ref=e59]:
+          - heading "Contact" [level=5] [ref=e60]
+          - list [ref=e61]:
+            - listitem [ref=e62]:
+              - link "hello@anytown-scouts.org" [ref=e63] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e64]:
+              - link "+44 1234 567 890" [ref=e65] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e66]:
+              - link "Instagram" [ref=e67] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e68]:
+          - heading "About" [level=5] [ref=e69]
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "Safeguarding" [ref=e72] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e73]:
+              - link "Privacy" [ref=e74] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e75]:
+        - generic [ref=e76]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e77]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e79]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e80] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

@@ -32,6 +32,8 @@
          errorf with the expected path. Group ships their own; theme
          ships a generic placeholder. */ -}}
   {{- with .Params.static_map_image -}}
+    {{- /* Non-empty alt is mandatory when a map image is set (SPEC-12 AC5). */ -}}
+    {{- partial "audit-image.html" (dict "image" . "alt" $.Params.static_map_alt "field" "static_map_alt" "context" (printf "bso-home-range %q" $.File.LogicalName)) -}}
     {{- $imgPath := printf "bso/%s" . -}}
     {{- $img := resources.Get $imgPath -}}
     {{- if not $img -}}

@@ -21,8 +21,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
 
 <link rel="stylesheet" href="/css/theme.css">
 
@@ -32,14 +32,15 @@
 :root {
   --primary:             #205b41;
   --primary-hover:       #2c7a57;
+  --focus-ring:          #205b41;
   --secondary:           #ff912a;
   --secondary-hover:     #ffa648;
   --tertiary:            #7413dc;
   --accent:              #ffe627;
   --bg:                  #ffffff;
-  --bg-muted:            #f7f7f7;
-  --text:                #232323;
-  --text-muted:          #5a5a5a;
+  --bg-muted:            #f1efe9;
+  --text:                #14110e;
+  --text-muted:          #45413a;
   --text-on-primary:     #ffffff;
   --text-on-secondary:   #000000;
   --warning:             #d4351c;
@@ -54,8 +55,7 @@
 </style>
 
 
-</head>
-<body id="top">
+</head><body id="top"><a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fleur" viewBox="0 0 56 50" fill="currentColor">
     
   <title>Scouts fleur de lis</title>
@@ -87,7 +87,7 @@
 
   <header class="site-nav" role="banner" aria-label="Site header">
   <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
-         aria-hidden="true" tabindex="-1">
+         aria-label="Open menu">
 
   <div class="site-nav__inner">
 
@@ -95,43 +95,143 @@
       <svg class="site-nav__fleur" aria-hidden="true"><use href="#fleur"/></svg>
       <span class="site-nav__name">1st Anytown Scouts</span>
     </a>
+
     <nav class="site-nav__links" aria-label="Primary navigation">
-      <ul class="site-nav__list">
-        <li><a class="site-nav__link" href="/#join">Join Us</a></li>
-        <li><a class="site-nav__link" href="/#sections">6 - 18 Years</a></li>
-        <li><a class="site-nav__link" href="/#network">18-25 Years</a></li>
-        <li><a class="site-nav__link" href="/#volunteer">Volunteer</a></li>
-        <li><a class="site-nav__link" href="/#where-we-meet">Where we meet</a></li>
-        <li><a class="site-nav__link" href="/palettes/">Palettes</a></li>
-      </ul>
-    </nav>
-    <label for="site-nav-toggle" class="site-nav__burger"
-           aria-label="Open menu">
+  <ul class="site-nav__list"><li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="/join/" aria-haspopup="true">Join Us <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown"><li>
+                <a class="site-nav__drop-link" href="/join/">How to join</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/bso/">BSO eligibility</a>
+              </li></ul>
+        </li><li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="/#sections" aria-haspopup="true">Our Sections <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown"><li>
+                <a class="site-nav__drop-link" href="/#squirrels">Squirrels</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/#beavers">Beavers</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/#cubs">Cubs</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/#scouts">Scouts</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/#explorers">Explorers</a>
+              </li></ul>
+        </li><li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="/news/" aria-haspopup="true" aria-current="true">What we do <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown"><li>
+                <a class="site-nav__drop-link" href="/news/">Latest news</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/events/">Events</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/programme/">Programme</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/galleries/">Galleries</a>
+              </li></ul>
+        </li><li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="/support-us/volunteer-roles/" aria-haspopup="true">Get Involved <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown"><li>
+                <a class="site-nav__drop-link" href="/support-us/volunteer-roles/">Volunteer roles <span class="site-nav__flag">We&#39;re recruiting</span></a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/support-us/">Support us</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/hall-hire/">Hire the hall</a>
+              </li></ul>
+        </li><li class="site-nav__item site-nav__item--group">
+          <a class="site-nav__link site-nav__top" href="/about/history/" aria-haspopup="true">About <span class="site-nav__caret" aria-hidden="true"></span></a>
+          <ul class="site-nav__dropdown"><li>
+                <a class="site-nav__drop-link" href="/about/history/">Our history</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/about/governance/">Governance</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/kit-lists/">Kit lists</a>
+              </li><li>
+                <a class="site-nav__drop-link" href="/#where-we-meet">Where we meet</a>
+              </li></ul>
+        </li>
+  </ul>
+</nav>
+
+    <label for="site-nav-toggle" class="site-nav__burger" aria-hidden="true">
       <span></span><span></span><span></span>
     </label>
 
   </div>
+
   <nav class="site-nav__mobile" aria-label="Mobile navigation">
-    <ul class="site-nav__mobile-list">
-      <li><a class="site-nav__mobile-link" href="/#join">Join Us</a></li>
-      <li><a class="site-nav__mobile-link" href="/#sections">6 - 18 Years</a></li>
-      <li><a class="site-nav__mobile-link" href="/#network">18-25 Years</a></li>
-      <li><a class="site-nav__mobile-link" href="/#volunteer">Volunteer</a></li>
-      <li><a class="site-nav__mobile-link" href="/#where-we-meet">Where we meet</a></li>
-      <li><a class="site-nav__mobile-link" href="/palettes/">Palettes</a></li>
-    </ul>
-  </nav>
+  <ul class="site-nav__mobile-list"><li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc">
+            <summary class="site-nav__mobile-summary">Join Us</summary>
+            <ul class="site-nav__mobile-sublist"><li>
+                  <a class="site-nav__mobile-sublink" href="/join/">How to join</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/bso/">BSO eligibility</a>
+                </li></ul>
+          </details>
+        </li><li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc">
+            <summary class="site-nav__mobile-summary">Our Sections</summary>
+            <ul class="site-nav__mobile-sublist"><li>
+                  <a class="site-nav__mobile-sublink" href="/#squirrels">Squirrels</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/#beavers">Beavers</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/#cubs">Cubs</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/#scouts">Scouts</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/#explorers">Explorers</a>
+                </li></ul>
+          </details>
+        </li><li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc" open>
+            <summary class="site-nav__mobile-summary">What we do</summary>
+            <ul class="site-nav__mobile-sublist"><li>
+                  <a class="site-nav__mobile-sublink" href="/news/">Latest news</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/events/">Events</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/programme/">Programme</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/galleries/">Galleries</a>
+                </li></ul>
+          </details>
+        </li><li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc">
+            <summary class="site-nav__mobile-summary">Get Involved</summary>
+            <ul class="site-nav__mobile-sublist"><li>
+                  <a class="site-nav__mobile-sublink" href="/support-us/volunteer-roles/">Volunteer roles <span class="site-nav__flag">We&#39;re recruiting</span></a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/support-us/">Support us</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/hall-hire/">Hire the hall</a>
+                </li></ul>
+          </details>
+        </li><li class="site-nav__mobile-group">
+          <details class="site-nav__mobile-acc">
+            <summary class="site-nav__mobile-summary">About</summary>
+            <ul class="site-nav__mobile-sublist"><li>
+                  <a class="site-nav__mobile-sublink" href="/about/history/">Our history</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/about/governance/">Governance</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/kit-lists/">Kit lists</a>
+                </li><li>
+                  <a class="site-nav__mobile-sublink" href="/#where-we-meet">Where we meet</a>
+                </li></ul>
+          </details>
+        </li>
+  </ul>
+</nav>
+
 
 </header>
-
-  <main>
+<main id="main" tabindex="-1">
     <article class="section s-galleries s-galleries--photo reveal">
     <div class="container s-galleries__photo-container">
 
       <header class="s-galleries__photo-head">
-        <p class="eyebrow">
-          <a href="/galleries/2026-04-19-st-georges-day/">← St George&#39;s Day Parade 2026</a>
-        </p>
+        <a class="back-link" href="/galleries/2026-04-19-st-georges-day/"><span class="back-link__arr" aria-hidden="true">&larr;</span> St George&#39;s Day Parade 2026</a>
       </header>
 
       <figure class="s-galleries__photo-figure">

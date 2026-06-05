@@ -19,6 +19,8 @@
   <article class="section s-events s-events--single reveal">
     <div class="container s-events__container">
 
+      {{ partial "back-link.html" . }}
+
       <header class="s-events__post-head">
         <h1 class="s-events__post-title display-2">{{ .Title }}</h1>
         <p class="s-events__post-meta display-7">
@@ -55,9 +57,6 @@
         <a class="btn btn-primary" href="event.ics" download>Add to calendar (.ics)</a>
       </p>
 
-      <footer class="s-events__post-foot">
-        <a class="btn btn-primary-outline" href="{{ "/events/" | relURL }}">← Back to all events</a>
-      </footer>
 
     </div>
   </article>

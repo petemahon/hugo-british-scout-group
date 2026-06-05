@@ -1,0 +1,103 @@
+# Accessibility CI (SPEC-12) — Hugo British Scout Group theme.
+#
+# Two checks, both required for WCAG 2.2 AA compliance:
+#   1. Colour-contrast audit of every declared palette pair (Hugo can't
+#      evaluate contrast ratios — runs as a node script).
+#   2. axe-core WCAG scan of the rendered exampleSite across one page per
+#      template family.
+#
+# The theme repo has no deploy workflow of its own (sites consume the
+# theme via their own repo, e.g. hugo-adscouts); this workflow exists
+# purely to guard the theme's accessibility contract. axe-core runs on
+# pull requests only — a failed scan fails the PR check but does not block
+# a manual override merge.
+name: Accessibility (SPEC-12)
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  # Matches the Hugo version the consuming site's Pages workflow pins.
+  HUGO_VERSION: 0.157.0
+
+jobs:
+  contrast:
+    name: Colour-contrast audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Audit palette contrast
+        run: node tools/audit-contrast.mjs
+
+  axe:
+    name: axe-core WCAG scan
+    # Rendering the site + a headless browser is only worth it on PRs.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Hugo extended ${{ env.HUGO_VERSION }}
+        run: |
+          wget -q -O hugo.deb \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i hugo.deb
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Link theme into exampleSite
+        # The exampleSite consumes the theme by name; mirror the local
+        # `exampleSite/themes/british-scout-group -> repo root` symlink.
+        run: |
+          rm -rf exampleSite/themes
+          mkdir -p exampleSite/themes
+          ln -s ../.. exampleSite/themes/british-scout-group
+
+      - name: Roll demo dates forward
+        # Matches `make build`: keeps demo events out of the past so they
+        # clear --buildFuture=false (events gate on publishDate).
+        run: python3 scripts/roll-example-dates.py
+
+      - name: Build exampleSite
+        run: |
+          cd exampleSite
+          hugo --minify --buildDrafts=false --buildFuture=false \
+            --baseURL "http://localhost:8080/"
+
+      - name: Serve built site
+        run: |
+          npx --yes serve -l 8080 exampleSite/public &
+          npx --yes wait-on http://localhost:8080/
+
+      - name: WCAG audit (axe-core)
+        # One representative page per template family. The news single is a
+        # stable slug (only events are date-rolled) and exercises an
+        # alt-audited cover image.
+        run: |
+          npx --yes @axe-core/cli --tags wcag2aa --tags wcag22aa \
+            http://localhost:8080/ \
+            http://localhost:8080/news/ \
+            http://localhost:8080/news/2026-04-19-st-georges-day/ \
+            http://localhost:8080/events/ \
+            http://localhost:8080/galleries/ \
+            http://localhost:8080/join/ \
+            http://localhost:8080/welcome-pack/ \
+            http://localhost:8080/bso/ \
+            http://localhost:8080/kit-lists/ \
+            http://localhost:8080/hall-hire/ \
+            http://localhost:8080/support-us/ \
+            http://localhost:8080/about/history/

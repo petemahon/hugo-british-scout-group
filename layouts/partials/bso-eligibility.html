@@ -3,61 +3,90 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-eligibility — /bso/eligibility/ body. Composes the existing
-  bso-membership-notice partial and adds the expanded language /
-  nationality / volunteer / host-country-alternatives prose.
+  bso-eligibility — /bso/eligibility/ body. Rendered inside bso/single.html
+  (which supplies the breadcrumb, eyebrow and <h1>). Uses the balanced
+  info-page treatment (08-page-balanced.css): a masthead with an
+  "at-a-glance" answer card on the right, then a 2×2 detail card grid.
 
-  Per SPEC-10 Q10.6 the POR 3.2.1.1 reference is visible by default;
-  per-page `por_reference_visible = false` hides the rule-reference
-  paragraph via a CSS suppression class — the bso-membership-notice
-  partial itself isn't modified.
+  The canonical full "Who can join" notice lives on /join/, not here — the
+  eligibility page expands the same point in the Group's own voice. A small
+  POR 3.2.1.1 citation lands at the foot when `por_reference_visible` is true.
+
+  Glance-card copy is host-country-GENERIC ("the host country") — concrete
+  host-country detail lives in the Group's front matter below, never in
+  theme code. See documentation/DECISIONS.md.
 
   Context: the eligibility Page.
 */ -}}
-{{- /* The canonical full "Who can join" notice partial is no longer
-       rendered here — it lives on /join/ instead so visitors meet it
-       in the context of the joining cards rather than three times
-       across the site. The eligibility page expands the same point
-       in the Group's own voice with the language/nationality/
-       volunteering/alternatives detail below. A small POR 3.2.1.1
-       citation lands at the foot of the page when the page-level
-       `por_reference_visible` flag is true, so visitors who arrive
-       here directly from search still see the rule attribution. */ -}}
 {{- $showPor := .Params.por_reference_visible -}}
 {{- if eq $showPor nil }}{{ $showPor = true }}{{ end -}}
 
 <div class="s-bso__eligibility">
 
-  {{- with .Params.intro }}
-    <p class="s-bso__lead display-7">{{ . | safeHTML }}</p>
-  {{- end }}
+  <div class="pb-masthead">
+    <div>
+      {{- with .Params.intro }}
+        <p class="pb-lede">{{ . | safeHTML }}</p>
+      {{- end }}
+      <div class="pb-cta-row">
+        <a class="btn btn-primary" href="{{ "/join/" | relURL }}">{{ i18n "bsoEligibilityJoinCta" | default "See how to join" }} <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
 
-  {{- with .Params.language_requirement }}
-    <section class="s-bso__detail">
-      <h3>{{ i18n "bsoEligibilityLanguageHeading" | default "Language" }}</h3>
-      <p>{{ . | safeHTML }}</p>
-    </section>
-  {{- end }}
+    <div class="pb-glance">
+      <p class="pb-glance__h">{{ i18n "bsoEligibilityGlanceHeading" | default "Can you join?" }}</p>
+      <dl>
+        <div class="pb-glance__row">
+          <dt><span class="pb-pip pb-pip--yes" aria-hidden="true"></span> {{ i18n "bsoEligibilityGlanceYouthDt" | default "Young people" }}</dt>
+          <dd>{{ i18n "bsoEligibilityGlanceYouthDd" | default "Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify." }}</dd>
+        </div>
+        {{- if .Params.volunteer_eligibility_open }}
+        <div class="pb-glance__row">
+          <dt><span class="pb-pip pb-pip--yes" aria-hidden="true"></span> {{ i18n "bsoEligibilityGlanceVolDt" | default "Volunteers (18+)" }}</dt>
+          <dd>{{ i18n "bsoEligibilityGlanceVolDd" | default "Yes — anyone over 18, any nationality, including nationals of the host country." }}</dd>
+        </div>
+        {{- end }}
+        <div class="pb-glance__row">
+          <dt><span class="pb-pip pb-pip--rule" aria-hidden="true"></span> {{ i18n "bsoEligibilityGlanceRuleDt" | default "The canonical rule" }}</dt>
+          <dd>{{ i18n "bsoNoticeRuleReference" | safeHTML }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
 
-  {{- with .Params.nationality_filter }}
-    <section class="s-bso__detail">
-      <h3>{{ i18n "bsoEligibilityNationalityHeading" | default "Nationality" }}</h3>
-      <p>{{ . | safeHTML }}</p>
-    </section>
-  {{- end }}
-
-  {{- if .Params.volunteer_eligibility_open }}
-    <section class="s-bso__detail">
-      <h3>{{ i18n "bsoEligibilityVolunteerHeading" | default "Volunteering" }}</h3>
-      <p>{{ i18n "bsoEligibilityVolunteerBody" | default "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles." | safeHTML }}</p>
-    </section>
-  {{- end }}
-
-  {{- with .Params.host_country_alternatives_summary }}
-    <section class="s-bso__detail">
-      <h3>{{ i18n "bsoEligibilityAlternativesHeading" | default "Not eligible for BSO?" }}</h3>
-      <p>{{ . | safeHTML }}</p>
-    </section>
+  {{- $hasDetail := or .Params.language_requirement .Params.nationality_filter .Params.volunteer_eligibility_open .Params.host_country_alternatives_summary -}}
+  {{- if $hasDetail }}
+  <p class="pb-section-label">{{ i18n "bsoEligibilityDetailLabel" | default "The detail, in plain English" }}</p>
+  <div class="pb-detail">
+    {{- with .Params.language_requirement }}
+      <article class="pb-card">
+        <span class="pb-card__tag">{{ i18n "bsoEligibilityLanguageHeading" | default "Language" }}</span>
+        <h3>{{ i18n "bsoEligibilityLanguageTitle" | default "We meet in English" }}</h3>
+        <p>{{ . | safeHTML }}</p>
+      </article>
+    {{- end }}
+    {{- with .Params.nationality_filter }}
+      <article class="pb-card">
+        <span class="pb-card__tag">{{ i18n "bsoEligibilityNationalityHeading" | default "Nationality" }}</span>
+        <h3>{{ i18n "bsoEligibilityNationalityTitle" | default "Not for host-country nationals" }}</h3>
+        <p>{{ . | safeHTML }}</p>
+      </article>
+    {{- end }}
+    {{- if .Params.volunteer_eligibility_open }}
+      <article class="pb-card">
+        <span class="pb-card__tag">{{ i18n "bsoEligibilityVolunteerHeading" | default "Volunteering" }}</span>
+        <h3>{{ i18n "bsoEligibilityVolunteerTitle" | default "Open to any adult, 18+" }}</h3>
+        <p>{{ i18n "bsoEligibilityVolunteerBody" | default "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles." | safeHTML }}</p>
+      </article>
+    {{- end }}
+    {{- with .Params.host_country_alternatives_summary }}
+      <article class="pb-card pb-card--redirect">
+        <span class="pb-card__tag">{{ i18n "bsoEligibilityAlternativesHeading" | default "Not eligible for BSO?" }}</span>
+        <h3>{{ i18n "bsoEligibilityAlternativesTitle" | default "Where to go instead" }}</h3>
+        <p>{{ . | safeHTML }}</p>
+      </article>
+    {{- end }}
+  </div>
   {{- end }}
 
   {{- with .Content }}

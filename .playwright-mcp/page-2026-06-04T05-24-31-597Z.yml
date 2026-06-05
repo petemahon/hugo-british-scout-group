@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Join us
+        - heading "Join 1st Anytown Scouts" [level=1] [ref=e19]
+        - paragraph [ref=e20]: We have spaces in some sections and waiting lists in others. Pick a section below for the latest. Volunteering with us is the surest way to get your child a place — we give priority to families who join in.
+      - generic [ref=e21]:
+        - link "Read our Welcome Pack →" [ref=e22] [cursor=pointer]:
+          - /url: /welcome-pack/
+        - link "We need volunteers too →" [ref=e23] [cursor=pointer]:
+          - /url: /#volunteer
+      - generic [ref=e24]:
+        - region "Who can join" [ref=e25]:
+          - heading "Who can join" [level=2] [ref=e26]
+          - paragraph [ref=e27]: BSO is a slice of UK Scouting, here for families living in the United Arab Emirates. Whether you've moved here from the UK or somewhere else, our doors are open.
+          - paragraph [ref=e28]: Every country has its own home of Scouting. Here, that's Emirates Scout Association — and if you're a national of the United Arab Emirates, they'd love to have you.
+          - paragraph [ref=e29]: Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the United Arab Emirates.
+          - paragraph [ref=e30]:
+            - generic [ref=e31]:
+              - text: (This follows
+              - link "POR 3.2.1.1" [ref=e32] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
+              - text: — The Scout Association's rule for every BSO group.)
+        - paragraph [ref=e33]:
+          - link "Read the full eligibility rules →" [ref=e34] [cursor=pointer]:
+            - /url: /bso/eligibility/
+      - generic [ref=e35]:
+        - article [ref=e36]:
+          - generic [ref=e37]:
+            - img [ref=e39]
+            - generic [ref=e52]:
+              - heading "Squirrels" [level=2] [ref=e53]
+              - paragraph [ref=e54]: 4 to 6 years
+            - generic [ref=e55]: Not running
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - term [ref=e58]: Meets
+              - definition [ref=e59]:
+                - text: Monday
+                - time [ref=e60]: 17:00 – 18:00
+            - generic [ref=e61]:
+              - term [ref=e62]: Subs
+              - definition [ref=e63]: £30 per term
+          - generic [ref=e64]: We're working towards opening a Squirrel Drey. If you'd like to register your interest, drop us a line and we'll let you know as soon as we have a date.
+          - link "Get in touch" [ref=e66] [cursor=pointer]:
+            - /url: mailto:squirrels@1stanytown.org.uk
+        - article [ref=e67]:
+          - generic [ref=e68]:
+            - img [ref=e70]
+            - generic [ref=e73]:
+              - heading "Beavers" [level=2] [ref=e74]
+              - paragraph [ref=e75]: 6 to 8 years
+            - generic [ref=e76]: Waiting list
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - term [ref=e79]: Meets
+              - definition [ref=e80]:
+                - text: Tuesday
+                - time [ref=e81]: 17:30 – 18:30
+            - generic [ref=e82]:
+              - term [ref=e83]: Subs
+              - definition [ref=e84]: £35 per term
+          - generic [ref=e85]: Beavers (age 6 to 8) meet on Tuesday evenings. We have a strong waiting list at present; add your child's name and we'll be in touch as soon as a place comes up.
+          - link "Join the waiting list →" [ref=e87] [cursor=pointer]:
+            - /url: https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-beavers
+        - article [ref=e88]:
+          - generic [ref=e89]:
+            - img [ref=e91]
+            - generic [ref=e94]:
+              - paragraph [ref=e95]: Wednesday Pack
+              - heading "Cubs" [level=2] [ref=e96]
+              - paragraph [ref=e97]: 8 to 10 ½ years
+            - generic [ref=e98]: Open
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - term [ref=e101]: Meets
+              - definition [ref=e102]:
+                - text: Wednesday
+                - time [ref=e103]: 18:00 – 19:30
+            - generic [ref=e104]:
+              - term [ref=e105]: Subs
+              - definition [ref=e106]: £40 per term
+          - generic [ref=e107]: The Wednesday Pack has spaces for new Cubs joining in the Summer term. Sessions are a mix of badge work, games and outdoor activity.
+          - link "Get in touch →" [ref=e109] [cursor=pointer]:
+            - /url: mailto:cubs-wed@1stanytown.org.uk
+        - article [ref=e110]:
+          - generic [ref=e111]:
+            - img [ref=e113]
+            - generic [ref=e116]:
+              - paragraph [ref=e117]: Friday Pack
+              - heading "Cubs" [level=2] [ref=e118]
+              - paragraph [ref=e119]: 8 to 10 ½ years
+            - generic [ref=e120]: Waiting list
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - term [ref=e123]: Meets
+              - definition [ref=e124]:
+                - text: Friday
+                - time [ref=e125]: 18:00 – 19:30
+            - generic [ref=e126]:
+              - term [ref=e127]: Subs
+              - definition [ref=e128]: £40 per term
+          - generic [ref=e129]: The Friday Pack has a waiting list. Names roll over between terms; the Wednesday Pack is the quicker route in if your child is flexible on the night.
+          - link "Join the waiting list →" [ref=e131] [cursor=pointer]:
+            - /url: https://www.onlinescoutmanager.co.uk/parents/waiting-list/example-cubs-friday
+        - article [ref=e132]:
+          - generic [ref=e133]:
+            - img [ref=e135]
+            - generic [ref=e138]:
+              - heading "Scouts" [level=2] [ref=e139]
+              - paragraph [ref=e140]: 10 ½ to 14 years
+            - generic [ref=e141]: Open
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - term [ref=e144]: Meets
+              - definition [ref=e145]:
+                - text: Thursday
+                - time [ref=e146]: 19:00 – 21:00
+            - generic [ref=e147]:
+              - term [ref=e148]: Subs
+              - definition [ref=e149]: £45 per term
+          - generic [ref=e150]: Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule.
+          - link "Get in touch →" [ref=e152] [cursor=pointer]:
+            - /url: mailto:scouts@1stanytown.org.uk
+        - article [ref=e153]:
+          - generic [ref=e154]:
+            - img [ref=e156]
+            - generic [ref=e159]:
+              - heading "Explorers" [level=2] [ref=e160]
+              - paragraph [ref=e161]: 14 to 18 years
+            - generic [ref=e162]: Open
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - term [ref=e165]: Meets
+              - definition [ref=e166]:
+                - text: Friday
+                - time [ref=e167]: 19:30 – 21:30
+            - generic [ref=e168]:
+              - term [ref=e169]: Subs
+              - definition [ref=e170]: £50 per term
+          - generic [ref=e171]: Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar.
+          - link "Get in touch →" [ref=e173] [cursor=pointer]:
+            - /url: mailto:explorers@1stanytown.org.uk
+      - region "Frequently asked questions" [ref=e174]:
+        - heading "Frequently asked questions" [level=2] [ref=e175]
+        - generic [ref=e176]:
+          - group [ref=e177]:
+            - generic "What does a typical meeting look like?" [ref=e178] [cursor=pointer]:
+              - text: What does a typical meeting look like?
+              - generic [ref=e179]: ›
+          - group [ref=e180]:
+            - generic "Do I have to volunteer to get my child a place?" [ref=e181] [cursor=pointer]:
+              - text: Do I have to volunteer to get my child a place?
+              - generic [ref=e182]: ›
+          - group [ref=e183]:
+            - generic "Can my child come to a try-it session first?" [ref=e184] [cursor=pointer]:
+              - text: Can my child come to a try-it session first?
+              - generic [ref=e185]: ›
+  - contentinfo [ref=e186]:
+    - generic [ref=e187]:
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - img [ref=e191]
+            - generic [ref=e193]: 1st Anytown Scouts
+          - paragraph [ref=e194]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e195]:
+          - heading "Visit" [level=5] [ref=e196]
+          - list [ref=e197]:
+            - listitem [ref=e198]: Anytown Scout Hut
+            - listitem [ref=e199]: 11 Hut Lane
+            - listitem [ref=e200]: Anytown
+        - generic [ref=e201]:
+          - heading "Contact" [level=5] [ref=e202]
+          - list [ref=e203]:
+            - listitem [ref=e204]:
+              - link "hello@anytown-scouts.org" [ref=e205] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e206]:
+              - link "+44 1234 567 890" [ref=e207] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e208]:
+              - link "Instagram" [ref=e209] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e210]:
+          - heading "About" [level=5] [ref=e211]
+          - list [ref=e212]:
+            - listitem [ref=e213]:
+              - link "Safeguarding" [ref=e214] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e215]:
+              - link "Privacy" [ref=e216] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e217]:
+        - generic [ref=e218]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e219]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e221]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e222] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

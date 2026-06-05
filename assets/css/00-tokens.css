@@ -19,18 +19,23 @@
   /* Brand colours (Scouts Purple + Teal — classic-purple palette) */
   --primary:           #7413dc;
   --primary-hover:     #8e34ee;
+  --focus-ring:        #7413dc;   /* a11y focus indicator (SPEC-12); per-palette via palette-style */
   --secondary:         #088486;
   --secondary-hover:   #0bb3b6;
   --tertiary:          #205b41;
   --accent:            #ff912a;
 
-  /* Surface colours */
+  /* Surface colours.
+     --bg is the CARD / nav surface (kept pure white). The page itself
+     sits on the warmer --surface (defined in the structural-tokens block
+     below and applied to <body>), so white cards lift off an off-white
+     field — the "polished, not medical" warmed-neutral treatment. */
   --bg:                #ffffff;
-  --bg-muted:          #f7f7f7;
+  --bg-muted:          #f1efe9;   /* warm muted band (was #f7f7f7) */
 
-  /* Text colours */
-  --text:              #232323;
-  --text-muted:        #5a5a5a;
+  /* Text colours — warmed near-black ink + warm grey muted. */
+  --text:              #14110e;
+  --text-muted:        #45413a;
   --text-on-primary:   #ffffff;
   --text-on-secondary: #ffffff;
 }
@@ -90,8 +95,20 @@
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */
 :root {
+  /* Neutral chrome tokens — palette-independent (NOT injected by
+     palette-style.html). The warmed-neutral surface the page sits on,
+     plus the faint-ink and hairline-rule tones used by cards, the
+     balanced info-page treatment, and section dividers. */
+  --surface:           #fbfaf7;   /* warm off-white page background */
+  --surface-card:      #ffffff;   /* = --bg; alias for card-on-surface clarity */
+  --text-faint:        #76716a;   /* captions, meta, dt labels */
+  --line:              #e7e4dd;   /* hairline rules / card borders */
+
   /* Typography */
-  --font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Display face — UK Scouts brand poster type (Nunito Sans 900). Used for
+     expressive display moments only (the volunteer poster), never body copy. */
+  --font-display: "Nunito Sans", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --display-1: 5rem;     /* hero titles */
   --display-2: 4rem;     /* section titles */
   --display-3: 3rem;

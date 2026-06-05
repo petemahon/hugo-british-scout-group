@@ -1,0 +1,108 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e29]:
+      - generic [ref=e30]:
+        - heading "Photo consent" [level=1] [ref=e31]
+        - paragraph [ref=e32]: How we handle photographs of young people at 1st Anytown Scouts.
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: This page is the starter wording shipped with the British Scout Group theme. Replace the body below with the policy your Group has agreed with its Trustees. Nothing on this page is rendered as a legal instrument until you’ve reviewed it with your safeguarding lead.
+        - heading "Why we ask" [level=2] [ref=e35]
+        - paragraph [ref=e36]: Some of what we do is naturally photogenic — camps, badge presentations, parades. Sharing photos helps families see what their child has been up to and shows prospective members what life in the Group is like. We also have a duty of care to the young people in those photos.
+        - heading "What we ask of parents and carers" [level=2] [ref=e37]
+        - paragraph [ref=e38]: "When a young person joins, you’ll be asked to tick a photo-consent box on their OSM record. You can change your answer at any time: contact the Group Lead Volunteer and we will update the record and remove any already-published photos that include your child."
+        - heading "How we use photos" [level=2] [ref=e39]
+        - list [ref=e40]:
+          - listitem [ref=e41]:
+            - strong [ref=e42]: Our website.
+            - text: Galleries on this site are reviewed by the safeguarding lead before publication. Captions never identify a young person by name.
+          - listitem [ref=e43]:
+            - strong [ref=e44]: Group communications.
+            - text: Newsletters and Group-wide messages on the parents’ channel use the same consent setting.
+          - listitem [ref=e45]:
+            - strong [ref=e46]: Scouts UK and District.
+            - text: Occasionally District or Headquarters ask for photos for their own publications. We tell them which records have consent and only forward those.
+        - heading "What we don’t do" [level=2] [ref=e47]
+        - list [ref=e48]:
+          - listitem [ref=e49]: We don’t post photos on social media platforms that we don’t own (no Facebook, Instagram or TikTok presence for this Group).
+          - listitem [ref=e50]: We don’t sell photos.
+          - listitem [ref=e51]: We don’t embed third-party tracking on this site.
+        - heading "Right to be forgotten" [level=2] [ref=e52]
+        - paragraph [ref=e53]: Email the Group Lead Volunteer and we’ll remove any photo at your request, no questions asked. Removal usually takes effect within two working days.
+        - heading "Where signed records are kept" [level=2] [ref=e54]
+        - paragraph [ref=e55]: Signed photo-consent records are stored against each young person’s record in OSM. Paper consent forms from camps are kept by the camp leader for the duration of the activity and then logged in OSM.
+  - contentinfo [ref=e56]:
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - img [ref=e61]
+            - generic [ref=e63]: 1st Anytown Scouts
+          - paragraph [ref=e64]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e65]:
+          - heading "Visit" [level=5] [ref=e66]
+          - list [ref=e67]:
+            - listitem [ref=e68]: Anytown Scout Hut
+            - listitem [ref=e69]: 11 Hut Lane
+            - listitem [ref=e70]: Anytown
+        - generic [ref=e71]:
+          - heading "Contact" [level=5] [ref=e72]
+          - list [ref=e73]:
+            - listitem [ref=e74]:
+              - link "hello@anytown-scouts.org" [ref=e75] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e76]:
+              - link "+44 1234 567 890" [ref=e77] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e78]:
+              - link "Instagram" [ref=e79] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e80]:
+          - heading "About" [level=5] [ref=e81]
+          - list [ref=e82]:
+            - listitem [ref=e83]:
+              - link "Safeguarding" [ref=e84] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e85]:
+              - link "Privacy" [ref=e86] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e87]:
+        - generic [ref=e88]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e89]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e91]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e92] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

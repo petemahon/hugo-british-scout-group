@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: Hall hire
+          - heading "Hire our hall" [level=1] [ref=e31]
+          - generic [ref=e32]: Our Scout Hut is available for community hire when we're not using it — birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown.
+        - list "Photos of the hall" [ref=e33]:
+          - listitem [ref=e34]:
+            - figure "The main hall, set out for a meeting" [ref=e35]:
+              - img "The main hall laid out with trestle tables and folding chairs, under high white-painted roof trusses, with a serving hatch to the kitchen" [ref=e36]
+              - generic [ref=e37]: The main hall, set out for a meeting
+          - listitem [ref=e38]:
+            - figure "Set up for a private function" [ref=e39]:
+              - img "The hall set up for a catered function, with a buffet table of food in the foreground and guests seated at tables behind" [ref=e40]
+              - generic [ref=e41]: Set up for a private function
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - term [ref=e46]: Where
+                - definition [ref=e47]:
+                  - text: Anytown Scout Hut, 11 Hut Lane, AT1 2BC ·
+                  - link "Map" [ref=e48] [cursor=pointer]:
+                    - /url: https://www.openstreetmap.org/search?query=Anytown
+              - generic [ref=e49]:
+                - term [ref=e50]: Capacity
+                - definition [ref=e51]: 60 seated · 90 standing
+              - generic [ref=e52]:
+                - term [ref=e53]: Size
+                - definition [ref=e54]: 12m × 8m · 96 m²
+            - list "Facilities" [ref=e55]:
+              - listitem [ref=e56]: Kitchen
+              - listitem [ref=e57]: Toilets
+              - listitem [ref=e58]: Disabled access
+              - listitem [ref=e59]: Parking
+              - listitem [ref=e60]: Stage
+              - listitem [ref=e61]: Wi-Fi
+          - generic [ref=e62]:
+            - table [ref=e63]:
+              - rowgroup [ref=e64]:
+                - row "Hire Rate" [ref=e65]:
+                  - columnheader "Hire" [ref=e66]
+                  - columnheader "Rate" [ref=e67]
+              - rowgroup [ref=e68]:
+                - row "Local resident, hourly Minimum two hours £16 per hour" [ref=e69]:
+                  - cell "Local resident, hourly Minimum two hours" [ref=e70]:
+                    - text: Local resident, hourly
+                    - generic [ref=e71]: Minimum two hours
+                  - cell "£16 per hour" [ref=e72]
+                - row "Commercial / regular booking, hourly £24 per hour" [ref=e73]:
+                  - cell "Commercial / regular booking, hourly" [ref=e74]
+                  - cell "£24 per hour" [ref=e75]
+                - row "Children's party (Saturday morning, 4 hours) Includes setup and clear-up time £80 per session" [ref=e76]:
+                  - cell "Children's party (Saturday morning, 4 hours) Includes setup and clear-up time" [ref=e77]:
+                    - text: Children's party (Saturday morning, 4 hours)
+                    - generic [ref=e78]: Includes setup and clear-up time
+                  - cell "£80 per session" [ref=e79]
+                - row "Whole day (community / charity) £120 per day" [ref=e80]:
+                  - cell "Whole day (community / charity)" [ref=e81]
+                  - cell "£120 per day" [ref=e82]
+            - list [ref=e83]:
+              - listitem [ref=e84]: £50 refundable damage deposit, returned after inspection
+              - listitem [ref=e85]: £20 cleaning fee for parties and catered events
+            - paragraph [ref=e86]: The hall is in use for Scout meetings on weekday evenings during school terms (roughly 17:00–21:30). Daytimes, weekends and holidays are usually free.
+        - paragraph [ref=e88]: We’re a registered charity and every penny of hire income goes back into Scouting for local young people. If you’re a community group or running a not-for-profit event, do ask — we can often be flexible on the rate.
+        - paragraph [ref=e89]: Scout activities always take priority — hire bookings are confirmed around our weekly programme and events.
+        - generic [ref=e90]:
+          - paragraph [ref=e91]:
+            - link "Terms & conditions (PDF) →" [ref=e92] [cursor=pointer]:
+              - /url: /hall-hire/terms-and-conditions.pdf
+          - paragraph [ref=e93]:
+            - link "Enquire about hire →" [ref=e94] [cursor=pointer]:
+              - /url: mailto:hall@1stanytown.org.uk
+            - generic [ref=e95]:
+              - text: or call
+              - link "+44 1234 567 890" [ref=e96] [cursor=pointer]:
+                - /url: tel:+441234567890
+  - contentinfo [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - img [ref=e102]
+            - generic [ref=e104]: 1st Anytown Scouts
+          - paragraph [ref=e105]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e106]:
+          - heading "Visit" [level=5] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]: Anytown Scout Hut
+            - listitem [ref=e110]: 11 Hut Lane
+            - listitem [ref=e111]: Anytown
+        - generic [ref=e112]:
+          - heading "Contact" [level=5] [ref=e113]
+          - list [ref=e114]:
+            - listitem [ref=e115]:
+              - link "hello@anytown-scouts.org" [ref=e116] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e117]:
+              - link "+44 1234 567 890" [ref=e118] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e119]:
+              - link "Instagram" [ref=e120] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e121]:
+          - heading "About" [level=5] [ref=e122]
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "Safeguarding" [ref=e125] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e126]:
+              - link "Privacy" [ref=e127] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e128]:
+        - generic [ref=e129]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e130]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e132]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e133] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

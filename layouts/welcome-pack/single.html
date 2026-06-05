@@ -27,9 +27,7 @@
   <article class="section s-welcome-pack s-welcome-pack--chapter reveal">
     <div class="container s-welcome-pack__container">
 
-      <p class="s-welcome-pack__breadcrumb display-7">
-        <a href="{{ "/welcome-pack/" | relURL }}">&larr; {{ i18n "welcomePackBackToCover" | default "Welcome Pack cover" }}</a>
-      </p>
+      {{ partial "back-link.html" . }}
 
       <header class="s-welcome-pack__chapter-head">
         <p class="s-welcome-pack__chapter-num display-7">
@@ -39,6 +37,8 @@
       </header>
 
       {{- with .Params.intro_image -}}
+        {{- /* Non-empty alt is mandatory when an intro image is set (SPEC-12 AC5). */ -}}
+        {{- partial "audit-image.html" (dict "image" . "alt" $.Params.intro_alt "field" "intro_alt" "context" (printf "welcome-pack chapter %q" $.File.LogicalName)) -}}
         {{- $imgPath := printf "welcome-pack/%s" . -}}
         {{- $img := resources.Get $imgPath -}}
         {{- if not $img -}}

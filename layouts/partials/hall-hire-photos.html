@@ -17,6 +17,8 @@
 {{- with .Params.photos }}
   <ul class="s-hall__photos" aria-label="{{ i18n "hallPhotos" | default "Photos of the hall" }}">
     {{- range . }}
+      {{- /* Non-empty alt is mandatory per photo (SPEC-12 AC5). */ -}}
+      {{- partial "audit-image.html" (dict "image" .src "alt" .alt "field" "alt" "context" (printf "hall-hire photo %q" .src)) -}}
       {{- $path := printf "hall-hire/photos/%s" .src -}}
       {{- $img := resources.Get $path -}}
       {{- if not $img -}}

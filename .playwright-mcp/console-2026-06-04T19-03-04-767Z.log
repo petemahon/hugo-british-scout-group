@@ -1,0 +1,2 @@
+[  280421ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:1313/join/:0
+[  280490ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:1313/favicon.ico:0

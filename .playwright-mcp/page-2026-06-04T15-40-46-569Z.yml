@@ -1,0 +1,110 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]:
+          - link "← All volunteer roles" [ref=e30] [cursor=pointer]:
+            - /url: /support-us/volunteer-roles/
+        - generic [ref=e31]:
+          - generic [ref=e33]: Remote OK
+          - heading "Group Treasurer" [level=1] [ref=e34]
+        - generic [ref=e35]:
+          - link "Apply for this role →" [ref=e38] [cursor=pointer]:
+            - /url: mailto:volunteers@1stanytown.org.uk
+            - text: Apply for this role
+            - generic [ref=e39]: →
+          - generic [ref=e40]:
+            - paragraph [ref=e41]: Role at a glance
+            - generic [ref=e42]:
+              - generic [ref=e43]:
+                - term [ref=e44]: Time
+                - definition [ref=e45]: A few hours a month, plus the AGM
+              - generic [ref=e46]:
+                - term [ref=e47]: Starts
+                - definition [ref=e48]: September 2026
+              - generic [ref=e49]:
+                - term [ref=e50]: Location
+                - definition [ref=e51]: Remote OK
+              - generic [ref=e52]:
+                - term [ref=e53]: Safeguarding
+                - definition [ref=e54]: A DBS check is required for this role.
+        - paragraph [ref=e56]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility — but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
+        - paragraph [ref=e57]:
+          - link "Apply for this role →" [ref=e58] [cursor=pointer]:
+            - /url: mailto:volunteers@1stanytown.org.uk
+  - contentinfo [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - img [ref=e64]
+            - generic [ref=e66]: 1st Anytown Scouts
+          - paragraph [ref=e67]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e68]:
+          - heading "Visit" [level=5] [ref=e69]
+          - list [ref=e70]:
+            - listitem [ref=e71]: Anytown Scout Hut
+            - listitem [ref=e72]: 11 Hut Lane
+            - listitem [ref=e73]: Anytown
+        - generic [ref=e74]:
+          - heading "Contact" [level=5] [ref=e75]
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "hello@anytown-scouts.org" [ref=e78] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e79]:
+              - link "+44 1234 567 890" [ref=e80] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e81]:
+              - link "Instagram" [ref=e82] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e83]:
+          - heading "About" [level=5] [ref=e84]
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Safeguarding" [ref=e87] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e88]:
+              - link "Privacy" [ref=e89] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e90]:
+        - generic [ref=e91]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e92]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e94]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e95] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

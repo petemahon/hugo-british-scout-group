@@ -65,6 +65,26 @@
   text-decoration: underline;
 }
 
+/* -- Balanced masthead (BSO sites) ------------------------------------- */
+/* On /join/ the canonical BSO membership notice becomes the masthead's
+   at-a-glance card on the right (08-page-balanced.css .pb-masthead), so it
+   uses the real estate instead of sitting as a centred island. Strip the
+   notice's standalone centring/width so it fills the column, and left-align
+   the summary + "read the full rules" CTA beneath it. */
+.s-joining__masthead .s-joining__head { margin-bottom: 1.5rem; }
+.s-joining__masthead .s-joining__bridges { margin-top: 0; }
+.s-joining__masthead .s-joining__bso-block { margin: 0; }
+.s-joining__masthead .bso-membership-notice { max-width: none; margin: 0; }
+.s-joining__masthead .s-joining__bso-summary,
+.s-joining__masthead .s-joining__bso-cta {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  text-align: left;
+}
+.s-joining__masthead .s-joining__bso-cta { margin-top: 1rem; }
+
 /* -- Card grid --------------------------------------------------------- */
 .s-joining__grid {
   display: grid;

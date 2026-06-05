@@ -1,0 +1,12 @@
+[   34568ms] [ERROR] Access to fetch at 'https://api.anthropic.com/v1/design/h/e4jbT4XzM1vcpBE99fNYOQ' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ about:blank:0
+[   34569ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://api.anthropic.com/v1/design/h/e4jbT4XzM1vcpBE99fNYOQ:0
+[  591586ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:1313/images/favicon.png:0
+[ 1194922ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:1313/about/governance/:0
+[ 1195096ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:1313/favicon.ico:0
+[ 2190030ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2190051ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2190092ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2190176ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2190338ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2190659ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1
+[ 2191302ms] [ERROR] WebSocket connection to 'ws://localhost:1313/livereload' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1313&path=livereload:1

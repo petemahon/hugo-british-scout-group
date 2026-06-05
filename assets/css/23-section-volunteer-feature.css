@@ -126,6 +126,7 @@
 }
 
 .s-volunteer-feature__poster-headline {
+  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
   font-size: clamp(26px, 7.2cqi, 52px);
   font-weight: 900;
   line-height: 0.98;
@@ -158,6 +159,7 @@
 }
 
 .s-volunteer-feature__stat-copy {
+  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
   font-weight: 900;
   font-size: clamp(20px, 8.4cqi, 64px);
   line-height: 1.05;

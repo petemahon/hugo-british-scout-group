@@ -1,0 +1,151 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]:
+          - link "← BSO information" [ref=e30] [cursor=pointer]:
+            - /url: /bso/
+        - generic [ref=e31]:
+          - generic [ref=e32]: British Scouting Overseas
+          - heading "Who can join 1st Anytown Scouts" [level=1] [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - paragraph [ref=e37]: BSO Groups operate under The Scout Association's Policy, Organisation and Rules (POR). Youth membership is open to anyone living in the host country who isn't a national of it — UK families, third-country families, dual-nationals whose other nationality isn't the host country. Volunteer membership is open to anyone over 18 regardless of nationality. The detail below explains the practical eligibility in plain English; POR 3.2.1.1 is the canonical rule.
+              - link "See how to join →" [ref=e39] [cursor=pointer]:
+                - /url: /join/
+                - text: See how to join
+                - generic [ref=e40]: →
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: Can you join?
+              - generic [ref=e43]:
+                - generic [ref=e44]:
+                  - term [ref=e45]: Young people
+                  - definition [ref=e47]: Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify.
+                - generic [ref=e48]:
+                  - term [ref=e49]: Volunteers (18+)
+                  - definition [ref=e51]: Yes — anyone over 18, any nationality, including nationals of the host country.
+                - generic [ref=e52]:
+                  - term [ref=e53]: The canonical rule
+                  - definition [ref=e55]:
+                    - text: (This follows
+                    - link "POR 3.2.1.1" [ref=e56] [cursor=pointer]:
+                      - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
+                    - text: — The Scout Association's rule for every BSO group.)
+          - paragraph [ref=e57]: The detail, in plain English
+          - generic [ref=e58]:
+            - article [ref=e59]:
+              - generic [ref=e60]: Language
+              - heading "We meet in English" [level=3] [ref=e61]
+              - paragraph [ref=e62]: We meet in English. Children are warmly welcomed regardless of background as long as they (or their carers) are comfortable enough in English to follow the session and the safeguarding language.
+            - article [ref=e63]:
+              - generic [ref=e64]: Nationality
+              - heading "Not for host-country nationals" [level=3] [ref=e65]
+              - paragraph [ref=e66]:
+                - text: Membership of British Scouting Overseas is for families who are not nationals of the United Arab Emirates. UAE nationals are warmly directed to the Emirates Scout Association — see
+                - link "scouting in the UAE" [ref=e67] [cursor=pointer]:
+                  - /url: /bso/host-scouting/
+                - text: .
+            - article [ref=e68]:
+              - generic [ref=e69]: Volunteering
+              - heading "Open to any adult, 18+" [level=3] [ref=e70]
+              - paragraph [ref=e71]: Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles.
+            - article [ref=e72]:
+              - generic [ref=e73]: Not eligible for BSO?
+              - heading "Where to go instead" [level=3] [ref=e74]
+              - paragraph [ref=e75]:
+                - text: If you're a UAE national or you'd rather your child join a Scouting body that operates in Arabic, the WOSM-recognised options are listed under
+                - link "scouting in the UAE" [ref=e76] [cursor=pointer]:
+                  - /url: /bso/host-scouting/
+                - text: .
+          - paragraph [ref=e77]:
+            - generic [ref=e78]:
+              - text: (This follows
+              - link "POR 3.2.1.1" [ref=e79] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
+              - text: — The Scout Association's rule for every BSO group.)
+        - generic "British Scouting Overseas links" [ref=e80]:
+          - paragraph [ref=e81]: Part of British Scouting Overseas.
+          - list [ref=e82]:
+            - listitem [ref=e83]:
+              - link "BSO Area →" [ref=e84] [cursor=pointer]:
+                - /url: https://www.britishscoutingoverseas.org.uk/
+            - listitem [ref=e85]:
+              - link "Middle East and Asia District →" [ref=e86] [cursor=pointer]:
+                - /url: https://www.britishscoutingoverseas.org.uk/
+  - contentinfo [ref=e87]:
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - img [ref=e92]
+            - generic [ref=e94]: 1st Anytown Scouts
+          - paragraph [ref=e95]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e96]:
+          - heading "Visit" [level=5] [ref=e97]
+          - list [ref=e98]:
+            - listitem [ref=e99]: Anytown Scout Hut
+            - listitem [ref=e100]: 11 Hut Lane
+            - listitem [ref=e101]: Anytown
+        - generic [ref=e102]:
+          - heading "Contact" [level=5] [ref=e103]
+          - list [ref=e104]:
+            - listitem [ref=e105]:
+              - link "hello@anytown-scouts.org" [ref=e106] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e107]:
+              - link "+44 1234 567 890" [ref=e108] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e109]:
+              - link "Instagram" [ref=e110] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e111]:
+          - heading "About" [level=5] [ref=e112]
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link "Safeguarding" [ref=e115] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e116]:
+              - link "Privacy" [ref=e117] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e118]:
+        - generic [ref=e119]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e120]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e122]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e123] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

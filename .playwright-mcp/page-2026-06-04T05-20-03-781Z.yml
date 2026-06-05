@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]:
+          - link "← Welcome Pack cover" [ref=e30] [cursor=pointer]:
+            - /url: /welcome-pack/
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Chapter 1
+          - heading "About the Group" [level=1] [ref=e33]
+        - generic [ref=e34]:
+          - heading "A short history" [level=2] [ref=e35]
+          - paragraph [ref=e36]: 1st Anytown Scouts has been part of Anytown for over thirty years. We run five sections — Squirrels, Beavers, Cubs, Scouts and Explorers — plus a Network at city level for 18-25s. Our charity number is on the footer of every page.
+          - heading "What we’re here for" [level=2] [ref=e37]
+          - paragraph [ref=e38]: "Scouts gives young people skills for life: confidence, friendship, practical know-how, time outdoors, leadership. Every section does it in their own way — Squirrels through structured play, Explorers through expeditions and qualifications — but the through-line is the same."
+          - heading "Where we meet" [level=2] [ref=e39]
+          - paragraph [ref=e40]: The Anytown Scout Hut, 11 Hut Lane, Anytown. Map and section-by-section timings are on the home page.
+        - navigation "Chapter navigation" [ref=e41]:
+          - link "Next → What each section does" [ref=e42] [cursor=pointer]:
+            - /url: /welcome-pack/sections/
+            - generic [ref=e43]: Next →
+            - generic [ref=e44]: What each section does
+  - contentinfo [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - img [ref=e50]
+            - generic [ref=e52]: 1st Anytown Scouts
+          - paragraph [ref=e53]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e54]:
+          - heading "Visit" [level=5] [ref=e55]
+          - list [ref=e56]:
+            - listitem [ref=e57]: Anytown Scout Hut
+            - listitem [ref=e58]: 11 Hut Lane
+            - listitem [ref=e59]: Anytown
+        - generic [ref=e60]:
+          - heading "Contact" [level=5] [ref=e61]
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "hello@anytown-scouts.org" [ref=e64] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e65]:
+              - link "+44 1234 567 890" [ref=e66] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e67]:
+              - link "Instagram" [ref=e68] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e69]:
+          - heading "About" [level=5] [ref=e70]
+          - list [ref=e71]:
+            - listitem [ref=e72]:
+              - link "Safeguarding" [ref=e73] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e74]:
+              - link "Privacy" [ref=e75] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e76]:
+        - generic [ref=e77]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e78]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e80]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e81] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

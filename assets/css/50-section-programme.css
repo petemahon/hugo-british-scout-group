@@ -96,15 +96,7 @@
   max-width: 56rem;
 }
 
-.s-programme__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-programme__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-programme__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-programme__title-block {
   display: flex;
   align-items: flex-start;
@@ -152,17 +144,6 @@
 
 .s-programme__kit-link {
   margin-top: 1.5rem;
-}
-
-.s-programme__post-foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* -- Weeks table ---------------------------------------------------------- */
@@ -329,8 +310,6 @@ a.s-programme__chip:hover {
   .site-header,
   .site-footer,
   .s-back-to-top,
-  .s-programme__post-foot,
-  .s-programme__breadcrumb,
   .s-programme__kit-link,
   .s-programme__current-chevron {
     display: none !important;

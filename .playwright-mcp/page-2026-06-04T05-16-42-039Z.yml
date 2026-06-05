@@ -1,0 +1,100 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Cubs Summer Camp" [level=1] [ref=e30]
+          - paragraph [ref=e31]:
+            - time [ref=e32]: 12 September 2026, 00:00
+            - text: · Pioneer Camp, Buckinghamshire
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Three days under canvas at Pioneer Camp — Friday afternoon arrival, Sunday afternoon collection. The Pack will be running a mix of campcraft, water activities and the all-time-favourite night hike.
+          - paragraph [ref=e35]: The kit list for this camp is linked below; consent forms come home four weeks ahead. Bursary support is available — speak to Akela in confidence if cost would otherwise stop your Cub joining us.
+        - complementary "Kit list for this camp" [ref=e36]:
+          - paragraph [ref=e37]:
+            - 'link "Kit list for this camp: Cubs Summer Camp Kit List →" [ref=e38] [cursor=pointer]':
+              - /url: /kit-lists/cubs-summer-camp/
+          - paragraph [ref=e39]:
+            - strong [ref=e40]: "Also bring for this camp:"
+            - text: A named refillable water bottle, and £5 in a named purse for the camp shop.
+        - paragraph [ref=e41]:
+          - link "Add to calendar (.ics)" [ref=e42] [cursor=pointer]:
+            - /url: event.ics
+        - link "← Back to all events" [ref=e44] [cursor=pointer]:
+          - /url: /events/
+  - contentinfo [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - img [ref=e50]
+            - generic [ref=e52]: 1st Anytown Scouts
+          - paragraph [ref=e53]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e54]:
+          - heading "Visit" [level=5] [ref=e55]
+          - list [ref=e56]:
+            - listitem [ref=e57]: Anytown Scout Hut
+            - listitem [ref=e58]: 11 Hut Lane
+            - listitem [ref=e59]: Anytown
+        - generic [ref=e60]:
+          - heading "Contact" [level=5] [ref=e61]
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "hello@anytown-scouts.org" [ref=e64] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e65]:
+              - link "+44 1234 567 890" [ref=e66] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e67]:
+              - link "Instagram" [ref=e68] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e69]:
+          - heading "About" [level=5] [ref=e70]
+          - list [ref=e71]:
+            - listitem [ref=e72]:
+              - link "Safeguarding" [ref=e73] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e74]:
+              - link "Privacy" [ref=e75] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e76]:
+        - generic [ref=e77]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e78]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e80]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e81] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

@@ -20,10 +20,13 @@
 
 <header class="site-nav" role="banner" aria-label="Site header">
 
-  {{- /* Pure-CSS mobile-drawer toggle. Hidden from a11y tree + tab order;
-        the <label> burger below carries the accessible name. */}}
+  {{- /* Pure-CSS mobile-drawer toggle. This IS the interactive control:
+        visually hidden but keyboard-focusable, so the drawer opens without
+        a pointer (WCAG 2.1.1). It carries the accessible name; the <label>
+        burger below is its decorative visual proxy (aria-hidden). The focus
+        ring is relocated onto the burger in 04-nav.css. */}}
   <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
-         aria-hidden="true" tabindex="-1">
+         aria-label="{{ i18n "navToggleAria" | default "Open menu" }}">
 
   <div class="site-nav__inner">
 
@@ -38,8 +41,10 @@
     <a class="site-nav__cta" href="{{ .url | safeURL }}">{{ .label }}</a>
     {{- end }}
 
-    <label for="site-nav-toggle" class="site-nav__burger"
-           aria-label="{{ i18n "navToggleAria" | default "Open menu" }}">
+    {{- /* Decorative visual proxy for the checkbox above. aria-hidden so
+          screen readers interact with the named checkbox, not this; clicks
+          on it still toggle the checkbox via for=. */}}
+    <label for="site-nav-toggle" class="site-nav__burger" aria-hidden="true">
       <span></span><span></span><span></span>
     </label>
 

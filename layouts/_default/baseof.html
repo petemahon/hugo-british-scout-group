@@ -7,9 +7,17 @@
 {{- if .IsHome }}{{ $bodyClass = $bodyClass | append "is-home" }}{{ end -}}
 {{- if and (eq site.Params.heroIntro true) .IsHome }}{{ $bodyClass = $bodyClass | append "has-hero-intro" }}{{ end -}}
 <body id="top"{{ with $bodyClass }} class="{{ delimit . " " }}"{{ end }}>
+  {{- /* SPEC-12 AC1: skip link is the first focusable element. Visually
+         hidden until focused (07-a11y.css). Targets the <main> landmark. */ -}}
+  <a class="skip-link" href="#main">{{ i18n "a11ySkipToContent" | default "Skip to main content" }}</a>
+  {{- /* SPEC-12 AC6: heading-order audit. errorf if body content renders an
+         <h1> — the page title is the only permitted <h1>. */ -}}
+  {{ partial "audit-headings.html" . }}
   {{ partial "svg-defs.html" . }}
   {{ partial "header.html" . }}
-  <main>
+  {{- /* tabindex="-1" so the skip link moves keyboard focus into <main>,
+         not just the scroll position (WCAG 2.4.1). Not in the tab order. */ -}}
+  <main id="main" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}

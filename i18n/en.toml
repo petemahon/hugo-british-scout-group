@@ -321,6 +321,9 @@ other = "Read the eligibility rules"
 [joiningBsoReadEligibility]
 other = "Read the full eligibility rules"
 
+[joiningPacksLabel]
+other = "Sections & meeting nights"
+
 [joiningFaqHeading]
 other = "Frequently asked questions"
 
@@ -922,3 +925,134 @@ other = "Open menu"
 # -----------------------------------------------------------------------------
 [footerStrap]
 other = "Skills for Life · #SkillsForLife"
+
+# -----------------------------------------------------------------------------
+# Accessibility — used by the skip link and ARIA labels. SPEC-12. The nav
+# already ships navPrimaryAria / navMobileAria / navToggleAria; these are
+# the remaining a11y chrome strings. Override in your site's i18n/en.toml.
+# -----------------------------------------------------------------------------
+[a11ySkipToContent]
+other = "Skip to main content"
+
+[a11yMainNavLabel]
+other = "Main"
+
+[a11yFooterNavLabel]
+other = "Footer"
+
+[a11yMobileMenuOpen]
+other = "Open menu"
+
+[a11yMobileMenuClose]
+other = "Close menu"
+
+# -----------------------------------------------------------------------------
+# Balanced info-page treatment — masthead glance cards, detail-card titles,
+# file lists and the policy right-rail. Added with the 2026 design handoff
+# (08-page-balanced.css). Strings are host-country-GENERIC; concrete
+# host-country detail lives in each Group's content front matter.
+# -----------------------------------------------------------------------------
+
+# BSO eligibility — glance card + detail-card titles
+[bsoEligibilityJoinCta]
+other = "See how to join"
+
+[bsoEligibilityGlanceHeading]
+other = "Can you join?"
+
+[bsoEligibilityGlanceYouthDt]
+other = "Young people"
+
+[bsoEligibilityGlanceYouthDd]
+other = "Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify."
+
+[bsoEligibilityGlanceVolDt]
+other = "Volunteers (18+)"
+
+[bsoEligibilityGlanceVolDd]
+other = "Yes — anyone over 18, any nationality, including nationals of the host country."
+
+[bsoEligibilityGlanceRuleDt]
+other = "The canonical rule"
+
+[bsoEligibilityDetailLabel]
+other = "The detail, in plain English"
+
+[bsoEligibilityLanguageTitle]
+other = "We meet in English"
+
+[bsoEligibilityNationalityTitle]
+other = "Not for host-country nationals"
+
+[bsoEligibilityVolunteerTitle]
+other = "Open to any adult, 18+"
+
+[bsoEligibilityAlternativesTitle]
+other = "Where to go instead"
+
+# Governance — glance card, board join prompt, detail label
+[governanceGlanceHeading]
+other = "At a glance"
+
+[governanceGlanceAgm]
+other = "Next AGM"
+
+[governanceGlanceBoard]
+other = "Trustee Board"
+
+[governanceGlanceBoardUnit]
+other = "trustees"
+
+[governanceGlanceCharity]
+other = "Registered charity"
+
+[governanceDetailLabel]
+other = "AGM & charity registration"
+
+[governanceJoinBoardHeading]
+other = "Could you join the board?"
+
+[governanceJoinBoardBody]
+other = "We'd welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM."
+
+# Reports — glance card + list label
+[reportsGlanceHeading]
+other = "At a glance"
+
+[reportsGlanceLatest]
+other = "Most recent"
+
+[reportsGlanceCount]
+other = "Documents"
+
+[reportsGlanceCountUnit]
+other = "available to download"
+
+[reportsListLabel]
+other = "Documents"
+
+# Volunteer role — glance card extra labels
+[volunteerGlanceHeading]
+other = "Role at a glance"
+
+[volunteerSection]
+other = "Section"
+
+[volunteerLocation]
+other = "Location"
+
+# Policy single — eyebrow, contents rail, contact card
+[policyEyebrow]
+other = "Policy"
+
+[policyTocLabel]
+other = "On this page"
+
+[policyAskHeading]
+other = "Questions about this policy?"
+
+[policyAskBody]
+other = "Contact the Group and we'll be glad to help."
+
+[policyAskCta]
+other = "Get in touch"

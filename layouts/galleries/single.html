@@ -28,9 +28,7 @@
   {{- if and $hasImages (eq (.Params.consent_log | default "") "") -}}
     {{- errorf "gallery %q: consent_log is empty. Set consent_log to a short string pointing to where signed consent records are stored (e.g. \"OSM > Personal Details > Photo Consent\"). Never rendered; build-time lint only. See SPEC-04 §Safeguarding." .File.LogicalName -}}
   {{- end -}}
-  {{- if and .Params.cover (eq (.Params.cover_alt | default "") "") -}}
-    {{- errorf "gallery %q: cover is set but cover_alt is empty. cover_alt is required for accessibility." .File.LogicalName -}}
-  {{- end -}}
+  {{- partial "audit-image.html" (dict "image" .Params.cover "alt" .Params.cover_alt "field" "cover_alt" "context" (printf "gallery %q" .File.LogicalName)) -}}
 
   {{- /* Cover resolution: explicit `cover` filename, else first photo. */ -}}
   {{- $coverImage := "" -}}
@@ -58,10 +56,8 @@
   <article class="section s-galleries s-galleries--single reveal">
     <div class="container">
 
+      {{ partial "back-link.html" . }}
       <header class="s-galleries__head">
-        <p class="eyebrow">
-          <a href="{{ "/galleries/" | relURL }}">{{ i18n "galleriesBackToList" }}</a>
-        </p>
         <h1 class="s-galleries__title display-2">{{ .Title }}</h1>
         {{- with .Params.summary }}<p class="s-galleries__summary display-7">{{ . }}</p>{{ end }}
         {{- with .Params.note }}<p class="s-galleries__note display-7">{{ . | safeHTML }}</p>{{ end }}

@@ -331,12 +331,6 @@
   border-radius: 0.5rem;
   margin: 1.5rem 0;
 }
-.s-news__post-foot {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 /* -- Home-block "View all news" CTA --------------------------------------- */
 .s-news__viewall {
   text-align: center;
@@ -354,7 +348,6 @@
 @media print {
   .s-news__pagination,
   .s-news__back,
-  .s-news__post-foot,
   .s-news__viewall { display: none; }
 }
 

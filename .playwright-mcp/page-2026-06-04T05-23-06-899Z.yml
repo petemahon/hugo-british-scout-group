@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - article [ref=e15]:
+      - generic [ref=e16]:
+        - figure [ref=e17]:
+          - img "Members of 1st Anytown Scouts marching in formation behind a piper, in full Scout uniform, on a sunny morning." [ref=e18]
+        - generic [ref=e19]:
+          - heading "St George's Day Parade" [level=1] [ref=e20]
+          - generic [ref=e21]:
+            - time [ref=e22]: 19 April 2026
+            - generic [ref=e23]: by GSL
+            - list "Scout sections featured" [ref=e24]:
+              - listitem [ref=e25]:
+                - link "Beavers" [ref=e26] [cursor=pointer]:
+                  - /url: /news/sections/beavers/
+              - listitem [ref=e27]:
+                - link "Cubs" [ref=e28] [cursor=pointer]:
+                  - /url: /news/sections/cubs/
+              - listitem [ref=e29]:
+                - link "Scouts" [ref=e30] [cursor=pointer]:
+                  - /url: /news/sections/scouts/
+              - listitem [ref=e31]:
+                - link "Explorers" [ref=e32] [cursor=pointer]:
+                  - /url: /news/sections/explorers/
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Sunday morning kicked off with a downpour and a flurry of texts asking whether the parade was still on. By 10am the sun was out, the church hall was full of polished shoes, and the piper had arrived right on schedule.
+          - paragraph [ref=e35]: Beavers led the way (as is tradition for our youngest), with Cubs behind, Scouts holding the colours, and Explorers bringing up the rear. The new neckers issued at investiture last week made their first formal outing, which was very smart indeed.
+          - paragraph [ref=e36]: Our thanks to the parents who turned out in numbers, to the church for hosting us, and to the piper — who has politely declined our requests for an encore at every weekly meeting since.
+          - paragraph [ref=e37]: Promise renewals next week.
+        - link "← Back to all news" [ref=e39] [cursor=pointer]:
+          - /url: /news/
+  - contentinfo [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - img [ref=e45]
+            - generic [ref=e47]: 1st Anytown Scouts
+          - paragraph [ref=e48]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e49]:
+          - heading "Visit" [level=5] [ref=e50]
+          - list [ref=e51]:
+            - listitem [ref=e52]: Anytown Scout Hut
+            - listitem [ref=e53]: 11 Hut Lane
+            - listitem [ref=e54]: Anytown
+        - generic [ref=e55]:
+          - heading "Contact" [level=5] [ref=e56]
+          - list [ref=e57]:
+            - listitem [ref=e58]:
+              - link "hello@anytown-scouts.org" [ref=e59] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e60]:
+              - link "+44 1234 567 890" [ref=e61] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e62]:
+              - link "Instagram" [ref=e63] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e64]:
+          - heading "About" [level=5] [ref=e65]
+          - list [ref=e66]:
+            - listitem [ref=e67]:
+              - link "Safeguarding" [ref=e68] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e69]:
+              - link "Privacy" [ref=e70] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e71]:
+        - generic [ref=e72]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e73]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e75]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e76] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

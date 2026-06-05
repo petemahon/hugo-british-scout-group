@@ -21,6 +21,8 @@
           <h3 class="s-history__tl-title">{{ $e.title }}</h3>
           {{- with $e.detail }}<p class="s-history__tl-detail">{{ . | safeHTML }}</p>{{ end }}
           {{- with $e.image }}
+            {{- /* Non-empty alt is mandatory when a timeline image is set (SPEC-12 AC5). */ -}}
+            {{- partial "audit-image.html" (dict "image" . "alt" $e.image_alt "field" "image_alt" "context" (printf "history timeline entry %v" $e.year)) -}}
             {{- $path := printf "about/timeline/%s" . -}}
             {{- $img := resources.Get $path -}}
             {{- if not $img -}}

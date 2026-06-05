@@ -1,0 +1,54 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Policy single — /policies/<slug>/ (e.g. photo-consent). Long-form prose
+  that previously ran as a narrow centred column with an empty right half.
+  Uses the balanced info-page treatment (08-page-balanced.css): the prose
+  keeps a readable measure on the left, and a sticky right-rail fills the
+  formerly-empty side with an auto "On this page" contents list (from
+  Hugo's .TableOfContents — pure CSS, no JS) and a contact card.
+
+  The contact link resolves from page `contact_email`, then site
+  `params.email`, falling back to the /join/ page so it never dead-links.
+*/ -}}
+{{ define "main" }}
+{{- $contact := .Params.contact_email | default site.Params.email -}}
+<section class="section s-policy reveal">
+  <div class="container pb-page">
+
+    {{ partial "back-link.html" . }}
+    <header class="sect-head sect-head--left">
+      <span class="eyebrow">{{ i18n "policyEyebrow" | default "Policy" }}</span>
+      <h1 class="display-2">{{ .Title }}</h1>
+      {{- with .Description }}<p class="pb-lede">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="pb-body-grid">
+      <div class="pb-prose">
+        {{ .Content }}
+      </div>
+
+      <aside class="pb-rail">
+        {{- if .Fragments.Headings }}
+          <nav class="pb-toc" aria-label="{{ i18n "policyTocLabel" | default "On this page" }}">
+            <p class="pb-toc__h">{{ i18n "policyTocLabel" | default "On this page" }}</p>
+            {{ .TableOfContents }}
+          </nav>
+        {{- end }}
+        <div class="pb-ask">
+          <h3>{{ i18n "policyAskHeading" | default "Questions about this policy?" }}</h3>
+          <p>{{ i18n "policyAskBody" | default "Contact the Group and we'll be glad to help." }}</p>
+          {{- if $contact }}
+            <a href="mailto:{{ $contact }}">{{ i18n "policyAskCta" | default "Get in touch" }} &rarr;</a>
+          {{- else }}
+            <a href="{{ "/join/" | relURL }}">{{ i18n "policyAskCta" | default "Get in touch" }} &rarr;</a>
+          {{- end }}
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>
+{{ end }}

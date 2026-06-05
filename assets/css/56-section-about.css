@@ -182,53 +182,10 @@
 .s-reports__container {
   max-width: 48rem;
 }
-.s-reports__list {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-}
-.s-reports__item {
-  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
-}
-.s-reports__link {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.75rem;
-  padding: 0.75rem 0;
-  text-decoration: none;
-  color: inherit;
-}
-/* CSS-only PDF glyph — a small document mark, no icon font, no SVG. It's a
-   normal flex item so align-items centres it to the text and `gap` sets the
-   spacing (no absolute positioning / guessed offsets). */
-.s-reports__link::before {
-  content: "PDF";
-  flex: 0 0 auto;
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--primary);
-  border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent);
-  border-radius: 3px;
-  padding: 0.12rem 0.3rem;
-  line-height: 1;
-}
-.s-reports__link:hover .s-reports__label {
-  text-decoration: underline;
-}
-.s-reports__label {
-  font-weight: 600;
-}
-.s-reports__type {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.s-reports__back {
-  margin-top: 1.5rem;
-}
+/* The reports list now uses the shared .pb-files component (08-…) and the
+   top .back-link (09-…); the old .s-reports__list / __link / __back rules
+   were retired with the 2026 design rollout. .s-reports__empty (below) is
+   still rendered by agm-archive.html's empty state. */
 
 @media print {
   .charity-info {

@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - heading "Galleries" [level=1] [ref=e30]
+        - paragraph [ref=e31]: Camp write-ups in pictures — what we've been up to across the Group.
+      - generic [ref=e32]:
+        - article [ref=e33]:
+          - link "Squirrels and Beavers lined up on parade in front of the church St George's Day Parade 2026 April 2026 3 items A morning of marching, awards and oversized flags. Squirrels through to Scouts all on parade." [ref=e34] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/
+            - img "Squirrels and Beavers lined up on parade in front of the church" [ref=e35]
+            - generic [ref=e36]:
+              - heading "St George's Day Parade 2026" [level=3] [ref=e37]
+              - paragraph [ref=e38]:
+                - time [ref=e39]: April 2026
+                - generic [ref=e40]: ·
+                - generic [ref=e41]: 3 items
+              - paragraph [ref=e42]: A morning of marching, awards and oversized flags. Squirrels through to Scouts all on parade.
+        - article [ref=e43]:
+          - link "Cubs Cooking Cup 2026 March 2026 2 items Six teams, five courses, one trophy. No captions — the photos tell their own story." [ref=e44] [cursor=pointer]:
+            - /url: /galleries/2026-03-30-cubs-cooking-cup/
+            - generic [ref=e46]:
+              - heading "Cubs Cooking Cup 2026" [level=3] [ref=e47]
+              - paragraph [ref=e48]:
+                - time [ref=e49]: March 2026
+                - generic [ref=e50]: ·
+                - generic [ref=e51]: 2 items
+              - paragraph [ref=e52]: Six teams, five courses, one trophy. No captions — the photos tell their own story.
+        - article [ref=e53]:
+          - link "Silhouetted Scouts walking with head-torches against a dusk sky Night Hike 2025 November 2025 2 items Head-torches, hot chocolate, and getting a bit lost on purpose. Faces obscured at parents' request." [ref=e54] [cursor=pointer]:
+            - /url: /galleries/2025-11-15-night-hike/
+            - img "Silhouetted Scouts walking with head-torches against a dusk sky" [ref=e55]
+            - generic [ref=e56]:
+              - heading "Night Hike 2025" [level=3] [ref=e57]
+              - paragraph [ref=e58]:
+                - time [ref=e59]: November 2025
+                - generic [ref=e60]: ·
+                - generic [ref=e61]: 2 items
+              - paragraph [ref=e62]: Head-torches, hot chocolate, and getting a bit lost on purpose. Faces obscured at parents' request.
+  - contentinfo [ref=e63]:
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - generic [ref=e70]: 1st Anytown Scouts
+          - paragraph [ref=e71]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e72]:
+          - heading "Visit" [level=5] [ref=e73]
+          - list [ref=e74]:
+            - listitem [ref=e75]: Anytown Scout Hut
+            - listitem [ref=e76]: 11 Hut Lane
+            - listitem [ref=e77]: Anytown
+        - generic [ref=e78]:
+          - heading "Contact" [level=5] [ref=e79]
+          - list [ref=e80]:
+            - listitem [ref=e81]:
+              - link "hello@anytown-scouts.org" [ref=e82] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e83]:
+              - link "+44 1234 567 890" [ref=e84] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e85]:
+              - link "Instagram" [ref=e86] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e87]:
+          - heading "About" [level=5] [ref=e88]
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Safeguarding" [ref=e91] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e92]:
+              - link "Privacy" [ref=e93] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e94]:
+        - generic [ref=e95]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e96]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e98]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e99] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

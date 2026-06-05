@@ -1,0 +1,141 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: Our story
+          - heading "Our history" [level=1] [ref=e31]
+          - paragraph [ref=e32]:
+            - text: Founded
+            - strong [ref=e33]: "1974"
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - paragraph [ref=e36]: We started in 1974 with six children and two borrowed trestle tables. A pair of parents who had run Scout sections back in the UK found themselves overseas, far from the nearest Group, and decided their own children — and their friends — shouldn’t miss out. The first meetings ran in a villa majlis; within a few years we had affiliated to British Scouting Overseas and were running the same programme, and working towards the same awards, as Groups at home.
+            - paragraph [ref=e37]: "Fifty years on, the shape of the Group has changed many times — new sections, new leaders, a permanent home — but the thread has held: the same Skills for Life programme, delivered by volunteers, for the children of families who happen to be living away from the UK."
+            - heading "What’s stayed the same" [level=2] [ref=e38]
+            - paragraph [ref=e39]: The desert camp. Since the first overnight in 1983, a night under the stars in the dunes has been the fixture the whole Group builds its year around — Squirrels watching the sunset, Explorers cooking for everyone, and leaders who first came as Beavers.
+            - heading "What’s changed" [level=2] [ref=e40]
+            - paragraph [ref=e41]: Families move on — that’s the nature of an overseas Group. Members we waved off have gone on to lead Scouting on four continents, and every anniversary brings a few of them back. The timeline alongside picks out the moments that got us here.
+          - complementary "Group history timeline" [ref=e42]:
+            - list "Group history timeline" [ref=e43]:
+              - listitem [ref=e44]:
+                - generic [ref=e45]: "1974"
+                - generic [ref=e46]:
+                  - heading "A handful of families start a Pack" [level=3] [ref=e47]
+                  - paragraph [ref=e48]: Six children met in a borrowed villa majlis, run by two parents who had been Scout leaders back in the UK.
+              - listitem [ref=e49]:
+                - generic [ref=e50]: "1978"
+                - generic [ref=e51]:
+                  - heading "Registered with British Scouting Overseas" [level=3] [ref=e52]
+                  - paragraph [ref=e53]: The Group formally affiliated to BSO, giving members the same programme and awards as Groups at home.
+              - listitem [ref=e54]:
+                - generic [ref=e55]: "1983"
+                - generic [ref=e56]:
+                  - heading "First desert camp" [level=3] [ref=e57]
+                  - paragraph [ref=e58]: An overnight camp in the dunes became the fixture that still defines the Group's year.
+              - listitem [ref=e59]:
+                - generic [ref=e60]: "1991"
+                - generic [ref=e61]:
+                  - heading "Scout Troop opens" [level=3] [ref=e62]
+                  - paragraph [ref=e63]: Growing numbers meant the older section could finally run its own programme.
+              - listitem [ref=e64]:
+                - generic [ref=e65]: "1999"
+                - generic [ref=e66]:
+                  - heading "Moved to the current HQ" [level=3] [ref=e67]
+                  - paragraph [ref=e68]: A long-term home at the community centre, with storage for camp kit and a proper meeting hall.
+              - listitem [ref=e69]:
+                - generic [ref=e70]: "2008"
+                - generic [ref=e71]:
+                  - heading "Explorer Unit founded" [level=3] [ref=e72]
+                  - paragraph [ref=e73]: 14-18s gained their own section, with an expedition programme across the region.
+              - listitem [ref=e74]:
+                - generic [ref=e75]: "2015"
+                - generic [ref=e76]:
+                  - heading "Squirrels and a second Cub Pack" [level=3] [ref=e77]
+                  - paragraph [ref=e78]: Demand from younger families and a waiting list prompted two new sections in one busy year.
+              - listitem [ref=e79]:
+                - generic [ref=e80]: "2019"
+                - generic [ref=e81]:
+                  - heading "50 young people at summer camp" [level=3] [ref=e82]
+                  - paragraph [ref=e83]: The Group's largest camp to date, with alumni leaders returning to help run it.
+              - listitem [ref=e84]:
+                - generic [ref=e85]: "2024"
+                - generic [ref=e86]:
+                  - heading "Fiftieth anniversary" [level=3] [ref=e87]
+                  - paragraph [ref=e88]: Half a century of Scouting overseas, marked with a reunion of former members now scattered around the world.
+  - contentinfo [ref=e89]:
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - img [ref=e94]
+            - generic [ref=e96]: 1st Anytown Scouts
+          - paragraph [ref=e97]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e98]:
+          - heading "Visit" [level=5] [ref=e99]
+          - list [ref=e100]:
+            - listitem [ref=e101]: Anytown Scout Hut
+            - listitem [ref=e102]: 11 Hut Lane
+            - listitem [ref=e103]: Anytown
+        - generic [ref=e104]:
+          - heading "Contact" [level=5] [ref=e105]
+          - list [ref=e106]:
+            - listitem [ref=e107]:
+              - link "hello@anytown-scouts.org" [ref=e108] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e109]:
+              - link "+44 1234 567 890" [ref=e110] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e111]:
+              - link "Instagram" [ref=e112] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e113]:
+          - heading "About" [level=5] [ref=e114]
+          - list [ref=e115]:
+            - listitem [ref=e116]:
+              - link "Safeguarding" [ref=e117] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e118]:
+              - link "Privacy" [ref=e119] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e120]:
+        - generic [ref=e121]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e122]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e124]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e125] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

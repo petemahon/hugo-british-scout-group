@@ -174,23 +174,61 @@ the theme's `exampleSite`. Consuming sites do not include it.
   SPEC-11.
 - **Skip link** is the first focusable element on every page.
   Visible on focus.
-- **Focus ring** is a new palette-level token: `--focus-ring`,
-  added to every preset in `data/palettes.toml`. Falls back to
-  `--primary` if a palette omits it.
-- **Reduced-motion** honoured globally; the `reveal` fade-in
-  disables under `prefers-reduced-motion: reduce`.
-- **Image-alt lints** are uniform across content types via a
-  shared `partials/audit-image.html`. SPEC-01's news lint is the
-  reference implementation.
-- **Heading order**: every page has exactly one `<h1>`, sourced
-  from `.Title` in `_default/baseof.html`. Section partials use
-  `<h2>` and below. Build-time audit if practicable; manual review
-  otherwise.
-- **Colour contrast audit** runs in GitHub Actions via a node
-  script reading `data/palettes.toml`. Fails the workflow if any
-  used (foreground, background) pair falls below AA.
-- **axe-core CI** runs on PRs against the rendered example site.
-  Fails the PR but doesn't block deploy.
+- **Focus ring** is a palette-level token: `--focus-ring`, added to
+  every preset in `data/palettes.toml` and emitted by
+  `palette-style.html`. Falls back to `--primary` if a palette omits
+  it. Most palettes set it `= --primary`; **`vibrant` overrides to
+  Scouts Purple (`#7413dc`, its tertiary)** because Scouts Red on
+  white is only ~3.9:1, below the 4.5:1 the audit wants of a focus
+  indicator (decided 2026-06-04). The whole-theme default lives in the
+  a11y CSS block (`07-a11y.css`): `:focus-visible { outline: 2px solid
+  var(--focus-ring, var(--primary)); }`. Every focusable control shows a
+  visible indicator. The **one** deliberate `outline: none` is on the
+  sr-only mobile-nav toggle checkbox (`04-nav.css`), whose ring is
+  **relocated to the burger** it controls — focus is moved, never removed
+  (WCAG-compliant; added 2026-06-04 with the mobile-nav keyboard fix).
+- **Mobile nav is keyboard-operable.** The burger drawer is a pure-CSS
+  checkbox-hack; the checkbox is visually hidden but **focusable** (it was
+  `tabindex="-1" aria-hidden`, which made the drawer pointer-only) and
+  carries the accessible name, with the `<label>` burger as its decorative
+  `aria-hidden` proxy. Closed drawer uses `visibility: hidden` so its
+  links leave the tab order (mirrors the desktop dropdown). The checkbox
+  is `display: none` at ≥960px to avoid a stray desktop tab stop.
+  (Audit-found 2026-06-04; the original SPEC-11 markup left the drawer
+  unopenable by keyboard.)
+- **Reduced-motion** honoured globally via a `*`-selector rule in
+  `07-a11y.css` (neutralises all animation/transition + smooth
+  scroll); the `reveal` fade-in also self-disables in
+  `32-page-load-fade.css`.
+- **Image-alt lints** are uniform across content types via a shared
+  `partials/audit-image.html` (single source of the lint message).
+  News, galleries, history and hall hire call it; SPEC-01's news lint
+  was refactored to it as the reference shape. Events gains the call
+  if/when it grows a poster image.
+- **Heading order**: every page has exactly one `<h1>` — the page
+  title from the template (`baseof` / `single` / `list`). Section
+  partials start at `<h2>` (review-enforced; Hugo can't post-process
+  partial markup reliably). The build-time check is the **pragmatic
+  subset that is reliable**: `partials/audit-headings.html` `errorf`s
+  if a page's rendered `.Content` contains an `<h1>` (an author wrote
+  a body-level `# `). Documented as the heading contract in
+  SPEC-COMMON §17 (decided 2026-06-04 — downgraded from the brittle
+  per-partial `audit-claim` running-list the spec drafted).
+- **Colour contrast audit** runs in CI via `tools/audit-contrast.mjs`
+  (dependency-free node), reading `data/palettes.toml` and checking
+  only the declared pairs. Body-copy pairs (`text`/`text_muted` on
+  `bg`) need 4.5:1; the `text_on_<accent>` tokens need 3.0:1 because
+  they only ever label bold buttons, bold pills, and display headings
+  — i.e. large text per WCAG (this is what lets white-on-Scouts-Red
+  and white-on-`--postponed`-amber pass). `--focus-ring` vs `--bg` is
+  checked at the 3.0:1 non-text threshold. Exits non-zero on any
+  failure.
+- **axe-core CI** runs on PRs against the rendered example site, one
+  page per template family. The theme repo carries its own
+  `.github/workflows/a11y.yml` (it has no deploy workflow — sites
+  consume the theme from their own repo). Fails the PR but doesn't
+  block a manual override merge.
+- **Status: shipped** (2026-06-04). This was the final roadmap spec.
 
 ## Demo data
 

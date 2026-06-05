@@ -42,6 +42,8 @@
       </div>
 
       {{- if $img }}
+        {{- /* Non-empty alt is mandatory when an image is set (SPEC-12 AC5). */ -}}
+        {{- partial "audit-image.html" (dict "image" .image.src "alt" .image.alt "field" "image.alt" "context" (printf "stacked-features section %q" (.id | default .title | default ""))) -}}
         <div class="s-stacked__image">
           <img src="{{ $img }}" alt="{{ .image.alt | default "" }}" loading="lazy">
         </div>

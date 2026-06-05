@@ -21,35 +21,55 @@
   {{- end -}}
 
   <article class="section s-vol s-vol--single reveal">
-    <div class="container s-vol__container">
+    <div class="container s-vol__container{{ if $isOpen }} pb-page{{ end }}">
 
-      <p class="s-vol__breadcrumb display-7">
-        <a href="{{ "/support-us/volunteer-roles/" | relURL }}">&larr; {{ i18n "volunteerRolesBackToList" | default "All volunteer roles" }}</a>
-      </p>
+      {{ partial "back-link.html" . }}
 
       {{- if $isOpen }}
+        {{- $applyHref := "" -}}
+        {{- if .Params.apply_url }}{{ $applyHref = .Params.apply_url }}{{ else if .Params.apply_email }}{{ $applyHref = printf "mailto:%s" .Params.apply_email }}{{ end -}}
+        {{- $lede := .Params.summary | default .Description -}}
+
         <header class="s-vol__single-head">
           <div class="s-vol__card-badges">
             {{- with $sectionName }}<span class="s-vol__tag">{{ . }}</span>{{ end }}
             {{- if .Params.remote }}<span class="s-vol__badge s-vol__badge--remote">{{ i18n "volunteerRemoteBadge" | default "Remote OK" }}</span>{{ end }}
           </div>
           <h1 class="s-vol__single-title display-2">{{ .Title }}</h1>
-          <dl class="s-vol__meta">
-            {{- with .Params.time_commitment }}<div class="s-vol__meta-item"><dt>{{ i18n "volunteerTimeCommitment" | default "Time" }}</dt><dd>{{ . }}</dd></div>{{ end }}
-            {{- with .Params.start_date }}<div class="s-vol__meta-item"><dt>{{ i18n "volunteerStartDate" | default "Starts" }}</dt><dd>{{ dateFormat "January 2006" . }}</dd></div>{{ end }}
-            {{- if ne .Params.dbs_required false }}<div class="s-vol__meta-item"><dt>{{ i18n "volunteerDbs" | default "Safeguarding" }}</dt><dd>{{ i18n "volunteerDbsNote" | default "A DBS check is required for this role." }}</dd></div>{{ end }}
-          </dl>
         </header>
 
-        {{- with .Content }}<div class="s-vol__single-body display-7">{{ . }}</div>{{ end }}
+        <div class="pb-masthead">
+          <div>
+            {{- with $lede }}<p class="pb-lede">{{ . | safeHTML }}</p>{{ end }}
+            {{- with .Content }}<div class="s-vol__single-body display-7">{{ . }}</div>{{ end }}
+            {{- with $applyHref }}
+              <div class="pb-cta-row">
+                <a class="btn btn-primary" href="{{ . | safeURL }}"{{ if $.Params.apply_url }} target="_blank" rel="noopener"{{ end }}>{{ i18n "volunteerApply" | default "Apply for this role" }} <span class="arr">&rarr;</span></a>
+              </div>
+            {{- end }}
+          </div>
 
-        <p class="s-vol__apply">
-          {{- if .Params.apply_url }}
-            <a class="btn btn-primary" href="{{ .Params.apply_url | safeURL }}" target="_blank" rel="noopener">{{ i18n "volunteerApply" | default "Apply for this role" }} &rarr;</a>
-          {{- else if .Params.apply_email }}
-            <a class="btn btn-primary" href="mailto:{{ .Params.apply_email }}">{{ i18n "volunteerApply" | default "Apply for this role" }} &rarr;</a>
-          {{- end }}
-        </p>
+          <div class="pb-glance">
+            <p class="pb-glance__h">{{ i18n "volunteerGlanceHeading" | default "Role at a glance" }}</p>
+            <dl>
+              {{- with .Params.time_commitment }}
+              <div class="pb-glance__row"><dt>{{ i18n "volunteerTimeCommitment" | default "Time" }}</dt><dd>{{ . }}</dd></div>
+              {{- end }}
+              {{- with .Params.start_date }}
+              <div class="pb-glance__row"><dt>{{ i18n "volunteerStartDate" | default "Starts" }}</dt><dd>{{ dateFormat "January 2006" . }}</dd></div>
+              {{- end }}
+              {{- with $sectionName }}
+              <div class="pb-glance__row"><dt>{{ i18n "volunteerSection" | default "Section" }}</dt><dd>{{ . }}</dd></div>
+              {{- end }}
+              {{- if .Params.remote }}
+              <div class="pb-glance__row"><dt>{{ i18n "volunteerLocation" | default "Location" }}</dt><dd>{{ i18n "volunteerRemoteBadge" | default "Remote OK" }}</dd></div>
+              {{- end }}
+              {{- if ne .Params.dbs_required false }}
+              <div class="pb-glance__row"><dt>{{ i18n "volunteerDbs" | default "Safeguarding" }}</dt><dd>{{ i18n "volunteerDbsNote" | default "A DBS check is required for this role." }}</dd></div>
+              {{- end }}
+            </dl>
+          </div>
+        </div>
       {{- else }}
         <h1 class="s-vol__single-title display-2">{{ .Title }}</h1>
         <p class="s-vol__closed display-7">{{ i18n "volunteerRoleClosedNotice" | default "This role is no longer open — see our current volunteer roles above." }}</p>

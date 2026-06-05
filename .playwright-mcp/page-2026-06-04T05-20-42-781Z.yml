@@ -1,0 +1,127 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Support us
+        - heading "Support us" [level=1] [ref=e31]
+        - paragraph [ref=e32]: Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people — and gift-aided donations go further still.
+      - paragraph [ref=e34]: Thank you to everyone who supports the Group — whether by giving, by turning out to help at events, or by shopping through easyfundraising. It genuinely keeps us running.
+      - generic [ref=e35]:
+        - heading "Give online" [level=2] [ref=e36]
+        - list [ref=e37]:
+          - listitem [ref=e38]:
+            - link "Make a donation" [ref=e39] [cursor=pointer]:
+              - /url: https://example.com/donate
+          - listitem [ref=e40]:
+            - link "easyfundraising" [ref=e41] [cursor=pointer]:
+              - /url: https://www.easyfundraising.org.uk/causes/example-scouts/
+          - listitem [ref=e42]:
+            - link "JustGiving" [ref=e43] [cursor=pointer]:
+              - /url: https://www.justgiving.com/example-scouts
+      - generic [ref=e44]:
+        - heading "What we run" [level=2] [ref=e45]
+        - generic [ref=e46]:
+          - article [ref=e47]:
+            - heading "Christmas Post" [level=3] [ref=e48]
+            - paragraph [ref=e49]: Every December
+            - paragraph [ref=e50]: Our young people sort and deliver Christmas cards across the area for a small fee per card. It's our biggest single fundraiser of the year and a brilliant community-service badge opportunity.
+            - paragraph [ref=e51]:
+              - link "Get involved →" [ref=e52] [cursor=pointer]:
+                - /url: mailto:fundraising@1stanytown.org.uk
+          - article [ref=e53]:
+            - heading "100 Club" [level=3] [ref=e54]
+            - paragraph [ref=e55]: Monthly draw
+            - paragraph [ref=e56]: A monthly prize draw — members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join.
+          - article [ref=e57]:
+            - heading "Bag packing & bonfire BBQ" [level=3] [ref=e58]
+            - paragraph [ref=e59]: Autumn
+            - paragraph [ref=e60]: Seasonal events we run with the whole Group — many hands needed, and a good excuse to get everyone together.
+      - generic [ref=e61]:
+        - heading "Where the money goes 2024–25" [level=2] [ref=e62]
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - term [ref=e65]: Income
+            - definition [ref=e66]: £14000
+          - generic [ref=e67]:
+            - term [ref=e68]: Expenditure
+            - definition [ref=e69]: £13200
+        - paragraph [ref=e70]: We hold roughly three months of running costs in reserve, in line with Charity Commission guidance.
+        - paragraph [ref=e71]:
+          - link "Read our full accounts →" [ref=e72] [cursor=pointer]:
+            - /url: /about/reports/
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - img [ref=e78]
+            - generic [ref=e80]: 1st Anytown Scouts
+          - paragraph [ref=e81]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e82]:
+          - heading "Visit" [level=5] [ref=e83]
+          - list [ref=e84]:
+            - listitem [ref=e85]: Anytown Scout Hut
+            - listitem [ref=e86]: 11 Hut Lane
+            - listitem [ref=e87]: Anytown
+        - generic [ref=e88]:
+          - heading "Contact" [level=5] [ref=e89]
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - link "hello@anytown-scouts.org" [ref=e92] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e93]:
+              - link "+44 1234 567 890" [ref=e94] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e95]:
+              - link "Instagram" [ref=e96] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e97]:
+          - heading "About" [level=5] [ref=e98]
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - link "Safeguarding" [ref=e101] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e102]:
+              - link "Privacy" [ref=e103] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e104]:
+        - generic [ref=e105]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e106]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e108]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e109] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

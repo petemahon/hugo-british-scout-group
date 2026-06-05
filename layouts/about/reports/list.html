@@ -32,21 +32,43 @@
     {{- end -}}
   {{- end -}}
 
+  {{- $reports := (index hugo.Data "reports").report | default slice -}}
+
   <section class="section s-reports reveal">
-    <div class="container s-reports__container">
+    <div class="container s-reports__container pb-page">
+
+      {{ partial "back-link.html" (dict "page" . "url" "/about/governance/" "label" (i18n "navAboutGovernance" | default "Governance")) }}
 
       <header class="sect-head sect-head--left">
         <span class="eyebrow">{{ i18n "reportsEyebrow" | default "Accounts & minutes" }}</span>
         <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "reportsHeading" | default "Trustees' reports & AGM minutes" }}{{ end }}</h1>
-        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
-        {{- with .Content }}<div class="s-reports__intro display-7">{{ . }}</div>{{ end }}
       </header>
 
-      {{ partial "agm-archive.html" . }}
+      <div class="pb-masthead">
+        <div>
+          {{- with .Params.intro }}<p class="pb-lede">{{ . | safeHTML }}</p>{{ end }}
+          {{- with .Content }}<div class="s-reports__intro display-7">{{ . }}</div>{{ end }}
+        </div>
 
-      <p class="s-reports__back display-7">
-        <a class="styled-link" href="{{ "/about/governance/" | relURL }}">&larr; {{ i18n "reportsBackToGovernance" | default "Back to governance" }}</a>
-      </p>
+        {{- with $reports }}
+        <div class="pb-glance">
+          <p class="pb-glance__h">{{ i18n "reportsGlanceHeading" | default "At a glance" }}</p>
+          <dl>
+            <div class="pb-glance__row">
+              <dt>{{ i18n "reportsGlanceLatest" | default "Most recent" }}</dt>
+              <dd>{{ (index (sort . "year" "desc") 0).year }}</dd>
+            </div>
+            <div class="pb-glance__row">
+              <dt>{{ i18n "reportsGlanceCount" | default "Documents" }}</dt>
+              <dd>{{ len . }} {{ i18n "reportsGlanceCountUnit" | default "available to download" }}</dd>
+            </div>
+          </dl>
+        </div>
+        {{- end }}
+      </div>
+
+      <p class="pb-section-label">{{ i18n "reportsListLabel" | default "Documents" }}</p>
+      {{ partial "agm-archive.html" . }}
 
     </div>
   </section>

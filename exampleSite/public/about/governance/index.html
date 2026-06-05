@@ -15,8 +15,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
 
 <link rel="stylesheet" href="/css/theme.css">
 
@@ -26,14 +26,15 @@
 :root {
   --primary:             #205b41;
   --primary-hover:       #2c7a57;
+  --focus-ring:          #205b41;
   --secondary:           #ff912a;
   --secondary-hover:     #ffa648;
   --tertiary:            #7413dc;
   --accent:              #ffe627;
   --bg:                  #ffffff;
-  --bg-muted:            #f7f7f7;
-  --text:                #232323;
-  --text-muted:          #5a5a5a;
+  --bg-muted:            #f1efe9;
+  --text:                #14110e;
+  --text-muted:          #45413a;
   --text-on-primary:     #ffffff;
   --text-on-secondary:   #000000;
   --warning:             #d4351c;
@@ -48,7 +49,7 @@
 </style>
 
 
-</head><body id="top">
+</head><body id="top"><a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fleur" viewBox="0 0 56 50" fill="currentColor">
     
   <title>Scouts fleur de lis</title>
@@ -80,7 +81,7 @@
 
   <header class="site-nav" role="banner" aria-label="Site header">
   <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
-         aria-hidden="true" tabindex="-1">
+         aria-label="Open menu">
 
   <div class="site-nav__inner">
 
@@ -145,9 +146,7 @@
   </ul>
 </nav>
 
-
-    <label for="site-nav-toggle" class="site-nav__burger"
-           aria-label="Open menu">
+    <label for="site-nav-toggle" class="site-nav__burger" aria-hidden="true">
       <span></span><span></span><span></span>
     </label>
 
@@ -221,55 +220,94 @@
 
 
 </header>
-
-  <main>
+<main id="main" tabindex="-1">
     <article class="section s-governance reveal">
-    <div class="container s-governance__container">
+    <div class="container s-governance__container pb-page">
 
+      <a class="back-link" href="/about/"><span class="back-link__arr" aria-hidden="true">&larr;</span> About</a>
       <header class="s-governance__head">
         <span class="eyebrow">Governance</span>
-        <h1 class="s-governance__title display-2">Governance</h1><p class="s-governance__intro display-7">We're a volunteer-run Group operating under British Scouting Overseas. A Trustee Board (our Group Executive) is responsible for our finances, our safeguarding duties and the upkeep of our equipment, and is accountable to parents at the Annual General Meeting.</p>
+        <h1 class="s-governance__title display-2">Governance</h1>
       </header>
-        <section class="s-governance__charity">
-          <h2>Charity registration</h2>
-          
+
+      <div class="pb-masthead">
+        <div><p class="pb-lede">We're a volunteer-run Group operating under British Scouting Overseas. A Trustee Board (our Group Executive) is responsible for our finances, our safeguarding duties and the upkeep of our equipment, and is accountable to parents at the Annual General Meeting.</p>
+        </div>
+
+        <div class="pb-glance">
+          <p class="pb-glance__h">At a glance</p>
+          <dl>
+            <div class="pb-glance__row">
+              <dt>Next AGM</dt>
+              <dd>Tuesday 13 May 2026, 19:30</dd>
+            </div>
+            <div class="pb-glance__row">
+              <dt>Trustee Board</dt>
+              <dd>5 trustees</dd>
+            </div>
+            <div class="pb-glance__row">
+              <dt>Registered charity</dt>
+              <dd>1151702</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+        <p class="pb-section-label">Trustee Board</p>
+        <div class="pb-people"><div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">SW</span>
+              <div>
+                <h3>Sarah Whitfield</h3>
+                <p class="pb-person__who">Chair of Trustees</p><p class="pb-person__since">trustee since 2022</p>
+              </div>
+            </div><div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">IQ</span>
+              <div>
+                <h3>Imran Qureshi</h3>
+                <p class="pb-person__who">Treasurer</p><p class="pb-person__since">trustee since 2023</p>
+              </div>
+            </div><div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">HO</span>
+              <div>
+                <h3>Helen Osei</h3>
+                <p class="pb-person__who">Secretary</p><p class="pb-person__since">trustee since 2021</p>
+              </div>
+            </div><div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">DL</span>
+              <div>
+                <h3>David Lindqvist</h3>
+                <p class="pb-person__who">Group Scout Leader (ex officio)</p><p class="pb-person__since">trustee since 2020</p>
+              </div>
+            </div><div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">PN</span>
+              <div>
+                <h3>Priya Nair</h3>
+                <p class="pb-person__who">Trustee</p><p class="pb-person__since">trustee since 2024</p>
+              </div>
+            </div>
+          <div class="pb-person pb-person--join">
+            <span class="pb-mono" aria-hidden="true">+</span>
+            <div>
+              <h3>Could you join the board?</h3>
+              <p>We&#39;d welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM.</p>
+            </div>
+          </div>
+        </div>
+        <p class="pb-section-label">AGM &amp; charity registration</p>
+        <div class="pb-detail">
+            <article class="pb-card">
+              <span class="pb-card__tag">Annual General Meeting</span><h3>Tuesday 13 May 2026, 19:30</h3><p>The community centre hall (and online — link sent to all families)</p>
+            </article>
+            <article class="pb-card">
+              <span class="pb-card__tag">Charity registration</span>
+              
   <div class="charity-info">
       <p class="charity-info__line">
         Registered charity: <a class="charity-info__link" href="https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702" rel="noopener">British Scouting Overseas (1151702)</a> · Charity Commission for England and Wales
       </p>
   </div>
 
-        </section>
-        <section class="s-governance__agm">
-          <h2>Annual General Meeting</h2><p class="s-governance__agm-date"><strong>Tuesday 13 May 2026, 19:30</strong></p><p class="s-governance__agm-location">The community centre hall (and online — link sent to all families)</p>
-        </section>
-        <section class="s-governance__board">
-          <h2>Trustee Board</h2>
-          
-  <dl class="s-governance__trustees">
-      <div class="s-governance__trustee">
-        <dt class="s-governance__trustee-name">Sarah Whitfield</dt>
-        <dd class="s-governance__trustee-role">Chair of Trustees <span class="s-governance__trustee-since">(trustee since 2022)</span></dd>
-      </div>
-      <div class="s-governance__trustee">
-        <dt class="s-governance__trustee-name">Imran Qureshi</dt>
-        <dd class="s-governance__trustee-role">Treasurer <span class="s-governance__trustee-since">(trustee since 2023)</span></dd>
-      </div>
-      <div class="s-governance__trustee">
-        <dt class="s-governance__trustee-name">Helen Osei</dt>
-        <dd class="s-governance__trustee-role">Secretary <span class="s-governance__trustee-since">(trustee since 2021)</span></dd>
-      </div>
-      <div class="s-governance__trustee">
-        <dt class="s-governance__trustee-name">David Lindqvist</dt>
-        <dd class="s-governance__trustee-role">Group Scout Leader (ex officio) <span class="s-governance__trustee-since">(trustee since 2020)</span></dd>
-      </div>
-      <div class="s-governance__trustee">
-        <dt class="s-governance__trustee-name">Priya Nair</dt>
-        <dd class="s-governance__trustee-role">Trustee <span class="s-governance__trustee-since">(trustee since 2024)</span></dd>
-      </div>
-  </dl>
-
-        </section>
+            </article>
+        </div>
         <div class="s-governance__body display-7"><p>Every parent and carer of a member is welcome at the AGM, where the
 Trustee Board reports on the year, presents the accounts, and stands
 for re-election. We&rsquo;d genuinely welcome more hands on the board —
@@ -277,11 +315,11 @@ particularly anyone with finance, fundraising or premises experience.
 If that might be you, have a word with any of the trustees listed
 above.</p>
 </div>
-        <section class="s-governance__reports">
-          <h2>Reports &amp; accounts</h2>
-          <p class="s-governance__reports-link">
-            <a class="styled-link" href="/about/reports/">Trustees&#39; Annual Reports and AGM minutes &rarr;</a>
-          </p>
+        <section class="pb-related">
+          <span class="pb-related__kicker">Reports &amp; accounts</span>
+          <div class="pb-related__links">
+            <a class="pb-pill-link" href="/about/reports/">Trustees&#39; Annual Reports and AGM minutes &rarr;</a>
+          </div>
         </section>
 
     </div>

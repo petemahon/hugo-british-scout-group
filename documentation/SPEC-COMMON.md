@@ -345,3 +345,42 @@ Every new layout file starts with:
 ```
 
 CSS files use `/* ... */` form. The header is not optional.
+
+## 17. Heading order and image alt (accessibility contract)
+
+SPEC-12 makes WCAG 2.2 AA a correctness requirement across every page.
+Two build-time contracts apply to every feature:
+
+**Heading order.** Exactly one `<h1>` per page — the page title.
+
+- On **content pages** the template emits it (`single` / `list` / the
+  per-feature templates), and the `hero` section partial is not used.
+- On the **home page** there is no template-level title, so the `hero`
+  section partial (`layouts/partials/sections/hero.html`) carries the
+  page's single `<h1>` (the Group name). The hero is the one documented
+  exception to the "section partials start at `<h2>`" rule below — it is
+  home-only, so it never collides with a template `<h1>`.
+
+Given that:
+
+- Every **other** partial under `layouts/partials/sections/` starts its
+  headings at `<h2>` and nests downward (`<h3>`, `<h4>`) without
+  skipping. This is enforced by review (Hugo can't reliably post-process
+  partial-produced markup — see SPEC-12 Q12.4).
+- Body content (Markdown) starts at `## ` (`<h2>`). `partials/audit-headings.html`
+  runs on every page from `baseof` and `errorf`s if a page's rendered
+  `.Content` contains an `<h1>` — i.e. an author wrote a top-level `# `.
+- A Group that removes the `hero` from its home `[[sections]]` leaves the
+  home page with no `<h1>`; keep a hero (or another single `<h1>`) there.
+
+**Image alt text.** Every editorial image must carry non-empty `alt`.
+Whenever a content type sets an image, it calls
+`partials/audit-image.html` (the single source of truth for the lint)
+with the image value, the alt value, the alt field name, and a context
+label; the partial `errorf`s if the image is set but alt is empty. Used
+by news, galleries, events, history, and hall hire — add the call to any
+new image-bearing content type rather than re-implementing the check.
+
+Both audits are build-time lints (they `errorf`, never render). Colour
+contrast is audited separately by `tools/audit-contrast.mjs` in CI, since
+Hugo can't evaluate contrast ratios (SPEC-12 Q12.7).

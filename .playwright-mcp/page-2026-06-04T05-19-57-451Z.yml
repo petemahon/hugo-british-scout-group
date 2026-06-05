@@ -1,0 +1,127 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Welcome Pack
+        - heading "1st Anytown Scouts — Welcome Pack" [level=1] [ref=e31]
+        - paragraph [ref=e32]: "Everything you need to know in the first few weeks: what each section does, how subs work, our safeguarding promise, and the year's calendar."
+        - paragraph [ref=e33]: v2026.1 · Last reviewed April 2026
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: Welcome to 1st Anytown Scouts. We’re a Group of around 300 young people across five sections, meeting four nights a week. This pack is the short version of what you need to know — sections, joining, subs, our safeguarding promise, and the year’s calendar.
+        - paragraph [ref=e36]: Click any chapter below to read it on its own; or use the “Print or save the whole pack” button at the foot of this page to grab the lot as a single document.
+      - navigation "Welcome Pack chapters" [ref=e37]:
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "1 About the Group Who we are, where we meet, and what young people get from us." [ref=e40] [cursor=pointer]:
+              - /url: /welcome-pack/about/
+              - generic [ref=e41]: "1"
+              - generic [ref=e42]:
+                - generic [ref=e43]: About the Group
+                - generic [ref=e44]: Who we are, where we meet, and what young people get from us.
+          - listitem [ref=e45]:
+            - link "2 What each section does A quick read on each age group, what they do, and how they progress." [ref=e46] [cursor=pointer]:
+              - /url: /welcome-pack/sections/
+              - generic [ref=e47]: "2"
+              - generic [ref=e48]:
+                - generic [ref=e49]: What each section does
+                - generic [ref=e50]: A quick read on each age group, what they do, and how they progress.
+          - listitem [ref=e51]:
+            - link "3 How to join Waiting list, subs, what to bring on the first night." [ref=e52] [cursor=pointer]:
+              - /url: /welcome-pack/joining/
+              - generic [ref=e53]: "3"
+              - generic [ref=e54]:
+                - generic [ref=e55]: How to join
+                - generic [ref=e56]: Waiting list, subs, what to bring on the first night.
+          - listitem [ref=e57]:
+            - link "4 Safeguarding & photo policy How we keep young people safe and how we handle photos." [ref=e58] [cursor=pointer]:
+              - /url: /welcome-pack/safeguarding/
+              - generic [ref=e59]: "4"
+              - generic [ref=e60]:
+                - generic [ref=e61]: Safeguarding & photo policy
+                - generic [ref=e62]: How we keep young people safe and how we handle photos.
+          - listitem [ref=e63]:
+            - link "5 The year at a glance Termly rhythms and the fixtures every family should know about." [ref=e64] [cursor=pointer]:
+              - /url: /welcome-pack/calendar/
+              - generic [ref=e65]: "5"
+              - generic [ref=e66]:
+                - generic [ref=e67]: The year at a glance
+                - generic [ref=e68]: Termly rhythms and the fixtures every family should know about.
+      - paragraph [ref=e69]:
+        - link "Print or save the whole pack →" [ref=e70] [cursor=pointer]:
+          - /url: print.html
+  - contentinfo [ref=e71]:
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img [ref=e76]
+            - generic [ref=e78]: 1st Anytown Scouts
+          - paragraph [ref=e79]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e80]:
+          - heading "Visit" [level=5] [ref=e81]
+          - list [ref=e82]:
+            - listitem [ref=e83]: Anytown Scout Hut
+            - listitem [ref=e84]: 11 Hut Lane
+            - listitem [ref=e85]: Anytown
+        - generic [ref=e86]:
+          - heading "Contact" [level=5] [ref=e87]
+          - list [ref=e88]:
+            - listitem [ref=e89]:
+              - link "hello@anytown-scouts.org" [ref=e90] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e91]:
+              - link "+44 1234 567 890" [ref=e92] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e93]:
+              - link "Instagram" [ref=e94] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e95]:
+          - heading "About" [level=5] [ref=e96]
+          - list [ref=e97]:
+            - listitem [ref=e98]:
+              - link "Safeguarding" [ref=e99] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e100]:
+              - link "Privacy" [ref=e101] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e102]:
+        - generic [ref=e103]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e104]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e106]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e107] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

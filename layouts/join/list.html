@@ -24,49 +24,57 @@
   {{- $showWelcomePack := and ($welcomeURL) (or site.Params.features.welcome_pack (not (hasPrefix $welcomeURL "/welcome-pack"))) -}}
 
   <section class="section s-joining s-joining--list reveal">
-    <div class="container">
-
-      <div class="sect-head sect-head--left">
-        <span class="eyebrow">{{ i18n "joiningEyebrow" | default "Join us" }}</span>
-        <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "joiningHeading" | default "Add your child to a Pack — or join us as a volunteer." }}{{ end }}</h1>
-        {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
-        {{- with .Content }}<div class="s-joining__intro-body">{{ . }}</div>{{ end }}
-      </div>
-
-      {{- /* Bridge buttons sit OUTSIDE .sect-head--left so the
-             component's `.sect-head--left p { margin: 0 }` rule
-             doesn't outrank our margin-top. */}}
-      <div class="s-joining__bridges">
-        {{- if $showWelcomePack }}
-          <a class="btn btn-primary-outline" href="{{ $welcomeURL | relURL }}">{{ $welcomeLabel }} &rarr;</a>
-        {{- end }}
-        {{- if site.Params.features.volunteer_feature }}
-          <a class="btn btn-primary-outline" href="{{ "/#volunteer" | relURL }}">{{ $volunteerLabel }} &rarr;</a>
-        {{- end }}
-      </div>
+    <div class="container pb-page">
 
       {{- if $isBSO }}
-        {{- /* The bso-membership-notice partial is the canonical POR 3.2.1.1
-               block. We render it once on /join/ (cross-cutting decision —
-               not on the home page, not on /bso/eligibility/) and append a
-               single CTA into /bso/eligibility/ for visitors who want the
-               longer expansion. An optional `bso_eligibility_summary`
-               front-matter field still renders extra prose between the
-               two if a Group wants to add it — the example site leaves
-               that empty. */ -}}
-        <div class="s-joining__bso-block">
-          {{ partial "bso-membership-notice.html" . }}
-          {{- with .Params.bso_eligibility_summary }}
-            <div class="s-joining__bso-summary">{{ . | safeHTML }}</div>
-          {{- end }}
-          <p class="s-joining__bso-cta">
-            <a class="styled-link" href="{{ "/bso/eligibility/" | relURL }}">
-              {{- i18n "joiningBsoReadEligibility" | default "Read the full eligibility rules" }} &rarr;
-            </a>
-          </p>
+        {{- /* Balanced masthead: page head + intro + bridge buttons on the
+               left, the canonical BSO membership notice as the at-a-glance
+               card on the right (so it uses the real estate instead of
+               sitting as a lonely centred island). The notice is the
+               POR 3.2.1.1 block, rendered exactly once site-wide here —
+               not on the home page, not on /bso/eligibility/. An optional
+               `bso_eligibility_summary` adds extra prose; a single CTA
+               links to the fuller /bso/eligibility/ expansion. */ -}}
+        <div class="pb-masthead s-joining__masthead">
+          <div>
+            <div class="sect-head sect-head--left s-joining__head">
+              <span class="eyebrow">{{ i18n "joiningEyebrow" | default "Join us" }}</span>
+              <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "joiningHeading" | default "Add your child to a Pack — or join us as a volunteer." }}{{ end }}</h1>
+              {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+              {{- with .Content }}<div class="s-joining__intro-body">{{ . }}</div>{{ end }}
+            </div>
+            <div class="s-joining__bridges">
+              {{- if $showWelcomePack }}<a class="btn btn-primary-outline" href="{{ $welcomeURL | relURL }}">{{ $welcomeLabel }} &rarr;</a>{{ end }}
+              {{- if site.Params.features.volunteer_feature }}<a class="btn btn-primary-outline" href="{{ "/#volunteer" | relURL }}">{{ $volunteerLabel }} &rarr;</a>{{ end }}
+            </div>
+          </div>
+
+          <div class="s-joining__bso-block">
+            {{ partial "bso-membership-notice.html" . }}
+            {{- with .Params.bso_eligibility_summary }}
+              <div class="s-joining__bso-summary">{{ . | safeHTML }}</div>
+            {{- end }}
+            <p class="s-joining__bso-cta">
+              <a class="styled-link" href="{{ "/bso/eligibility/" | relURL }}">
+                {{- i18n "joiningBsoReadEligibility" | default "Read the full eligibility rules" }} &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+      {{- else }}
+        <div class="sect-head sect-head--left">
+          <span class="eyebrow">{{ i18n "joiningEyebrow" | default "Join us" }}</span>
+          <h1>{{ with .Title }}{{ . }}{{ else }}{{ i18n "joiningHeading" | default "Add your child to a Pack — or join us as a volunteer." }}{{ end }}</h1>
+          {{- with .Params.intro }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{- with .Content }}<div class="s-joining__intro-body">{{ . }}</div>{{ end }}
+        </div>
+        <div class="s-joining__bridges">
+          {{- if $showWelcomePack }}<a class="btn btn-primary-outline" href="{{ $welcomeURL | relURL }}">{{ $welcomeLabel }} &rarr;</a>{{ end }}
+          {{- if site.Params.features.volunteer_feature }}<a class="btn btn-primary-outline" href="{{ "/#volunteer" | relURL }}">{{ $volunteerLabel }} &rarr;</a>{{ end }}
         </div>
       {{- end }}
 
+      <p class="pb-section-label">{{ i18n "joiningPacksLabel" | default "Sections & meeting nights" }}</p>
       {{ partial "joining-grid.html" . }}
 
       {{ partial "joining-faq.html" . }}

@@ -19,18 +19,23 @@
   /* Brand colours (Scouts Purple + Teal — classic-purple palette) */
   --primary:           #7413dc;
   --primary-hover:     #8e34ee;
+  --focus-ring:        #7413dc;   /* a11y focus indicator (SPEC-12); per-palette via palette-style */
   --secondary:         #088486;
   --secondary-hover:   #0bb3b6;
   --tertiary:          #205b41;
   --accent:            #ff912a;
 
-  /* Surface colours */
+  /* Surface colours.
+     --bg is the CARD / nav surface (kept pure white). The page itself
+     sits on the warmer --surface (defined in the structural-tokens block
+     below and applied to <body>), so white cards lift off an off-white
+     field — the "polished, not medical" warmed-neutral treatment. */
   --bg:                #ffffff;
-  --bg-muted:          #f7f7f7;
+  --bg-muted:          #f1efe9;   /* warm muted band (was #f7f7f7) */
 
-  /* Text colours */
-  --text:              #232323;
-  --text-muted:        #5a5a5a;
+  /* Text colours — warmed near-black ink + warm grey muted. */
+  --text:              #14110e;
+  --text-muted:        #45413a;
   --text-on-primary:   #ffffff;
   --text-on-secondary: #ffffff;
 }
@@ -90,8 +95,20 @@
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */
 :root {
+  /* Neutral chrome tokens — palette-independent (NOT injected by
+     palette-style.html). The warmed-neutral surface the page sits on,
+     plus the faint-ink and hairline-rule tones used by cards, the
+     balanced info-page treatment, and section dividers. */
+  --surface:           #fbfaf7;   /* warm off-white page background */
+  --surface-card:      #ffffff;   /* = --bg; alias for card-on-surface clarity */
+  --text-faint:        #76716a;   /* captions, meta, dt labels */
+  --line:              #e7e4dd;   /* hairline rules / card borders */
+
   /* Typography */
-  --font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Display face — UK Scouts brand poster type (Nunito Sans 900). Used for
+     expressive display moments only (the volunteer poster), never body copy. */
+  --font-display: "Nunito Sans", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --display-1: 5rem;     /* hero titles */
   --display-2: 4rem;     /* section titles */
   --display-3: 3rem;
@@ -137,7 +154,9 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text);
-  background: var(--bg);
+  /* Page sits on the warm off-white --surface; cards/nav stay --bg (white)
+     so they lift off the field. --surface is palette-independent. */
+  background: var(--surface, var(--bg));
   -webkit-font-smoothing: antialiased;
 }
 
@@ -471,13 +490,31 @@ a.styled-link { text-decoration: none; }
   .site-nav { top: 16px; padding: 0 16px; }
 }
 
-/* The checkbox is hidden but functionally controls the mobile drawer. */
+/* The checkbox functionally controls the mobile drawer. It is visually
+   hidden but KEYBOARD-FOCUSABLE (no tabindex=-1 / aria-hidden) so the
+   drawer can be opened without a pointer — WCAG 2.1.1. Present only below
+   the 960px desktop breakpoint; display:none at/above it keeps this
+   invisible control out of the desktop tab order. */
 .site-nav__toggle-cb {
   position: absolute;
   opacity: 0;
-  pointer-events: none;
   width: 1px;
   height: 1px;
+  margin: 0;
+}
+@media (min-width: 960px) {
+  .site-nav__toggle-cb { display: none; }
+}
+/* Relocate the focus indicator onto the burger the checkbox controls: a
+   1px box can't show a meaningful ring, so focus stays clearly visible on
+   the burger. This is the ONE deliberate `outline: none` in the theme —
+   focus is relocated, never removed (see DECISIONS.md, SPEC-12). */
+.site-nav__toggle-cb:focus-visible {
+  outline: none;
+}
+.site-nav__toggle-cb:focus-visible ~ .site-nav__inner .site-nav__burger {
+  outline: 2px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
 }
 
 .site-nav__inner {
@@ -523,6 +560,7 @@ a.styled-link { text-decoration: none; }
   .site-nav__fleur { width: 36px; height: 36px; }
 }
 .site-nav__name {
+  font-size: 17px;          /* group name — larger than the menu links */
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -555,7 +593,7 @@ a.styled-link { text-decoration: none; }
   display: inline-block;
   padding: 8px 14px;
   border-radius: 999px;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   color: var(--text-muted, #5a5a5a);
@@ -580,7 +618,7 @@ a.styled-link { text-decoration: none; }
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: none;
   transition: background var(--transition, 0.25s ease),
               transform  var(--transition, 0.25s ease);
@@ -644,9 +682,15 @@ a.styled-link { text-decoration: none; }
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
+  /* visibility:hidden so the collapsed drawer's links are NOT in the tab
+     order (max-height:0 + overflow:hidden alone still leaves them
+     focusable). Deferred 0.3s so it doesn't cut the collapse transition —
+     same technique as the desktop dropdown. */
+  visibility: hidden;
   transition: max-height 0.3s ease,
               opacity    0.2s ease,
-              padding    0.25s ease;
+              padding    0.25s ease,
+              visibility 0s linear 0.3s;
 }
 .site-nav__toggle-cb:checked ~ .site-nav__mobile {
   /* Tall enough for the full auto-built tree; scrolls within the drawer
@@ -657,6 +701,11 @@ a.styled-link { text-decoration: none; }
   opacity: 1;
   padding: 12px;
   pointer-events: auto;
+  visibility: visible;
+  transition: max-height 0.3s ease,
+              opacity    0.2s ease,
+              padding    0.25s ease,
+              visibility 0s linear 0s;
 }
 @media (min-width: 960px) {
   .site-nav__mobile { display: none; }
@@ -757,6 +806,14 @@ a.styled-link { text-decoration: none; }
     height: 10px;
   }
 
+  /* The rightmost group ("About") sits hard against the pill's right edge,
+     so a left-anchored dropdown spills off the viewport. Anchor the last
+     top-level group's panel to the right and let it open leftwards. */
+  .site-nav__list > .site-nav__item:last-child > .site-nav__dropdown {
+    left: auto;
+    right: 0;
+  }
+
   /* Keyboard: focus-within always opens the panel. */
   .site-nav__item--group:focus-within > .site-nav__dropdown {
     opacity: 1;
@@ -770,7 +827,7 @@ a.styled-link { text-decoration: none; }
     display: block;
     padding: 9px 12px;
     border-radius: 10px;
-    font-size: 14.5px;
+    font-size: 15px;
     font-weight: 500;
     text-decoration: none;
     color: var(--text-muted, #5a5a5a);
@@ -1120,6 +1177,432 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   margin: 2rem 0;
+}
+/* -----------------------------------------------------------------------------
+   7. ACCESSIBILITY (SPEC-12)
+   Cross-cutting WCAG 2.2 AA hardening. Always on — no feature flag.
+
+   Contents:
+     a. Skip link            — first focusable element; visible only on focus.
+     b. Global focus ring    — consistent :focus-visible across the theme.
+     c. .sr-only             — visually-hidden-but-screen-reader-visible text.
+     d. Reduced motion       — global kill-switch for animation/transition.
+
+   The --focus-ring token is emitted per-palette by palette-style.html
+   (data/palettes.toml `focus_ring`), falling back to --primary. Every
+   interactive element across the theme already references
+   `var(--focus-ring, var(--primary))`; this file supplies the universal
+   default so nothing is ever left with no visible focus indicator.
+   ----------------------------------------------------------------------------- */
+
+/* ── a. Skip to main content ─────────────────────────────────────────────── */
+/* First child of <body>. Off-screen until focused, then slides into view. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--focus-ring, var(--primary));
+  border-radius: var(--radius-btn, 0.5rem);
+  transition: top var(--transition, 0.25s ease);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* ── b. Global focus ring ────────────────────────────────────────────────── */
+/* Every focusable control shows a visible focus indicator (SPEC-12 AC3).
+   Keyboard focus is shown; pointer focus is not (`:focus-visible`). The one
+   `outline: none` in the theme is on the sr-only mobile-nav toggle in
+   04-nav.css, whose indicator is RELOCATED to the burger it controls —
+   focus is moved, never removed. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
+}
+
+/* ── c. Screen-reader-only utility ───────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── d. Reduced motion ───────────────────────────────────────────────────── */
+/* Honour prefers-reduced-motion globally: neutralise every animation and
+   transition, and disable smooth scrolling. The .reveal fade-in already
+   self-disables in 32-page-load-fade.css; this is the catch-all for hover
+   transitions, the hero intro, caret rotations, etc. (SPEC-12 AC6 / Q12.6). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* -----------------------------------------------------------------------------
+   08. PAGE LAYOUT: BALANCED INFO-PAGE TREATMENT  (pb-*)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Cross-cutting layout for "left-heavy" single pages — the ones whose content
+   is a narrow centred reading column with an empty right half. Ported from the
+   2026 claude.ai/design handoff ("balanced layout" treatment, chats 2–3) and
+   re-expressed in the theme's design tokens so it tracks every palette.
+
+   Components (all `pb-` prefixed to avoid collision with section CSS):
+     .pb-page          width modifier on the .container so the masthead has room
+     .pb-masthead      2-col: lede left, an at-a-glance card right
+     .pb-glance        the at-a-glance card that fills the formerly-empty side
+     .pb-section-label small uppercase divider above a card grid
+     .pb-detail        2-col card grid (.pb-card, .pb-card--redirect)
+     .pb-people        3-col people grid (governance trustees)
+     .pb-files         download file list (reports)
+     .pb-body-grid     prose + sticky right-rail (.pb-rail: TOC + contact card)
+     .pb-related       full-width related-links band
+
+   Used by: bso-eligibility, about/governance, about/reports, the policies
+   single template, and the volunteer-role single. Pure CSS, no JavaScript.
+   ----------------------------------------------------------------------------- */
+
+/* Widen the narrow single-page containers (s-governance__container 60rem,
+   s-bso__container 52rem, s-reports__container 48rem). Two-class selector
+   beats those one-class max-width rules on specificity. */
+.container.pb-page { max-width: 1180px; }
+
+/* ── Masthead — lede left, glance card right ─────────────────── */
+.pb-masthead {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding-bottom: 28px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+}
+.pb-lede {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 42ch;
+}
+.pb-lede + .pb-lede { margin-top: 16px; }
+.pb-cta-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ── At-a-glance card ────────────────────────────────────────── */
+.pb-glance {
+  background: var(--bg-muted);
+  border-radius: 18px;
+  padding: 30px 30px 26px;
+  align-self: stretch;
+  margin: 0;
+}
+.pb-glance__h {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.pb-glance dl { margin: 0; }
+.pb-glance__row { padding: 18px 0; border-top: 1px solid var(--line); }
+.pb-glance__row:first-of-type { border-top: 0; padding-top: 14px; }
+.pb-glance__row dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.pb-glance__row dd { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.5; }
+.pb-glance a { font-weight: 700; }
+.pb-pip { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.pb-pip--yes  { background: var(--primary); }
+.pb-pip--rule { background: var(--secondary); }
+.pb-pip--no   { background: var(--text-faint); }
+
+/* ── Section label (divider above a card grid) ──────────────── */
+.pb-section-label {
+  margin: 54px 0 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
+/* ── Detail card grid ────────────────────────────────────────── */
+.pb-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.pb-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 30px;
+}
+.pb-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.pb-card__tag::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.pb-card h3 { font-size: 22px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.01em; }
+.pb-card p { margin: 0; color: var(--text-muted); font-size: 16px; line-height: 1.55; }
+.pb-card p + p { margin-top: 12px; }
+
+/* Warm "redirect / go elsewhere" card — tinted with the palette accent so it
+   reads differently from the on-message info cards. */
+.pb-card--redirect {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--bg));
+}
+.pb-card--redirect .pb-card__tag { color: color-mix(in srgb, var(--accent) 70%, var(--text)); }
+
+/* ── People grid (governance trustees) ──────────────────────── */
+.pb-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.pb-person {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pb-mono {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklab, var(--primary) 12%, var(--bg));
+  color: var(--primary);
+}
+.pb-person h3 { font-size: 19px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.pb-person__who { font-weight: 700; font-size: 14px; color: var(--primary); margin: 2px 0 0; }
+.pb-person__since { font-size: 13.5px; color: var(--text-faint); margin: 0; }
+.pb-person--join {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--bg));
+  justify-content: space-between;
+}
+.pb-person--join .pb-mono {
+  background: color-mix(in oklab, var(--accent) 16%, var(--bg));
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
+}
+.pb-person--join h3 { font-size: 18px; }
+.pb-person--join p { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.5; }
+
+/* ── File list (reports) ─────────────────────────────────────── */
+.pb-files { display: grid; gap: 0; border-top: 1px solid var(--line); list-style: none; margin: 0; padding: 0; }
+.pb-file {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+.pb-file:hover { background: var(--bg-muted); border-radius: 12px; }
+.pb-file__tag {
+  flex: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border: 1.5px solid color-mix(in oklab, var(--accent) 35%, var(--bg));
+  border-radius: 8px;
+  padding: 7px 9px;
+  background: var(--bg);
+}
+.pb-file__main { flex: 1; min-width: 0; }
+.pb-file__main h3 { font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.pb-file__meta {
+  font-size: 13px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.pb-file__arrow { color: var(--primary); font-weight: 800; font-size: 18px; flex: none; }
+
+/* ── Prose + sticky right-rail (long policy pages) ───────────── */
+.pb-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: start;
+  margin-top: 48px;
+}
+.pb-prose { max-width: 64ch; }
+.pb-prose h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 40px 0 12px;
+  scroll-margin-top: var(--nav-clear, 110px);
+}
+.pb-prose > :first-child { margin-top: 0; }
+.pb-prose p { margin: 0 0 16px; color: var(--text-muted); font-size: 17px; line-height: 1.7; }
+.pb-prose ul, .pb-prose ol { margin: 0 0 16px; padding-left: 1.3rem; }
+.pb-prose li { color: var(--text-muted); font-size: 17px; line-height: 1.7; margin: 0 0 6px; }
+.pb-prose li::marker { color: var(--primary); }
+.pb-prose strong { color: var(--text); }
+.pb-prose a { color: var(--primary); font-weight: 600; }
+
+.pb-rail { position: sticky; top: var(--nav-clear, 28px); display: grid; gap: 16px; }
+.pb-toc { background: var(--bg-muted); border-radius: 18px; padding: 26px 26px 22px; }
+.pb-toc__h {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+/* Hugo emits .TableOfContents as nested <nav id=TableOfContents><ul>. Style
+   the links cleanly; the nesting indents naturally. */
+.pb-toc nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.pb-toc nav ul ul { padding-left: 14px; }
+.pb-toc nav a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.pb-toc nav a:hover { color: var(--primary); }
+.pb-ask { background: var(--primary); color: #fff; border-radius: 18px; padding: 24px 26px; }
+.pb-ask h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
+.pb-ask p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.5; color: rgba(255, 255, 255, 0.85); }
+.pb-ask a { color: #fff; font-weight: 800; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+.pb-ask a:hover { text-decoration: underline; }
+
+/* ── Related band ────────────────────────────────────────────── */
+.pb-related {
+  margin-top: 48px;
+  background: var(--bg-muted);
+  border-radius: 18px;
+  padding: 30px 34px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
+}
+.pb-related__kicker { font-weight: 800; font-size: 17px; }
+.pb-related__links { display: flex; flex-wrap: wrap; gap: 12px; margin-left: auto; }
+.pb-pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.pb-pill-link:hover { border-color: var(--primary); }
+.pb-footnote { flex-basis: 100%; margin: 4px 0 0; color: var(--text-faint); font-size: 14px; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .pb-people { grid-template-columns: repeat(2, 1fr); }
+  .pb-body-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pb-rail { position: static; }
+}
+@media (max-width: 900px) {
+  .pb-masthead { grid-template-columns: 1fr; gap: 32px; }
+  .pb-lede { max-width: none; }
+  .pb-detail { grid-template-columns: 1fr; }
+  .pb-related__links { margin-left: 0; }
+}
+@media (max-width: 560px) {
+  .pb-people { grid-template-columns: 1fr; }
+}
+
+/* Respect reduced-motion is inherited globally (07-a11y.css). */
+/* -----------------------------------------------------------------------------
+   09. COMPONENT: BACK-LINK  (.back-link)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   The single "← Parent" link that sits directly above a sub-page's eyebrow,
+   one step up the hierarchy. Rendered by partials/back-link.html; replaces the
+   old per-section breadcrumb classes.
+
+   Quiet by default (text-muted) so it reads as chrome, animating to the
+   palette primary on hover/focus with a small leftward arrow nudge. Muted →
+   primary stays AA-legible on all five palettes (unlike --secondary, which is
+   pink on the Vibrant palette).
+   ----------------------------------------------------------------------------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition, 0.25s ease);
+}
+.back-link:hover,
+.back-link:focus-visible {
+  color: var(--primary);
+}
+.back-link__arr {
+  transition: transform 0.2s ease;
+}
+.back-link:hover .back-link__arr,
+.back-link:focus-visible .back-link__arr {
+  transform: translateX(-3px);
 }
 /* -----------------------------------------------------------------------------
    10. SECTION: HERO
@@ -1948,6 +2431,11 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
   font-weight: 600;
   font-size: 13.5px;
 }
+
+/* Per-section blurb — hidden on the compact mobile rows; shown inside the
+   vertical desktop card so each section says what it actually does (rather
+   than reading as a wall of logos). Copy comes from data/scout_sections.toml. */
+.s-scout-sections__desc { display: none; }
 .s-scout-sections__lm .arr {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -2000,7 +2488,19 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
   }
   .s-scout-sections__age {
     font-size: 17px;
-    margin-bottom: 0.875rem;   /* 14 px */
+    margin-bottom: 0.625rem;   /* 10 px — tightened now a blurb follows */
+  }
+
+  /* Section blurb — one line of what the section actually does. Sits
+     between the age and the bottom-glued button. */
+  .s-scout-sections__desc {
+    display: block;
+    margin: 0 0 1.125rem;      /* 18 px breathing room above the button */
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-align: center;
+    text-wrap: balance;
   }
 
   /* Hide the inline-text "Learn more →"; show the button-look instead. */
@@ -2515,12 +3015,6 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
   border-radius: 0.5rem;
   margin: 1.5rem 0;
 }
-.s-events__post-foot {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 .s-events__ics {
   margin: 2rem 0;
 }
@@ -2532,8 +3026,7 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
   .s-events-upcoming__chevron,
   .s-events-upcoming__seeall,
   .s-events-upcoming__subscribe,
-  .s-events__feed,
-  .s-events__post-foot { display: none; }
+  .s-events__feed { display: none; }
   .ev-card {
     break-inside: avoid;
     border: 1px solid #ccc;
@@ -2952,6 +3445,7 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
 }
 
 .s-volunteer-feature__poster-headline {
+  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
   font-size: clamp(26px, 7.2cqi, 52px);
   font-weight: 900;
   line-height: 0.98;
@@ -2984,6 +3478,7 @@ body:not(.is-home) main > .section:first-child { padding-top: var(--nav-clear); 
 }
 
 .s-volunteer-feature__stat-copy {
+  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
   font-weight: 900;
   font-size: clamp(20px, 8.4cqi, 64px);
   line-height: 1.05;
@@ -3773,12 +4268,6 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
   border-radius: 0.5rem;
   margin: 1.5rem 0;
 }
-.s-news__post-foot {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 /* -- Home-block "View all news" CTA --------------------------------------- */
 .s-news__viewall {
   text-align: center;
@@ -3796,7 +4285,6 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
 @media print {
   .s-news__pagination,
   .s-news__back,
-  .s-news__post-foot,
   .s-news__viewall { display: none; }
 }
 
@@ -4304,15 +4792,7 @@ body.has-hero-intro .site-nav__name {
   max-width: 56rem;
 }
 
-.s-programme__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-programme__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-programme__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-programme__title-block {
   display: flex;
   align-items: flex-start;
@@ -4360,17 +4840,6 @@ body.has-hero-intro .site-nav__name {
 
 .s-programme__kit-link {
   margin-top: 1.5rem;
-}
-
-.s-programme__post-foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* -- Weeks table ---------------------------------------------------------- */
@@ -4537,8 +5006,6 @@ a.s-programme__chip:hover {
   .site-header,
   .site-footer,
   .s-back-to-top,
-  .s-programme__post-foot,
-  .s-programme__breadcrumb,
   .s-programme__kit-link,
   .s-programme__current-chevron {
     display: none !important;
@@ -4657,6 +5124,26 @@ a.s-programme__chip:hover {
 .s-joining__bso-cta a:focus-visible {
   text-decoration: underline;
 }
+
+/* -- Balanced masthead (BSO sites) ------------------------------------- */
+/* On /join/ the canonical BSO membership notice becomes the masthead's
+   at-a-glance card on the right (08-page-balanced.css .pb-masthead), so it
+   uses the real estate instead of sitting as a centred island. Strip the
+   notice's standalone centring/width so it fills the column, and left-align
+   the summary + "read the full rules" CTA beneath it. */
+.s-joining__masthead .s-joining__head { margin-bottom: 1.5rem; }
+.s-joining__masthead .s-joining__bridges { margin-top: 0; }
+.s-joining__masthead .s-joining__bso-block { margin: 0; }
+.s-joining__masthead .bso-membership-notice { max-width: none; margin: 0; }
+.s-joining__masthead .s-joining__bso-summary,
+.s-joining__masthead .s-joining__bso-cta {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  text-align: left;
+}
+.s-joining__masthead .s-joining__bso-cta { margin-top: 1rem; }
 
 /* -- Card grid --------------------------------------------------------- */
 .s-joining__grid {
@@ -4999,15 +5486,7 @@ a.s-programme__chip:hover {
 }
 
 /* -- Per-chapter page -------------------------------------------------- */
-.s-welcome-pack__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-welcome-pack__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-welcome-pack__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-welcome-pack__chapter-head {
   margin-bottom: 1.5rem;
 }
@@ -5230,15 +5709,7 @@ body.welcome-pack-print main {
 }
 
 /* -- Sub-page prose layout -------------------------------------------- */
-.s-bso__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-bso__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-bso__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-bso__post-head {
   margin-bottom: 1.5rem;
 }
@@ -5870,9 +6341,6 @@ body.welcome-pack-print main {
 }
 
 /* ── Head ─────────────────────────────────────────────────────── */
-.s-kit-lists__breadcrumb {
-  margin: 0 0 1rem;
-}
 .s-kit-lists__head {
   margin-bottom: 2rem;
 }
@@ -6319,53 +6787,10 @@ body.kit-list-print main {
 .s-reports__container {
   max-width: 48rem;
 }
-.s-reports__list {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-}
-.s-reports__item {
-  border-bottom: 1px solid rgba(20, 17, 14, 0.07);
-}
-.s-reports__link {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.75rem;
-  padding: 0.75rem 0;
-  text-decoration: none;
-  color: inherit;
-}
-/* CSS-only PDF glyph — a small document mark, no icon font, no SVG. It's a
-   normal flex item so align-items centres it to the text and `gap` sets the
-   spacing (no absolute positioning / guessed offsets). */
-.s-reports__link::before {
-  content: "PDF";
-  flex: 0 0 auto;
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--primary);
-  border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent);
-  border-radius: 3px;
-  padding: 0.12rem 0.3rem;
-  line-height: 1;
-}
-.s-reports__link:hover .s-reports__label {
-  text-decoration: underline;
-}
-.s-reports__label {
-  font-weight: 600;
-}
-.s-reports__type {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.s-reports__back {
-  margin-top: 1.5rem;
-}
+/* The reports list now uses the shared .pb-files component (08-…) and the
+   top .back-link (09-…); the old .s-reports__list / __link / __back rules
+   were retired with the 2026 design rollout. .s-reports__empty (below) is
+   still rendered by agm-archive.html's empty state. */
 
 @media print {
   .charity-info {
@@ -6590,7 +7015,6 @@ body.kit-list-print main {
 }
 .s-vol__meta-item dd { margin: 0.1rem 0 0; font-weight: 600; }
 .s-vol__apply { margin-top: 1.5rem; }
-.s-vol__back { margin-top: 1.5rem; }
 
 /* ── Recruitment banner (conditional home band) ──────────────── */
 .s-vol-banner__inner {

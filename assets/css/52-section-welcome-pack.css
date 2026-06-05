@@ -84,15 +84,7 @@
 }
 
 /* -- Per-chapter page -------------------------------------------------- */
-.s-welcome-pack__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-welcome-pack__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-welcome-pack__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-welcome-pack__chapter-head {
   margin-bottom: 1.5rem;
 }

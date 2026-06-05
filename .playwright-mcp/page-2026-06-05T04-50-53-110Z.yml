@@ -1,0 +1,142 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - link "Policies" [ref=e29] [cursor=pointer]:
+        - /url: /policies/
+        - generic [ref=e30]: ←
+        - text: Policies
+      - generic [ref=e31]:
+        - generic [ref=e32]: Policy
+        - heading "Photo consent" [level=1] [ref=e33]
+        - paragraph [ref=e34]: How we handle photographs of young people at 1st Anytown Scouts.
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - paragraph [ref=e37]: This page is the starter wording shipped with the British Scout Group theme. Replace the body below with the policy your Group has agreed with its Trustees. Nothing on this page is rendered as a legal instrument until you’ve reviewed it with your safeguarding lead.
+          - heading "Why we ask" [level=2] [ref=e38]
+          - paragraph [ref=e39]: Some of what we do is naturally photogenic — camps, badge presentations, parades. Sharing photos helps families see what their child has been up to and shows prospective members what life in the Group is like. We also have a duty of care to the young people in those photos.
+          - heading "What we ask of parents and carers" [level=2] [ref=e40]
+          - paragraph [ref=e41]: "When a young person joins, you’ll be asked to tick a photo-consent box on their OSM record. You can change your answer at any time: contact the Group Lead Volunteer and we will update the record and remove any already-published photos that include your child."
+          - heading "How we use photos" [level=2] [ref=e42]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - strong [ref=e45]: Our website.
+              - text: Galleries on this site are reviewed by the safeguarding lead before publication. Captions never identify a young person by name.
+            - listitem [ref=e46]:
+              - strong [ref=e47]: Group communications.
+              - text: Newsletters and Group-wide messages on the parents’ channel use the same consent setting.
+            - listitem [ref=e48]:
+              - strong [ref=e49]: Scouts UK and District.
+              - text: Occasionally District or Headquarters ask for photos for their own publications. We tell them which records have consent and only forward those.
+          - heading "What we don’t do" [level=2] [ref=e50]
+          - list [ref=e51]:
+            - listitem [ref=e52]: We don’t post photos on social media platforms that we don’t own (no Facebook, Instagram or TikTok presence for this Group).
+            - listitem [ref=e53]: We don’t sell photos.
+            - listitem [ref=e54]: We don’t embed third-party tracking on this site.
+          - heading "Right to be forgotten" [level=2] [ref=e55]
+          - paragraph [ref=e56]: Email the Group Lead Volunteer and we’ll remove any photo at your request, no questions asked. Removal usually takes effect within two working days.
+          - heading "Where signed records are kept" [level=2] [ref=e57]
+          - paragraph [ref=e58]: Signed photo-consent records are stored against each young person’s record in OSM. Paper consent forms from camps are kept by the camp leader for the duration of the activity and then logged in OSM.
+        - complementary [ref=e59]:
+          - navigation "On this page" [ref=e60]:
+            - paragraph [ref=e61]: On this page
+            - navigation [ref=e62]:
+              - list [ref=e63]:
+                - listitem [ref=e64]:
+                  - link "Why we ask" [ref=e65] [cursor=pointer]:
+                    - /url: "#why-we-ask"
+                - listitem [ref=e66]:
+                  - link "What we ask of parents and carers" [ref=e67] [cursor=pointer]:
+                    - /url: "#what-we-ask-of-parents-and-carers"
+                - listitem [ref=e68]:
+                  - link "How we use photos" [ref=e69] [cursor=pointer]:
+                    - /url: "#how-we-use-photos"
+                - listitem [ref=e70]:
+                  - link "What we don’t do" [ref=e71] [cursor=pointer]:
+                    - /url: "#what-we-dont-do"
+                - listitem [ref=e72]:
+                  - link "Right to be forgotten" [ref=e73] [cursor=pointer]:
+                    - /url: "#right-to-be-forgotten"
+                - listitem [ref=e74]:
+                  - link "Where signed records are kept" [ref=e75] [cursor=pointer]:
+                    - /url: "#where-signed-records-are-kept"
+          - generic [ref=e76]:
+            - heading "Questions about this policy?" [level=3] [ref=e77]
+            - paragraph [ref=e78]: Contact the Group and we'll be glad to help.
+            - link "Get in touch →" [ref=e79] [cursor=pointer]:
+              - /url: /join/
+  - contentinfo [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - img [ref=e85]
+            - generic [ref=e87]: 1st Anytown Scouts
+          - paragraph [ref=e88]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e89]:
+          - heading "Visit" [level=5] [ref=e90]
+          - list [ref=e91]:
+            - listitem [ref=e92]: Anytown Scout Hut
+            - listitem [ref=e93]: 11 Hut Lane
+            - listitem [ref=e94]: Anytown
+        - generic [ref=e95]:
+          - heading "Contact" [level=5] [ref=e96]
+          - list [ref=e97]:
+            - listitem [ref=e98]:
+              - link "hello@anytown-scouts.org" [ref=e99] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e100]:
+              - link "+44 1234 567 890" [ref=e101] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e102]:
+              - link "Instagram" [ref=e103] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e104]:
+          - heading "About" [level=5] [ref=e105]
+          - list [ref=e106]:
+            - listitem [ref=e107]:
+              - link "Safeguarding" [ref=e108] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e109]:
+              - link "Privacy" [ref=e110] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e111]:
+        - generic [ref=e112]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e113]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e115]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e116] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

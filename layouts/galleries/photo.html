@@ -32,9 +32,7 @@
     <div class="container s-galleries__photo-container">
 
       <header class="s-galleries__photo-head">
-        <p class="eyebrow">
-          <a href="{{ $gallery.RelPermalink }}">← {{ $gallery.Title }}</a>
-        </p>
+        {{ partial "back-link.html" (dict "page" . "url" $gallery.RelPermalink "label" $gallery.Title) }}
       </header>
 
       <figure class="s-galleries__photo-figure">

@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - article [ref=e15]:
+      - generic [ref=e16]:
+        - paragraph [ref=e17]:
+          - link "← All volunteer roles" [ref=e18] [cursor=pointer]:
+            - /url: /support-us/volunteer-roles/
+        - generic [ref=e19]:
+          - generic [ref=e21]: Remote OK
+          - heading "Group Treasurer" [level=1] [ref=e22]
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - term [ref=e25]: Time
+              - definition [ref=e26]: A few hours a month, plus the AGM
+            - generic [ref=e27]:
+              - term [ref=e28]: Starts
+              - definition [ref=e29]: September 2026
+            - generic [ref=e30]:
+              - term [ref=e31]: Safeguarding
+              - definition [ref=e32]: A DBS check is required for this role.
+        - paragraph [ref=e34]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility — but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
+        - paragraph [ref=e35]:
+          - link "Apply for this role →" [ref=e36] [cursor=pointer]:
+            - /url: mailto:volunteers@1stanytown.org.uk
+  - contentinfo [ref=e37]:
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - img [ref=e42]
+            - generic [ref=e44]: 1st Anytown Scouts
+          - paragraph [ref=e45]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e46]:
+          - heading "Visit" [level=5] [ref=e47]
+          - list [ref=e48]:
+            - listitem [ref=e49]: Anytown Scout Hut
+            - listitem [ref=e50]: 11 Hut Lane
+            - listitem [ref=e51]: Anytown
+        - generic [ref=e52]:
+          - heading "Contact" [level=5] [ref=e53]
+          - list [ref=e54]:
+            - listitem [ref=e55]:
+              - link "hello@anytown-scouts.org" [ref=e56] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e57]:
+              - link "+44 1234 567 890" [ref=e58] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e59]:
+              - link "Instagram" [ref=e60] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e61]:
+          - heading "About" [level=5] [ref=e62]
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "Safeguarding" [ref=e65] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e66]:
+              - link "Privacy" [ref=e67] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e68]:
+        - generic [ref=e69]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e70]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e72]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e73] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

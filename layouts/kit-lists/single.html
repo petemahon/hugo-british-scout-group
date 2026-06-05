@@ -33,9 +33,7 @@
   <article class="s-kit-lists s-kit-lists--single section reveal"{{ with $sectionColor }} style="--sec: {{ . }};"{{ end }}>
     <div class="container s-kit-lists__container">
 
-      <p class="s-kit-lists__breadcrumb display-7">
-        <a href="{{ "/kit-lists/" | relURL }}">&larr; {{ i18n "kitListBackToList" | default "All kit lists" }}</a>
-      </p>
+      {{ partial "back-link.html" . }}
 
       <header class="s-kit-lists__head">
         <span class="eyebrow">{{ $sectionName }}{{ with .Params.camp_type }} · {{ . }}{{ end }}</span>

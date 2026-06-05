@@ -15,8 +15,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
 
 <link rel="stylesheet" href="/css/theme.css">
 
@@ -26,14 +26,15 @@
 :root {
   --primary:             #205b41;
   --primary-hover:       #2c7a57;
+  --focus-ring:          #205b41;
   --secondary:           #ff912a;
   --secondary-hover:     #ffa648;
   --tertiary:            #7413dc;
   --accent:              #ffe627;
   --bg:                  #ffffff;
-  --bg-muted:            #f7f7f7;
-  --text:                #232323;
-  --text-muted:          #5a5a5a;
+  --bg-muted:            #f1efe9;
+  --text:                #14110e;
+  --text-muted:          #45413a;
   --text-on-primary:     #ffffff;
   --text-on-secondary:   #000000;
   --warning:             #d4351c;
@@ -48,7 +49,7 @@
 </style>
 
 
-</head><body id="top">
+</head><body id="top"><a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fleur" viewBox="0 0 56 50" fill="currentColor">
     
   <title>Scouts fleur de lis</title>
@@ -80,7 +81,7 @@
 
   <header class="site-nav" role="banner" aria-label="Site header">
   <input type="checkbox" id="site-nav-toggle" class="site-nav__toggle-cb"
-         aria-hidden="true" tabindex="-1">
+         aria-label="Open menu">
 
   <div class="site-nav__inner">
 
@@ -145,9 +146,7 @@
   </ul>
 </nav>
 
-
-    <label for="site-nav-toggle" class="site-nav__burger"
-           aria-label="Open menu">
+    <label for="site-nav-toggle" class="site-nav__burger" aria-hidden="true">
       <span></span><span></span><span></span>
     </label>
 
@@ -221,8 +220,7 @@
 
 
 </header>
-
-  <main>
+<main id="main" tabindex="-1">
     <article class="section s-history reveal s-history--tl-sidebar">
     <div class="container s-history__container">
 

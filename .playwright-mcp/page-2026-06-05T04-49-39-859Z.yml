@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - link "Abouts" [ref=e29] [cursor=pointer]:
+          - /url: /about/
+          - generic [ref=e30]: ←
+          - text: Abouts
+        - generic [ref=e31]:
+          - generic [ref=e32]: Governance
+          - heading "Governance" [level=1] [ref=e33]
+        - generic [ref=e34]:
+          - paragraph [ref=e36]: We're a volunteer-run Group operating under British Scouting Overseas. A Trustee Board (our Group Executive) is responsible for our finances, our safeguarding duties and the upkeep of our equipment, and is accountable to parents at the Annual General Meeting.
+          - generic [ref=e37]:
+            - paragraph [ref=e38]: At a glance
+            - generic [ref=e39]:
+              - generic [ref=e40]:
+                - term [ref=e41]: Next AGM
+                - definition [ref=e42]: Tuesday 13 May 2026, 19:30
+              - generic [ref=e43]:
+                - term [ref=e44]: Trustee Board
+                - definition [ref=e45]: 5 trustees
+              - generic [ref=e46]:
+                - term [ref=e47]: Registered charity
+                - definition [ref=e48]: "1151702"
+        - paragraph [ref=e49]: Trustee Board
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - generic [ref=e52]: SW
+            - generic [ref=e53]:
+              - heading "Sarah Whitfield" [level=3] [ref=e54]
+              - paragraph [ref=e55]: Chair of Trustees
+              - paragraph [ref=e56]: trustee since 2022
+          - generic [ref=e57]:
+            - generic [ref=e58]: IQ
+            - generic [ref=e59]:
+              - heading "Imran Qureshi" [level=3] [ref=e60]
+              - paragraph [ref=e61]: Treasurer
+              - paragraph [ref=e62]: trustee since 2023
+          - generic [ref=e63]:
+            - generic [ref=e64]: HO
+            - generic [ref=e65]:
+              - heading "Helen Osei" [level=3] [ref=e66]
+              - paragraph [ref=e67]: Secretary
+              - paragraph [ref=e68]: trustee since 2021
+          - generic [ref=e69]:
+            - generic [ref=e70]: DL
+            - generic [ref=e71]:
+              - heading "David Lindqvist" [level=3] [ref=e72]
+              - paragraph [ref=e73]: Group Scout Leader (ex officio)
+              - paragraph [ref=e74]: trustee since 2020
+          - generic [ref=e75]:
+            - generic [ref=e76]: PN
+            - generic [ref=e77]:
+              - heading "Priya Nair" [level=3] [ref=e78]
+              - paragraph [ref=e79]: Trustee
+              - paragraph [ref=e80]: trustee since 2024
+          - generic [ref=e81]:
+            - generic [ref=e82]: +
+            - generic [ref=e83]:
+              - heading "Could you join the board?" [level=3] [ref=e84]
+              - paragraph [ref=e85]: We'd welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM.
+        - paragraph [ref=e86]: AGM & charity registration
+        - generic [ref=e87]:
+          - article [ref=e88]:
+            - generic [ref=e89]: Annual General Meeting
+            - heading "Tuesday 13 May 2026, 19:30" [level=3] [ref=e90]
+            - paragraph [ref=e91]: The community centre hall (and online — link sent to all families)
+          - article [ref=e92]:
+            - generic [ref=e93]: Charity registration
+            - paragraph [ref=e95]:
+              - text: "Registered charity:"
+              - link "British Scouting Overseas (1151702)" [ref=e96] [cursor=pointer]:
+                - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+              - text: · Charity Commission for England and Wales
+        - paragraph [ref=e98]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board — particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
+        - generic [ref=e99]:
+          - generic [ref=e100]: Reports & accounts
+          - link "Trustees' Annual Reports and AGM minutes →" [ref=e102] [cursor=pointer]:
+            - /url: /about/reports/
+  - contentinfo [ref=e103]:
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - img [ref=e108]
+            - generic [ref=e110]: 1st Anytown Scouts
+          - paragraph [ref=e111]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e112]:
+          - heading "Visit" [level=5] [ref=e113]
+          - list [ref=e114]:
+            - listitem [ref=e115]: Anytown Scout Hut
+            - listitem [ref=e116]: 11 Hut Lane
+            - listitem [ref=e117]: Anytown
+        - generic [ref=e118]:
+          - heading "Contact" [level=5] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "hello@anytown-scouts.org" [ref=e122] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e123]:
+              - link "+44 1234 567 890" [ref=e124] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e125]:
+              - link "Instagram" [ref=e126] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e127]:
+          - heading "About" [level=5] [ref=e128]
+          - list [ref=e129]:
+            - listitem [ref=e130]:
+              - link "Safeguarding" [ref=e131] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e132]:
+              - link "Privacy" [ref=e133] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e134]:
+        - generic [ref=e135]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e136]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e138]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e139] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

@@ -1,0 +1,83 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Accounts & minutes
+        - heading "Trustees' reports & AGM minutes" [level=1] [ref=e19]
+        - paragraph [ref=e20]: Our Trustees' Annual Reports and AGM minutes, published for parents, members and grant funders. The full financial detail sits inside each Trustees' Annual Report.
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - link "PDF 2024 Trustees' Annual Report Annual Report" [ref=e23] [cursor=pointer]:
+            - /url: /about/reports/2024-trustees-annual-report.pdf
+            - text: PDF
+            - generic [ref=e24]: 2024 Trustees' Annual Report
+            - generic [ref=e25]: Annual Report
+        - listitem [ref=e26]:
+          - link "PDF 2024 AGM Minutes AGM minutes" [ref=e27] [cursor=pointer]:
+            - /url: /about/reports/2024-agm-minutes.pdf
+            - text: PDF
+            - generic [ref=e28]: 2024 AGM Minutes
+            - generic [ref=e29]: AGM minutes
+        - listitem [ref=e30]:
+          - link "PDF 2023 Trustees' Annual Report Annual Report" [ref=e31] [cursor=pointer]:
+            - /url: /about/reports/2023-trustees-annual-report.pdf
+            - text: PDF
+            - generic [ref=e32]: 2023 Trustees' Annual Report
+            - generic [ref=e33]: Annual Report
+      - paragraph [ref=e34]:
+        - link "← Back to governance" [ref=e35] [cursor=pointer]:
+          - /url: /about/governance/
+  - contentinfo [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - img [ref=e41]
+            - generic [ref=e43]: 1st Anytown Scouts
+          - paragraph [ref=e44]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e45]:
+          - heading "Visit" [level=5] [ref=e46]
+          - list [ref=e47]:
+            - listitem [ref=e48]: Anytown Scout Hut
+            - listitem [ref=e49]: 11 Hut Lane
+            - listitem [ref=e50]: Anytown
+        - generic [ref=e51]:
+          - heading "Contact" [level=5] [ref=e52]
+          - list [ref=e53]:
+            - listitem [ref=e54]:
+              - link "hello@anytown-scouts.org" [ref=e55] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e56]:
+              - link "+44 1234 567 890" [ref=e57] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e58]:
+              - link "Instagram" [ref=e59] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e60]:
+          - heading "About" [level=5] [ref=e61]
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "Safeguarding" [ref=e64] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e65]:
+              - link "Privacy" [ref=e66] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e67]:
+        - generic [ref=e68]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e69]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e71]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e72] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

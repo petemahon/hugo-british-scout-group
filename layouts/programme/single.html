@@ -41,9 +41,7 @@
     <div class="container s-programme__container">
 
       <header class="s-programme__post-head">
-        <p class="s-programme__breadcrumb display-7">
-          <a href="{{ "/programme/" | relURL }}">&larr; {{ i18n "programmeBackToList" | default "All programmes" }}</a>
-        </p>
+        {{ partial "back-link.html" . }}
 
         <div class="s-programme__title-block">
           <span class="s-programme__section-pip s-programme__section-pip--lg"
@@ -87,12 +85,10 @@
         </p>
       {{- end }}
 
-      <footer class="s-programme__post-foot">
-        <a class="btn btn-primary-outline" href="{{ "/programme/" | relURL }}">&larr; {{ i18n "programmeBackToList" | default "All programmes" }}</a>
-        {{- /* No JS print button — parents use Ctrl/Cmd+P. The print
-               stylesheet in 50-section-programme.css scopes the page to
-               table + heading and forces <details> open. */ -}}
-      </footer>
+      {{- /* No bottom back-button — the back-link sits at the top now. No JS
+             print button either: parents use Ctrl/Cmd+P and the print
+             stylesheet in 50-section-programme.css scopes the page to the
+             table + heading and forces <details> open. */ -}}
 
     </div>
   </article>

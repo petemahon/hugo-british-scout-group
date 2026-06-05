@@ -1,0 +1,123 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Volunteer
+        - heading "Volunteer with us" [level=1] [ref=e31]
+        - paragraph [ref=e32]: Scouting here runs entirely on volunteers. You don't need to have been a Scout, and you don't need to commit every week — there's a role to fit most lives, including a few you can do remotely. Below are the roles we're actively looking to fill.
+      - generic [ref=e33]:
+        - article [ref=e34]:
+          - generic [ref=e36]: Cubs
+          - heading "Assistant Cub Leader" [level=3] [ref=e37]:
+            - link "Assistant Cub Leader" [ref=e38] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/assistant-cub-leader/
+          - paragraph [ref=e39]: Wednesday evenings, term time (plus the odd weekend camp)
+          - paragraph
+          - paragraph [ref=e40]: "Help run our Wednesday Cub Pack: games, badge work, the occasional bit of controlled chaos, and the camps that Cubs remember for years. You’d work alongside Akela and the rest of the team — no experience needed, just reliability and a sense of humour. We’ll fund and book your training, and you’ll never be on your own with the Pack."
+          - paragraph
+          - paragraph [ref=e41]:
+            - link "About this role →" [ref=e42] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/assistant-cub-leader/
+        - article [ref=e43]:
+          - generic [ref=e45]: Remote OK
+          - heading "Group Treasurer" [level=3] [ref=e46]:
+            - link "Group Treasurer" [ref=e47] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/treasurer/
+          - paragraph [ref=e48]: A few hours a month, plus the AGM
+          - paragraph
+          - paragraph [ref=e49]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility — but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
+          - paragraph
+          - paragraph [ref=e50]:
+            - link "About this role →" [ref=e51] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/treasurer/
+        - article [ref=e52]:
+          - generic [ref=e54]: Remote OK
+          - heading "Trustee (Group Executive)" [level=3] [ref=e55]:
+            - link "Trustee (Group Executive)" [ref=e56] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/trustee/
+          - paragraph [ref=e57]: Around six meetings a year
+          - paragraph
+          - paragraph [ref=e58]: Our Trustee Board (the Group Executive) looks after the Group’s money, property, safeguarding duties and overall direction. We’re looking for people with skills in finance, fundraising, premises, HR or law — but also just sensible people who care about local young people. Meetings can be joined online, so this works well for supporters living away from the area, including back in the UK.
+          - paragraph
+          - paragraph [ref=e59]:
+            - link "About this role →" [ref=e60] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/trustee/
+      - paragraph [ref=e61]:
+        - link "← Back to Support us" [ref=e62] [cursor=pointer]:
+          - /url: /support-us/
+  - contentinfo [ref=e63]:
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - generic [ref=e70]: 1st Anytown Scouts
+          - paragraph [ref=e71]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e72]:
+          - heading "Visit" [level=5] [ref=e73]
+          - list [ref=e74]:
+            - listitem [ref=e75]: Anytown Scout Hut
+            - listitem [ref=e76]: 11 Hut Lane
+            - listitem [ref=e77]: Anytown
+        - generic [ref=e78]:
+          - heading "Contact" [level=5] [ref=e79]
+          - list [ref=e80]:
+            - listitem [ref=e81]:
+              - link "hello@anytown-scouts.org" [ref=e82] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e83]:
+              - link "+44 1234 567 890" [ref=e84] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e85]:
+              - link "Instagram" [ref=e86] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e87]:
+          - heading "About" [level=5] [ref=e88]
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Safeguarding" [ref=e91] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e92]:
+              - link "Privacy" [ref=e93] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e94]:
+        - generic [ref=e95]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e96]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e98]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e99] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

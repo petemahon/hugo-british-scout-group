@@ -1,0 +1,109 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - paragraph [ref=e30]:
+            - link "← Galleries" [ref=e31] [cursor=pointer]:
+              - /url: /galleries/
+          - heading "St George's Day Parade 2026" [level=1] [ref=e32]
+          - paragraph [ref=e33]: A morning of marching, awards and oversized flags. Squirrels through to Scouts all on parade.
+          - list "Scout sections in this gallery" [ref=e34]:
+            - listitem [ref=e35]: Squirrels
+            - listitem [ref=e36]: Beavers
+            - listitem [ref=e37]: Cubs
+            - listitem [ref=e38]: Scouts
+          - paragraph [ref=e39]:
+            - 'link "Camp report: St George''s Day Parade →" [ref=e40] [cursor=pointer]':
+              - /url: /news/2026-04-19-st-georges-day/
+        - generic [ref=e41]:
+          - link "A line of Squirrels and Beavers in uniform standing to attention on the church steps Squirrels and Beavers on parade outside the church" [ref=e42] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/001/
+            - img "A line of Squirrels and Beavers in uniform standing to attention on the church steps" [ref=e43]
+            - generic [ref=e44]: Squirrels and Beavers on parade outside the church
+          - link "A Cub Scout receiving a chief scout silver award from the District Commissioner Awards before the service" [ref=e45] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/002/
+            - img "A Cub Scout receiving a chief scout silver award from the District Commissioner" [ref=e46]
+            - generic [ref=e47]: Awards before the service
+          - link "Scout colour party leading the parade up the high street" [ref=e48] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/003/
+            - img "Scout colour party leading the parade up the high street" [ref=e49]
+        - paragraph [ref=e51]:
+          - link "How we handle photos →" [ref=e52] [cursor=pointer]:
+            - /url: /policies/photo-consent/
+  - contentinfo [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - img [ref=e58]
+            - generic [ref=e60]: 1st Anytown Scouts
+          - paragraph [ref=e61]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e62]:
+          - heading "Visit" [level=5] [ref=e63]
+          - list [ref=e64]:
+            - listitem [ref=e65]: Anytown Scout Hut
+            - listitem [ref=e66]: 11 Hut Lane
+            - listitem [ref=e67]: Anytown
+        - generic [ref=e68]:
+          - heading "Contact" [level=5] [ref=e69]
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "hello@anytown-scouts.org" [ref=e72] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e73]:
+              - link "+44 1234 567 890" [ref=e74] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e75]:
+              - link "Instagram" [ref=e76] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e77]:
+          - heading "About" [level=5] [ref=e78]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Safeguarding" [ref=e81] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e82]:
+              - link "Privacy" [ref=e83] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e84]:
+        - generic [ref=e85]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e86]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e88]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e89] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

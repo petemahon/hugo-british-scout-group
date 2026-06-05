@@ -26,6 +26,8 @@
     <div class="s-two-col-image__grid"{{ if .reverse }} style="direction: rtl;"{{ end }}>
       <div{{ if .reverse }} style="direction: ltr;"{{ end }}>
         {{- if $img }}
+          {{- /* Non-empty alt is mandatory when an image is set (SPEC-12 AC5). */ -}}
+          {{- partial "audit-image.html" (dict "image" .image.src "alt" .image.alt "field" "image.alt" "context" (printf "two-col-image-cta section %q" (.id | default .title | default ""))) -}}
           <img src="{{ $img }}" alt="{{ .image.alt | default "" }}" loading="lazy">
         {{- end }}
       </div>

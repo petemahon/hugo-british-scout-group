@@ -1,0 +1,68 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - article [ref=e15]:
+      - generic [ref=e16]:
+        - paragraph [ref=e18]:
+          - link "← St George's Day Parade 2026" [ref=e19] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/
+        - figure "Squirrels and Beavers on parade outside the church" [ref=e20]:
+          - img "A line of Squirrels and Beavers in uniform standing to attention on the church steps" [ref=e21]
+          - generic [ref=e22]: Squirrels and Beavers on parade outside the church
+        - navigation "Photo navigation" [ref=e23]:
+          - generic [ref=e24]: 1 of 3
+          - link "Next photo →" [ref=e25] [cursor=pointer]:
+            - /url: /galleries/2026-04-19-st-georges-day/002/
+  - contentinfo [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - img [ref=e31]
+            - generic [ref=e33]: 1st Anytown Scouts
+          - paragraph [ref=e34]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e35]:
+          - heading "Visit" [level=5] [ref=e36]
+          - list [ref=e37]:
+            - listitem [ref=e38]: Anytown Scout Hut
+            - listitem [ref=e39]: 11 Hut Lane
+            - listitem [ref=e40]: Anytown
+        - generic [ref=e41]:
+          - heading "Contact" [level=5] [ref=e42]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - link "hello@anytown-scouts.org" [ref=e45] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e46]:
+              - link "+44 1234 567 890" [ref=e47] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e48]:
+              - link "Instagram" [ref=e49] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e50]:
+          - heading "About" [level=5] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "Safeguarding" [ref=e54] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e55]:
+              - link "Privacy" [ref=e56] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e57]:
+        - generic [ref=e58]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e59]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e61]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e62] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

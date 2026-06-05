@@ -17,13 +17,17 @@
     "other"         (i18n "reportsTypeOther" | default "Document") -}}
 {{- with $reports }}
   {{- $sorted := sort . "year" "desc" }}
-  <ul class="s-reports__list">
+  <ul class="pb-files">
     {{- range $sorted }}
       {{- $type := .type | default "other" }}
-      <li class="s-reports__item">
-        <a class="s-reports__link" href="{{ (printf "/about/reports/%s" .filename) | relURL }}" download>
-          <span class="s-reports__label">{{ .label }}</span>
-          <span class="s-reports__type">{{ index $typeLabels $type | default $type }}</span>
+      <li>
+        <a class="pb-file" href="{{ (printf "/about/reports/%s" .filename) | relURL }}" download>
+          <span class="pb-file__tag">PDF</span>
+          <span class="pb-file__main">
+            <h3>{{ .label }}</h3>
+            <span class="pb-file__meta">{{ index $typeLabels $type | default $type }} · {{ .year }}</span>
+          </span>
+          <span class="pb-file__arrow" aria-hidden="true">&darr;</span>
         </a>
       </li>
     {{- end }}

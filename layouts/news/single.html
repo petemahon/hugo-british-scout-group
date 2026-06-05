@@ -9,10 +9,8 @@
 {{ define "main" }}
 {{- if site.Params.features.news -}}
 
-  {{- /* cover_alt is mandatory when cover_image is set. */ -}}
-  {{- if and .Params.cover_image (not .Params.cover_alt) -}}
-    {{- errorf "news post %q: cover_image is set but cover_alt is empty. cover_alt is required for accessibility." .File.LogicalName -}}
-  {{- end -}}
+  {{- /* cover_alt is mandatory when cover_image is set (SPEC-12 AC5). */ -}}
+  {{- partial "audit-image.html" (dict "image" .Params.cover_image "alt" .Params.cover_alt "field" "cover_alt" "context" (printf "news post %q" .File.LogicalName)) -}}
 
   {{- /* Photo-consent lint. If any image is referenced (cover OR inline in
          the body — Markdown !\[ or raw <img>), photo_consent must be true. */ -}}
@@ -25,6 +23,7 @@
 
   <article class="section s-news s-news--single reveal">
     <div class="container s-news__container">
+      {{ partial "back-link.html" . }}
       {{- with .Params.cover_image -}}
         {{- $coverPath := printf "news/%s/%s" $.File.ContentBaseName . -}}
         {{- $img := resources.Get $coverPath -}}
@@ -53,9 +52,6 @@
         {{ .Content }}
       </div>
 
-      <footer class="s-news__post-foot">
-        <a class="btn btn-primary-outline" href="{{ "/news/" | relURL }}">← {{ i18n "newsBackToList" }}</a>
-      </footer>
     </div>
   </article>
 {{- end -}}

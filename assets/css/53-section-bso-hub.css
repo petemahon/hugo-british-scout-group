@@ -72,15 +72,7 @@
 }
 
 /* -- Sub-page prose layout -------------------------------------------- */
-.s-bso__breadcrumb {
-  margin: 0 0 1.5rem;
-}
-.s-bso__breadcrumb a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-.s-bso__breadcrumb a:hover { text-decoration: underline; }
-
+/* Back-link retired — now the shared .back-link component (09-…). */
 .s-bso__post-head {
   margin-bottom: 1.5rem;
 }

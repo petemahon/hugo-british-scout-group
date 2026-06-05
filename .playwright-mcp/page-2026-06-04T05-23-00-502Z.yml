@@ -1,0 +1,124 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "News from 1st Anytown Scouts" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Camp write-ups, badge presentations, and what's been happening across the Group.
+      - generic [ref=e20]:
+        - article [ref=e21]:
+          - link [ref=e22] [cursor=pointer]:
+            - /url: /news/2026-04-19-st-georges-day/
+            - img [ref=e23]
+          - generic [ref=e24]:
+            - heading "St George's Day Parade" [level=3] [ref=e25]:
+              - link "St George's Day Parade" [ref=e26] [cursor=pointer]:
+                - /url: /news/2026-04-19-st-georges-day/
+            - generic [ref=e27]:
+              - time [ref=e28]: 19 April 2026
+              - generic [ref=e29]: by GSL
+              - list "Scout sections featured" [ref=e30]:
+                - listitem [ref=e31]:
+                  - link "Beavers" [ref=e32] [cursor=pointer]:
+                    - /url: /news/sections/beavers/
+                - listitem [ref=e33]:
+                  - link "Cubs" [ref=e34] [cursor=pointer]:
+                    - /url: /news/sections/cubs/
+                - listitem [ref=e35]:
+                  - link "Scouts" [ref=e36] [cursor=pointer]:
+                    - /url: /news/sections/scouts/
+                - listitem [ref=e37]:
+                  - link "Explorers" [ref=e38] [cursor=pointer]:
+                    - /url: /news/sections/explorers/
+            - paragraph [ref=e39]: The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in.
+            - link "Read more" [ref=e40] [cursor=pointer]:
+              - /url: /news/2026-04-19-st-georges-day/
+              - text: Read more →
+        - article [ref=e41]:
+          - link [ref=e42] [cursor=pointer]:
+            - /url: /news/2026-03-30-cubs-cooking-cup/
+            - img [ref=e43]
+          - generic [ref=e44]:
+            - heading "Cubs Cooking Cup 2026" [level=3] [ref=e45]:
+              - link "Cubs Cooking Cup 2026" [ref=e46] [cursor=pointer]:
+                - /url: /news/2026-03-30-cubs-cooking-cup/
+            - generic [ref=e47]:
+              - time [ref=e48]: 30 March 2026
+              - generic [ref=e49]: by Akela
+              - list "Scout sections featured" [ref=e50]:
+                - listitem [ref=e51]:
+                  - link "Cubs" [ref=e52] [cursor=pointer]:
+                    - /url: /news/sections/cubs/
+            - paragraph [ref=e53]: Six teams. Three courses. One champion. Notes from the most-contested Cooking Cup the Pack has ever seen.
+            - link "Read more" [ref=e54] [cursor=pointer]:
+              - /url: /news/2026-03-30-cubs-cooking-cup/
+              - text: Read more →
+        - article [ref=e55]:
+          - generic [ref=e56]:
+            - heading "Squirrels start in September" [level=3] [ref=e57]:
+              - link "Squirrels start in September" [ref=e58] [cursor=pointer]:
+                - /url: /news/2026-02-15-squirrels-launch/
+            - generic [ref=e59]:
+              - time [ref=e60]: 15 February 2026
+              - generic [ref=e61]: by GSL
+              - list "Scout sections featured" [ref=e62]:
+                - listitem [ref=e63]:
+                  - link "Squirrels" [ref=e64] [cursor=pointer]:
+                    - /url: /news/sections/squirrels/
+            - paragraph [ref=e65]: We're delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.
+            - link "Read more" [ref=e66] [cursor=pointer]:
+              - /url: /news/2026-02-15-squirrels-launch/
+              - text: Read more →
+  - contentinfo [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - img [ref=e72]
+            - generic [ref=e74]: 1st Anytown Scouts
+          - paragraph [ref=e75]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e76]:
+          - heading "Visit" [level=5] [ref=e77]
+          - list [ref=e78]:
+            - listitem [ref=e79]: Anytown Scout Hut
+            - listitem [ref=e80]: 11 Hut Lane
+            - listitem [ref=e81]: Anytown
+        - generic [ref=e82]:
+          - heading "Contact" [level=5] [ref=e83]
+          - list [ref=e84]:
+            - listitem [ref=e85]:
+              - link "hello@anytown-scouts.org" [ref=e86] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e87]:
+              - link "+44 1234 567 890" [ref=e88] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e89]:
+              - link "Instagram" [ref=e90] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e91]:
+          - heading "About" [level=5] [ref=e92]
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "Safeguarding" [ref=e95] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e96]:
+              - link "Privacy" [ref=e97] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e98]:
+        - generic [ref=e99]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e100]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e102]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e103] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

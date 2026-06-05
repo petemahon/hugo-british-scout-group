@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Support us
+        - heading "Support us" [level=1] [ref=e19]
+        - paragraph [ref=e20]: Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people — and gift-aided donations go further still.
+      - paragraph [ref=e22]: Thank you to everyone who supports the Group — whether by giving, by turning out to help at events, or by shopping through easyfundraising. It genuinely keeps us running.
+      - generic [ref=e23]:
+        - heading "Give online" [level=2] [ref=e24]
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - link "Make a donation" [ref=e27] [cursor=pointer]:
+              - /url: https://example.com/donate
+          - listitem [ref=e28]:
+            - link "easyfundraising" [ref=e29] [cursor=pointer]:
+              - /url: https://www.easyfundraising.org.uk/causes/example-scouts/
+          - listitem [ref=e30]:
+            - link "JustGiving" [ref=e31] [cursor=pointer]:
+              - /url: https://www.justgiving.com/example-scouts
+      - generic [ref=e32]:
+        - heading "What we run" [level=2] [ref=e33]
+        - generic [ref=e34]:
+          - article [ref=e35]:
+            - heading "Christmas Post" [level=3] [ref=e36]
+            - paragraph [ref=e37]: Every December
+            - paragraph [ref=e38]: Our young people sort and deliver Christmas cards across the area for a small fee per card. It's our biggest single fundraiser of the year and a brilliant community-service badge opportunity.
+            - paragraph [ref=e39]:
+              - link "Get involved →" [ref=e40] [cursor=pointer]:
+                - /url: mailto:fundraising@1stanytown.org.uk
+          - article [ref=e41]:
+            - heading "100 Club" [level=3] [ref=e42]
+            - paragraph [ref=e43]: Monthly draw
+            - paragraph [ref=e44]: A monthly prize draw — members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join.
+          - article [ref=e45]:
+            - heading "Bag packing & bonfire BBQ" [level=3] [ref=e46]
+            - paragraph [ref=e47]: Autumn
+            - paragraph [ref=e48]: Seasonal events we run with the whole Group — many hands needed, and a good excuse to get everyone together.
+      - generic [ref=e49]:
+        - heading "Where the money goes 2024–25" [level=2] [ref=e50]
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - term [ref=e53]: Income
+            - definition [ref=e54]: £14000
+          - generic [ref=e55]:
+            - term [ref=e56]: Expenditure
+            - definition [ref=e57]: £13200
+        - paragraph [ref=e58]: We hold roughly three months of running costs in reserve, in line with Charity Commission guidance.
+        - paragraph [ref=e59]:
+          - link "Read our full accounts →" [ref=e60] [cursor=pointer]:
+            - /url: /about/reports/
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - img [ref=e66]
+            - generic [ref=e68]: 1st Anytown Scouts
+          - paragraph [ref=e69]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e70]:
+          - heading "Visit" [level=5] [ref=e71]
+          - list [ref=e72]:
+            - listitem [ref=e73]: Anytown Scout Hut
+            - listitem [ref=e74]: 11 Hut Lane
+            - listitem [ref=e75]: Anytown
+        - generic [ref=e76]:
+          - heading "Contact" [level=5] [ref=e77]
+          - list [ref=e78]:
+            - listitem [ref=e79]:
+              - link "hello@anytown-scouts.org" [ref=e80] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e81]:
+              - link "+44 1234 567 890" [ref=e82] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e83]:
+              - link "Instagram" [ref=e84] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e85]:
+          - heading "About" [level=5] [ref=e86]
+          - list [ref=e87]:
+            - listitem [ref=e88]:
+              - link "Safeguarding" [ref=e89] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e90]:
+              - link "Privacy" [ref=e91] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e92]:
+        - generic [ref=e93]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e94]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e96]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e97] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

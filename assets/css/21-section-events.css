@@ -482,12 +482,6 @@
   border-radius: 0.5rem;
   margin: 1.5rem 0;
 }
-.s-events__post-foot {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 .s-events__ics {
   margin: 2rem 0;
 }
@@ -499,8 +493,7 @@
   .s-events-upcoming__chevron,
   .s-events-upcoming__seeall,
   .s-events-upcoming__subscribe,
-  .s-events__feed,
-  .s-events__post-foot { display: none; }
+  .s-events__feed { display: none; }
   .ev-card {
     break-inside: avoid;
     border: 1px solid #ccc;

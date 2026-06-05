@@ -156,6 +156,11 @@
   font-weight: 600;
   font-size: 13.5px;
 }
+
+/* Per-section blurb — hidden on the compact mobile rows; shown inside the
+   vertical desktop card so each section says what it actually does (rather
+   than reading as a wall of logos). Copy comes from data/scout_sections.toml. */
+.s-scout-sections__desc { display: none; }
 .s-scout-sections__lm .arr {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -208,7 +213,19 @@
   }
   .s-scout-sections__age {
     font-size: 17px;
-    margin-bottom: 0.875rem;   /* 14 px */
+    margin-bottom: 0.625rem;   /* 10 px — tightened now a blurb follows */
+  }
+
+  /* Section blurb — one line of what the section actually does. Sits
+     between the age and the bottom-glued button. */
+  .s-scout-sections__desc {
+    display: block;
+    margin: 0 0 1.125rem;      /* 18 px breathing room above the button */
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-align: center;
+    text-wrap: balance;
   }
 
   /* Hide the inline-text "Learn more →"; show the button-look instead. */

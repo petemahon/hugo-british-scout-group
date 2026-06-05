@@ -9,7 +9,7 @@ throughout.
 
 - **Licence:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) © Peter Mahon
 - **Minimum Hugo:** 0.156 (extended edition)
-- **Live example:** [1stadscouts.org](https://1stadscouts.org) (1st Abu Dhabi Scouts)
+- **Live example:** [adscouts.org](https://adscouts.org) (Abu Dhabi Scouts)
 
 ---
 
@@ -48,6 +48,17 @@ Out of the box, the theme provides:
 - An **Events** system with calendar-import (`.ics`) downloads, a
   Cancelled/Postponed status model, and dual-time rendering for
   overseas Groups.
+- A **Termly Programme** publisher, **Photo Galleries** with build-time
+  consent lints, reusable **Camp Kit Lists** with printable sheets, and
+  a **Joining / Waiting-List** page plus a printable **Welcome Pack**.
+- **History & Governance** pages (CSS-only timeline, Trustee Board,
+  charity-registration footer), a **Hall Hire** page, and a
+  **Fundraising & Volunteering** area with open-role listings.
+- A **BSO Joining Hub** (`/bso/`) for overseas Groups — eligibility,
+  moving-in/out pathways, and host-country scouting bodies.
+- An **auto-built navigation** (no menu config — driven by your feature
+  flags) and **WCAG 2.2 AA accessibility** baked in (skip link, focus
+  rings, reduced motion, build-time alt/heading lints, axe-core CI).
 - A **Network feature band** promoting Scout Network (18–25) on a
   Scouts-Orange brand-anchor background.
 - A **BSO membership notice** partial implementing The Scout
@@ -127,14 +138,20 @@ title = "1st Anytown Scouts"
 
 [[sections]]
   type    = "scout-sections"
-  id      = "our-sections"
+  id      = "sections"               # the always-on #sections nav anchor
   title   = "Our sections"
   subtitle = "We run programmes for ages 6 to 14 — find the one that fits."
 
+# "Where we meet" is a section-header (the title) immediately followed by
+# an embed (the map). Keep the two adjacent — the header titles the map.
 [[sections]]
-  type    = "where-we-meet"
-  id      = "where-we-meet"
+  type    = "section-header"
+  id      = "where-we-meet"          # the always-on #where-we-meet nav anchor
   title   = "Where we meet"
+
+[[sections]]
+  type    = "embed"
+  url     = "https://snazzymaps.com/embed/123456"   # CHANGE ME — your map
 ```
 
 ### 5. Serve
@@ -280,7 +297,8 @@ relies on these keys).
 | `news-grid`          | Home-page block listing recent news posts (requires `news`).                       |
 | `gallery-strip`      | Home-page block — latest gallery's cover plus a short row of thumbs (requires `galleries`). |
 | `programme-current`  | Home-page block — collapsible "this term's programme" per section (requires `programme`). Opt-in: ships disabled by default. |
-| `join` / `where-we-meet` | Stable nav-anchor sections.                                                    |
+| `volunteer-recruitment-banner` | Home-page band linking to open volunteer roles — renders **only** when a role is open (requires `fundraising`; SPEC-09). |
+| `join`               | The Join Us nav-anchor section (`id="join"` → `#join`).                            |
 
 Each consuming-site section block in `content/_index.md` looks like:
 
@@ -950,6 +968,39 @@ Order and hierarchy are owned by the theme and not Group-configurable.
   show_what_we_do = false   # hide a group from the auto-nav
 ```
 
+### Accessibility (SPEC-12)
+
+Every page the theme renders targets **WCAG 2.2 AA** out of the box —
+there is no flag and nothing to switch on. Publishing this theme should
+not require additional accessibility work.
+
+- **Skip link** — a "Skip to main content" link is the first focusable
+  element on every page (hidden until focused), jumping to the
+  `<main id="main">` landmark. Relabel via the `a11ySkipToContent`
+  i18n key.
+- **Landmarks** — `<header>`, `<nav aria-label>`, `<main>` and
+  `<footer>` on every page.
+- **Visible focus** — a consistent 2px focus ring on every interactive
+  element via `:focus-visible`, coloured by the new `--focus-ring`
+  palette token (per palette in `data/palettes.toml`, falling back to
+  `--primary`). Every focusable control shows a visible indicator —
+  including the keyboard-operable mobile-nav drawer.
+- **Reduced motion** — all animation, transition and smooth scrolling
+  is neutralised under `prefers-reduced-motion: reduce`.
+- **Build-time lints** — the build fails if any editorial image is set
+  without non-empty `alt` text (`partials/audit-image.html`), or if a
+  page's body Markdown introduces a second `<h1>` (start body headings
+  at `## `; the page title is the only `<h1>`).
+- **CI checks** — `.github/workflows/a11y.yml` runs a palette
+  colour-contrast audit (`tools/audit-contrast.mjs`) and an
+  `@axe-core/cli` WCAG scan of the rendered example site. A site
+  consuming the theme can copy the same two steps into its own deploy
+  workflow.
+
+If you add a new image-bearing content type, call `audit-image.html`
+for it; if you add a section partial, start its headings at `<h2>`.
+See `documentation/SPEC-COMMON.md` §17.
+
 ---
 
 ## Customising
@@ -981,11 +1032,13 @@ adding a new module is a drop-in:
 
 ```
 00-tokens.css                  Design tokens + brand anchors
-01-base.css                    Resets, typography
+01-reset.css                   Resets, typography
 02-layout.css                  Container, grid, link-decoration sentinels
 03-components-buttons.css      .btn, .btn-primary, .btn-ghost, .btn-dark
-04-nav.css                     Sticky nav, dropdowns, mobile hamburger
+04-nav.css                     Sticky nav, dropdowns, mobile drawer
 05-components-sect-head.css    .sect-head + .eyebrow shared component
+06-components-article.css      Prose/article typography
+07-a11y.css                    Skip link, focus ring, sr-only, reduced motion (SPEC-12)
 …
 10-section-hero.css            Section modules — one per section type
 11-section-two-col-cta.css
@@ -994,6 +1047,8 @@ adding a new module is a drop-in:
 23-section-volunteer-feature.css (D11)
 24-section-bso-membership.css (D12)
 30-footer.css                  (D13)
+31-back-to-top.css
+32-page-load-fade.css          (reveal fade-in; honours reduced motion)
 40-section-news.css            (SPEC-01)
 41-feature-hero-intro.css      (opt-in, gated by body class)
 50-section-programme.css       (SPEC-03)
@@ -1001,6 +1056,10 @@ adding a new module is a drop-in:
 52-section-welcome-pack.css    (SPEC-06)
 53-section-bso-hub.css         (SPEC-10)
 54-section-galleries.css       (SPEC-04)
+55-section-kit-lists.css       (SPEC-05)
+56-section-about.css           (SPEC-07 history/governance)
+57-section-support-us.css      (SPEC-09 fundraising/volunteering)
+58-section-hall-hire.css       (SPEC-08)
 ```
 
 To override theme styles in your site, add a `assets/css/99-site.css`
@@ -1102,6 +1161,10 @@ hugo-british-scout-group/
 ├── LICENSE                        # CC BY-SA 4.0 © Peter Mahon
 ├── theme.toml                     # theme metadata for Hugo
 ├── Makefile                       # make serve | build | roll | clean
+├── .github/
+│   └── workflows/a11y.yml         # contrast + axe-core WCAG CI (SPEC-12)
+├── tools/
+│   └── audit-contrast.mjs         # palette contrast audit, run in CI (SPEC-12)
 ├── archetypes/                    # `hugo new` scaffolds
 ├── assets/
 │   ├── css/                       # numbered CSS modules (00–99)
@@ -1139,9 +1202,10 @@ hugo-british-scout-group/
 │       └── palettes/_index.md
 └── documentation/
     ├── README.md                  # spec-pack reading order
+    ├── DECISIONS.md               # locked architectural choices
+    ├── SPEC-COMMON.md             # cross-cutting conventions
+    ├── D13-SPEC.md                # D5–D13 redesign closing record
     └── specs/
-        ├── DECISIONS.md           # locked architectural choices
-        ├── SPEC-COMMON.md         # cross-cutting conventions
         └── SPEC-01-news.md … SPEC-12-accessibility.md
 ```
 
@@ -1216,8 +1280,8 @@ invariants that need a conversation, not a silent flip:
 - Anything that would make the theme BSO-specific in code. BSO
   features stay optional add-ons.
 - Renaming or removing any canonical section type.
-- Renaming the three always-on nav anchors (`#joining`,
-  `#our-sections`, `#where-we-meet`).
+- Renaming the three always-on nav anchors (`#join`,
+  `#sections`, `#where-we-meet`).
 - The BSO membership notice copy (aligned with POR 3.2.1.1).
 - Bumping `theme.toml` `min_version`.
 - Adding content from copyrighted Scout brand assets (the official

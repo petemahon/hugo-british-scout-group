@@ -1,0 +1,308 @@
+/* -----------------------------------------------------------------------------
+   08. PAGE LAYOUT: BALANCED INFO-PAGE TREATMENT  (pb-*)
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Cross-cutting layout for "left-heavy" single pages — the ones whose content
+   is a narrow centred reading column with an empty right half. Ported from the
+   2026 claude.ai/design handoff ("balanced layout" treatment, chats 2–3) and
+   re-expressed in the theme's design tokens so it tracks every palette.
+
+   Components (all `pb-` prefixed to avoid collision with section CSS):
+     .pb-page          width modifier on the .container so the masthead has room
+     .pb-masthead      2-col: lede left, an at-a-glance card right
+     .pb-glance        the at-a-glance card that fills the formerly-empty side
+     .pb-section-label small uppercase divider above a card grid
+     .pb-detail        2-col card grid (.pb-card, .pb-card--redirect)
+     .pb-people        3-col people grid (governance trustees)
+     .pb-files         download file list (reports)
+     .pb-body-grid     prose + sticky right-rail (.pb-rail: TOC + contact card)
+     .pb-related       full-width related-links band
+
+   Used by: bso-eligibility, about/governance, about/reports, the policies
+   single template, and the volunteer-role single. Pure CSS, no JavaScript.
+   ----------------------------------------------------------------------------- */
+
+/* Widen the narrow single-page containers (s-governance__container 60rem,
+   s-bso__container 52rem, s-reports__container 48rem). Two-class selector
+   beats those one-class max-width rules on specificity. */
+.container.pb-page { max-width: 1180px; }
+
+/* ── Masthead — lede left, glance card right ─────────────────── */
+.pb-masthead {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding-bottom: 28px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+}
+.pb-lede {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 42ch;
+}
+.pb-lede + .pb-lede { margin-top: 16px; }
+.pb-cta-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ── At-a-glance card ────────────────────────────────────────── */
+.pb-glance {
+  background: var(--bg-muted);
+  border-radius: 18px;
+  padding: 30px 30px 26px;
+  align-self: stretch;
+  margin: 0;
+}
+.pb-glance__h {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.pb-glance dl { margin: 0; }
+.pb-glance__row { padding: 18px 0; border-top: 1px solid var(--line); }
+.pb-glance__row:first-of-type { border-top: 0; padding-top: 14px; }
+.pb-glance__row dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.pb-glance__row dd { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.5; }
+.pb-glance a { font-weight: 700; }
+.pb-pip { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.pb-pip--yes  { background: var(--primary); }
+.pb-pip--rule { background: var(--secondary); }
+.pb-pip--no   { background: var(--text-faint); }
+
+/* ── Section label (divider above a card grid) ──────────────── */
+.pb-section-label {
+  margin: 54px 0 22px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
+/* ── Detail card grid ────────────────────────────────────────── */
+.pb-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.pb-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 30px;
+}
+.pb-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.pb-card__tag::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.pb-card h3 { font-size: 22px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.01em; }
+.pb-card p { margin: 0; color: var(--text-muted); font-size: 16px; line-height: 1.55; }
+.pb-card p + p { margin-top: 12px; }
+
+/* Warm "redirect / go elsewhere" card — tinted with the palette accent so it
+   reads differently from the on-message info cards. */
+.pb-card--redirect {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--bg));
+}
+.pb-card--redirect .pb-card__tag { color: color-mix(in srgb, var(--accent) 70%, var(--text)); }
+
+/* ── People grid (governance trustees) ──────────────────────── */
+.pb-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.pb-person {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pb-mono {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklab, var(--primary) 12%, var(--bg));
+  color: var(--primary);
+}
+.pb-person h3 { font-size: 19px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.pb-person__who { font-weight: 700; font-size: 14px; color: var(--primary); margin: 2px 0 0; }
+.pb-person__since { font-size: 13.5px; color: var(--text-faint); margin: 0; }
+.pb-person--join {
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--bg));
+  justify-content: space-between;
+}
+.pb-person--join .pb-mono {
+  background: color-mix(in oklab, var(--accent) 16%, var(--bg));
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
+}
+.pb-person--join h3 { font-size: 18px; }
+.pb-person--join p { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.5; }
+
+/* ── File list (reports) ─────────────────────────────────────── */
+.pb-files { display: grid; gap: 0; border-top: 1px solid var(--line); list-style: none; margin: 0; padding: 0; }
+.pb-file {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+.pb-file:hover { background: var(--bg-muted); border-radius: 12px; }
+.pb-file__tag {
+  flex: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border: 1.5px solid color-mix(in oklab, var(--accent) 35%, var(--bg));
+  border-radius: 8px;
+  padding: 7px 9px;
+  background: var(--bg);
+}
+.pb-file__main { flex: 1; min-width: 0; }
+.pb-file__main h3 { font-size: 18px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.pb-file__meta {
+  font-size: 13px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.pb-file__arrow { color: var(--primary); font-weight: 800; font-size: 18px; flex: none; }
+
+/* ── Prose + sticky right-rail (long policy pages) ───────────── */
+.pb-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: start;
+  margin-top: 48px;
+}
+.pb-prose { max-width: 64ch; }
+.pb-prose h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 40px 0 12px;
+  scroll-margin-top: var(--nav-clear, 110px);
+}
+.pb-prose > :first-child { margin-top: 0; }
+.pb-prose p { margin: 0 0 16px; color: var(--text-muted); font-size: 17px; line-height: 1.7; }
+.pb-prose ul, .pb-prose ol { margin: 0 0 16px; padding-left: 1.3rem; }
+.pb-prose li { color: var(--text-muted); font-size: 17px; line-height: 1.7; margin: 0 0 6px; }
+.pb-prose li::marker { color: var(--primary); }
+.pb-prose strong { color: var(--text); }
+.pb-prose a { color: var(--primary); font-weight: 600; }
+
+.pb-rail { position: sticky; top: var(--nav-clear, 28px); display: grid; gap: 16px; }
+.pb-toc { background: var(--bg-muted); border-radius: 18px; padding: 26px 26px 22px; }
+.pb-toc__h {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+/* Hugo emits .TableOfContents as nested <nav id=TableOfContents><ul>. Style
+   the links cleanly; the nesting indents naturally. */
+.pb-toc nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.pb-toc nav ul ul { padding-left: 14px; }
+.pb-toc nav a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.pb-toc nav a:hover { color: var(--primary); }
+.pb-ask { background: var(--primary); color: #fff; border-radius: 18px; padding: 24px 26px; }
+.pb-ask h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
+.pb-ask p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.5; color: rgba(255, 255, 255, 0.85); }
+.pb-ask a { color: #fff; font-weight: 800; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+.pb-ask a:hover { text-decoration: underline; }
+
+/* ── Related band ────────────────────────────────────────────── */
+.pb-related {
+  margin-top: 48px;
+  background: var(--bg-muted);
+  border-radius: 18px;
+  padding: 30px 34px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
+}
+.pb-related__kicker { font-weight: 800; font-size: 17px; }
+.pb-related__links { display: flex; flex-wrap: wrap; gap: 12px; margin-left: auto; }
+.pb-pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.pb-pill-link:hover { border-color: var(--primary); }
+.pb-footnote { flex-basis: 100%; margin: 4px 0 0; color: var(--text-faint); font-size: 14px; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .pb-people { grid-template-columns: repeat(2, 1fr); }
+  .pb-body-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pb-rail { position: static; }
+}
+@media (max-width: 900px) {
+  .pb-masthead { grid-template-columns: 1fr; gap: 32px; }
+  .pb-lede { max-width: none; }
+  .pb-detail { grid-template-columns: 1fr; }
+  .pb-related__links { margin-left: 0; }
+}
+@media (max-width: 560px) {
+  .pb-people { grid-template-columns: 1fr; }
+}
+
+/* Respect reduced-motion is inherited globally (07-a11y.css). */

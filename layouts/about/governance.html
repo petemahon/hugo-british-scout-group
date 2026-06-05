@@ -7,48 +7,108 @@
 
   Charity registration (optional — a Group may have a Trustee Board but
   no charity of its own), AGM details, the Trustee Board from
-  data/trustees.toml, and (Phase 2) the AGM/reports archive.
+  data/trustees.toml, and the reports archive link.
+
+  Uses the balanced info-page treatment (08-page-balanced.css): a masthead
+  with an "At a glance" card (next AGM, board size, charity reg), the
+  trustees as a people-card grid, AGM + charity as detail cards, and a
+  related band for the reports archive.
 
   Feature gate: site.Params.features.governance.
 */ -}}
 {{ define "main" }}
 {{- if site.Params.features.governance -}}
   {{- $g := site.Params.governance | default dict -}}
-  {{- $hasCharity := or ($g.charity_number | default "") (and ($g.charity_secondary | default false) ($g.charity_secondary_number | default "")) -}}
+  {{- $charityNumber := $g.charity_number | default "" -}}
+  {{- $hasCharity := or $charityNumber (and ($g.charity_secondary | default false) ($g.charity_secondary_number | default "")) -}}
+  {{- $trustees := (index hugo.Data "trustees").trustee | default slice -}}
+  {{- $hasAgm := or .Params.agm_date .Params.agm_location .Params.agm_papers_url -}}
 
   <article class="section s-governance reveal">
-    <div class="container s-governance__container">
+    <div class="container s-governance__container pb-page">
 
+      {{ partial "back-link.html" . }}
       <header class="s-governance__head">
         <span class="eyebrow">{{ i18n "governanceEyebrow" | default "Governance" }}</span>
         <h1 class="s-governance__title display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "governanceHeading" | default "How the Group is run" }}{{ end }}</h1>
-        {{- with .Params.intro }}<p class="s-governance__intro display-7">{{ . | safeHTML }}</p>{{ end }}
       </header>
 
-      {{- if $hasCharity }}
-        <section class="s-governance__charity">
-          <h2>{{ i18n "governanceCharityHeading" | default "Charity registration" }}</h2>
-          {{ partial "charity-info.html" . }}
-        </section>
-      {{- end }}
+      <div class="pb-masthead">
+        <div>
+          {{- with .Params.intro }}<p class="pb-lede">{{ . | safeHTML }}</p>{{ end }}
+        </div>
 
-      {{- if or .Params.agm_date .Params.agm_location .Params.agm_papers_url }}
-        <section class="s-governance__agm">
-          <h2>{{ i18n "governanceAgmHeading" | default "Annual General Meeting" }}</h2>
-          {{- with .Params.agm_date }}<p class="s-governance__agm-date"><strong>{{ . }}</strong></p>{{ end }}
-          {{- with .Params.agm_location }}<p class="s-governance__agm-location">{{ . }}</p>{{ end }}
-          {{- with .Params.agm_papers_url }}
-            <p class="s-governance__agm-papers"><a class="styled-link" href="{{ . | relURL }}">{{ i18n "governanceAgmPapers" | default "AGM papers (PDF)" }} &rarr;</a></p>
-          {{- end }}
-        </section>
-      {{- end }}
+        <div class="pb-glance">
+          <p class="pb-glance__h">{{ i18n "governanceGlanceHeading" | default "At a glance" }}</p>
+          <dl>
+            {{- with .Params.agm_date }}
+            <div class="pb-glance__row">
+              <dt>{{ i18n "governanceGlanceAgm" | default "Next AGM" }}</dt>
+              <dd>{{ . }}</dd>
+            </div>
+            {{- end }}
+            {{- with $trustees }}
+            <div class="pb-glance__row">
+              <dt>{{ i18n "governanceGlanceBoard" | default "Trustee Board" }}</dt>
+              <dd>{{ len . }} {{ i18n "governanceGlanceBoardUnit" | default "trustees" }}</dd>
+            </div>
+            {{- end }}
+            {{- with $charityNumber }}
+            <div class="pb-glance__row">
+              <dt>{{ i18n "governanceGlanceCharity" | default "Registered charity" }}</dt>
+              <dd>{{ . }}</dd>
+            </div>
+            {{- end }}
+          </dl>
+        </div>
+      </div>
 
-      {{- $trustees := (index hugo.Data "trustees").trustee | default slice }}
       {{- with $trustees }}
-        <section class="s-governance__board">
-          <h2>{{ i18n "governanceBoardHeading" | default "Trustee Board" }}</h2>
-          {{ partial "trustee-list.html" $ }}
-        </section>
+        <p class="pb-section-label">{{ i18n "governanceBoardHeading" | default "Trustee Board" }}</p>
+        <div class="pb-people">
+          {{- range . }}
+            {{- $parts := split .name " " -}}
+            {{- $initials := substr (index $parts 0) 0 1 -}}
+            {{- if gt (len $parts) 1 }}{{ $initials = printf "%s%s" $initials (substr (index $parts (sub (len $parts) 1)) 0 1) }}{{ end -}}
+            <div class="pb-person">
+              <span class="pb-mono" aria-hidden="true">{{ upper $initials }}</span>
+              <div>
+                <h3>{{ .name }}</h3>
+                <p class="pb-person__who">{{ .role }}</p>
+                {{- with .appointed }}<p class="pb-person__since">{{ i18n "governanceTrusteeSince" | default "trustee since" }} {{ . }}</p>{{ end }}
+              </div>
+            </div>
+          {{- end }}
+          <div class="pb-person pb-person--join">
+            <span class="pb-mono" aria-hidden="true">+</span>
+            <div>
+              <h3>{{ i18n "governanceJoinBoardHeading" | default "Could you join the board?" }}</h3>
+              <p>{{ i18n "governanceJoinBoardBody" | default "We'd welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM." }}</p>
+            </div>
+          </div>
+        </div>
+      {{- end }}
+
+      {{- if or $hasAgm $hasCharity }}
+        <p class="pb-section-label">{{ i18n "governanceDetailLabel" | default "AGM & charity registration" }}</p>
+        <div class="pb-detail">
+          {{- if $hasAgm }}
+            <article class="pb-card">
+              <span class="pb-card__tag">{{ i18n "governanceAgmHeading" | default "Annual General Meeting" }}</span>
+              {{- with .Params.agm_date }}<h3>{{ . }}</h3>{{ end }}
+              {{- with .Params.agm_location }}<p>{{ . }}</p>{{ end }}
+              {{- with .Params.agm_papers_url }}
+                <p><a class="styled-link" href="{{ . | relURL }}">{{ i18n "governanceAgmPapers" | default "AGM papers (PDF)" }} &rarr;</a></p>
+              {{- end }}
+            </article>
+          {{- end }}
+          {{- if $hasCharity }}
+            <article class="pb-card">
+              <span class="pb-card__tag">{{ i18n "governanceCharityHeading" | default "Charity registration" }}</span>
+              {{ partial "charity-info.html" . }}
+            </article>
+          {{- end }}
+        </div>
       {{- end }}
 
       {{- with .Content }}
@@ -57,11 +117,11 @@
 
       {{- $reports := (index hugo.Data "reports").report | default slice }}
       {{- if and (.Params.show_reports_archive | default true) (gt (len $reports) 0) }}
-        <section class="s-governance__reports">
-          <h2>{{ i18n "governanceReportsHeading" | default "Reports & accounts" }}</h2>
-          <p class="s-governance__reports-link">
-            <a class="styled-link" href="{{ "/about/reports/" | relURL }}">{{ i18n "governanceReportsLink" | default "Trustees' Annual Reports and AGM minutes" }} &rarr;</a>
-          </p>
+        <section class="pb-related">
+          <span class="pb-related__kicker">{{ i18n "governanceReportsHeading" | default "Reports & accounts" }}</span>
+          <div class="pb-related__links">
+            <a class="pb-pill-link" href="{{ "/about/reports/" | relURL }}">{{ i18n "governanceReportsLink" | default "Trustees' reports & AGM minutes" }} &rarr;</a>
+          </div>
         </section>
       {{- end }}
 

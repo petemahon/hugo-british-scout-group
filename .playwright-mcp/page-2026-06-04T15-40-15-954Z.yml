@@ -1,0 +1,122 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Accounts & minutes
+        - heading "Trustees' reports & AGM minutes" [level=1] [ref=e31]
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Our Trustees' Annual Reports and AGM minutes, published for parents, members and grant funders. The full financial detail sits inside each Trustees' Annual Report.
+          - link "← Back to governance" [ref=e36] [cursor=pointer]:
+            - /url: /about/governance/
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: At a glance
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - term [ref=e41]: Most recent
+              - definition [ref=e42]: "2024"
+            - generic [ref=e43]:
+              - term [ref=e44]: Documents
+              - definition [ref=e45]: 3 available to download
+      - paragraph [ref=e46]: Documents
+      - list [ref=e47]:
+        - listitem [ref=e48]:
+          - link "PDF 2024 Trustees' Annual Report Annual Report · 2024" [ref=e49] [cursor=pointer]:
+            - /url: /about/reports/2024-trustees-annual-report.pdf
+            - generic [ref=e50]: PDF
+            - generic [ref=e51]:
+              - heading "2024 Trustees' Annual Report" [level=3] [ref=e52]
+              - text: Annual Report · 2024
+            - generic [ref=e53]: ↓
+        - listitem [ref=e54]:
+          - link "PDF 2024 AGM Minutes AGM minutes · 2024" [ref=e55] [cursor=pointer]:
+            - /url: /about/reports/2024-agm-minutes.pdf
+            - generic [ref=e56]: PDF
+            - generic [ref=e57]:
+              - heading "2024 AGM Minutes" [level=3] [ref=e58]
+              - text: AGM minutes · 2024
+            - generic [ref=e59]: ↓
+        - listitem [ref=e60]:
+          - link "PDF 2023 Trustees' Annual Report Annual Report · 2023" [ref=e61] [cursor=pointer]:
+            - /url: /about/reports/2023-trustees-annual-report.pdf
+            - generic [ref=e62]: PDF
+            - generic [ref=e63]:
+              - heading "2023 Trustees' Annual Report" [level=3] [ref=e64]
+              - text: Annual Report · 2023
+            - generic [ref=e65]: ↓
+  - contentinfo [ref=e66]:
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - img [ref=e71]
+            - generic [ref=e73]: 1st Anytown Scouts
+          - paragraph [ref=e74]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e75]:
+          - heading "Visit" [level=5] [ref=e76]
+          - list [ref=e77]:
+            - listitem [ref=e78]: Anytown Scout Hut
+            - listitem [ref=e79]: 11 Hut Lane
+            - listitem [ref=e80]: Anytown
+        - generic [ref=e81]:
+          - heading "Contact" [level=5] [ref=e82]
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - link "hello@anytown-scouts.org" [ref=e85] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e86]:
+              - link "+44 1234 567 890" [ref=e87] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e88]:
+              - link "Instagram" [ref=e89] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e90]:
+          - heading "About" [level=5] [ref=e91]
+          - list [ref=e92]:
+            - listitem [ref=e93]:
+              - link "Safeguarding" [ref=e94] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e95]:
+              - link "Privacy" [ref=e96] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e97]:
+        - generic [ref=e98]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e99]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e101]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e102] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

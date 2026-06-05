@@ -24,6 +24,7 @@
 :root {
   --primary:             {{ .primary }};
   --primary-hover:       {{ .primary_hover }};
+  --focus-ring:          {{ .focus_ring | default .primary }};
   --secondary:           {{ .secondary }};
   --secondary-hover:     {{ .secondary_hover }};
   --tertiary:            {{ .tertiary }};

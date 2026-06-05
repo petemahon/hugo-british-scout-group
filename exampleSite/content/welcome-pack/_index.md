@@ -1,5 +1,6 @@
 +++
 title              = "1st Anytown Scouts — Welcome Pack"
+linkTitle          = "Welcome Pack"   # concise back-link / nav label
 intro              = "Everything you need to know in the first few weeks: what each section does, how subs work, our safeguarding promise, and the year's calendar."
 pack_version       = "2026.1"
 pack_reviewed_date = 2026-04-01

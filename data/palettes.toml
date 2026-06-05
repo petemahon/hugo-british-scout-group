@@ -58,16 +58,17 @@
   description = "Scouts Purple primary with Teal secondary. The default UK Scouts house style."
   primary           = "#7413dc"  # Scouts Purple
   primary_hover     = "#8e34ee"
+  focus_ring        = "#7413dc"  # = primary; ~6.4:1 on white, meets AA (SPEC-12)
   secondary         = "#088486"  # Scouts Teal
   secondary_hover   = "#0bb3b6"
   tertiary          = "#205b41"  # Scouts Forest Green
   accent            = "#ff912a"  # Scouts Orange
-  text              = "#232323"
-  text_muted        = "#5a5a5a"
+  text              = "#14110e"
+  text_muted        = "#45413a"
   text_on_primary   = "#ffffff"
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
-  bg_muted          = "#f7f7f7"
+  bg_muted          = "#f1efe9"
   warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
@@ -87,16 +88,17 @@
   description = "Forest Green primary with Orange secondary. Outdoorsy and energetic."
   primary           = "#205b41"  # Scouts Forest Green
   primary_hover     = "#2c7a57"
+  focus_ring        = "#205b41"  # = primary; ~7:1 on white, meets AA (SPEC-12)
   secondary         = "#ff912a"  # Scouts Orange
   secondary_hover   = "#ffa648"
   tertiary          = "#7413dc"  # Scouts Purple
   accent            = "#ffe627"  # Scouts Yellow
-  text              = "#232323"
-  text_muted        = "#5a5a5a"
+  text              = "#14110e"
+  text_muted        = "#45413a"
   text_on_primary   = "#ffffff"
   text_on_secondary = "#000000"
   bg                = "#ffffff"
-  bg_muted          = "#f7f7f7"
+  bg_muted          = "#f1efe9"
   warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
@@ -116,16 +118,17 @@
   description = "Navy primary with Blue secondary. For Sea Scout Groups and waterside settings."
   primary           = "#003982"  # Scouts Navy
   primary_hover     = "#004ba8"
+  focus_ring        = "#003982"  # = primary; ~12:1 on white, meets AA (SPEC-12)
   secondary         = "#006ddf"  # Scouts Blue
   secondary_hover   = "#1a86f2"
   tertiary          = "#088486"  # Scouts Teal
   accent            = "#ff912a"  # Scouts Orange
-  text              = "#232323"
-  text_muted        = "#5a5a5a"
+  text              = "#14110e"
+  text_muted        = "#45413a"
   text_on_primary   = "#ffffff"
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
-  bg_muted          = "#f7f7f7"
+  bg_muted          = "#f1efe9"
   warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
@@ -145,16 +148,21 @@
   description = "Red primary with Pink secondary. Bold, youthful, attention-grabbing."
   primary           = "#ed3f23"  # Scouts Red
   primary_hover     = "#f15d45"
+  # Focus ring NOT = primary here: Scouts Red on white is only ~3.9:1, below
+  # the AA 4.5:1 target SPEC-12 sets for focus indicators. Use the palette's
+  # own tertiary (Scouts Purple, ~6.4:1) instead — strongly visible against
+  # the red/pink scheme. Decided 2026-06-04 (SPEC-12 Q-slate).
+  focus_ring        = "#7413dc"  # Scouts Purple (= tertiary)
   secondary         = "#ffb4e5"  # Scouts Pink
   secondary_hover   = "#ffc6eb"
   tertiary          = "#7413dc"  # Scouts Purple
   accent            = "#ffe627"  # Scouts Yellow
-  text              = "#232323"
-  text_muted        = "#5a5a5a"
+  text              = "#14110e"
+  text_muted        = "#45413a"
   text_on_primary   = "#ffffff"
   text_on_secondary = "#000000"
   bg                = "#ffffff"
-  bg_muted          = "#f7f7f7"
+  bg_muted          = "#f1efe9"
   warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour
@@ -174,16 +182,17 @@
   description = "Black primary with Purple secondary. The Scout Network look — older, more sophisticated."
   primary           = "#000000"  # Black
   primary_hover     = "#2a2a2a"
+  focus_ring        = "#000000"  # = primary; 21:1 on white, meets AA (SPEC-12)
   secondary         = "#7413dc"  # Scouts Purple
   secondary_hover   = "#8e34ee"
   tertiary          = "#088486"  # Scouts Teal
   accent            = "#ff912a"  # Scouts Orange
-  text              = "#232323"
-  text_muted        = "#5a5a5a"
+  text              = "#14110e"
+  text_muted        = "#45413a"
   text_on_primary   = "#ffffff"
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
-  bg_muted          = "#f7f7f7"
+  bg_muted          = "#f1efe9"
   warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
   text_on_warning   = "#ffffff"
   postponed         = "#d97706"  # App amber — non-section colour

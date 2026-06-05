@@ -1,0 +1,388 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic: 1st Anytown Scouts
+  - main [ref=e13]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Skills for life · Anytown
+        - heading "Welcome to 1st Anytown Scouts." [level=1] [ref=e20]:
+          - generic [ref=e21]: Welcome to
+          - emphasis [ref=e23]: 1st Anytown
+          - generic [ref=e24]: Scouts.
+        - paragraph [ref=e25]: Fun and friendship …
+        - generic [ref=e26]:
+          - link "Join the Group →" [ref=e27] [cursor=pointer]:
+            - /url: /#join
+            - text: Join the Group
+            - generic [ref=e28]: →
+          - link "Volunteer with us" [ref=e29] [cursor=pointer]:
+            - /url: /#volunteer
+      - generic [ref=e30]:
+        - img "Cubs round a fire at night, lighting it together" [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]: 300+
+          - generic [ref=e34]:
+            - text: Young people across
+            - text: 5 sections, 4 nights a week.
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]: Join Us
+        - heading "Joining couldn't be easier." [level=2] [ref=e39]
+        - paragraph [ref=e40]: Register your interest below - for your child, yourself, or both. We give priority to families who are happy to volunteer their time alongside us.
+        - link "See how to join →" [ref=e42] [cursor=pointer]:
+          - /url: /join/
+          - text: See how to join
+          - generic [ref=e43]: →
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - img [ref=e47]
+          - generic [ref=e50]:
+            - heading "Add a young person" [level=3] [ref=e51]
+            - paragraph [ref=e52]: For each child you'd like to register, fill out an entry form.
+            - link "Add to waiting list →" [ref=e53] [cursor=pointer]:
+              - /url: /join/
+              - text: Add to waiting list
+              - generic [ref=e54]: →
+        - generic [ref=e55]:
+          - img [ref=e57]
+          - generic [ref=e60]:
+            - heading "Volunteer with us" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Anyone over 18 is welcome.
+            - link "Register as volunteer" [ref=e63] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]: Age groups
+        - heading "Our Sections" [level=2] [ref=e68]
+        - paragraph [ref=e69]:
+          - text: There is a place in Scouts for almost all ages, either as a member of one of the sections below, or as a volunteer. Clicking the Learn More buttons below will take you to the UK Scouts website for further information.
+          - text: Sections meet on weekday evenings, during school term-time. To see timings for each group, check the map further down the page.
+      - generic [ref=e70]:
+        - link "Learn more about Squirrels (4 to 6 years)" [ref=e71] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/squirrels
+          - img [ref=e73]
+          - generic [ref=e86]:
+            - generic [ref=e87]: 4 to 6 years
+            - generic [ref=e88]:
+              - text: Learn more
+              - generic [ref=e89]: →
+        - link "Learn more about Beavers (6 to 8 years)" [ref=e90] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/beavers
+          - img [ref=e92]
+          - generic [ref=e95]:
+            - generic [ref=e96]: 6 to 8 years
+            - generic [ref=e97]:
+              - text: Learn more
+              - generic [ref=e98]: →
+        - link "Learn more about Cubs (8 to 10 ½ years)" [ref=e99] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/cubs
+          - img [ref=e101]
+          - generic [ref=e104]:
+            - generic [ref=e105]: 8 to 10 ½ years
+            - generic [ref=e106]:
+              - text: Learn more
+              - generic [ref=e107]: →
+        - link "Learn more about Scouts (10 ½ to 14 years)" [ref=e108] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/scouts
+          - img [ref=e110]
+          - generic [ref=e113]:
+            - generic [ref=e114]: 10 ½ to 14 years
+            - generic [ref=e115]:
+              - text: Learn more
+              - generic [ref=e116]: →
+        - link "Learn more about Explorers (14 to 18 years)" [ref=e117] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/explorers
+          - img [ref=e119]
+          - generic [ref=e122]:
+            - generic [ref=e123]: 14 to 18 years
+            - generic [ref=e124]:
+              - text: Learn more
+              - generic [ref=e125]: →
+    - generic [ref=e127]:
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - img [ref=e131]
+          - generic [ref=e133]: · 18–25
+        - heading "Maybe you're over 18. But not over Scouts." [level=2] [ref=e134]
+        - paragraph [ref=e135]: Network members start small but think big — always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it.
+        - link "Find out more" [ref=e136] [cursor=pointer]:
+          - /url: https://www.scouts.org.uk/network/
+          - text: Find out more
+          - generic [ref=e137]: →
+      - list [ref=e138]:
+        - listitem [ref=e139]:
+          - generic [ref=e140]: "1"
+          - generic [ref=e141]:
+            - heading "Aged 18–25?" [level=4] [ref=e142]
+            - paragraph [ref=e143]: Stand on your own two feet, and make memories to last a lifetime.
+        - listitem [ref=e144]:
+          - generic [ref=e145]: "2"
+          - generic [ref=e146]:
+            - heading "Scout & DofE awards" [level=4] [ref=e147]
+            - paragraph [ref=e148]: Top awards, real challenges. A clear path from your first hike to your last.
+        - listitem [ref=e149]:
+          - generic [ref=e150]: "3"
+          - generic [ref=e151]:
+            - heading "Travel, lead, give back" [level=4] [ref=e152]
+            - paragraph [ref=e153]: International expeditions, leader training, community service projects.
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - heading "We're recruiting" [level=2] [ref=e157]
+        - paragraph [ref=e158]: We have open volunteer roles — a few hours from the right people keeps Scouting running here.
+      - link "See open roles →" [ref=e159] [cursor=pointer]:
+        - /url: /support-us/volunteer-roles/
+    - generic [ref=e161]:
+      - generic [ref=e163]:
+        - generic [ref=e164]: Volunteer with Scouts
+        - img [ref=e165]
+        - generic [ref=e167]:
+          - heading "You look like a role model." [level=3] [ref=e168]
+          - generic [ref=e169]: "#SkillsForLife"
+      - generic [ref=e170]:
+        - generic [ref=e171]: Volunteer
+        - heading "Register to volunteer." [level=2] [ref=e172]
+        - paragraph [ref=e173]: Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers.
+        - paragraph [ref=e174]:
+          - text: We're always looking for more people to join us — whether you have an hour every two months, or can give your time weekly, we
+          - strong [ref=e175]: need
+          - text: you.
+        - paragraph [ref=e176]: Aged 18–25? You can volunteer too, as a member of the Scout Network.
+        - link "I want to volunteer" [ref=e178] [cursor=pointer]:
+          - /url: /support-us/volunteer-roles/
+          - text: I want to volunteer
+          - generic [ref=e179]: →
+    - generic [ref=e181]:
+      - generic [ref=e182]:
+        - generic [ref=e183]: This term
+        - heading "What we're doing right now." [level=2] [ref=e184]
+        - paragraph [ref=e185]: Click a section to see this term's weekly meeting plan and the Skills for Life themes we're covering.
+      - generic [ref=e186]:
+        - group [ref=e187]:
+          - generic "Beavers Beavers — Summer Term 2026" [ref=e188] [cursor=pointer]:
+            - generic [ref=e189]: B
+            - generic [ref=e190]: Beavers
+            - generic [ref=e191]: Beavers — Summer Term 2026
+            - generic [ref=e192]: ›
+        - group [ref=e193]:
+          - generic "Cubs Cubs — Summer Term 2026" [ref=e194] [cursor=pointer]:
+            - generic [ref=e195]: C
+            - generic [ref=e196]: Cubs
+            - generic [ref=e197]: Cubs — Summer Term 2026
+            - generic [ref=e198]: ›
+      - paragraph [ref=e199]:
+        - link "View all programmes →" [ref=e200] [cursor=pointer]:
+          - /url: /programme/
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e205]: What's coming up
+          - heading "Camps, parades and meetings." [level=2] [ref=e206]
+        - link "See all events →" [ref=e207] [cursor=pointer]:
+          - /url: /events/
+      - navigation "Filter events by section" [ref=e208]:
+        - list [ref=e209]:
+          - listitem [ref=e210]:
+            - link "Beavers" [ref=e211] [cursor=pointer]:
+              - /url: /events/sections/beavers/
+          - listitem [ref=e212]:
+            - link "Cubs" [ref=e213] [cursor=pointer]:
+              - /url: /events/sections/cubs/
+          - listitem [ref=e214]:
+            - link "Scouts" [ref=e215] [cursor=pointer]:
+              - /url: /events/sections/scouts/
+          - listitem [ref=e216]:
+            - link "Explorers" [ref=e217] [cursor=pointer]:
+              - /url: /events/sections/explorers/
+      - generic [ref=e219]:
+        - link "Brussels District planning meeting 20:30 (Brussels) · Online (Microsoft Teams) · Section Leaders + Assistants Event details View details for Brussels District planning meeting" [ref=e220] [cursor=pointer]:
+          - /url: /events/2026-06-10-brussels-district-meeting/
+          - generic [ref=e221]:
+            - generic [ref=e222]: "18"
+            - generic [ref=e223]: Jun
+            - generic [ref=e224]: "2026"
+          - generic [ref=e225]:
+            - heading "Brussels District planning meeting" [level=4] [ref=e226]
+            - paragraph [ref=e227]: 20:30 (Brussels) · Online (Microsoft Teams) · Section Leaders + Assistants
+            - list "Event details"
+          - generic [ref=e228]: View details for Brussels District planning meeting
+        - link "Summer Fete 13:00 – 17:00 · Anytown Scout Hut · Whole Group + parents Event details View details for Summer Fete" [ref=e229] [cursor=pointer]:
+          - /url: /events/2026-07-12-summer-fete/
+          - generic [ref=e230]:
+            - generic [ref=e231]: "8"
+            - generic [ref=e232]: Aug
+            - generic [ref=e233]: "2026"
+          - generic [ref=e234]:
+            - heading "Summer Fete" [level=4] [ref=e235]
+            - paragraph [ref=e236]: 13:00 – 17:00 · Anytown Scout Hut · Whole Group + parents
+            - list "Event details" [ref=e237]:
+              - listitem [ref=e238]: Beavers
+              - listitem [ref=e239]: Cubs
+              - listitem [ref=e240]: Scouts
+          - generic [ref=e241]: View details for Summer Fete
+        - link "Cubs Summer Camp All day · Pioneer Camp, Buckinghamshire · Cubs only Event details View details for Cubs Summer Camp" [ref=e242] [cursor=pointer]:
+          - /url: /events/2026-08-14-cubs-summer-camp/
+          - generic [ref=e243]:
+            - generic [ref=e244]: "12"
+            - generic [ref=e245]: Sep
+            - generic [ref=e246]: "2026"
+          - generic [ref=e247]:
+            - heading "Cubs Summer Camp" [level=4] [ref=e248]
+            - paragraph [ref=e249]: All day · Pioneer Camp, Buckinghamshire · Cubs only
+            - list "Event details" [ref=e250]:
+              - listitem [ref=e251]: Cubs
+          - generic [ref=e252]: View details for Cubs Summer Camp
+      - paragraph [ref=e253]:
+        - link "Subscribe to all events (.ics) →" [ref=e254] [cursor=pointer]:
+          - /url: /events/all.ics
+    - generic [ref=e256]:
+      - generic [ref=e257]:
+        - generic [ref=e258]: Latest news
+        - heading "Camp write-ups & badges." [level=2] [ref=e259]
+        - paragraph [ref=e260]: Camp write-ups, badge presentations…
+      - generic [ref=e261]:
+        - article [ref=e262]:
+          - link [ref=e263] [cursor=pointer]:
+            - /url: /news/2026-04-19-st-georges-day/
+            - img [ref=e264]
+          - generic [ref=e265]:
+            - heading "St George's Day Parade" [level=3] [ref=e266]:
+              - link "St George's Day Parade" [ref=e267] [cursor=pointer]:
+                - /url: /news/2026-04-19-st-georges-day/
+            - generic [ref=e268]:
+              - time [ref=e269]: 19 April 2026
+              - generic [ref=e270]: by GSL
+              - list "Scout sections featured" [ref=e271]:
+                - listitem [ref=e272]:
+                  - link "Beavers" [ref=e273] [cursor=pointer]:
+                    - /url: /news/sections/beavers/
+                - listitem [ref=e274]:
+                  - link "Cubs" [ref=e275] [cursor=pointer]:
+                    - /url: /news/sections/cubs/
+                - listitem [ref=e276]:
+                  - link "Scouts" [ref=e277] [cursor=pointer]:
+                    - /url: /news/sections/scouts/
+                - listitem [ref=e278]:
+                  - link "Explorers" [ref=e279] [cursor=pointer]:
+                    - /url: /news/sections/explorers/
+            - paragraph [ref=e280]: The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in.
+            - link "Read more" [ref=e281] [cursor=pointer]:
+              - /url: /news/2026-04-19-st-georges-day/
+              - text: Read more
+              - generic [ref=e282]: →
+        - article [ref=e283]:
+          - link [ref=e284] [cursor=pointer]:
+            - /url: /news/2026-03-30-cubs-cooking-cup/
+            - img [ref=e285]
+          - generic [ref=e286]:
+            - heading "Cubs Cooking Cup 2026" [level=3] [ref=e287]:
+              - link "Cubs Cooking Cup 2026" [ref=e288] [cursor=pointer]:
+                - /url: /news/2026-03-30-cubs-cooking-cup/
+            - generic [ref=e289]:
+              - time [ref=e290]: 30 March 2026
+              - generic [ref=e291]: by Akela
+            - paragraph [ref=e292]: Six teams. Three courses. One champion. Notes from the most-contested Cooking Cup the Pack has ever seen.
+            - link "Read more" [ref=e293] [cursor=pointer]:
+              - /url: /news/2026-03-30-cubs-cooking-cup/
+              - text: Read more
+              - generic [ref=e294]: →
+        - article [ref=e295]:
+          - generic [ref=e296]:
+            - heading "Squirrels start in September" [level=3] [ref=e297]:
+              - link "Squirrels start in September" [ref=e298] [cursor=pointer]:
+                - /url: /news/2026-02-15-squirrels-launch/
+            - generic [ref=e299]:
+              - time [ref=e300]: 15 February 2026
+              - generic [ref=e301]: by GSL
+            - paragraph [ref=e302]: We're delighted to announce that 1st Anytown will open a Squirrel Drey from September. Details on joining and how to express interest below.
+            - link "Read more" [ref=e303] [cursor=pointer]:
+              - /url: /news/2026-02-15-squirrels-launch/
+              - text: Read more
+              - generic [ref=e304]: →
+      - paragraph [ref=e305]:
+        - link "View all news →" [ref=e306] [cursor=pointer]:
+          - /url: /news/
+    - generic [ref=e308]:
+      - generic [ref=e309]:
+        - generic [ref=e310]: Lately
+        - heading "From our latest camp." [level=2] [ref=e311]
+      - generic [ref=e312]:
+        - link "Squirrels and Beavers lined up on parade in front of the church St George's Day Parade 2026" [ref=e313] [cursor=pointer]:
+          - /url: /galleries/2026-04-19-st-georges-day/
+          - img "Squirrels and Beavers lined up on parade in front of the church" [ref=e314]
+          - generic [ref=e315]: St George's Day Parade 2026
+        - list [ref=e316]:
+          - listitem [ref=e317]:
+            - link "Photo from St George's Day Parade 2026" [ref=e318] [cursor=pointer]:
+              - /url: ""
+              - img "Photo from St George's Day Parade 2026" [ref=e319]
+          - listitem [ref=e320]:
+            - link "Photo from St George's Day Parade 2026" [ref=e321] [cursor=pointer]:
+              - /url: ""
+              - img "Photo from St George's Day Parade 2026" [ref=e322]
+          - listitem [ref=e323]:
+            - link "Photo from St George's Day Parade 2026" [ref=e324] [cursor=pointer]:
+              - /url: ""
+              - img "Photo from St George's Day Parade 2026" [ref=e325]
+      - paragraph [ref=e326]:
+        - link "View all galleries →" [ref=e327] [cursor=pointer]:
+          - /url: /galleries/
+    - generic [ref=e330]:
+      - generic [ref=e331]: Where we meet
+      - heading "Anytown Scout Group huts." [level=2] [ref=e332]
+      - paragraph [ref=e333]:
+        - text: There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.
+        - text: Scout Network meets at various locations across the city.
+    - iframe [ref=e336]:
+      
+  - contentinfo [ref=e337]:
+    - generic [ref=e338]:
+      - generic [ref=e339]:
+        - generic [ref=e340]:
+          - generic [ref=e341]:
+            - img [ref=e342]
+            - generic [ref=e344]: 1st Anytown Scouts
+          - paragraph [ref=e345]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e346]:
+          - heading "Visit" [level=5] [ref=e347]
+          - list [ref=e348]:
+            - listitem [ref=e349]: Anytown Scout Hut
+            - listitem [ref=e350]: 11 Hut Lane
+            - listitem [ref=e351]: Anytown
+        - generic [ref=e352]:
+          - heading "Contact" [level=5] [ref=e353]
+          - list [ref=e354]:
+            - listitem [ref=e355]:
+              - link "hello@anytown-scouts.org" [ref=e356] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e357]:
+              - link "+44 1234 567 890" [ref=e358] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e359]:
+              - link "Instagram" [ref=e360] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e361]:
+          - heading "About" [level=5] [ref=e362]
+          - list [ref=e363]:
+            - listitem [ref=e364]:
+              - link "Safeguarding" [ref=e365] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e366]:
+              - link "Privacy" [ref=e367] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e368]:
+        - generic [ref=e369]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e370]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e372]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e373] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

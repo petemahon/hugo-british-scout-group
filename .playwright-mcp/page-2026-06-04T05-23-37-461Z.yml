@@ -1,0 +1,230 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - checkbox "Open menu" [ref=e4]
+    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e7]
+      - generic [ref=e9]: 1st Anytown Scouts
+  - main [ref=e14]:
+    - article [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - paragraph [ref=e18]:
+            - link "← All programmes" [ref=e19] [cursor=pointer]:
+              - /url: /programme/
+          - generic [ref=e20]:
+            - generic [ref=e21]: C
+            - generic [ref=e22]:
+              - heading "Cubs — Summer Term 2026" [level=1] [ref=e23]
+              - paragraph [ref=e24]:
+                - text: Cubs ·
+                - time [ref=e25]: 15 April 2026
+                - text: –
+                - time [ref=e26]: 15 July 2026
+                - text: · British School in Anytown Summer Term
+              - paragraph [ref=e27]: District approved
+        - paragraph [ref=e29]:
+          - text: This term we’re building towards the
+          - strong [ref=e30]: Naturalist activity badge
+          - text: "and a weekend Pack camp at Anytown Common. A typical Cubs term: fire-lighting, map work, a community visit, and plenty of outdoor time. Half-term falls in week 8 — no meeting that week."
+        - table [ref=e32]:
+          - rowgroup [ref=e33]:
+            - row "Wk Date Meeting Notes / kit" [ref=e34]:
+              - columnheader "Wk" [ref=e35]
+              - columnheader "Date" [ref=e36]
+              - columnheader "Meeting" [ref=e37]
+              - columnheader "Notes / kit" [ref=e38]
+          - rowgroup [ref=e39]:
+            - row "1 Wed 15 Apr Welcome back & investiture Skills for Life themes Bring your necker. New Cubs welcome — uniform optional for week 1." [ref=e40]:
+              - cell "1" [ref=e41]
+              - cell "Wed 15 Apr" [ref=e42]:
+                - time [ref=e43]: Wed 15 Apr
+              - cell "Welcome back & investiture Skills for Life themes" [ref=e44]:
+                - generic [ref=e46]: Welcome back & investiture
+                - list "Skills for Life themes" [ref=e47]:
+                  - listitem [ref=e48]:
+                    - link "Skills for life" [ref=e49] [cursor=pointer]:
+                      - /url: https://www.scouts.org.uk/skills-for-life/
+                  - listitem [ref=e50]:
+                    - generic [ref=e51]: Beliefs and attitudes
+              - cell "Bring your necker. New Cubs welcome — uniform optional for week 1." [ref=e52]
+            - row "2 Wed 22 Apr Map reading & local geography Skills for Life themes Bring a pencil. We'll be working in pairs on Ordnance Survey extracts of the local hill." [ref=e53]:
+              - cell "2" [ref=e54]
+              - cell "Wed 22 Apr" [ref=e55]:
+                - time [ref=e56]: Wed 22 Apr
+              - cell "Map reading & local geography Skills for Life themes" [ref=e57]:
+                - generic [ref=e59]: Map reading & local geography
+                - list "Skills for Life themes" [ref=e60]:
+                  - listitem [ref=e61]:
+                    - generic [ref=e62]: Outdoor and adventure
+                  - listitem [ref=e63]:
+                    - link "Skills for life" [ref=e64] [cursor=pointer]:
+                      - /url: https://www.scouts.org.uk/skills-for-life/
+              - cell "Bring a pencil. We'll be working in pairs on Ordnance Survey extracts of the local hill." [ref=e65]
+            - row "3 Wed 29 Apr Fire-lighting safety Skills for Life themes Long sleeves and closed shoes. Activity at the hut — no off-site travel." [ref=e66]:
+              - cell "3" [ref=e67]
+              - cell "Wed 29 Apr" [ref=e68]:
+                - time [ref=e69]: Wed 29 Apr
+              - cell "Fire-lighting safety Skills for Life themes" [ref=e70]:
+                - generic [ref=e72]: Fire-lighting safety
+                - list "Skills for Life themes" [ref=e73]:
+                  - listitem [ref=e74]:
+                    - generic [ref=e75]: Outdoor and adventure
+                  - listitem [ref=e76]:
+                    - generic [ref=e77]: Try new things
+              - cell "Long sleeves and closed shoes. Activity at the hut — no off-site travel." [ref=e78]
+            - row "4 Wed 6 May Community link visit Cancelled Skills for Life themes Visit postponed to the autumn term; meeting cancelled. Visitor from a local community group — short talk, then Q&A." [ref=e79]:
+              - cell "4" [ref=e80]
+              - cell "Wed 6 May" [ref=e81]:
+                - time [ref=e82]: Wed 6 May
+              - cell "Community link visit Cancelled Skills for Life themes Visit postponed to the autumn term; meeting cancelled." [ref=e83]:
+                - generic [ref=e84]:
+                  - generic [ref=e85]: Community link visit
+                  - generic [ref=e86]: Cancelled
+                - list "Skills for Life themes" [ref=e87]:
+                  - listitem [ref=e88]:
+                    - generic [ref=e89]: Community impact
+                - paragraph [ref=e90]: Visit postponed to the autumn term; meeting cancelled.
+              - cell "Visitor from a local community group — short talk, then Q&A." [ref=e91]
+            - row "5 Wed 13 May Knot relay & team challenge Skills for Life themes Outdoor if dry; we'll move into the hut if it's wet." [ref=e92]:
+              - cell "5" [ref=e93]
+              - cell "Wed 13 May" [ref=e94]:
+                - time [ref=e95]: Wed 13 May
+              - cell "Knot relay & team challenge Skills for Life themes" [ref=e96]:
+                - generic [ref=e98]: Knot relay & team challenge
+                - list "Skills for Life themes" [ref=e99]:
+                  - listitem [ref=e100]:
+                    - generic [ref=e101]: Teamwork and leadership
+                  - listitem [ref=e102]:
+                    - link "Skills for life" [ref=e103] [cursor=pointer]:
+                      - /url: https://www.scouts.org.uk/skills-for-life/
+              - cell "Outdoor if dry; we'll move into the hut if it's wet." [ref=e104]
+            - row "6 Wed 20 May Naturalist activity badge — part 1 Skills for Life themes Local walk. Sturdy shoes and a water bottle." [ref=e105]:
+              - cell "6" [ref=e106]
+              - cell "Wed 20 May" [ref=e107]:
+                - time [ref=e108]: Wed 20 May
+              - cell "Naturalist activity badge — part 1 Skills for Life themes" [ref=e109]:
+                - generic [ref=e111]: Naturalist activity badge — part 1
+                - list "Skills for Life themes" [ref=e112]:
+                  - listitem [ref=e113]:
+                    - generic [ref=e114]: Outdoor and adventure
+                  - listitem [ref=e115]:
+                    - generic [ref=e116]: Live up to our values
+              - cell "Local walk. Sturdy shoes and a water bottle." [ref=e117]
+            - row "7 Wed 3 Jun Naturalist activity badge — part 2 Skills for Life themes Habitat survey at the hut grounds. Bring a notebook." [ref=e118]:
+              - cell "7" [ref=e119]
+              - cell "Wed 3 Jun" [ref=e120]:
+                - time [ref=e121]: Wed 3 Jun
+              - cell "Naturalist activity badge — part 2 Skills for Life themes" [ref=e122]:
+                - generic [ref=e124]: Naturalist activity badge — part 2
+                - list "Skills for Life themes" [ref=e125]:
+                  - listitem [ref=e126]:
+                    - generic [ref=e127]: Outdoor and adventure
+                  - listitem [ref=e128]:
+                    - generic [ref=e129]: Live up to our values
+              - cell "Habitat survey at the hut grounds. Bring a notebook." [ref=e130]
+            - row "8 Wed 17 Jun Cooking on a single hob Skills for Life themes Camp preparation. We'll cook the sausages-and-pasta meal we'll be using on camp." [ref=e131]:
+              - cell "8" [ref=e132]
+              - cell "Wed 17 Jun" [ref=e133]:
+                - time [ref=e134]: Wed 17 Jun
+              - cell "Cooking on a single hob Skills for Life themes" [ref=e135]:
+                - generic [ref=e137]: Cooking on a single hob
+                - list "Skills for Life themes" [ref=e138]:
+                  - listitem [ref=e139]:
+                    - link "Skills for life" [ref=e140] [cursor=pointer]:
+                      - /url: https://www.scouts.org.uk/skills-for-life/
+                  - listitem [ref=e141]:
+                    - generic [ref=e142]: Have adventures
+              - cell "Camp preparation. We'll cook the sausages-and-pasta meal we'll be using on camp." [ref=e143]
+            - row "9 Wed 24 Jun Pioneering basics Skills for Life themes Lashings and frapping turns. Outdoor — please bring layers." [ref=e144]:
+              - cell "9" [ref=e145]
+              - cell "Wed 24 Jun" [ref=e146]:
+                - time [ref=e147]: Wed 24 Jun
+              - cell "Pioneering basics Skills for Life themes" [ref=e148]:
+                - generic [ref=e150]: Pioneering basics
+                - list "Skills for Life themes" [ref=e151]:
+                  - listitem [ref=e152]:
+                    - generic [ref=e153]: Teamwork and leadership
+                  - listitem [ref=e154]:
+                    - generic [ref=e155]: Outdoor and adventure
+              - cell "Lashings and frapping turns. Outdoor — please bring layers." [ref=e156]
+            - row "10 Sat 4 Jul Pack camp — Anytown Common Skills for Life themes Saturday-Sunday camp. See the kit list link below for the full pack list. Leaders' phone numbers will be circulated separately." [ref=e157]:
+              - cell "10" [ref=e158]
+              - cell "Sat 4 Jul" [ref=e159]:
+                - time [ref=e160]: Sat 4 Jul
+              - cell "Pack camp — Anytown Common Skills for Life themes" [ref=e161]:
+                - generic [ref=e163]: Pack camp — Anytown Common
+                - list "Skills for Life themes" [ref=e164]:
+                  - listitem [ref=e165]:
+                    - generic [ref=e166]: Have adventures
+                  - listitem [ref=e167]:
+                    - generic [ref=e168]: Outdoor and adventure
+                  - listitem [ref=e169]:
+                    - generic [ref=e170]: Teamwork and leadership
+              - cell "Saturday-Sunday camp. See the kit list link below for the full pack list. Leaders' phone numbers will be circulated separately." [ref=e171]
+            - row "11 Wed 15 Jul End-of-term party & badge presentations Skills for Life themes Casual dress. Final meeting of the term." [ref=e172]:
+              - cell "11" [ref=e173]
+              - cell "Wed 15 Jul" [ref=e174]:
+                - time [ref=e175]: Wed 15 Jul
+              - cell "End-of-term party & badge presentations Skills for Life themes" [ref=e176]:
+                - generic [ref=e178]: End-of-term party & badge presentations
+                - list "Skills for Life themes" [ref=e179]:
+                  - listitem [ref=e180]:
+                    - generic [ref=e181]: Beliefs and attitudes
+                  - listitem [ref=e182]:
+                    - generic [ref=e183]: Live up to our values
+              - cell "Casual dress. Final meeting of the term." [ref=e184]
+        - complementary [ref=e185]: Week 8 is half-term (no meeting). Pack camp is in week 10 — kit list link below.
+        - paragraph [ref=e186]:
+          - link "Term kit list →" [ref=e187] [cursor=pointer]:
+            - /url: /kit-lists/cubs-summer-camp/
+        - link "← All programmes" [ref=e189] [cursor=pointer]:
+          - /url: /programme/
+  - contentinfo [ref=e190]:
+    - generic [ref=e191]:
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - img [ref=e195]
+            - generic [ref=e197]: 1st Anytown Scouts
+          - paragraph [ref=e198]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e199]:
+          - heading "Visit" [level=5] [ref=e200]
+          - list [ref=e201]:
+            - listitem [ref=e202]: Anytown Scout Hut
+            - listitem [ref=e203]: 11 Hut Lane
+            - listitem [ref=e204]: Anytown
+        - generic [ref=e205]:
+          - heading "Contact" [level=5] [ref=e206]
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "hello@anytown-scouts.org" [ref=e209] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e210]:
+              - link "+44 1234 567 890" [ref=e211] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e212]:
+              - link "Instagram" [ref=e213] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e214]:
+          - heading "About" [level=5] [ref=e215]
+          - list [ref=e216]:
+            - listitem [ref=e217]:
+              - link "Safeguarding" [ref=e218] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e219]:
+              - link "Privacy" [ref=e220] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e221]:
+        - generic [ref=e222]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e223]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e225]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e226] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

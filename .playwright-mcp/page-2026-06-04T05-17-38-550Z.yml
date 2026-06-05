@@ -1,0 +1,148 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner "Site header" [ref=e3]:
+    - generic [ref=e4]:
+      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - generic [ref=e8]: 1st Anytown Scouts
+      - navigation "Primary navigation" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Join Us" [ref=e12] [cursor=pointer]:
+              - /url: /join/
+              - text: Join Us
+          - listitem [ref=e14]:
+            - link "Our Sections" [ref=e15] [cursor=pointer]:
+              - /url: /#sections
+              - text: Our Sections
+          - listitem [ref=e17]:
+            - link "What we do" [ref=e18] [cursor=pointer]:
+              - /url: /news/
+              - text: What we do
+          - listitem [ref=e20]:
+            - link "Get Involved" [ref=e21] [cursor=pointer]:
+              - /url: /support-us/volunteer-roles/
+              - text: Get Involved
+          - listitem [ref=e23]:
+            - link "About" [ref=e24] [cursor=pointer]:
+              - /url: /about/history/
+              - text: About
+  - main [ref=e26]:
+    - article [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]:
+          - link "← All kit lists" [ref=e30] [cursor=pointer]:
+            - /url: /kit-lists/
+        - generic [ref=e31]:
+          - generic [ref=e32]: Cubs · weekend
+          - heading "Cubs Weekend Camp Kit List" [level=1] [ref=e33]
+          - paragraph [ref=e34]:
+            - generic [ref=e35]: v2026.1
+            - generic [ref=e36]: reviewed 1 April 2026
+            - generic [ref=e37]: by Akela
+          - paragraph [ref=e38]:
+            - link "Print this list →" [ref=e39] [cursor=pointer]:
+              - /url: print.html
+        - generic [ref=e40]:
+          - text: Everything a Cub needs for a weekend under canvas or in a camp building. Pack it
+          - strong [ref=e41]: with
+          - text: "your Cub, not for them — knowing where their own kit is makes the weekend go far more smoothly. Haven't got something? Ask Akela: we keep spare sleeping bags and waterproofs to lend."
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - heading "Sleeping" [level=2] [ref=e44]
+            - list [ref=e45]:
+              - listitem [ref=e46]: Sleeping bag — Or two warm fleece blankets if no bag
+              - listitem [ref=e47]: Roll mat or sleeping mat
+              - listitem [ref=e48]: Pillow (small) or pillowcase to stuff with clothes
+            - paragraph [ref=e49]: If you don't have a 3-season sleeping bag, contact Akela — we have spares to lend.
+          - generic [ref=e50]:
+            - heading "Clothing" [level=2] [ref=e51]
+            - list [ref=e52]:
+              - listitem [ref=e53]:
+                - text: Underwear and socks
+                - generic [ref=e54]: ×3
+                - text: — A spare set per day, plus one extra
+              - listitem [ref=e55]:
+                - text: Warm jumper or fleece
+                - generic [ref=e56]: ×2
+              - listitem [ref=e57]:
+                - text: Trousers (not jeans — they stay cold and wet)
+                - generic [ref=e58]: ×2
+              - listitem [ref=e59]:
+                - text: T-shirts
+                - generic [ref=e60]: ×2
+              - listitem [ref=e61]: Waterproof coat
+              - listitem [ref=e62]: Wellies — Or old trainers that can get muddy
+              - listitem [ref=e63]: Pyjamas
+              - listitem [ref=e64]: Warm hat and gloves — Even in summer — evenings get cold
+          - generic [ref=e65]:
+            - heading "Wash kit" [level=2] [ref=e66]
+            - list [ref=e67]:
+              - listitem [ref=e68]: Toothbrush and toothpaste
+              - listitem [ref=e69]: Soap or shower gel
+              - listitem [ref=e70]: Towel
+          - generic [ref=e71]:
+            - heading "Camp gear" [level=2] [ref=e72]
+            - list [ref=e73]:
+              - listitem [ref=e74]: Named water bottle
+              - listitem [ref=e75]: Torch — Head torch is ideal; spare batteries help
+              - listitem [ref=e76]: Sun cream and sun hat
+              - listitem [ref=e77]: Plate, bowl, mug and cutlery — Only if told to bring them — we'll let you know
+            - paragraph [ref=e78]: Label everything with your Cub's name — it saves a mountain of lost property on Sunday.
+        - complementary "Mobile phones" [ref=e79]:
+          - heading "Mobile phones" [level=2] [ref=e80]
+          - paragraph [ref=e81]: Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive — we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us.
+        - complementary "Please leave at home" [ref=e82]:
+          - heading "Please leave at home" [level=2] [ref=e83]
+          - generic [ref=e84]:
+            - text: "Please leave at home:"
+            - strong [ref=e85]: phones, tablets and games consoles
+            - text: (see the note above), money beyond a few pounds for the tuck shop, and anything valuable or irreplaceable. Sweets and fizzy drinks stay at home too — we provide all the food.
+  - contentinfo [ref=e86]:
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - img [ref=e91]
+            - generic [ref=e93]: 1st Anytown Scouts
+          - paragraph [ref=e94]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+        - generic [ref=e95]:
+          - heading "Visit" [level=5] [ref=e96]
+          - list [ref=e97]:
+            - listitem [ref=e98]: Anytown Scout Hut
+            - listitem [ref=e99]: 11 Hut Lane
+            - listitem [ref=e100]: Anytown
+        - generic [ref=e101]:
+          - heading "Contact" [level=5] [ref=e102]
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "hello@anytown-scouts.org" [ref=e105] [cursor=pointer]:
+                - /url: mailto:hello@anytown-scouts.org
+            - listitem [ref=e106]:
+              - link "+44 1234 567 890" [ref=e107] [cursor=pointer]:
+                - /url: tel:+441234567890
+            - listitem [ref=e108]:
+              - link "Instagram" [ref=e109] [cursor=pointer]:
+                - /url: https://instagram.com/example
+        - generic [ref=e110]:
+          - heading "About" [level=5] [ref=e111]
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - link "Safeguarding" [ref=e114] [cursor=pointer]:
+                - /url: https://www.scouts.org.uk/information-for-parents/keeping-children-and-young-people-safe/how-we-safeguard-young-people-in-scouts/
+            - listitem [ref=e115]:
+              - link "Privacy" [ref=e116] [cursor=pointer]:
+                - /url: /privacy/
+      - generic [ref=e117]:
+        - generic [ref=e118]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e119]: "Skills for Life · #SkillsForLife"
+      - paragraph [ref=e121]:
+        - text: "Registered charity:"
+        - link "British Scouting Overseas (1151702)" [ref=e122] [cursor=pointer]:
+          - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
+        - text: · Charity Commission for England and Wales
+  - link "Back to top":
+    - /url: "#top"
+    - img

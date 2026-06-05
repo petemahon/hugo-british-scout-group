@@ -102,6 +102,7 @@
           <div class="s-scout-sections__logo" aria-hidden="true">{{ $logoSVG | safeHTML }}</div>
           <div class="s-scout-sections__info">
             <span class="s-scout-sections__age">{{ .ages }}</span>
+            {{- with .blurb }}<p class="s-scout-sections__desc">{{ . }}</p>{{ end }}
             <span class="s-scout-sections__lm">{{ $defaultLabel }} <span class="arr">&rarr;</span></span>
           </div>
           <span class="s-scout-sections__btn">{{ $defaultLabel }}</span>

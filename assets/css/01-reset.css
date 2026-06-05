@@ -14,7 +14,9 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text);
-  background: var(--bg);
+  /* Page sits on the warm off-white --surface; cards/nav stay --bg (white)
+     so they lift off the field. --surface is palette-independent. */
+  background: var(--surface, var(--bg));
   -webkit-font-smoothing: antialiased;
 }
 
