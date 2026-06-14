@@ -247,6 +247,7 @@ disableKinds = ["taxonomy", "term"]
   kit_lists         = true
   history           = true
   governance        = true
+  trustee_minutes   = true
   fundraising       = true
   hall_hire         = true
 
@@ -373,6 +374,20 @@ disableKinds = ["taxonomy", "term"]
   # charity_secondary_number    = "BE1013020290"
   # charity_secondary_regulator = "Belgium (ASBL)"
   # charity_secondary_url       = ""
+
+# -----------------------------------------------------------------------------
+# Trustee Board meeting summaries — see SPEC-13.
+#   Requires features.governance AND features.trustee_minutes (both above).
+#   Publishes SHORT, redacted PUBLIC SUMMARIES of board decisions at
+#   /about/governance/minutes/ — never the full minutes (those stay private;
+#   write them from documentation/templates/trustee-minutes-template.md).
+#   Each summary is a content file in content/about/minutes/ with
+#   `approved = true`; unapproved/draft files never publish.
+#   level  Scouting level of THIS charity, used to label the archive:
+#          "group" | "district" | "county" (County / Area / Region).
+# -----------------------------------------------------------------------------
+[params.minutes]
+  level = "group"
 
 # -----------------------------------------------------------------------------
 # Fundraising & volunteering — see SPEC-09.

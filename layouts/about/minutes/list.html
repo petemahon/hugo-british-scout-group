@@ -1,0 +1,112 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Trustee Board meeting summaries — /about/governance/minutes/. SPEC-13.
+
+  Publishes SHORT, redacted public summaries of Trustee Board decisions —
+  NOT the full minutes (those stay private; see
+  documentation/templates/trustee-minutes-template.md). Each summary is a
+  content file under content/about/minutes/ marked `approved = true`;
+  unapproved/draft files are skipped so nothing publishes by accident.
+
+  Lightweight archive treatment, mirroring /about/reports/ and the balanced
+  info-page components (08-page-balanced.css). The content section lives at
+  content/about/minutes/ and is relocated to /about/governance/minutes/ via a
+  `url` override on its _index.md, keeping it beside the governance page
+  without colliding with the governance.md leaf.
+
+  Feature gate: features.governance AND features.trustee_minutes.
+*/ -}}
+{{ define "main" }}
+{{- if and site.Params.features.governance site.Params.features.trustee_minutes -}}
+
+  {{- $levelLabels := dict
+      "group"    (i18n "minutesLevelGroup"    | default "Group Trustee Board")
+      "district" (i18n "minutesLevelDistrict" | default "District Trustee Board")
+      "county"   (i18n "minutesLevelCounty"   | default "County / Area / Region Trustee Board") -}}
+  {{- $typeLabels := dict
+      "ordinary"      (i18n "minutesTypeOrdinary"      | default "Board meeting")
+      "extraordinary" (i18n "minutesTypeExtraordinary" | default "Extraordinary meeting")
+      "agm"           (i18n "minutesTypeAgm"           | default "Annual General Meeting") -}}
+  {{- $siteLevel := (site.Params.minutes | default dict).level | default "group" -}}
+
+  {{- /* Approved summaries only, newest meeting first. Children are
+         list = "local", so they appear in .RegularPages here but nowhere
+         site-wide. */ -}}
+  {{- $approved := where .RegularPages "Params.approved" true -}}
+  {{- $summaries := sort $approved "Params.meeting_date" "desc" -}}
+
+  <section class="section s-minutes reveal">
+    <div class="container s-minutes__container pb-page">
+
+      {{ partial "back-link.html" (dict "page" . "url" "/about/governance/" "label" (i18n "navAboutGovernance" | default "Governance")) }}
+
+      <header class="sect-head sect-head--left">
+        <span class="eyebrow">{{ index $levelLabels $siteLevel | default (i18n "minutesEyebrow" | default "Trustee Board") }}</span>
+        <h1 class="display-2">{{ with .Title }}{{ . }}{{ else }}{{ i18n "minutesHeading" | default "Trustee Board meeting summaries" }}{{ end }}</h1>
+      </header>
+
+      <div class="pb-masthead">
+        <div>
+          {{- with .Params.intro }}<p class="pb-lede">{{ . | safeHTML }}</p>{{ end }}
+          {{- with .Content }}<div class="s-minutes__intro display-7">{{ . }}</div>{{ end }}
+          <p class="s-minutes__note display-7">{{ i18n "minutesConfidentialNote" | default "These are short public summaries of the decisions taken. The board's full minutes are kept privately, as they cover confidential matters such as safeguarding, individuals and detailed finances." }}</p>
+        </div>
+
+        {{- with $summaries }}
+        <div class="pb-glance">
+          <p class="pb-glance__h">{{ i18n "minutesGlanceHeading" | default "At a glance" }}</p>
+          <dl>
+            <div class="pb-glance__row">
+              <dt>{{ i18n "minutesGlanceLatest" | default "Most recent" }}</dt>
+              <dd>{{ dateFormat "January 2006" (index . 0).Params.meeting_date }}</dd>
+            </div>
+            <div class="pb-glance__row">
+              <dt>{{ i18n "minutesGlanceCount" | default "Summaries" }}</dt>
+              <dd>{{ len . }} {{ i18n "minutesGlanceCountUnit" | default "published" }}</dd>
+            </div>
+          </dl>
+        </div>
+        {{- end }}
+      </div>
+
+      <p class="pb-section-label">{{ i18n "minutesListLabel" | default "Meeting summaries" }}</p>
+
+      {{- with $summaries }}
+        <ol class="minutes-list">
+          {{- range . }}
+            {{- $type := .Params.meeting_type | default "ordinary" -}}
+            {{- $level := .Params.level | default $siteLevel -}}
+            <li class="minutes-entry">
+              <div class="minutes-entry__head">
+                <span class="minutes-entry__date">{{ dateFormat "2 January 2006" .Params.meeting_date }}</span>
+                <span class="minutes-entry__tag">{{ index $typeLabels $type | default $type }}</span>
+              </div>
+              {{- $facts := slice -}}
+              {{- with .Params.present_count }}{{ if gt . 0 }}{{ $facts = $facts | append (printf "%s: %d" (i18n "minutesPresent" | default "Present") .) }}{{ end }}{{ end -}}
+              {{- if .Params.quorum_met }}{{ $facts = $facts | append (i18n "minutesQuorumMet" | default "Quorum met") }}{{ end -}}
+              {{- with $facts }}<p class="minutes-entry__meta">{{ delimit . " · " }}</p>{{ end }}
+              <div class="minutes-entry__summary display-7">{{ .Content }}</div>
+              {{- with .Params.minutes_pdf }}
+                <p class="minutes-entry__pdf"><a class="styled-link" href="{{ . | relURL }}" download>{{ i18n "minutesPdfLink" | default "Approved minutes (PDF)" }} &darr;</a></p>
+              {{- end }}
+            </li>
+          {{- end }}
+        </ol>
+      {{- else }}
+        <p class="s-minutes__empty display-7">{{ i18n "minutesEmpty" | default "No meeting summaries published yet — they'll appear here once the board approves them." }}</p>
+      {{- end }}
+
+      <section class="pb-related">
+        <span class="pb-related__kicker">{{ i18n "governanceReportsHeading" | default "Reports & accounts" }}</span>
+        <div class="pb-related__links">
+          <a class="pb-pill-link" href="{{ "/about/reports/" | relURL }}">{{ i18n "governanceReportsLink" | default "Trustees' Annual Reports and AGM minutes" }} &rarr;</a>
+        </div>
+      </section>
+
+    </div>
+  </section>
+{{- end -}}
+{{ end }}

@@ -378,6 +378,34 @@ the roller has run), not `date`, to clear `--buildFuture=false`.
   the one section partial that emits `<h1>`** (the home page's title);
   (e) added `bg_muted` pairs to the contrast script. **All roadmap specs
   (01–12) now shipped.**
+- **SPEC-13 Trustee Minutes:** shipped (2026-06-13) — first feature
+  beyond the original 01–12 roadmap; extends SPEC-07. Two parts: (1) a
+  **universal authoring template** at
+  `documentation/templates/trustee-minutes-template.md` covering every
+  standing agenda item plus three optional level blocks (Group /
+  District / County-Area-Region — keep one, delete the rest), with an
+  explicit **keep-private** warning; kept private by the board. (2) A
+  **public-summaries-only** archive at `/about/minutes/` — short redacted
+  "decisions taken" summaries, opt-in per meeting via `approved = true`
+  (default OFF, nothing publishes by accident). **Full minutes are never
+  rendered** — the no-backend/no-auth invariant means anything published is
+  fully public, and routine board minutes carry safeguarding/HR/finance
+  detail. Gated by `params.features.trustee_minutes` (default OFF) AND
+  `governance`. Section lives at `content/about/minutes/` → `/about/minutes/`
+  (flat, like its `history`/`governance`/`reports` siblings; cross-linked
+  from the governance page). **Nesting under `/about/governance/` was
+  rejected:** `governance.md` is a leaf, so a `governance/` branch dir
+  collides with it; a `url` override on the section `_index.md` 404s (Hugo
+  won't reliably publish a branch-section relocated that way), and converting
+  governance to a branch risks the SPEC-07 layout. Summary files use
+  `[build]` (`render="never"`, `list="local"`) so they render **inline** on
+  the archive (no standalone pages, not in site-wide collections) — note the
+  key is **`build`**, renamed from `_build` in Hugo 0.145.0 (which is removed,
+  so `_build` errors the build). `[params.minutes].level` labels the archive.
+  **No nav change** (governance-page cross-link keeps the SPEC-11 nav contract
+  intact). Consuming sites must create `content/about/minutes/_index.md`
+  (title + intro). See [[hugo-front-matter-reserved-fields-and-context]] (the
+  `[build]` table must follow all top-level scalars, incl. `draft`).
 
 ---
 

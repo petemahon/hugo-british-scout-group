@@ -698,6 +698,74 @@ other = "AGM minutes"
 other = "Document"
 
 # -----------------------------------------------------------------------------
+# Trustee Board meeting summaries — used by layouts/about/minutes/list.html
+# and the governance cross-link. SPEC-13. These are PUBLIC SUMMARIES of board
+# decisions, not the full minutes. Override in your site's i18n/en.toml.
+# -----------------------------------------------------------------------------
+[minutesEyebrow]
+other = "Trustee Board"
+
+[minutesHeading]
+other = "Trustee Board meeting summaries"
+
+[minutesConfidentialNote]
+other = "These are short public summaries of the decisions taken. The board's full minutes are kept privately, as they cover confidential matters such as safeguarding, individuals and detailed finances."
+
+[minutesEmpty]
+other = "No meeting summaries published yet — they'll appear here once the board approves them."
+
+[minutesListLabel]
+other = "Meeting summaries"
+
+[minutesPresent]
+other = "Present"
+
+[minutesQuorumMet]
+other = "Quorum met"
+
+[minutesPdfLink]
+other = "Approved minutes (PDF)"
+
+[minutesGlanceHeading]
+other = "At a glance"
+
+[minutesGlanceLatest]
+other = "Most recent"
+
+[minutesGlanceCount]
+other = "Summaries"
+
+[minutesGlanceCountUnit]
+other = "published"
+
+# Level labels (the charity's place in the Scouting structure)
+[minutesLevelGroup]
+other = "Group Trustee Board"
+
+[minutesLevelDistrict]
+other = "District Trustee Board"
+
+[minutesLevelCounty]
+other = "County / Area / Region Trustee Board"
+
+# Meeting-type tags
+[minutesTypeOrdinary]
+other = "Board meeting"
+
+[minutesTypeExtraordinary]
+other = "Extraordinary meeting"
+
+[minutesTypeAgm]
+other = "Annual General Meeting"
+
+# Cross-link shown on the governance page
+[governanceMinutesHeading]
+other = "Meeting summaries"
+
+[governanceMinutesLink]
+other = "Trustee Board meeting summaries"
+
+# -----------------------------------------------------------------------------
 # Fundraising & volunteering — used by layouts/support-us/* and the
 # fundraising / volunteer partials. SPEC-09.
 # -----------------------------------------------------------------------------

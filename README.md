@@ -615,6 +615,15 @@ under the list.
 hugo new kit-lists/cubs-weekend.md
 ```
 
+> **Related tool — managing the Group's own kit.** The theme's kit lists
+> are the parent-facing side: what to *pack* for a camp. For tracking the
+> Group's *own* equipment and quartermaster stock — inventory, uniform
+> allocation, kit bookings and repair tracking — a good free option is
+> **[Wogglebox](https://wogglebox.app)**. It's web-based, designed to work
+> alongside Online Scout Manager (OSM) rather than replace it, and imports
+> from CSV, Excel or OSM exports; its free tier suits most small-to-medium
+> Groups. (An independent recommendation — not affiliated with this theme.)
+
 ### Joining & Waiting List (SPEC-06)
 
 A structured `/join/` page generated from a single Markdown file

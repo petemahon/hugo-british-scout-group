@@ -5,10 +5,10 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-07-12-summer-fete@localhost:1313
-DTSTAMP:20260604T153639Z
+DTSTAMP:20260613T122625Z
 SEQUENCE:0
-DTSTART;TZID=Europe/London:20260808T130000
-DTEND;TZID=Europe/London:20260808T170000
+DTSTART;TZID=Europe/London:20260817T130000
+DTEND;TZID=Europe/London:20260817T170000
 SUMMARY:Summer Fete
 DESCRIPTION:Our annual Summer Fete on the Hut grounds — bouncy castle\, BBQ\, raffle\, plus a chance for parents to meet the leadership team and learn about the year ahead.\nVolunteers welcome — get in touch if you can help with the BBQ or the gates rota.\n
 LOCATION:Anytown Scout Hut
