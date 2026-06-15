@@ -27,12 +27,11 @@ LICENSE file intact in any forks of the theme repository.
                             THIRD-PARTY ASSETS
 ================================================================================
 
-The theme ships with placeholder WebP files at
-`assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.webp`.
-These placeholders are reduced quality Scout Association brand assets — they are
-for theme demonstration purposes only. The theme maintainer
-replaces these with the official Scout brand logos (downloaded from
-https://scoutsbrand.org.uk) before publishing.
+The official Scout section logos ship in the theme as SVG files at
+`assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
+downloaded by the theme maintainer from https://scoutsbrand.org.uk. Brand-asset
+maintenance is centralised — Groups do not override these. Other images shipped
+in the theme are generic placeholders that Groups override at the same path.
 
 Those files are © The Scout Association. Their distribution within forks of this
 theme is permitted only if the fork is being used to build a website for an
@@ -44,5 +43,5 @@ The colour palette presets in data/palettes.toml use hex values published in
 the Scouts Brand Guidelines (Our Colours, 2023). Hex codes are factual data
 and are not themselves copyrightable.
 
-The "Inter Tight" typeface is loaded at runtime from Google Fonts under the
-SIL Open Font License 1.1.
+The "Manrope" and "Nunito Sans" typefaces are loaded at runtime from Google
+Fonts under the SIL Open Font License 1.1.

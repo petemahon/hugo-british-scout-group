@@ -20,11 +20,10 @@
     • Poster sits LEFT of the text column at desktop, ABOVE at mobile.
       No `direction` field — the layout is opinionated. Groups wanting
       the other direction can use `two-col-image-cta` instead.
-    • Typography uses the theme's default Inter Tight throughout. The
-      mockup's Nunito Sans / Manrope declarations on poster h3 and
-      stat-copy were dropped — Inter Tight at weight 900 handles the
-      display weight, and a second Google Fonts family is overhead
-      for ~5 words of typography.
+    • Typography: body/UI copy uses the theme's default Manrope
+      (`--font-family`); the poster display face (h3 + stat copy) uses
+      Nunito Sans 900 via `--font-display` — the Scouts-poster display
+      weight. See 23-section-volunteer-feature.css.
 
   Front-matter schema (every field optional):
 

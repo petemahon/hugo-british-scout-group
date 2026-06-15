@@ -540,9 +540,11 @@ permissions:
 jobs:
   prune:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}     # auth for the built-in `gh` CLI
     steps:
       - uses: actions/checkout@v4
-      - name: Find and remove galleries older than 3 years
+      - name: Prune galleries older than 3 years and open a PR
         run: |
           cutoff=$(date -d "3 years ago" +%Y-%m-%d)
           find content/galleries -mindepth 1 -maxdepth 1 -type d | while read d; do
@@ -554,20 +556,28 @@ jobs:
               git rm "data/galleries/$slug.toml" 2>/dev/null || true
             fi
           done
-      - name: Open PR
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "chore: prune galleries older than 3 years"
-          branch: chore/prune-galleries
-          title: "Prune galleries older than 3 years"
-          body: |
-            Automated prune. **Review the diff before merging.**
-            Cron: monthly. Calendar reminder to review every quarter
-            so a forgotten cron does not silently prune everything.
+
+          # Nothing staged → nothing aged out. Exit quietly.
+          git diff --cached --quiet && { echo "No galleries to prune."; exit 0; }
+
+          branch="chore/prune-galleries-${{ github.run_id }}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git commit -m "chore: prune galleries older than 3 years"
+          git push -u origin "$branch"
+
+          # GitHub's own CLI — preinstalled on the runner, no third-party Action.
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Prune galleries older than 3 years" \
+            --body "Automated prune. **Review the diff before merging.** Monthly cron — set a calendar reminder to review, so a forgotten cron does not silently prune everything."
 ```
 
-The workflow opens a PR rather than committing directly — a human
-must review and merge each prune.
+The workflow opens a PR with GitHub's built-in `gh` CLI (no third-party
+Action) rather than committing directly — a human must review and merge
+each prune, and it does nothing on runs where no gallery has aged out.
 
 **Safeguarding checklist** when publishing a gallery:
 
@@ -1191,7 +1201,7 @@ flag-not-change event — open an issue first.
 - **No backend services, no third-party tracking.** No analytics,
   no social embeds with trackers, no comment systems, no payment
   widgets, no live-chat, no tracking font CDNs. The only runtime
-  third party is Google Fonts (Inter Tight), loaded statically.
+  third party is Google Fonts (Manrope + Nunito Sans), loaded statically.
 - **WCAG 2.2 AA is the floor.** Skip link first-focusable on every
   page; focus rings on every interactive element; `prefers-reduced-motion`
   honoured; colour-contrast audited in CI.
@@ -1359,8 +1369,8 @@ distribution within forks of this theme is permitted only when the
 fork is being used to build a website for an actual Scout Group, in
 line with The Scout Association's brand asset terms.
 
-The "Inter Tight" typeface is loaded at runtime from Google Fonts
-under the SIL Open Font License 1.1.
+The "Manrope" and "Nunito Sans" typefaces are loaded at runtime from
+Google Fonts under the SIL Open Font License 1.1.
 
 The author asks (but does not require) that downstream users keep
 the `LICENSE` file intact in any forks of the theme repository.

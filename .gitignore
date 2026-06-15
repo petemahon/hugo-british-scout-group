@@ -1,1 +1,15 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Playwright MCP
 .playwright-mcp/
+
+# Editor / merge backups
+*.orig
+
+# Claude Code / AI-assistant config — local tooling, kept out of the public repo
+CLAUDE.md
+CLAUDE.local.md
+.claude/
