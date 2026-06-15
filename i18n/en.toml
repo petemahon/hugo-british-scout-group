@@ -1124,3 +1124,10 @@ other = "Contact the Group and we'll be glad to help."
 
 [policyAskCta]
 other = "Get in touch"
+
+# -----------------------------------------------------------------------------
+# Wogglebox badge — used by partials/wogglebox-badge.html (opt-in). The badge
+# image carries its own label; this is the <img> alt / accessible name.
+# -----------------------------------------------------------------------------
+[woggleboxBadgeAlt]
+other = "We use Wogglebox — Scout kit management"

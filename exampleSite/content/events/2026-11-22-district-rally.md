@@ -5,12 +5,12 @@ title       = "District Rally"
 # NEW date. The original was scheduled for 2026-10-04; postponed to
 # 2026-11-22. Revision is bumped to 1 so subscriber calendars update
 # the meeting in place rather than treating it as a new entry.
-date        = 2026-12-30T10:00:00+00:00
+date        = 2027-01-01T10:00:00+00:00
 
 # Set in the past so Hugo's --buildFuture=false build still emits.
-publishDate = 2026-04-14T09:00:00+01:00
+publishDate = 2026-04-16T09:00:00+01:00
 
-end         = 2026-12-30T16:00:00+00:00
+end         = 2027-01-01T16:00:00+00:00
 
 location    = "Anytown District Camp Site"
 address     = "Camp Lane, Anytown, AT2 3CD"

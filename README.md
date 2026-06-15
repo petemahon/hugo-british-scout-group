@@ -623,6 +623,13 @@ hugo new kit-lists/cubs-weekend.md
 > alongside Online Scout Manager (OSM) rather than replace it, and imports
 > from CSV, Excel or OSM exports; its free tier suits most small-to-medium
 > Groups. (An independent recommendation — not affiliated with this theme.)
+>
+> If your Group uses Wogglebox, display a **"We use Wogglebox" badge** near
+> the home-page footer and on the kit-lists page by setting
+> `[params.wogglebox] enabled = true`. The badge image is **self-hosted**
+> (`assets/images/wogglebox/`) so no third-party request fires on page load;
+> the badge's `utm_*` link only fires on click. Override the click-through
+> with `[params.wogglebox] url = "..."`.
 
 ### Joining & Waiting List (SPEC-06)
 
@@ -1058,6 +1065,7 @@ adding a new module is a drop-in:
 30-footer.css                  (D13)
 31-back-to-top.css
 32-page-load-fade.css          (reveal fade-in; honours reduced motion)
+33-wogglebox-badge.css         (opt-in "We use Wogglebox" partner badge)
 40-section-news.css            (SPEC-01)
 41-feature-hero-intro.css      (opt-in, gated by body class)
 50-section-programme.css       (SPEC-03)

@@ -1,0 +1,37 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  Wogglebox "We use Wogglebox" partner badge. Opt-in.
+
+  Wogglebox (wogglebox.app) is an independent, free kit / quartermaster
+  manager for Scout Groups (see the Camp Kit Lists section of README.md).
+  This renders the badge the Wogglebox owner supplies for Groups that use it.
+
+  Activation:  [params.wogglebox] enabled = true   (default OFF)
+  Optional:    [params.wogglebox] url = "..."       (the click-through link;
+               keep the utm_* params so Wogglebox can attribute referrals)
+
+  The badge image is SELF-HOSTED (assets/images/wogglebox/) — no third-party
+  request is made on page load, keeping the theme's no-third-party-runtime
+  invariant intact. The UTM link only fires on click. Rendered near the home
+  footer and on /kit-lists/.
+
+  No-ops entirely when not enabled. Context: the current Page (for relURL).
+*/ -}}
+{{- $cfg := site.Params.wogglebox | default dict -}}
+{{- if $cfg.enabled -}}
+  {{- $badge := resources.Get "images/wogglebox/wogglebox-badge-dark.svg" -}}
+  {{- if not $badge -}}
+    {{- errorf "wogglebox-badge: asset %q not found — expected at assets/images/wogglebox/wogglebox-badge-dark.svg." "images/wogglebox/wogglebox-badge-dark.svg" -}}
+  {{- else -}}
+    {{- $url := $cfg.url | default "https://wogglebox.app/?utm_source=group-website&utm_medium=badge&utm_campaign=we-use-wogglebox" -}}
+    <div class="wogglebox-badge">
+      <a class="wogglebox-badge__link" href="{{ $url | safeURL }}" target="_blank" rel="noopener">
+        <img class="wogglebox-badge__img" src="{{ $badge.RelPermalink }}" width="240" height="64" loading="lazy" decoding="async"
+             alt="{{ i18n "woggleboxBadgeAlt" | default "We use Wogglebox — Scout kit management" }}">
+      </a>
+    </div>
+  {{- end -}}
+{{- end -}}

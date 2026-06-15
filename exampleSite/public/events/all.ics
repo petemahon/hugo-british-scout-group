@@ -5,10 +5,10 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-06-10-brussels-district-meeting@localhost:1313
-DTSTAMP:20260613T122625Z
+DTSTAMP:20260615T083328Z
 SEQUENCE:0
-DTSTART;TZID=Europe/Brussels:20260627T203000
-DTEND;TZID=Europe/Brussels:20260627T220000
+DTSTART;TZID=Europe/Brussels:20260629T203000
+DTEND;TZID=Europe/Brussels:20260629T220000
 SUMMARY:Brussels District planning meeting
 DESCRIPTION:A short planning call for Section Leaders and Assistants across the Brussels District ahead of the autumn term. We&amp\;rsquo\;ll cover the term card\, the District camp shortlist\, safeguarding refresher dates\, and any help needed on the volunteer rota.\nDial-in details will be sent by email the day before. If you can&amp\;rsquo\;t make it\, drop the GSL a note and we&amp\;rsquo\;ll fold your input into the notes.\n
 LOCATION:Online (Microsoft Teams)
@@ -16,10 +16,10 @@ URL:http://localhost:1313/events/2026-06-10-brussels-district-meeting/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-07-12-summer-fete@localhost:1313
-DTSTAMP:20260613T122625Z
+DTSTAMP:20260615T083328Z
 SEQUENCE:0
-DTSTART;TZID=Europe/London:20260817T130000
-DTEND;TZID=Europe/London:20260817T170000
+DTSTART;TZID=Europe/London:20260819T130000
+DTEND;TZID=Europe/London:20260819T170000
 SUMMARY:Summer Fete
 DESCRIPTION:Our annual Summer Fete on the Hut grounds — bouncy castle\, BBQ\, raffle\, plus a chance for parents to meet the leadership team and learn about the year ahead.\nVolunteers welcome — get in touch if you can help with the BBQ or the gates rota.\n
 LOCATION:Anytown Scout Hut
@@ -27,10 +27,10 @@ URL:http://localhost:1313/events/2026-07-12-summer-fete/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-08-14-cubs-summer-camp@localhost:1313
-DTSTAMP:20260613T122625Z
+DTSTAMP:20260615T083328Z
 SEQUENCE:0
-DTSTART;VALUE=DATE:20260921
-DTEND;VALUE=DATE:20260924
+DTSTART;VALUE=DATE:20260923
+DTEND;VALUE=DATE:20260926
 SUMMARY:Cubs Summer Camp
 DESCRIPTION:Three days under canvas at Pioneer Camp — Friday afternoon arrival\, Sunday afternoon collection. The Pack will be running a mix of campcraft\, water activities and the all-time-favourite night hike.\nThe kit list for this camp is linked below\; consent forms come home four weeks ahead. Bursary support is available — speak to Akela in confidence if cost would otherwise stop your Cub joining us.\n
 LOCATION:Pioneer Camp\, Buckinghamshire
@@ -38,10 +38,10 @@ URL:http://localhost:1313/events/2026-08-14-cubs-summer-camp/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-district-rally@localhost:1313
-DTSTAMP:20260613T122625Z
+DTSTAMP:20260615T083328Z
 SEQUENCE:1
-DTSTART;TZID=Europe/London:20261230T100000
-DTEND;TZID=Europe/London:20261230T160000
+DTSTART;TZID=Europe/London:20270101T100000
+DTEND;TZID=Europe/London:20270101T160000
 SUMMARY:District Rally
 DESCRIPTION:Note: new date/time. The District Rally has been rescheduled from October to late November to align with the District&amp\;rsquo\;s outdoor programme. Same venue\, new date — full Group day with backwoods cooking\, pioneering\, a wide game in the afternoon\, and the District flag ceremony to finish.\nIf you subscribed to our events calendar you don&amp\;rsquo\;t need to do anything\; the meeting will update automatically.\nBring a packed lunch and a warm layer.\n
 LOCATION:Anytown District Camp Site

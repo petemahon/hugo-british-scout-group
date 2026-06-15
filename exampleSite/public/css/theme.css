@@ -3936,6 +3936,52 @@ main > .reveal:nth-child(4) { animation-delay: 0.3s; }
 }
 
 /* -----------------------------------------------------------------------------
+   33. WOGGLEBOX BADGE — opt-in "We use Wogglebox" partner badge
+   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   Rendered by partials/wogglebox-badge.html near the home footer and on
+   /kit-lists/. Centred, with breathing room above the footer. The badge SVG
+   carries its own colour; this module only handles placement.
+   ----------------------------------------------------------------------------- */
+
+.wogglebox-badge {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 1rem;
+}
+.wogglebox-badge__link {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.wogglebox-badge__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 17, 14, 0.18);
+}
+.wogglebox-badge__img {
+  display: block;
+  width: 240px;
+  height: auto;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wogglebox-badge__link {
+    transition: none;
+  }
+  .wogglebox-badge__link:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .wogglebox-badge {
+    display: none;
+  }
+}
+/* -----------------------------------------------------------------------------
    19. NEWS — s-news
    News listing (/news/), single post (/news/<slug>/), per-section filter
    pages (/news/sections/<scout-section>/), and the news-grid home block.
