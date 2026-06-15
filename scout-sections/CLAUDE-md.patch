@@ -12,7 +12,7 @@
 +- **Official Scout section logo SVGs** ship in the theme at
 +  `assets/images/sections/<key>.svg`, downloaded from
 +  https://scoutsbrand.org.uk by the theme maintainer. Groups do
-+  NOT override these — brand asset maintenance is centralised.
++  NOT override these - brand asset maintenance is centralised.
 +  **Other visual assets** shipped at theme paths are generic
 +  placeholders; Groups override at the same path in their site repo.
  - **Group-specific values live only in the consuming site's

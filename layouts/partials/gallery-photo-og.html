@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  gallery-photo-og — Open Graph meta block for per-photo pages.
+  gallery-photo-og - Open Graph meta block for per-photo pages.
   Called from partials/head.html when .Layout == "photo".
 
   Emits og:title (gallery title + optional caption), og:description
@@ -20,7 +20,7 @@
 {{- $caption := .Params.image_caption -}}
 {{- $alt := .Params.image_alt -}}
 {{- $title := $gallery.Title -}}
-{{- if ne $caption "" -}}{{- $title = printf "%s — %s" $gallery.Title $caption -}}{{- end -}}
+{{- if ne $caption "" -}}{{- $title = printf "%s - %s" $gallery.Title $caption -}}{{- end -}}
 {{- $desc := $alt -}}
 {{- if eq $desc "" -}}{{- $desc = printf "Photo from %s" $gallery.Title -}}{{- end -}}
 

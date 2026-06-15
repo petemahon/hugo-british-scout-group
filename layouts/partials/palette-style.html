@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  palette-style — reads the palette key from site params
+  palette-style - reads the palette key from site params
   (Site.Params.palette) and emits a :root CSS block overriding the colour
   tokens with that palette's values. Falls back to "classic-purple" if
   the requested palette isn't defined.
@@ -16,7 +16,7 @@
 {{- $key := site.Params.palette | default "classic-purple" -}}
 {{- $palette := index hugo.Data.palettes $key -}}
 {{- if not $palette -}}
-  {{- warnf "british-scout-group: palette %q not found in data/palettes.toml — falling back to classic-purple" $key -}}
+  {{- warnf "british-scout-group: palette %q not found in data/palettes.toml - falling back to classic-purple" $key -}}
   {{- $palette = index hugo.Data.palettes "classic-purple" -}}
 {{- end -}}
 {{- with $palette }}

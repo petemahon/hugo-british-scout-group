@@ -1,5 +1,5 @@
 +++
-title       = "Scouts — Autumn Term 2025"
+title       = "Scouts - Autumn Term 2025"
 section     = "scouts"
 term        = "Autumn 2025"
 term_start  = 2025-09-04
@@ -27,7 +27,7 @@ density     = "themes_only"
 [[weeks]]
   number = 4
   date   = 2025-09-25
-  title  = "Weekend hike — Anytown Hills"
+  title  = "Weekend hike - Anytown Hills"
   themes = ["have-adventures", "outdoor-and-adventure"]
 
 [[weeks]]
@@ -79,6 +79,6 @@ density     = "themes_only"
   themes = ["have-adventures", "teamwork-and-leadership"]
 +++
 
-Last autumn's Scouts programme — kept here for District audit and as a
+Last autumn's Scouts programme - kept here for District audit and as a
 demonstration of the archive view (set `params.programme.keep_archive`
 true to see it in the listing).

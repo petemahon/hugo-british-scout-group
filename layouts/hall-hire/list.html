@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Hall hire — /hall-hire/. SPEC-08. Single informational page (section
+  Hall hire - /hall-hire/. SPEC-08. Single informational page (section
   root with no children). Fully-booked banner, intro, photo strip, the
   facts (address/capacity/size/facilities) and hire details
   (rates/fees/availability), the priority disclaimer, T&Cs link and an
@@ -71,7 +71,7 @@
       {{- with .Content }}<div class="s-hall__body display-7">{{ . }}</div>{{ end }}
 
       {{- if ne .Params.priority_disclaimer false }}
-        <p class="s-hall__priority">{{ i18n "hallPriority" | default "Scout activities always take priority — hire bookings are confirmed around our weekly programme and events." }}</p>
+        <p class="s-hall__priority">{{ i18n "hallPriority" | default "Scout activities always take priority - hire bookings are confirmed around our weekly programme and events." }}</p>
       {{- end }}
 
       <div class="s-hall__enquiry">

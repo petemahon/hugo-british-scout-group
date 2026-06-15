@@ -34,7 +34,7 @@ cross_border_notes = "If your camp is across a border from where you live, also 
     quantity = 7
   [[categories.items]]
     name = "Warm fleece and trousers for evenings"
-    alternative = "Nights are cold — bring them"
+    alternative = "Nights are cold - bring them"
   [[categories.items]]
     name = "Closed footwear for sand, plus sandals"
 

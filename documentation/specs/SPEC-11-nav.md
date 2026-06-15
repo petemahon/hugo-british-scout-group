@@ -12,7 +12,7 @@ i18n. Pure CSS, no JavaScript.
 
 This is the cross-cutting feature that closes the loop on every
 per-feature spec's "add a nav entry" instruction. After SPEC-11, those
-instructions go away — the per-feature spec turns the feature on, and
+instructions go away - the per-feature spec turns the feature on, and
 the nav appears.
 
 ## Acceptance criteria
@@ -49,11 +49,11 @@ but cannot reorder.
 
 | Top-level | Default URL | Children |
 | --- | --- | --- |
-| Join Us | `/join/` (SPEC-06) → falls back to `#join` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/join/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu — direct link. |
-| Our Sections | `#sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network` — emitted as `id` on the home scout-section cards. |
-| What we do | First enabled child's URL | Latest news (`/news/` — SPEC-01); Events (`/events/` — SPEC-02); Programme (`/programme/` — SPEC-03); Galleries (`/galleries/` — SPEC-04). |
-| Get Involved | First enabled child's URL | Volunteer roles (`/support-us/volunteer-roles/` — SPEC-09); Support us / fundraising (`/support-us/` — SPEC-09); Hire the hall (`/hall-hire/` — SPEC-08). When SPEC-09 reports ≥1 open role AND `params.volunteer_roles.nav_link = true`, the Volunteer-roles entry carries the "We're recruiting" indicator (see below). |
-| About | First enabled child's URL | Our history (`/about/history/` — SPEC-07); Governance (`/about/governance/` — SPEC-07); Kit lists (`/kit-lists/` — SPEC-05); Where we meet (`#where-we-meet` home anchor — always on). |
+| Join Us | `/join/` (SPEC-06) → falls back to `#join` anchor on home if SPEC-06 off | When `[params.bso].enabled = true` AND `features.bso_hub = true`: "How to join" → `/join/`; "BSO eligibility" → `/bso/`. Otherwise: no submenu - direct link. |
+| Our Sections | `#sections` home anchor (always on) | Squirrels … Network. Submenu always renders, listing only Scout sections enabled in `params.scoutSections`. Each anchor: `#squirrels`, `#beavers`, `#cubs`, `#scouts`, `#explorers`, `#network` - emitted as `id` on the home scout-section cards. |
+| What we do | First enabled child's URL | Latest news (`/news/` - SPEC-01); Events (`/events/` - SPEC-02); Programme (`/programme/` - SPEC-03); Galleries (`/galleries/` - SPEC-04). |
+| Get Involved | First enabled child's URL | Volunteer roles (`/support-us/volunteer-roles/` - SPEC-09); Support us / fundraising (`/support-us/` - SPEC-09); Hire the hall (`/hall-hire/` - SPEC-08). When SPEC-09 reports ≥1 open role AND `params.volunteer_roles.nav_link = true`, the Volunteer-roles entry carries the "We're recruiting" indicator (see below). |
+| About | First enabled child's URL | Our history (`/about/history/` - SPEC-07); Governance (`/about/governance/` - SPEC-07); Kit lists (`/kit-lists/` - SPEC-05); Where we meet (`#where-we-meet` home anchor - always on). |
 
 The minimum nav (no features) reads: **Join Us · Our Sections · Where we meet**.
 The "Where we meet" entry promotes to top-level when About has only that
@@ -64,12 +64,12 @@ one enabled child (smart collapse).
 Three nav entries point at home-page anchors that are not gated by any
 feature flag:
 
-- `#join` — when SPEC-06 is off, Join Us nav falls back to this anchor.
-- `#sections` — Scout-sections home block, always on.
-- `#where-we-meet` — the embedded map block, always on.
+- `#join` - when SPEC-06 is off, Join Us nav falls back to this anchor.
+- `#sections` - Scout-sections home block, always on.
+- `#where-we-meet` - the embedded map block, always on.
 
-(Reconciled 2026-06-03 to the shipped home-section IDs — `#join`,
-`#sections`, `#where-we-meet` — rather than the originally-drafted
+(Reconciled 2026-06-03 to the shipped home-section IDs - `#join`,
+`#sections`, `#where-we-meet` - rather than the originally-drafted
 `#joining`/`#our-sections`, which never matched the content.)
 
 These anchor IDs are part of the theme's stable contract. The home-page
@@ -79,7 +79,7 @@ or removing one of these IDs is a flag-not-change event.
 
 ## hugo.toml additions
 
-No new feature flag — SPEC-11 is the cross-cutting nav feature and is
+No new feature flag - SPEC-11 is the cross-cutting nav feature and is
 always on. The nav structure is derived from existing flags.
 
 ```toml
@@ -140,10 +140,10 @@ navMobileToggleAria    = "Open the main navigation"
 navRecruitingFlag      = "(NEW)"
 ```
 
-**SPEC-11 owns the conditional "We're recruiting" nav indicator** —
+**SPEC-11 owns the conditional "We're recruiting" nav indicator** -
 SPEC-09's AC4 was deliberately deferred here, since the nav is rebuilt
-by this spec. The Volunteer-roles entry carries the indicator — gated
-by `params.volunteer_roles.nav_link` (default true) — only when at
+by this spec. The Volunteer-roles entry carries the indicator - gated
+by `params.volunteer_roles.nav_link` (default true) - only when at
 least one volunteer role is currently open. The open-role count comes
 from the shipped `partials/volunteer-roles-open.html` (the single
 source of truth already used by the homepage recruitment banner); the
@@ -184,8 +184,8 @@ The Join Us group's behaviour changes only when
 
 - Without BSO: Join Us is a direct top-level link to `/joining/` (or
   `#joining` anchor if SPEC-06 off).
-- With BSO Hub on: Join Us becomes a 2-item dropdown — "How to join"
-  and "BSO eligibility" — to surface the BSO route alongside the
+- With BSO Hub on: Join Us becomes a 2-item dropdown - "How to join"
+  and "BSO eligibility" - to surface the BSO route alongside the
   general join route.
 
 Outside the Join Us group, `params.bso` does not affect the nav
@@ -199,7 +199,7 @@ No user data, no forms, no comments. Nothing GDPR-relevant.
 
 | Q | Decision |
 | --- | --- |
-| Q11.1 | Auto-build mechanism — theme partial reads `params.features.*`, no Hugo menu config required. |
+| Q11.1 | Auto-build mechanism - theme partial reads `params.features.*`, no Hugo menu config required. |
 | Q11.2 | Theme nav fully replaces; no `[[menu.main]]` merge. Customisation only via `params.nav.*` and i18n. |
 | Q11.3 | Order hardcoded; groups can be hidden but not reordered. |
 | Q11.4 | Labels via i18n; no front-matter override. |
@@ -238,12 +238,12 @@ No user data, no forms, no comments. Nothing GDPR-relevant.
 7. Add the BSO branch to Join Us; verify with
    `[params.bso].enabled = true` and `features.bso_hub = true`.
 8. Add `params.nav.show_*` overrides; verify hiding behaviour.
-9. CSS — start with the desktop layout (pre-48em is mobile, breakpoint
+9. CSS - start with the desktop layout (pre-48em is mobile, breakpoint
    shared with existing theme).
 10. Add the mobile checkbox-hack toggle; verify on a narrow viewport.
 11. Active-state styling via `[aria-current]` selectors.
 12. i18n strings; build clean.
-13. exampleSite — set every feature flag to true,
+13. exampleSite - set every feature flag to true,
     `[params.bso].enabled = true`, `features.bso_hub = true`. Confirm
     the maximum nav renders.
 14. README section, screenshots desktop + mobile + collapsed group.
@@ -252,7 +252,7 @@ No user data, no forms, no comments. Nothing GDPR-relevant.
 ## Future-proofing
 
 Adding an eleventh top-level entry (or a new child to an existing
-group) is a flag-not-change event — it changes the nav contract.
+group) is a flag-not-change event - it changes the nav contract.
 Specifically, the items inside `What we do`, `Get Involved`, and
 `About` are not extensible by a Group's own content; the theme owns
 that list. New content types must either fit into one of the existing

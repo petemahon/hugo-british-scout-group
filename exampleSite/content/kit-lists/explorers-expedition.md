@@ -6,13 +6,13 @@ climate       = "temperate"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Cathy (ESL)"
-intro         = "For a multi-day expedition where you carry everything on your back — DofE or similar. Weight matters: lay it all out, then take half the clothes and twice the snacks. Boots must be worn-in before the start."
+intro         = "For a multi-day expedition where you carry everything on your back - DofE or similar. Weight matters: lay it all out, then take half the clothes and twice the snacks. Boots must be worn-in before the start."
 phone_policy  = true
-non_essential = "Leave behind: cotton clothing (stays wet and cold), and any heavy 'just in case' pile. Phones are carried for safety but kept off except at checkpoints — see the policy below."
+non_essential = "Leave behind: cotton clothing (stays wet and cold), and any heavy 'just in case' pile. Phones are carried for safety but kept off except at checkpoints - see the policy below."
 
 [[categories]]
   name  = "Carrying and sleeping"
-  notes = "Line your rucksack with a heavy-duty bin liner — pack covers leak at the seams."
+  notes = "Line your rucksack with a heavy-duty bin liner - pack covers leak at the seams."
   [[categories.items]]
     name = "Rucksack, 55–65L, with waist belt"
   [[categories.items]]

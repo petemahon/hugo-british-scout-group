@@ -8,7 +8,7 @@ Static page listing the Group's fundraising activities, plus a
 separate volunteer-roles page surfaced via a homepage banner block
 and a nav link when any role is currently open.
 
-No payment processing, no application forms — purely informational.
+No payment processing, no application forms - purely informational.
 
 Real parallels: Cheddington Scouts (full fundraising rotation:
 Christmas Post, Lucky Number Club, easyfundraising, jumble, bonfire
@@ -35,7 +35,7 @@ volunteer induction guidance.
    remote-friendly with a "Remote OK" badge. Important for BSO
    recruitment of UK-resident remote volunteers.
 7. Optional Gift Aid declaration PDF link.
-8. Optional "annual budget" transparency block — high-level numbers,
+8. Optional "annual budget" transparency block - high-level numbers,
    not detailed accounts.
 9. Feature gated by `params.features.fundraising` (default OFF).
 10. Example site exercises: a Group with all blocks enabled, a Group
@@ -59,17 +59,17 @@ content/support-us/
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `title` | string | no | "Support us" | Page heading |
-| `intro` | string (HTML allowed) | yes | — | Group's why-we-need-support |
-| `donate_url` | string | no | — | External link only |
+| `intro` | string (HTML allowed) | yes | - | Group's why-we-need-support |
+| `donate_url` | string | no | - | External link only |
 | `donate_label` | string | no | "Donate" | |
-| `easyfundraising_url` | string | no | — | |
-| `amazon_smile_url` | string | no | — | |
-| `localgiving_url` | string | no | — | |
-| `justgiving_url` | string | no | — | |
-| `stewardship_url` | string | no | — | |
-| `giftaid_pdf` | string | no | — | Path to Gift Aid declaration PDF |
+| `easyfundraising_url` | string | no | - | |
+| `amazon_smile_url` | string | no | - | |
+| `localgiving_url` | string | no | - | |
+| `justgiving_url` | string | no | - | |
+| `stewardship_url` | string | no | - | |
+| `giftaid_pdf` | string | no | - | Path to Gift Aid declaration PDF |
 | `fundraising_activities` | list[block] | no | `[]` | See below |
-| `annual_budget` | block | no | — | Inline budget block — see below |
+| `annual_budget` | block | no | - | Inline budget block - see below |
 
 Each `fundraising_activities` block:
 
@@ -95,12 +95,12 @@ Each `fundraising_activities` block:
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `income` | string | no | — | Number as string |
-| `expenditure` | string | no | — | |
+| `income` | string | no | - | Number as string |
+| `expenditure` | string | no | - | |
 | `currency` | string | no | "GBP" | |
-| `year` | string | no | — | "2024-25" |
+| `year` | string | no | - | "2024-25" |
 | `reserves_label` | string (HTML allowed) | no | "" | |
-| `reports_link` | string | no | — | Path to governance/reports page |
+| `reports_link` | string | no | - | Path to governance/reports page |
 
 ## Front-matter schema (`content/support-us/volunteer-roles/_index.md`)
 
@@ -114,18 +114,18 @@ Each `fundraising_activities` block:
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | Role title — "Treasurer", "Assistant Cub Leader" |
-| `section` | string | no | "" | Optional — `data/scout_sections.toml` key |
-| `time_commitment` | string | no | "" | Free text — "Two hours per week, term time" |
-| `dbs_required` | bool | no | true | True for any role with young people. See SPEC-COMMON §11 for residency-since-age-10 nuance — captured in archetype comment header. |
+| `title` | string | yes | - | Role title - "Treasurer", "Assistant Cub Leader" |
+| `section` | string | no | "" | Optional - `data/scout_sections.toml` key |
+| `time_commitment` | string | no | "" | Free text - "Two hours per week, term time" |
+| `dbs_required` | bool | no | true | True for any role with young people. See SPEC-COMMON §11 for residency-since-age-10 nuance - captured in archetype comment header. |
 | `remote` | bool | no | false | Renders "Remote OK" badge. BSO-relevant for UK-resident remote volunteers. |
-| `start_date` | date | no | — | When the role would start |
-| `closes` | date | no | — | Vacancy hidden after this date |
-| `apply_email` | string | yes | — | Generic Group email |
-| `apply_url` | string | no | — | External application link if used |
-| `role_open` | bool | no | true | Soft-disable without deleting. **NB:** named `role_open`, not `published` — Hugo reserves `published` as a date field. |
+| `start_date` | date | no | - | When the role would start |
+| `closes` | date | no | - | Vacancy hidden after this date |
+| `apply_email` | string | yes | - | Generic Group email |
+| `apply_url` | string | no | - | External application link if used |
+| `role_open` | bool | no | true | Soft-disable without deleting. **NB:** named `role_open`, not `published` - Hugo reserves `published` as a date field. |
 
-Body: free Markdown — what the role involves, who'd suit it.
+Body: free Markdown - what the role involves, who'd suit it.
 
 ## Section partial: `volunteer-recruitment-banner`
 
@@ -137,12 +137,12 @@ on the home page via `[[sections]]`:
   type     = "volunteer-recruitment-banner"
   id       = "volunteer-banner"
   title    = "We're recruiting"
-  message  = "Help us run the Group — we have open volunteer roles."
+  message  = "Help us run the Group - we have open volunteer roles."
   cta_text = "See open roles"
   bg       = "primary"
 ```
 
-When no roles are open, the partial outputs nothing — the home page
+When no roles are open, the partial outputs nothing - the home page
 flows past as if the block weren't there.
 
 ## Layouts to create
@@ -154,7 +154,7 @@ flows past as if the block weren't there.
 | `layouts/support-us/volunteer-roles/single.html` | Per-role page |
 | `layouts/partials/sections/volunteer-recruitment-banner.html` | Homepage banner (conditional) |
 | `layouts/partials/fundraising-activities.html` | Cards / list of activities |
-| `layouts/partials/external-fundraising-links.html` | easyfundraising, JustGiving, etc. — URL only |
+| `layouts/partials/external-fundraising-links.html` | easyfundraising, JustGiving, etc. - URL only |
 | `layouts/partials/volunteer-roles-grid.html` | Open vacancies grid |
 | `layouts/partials/volunteer-role-card.html` | Per-role card |
 | `layouts/partials/annual-budget.html` | Income/expenditure summary |
@@ -163,7 +163,7 @@ flows past as if the block weren't there.
 
 ```toml
 [params.features]
-  fundraising = false                  # default OFF — opt-in
+  fundraising = false                  # default OFF - opt-in
 
 [params.fundraising]
   show_giftaid = true
@@ -179,18 +179,18 @@ shows the link only if count > 0.
 
 **Deferred to SPEC-11 (decided 2026-06-03).** AC4's conditional
 "We're recruiting" nav link is owned by SPEC-11, which rebuilds the
-nav from feature flags — adding the logic to the current static
+nav from feature flags - adding the logic to the current static
 `[[menu.main]]` header would be throwaway work. SPEC-09 ships the
-single source of truth the nav link needs — `partials/volunteer-roles-open.html`
-(the open-role count) — plus the homepage `volunteer-recruitment-banner`,
+single source of truth the nav link needs - `partials/volunteer-roles-open.html`
+(the open-role count) - plus the homepage `volunteer-recruitment-banner`,
 which already gives a prominent conditional entry point. The
 `[params.volunteer_roles]` block (`nav_link`, `nav_link_label`) ships
 now so the config is stable; SPEC-11 is its consumer.
 
 ## Asset paths
 
-- `static/support-us/giftaid-declaration.pdf` — Gift Aid template.
-- `static/support-us/annual-report.pdf` — if Group wants to surface
+- `static/support-us/giftaid-declaration.pdf` - Gift Aid template.
+- `static/support-us/annual-report.pdf` - if Group wants to surface
   it directly here as well as via Governance.
 
 ## CSS-only baseline
@@ -209,7 +209,7 @@ now so the config is stable; SPEC-11 is its consumer.
 
 The `remote = true` flag is BSO-relevant. BSO Area roles (e.g. BSO
 Heritage Team, Vision 2025 Transformation Lead) are explicitly
-"of any nationality, anywhere in the world" — these get
+"of any nationality, anywhere in the world" - these get
 `remote = true`. Local-meeting roles like Assistant Cub Leader stay
 `remote = false`.
 
@@ -225,7 +225,7 @@ The `bso_remote_volunteer` page-level flag was considered and
   SPEC-COMMON §11).
 - Don't list named volunteers needing replacement ("we need to
   replace Joan who's standing down"). Roles are listed as roles.
-- Don't list children's photos on the volunteer-recruitment page —
+- Don't list children's photos on the volunteer-recruitment page -
   use adult-with-young-people-from-behind imagery, or empty Scout
   Hut imagery.
 - Annual budget: high-level only. No supplier names, individual
@@ -235,11 +235,11 @@ The `bso_remote_volunteer` page-level flag was considered and
 
 | Q | Decision |
 | --- | --- |
-| Q9.1 | **URLs only** — no logos for external fundraising platforms. Plain text labels; copyright concerns resolved at zero schema cost. |
+| Q9.1 | **URLs only** - no logos for external fundraising platforms. Plain text labels; copyright concerns resolved at zero schema cost. |
 | Q9.2 | **Separate page + homepage banner block + nav link**. Banner and nav link both render only when at least one role is open. |
-| Q9.3 | **Per-role `remote` flag** — granular accuracy preferred over the page-level toggle. BSO Area-style remote roles get the flag; local roles don't. |
-| Q9.4 | **Default `dbs_required = true`** with archetype comment documenting the UK-residency-since-age-10 nuance. No `safeguarding_check_note` field — DBS is uniform UK Scouts policy globally including BSO. |
-| Q9.5 | **Inline** budget — single `[annual_budget]` block in front-matter. Set once a year. |
+| Q9.3 | **Per-role `remote` flag** - granular accuracy preferred over the page-level toggle. BSO Area-style remote roles get the flag; local roles don't. |
+| Q9.4 | **Default `dbs_required = true`** with archetype comment documenting the UK-residency-since-age-10 nuance. No `safeguarding_check_note` field - DBS is uniform UK Scouts policy globally including BSO. |
+| Q9.5 | **Inline** budget - single `[annual_budget]` block in front-matter. Set once a year. |
 
 ## Out of scope (cross-references)
 
@@ -250,7 +250,7 @@ The `bso_remote_volunteer` page-level flag was considered and
 - Trustee Board reports → SPEC-07 (Governance).
 - Fundraising-event pages (Christmas Post, jumble sale dates) →
   Events (SPEC-02).
-- "Lucky Number Club" / "100 Club" subscription mechanism — describe
+- "Lucky Number Club" / "100 Club" subscription mechanism - describe
   only, no data collection.
 
 ## Implementation order
@@ -270,7 +270,7 @@ The `bso_remote_volunteer` page-level flag was considered and
 9. `layouts/partials/volunteer-role-card.html` with `remote` badge.
 10. `layouts/partials/volunteer-roles-grid.html` with closes-date
     filtering.
-11. `layouts/partials/sections/volunteer-recruitment-banner.html` —
+11. `layouts/partials/sections/volunteer-recruitment-banner.html` -
     conditional rendering based on open-role count.
 12. Wire conditional nav link in `baseof.html` nav partial.
 13. CSS, i18n, README, screenshot.

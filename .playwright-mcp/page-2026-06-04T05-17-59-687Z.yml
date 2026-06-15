@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -34,7 +34,7 @@
       - generic [ref=e29]:
         - generic [ref=e30]: Join us
         - heading "Join 1st Anytown Scouts" [level=1] [ref=e31]
-        - paragraph [ref=e32]: We have spaces in some sections and waiting lists in others. Pick a section below for the latest. Volunteering with us is the surest way to get your child a place — we give priority to families who join in.
+        - paragraph [ref=e32]: We have spaces in some sections and waiting lists in others. Pick a section below for the latest. Volunteering with us is the surest way to get your child a place - we give priority to families who join in.
       - generic [ref=e33]:
         - link "Read our Welcome Pack →" [ref=e34] [cursor=pointer]:
           - /url: /welcome-pack/
@@ -44,14 +44,14 @@
         - region "Who can join" [ref=e37]:
           - heading "Who can join" [level=2] [ref=e38]
           - paragraph [ref=e39]: BSO is a slice of UK Scouting, here for families living in the United Arab Emirates. Whether you've moved here from the UK or somewhere else, our doors are open.
-          - paragraph [ref=e40]: Every country has its own home of Scouting. Here, that's Emirates Scout Association — and if you're a national of the United Arab Emirates, they'd love to have you.
-          - paragraph [ref=e41]: Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the United Arab Emirates.
+          - paragraph [ref=e40]: Every country has its own home of Scouting. Here, that's Emirates Scout Association - and if you're a national of the United Arab Emirates, they'd love to have you.
+          - paragraph [ref=e41]: Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of the United Arab Emirates.
           - paragraph [ref=e42]:
             - generic [ref=e43]:
               - text: (This follows
               - link "POR 3.2.1.1" [ref=e44] [cursor=pointer]:
                 - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
-              - text: — The Scout Association's rule for every BSO group.)
+              - text: - The Scout Association's rule for every BSO group.)
         - paragraph [ref=e45]:
           - link "Read the full eligibility rules →" [ref=e46] [cursor=pointer]:
             - /url: /bso/eligibility/
@@ -150,7 +150,7 @@
             - generic [ref=e159]:
               - term [ref=e160]: Subs
               - definition [ref=e161]: £45 per term
-          - generic [ref=e162]: Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule.
+          - generic [ref=e162]: Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy - expeditions, pioneering, cooking, and a strong camp schedule.
           - link "Get in touch →" [ref=e164] [cursor=pointer]:
             - /url: mailto:scouts@1stanytown.org.uk
         - article [ref=e165]:
@@ -169,7 +169,7 @@
             - generic [ref=e180]:
               - term [ref=e181]: Subs
               - definition [ref=e182]: £50 per term
-          - generic [ref=e183]: Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar.
+          - generic [ref=e183]: Explorers (age 14 to 18) run their own programme - expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar.
           - link "Get in touch →" [ref=e185] [cursor=pointer]:
             - /url: mailto:explorers@1stanytown.org.uk
       - region "Frequently asked questions" [ref=e186]:
@@ -194,7 +194,7 @@
           - generic [ref=e202]:
             - img [ref=e203]
             - generic [ref=e205]: 1st Anytown Scouts
-          - paragraph [ref=e206]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e206]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e207]:
           - heading "Visit" [level=5] [ref=e208]
           - list [ref=e209]:
@@ -223,7 +223,7 @@
               - link "Privacy" [ref=e228] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e229]:
-        - generic [ref=e230]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e230]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e231]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e233]:
         - text: "Registered charity:"

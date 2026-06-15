@@ -37,7 +37,7 @@ The last five entries were added during the D5–D13 visual redesign
 sweep: `join` (two-card joining CTA), `news-grid` (SPEC-01 home block),
 `events-upcoming` (SPEC-02 home block), `network-feature` (Scout
 Network 18–25 brand-anchor band), `volunteer-feature` (volunteer
-recruitment brand-anchor band — Scouts Purple regardless of palette).
+recruitment brand-anchor band - Scouts Purple regardless of palette).
 
 Adding a new type is fine. Renaming or removing one is a flag-not-change.
 
@@ -50,13 +50,13 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
   maintenance path; adding a sixth named palette is a flag-not-change.
 - **Two palette tokens are app-functionality colours, not brand
   palette entries:**
-  - `--warning` (`#d4351c`) — scarlet, used for the Cancelled pill
+  - `--warning` (`#d4351c`) - scarlet, used for the Cancelled pill
     on event cards (SPEC-02), cancelled programme rows (SPEC-03),
     expired vacancies (SPEC-09), the hall fully-booked banner
     (SPEC-08), and other alert states. Distinct from Scouts Red
     (`#E22E12`, the Scouts section's identity colour) so the two
     never visually collide on a card or page.
-  - `--postponed` (`#d97706`) — amber, used for the Postponed pill
+  - `--postponed` (`#d97706`) - amber, used for the Postponed pill
     on event cards. Distinct from any Scouts brand colour: not Scouts
     Orange (`#ff912a` = `--accent`), not Cubs yellow (`#F7EF27`).
   Both values are uniform across all five palette presets. They are
@@ -65,21 +65,21 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
 - Theme ships the **official Scouts section logo SVGs** at
   `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
   downloaded from https://scoutsbrand.org.uk by the theme maintainer.
-  Groups DO NOT override these — brand asset maintenance is centralised
+  Groups DO NOT override these - brand asset maintenance is centralised
   in the theme. When The Scout Association updates a logo, the theme
   is updated and every Group picks up the new asset by bumping their
   submodule.
 - **Other generic placeholder imagery** (e.g. `assets/images/volunteer/role-model.webp`)
   ships as before; Groups override at the same path with their own
-  files — Hugo's resource resolution prefers the site over the theme.
+  files - Hugo's resource resolution prefers the site over the theme.
 ## Link-decoration sentinels
 
 - `02-layout.css` auto-applies `text-decoration: underline` to anchors
   inside dark-bg sections (`.s-bg-primary`, `.s-bg-secondary`,
   `.s-bg-tertiary`, `.s-bg-dark`) so raw links remain distinguishable
   from body text. Two classes opt out:
-  - `.btn` — anchors carrying full button styling.
-  - `.styled-link` — sentinel marker for anchors that are styled cards,
+  - `.btn` - anchors carrying full button styling.
+  - `.styled-link` - sentinel marker for anchors that are styled cards,
     badges or other self-contained components (no own visual treatment,
     just an opt-out flag).
 - New section types whose anchors are card-like or button-like wear
@@ -98,7 +98,7 @@ Adding a new type is fine. Renaming or removing one is a flag-not-change.
 
 - The BSO membership notice is a dedicated partial.
 - Wording aligns with The Scout Association's POR 3.2.1.1. The current
-  copy is canonical — don't reword without flagging.
+  copy is canonical - don't reword without flagging.
 - Configured via `[params.bsoMembershipNotice]` (host country + host
   association). Text overridable via standard Hugo i18n in `i18n/en.toml`.
 - BSO features are an optional add-on. The theme does not assume a
@@ -139,10 +139,10 @@ the theme's `exampleSite`. Consuming sites do not include it.
 - GitHub Pages via Actions, workflow at `.github/workflows/hugo.yml`.
 - Pinned: `actions/checkout@v5`, `actions/deploy-pages@v5`.
 - Kept at older Node-20 versions: `actions/configure-pages@v5`,
-  `actions/upload-pages-artifact@v3` — no Node-24 release upstream yet
+  `actions/upload-pages-artifact@v3` - no Node-24 release upstream yet
   (tracking actions/upload-pages-artifact#138).
 
-## Navigation (cross-cutting — SPEC-11)
+## Navigation (cross-cutting - SPEC-11)
 
 - Navigation is **auto-built** from `params.features.*` flags. The
   Group does not configure `[[menu.main]]`; the theme owns the
@@ -153,7 +153,7 @@ the theme's `exampleSite`. Consuming sites do not include it.
 - **Smart collapse**: a group with a single enabled child renders
   as a direct top-level link to that child. The group's i18n label
   isn't used in this case.
-- **Empty groups disappear entirely** — no shell, no placeholder.
+- **Empty groups disappear entirely** - no shell, no placeholder.
 - Pure CSS. `:hover` (pointer devices, guarded) and `:focus-within`
   (keyboard) for desktop dropdowns; checkbox-hack hamburger for
   mobile, where each group is a `<details>`/`<summary>` **accordion**
@@ -166,7 +166,7 @@ the theme's `exampleSite`. Consuming sites do not include it.
 - **Shipped 2026-06-03.** Content pages clear the fixed nav via a
   `body.is-home` class + `--nav-clear`; the home hero stays full-bleed.
 
-## Accessibility (cross-cutting — SPEC-12)
+## Accessibility (cross-cutting - SPEC-12)
 
 - WCAG 2.2 AA is the floor. AAA is aspirational.
 - **No JS for accessibility.** Keyboard support comes from
@@ -185,7 +185,7 @@ the theme's `exampleSite`. Consuming sites do not include it.
   var(--focus-ring, var(--primary)); }`. Every focusable control shows a
   visible indicator. The **one** deliberate `outline: none` is on the
   sr-only mobile-nav toggle checkbox (`04-nav.css`), whose ring is
-  **relocated to the burger** it controls — focus is moved, never removed
+  **relocated to the burger** it controls - focus is moved, never removed
   (WCAG-compliant; added 2026-06-04 with the mobile-nav keyboard fix).
 - **Mobile nav is keyboard-operable.** The burger drawer is a pure-CSS
   checkbox-hack; the checkbox is visually hidden but **focusable** (it was
@@ -205,27 +205,27 @@ the theme's `exampleSite`. Consuming sites do not include it.
   News, galleries, history and hall hire call it; SPEC-01's news lint
   was refactored to it as the reference shape. Events gains the call
   if/when it grows a poster image.
-- **Heading order**: every page has exactly one `<h1>` — the page
+- **Heading order**: every page has exactly one `<h1>` - the page
   title from the template (`baseof` / `single` / `list`). Section
   partials start at `<h2>` (review-enforced; Hugo can't post-process
   partial markup reliably). The build-time check is the **pragmatic
   subset that is reliable**: `partials/audit-headings.html` `errorf`s
   if a page's rendered `.Content` contains an `<h1>` (an author wrote
   a body-level `# `). Documented as the heading contract in
-  SPEC-COMMON §17 (decided 2026-06-04 — downgraded from the brittle
+  SPEC-COMMON §17 (decided 2026-06-04 - downgraded from the brittle
   per-partial `audit-claim` running-list the spec drafted).
 - **Colour contrast audit** runs in CI via `tools/audit-contrast.mjs`
   (dependency-free node), reading `data/palettes.toml` and checking
   only the declared pairs. Body-copy pairs (`text`/`text_muted` on
   `bg`) need 4.5:1; the `text_on_<accent>` tokens need 3.0:1 because
   they only ever label bold buttons, bold pills, and display headings
-  — i.e. large text per WCAG (this is what lets white-on-Scouts-Red
+  - i.e. large text per WCAG (this is what lets white-on-Scouts-Red
   and white-on-`--postponed`-amber pass). `--focus-ring` vs `--bg` is
   checked at the 3.0:1 non-text threshold. Exits non-zero on any
   failure.
 - **axe-core CI** runs on PRs against the rendered example site, one
   page per template family. The theme repo carries its own
-  `.github/workflows/a11y.yml` (it has no deploy workflow — sites
+  `.github/workflows/a11y.yml` (it has no deploy workflow - sites
   consume the theme from their own repo). Fails the PR but doesn't
   block a manual override merge.
 - **Status: shipped** (2026-06-04). This was the final roadmap spec.
@@ -251,8 +251,8 @@ the theme's `exampleSite`. Consuming sites do not include it.
 ## en-GB scope
 
 - en-GB applies to visitor-facing text and documentation prose.
-- Code identifiers — TOML field keys, CSS class names, template
-  variables, Hugo data-file keys — follow source-code conventions and
+- Code identifiers - TOML field keys, CSS class names, template
+  variables, Hugo data-file keys - follow source-code conventions and
   may use US spelling where idiomatic. Examples: `color` /
   `text_color` in `data/scout_sections.toml`, `bg` / `bg_muted` in
   palette data. en-GB linting applies to what users read, not what
@@ -261,9 +261,9 @@ the theme's `exampleSite`. Consuming sites do not include it.
 ## Working method
 
 - Confirm design decisions before implementing. Don't assume.
-- Validate builds incrementally — don't write a sprawl of templates
+- Validate builds incrementally - don't write a sprawl of templates
   then try to build at the end.
 - Read access only on GitHub repos. Never attempt writes.
 - The old Mobirise site (`petemahon/adscouts`) is kept for history.
-  Don't fork, maintain, or reference it as a source — `petemahon/hugo-adscouts`
+  Don't fork, maintain, or reference it as a source - `petemahon/hugo-adscouts`
   is the live one.

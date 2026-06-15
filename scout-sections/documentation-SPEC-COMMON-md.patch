@@ -7,7 +7,7 @@
 -  asset shipped at a theme path is a generic placeholder; Groups override
 -  at the same path in their site repo.
 +- The theme repo ships the **official Scout section logo SVGs** at
-+  `assets/images/sections/<key>.svg` — these are maintained centrally
++  `assets/images/sections/<key>.svg` - these are maintained centrally
 +  by the theme and Groups DO NOT override them. **Other visual assets**
 +  shipped at theme paths remain generic placeholders; Groups override
 +  them at the same path in their site repo.

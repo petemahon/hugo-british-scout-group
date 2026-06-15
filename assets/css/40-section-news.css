@@ -1,12 +1,12 @@
 /* -----------------------------------------------------------------------------
-   19. NEWS — s-news
+   19. NEWS - s-news
    News listing (/news/), single post (/news/<slug>/), per-section filter
    pages (/news/sections/<scout-section>/), and the news-grid home block.
    See SPEC-01 for the feature scope. CSS-only: no JS, no fixed hex values
    (badge colours come via inline CSS custom properties from the data file).
 
    D9 visual upgrade: the home news-grid block becomes a feature-card
-   layout — one large card spanning two rows at desktop, plus two small
+   layout - one large card spanning two rows at desktop, plus two small
    cards. Listing pages, filter pages and single posts keep their
    SPEC-01 styling. The D9 block sits below the shared card rules and
    is scoped to .s-news--grid; nothing outside that scope changes.
@@ -108,11 +108,11 @@
 
 
 /* =============================================================================
-   D9 — HOME NEWS-GRID VISUAL UPGRADE
+   D9 - HOME NEWS-GRID VISUAL UPGRADE
    -----------------------------------------------------------------------------
    All rules below are scoped to .s-news--grid (the section class the home
    news-grid partial emits). Listing pages use .s-news--list; filter pages
-   use .s-news--list with a different head — neither matches these
+   use .s-news--list with a different head - neither matches these
    selectors, so they keep their SPEC-01 styling unchanged.
 
    Visual reference: design-source-of-truth/mockup-rev2.html lines 953–1006
@@ -150,7 +150,7 @@
   }
 }
 
-/* ── Card visuals — scoped overrides of the shared SPEC-01 card rules ── */
+/* ── Card visuals - scoped overrides of the shared SPEC-01 card rules ── */
 .s-news--grid .s-news-card {
   border: 1px solid rgba(20, 17, 14, 0.06);
   border-radius: 18px;
@@ -238,7 +238,7 @@
 }
 
 /* ── Badge suppression on non-feature home cards ───────────── */
-/* Mockup shows badges on the feature card only — the smaller cards
+/* Mockup shows badges on the feature card only - the smaller cards
    get a tighter visual rhythm without them. Listing and filter pages
    keep their badges (different scope). */
 .s-news--grid .s-news-card:not(.s-news-card--feature) .badges {
@@ -260,7 +260,7 @@
 }
 .s-news__author { font-style: italic; }
 
-/* Section badges — use the shared `.badges` / `.badges__pill` component
+/* Section badges - use the shared `.badges` / `.badges__pill` component
    from 21-section-events.css. The component is markup-driven (cream pill
    + section-coloured leading dot via inline `--sec`); the rules below
    are news-specific extensions only:
@@ -465,7 +465,7 @@
 
 /* ----- event-times (single and BSO dual-time rendering) --------------- */
 
-/* Single-time and all-day modes render inline <span>s — no extra
+/* Single-time and all-day modes render inline <span>s - no extra
    rules needed; .event-meta__time inherits .event-meta__details > *
    spacing and `font-weight: 600` from .event-meta__time. */
 

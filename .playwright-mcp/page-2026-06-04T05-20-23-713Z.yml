@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -47,7 +47,7 @@
           - heading "Annual General Meeting" [level=2] [ref=e39]
           - paragraph [ref=e40]:
             - strong [ref=e41]: Tuesday 13 May 2026, 19:30
-          - paragraph [ref=e42]: The community centre hall (and online — link sent to all families)
+          - paragraph [ref=e42]: The community centre hall (and online - link sent to all families)
         - generic [ref=e43]:
           - heading "Trustee Board" [level=2] [ref=e44]
           - generic [ref=e45]:
@@ -66,7 +66,7 @@
             - generic [ref=e58]:
               - term [ref=e59]: Priya Nair
               - definition [ref=e60]: Trustee (trustee since 2024)
-        - paragraph [ref=e62]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board — particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
+        - paragraph [ref=e62]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board - particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
         - generic [ref=e63]:
           - heading "Reports & accounts" [level=2] [ref=e64]
           - paragraph [ref=e65]:
@@ -79,7 +79,7 @@
           - generic [ref=e71]:
             - img [ref=e72]
             - generic [ref=e74]: 1st Anytown Scouts
-          - paragraph [ref=e75]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e75]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e76]:
           - heading "Visit" [level=5] [ref=e77]
           - list [ref=e78]:
@@ -108,7 +108,7 @@
               - link "Privacy" [ref=e97] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e98]:
-        - generic [ref=e99]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e99]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e100]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e102]:
         - text: "Registered charity:"

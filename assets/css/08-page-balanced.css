@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------------------
    08. PAGE LAYOUT: BALANCED INFO-PAGE TREATMENT  (pb-*)
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
-   Cross-cutting layout for "left-heavy" single pages — the ones whose content
+   Cross-cutting layout for "left-heavy" single pages - the ones whose content
    is a narrow centred reading column with an empty right half. Ported from the
    2026 claude.ai/design handoff ("balanced layout" treatment, chats 2–3) and
    re-expressed in the theme's design tokens so it tracks every palette.
@@ -28,7 +28,7 @@
    beats those one-class max-width rules on specificity. */
 .container.pb-page { max-width: 1180px; }
 
-/* ── Masthead — lede left, glance card right ─────────────────── */
+/* ── Masthead - lede left, glance card right ─────────────────── */
 .pb-masthead {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -123,7 +123,7 @@
 .pb-card p { margin: 0; color: var(--text-muted); font-size: 16px; line-height: 1.55; }
 .pb-card p + p { margin-top: 12px; }
 
-/* Warm "redirect / go elsewhere" card — tinted with the palette accent so it
+/* Warm "redirect / go elsewhere" card - tinted with the palette accent so it
    reads differently from the on-message info cards. */
 .pb-card--redirect {
   background: color-mix(in srgb, var(--accent) 10%, var(--bg));

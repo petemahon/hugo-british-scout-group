@@ -13,7 +13,7 @@ draft           = false
 
 Our Trustee Board (the Group Executive) looks after the Group's money,
 property, safeguarding duties and overall direction. We're looking for
-people with skills in finance, fundraising, premises, HR or law — but
+people with skills in finance, fundraising, premises, HR or law - but
 also just sensible people who care about local young people. Meetings
 can be joined online, so this works well for supporters living away
 from the area, including back in the UK.

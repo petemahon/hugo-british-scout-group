@@ -3,10 +3,10 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-home-range — /bso/home-range/ body. SPEC-10.
+  bso-home-range - /bso/home-range/ body. SPEC-10.
 
   Static map image + InTouch policy summary. Page-level gate via
-  params.bso.show_home_range — when false, the dispatcher (single.html)
+  params.bso.show_home_range - when false, the dispatcher (single.html)
   renders this partial only if the URL was reached directly (so the
   content is still available to a deep link, just unlisted on the hub).
 
@@ -28,7 +28,7 @@
     </p>
   {{- end }}
 
-  {{- /* Static map image — must exist under assets/bso/. If missing,
+  {{- /* Static map image - must exist under assets/bso/. If missing,
          errorf with the expected path. Group ships their own; theme
          ships a generic placeholder. */ -}}
   {{- with .Params.static_map_image -}}

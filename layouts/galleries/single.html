@@ -3,20 +3,20 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Gallery grid — /galleries/<slug>/. Listed by Hugo via the cascaded
+  Gallery grid - /galleries/<slug>/. Listed by Hugo via the cascaded
   layout="single" set in content/galleries/_index.md. Per-photo pages
   are sub-pages of this section, registered by the adapter at
   content/galleries/_content.gotmpl with layout="photo".
 
   Implements the SPEC-COMMON §10 photo-consent lint and SPEC-04's
-  additional consent_log lint — both errorf at build time, never
+  additional consent_log lint - both errorf at build time, never
   rendered. cover_alt is required when cover is set.
 */ -}}
 {{ define "main" }}
 {{- if not site.Params.features.galleries -}}
 {{- else -}}
 
-  {{- /* Image set — sub-pages added by the adapter, sorted by filename
+  {{- /* Image set - sub-pages added by the adapter, sorted by filename
          so order matches alphabetical numeric naming (001, 002, …). */ -}}
   {{- $photos := sort .Pages "Params.image_file" -}}
   {{- $hasImages := gt (len $photos) 0 -}}
@@ -44,7 +44,7 @@
   {{- end -}}
   {{- $coverAlt := .Params.cover_alt | default (printf "Cover photo for %s" .Title) -}}
 
-  {{- /* Info notice when sidecar is missing — encourages captions. */ -}}
+  {{- /* Info notice when sidecar is missing - encourages captions. */ -}}
   {{- if $hasImages -}}
     {{- $sidecar := "" -}}
     {{- with hugo.Data.galleries -}}{{- $sidecar = index . $.File.ContentBaseName -}}{{- end -}}

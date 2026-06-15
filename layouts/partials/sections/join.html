@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  join — call-to-action cards inviting visitors to join (or volunteer with)
+  join - call-to-action cards inviting visitors to join (or volunteer with)
          the Group. Renders an optional .sect-head followed by a responsive
          grid of N cards (default 2, no upper bound).
 
@@ -21,7 +21,7 @@
                                             on the outer <section>.
                                             Mockup uses muted.)
     title_color = "primary"               (optional; applies s-title-primary
-                                            on the <h2>. Inert for now —
+                                            on the <h2>. Inert for now -
                                             kept for cross-section
                                             consistency.)
 
@@ -37,7 +37,7 @@
       external = false                    (true → target="_blank" rel="noopener")
 
     [[sections.cards]]                    (required if you want cards;
-                                            no upper bound — typical use is 2)
+                                            no upper bound - typical use is 2)
       icon  = "waitlist"                  (optional; resolves to an SVG at
                                             assets/images/join/icons/<icon>.svg
                                             and inlines it. Theme ships
@@ -76,7 +76,7 @@
   prefers the site's copy over the theme's.
 
   Build-time guard: if `icon` is set but the resolved SVG resource is
-  missing, the icon container renders empty (no warnf — Groups may
+  missing, the icon container renders empty (no warnf - Groups may
   deliberately want an unstyled card with no icon by leaving `icon`
   unset). Setting `icon` to a known-bad name silently degrades; this
   is the same behaviour as the hero's photo lookup.

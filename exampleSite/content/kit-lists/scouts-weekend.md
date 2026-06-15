@@ -6,7 +6,7 @@ climate       = "temperate"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Skip"
-intro         = "Scouts are expected to pack their own kit and carry it themselves — that's part of the point. Use this list to pack independently; a parent's job is to check it's all in, not to do it for you."
+intro         = "Scouts are expected to pack their own kit and carry it themselves - that's part of the point. Use this list to pack independently; a parent's job is to check it's all in, not to do it for you."
 phone_policy  = true
 
 non_essential = "Leave at home: anything valuable, large sums of money, and energy drinks. Phones are covered by the policy below."
@@ -49,7 +49,7 @@ non_essential = "Leave at home: anything valuable, large sums of money, and ener
   [[categories.items]]
     name        = "Waterproof jacket and trousers"
     quantity    = 1
-    alternative = "Both — a jacket alone isn't enough in hill weather"
+    alternative = "Both - a jacket alone isn't enough in hill weather"
 
   [[categories.items]]
     name     = "Walking boots, worn-in"
@@ -81,7 +81,7 @@ non_essential = "Leave at home: anything valuable, large sums of money, and ener
 
 [[categories]]
   name  = "Camp gear"
-  notes = "Penknives only if a leader has said so and you hold the relevant permission — never brought on spec."
+  notes = "Penknives only if a leader has said so and you hold the relevant permission - never brought on spec."
 
   [[categories.items]]
     name     = "Plate, bowl, mug, KFS (knife/fork/spoon)"

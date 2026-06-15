@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-roll-example-dates.py — keep the exampleSite events looking fresh.
+roll-example-dates.py - keep the exampleSite events looking fresh.
 
 Reads each Markdown file under exampleSite/content/events/, looks for a
 `[demo]` table in the front-matter, and rewrites `date`, `publishDate`
@@ -10,7 +10,7 @@ build time.
 The committed dates in git are the canonical "last known good" example
 dates; this script overwrites them in-flight before every `hugo serve`
 and every CI build of the theme's Pages preview. Group sites consuming
-the theme do NOT need `[demo]` blocks — real Group events have real
+the theme do NOT need `[demo]` blocks - real Group events have real
 fixed dates, and this script never touches them.
 
 Front-matter contract (TOML):
@@ -23,7 +23,7 @@ Idempotent: re-running picks the same offsets each time, applied
 relative to the new `now`. The result is a working tree with modified
 event files that should NOT be committed.
 
-Stdlib only — Python 3.9+.
+Stdlib only - Python 3.9+.
 """
 
 from __future__ import annotations

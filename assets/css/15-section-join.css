@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------------------------
    14. SECTION: JOIN
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Responsive grid of call-to-action cards inviting visitors to join (or
@@ -17,7 +17,7 @@
 
 /* The outer section uses the theme's standard .section padding (from
    02-layout.css) and the standard .s-bg-* tones (from 02-layout.css).
-   No bespoke padding overrides — the mockup's 56 px / 80 px values
+   No bespoke padding overrides - the mockup's 56 px / 80 px values
    were a one-off; the theme's --section-py is the correct cross-section
    rhythm. */
 
@@ -37,12 +37,12 @@
 .s-join__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.875rem;       /* 14 px — mockup */
+  gap: 0.875rem;       /* 14 px - mockup */
 }
 @media (min-width: 768px) {
   .s-join__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;       /* 24 px — mockup */
+    gap: 1.5rem;       /* 24 px - mockup */
   }
 }
 /* Three or more cards: wrap onto a second row at desktop sizes. The
@@ -135,7 +135,7 @@
   display: block;
 }
 
-/* Accent variant — colour-tinted icon background using --accent.
+/* Accent variant - colour-tinted icon background using --accent.
    Used for the volunteer card in the canonical layout. */
 .s-join__card--accent .s-join__icon {
   background: color-mix(in oklab, var(--accent) 12%, transparent);
@@ -143,7 +143,7 @@
 }
 
 /* Buttons inside join cards take a slightly tighter scale than the
-   global .btn defaults — matches the mockup. */
+   global .btn defaults - matches the mockup. */
 .s-join__card .btn {
   font-size: 14px;
   padding: 0.6875rem 1rem;       /* 11 / 16 px */

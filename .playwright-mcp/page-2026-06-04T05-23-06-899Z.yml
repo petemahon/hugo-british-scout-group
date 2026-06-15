@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -33,7 +33,7 @@
         - generic [ref=e33]:
           - paragraph [ref=e34]: Sunday morning kicked off with a downpour and a flurry of texts asking whether the parade was still on. By 10am the sun was out, the church hall was full of polished shoes, and the piper had arrived right on schedule.
           - paragraph [ref=e35]: Beavers led the way (as is tradition for our youngest), with Cubs behind, Scouts holding the colours, and Explorers bringing up the rear. The new neckers issued at investiture last week made their first formal outing, which was very smart indeed.
-          - paragraph [ref=e36]: Our thanks to the parents who turned out in numbers, to the church for hosting us, and to the piper — who has politely declined our requests for an encore at every weekly meeting since.
+          - paragraph [ref=e36]: Our thanks to the parents who turned out in numbers, to the church for hosting us, and to the piper - who has politely declined our requests for an encore at every weekly meeting since.
           - paragraph [ref=e37]: Promise renewals next week.
         - link "← Back to all news" [ref=e39] [cursor=pointer]:
           - /url: /news/
@@ -44,7 +44,7 @@
           - generic [ref=e44]:
             - img [ref=e45]
             - generic [ref=e47]: 1st Anytown Scouts
-          - paragraph [ref=e48]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e48]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e49]:
           - heading "Visit" [level=5] [ref=e50]
           - list [ref=e51]:
@@ -73,7 +73,7 @@
               - link "Privacy" [ref=e70] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e71]:
-        - generic [ref=e72]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e72]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e73]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e75]:
         - text: "Registered charity:"

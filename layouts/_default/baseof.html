@@ -11,7 +11,7 @@
          hidden until focused (07-a11y.css). Targets the <main> landmark. */ -}}
   <a class="skip-link" href="#main">{{ i18n "a11ySkipToContent" | default "Skip to main content" }}</a>
   {{- /* SPEC-12 AC6: heading-order audit. errorf if body content renders an
-         <h1> — the page title is the only permitted <h1>. */ -}}
+         <h1> - the page title is the only permitted <h1>. */ -}}
   {{ partial "audit-headings.html" . }}
   {{ partial "svg-defs.html" . }}
   {{ partial "header.html" . }}

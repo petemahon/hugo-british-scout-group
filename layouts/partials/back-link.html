@@ -3,18 +3,18 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  back-link — the single "← Parent" link that sits directly above a
+  back-link - the single "← Parent" link that sits directly above a
   sub-page's eyebrow, taking the visitor one step up the hierarchy. One
   component, used site-wide, replacing the old per-section breadcrumb
   classes (s-bso__breadcrumb, s-vol__breadcrumb, …). Pure CSS styling
   lives in 09-components-back-link.css.
 
-  RESOLUTION ORDER (hybrid — auto by default, override where the logical
+  RESOLUTION ORDER (hybrid - auto by default, override where the logical
   parent differs from the URL parent, e.g. Reports → Governance):
 
-    1. Dict override   — {{ partial "back-link.html" (dict "page" . "url" "/about/governance/" "label" "Governance") }}
-    2. Front matter    — back_url / back_label on the page
-    3. Automatic       — the page's .Parent: its .LinkTitle (preferred, so
+    1. Dict override   - {{ partial "back-link.html" (dict "page" . "url" "/about/governance/" "label" "Governance") }}
+    2. Front matter    - back_url / back_label on the page
+    3. Automatic       - the page's .Parent: its .LinkTitle (preferred, so
                          section _index.md files can set a concise label)
                          falling back to .Title, and its .RelPermalink.
 

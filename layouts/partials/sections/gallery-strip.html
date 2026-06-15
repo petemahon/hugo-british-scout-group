@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  gallery-strip — home-page (or any-page) block showing the latest
+  gallery-strip - home-page (or any-page) block showing the latest
   gallery's cover plus a short row of thumbnails. Gated by
   site.Params.features.galleries; renders nothing if off, or if no
   galleries are published yet.
@@ -11,13 +11,13 @@
   Section params (front-matter under [[sections]]):
     id          (string, optional)
     eyebrow     (string, optional)
-    title       (string, optional) — falls back to gallery title
+    title       (string, optional) - falls back to gallery title
     subtitle    (string, optional, HTML allowed)
-    align       (string, optional) — "left" → sect-head--left
+    align       (string, optional) - "left" → sect-head--left
     bg          (string, optional)
     title_color (string, optional)
-    count       (int, optional, default 5, max 12) — thumbs after the cover
-    show_more   (bool, optional, default true) — render the "View all galleries" link
+    count       (int, optional, default 5, max 12) - thumbs after the cover
+    show_more   (bool, optional, default true) - render the "View all galleries" link
 */ -}}
 {{- if site.Params.features.galleries -}}
 {{- $galleries := where site.RegularPages "Section" "galleries" -}}

@@ -6,13 +6,13 @@ climate       = "desert"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Akela"
-intro         = "The hot-climate version of our Cubs weekend list. Days are very hot and the sun is strong, but desert nights get surprisingly cold — so you still need a warm layer. Sun protection and water are not optional. Haven't got something? Ask Akela."
+intro         = "The hot-climate version of our Cubs weekend list. Days are very hot and the sun is strong, but desert nights get surprisingly cold - so you still need a warm layer. Sun protection and water are not optional. Haven't got something? Ask Akela."
 phone_policy  = true
 non_essential = "Please leave at home: phones and tablets (see below), money beyond a little for tuck, and anything valuable. We provide all food and water refills."
 
 [[categories]]
   name  = "Sun protection"
-  notes = "A wide-brim sun hat is mandatory — no hat, no outdoor activity. We reapply sun cream through the day."
+  notes = "A wide-brim sun hat is mandatory - no hat, no outdoor activity. We reapply sun cream through the day."
   [[categories.items]]
     name = "Wide-brim sun hat or legionnaire cap"
   [[categories.items]]
@@ -35,7 +35,7 @@ non_essential = "Please leave at home: phones and tablets (see below), money bey
     quantity = 2
   [[categories.items]]
     name = "Warm fleece for the evening"
-    alternative = "Desert nights are cold — don't skip this"
+    alternative = "Desert nights are cold - don't skip this"
   [[categories.items]]
     name = "Closed shoes/trainers for sand"
     alternative = "Plus sandals for around camp"

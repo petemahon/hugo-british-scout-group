@@ -9,10 +9,10 @@
 
 title = "Support us"
 
-# Why the Group needs support — required, HTML allowed.
+# Why the Group needs support - required, HTML allowed.
 intro = ""
 
-# External giving links — URLs only (no logos; copyright). Any you
+# External giving links - URLs only (no logos; copyright). Any you
 # leave blank is omitted. donate_url is the primary CTA.
 # donate_url          = "https://..."
 # donate_label        = "Donate"
@@ -25,7 +25,7 @@ intro = ""
 # Optional Gift Aid declaration PDF (in static/support-us/).
 # giftaid_pdf = "/support-us/giftaid-declaration.pdf"
 
-# Recurring fundraising activities — repeat the block per activity.
+# Recurring fundraising activities - repeat the block per activity.
 [[fundraising_activities]]
   name          = "Christmas Post"
   when          = "December every year"
@@ -45,5 +45,5 @@ intro = ""
 draft = true
 +++
 
-Optional Markdown body — renders above the activities. Put hire-it
+Optional Markdown body - renders above the activities. Put hire-it
 offers, Scout-shop links, or a thank-you to supporters here.

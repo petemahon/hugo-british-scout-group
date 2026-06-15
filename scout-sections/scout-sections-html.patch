@@ -2,21 +2,21 @@
 +++ b/layouts/partials/sections/scout-sections.html	2026-05-13 07:13:47.885210784 +0000
 @@ -1,13 +1,14 @@
  {{- /*
--  scout-sections — auto-renders the standard UK Scout sections.
+-  scout-sections - auto-renders the standard UK Scout sections.
 +  Hugo British Scout Group theme
 +  CC BY-SA 4.0 © Peter Mahon
 +  https://github.com/petemahon/hugo-british-scout-group
 +
-+  scout-sections — auto-renders the standard UK Scout sections (Squirrels
++  scout-sections - auto-renders the standard UK Scout sections (Squirrels
 +                   through Network, six in total). Each section's metadata
 +                   and identity colour live in data/scout_sections.toml;
 +                   Groups only choose which ones they run.
  
 -  Section metadata (age, URL, alt text) is fixed and lives in the theme's
--  data/scout_sections.toml — Groups DO NOT edit it.
+-  data/scout_sections.toml - Groups DO NOT edit it.
 -
 -  Per-Group settings (enable on/off) live in hugo.toml. Logos ship with the
--  theme — Groups should not override them so brand compliance is centrally
+-  theme - Groups should not override them so brand compliance is centrally
 -  controlled. (A per-Group `logo` override is honoured if set, for edge
 -  cases, but isn't documented in the public README.)
 +  Per-Group config (in the site's hugo.toml):
@@ -29,7 +29,7 @@
    Default behaviour: a section IS rendered unless its data entry sets
 -  `default_enabled = false` or the Group sets `enable = false`. The only
 -  default-off section is Network (18–25), which is a separate provision
--  from the under-18 youth sections — Groups running a Network opt in
+-  from the under-18 youth sections - Groups running a Network opt in
 -  explicitly. Network's metadata is still loaded for badge rendering by
 -  other features (news, events, galleries) regardless of this setting.
 -
@@ -40,7 +40,7 @@
  
    Section params (front matter):
      id           (string)  Anchor id, e.g. "sections".
--    bg           (string)  Section bg tone — see partials/footer for values.
+-    bg           (string)  Section bg tone - see partials/footer for values.
 +    bg           (string)  s-bg-<value> on the outer <section>.
 +    eyebrow      (string)  Optional uppercase lead-in above the h2.
      title        (string)  Heading above the cards.
@@ -55,7 +55,7 @@
 +
 +  Breaking changes in D7 (visual application of the design system):
 +    1. Schema field `button_style` is no longer accepted. The new design
-+       fixes the button look to .s-scout-sections__btn — primary-coloured
++       fixes the button look to .s-scout-sections__btn - primary-coloured
 +       pill at desktop, hidden on mobile. The on-card Learn-more is no
 +       longer pluggable per-section.
 +    2. Per-Group `logo` override (previously honoured for edge cases via

@@ -3,7 +3,7 @@ title       = "Events"
 description = "Camps, parades, badge presentations, and the rest of what's coming up at 1st Anytown Scouts."
 
 # This section page (rendered at /events/) emits HTML plus an aggregate
-# calendar feed at /events/all.ics — a single subscribable URL through
+# calendar feed at /events/all.ics - a single subscribable URL through
 # which parents see every upcoming event flow into their calendar app.
 # See SPEC-02.
 outputs = ["html", "EventsAggregateCalendar"]

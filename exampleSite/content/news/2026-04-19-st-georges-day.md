@@ -1,7 +1,7 @@
 +++
 title         = "St George's Day Parade"
 date          = 2026-04-19T11:00:00+00:00
-summary       = "The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in."
+summary       = "The whole Group turned out for our annual St George's Day Parade - fresh neckers, polished shoes, and a piper to lead us in."
 sections      = ["beavers", "cubs", "scouts", "explorers"]
 cover_image   = "cover.jpg"
 cover_alt     = "Members of 1st Anytown Scouts marching in formation behind a piper, in full Scout uniform, on a sunny morning."
@@ -21,7 +21,7 @@ rear. The new neckers issued at investiture last week made their first
 formal outing, which was very smart indeed.
 
 Our thanks to the parents who turned out in numbers, to the church for
-hosting us, and to the piper — who has politely declined our requests
+hosting us, and to the piper - who has politely declined our requests
 for an encore at every weekly meeting since.
 
 Promise renewals next week.

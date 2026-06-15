@@ -6,7 +6,7 @@ climate       = "temperate"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Akela"
-intro         = "For a week (or near enough) under canvas in summer. Pack for warm days <em>and</em> cold evenings — British summers can't be trusted. Label everything, and pack it together with your Cub so they know what they've got."
+intro         = "For a week (or near enough) under canvas in summer. Pack for warm days <em>and</em> cold evenings - British summers can't be trusted. Label everything, and pack it together with your Cub so they know what they've got."
 phone_policy  = true
 
 non_essential = "Please leave at home: phones, tablets and games consoles, large amounts of money, and anything valuable. We provide all food, so no sweets or fizzy drinks please."
@@ -94,7 +94,7 @@ non_essential = "Please leave at home: phones, tablets and games consoles, large
   [[categories.items]]
     name        = "Swimming kit"
     quantity    = 1
-    alternative = "Only if water activities are planned — we'll confirm"
+    alternative = "Only if water activities are planned - we'll confirm"
 
 draft = false
 +++

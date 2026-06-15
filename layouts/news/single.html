@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  News post — /news/<slug>/.
+  News post - /news/<slug>/.
   Implements the photo-consent lint per SPEC-COMMON §10.
 */ -}}
 {{ define "main" }}
@@ -13,7 +13,7 @@
   {{- partial "audit-image.html" (dict "image" .Params.cover_image "alt" .Params.cover_alt "field" "cover_alt" "context" (printf "news post %q" .File.LogicalName)) -}}
 
   {{- /* Photo-consent lint. If any image is referenced (cover OR inline in
-         the body — Markdown !\[ or raw <img>), photo_consent must be true. */ -}}
+         the body - Markdown !\[ or raw <img>), photo_consent must be true. */ -}}
   {{- $imgPattern := `!\[|<img` -}}
   {{- $hasInline := gt (len (findRE $imgPattern .RawContent)) 0 -}}
   {{- $hasImage := or .Params.cover_image $hasInline -}}

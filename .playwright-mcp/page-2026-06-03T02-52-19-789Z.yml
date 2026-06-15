@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -32,7 +32,7 @@
         - generic [ref=e26]: Accounts & minutes
         - heading "Trustees' reports & AGM minutes" [level=1] [ref=e27]
         - paragraph [ref=e28]: Our Trustees' Annual Reports and AGM minutes, published for parents, members and grant funders. The full financial detail sits inside each Trustees' Annual Report.
-      - paragraph [ref=e29]: No reports published yet — they'll appear here after the next AGM.
+      - paragraph [ref=e29]: No reports published yet - they'll appear here after the next AGM.
       - paragraph [ref=e30]:
         - link "← Back to governance" [ref=e31] [cursor=pointer]:
           - /url: /about/governance/
@@ -43,7 +43,7 @@
           - generic [ref=e36]:
             - img [ref=e37]
             - generic [ref=e39]: 1st Anytown Scouts
-          - paragraph [ref=e40]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e40]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e41]:
           - heading "Visit" [level=5] [ref=e42]
           - list [ref=e43]:
@@ -73,7 +73,7 @@
                 - /url: /privacy/
             - listitem [ref=e63]: Charity no. 1234567
       - generic [ref=e64]:
-        - generic [ref=e65]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e65]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e66]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e68]:
         - text: "Registered charity:"

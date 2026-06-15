@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -39,12 +39,12 @@
             - strong [ref=e32]: "1974"
         - generic [ref=e33]:
           - generic [ref=e34]:
-            - paragraph [ref=e35]: We started in 1974 with six children and two borrowed trestle tables. A pair of parents who had run Scout sections back in the UK found themselves overseas, far from the nearest Group, and decided their own children — and their friends — shouldn’t miss out. The first meetings ran in a villa majlis; within a few years we had affiliated to British Scouting Overseas and were running the same programme, and working towards the same awards, as Groups at home.
-            - paragraph [ref=e36]: "Fifty years on, the shape of the Group has changed many times — new sections, new leaders, a permanent home — but the thread has held: the same Skills for Life programme, delivered by volunteers, for the children of families who happen to be living away from the UK."
+            - paragraph [ref=e35]: We started in 1974 with six children and two borrowed trestle tables. A pair of parents who had run Scout sections back in the UK found themselves overseas, far from the nearest Group, and decided their own children - and their friends - shouldn’t miss out. The first meetings ran in a villa majlis; within a few years we had affiliated to British Scouting Overseas and were running the same programme, and working towards the same awards, as Groups at home.
+            - paragraph [ref=e36]: "Fifty years on, the shape of the Group has changed many times - new sections, new leaders, a permanent home - but the thread has held: the same Skills for Life programme, delivered by volunteers, for the children of families who happen to be living away from the UK."
             - heading "What’s stayed the same" [level=2] [ref=e37]
-            - paragraph [ref=e38]: The desert camp. Since the first overnight in 1983, a night under the stars in the dunes has been the fixture the whole Group builds its year around — Squirrels watching the sunset, Explorers cooking for everyone, and leaders who first came as Beavers.
+            - paragraph [ref=e38]: The desert camp. Since the first overnight in 1983, a night under the stars in the dunes has been the fixture the whole Group builds its year around - Squirrels watching the sunset, Explorers cooking for everyone, and leaders who first came as Beavers.
             - heading "What’s changed" [level=2] [ref=e39]
-            - paragraph [ref=e40]: Families move on — that’s the nature of an overseas Group. Members we waved off have gone on to lead Scouting on four continents, and every anniversary brings a few of them back. The timeline alongside picks out the moments that got us here.
+            - paragraph [ref=e40]: Families move on - that’s the nature of an overseas Group. Members we waved off have gone on to lead Scouting on four continents, and every anniversary brings a few of them back. The timeline alongside picks out the moments that got us here.
           - complementary "Group history timeline" [ref=e41]:
             - list "Group history timeline" [ref=e42]:
               - listitem [ref=e43]:
@@ -99,7 +99,7 @@
           - generic [ref=e92]:
             - img [ref=e93]
             - generic [ref=e95]: 1st Anytown Scouts
-          - paragraph [ref=e96]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e96]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e97]:
           - heading "Visit" [level=5] [ref=e98]
           - list [ref=e99]:
@@ -128,7 +128,7 @@
               - link "Privacy" [ref=e118] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e119]:
-        - generic [ref=e120]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e120]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e121]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e123]:
         - text: "Registered charity:"

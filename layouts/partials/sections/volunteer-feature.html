@@ -1,5 +1,5 @@
 {{- /*
-  volunteer-feature — the "Register to volunteer." band. A two-column
+  volunteer-feature - the "Register to volunteer." band. A two-column
   section pitching adult volunteering to home-page visitors, with a
   Scouts-brand poster on one side (one of two pure-typography variants,
   no image) and a yellow eyebrow + display heading + body copy + yellow
@@ -18,11 +18,11 @@
     • Eyebrow text colour and CTA background are ALWAYS Scouts Yellow
       (`--scouts-yellow`), brand-anchored for the same reason.
     • Poster sits LEFT of the text column at desktop, ABOVE at mobile.
-      No `direction` field — the layout is opinionated. Groups wanting
+      No `direction` field - the layout is opinionated. Groups wanting
       the other direction can use `two-col-image-cta` instead.
     • Typography: body/UI copy uses the theme's default Manrope
       (`--font-family`); the poster display face (h3 + stat copy) uses
-      Nunito Sans 900 via `--font-display` — the Scouts-poster display
+      Nunito Sans 900 via `--font-display` - the Scouts-poster display
       weight. See 23-section-volunteer-feature.css.
 
   Front-matter schema (every field optional):
@@ -61,7 +61,7 @@
 */ -}}
 
 {{- /* Opt-in gate. The feature defaults off; example site sets the flag true.
-       We read site.Params.features defensively — when the [params.features]
+       We read site.Params.features defensively - when the [params.features]
        block is absent entirely, this evaluates to false and the whole partial
        emits nothing. */ -}}
 {{- $featureOn := false -}}
@@ -72,7 +72,7 @@
 
 {{- $id := .id | default "" -}}
 
-{{- /* Variant — accept only the two documented values; anything else
+{{- /* Variant - accept only the two documented values; anything else
        (including omission) falls back to role-model. */ -}}
 {{- $variant := .variant | default "role-model" -}}
 {{- if and (ne $variant "role-model") (ne $variant "stat-yellow") -}}
@@ -98,7 +98,7 @@
 <section{{ with $id }} id="{{ . }}"{{ end }} class="section s-volunteer-feature reveal">
   <div class="container s-volunteer-feature__grid">
 
-    {{- /* Poster column — only the chosen variant's markup is emitted.
+    {{- /* Poster column - only the chosen variant's markup is emitted.
            Pure typography in both variants; no image. */ -}}
     <div class="s-volunteer-feature__poster s-volunteer-feature__poster--{{ $variant }}">
       {{- if eq $variant "role-model" }}

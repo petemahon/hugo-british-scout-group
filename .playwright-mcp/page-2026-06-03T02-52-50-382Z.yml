@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -44,8 +44,8 @@
           - heading "Annual General Meeting" [level=2] [ref=e35]
           - paragraph [ref=e36]:
             - strong [ref=e37]: Tuesday 13 May 2026, 19:30
-          - paragraph [ref=e38]: The community centre hall (and online — link sent to all families)
-        - paragraph [ref=e40]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board — particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
+          - paragraph [ref=e38]: The community centre hall (and online - link sent to all families)
+        - paragraph [ref=e40]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board - particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
   - contentinfo [ref=e41]:
     - generic [ref=e42]:
       - generic [ref=e43]:
@@ -53,7 +53,7 @@
           - generic [ref=e45]:
             - img [ref=e46]
             - generic [ref=e48]: 1st Anytown Scouts
-          - paragraph [ref=e49]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e49]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e50]:
           - heading "Visit" [level=5] [ref=e51]
           - list [ref=e52]:
@@ -83,7 +83,7 @@
                 - /url: /privacy/
             - listitem [ref=e72]: Charity no. 1234567
       - generic [ref=e73]:
-        - generic [ref=e74]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e74]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e75]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e77]:
         - text: "Registered charity:"

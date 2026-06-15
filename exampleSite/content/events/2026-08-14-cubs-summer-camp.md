@@ -29,10 +29,10 @@ draft       = false
   publish_lead_days  = 18    # public listing about 2.5 weeks ago
 +++
 
-Three days under canvas at Pioneer Camp — Friday afternoon arrival,
+Three days under canvas at Pioneer Camp - Friday afternoon arrival,
 Sunday afternoon collection. The Pack will be running a mix of
 campcraft, water activities and the all-time-favourite night hike.
 
 The kit list for this camp is linked below; consent forms come home
-four weeks ahead. Bursary support is available — speak to Akela in
+four weeks ahead. Bursary support is available - speak to Akela in
 confidence if cost would otherwise stop your Cub joining us.

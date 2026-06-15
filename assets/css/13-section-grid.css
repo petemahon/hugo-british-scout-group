@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------
    10. SECTION: SECTION-GRID & SCOUT-SECTIONS (header + N cards)
    Card layout: each card is a single white rounded pill containing the
-   logo, the age range, and the Learn-more button — all stacked.
+   logo, the age range, and the Learn-more button - all stacked.
    The age is rendered in the palette's PRIMARY colour (Scouts Purple in
    the classic palette) so it pops against the section background regardless
    of section bg tone. When the section bg IS primary, age flips to accent.
@@ -46,7 +46,7 @@
   align-items: center;
   text-align: center;
   gap: 1.25rem;
-  /* Cards expand to fill their grid cell width — ensures pills span the
+  /* Cards expand to fill their grid cell width - ensures pills span the
      row even when fewer cards than columns. */
   width: 100%;
 }
@@ -64,7 +64,7 @@
 }
 .s-card__footer { margin-top: auto; }
 
-/* Card title in the palette's primary colour — pops against the white card.
+/* Card title in the palette's primary colour - pops against the white card.
    Higher specificity than the ".s-bg-* :is(h1..h6) { color: inherit; }" rule
    above so this wins. When the section bg IS primary, flip to accent.
    Inline links inside a white card use the brand-link style (not the

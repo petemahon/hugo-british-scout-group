@@ -7,7 +7,7 @@
 #
 # The date prefix in the filename is part of the URL (/news/<slug>/) per
 # DECISIONS.md (flat URLs, no year nesting). It is NOT auto-stripped from
-# the title — edit the title below to read naturally.
+# the title - edit the title below to read naturally.
 
 title         = "{{ replace (replaceRE `^[0-9]{4}-[0-9]{2}-[0-9]{2}-` `` .Name) `-` ` ` | title }}"
 
@@ -27,13 +27,13 @@ summary       = ""
 # Section badges on news cards take their colour from these values.
 sections      = []
 
-# Cover image — relative to assets/news/<slug>/. Hugo accepts JPG, WebP,
+# Cover image - relative to assets/news/<slug>/. Hugo accepts JPG, WebP,
 # or PNG; the build pipeline produces resized WebP variants automatically,
 # so authors don't need to convert. Leave empty to render no cover image.
 cover_image   = ""
 cover_alt     = ""    # required if cover_image is set; describe the photo
 
-# Author byline — free text. Recommended: leader nickname or role
+# Author byline - free text. Recommended: leader nickname or role
 # ("Akela", "GSL", "Cub Leader") rather than a personal name. Avoid using
 # full names of young people. Leave empty to omit the byline.
 author        = ""
@@ -58,5 +58,5 @@ assets/news/<slug>/) and reference them like:
   ![Cubs at the Cooking Cup](photo-1.jpg "Optional caption")
 
 Hugo's image render pipeline will resize and convert them to WebP.
-Keep filenames descriptive — they appear in the resulting image URLs.
+Keep filenames descriptive - they appear in the resulting image URLs.
 -->

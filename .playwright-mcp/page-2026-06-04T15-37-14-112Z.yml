@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic: 1st Anytown Scouts
@@ -117,7 +117,7 @@
           - img [ref=e138]
           - generic [ref=e140]: · 18–25
         - heading "Maybe you're over 18. But not over Scouts." [level=2] [ref=e141]
-        - paragraph [ref=e142]: Network members start small but think big — always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it.
+        - paragraph [ref=e142]: Network members start small but think big - always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it.
         - link "Find out more" [ref=e143] [cursor=pointer]:
           - /url: https://www.scouts.org.uk/network/
           - text: Find out more
@@ -141,7 +141,7 @@
     - generic [ref=e162]:
       - generic [ref=e163]:
         - heading "We're recruiting" [level=2] [ref=e164]
-        - paragraph [ref=e165]: We have open volunteer roles — a few hours from the right people keeps Scouting running here.
+        - paragraph [ref=e165]: We have open volunteer roles - a few hours from the right people keeps Scouting running here.
       - link "See open roles →" [ref=e166] [cursor=pointer]:
         - /url: /support-us/volunteer-roles/
     - generic [ref=e168]:
@@ -156,7 +156,7 @@
         - heading "Register to volunteer." [level=2] [ref=e179]
         - paragraph [ref=e180]: Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers.
         - paragraph [ref=e181]:
-          - text: We're always looking for more people to join us — whether you have an hour every two months, or can give your time weekly, we
+          - text: We're always looking for more people to join us - whether you have an hour every two months, or can give your time weekly, we
           - strong [ref=e182]: need
           - text: you.
         - paragraph [ref=e183]: Aged 18–25? You can volunteer too, as a member of the Scout Network.
@@ -171,16 +171,16 @@
         - paragraph [ref=e192]: Click a section to see this term's weekly meeting plan and the Skills for Life themes we're covering.
       - generic [ref=e193]:
         - group [ref=e194]:
-          - generic "Beavers Beavers — Summer Term 2026" [ref=e195] [cursor=pointer]:
+          - generic "Beavers Beavers - Summer Term 2026" [ref=e195] [cursor=pointer]:
             - generic [ref=e196]: B
             - generic [ref=e197]: Beavers
-            - generic [ref=e198]: Beavers — Summer Term 2026
+            - generic [ref=e198]: Beavers - Summer Term 2026
             - generic [ref=e199]: ›
         - group [ref=e200]:
-          - generic "Cubs Cubs — Summer Term 2026" [ref=e201] [cursor=pointer]:
+          - generic "Cubs Cubs - Summer Term 2026" [ref=e201] [cursor=pointer]:
             - generic [ref=e202]: C
             - generic [ref=e203]: Cubs
-            - generic [ref=e204]: Cubs — Summer Term 2026
+            - generic [ref=e204]: Cubs - Summer Term 2026
             - generic [ref=e205]: ›
       - paragraph [ref=e206]:
         - link "View all programmes →" [ref=e207] [cursor=pointer]:
@@ -277,7 +277,7 @@
                 - listitem [ref=e285]:
                   - link "Explorers" [ref=e286] [cursor=pointer]:
                     - /url: /news/sections/explorers/
-            - paragraph [ref=e287]: The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in.
+            - paragraph [ref=e287]: The whole Group turned out for our annual St George's Day Parade - fresh neckers, polished shoes, and a piper to lead us in.
             - link "Read more" [ref=e288] [cursor=pointer]:
               - /url: /news/2026-04-19-st-georges-day/
               - text: Read more
@@ -354,7 +354,7 @@
           - generic [ref=e348]:
             - img [ref=e349]
             - generic [ref=e351]: 1st Anytown Scouts
-          - paragraph [ref=e352]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e352]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e353]:
           - heading "Visit" [level=5] [ref=e354]
           - list [ref=e355]:
@@ -383,7 +383,7 @@
               - link "Privacy" [ref=e374] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e375]:
-        - generic [ref=e376]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e376]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e377]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e379]:
         - text: "Registered charity:"

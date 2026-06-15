@@ -14,7 +14,7 @@ operates under TSA's safeguarding policy. We follow the Yellow Card
 
 ## Photos and consent
 
-We sometimes take photos at meetings and camps — for the noticeboard,
+We sometimes take photos at meetings and camps - for the noticeboard,
 for the website, and occasionally for the Group's social media. We
 **only** share photos of young people whose families have signed our
 consent form, and we never share full names or contact details.
@@ -25,7 +25,7 @@ remove your child from future photos and pull any existing ones.
 ## Health & medication
 
 Health forms and medication consent are collected on paper at
-first-night enrolment — never on the website. The forms are stored
+first-night enrolment - never on the website. The forms are stored
 securely at the hut and shared only with the section leaders and Camp
 Permit holder.
 

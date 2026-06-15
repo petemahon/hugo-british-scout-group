@@ -3,18 +3,18 @@
 # See SPEC-06 for the full feature spec.
 #
 # The cards rendered on /join/ come from data/sections_status.toml in
-# your site repo — that's where each section/pack's status, meeting
+# your site repo - that's where each section/pack's status, meeting
 # night, fee and contact are managed. This file just controls the
 # page's top matter and the bridge links.
 
 title             = "Join us"
 
-# Optional intro paragraph(s) below the page heading. HTML allowed —
+# Optional intro paragraph(s) below the page heading. HTML allowed -
 # you can wrap key phrases in <strong> or link out to external pages.
 # Leave empty for a heading-only top matter.
 intro             = ""
 
-# Link to your Welcome Pack — either the on-site Hugo section (default
+# Link to your Welcome Pack - either the on-site Hugo section (default
 # below) or an external URL if you maintain it elsewhere. Set to "" to
 # suppress the link entirely.
 welcome_pack_url   = "/welcome-pack/"
@@ -34,7 +34,7 @@ enquiry_email     = ""
 # volunteer page; the label here is the call to parents.
 volunteer_link_text = "We need you too"
 
-# BSO Groups only — a short eligibility blurb that renders above the
+# BSO Groups only - a short eligibility blurb that renders above the
 # cards (between the bso-membership notice and the grid). HTML allowed.
 # Ignored when site.Params.bso.enabled is false.
 bso_eligibility_summary = ""

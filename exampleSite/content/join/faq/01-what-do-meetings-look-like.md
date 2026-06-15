@@ -2,7 +2,7 @@
 title  = "What does a typical meeting look like?"
 weight = 10
 
-# Keep these FAQ files out of the route tree — they render inline on
+# Keep these FAQ files out of the route tree - they render inline on
 # /join/ via the joining-faq partial, not as standalone /join/faq/<slug>/
 # pages. build.list = "always" keeps them in site.RegularPages so the
 # partial can iterate them. (Hugo 0.145+: this key is `build`, not

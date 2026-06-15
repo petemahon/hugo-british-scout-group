@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
-   25. PROGRAMME — s-programme
+   25. PROGRAMME - s-programme
    Termly programme listing (/programme/), single page (/programme/<slug>/),
    and the opt-in programme-current home-page block. See SPEC-03 for the
    feature scope.
@@ -96,7 +96,7 @@
   max-width: 56rem;
 }
 
-/* Back-link retired — now the shared .back-link component (09-…). */
+/* Back-link retired - now the shared .back-link component (09-…). */
 .s-programme__title-block {
   display: flex;
   align-items: flex-start;
@@ -300,7 +300,7 @@ a.s-programme__chip:hover {
 }
 
 /* -----------------------------------------------------------------------------
-   Print stylesheet — parents print one term's plan on one A4 sheet.
+   Print stylesheet - parents print one term's plan on one A4 sheet.
    Strips chrome, lets the weeks table flow edge-to-edge, forces every
    <details> open (home block), drops chip backgrounds (saves ink and
    keeps row legible in monochrome).

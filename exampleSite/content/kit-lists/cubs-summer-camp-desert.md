@@ -58,7 +58,7 @@ cross_border_notes = "If your camp is across a border from where you live, also 
     name = "Head torch and spare batteries"
   [[categories.items]]
     name = "Swimming kit"
-    alternative = "Only if water activities are planned — we'll confirm"
+    alternative = "Only if water activities are planned - we'll confirm"
 
 draft = false
 +++

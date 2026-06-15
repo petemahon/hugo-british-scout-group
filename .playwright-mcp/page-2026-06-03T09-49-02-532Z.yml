@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -32,7 +32,7 @@
         - generic [ref=e25]:
           - generic [ref=e26]: Hall hire
           - heading "Hire our hall" [level=1] [ref=e27]
-          - generic [ref=e28]: Our Scout Hut is available for community hire when we're not using it — birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown.
+          - generic [ref=e28]: Our Scout Hut is available for community hire when we're not using it - birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown.
         - list "Photos of the hall" [ref=e29]:
           - listitem [ref=e30]:
             - figure "The main hall, set out for a meeting" [ref=e31]:
@@ -91,8 +91,8 @@
               - listitem [ref=e80]: £50 refundable damage deposit, returned after inspection
               - listitem [ref=e81]: £20 cleaning fee for parties and catered events
             - paragraph [ref=e82]: The hall is in use for Scout meetings on weekday evenings during school terms (roughly 17:00–21:30). Daytimes, weekends and holidays are usually free.
-        - paragraph [ref=e84]: We’re a registered charity and every penny of hire income goes back into Scouting for local young people. If you’re a community group or running a not-for-profit event, do ask — we can often be flexible on the rate.
-        - paragraph [ref=e85]: Scout activities always take priority — hire bookings are confirmed around our weekly programme and events.
+        - paragraph [ref=e84]: We’re a registered charity and every penny of hire income goes back into Scouting for local young people. If you’re a community group or running a not-for-profit event, do ask - we can often be flexible on the rate.
+        - paragraph [ref=e85]: Scout activities always take priority - hire bookings are confirmed around our weekly programme and events.
         - generic [ref=e86]:
           - paragraph [ref=e87]:
             - link "Terms & conditions (PDF) →" [ref=e88] [cursor=pointer]:
@@ -111,7 +111,7 @@
           - generic [ref=e97]:
             - img [ref=e98]
             - generic [ref=e100]: 1st Anytown Scouts
-          - paragraph [ref=e101]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e101]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e102]:
           - heading "Visit" [level=5] [ref=e103]
           - list [ref=e104]:
@@ -140,7 +140,7 @@
               - link "Privacy" [ref=e123] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e124]:
-        - generic [ref=e125]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e125]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e126]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e128]:
         - text: "Registered charity:"

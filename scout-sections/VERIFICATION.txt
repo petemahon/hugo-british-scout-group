@@ -1,4 +1,4 @@
-SCOUT-SECTIONS — VERIFICATION LOG
+SCOUT-SECTIONS - VERIFICATION LOG
 ==================================
 
 ENVIRONMENT
@@ -14,7 +14,7 @@ Local rig workaround:
   introduced in Hugo 0.123.x and the rig hits a "can't evaluate field
   Data in type interface {}" error on the precise build of 0.123.7
   used here. For the rig only, the line was rewritten to
-  `site.Data.scout_sections.items` — the older idiom that works on
+  `site.Data.scout_sections.items` - the older idiom that works on
   any Hugo ≥ 0.40. The deliverable's patch keeps `hugo.Data` matching
   the rest of the theme.
 
@@ -32,14 +32,14 @@ tree plus all D7 changes:
     (NEW D7 placeholders)
 
 01-reset.css and 02-layout.css in the rig are minimal stand-ins for
-the real theme's reset and layout — only enough to give `.container`
+the real theme's reset and layout - only enough to give `.container`
 a max-width and `box-sizing: border-box` globally. The real theme
 ships these properly via `assets/css/01-reset.css` and
 `assets/css/02-layout.css`. Without the box-sizing reset, cards
 render 19 px wider than expected because their `max-width: 380px`
 is interpreted as content-box width instead of border-box.
 
-TEST 1 — Patches apply on a clean post-D6 tree
+TEST 1 - Patches apply on a clean post-D6 tree
 -----------------------------------------------
 Set up: current-theme-state + D5 deltas + D6 tarball applied.
 Created stand-in files at:
@@ -66,7 +66,7 @@ Post-apply assertions:
   - layouts/partials/sections/scout-sections.html has the new
     .s-scout-sections classes                                       ✓
 
-TEST 2 — Build with default 5 sections
+TEST 2 - Build with default 5 sections
 ---------------------------------------
 Site config: `[params.scoutSections]` with squirrels, beavers, cubs,
 scouts, explorers all `enable = true`. Network not configured (data
@@ -100,7 +100,7 @@ Hover (first card on desktop):
   Top accent strip thickens from 6 px to 10 px
   All three transitions complete within 0.2 s
 
-TEST 3 — Build with 6 sections (Network enabled)
+TEST 3 - Build with 6 sections (Network enabled)
 -------------------------------------------------
 Site config: all 6 sections `enable = true` including network.
 
@@ -113,7 +113,7 @@ Visual layout at 1280 × 1200 desktop:
   Network card displays with black accent strip and inverted
   white-on-black logo (matching data-file color = "#000000").
 
-TEST 4 — Build with exactly 4 sections (:has() override)
+TEST 4 - Build with exactly 4 sections (:has() override)
 ---------------------------------------------------------
 Site config: squirrels = { enable = false }, others on. Network not
 configured. Result: 4 active sections.
@@ -130,7 +130,7 @@ The :has() rule `.s-scout-sections__grid:has(>
 the default 3-across to 2×2. Cards take flex-basis calc(50% -
 0.625rem) instead of the default calc(33.333% - 0.875rem).
 
-TEST 5 — CSS bundle assertion
+TEST 5 - CSS bundle assertion
 ------------------------------
 Minified bundle public/css/theme.min.css. New rules confirmed
 present:
@@ -149,7 +149,7 @@ present:
 All rules from 17-section-scout-sections.css present in the bundle.
 No leftover .sec-card / .sec-grid / .logo-frame mockup names.
 
-TEST 6 — Accessibility spot-checks
+TEST 6 - Accessibility spot-checks
 -----------------------------------
 - Card's `<a>` carries `aria-label="Learn more about Squirrels (4 to
   6 years)"` (and equivalents for each section).             ✓
@@ -163,7 +163,7 @@ TEST 6 — Accessibility spot-checks
   entire card. (No `:focus-visible` styling has been customised;
   the existing global rules apply.)                            ✓
 
-TEST 7 — Screenshots (Playwright + Chromium)
+TEST 7 - Screenshots (Playwright + Chromium)
 ---------------------------------------------
 Generated 5 PNGs of the rendered site:
 
@@ -175,12 +175,12 @@ Generated 5 PNGs of the rendered site:
 
 VERIFIED ON THE LIVE-PINNED HUGO VERSION
 -----------------------------------------
-Not done here — Hugo 0.157.0 archives are not reachable. Two checks
+Not done here - Hugo 0.157.0 archives are not reachable. Two checks
 left to the receiving end:
 
 1. The deliverable's partial uses `hugo.Data.scout_sections.items`
    (matching the existing partial style). Confirm this builds on
-   0.157.0 — should, since the existing partial uses the same call.
+   0.157.0 - should, since the existing partial uses the same call.
 
 2. Visual smoke check on the real exampleSite with all its other
    sections present (this rig only renders the scout-sections block

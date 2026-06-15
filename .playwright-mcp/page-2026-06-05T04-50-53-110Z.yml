@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -43,7 +43,7 @@
         - generic [ref=e36]:
           - paragraph [ref=e37]: This page is the starter wording shipped with the British Scout Group theme. Replace the body below with the policy your Group has agreed with its Trustees. Nothing on this page is rendered as a legal instrument until you’ve reviewed it with your safeguarding lead.
           - heading "Why we ask" [level=2] [ref=e38]
-          - paragraph [ref=e39]: Some of what we do is naturally photogenic — camps, badge presentations, parades. Sharing photos helps families see what their child has been up to and shows prospective members what life in the Group is like. We also have a duty of care to the young people in those photos.
+          - paragraph [ref=e39]: Some of what we do is naturally photogenic - camps, badge presentations, parades. Sharing photos helps families see what their child has been up to and shows prospective members what life in the Group is like. We also have a duty of care to the young people in those photos.
           - heading "What we ask of parents and carers" [level=2] [ref=e40]
           - paragraph [ref=e41]: "When a young person joins, you’ll be asked to tick a photo-consent box on their OSM record. You can change your answer at any time: contact the Group Lead Volunteer and we will update the record and remove any already-published photos that include your child."
           - heading "How we use photos" [level=2] [ref=e42]
@@ -101,7 +101,7 @@
           - generic [ref=e84]:
             - img [ref=e85]
             - generic [ref=e87]: 1st Anytown Scouts
-          - paragraph [ref=e88]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e88]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e89]:
           - heading "Visit" [level=5] [ref=e90]
           - list [ref=e91]:
@@ -130,7 +130,7 @@
               - link "Privacy" [ref=e110] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e111]:
-        - generic [ref=e112]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e112]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e113]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e115]:
         - text: "Registered charity:"

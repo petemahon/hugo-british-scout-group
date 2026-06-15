@@ -1,8 +1,8 @@
 +++
 title       = "Galleries"
-description = "Camp write-ups in pictures — what we've been up to across the Group."
+description = "Camp write-ups in pictures - what we've been up to across the Group."
 
-# Forces /galleries/ to use list.html — the layout chain for a
+# Forces /galleries/ to use list.html - the layout chain for a
 # kind=section page would otherwise consider single.html if a cascade
 # rule applied. Explicit setting overrides any inherited cascade.
 layout = "list"

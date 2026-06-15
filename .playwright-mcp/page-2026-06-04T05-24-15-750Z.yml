@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -26,35 +26,35 @@
         - generic [ref=e28]:
           - text: Everything a Cub needs for a weekend under canvas or in a camp building. Pack it
           - strong [ref=e29]: with
-          - text: "your Cub, not for them — knowing where their own kit is makes the weekend go far more smoothly. Haven't got something? Ask Akela: we keep spare sleeping bags and waterproofs to lend."
+          - text: "your Cub, not for them - knowing where their own kit is makes the weekend go far more smoothly. Haven't got something? Ask Akela: we keep spare sleeping bags and waterproofs to lend."
         - generic [ref=e30]:
           - generic [ref=e31]:
             - heading "Sleeping" [level=2] [ref=e32]
             - list [ref=e33]:
-              - listitem [ref=e34]: Sleeping bag — Or two warm fleece blankets if no bag
+              - listitem [ref=e34]: Sleeping bag - Or two warm fleece blankets if no bag
               - listitem [ref=e35]: Roll mat or sleeping mat
               - listitem [ref=e36]: Pillow (small) or pillowcase to stuff with clothes
-            - paragraph [ref=e37]: If you don't have a 3-season sleeping bag, contact Akela — we have spares to lend.
+            - paragraph [ref=e37]: If you don't have a 3-season sleeping bag, contact Akela - we have spares to lend.
           - generic [ref=e38]:
             - heading "Clothing" [level=2] [ref=e39]
             - list [ref=e40]:
               - listitem [ref=e41]:
                 - text: Underwear and socks
                 - generic [ref=e42]: ×3
-                - text: — A spare set per day, plus one extra
+                - text: - A spare set per day, plus one extra
               - listitem [ref=e43]:
                 - text: Warm jumper or fleece
                 - generic [ref=e44]: ×2
               - listitem [ref=e45]:
-                - text: Trousers (not jeans — they stay cold and wet)
+                - text: Trousers (not jeans - they stay cold and wet)
                 - generic [ref=e46]: ×2
               - listitem [ref=e47]:
                 - text: T-shirts
                 - generic [ref=e48]: ×2
               - listitem [ref=e49]: Waterproof coat
-              - listitem [ref=e50]: Wellies — Or old trainers that can get muddy
+              - listitem [ref=e50]: Wellies - Or old trainers that can get muddy
               - listitem [ref=e51]: Pyjamas
-              - listitem [ref=e52]: Warm hat and gloves — Even in summer — evenings get cold
+              - listitem [ref=e52]: Warm hat and gloves - Even in summer - evenings get cold
           - generic [ref=e53]:
             - heading "Wash kit" [level=2] [ref=e54]
             - list [ref=e55]:
@@ -65,19 +65,19 @@
             - heading "Camp gear" [level=2] [ref=e60]
             - list [ref=e61]:
               - listitem [ref=e62]: Named water bottle
-              - listitem [ref=e63]: Torch — Head torch is ideal; spare batteries help
+              - listitem [ref=e63]: Torch - Head torch is ideal; spare batteries help
               - listitem [ref=e64]: Sun cream and sun hat
-              - listitem [ref=e65]: Plate, bowl, mug and cutlery — Only if told to bring them — we'll let you know
-            - paragraph [ref=e66]: Label everything with your Cub's name — it saves a mountain of lost property on Sunday.
+              - listitem [ref=e65]: Plate, bowl, mug and cutlery - Only if told to bring them - we'll let you know
+            - paragraph [ref=e66]: Label everything with your Cub's name - it saves a mountain of lost property on Sunday.
         - complementary "Mobile phones" [ref=e67]:
           - heading "Mobile phones" [level=2] [ref=e68]
-          - paragraph [ref=e69]: Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive — we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us.
+          - paragraph [ref=e69]: Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive - we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us.
         - complementary "Please leave at home" [ref=e70]:
           - heading "Please leave at home" [level=2] [ref=e71]
           - generic [ref=e72]:
             - text: "Please leave at home:"
             - strong [ref=e73]: phones, tablets and games consoles
-            - text: (see the note above), money beyond a few pounds for the tuck shop, and anything valuable or irreplaceable. Sweets and fizzy drinks stay at home too — we provide all the food.
+            - text: (see the note above), money beyond a few pounds for the tuck shop, and anything valuable or irreplaceable. Sweets and fizzy drinks stay at home too - we provide all the food.
   - contentinfo [ref=e74]:
     - generic [ref=e75]:
       - generic [ref=e76]:
@@ -85,7 +85,7 @@
           - generic [ref=e78]:
             - img [ref=e79]
             - generic [ref=e81]: 1st Anytown Scouts
-          - paragraph [ref=e82]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e82]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e83]:
           - heading "Visit" [level=5] [ref=e84]
           - list [ref=e85]:
@@ -114,7 +114,7 @@
               - link "Privacy" [ref=e104] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e105]:
-        - generic [ref=e106]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e106]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e107]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e109]:
         - text: "Registered charity:"

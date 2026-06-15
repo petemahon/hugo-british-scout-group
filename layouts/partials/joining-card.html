@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  joining-card — one card per pack. SPEC-06.
+  joining-card - one card per pack. SPEC-06.
 
   Context (dict):
     sectionMeta   (map)   data/scout_sections.toml entry for the section
@@ -17,7 +17,7 @@
   Build warnings:
     - status = "waiting" with no `waiting_url` AND no per-pack
       `contact_email` AND no page-level OSM URL AND no page-level
-      enquiry email is a dead-end card — warnf at build.
+      enquiry email is a dead-end card - warnf at build.
 */ -}}
 {{- $sectionMeta := .sectionMeta -}}
 {{- $pack        := .pack -}}
@@ -39,13 +39,13 @@
 {{- $logoSVG := "" -}}
 {{- with resources.Get $sectionMeta.logo -}}{{ $logoSVG = .Content -}}{{- end -}}
 
-{{- /* Status label — from i18n; falls back to a sensible default. */ -}}
+{{- /* Status label - from i18n; falls back to a sensible default. */ -}}
 {{- $statusLabel := "" -}}
 {{- if eq $status "open"    -}}{{- $statusLabel = i18n "joiningStatusOpen"    | default "Open"           -}}{{- end -}}
 {{- if eq $status "waiting" -}}{{- $statusLabel = i18n "joiningStatusWaiting" | default "Waiting list"   -}}{{- end -}}
 {{- if eq $status "closed"  -}}{{- $statusLabel = i18n "joiningStatusClosed"  | default "Not running"    -}}{{- end -}}
 
-{{- /* Fee rendering — look up currency symbol from data/currencies.toml.
+{{- /* Fee rendering - look up currency symbol from data/currencies.toml.
        Cards without a fee value omit the line entirely. */ -}}
 {{- $feeBlock := "" -}}
 {{- if $pack.fee -}}
@@ -94,7 +94,7 @@
     <div class="s-joining__description">{{ . | safeHTML }}</div>
   {{- end }}
 
-  {{- /* BSO branch — render BSO-only notes (language + nationality) ONLY
+  {{- /* BSO branch - render BSO-only notes (language + nationality) ONLY
          when params.bso.enabled = true. Per-pack overrides take precedence over
          the page-level summary which lives in joining-grid. */ -}}
   {{- if $isBSO }}

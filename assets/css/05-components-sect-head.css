@@ -1,25 +1,25 @@
 /* -----------------------------------------------------------------------------
    05. COMPONENTS: SECT-HEAD & EYEBROW
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Cross-cutting section-head pattern used by every section below the hero.
 
-   Two classes, both bare (no `s-` prefix) — they're not scoped to any one
+   Two classes, both bare (no `s-` prefix) - they're not scoped to any one
    section. They join `.btn`, `.container` and `.reveal` as the theme's
    cross-cutting component layer.
 
    .eyebrow         Small primary-coloured uppercase lead-in with a 22 px
                     line decoration before the text (e.g. "Join Us", "Our
-                    Sections", "What's coming up"). Usable standalone — the
+                    Sections", "What's coming up"). Usable standalone - the
                     hero consumes it directly.
 
    .sect-head       Container for the eyebrow + h2 + optional supporting
                     paragraph. Centred by default. When an .eyebrow sits
                     inside a .sect-head, a matching trailing line decoration
-                    is added so the eyebrow reads "— TEXT —".
+                    is added so the eyebrow reads "- TEXT -".
 
-   .sect-head--left BEM modifier — strips the centring and the trailing
+   .sect-head--left BEM modifier - strips the centring and the trailing
                     line decoration. Used by sections whose body is a
                     left-aligned grid (events, news, meet, …).
 
@@ -38,8 +38,8 @@
        <h2>Camps, parades and meetings.</h2>
      </div>
 
-   Future variants — .eyebrow-yellow (volunteer band) and the network
-   section's black eyebrow row — ship with their respective section
+   Future variants - .eyebrow-yellow (volunteer band) and the network
+   section's black eyebrow row - ship with their respective section
    deliverables. D5 establishes the pattern only.
    ----------------------------------------------------------------------------- */
 
@@ -68,7 +68,7 @@
   background: var(--primary);
 }
 
-/* ── Section head — centred default ───────────────────────────── */
+/* ── Section head - centred default ───────────────────────────── */
 .sect-head {
   text-align: center;
   margin-bottom: 2rem;
@@ -120,7 +120,7 @@
    section's text column. Reserved by D5 (see header comment), shipped
    in D11.
 
-   This is a colour-only modifier — the base .eyebrow rules above
+   This is a colour-only modifier - the base .eyebrow rules above
    supply the typography, line decoration, and spacing. The text and
    the leading 22 px dash both become Scouts Yellow. The trailing
    ::after dash is suppressed in the volunteer-feature module

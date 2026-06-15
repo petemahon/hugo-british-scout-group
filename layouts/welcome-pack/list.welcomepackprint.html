@@ -3,19 +3,19 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Welcome Pack — concatenated print view. SPEC-06.
+  Welcome Pack - concatenated print view. SPEC-06.
 
   URL: /welcome-pack/print.html
   Output format: WelcomePackPrint (configured in the site's hugo.toml).
 
   Emits a SELF-CONTAINED HTML document (this layout does NOT extend
   baseof.html) so the print view is a single linear flow with no site
-  chrome — perfect for "Save as PDF" via the browser's print dialogue.
+  chrome - perfect for "Save as PDF" via the browser's print dialogue.
 
   We keep the site's CSS bundle linked so the print stylesheet in
   52-section-welcome-pack.css and 51-section-joining.css applies and
   body typography matches the rest of the site. Everything outside
-  that — no nav, no footer, no back-to-top — is omitted.
+  that - no nav, no footer, no back-to-top - is omitted.
 */ -}}
 {{- if site.Params.features.welcome_pack -}}
 {{- $chapters := where site.RegularPages "Section" "welcome-pack" -}}
@@ -28,7 +28,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ i18n "welcomePackPrintTitle" | default "Welcome Pack — printable" }} · {{ site.Title }}</title>
+  <title>{{ i18n "welcomePackPrintTitle" | default "Welcome Pack - printable" }} · {{ site.Title }}</title>
   <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
   {{ partial "palette-style.html" . }}
 </head>

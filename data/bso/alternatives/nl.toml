@@ -1,6 +1,6 @@
-# data/bso/alternatives/nl.toml — WOSM-recognised scouting in the Netherlands.
+# data/bso/alternatives/nl.toml - WOSM-recognised scouting in the Netherlands.
 # Used by SPEC-10's /bso/host-scouting/ page when host_country_iso = "nl".
-# Verify links and names before publishing — the theme ships this as a
+# Verify links and names before publishing - the theme ships this as a
 # starter set; URLs and federations drift over time.
 
 [[organisation]]
@@ -15,4 +15,4 @@
   url         = "https://www.fos.be/"
   language    = "Dutch / French"
   joining_url = ""
-  description = "Federation of Open Scouts — operates in Belgium with some cross-border presence; not WOSM-recognised in the Netherlands but a useful neighbour reference."
+  description = "Federation of Open Scouts - operates in Belgium with some cross-border presence; not WOSM-recognised in the Netherlands but a useful neighbour reference."

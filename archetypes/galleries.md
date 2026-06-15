@@ -5,7 +5,7 @@
 # Run:                    hugo new galleries/2026-summer-camp/_index.md
 #
 # Each gallery is a branch bundle (a directory with an `_index.md`).
-# Drop image files into assets/galleries/<slug>/ — numeric filenames
+# Drop image files into assets/galleries/<slug>/ - numeric filenames
 # recommended (001.jpg, 002.jpg, …) so authors don't accidentally
 # identify a young person by name in a URL.
 #
@@ -13,7 +13,7 @@
 # generated automatically by the content adapter at
 # content/galleries/_content.gotmpl. You don't write one .md per photo.
 #
-# SAFEGUARDING — READ BEFORE PUBLISHING.
+# SAFEGUARDING - READ BEFORE PUBLISHING.
 # This is the highest-risk content type in the theme. The build will
 # fail if photo_consent or consent_log are not set. See
 # documentation/specs/SPEC-04-galleries.md and SPEC-COMMON §10.
@@ -27,7 +27,7 @@ date          = {{ .Date }}
 # Card description on /galleries/. Optional.
 summary       = ""
 
-# Cover image — a filename in assets/galleries/<slug>/. Leave empty to
+# Cover image - a filename in assets/galleries/<slug>/. Leave empty to
 # fall back to the first image (alphabetical order).
 cover         = ""
 cover_alt     = ""    # REQUIRED when `cover` is set.
@@ -41,7 +41,7 @@ photo_consent = false
 # REQUIRED. A short note pointing to where the Group has stored
 # signed consent records (e.g. "OSM Personal Details > Photo Consent",
 # or "Shared Drive > Safeguarding > Photo Consents 2026"). Never
-# rendered to the public site — build-time lint only. The build fails
+# rendered to the public site - build-time lint only. The build fails
 # if this is empty.
 consent_log   = ""
 
@@ -51,7 +51,7 @@ consent_log   = ""
 sections      = []
 
 # Optional cross-link to an Events page (SPEC-02) or News post
-# (SPEC-01) by slug — produces a "From this event" / "Camp report"
+# (SPEC-01) by slug - produces a "From this event" / "Camp report"
 # link on the gallery page when set.
 event_ref     = ""
 news_ref      = ""
@@ -61,7 +61,7 @@ news_ref      = ""
 # etc. Example: "Faces blurred at parents' request."
 note          = ""
 
-# Optional external video links. Renders as cards linking out — no
+# Optional external video links. Renders as cards linking out - no
 # embedded players, no hosted video files. YouTube, Vimeo and
 # Facebook video URLs are auto-recognised; the platform name shows
 # on the card.
@@ -95,7 +95,7 @@ Authoring notes:
 
   3. Run `exiftool -all=` over the source images before committing if
      they include GPS or device metadata. The theme does not strip
-     EXIF at build time — that's an authoring-side responsibility.
+     EXIF at build time - that's an authoring-side responsibility.
 
   4. Right to be forgotten: `git rm` the asset + rebuild.
 -->

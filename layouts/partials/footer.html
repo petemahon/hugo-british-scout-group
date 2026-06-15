@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  footer — the site's brand-anchor footer.
+  footer - the site's brand-anchor footer.
 
   Visual contract:
     Background is ALWAYS Scouts Navy (`var(--scouts-navy)`), regardless
@@ -21,8 +21,8 @@
         groupPrefix     = "1st Anytown"
         groupSuffix     = "Scouts"
 
-      [params.footer]                # D13 — all fields optional
-        tagline = "Skills for life in Anytown — and a slice of UK Scouting wherever you call home."
+      [params.footer]                # D13 - all fields optional
+        tagline = "Skills for life in Anytown - and a slice of UK Scouting wherever you call home."
 
         # 0–4 columns. The schema is identical across columns; the
         # heading is rendered as an <h5> uppercase label, the items
@@ -44,14 +44,14 @@
           ]
 
   Bottom strap:
-    Left:  copyright line — `© {year} {copyrightOwner} — {copyrightRights}`
+    Left:  copyright line - `© {year} {copyrightOwner} - {copyrightRights}`
     Right: i18n `footerStrap` (default "Skills for Life · #SkillsForLife")
 
   Note on the old `footerBg` param:
     Pre-D13 the footer accepted `footerBg` (muted/primary/secondary/...).
-    D13 drops that mechanism — the footer is brand-anchor navy. Sites
+    D13 drops that mechanism - the footer is brand-anchor navy. Sites
     with `footerBg` set in hugo.toml render with no visible effect; the
-    param is silently ignored. No build warning, no breakage — the
+    param is silently ignored. No build warning, no breakage - the
     param just becomes dead weight in those configs. Documented in
     D13-SPEC.md.
 
@@ -76,7 +76,7 @@
   <div class="container">
     <div class="site-footer__grid">
 
-      {{- /* Brand block — always rendered. */ -}}
+      {{- /* Brand block - always rendered. */ -}}
       <div class="site-footer__brand">
         <div class="site-footer__brand-name">
           <svg class="site-footer__fleur" aria-hidden="true"><use href="#fleur"/></svg>
@@ -87,7 +87,7 @@
         {{- end }}
       </div>
 
-      {{- /* Link columns — 0–4. The grid defined in 30-footer.css
+      {{- /* Link columns - 0–4. The grid defined in 30-footer.css
              handles the 1/2/4-column responsive layout regardless of
              how many columns are configured. */ -}}
       {{- range $columns }}
@@ -122,7 +122,7 @@
 
     {{- /* Charity-info (SPEC-07). A charity number only surfaces here when
            the Group runs a governance page AND has opted the block into the
-           footer — a charity number is never shown without a governance
+           footer - a charity number is never shown without a governance
            page. The partial itself no-ops unless a number is configured.
            Hidden in print via 56-section-about.css. */ -}}
     {{- if and site.Params.features.governance (site.Params.governance.show_in_footer | default false) }}

@@ -1,11 +1,11 @@
-# Theme screenshots — 1st Anytown Scouts (exampleSite)
+# Theme screenshots - 1st Anytown Scouts (exampleSite)
 
 Full-page captures of one page per template family, at two viewports.
 Generated 2026-06-04 against `hugo serve` (the example site, `adventure`
 palette). Same filename in `desktop/` and `mobile/` is the same page.
 
-- **desktop/** — 1440×900 viewport, full scroll height
-- **mobile/** — 390×844 viewport, full scroll height
+- **desktop/** - 1440×900 viewport, full scroll height
+- **mobile/** - 390×844 viewport, full scroll height
 
 | # | File | Page | Template family |
 | --- | --- | --- | --- |

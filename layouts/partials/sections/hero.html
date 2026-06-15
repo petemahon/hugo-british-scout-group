@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  hero — large home-page banner with split heading, lede, button row,
+  hero - large home-page banner with split heading, lede, button row,
          optional photo and optional stat tile.
 
   Schema (in [[sections]] under content/_index.md):
@@ -15,7 +15,7 @@
                                         plus " · {site.Params.place}"
                                         when `place` is set)
     lede     = "Fun and friendship …"  (optional; supporting paragraph,
-                                        plain text — HTML is escaped)
+                                        plain text - HTML is escaped)
     photo       = "images/hero/photo.webp"   (optional, see "Photo" below)
     photo_alt   = "Cubs gathered round a small fire at night"
                                        (optional but recommended; meaningful
@@ -35,7 +35,7 @@
                                         with rel="noopener")
       arrow    = true                  (optional; appends the animated arrow)
 
-  Heading model — read from site.Params (NOT from the section entry):
+  Heading model - read from site.Params (NOT from the section entry):
 
     title         = "1st Anytown Scouts"   (Hugo's site title; full name)
     groupPrefix   = "1st Anytown"          (the flying-em part)
@@ -47,7 +47,7 @@
 
   If groupPrefix or groupSuffix is missing, the h1 renders as the full
   site.Title in a single piece. The optional intro animation requires
-  both — when site.Params.heroIntro is true but the split params are
+  both - when site.Params.heroIntro is true but the split params are
   missing, the partial emits a warnf at build time.
 
   Photo
@@ -65,14 +65,14 @@
               both crops).
     • Weight: ≤ 80 KB. Compress with cwebp or ImageOptim.
     • Subject: identifiable young people require photo_consent (see
-               SPEC-COMMON §10 — the same policy applies here).
+               SPEC-COMMON §10 - the same policy applies here).
   Set `photo = false` (boolean) to suppress the photo entirely and render
   the hero as a single full-width text column.
 */ -}}
 
 {{- $id := .id | default "hero" -}}
 
-{{- /* Heading model — sourced from site params, not the section entry. */ -}}
+{{- /* Heading model - sourced from site params, not the section entry. */ -}}
 {{- $fullTitle := site.Title -}}
 {{- $prefix    := site.Params.groupPrefix -}}
 {{- $suffix    := site.Params.groupSuffix -}}
@@ -106,7 +106,7 @@
 {{- /* Intro animation gate. Build-time guard: warn if enabled without splits. */ -}}
 {{- $introOn := eq site.Params.heroIntro true -}}
 {{- if and $introOn (not $hasSplit) -}}
-  {{- warnf "hero: site.Params.heroIntro is true but groupPrefix and/or groupSuffix is missing — the intro animation has no em to fly. Set both in hugo.toml, or set heroIntro = false." -}}
+  {{- warnf "hero: site.Params.heroIntro is true but groupPrefix and/or groupSuffix is missing - the intro animation has no em to fly. Set both in hugo.toml, or set heroIntro = false." -}}
 {{- end -}}
 
 {{ if $introOn }}<section class="s-hero__parallax">{{ end }}

@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -38,8 +38,8 @@
             - time [ref=e32]: 12 September 2026, 00:00
             - text: · Pioneer Camp, Buckinghamshire
         - generic [ref=e33]:
-          - paragraph [ref=e34]: Three days under canvas at Pioneer Camp — Friday afternoon arrival, Sunday afternoon collection. The Pack will be running a mix of campcraft, water activities and the all-time-favourite night hike.
-          - paragraph [ref=e35]: The kit list for this camp is linked below; consent forms come home four weeks ahead. Bursary support is available — speak to Akela in confidence if cost would otherwise stop your Cub joining us.
+          - paragraph [ref=e34]: Three days under canvas at Pioneer Camp - Friday afternoon arrival, Sunday afternoon collection. The Pack will be running a mix of campcraft, water activities and the all-time-favourite night hike.
+          - paragraph [ref=e35]: The kit list for this camp is linked below; consent forms come home four weeks ahead. Bursary support is available - speak to Akela in confidence if cost would otherwise stop your Cub joining us.
         - complementary "Kit list for this camp" [ref=e36]:
           - paragraph [ref=e37]:
             - 'link "Kit list for this camp: Cubs Summer Camp Kit List →" [ref=e38] [cursor=pointer]':
@@ -59,7 +59,7 @@
           - generic [ref=e49]:
             - img [ref=e50]
             - generic [ref=e52]: 1st Anytown Scouts
-          - paragraph [ref=e53]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e53]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e54]:
           - heading "Visit" [level=5] [ref=e55]
           - list [ref=e56]:
@@ -88,7 +88,7 @@
               - link "Privacy" [ref=e75] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e76]:
-        - generic [ref=e77]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e77]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e78]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e80]:
         - text: "Registered charity:"

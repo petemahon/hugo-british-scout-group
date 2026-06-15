@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -31,7 +31,7 @@
       - generic [ref=e25]:
         - generic [ref=e26]: Volunteer
         - heading "Volunteer with us" [level=1] [ref=e27]
-        - paragraph [ref=e28]: Scouting here runs entirely on volunteers. You don't need to have been a Scout, and you don't need to commit every week — there's a role to fit most lives, including a few you can do remotely. Below are the roles we're actively looking to fill.
+        - paragraph [ref=e28]: Scouting here runs entirely on volunteers. You don't need to have been a Scout, and you don't need to commit every week - there's a role to fit most lives, including a few you can do remotely. Below are the roles we're actively looking to fill.
       - generic [ref=e29]:
         - article [ref=e30]:
           - generic [ref=e32]: Cubs
@@ -40,7 +40,7 @@
               - /url: /support-us/volunteer-roles/assistant-cub-leader/
           - paragraph [ref=e35]: Wednesday evenings, term time (plus the odd weekend camp)
           - paragraph
-          - paragraph [ref=e36]: "Help run our Wednesday Cub Pack: games, badge work, the occasional bit of controlled chaos, and the camps that Cubs remember for years. You’d work alongside Akela and the rest of the team — no experience needed, just reliability and a sense of humour. We’ll fund and book your training, and you’ll never be on your own with the Pack."
+          - paragraph [ref=e36]: "Help run our Wednesday Cub Pack: games, badge work, the occasional bit of controlled chaos, and the camps that Cubs remember for years. You’d work alongside Akela and the rest of the team - no experience needed, just reliability and a sense of humour. We’ll fund and book your training, and you’ll never be on your own with the Pack."
           - paragraph
           - paragraph [ref=e37]:
             - link "About this role →" [ref=e38] [cursor=pointer]:
@@ -52,7 +52,7 @@
               - /url: /support-us/volunteer-roles/treasurer/
           - paragraph [ref=e44]: A few hours a month, plus the AGM
           - paragraph
-          - paragraph [ref=e45]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility — but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
+          - paragraph [ref=e45]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility - but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
           - paragraph
           - paragraph [ref=e46]:
             - link "About this role →" [ref=e47] [cursor=pointer]:
@@ -64,7 +64,7 @@
               - /url: /support-us/volunteer-roles/trustee/
           - paragraph [ref=e53]: Around six meetings a year
           - paragraph
-          - paragraph [ref=e54]: Our Trustee Board (the Group Executive) looks after the Group’s money, property, safeguarding duties and overall direction. We’re looking for people with skills in finance, fundraising, premises, HR or law — but also just sensible people who care about local young people. Meetings can be joined online, so this works well for supporters living away from the area, including back in the UK.
+          - paragraph [ref=e54]: Our Trustee Board (the Group Executive) looks after the Group’s money, property, safeguarding duties and overall direction. We’re looking for people with skills in finance, fundraising, premises, HR or law - but also just sensible people who care about local young people. Meetings can be joined online, so this works well for supporters living away from the area, including back in the UK.
           - paragraph
           - paragraph [ref=e55]:
             - link "About this role →" [ref=e56] [cursor=pointer]:
@@ -79,7 +79,7 @@
           - generic [ref=e63]:
             - img [ref=e64]
             - generic [ref=e66]: 1st Anytown Scouts
-          - paragraph [ref=e67]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e67]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e68]:
           - heading "Visit" [level=5] [ref=e69]
           - list [ref=e70]:
@@ -108,7 +108,7 @@
               - link "Privacy" [ref=e89] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e90]:
-        - generic [ref=e91]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e91]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e92]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e94]:
         - text: "Registered charity:"

@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic: 1st Anytown Scouts
@@ -114,7 +114,7 @@
           - img [ref=e134]
           - generic [ref=e136]: · 18–25
         - heading "Maybe you're over 18. But not over Scouts." [level=2] [ref=e137]
-        - paragraph [ref=e138]: Network members start small but think big — always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it.
+        - paragraph [ref=e138]: Network members start small but think big - always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it.
         - link "Find out more" [ref=e139] [cursor=pointer]:
           - /url: https://www.scouts.org.uk/network/
           - text: Find out more
@@ -147,7 +147,7 @@
         - heading "Register to volunteer." [level=2] [ref=e169]
         - paragraph [ref=e170]: Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers.
         - paragraph [ref=e171]:
-          - text: We're always looking for more people to join us — whether you have an hour every two months, or can give your time weekly, we
+          - text: We're always looking for more people to join us - whether you have an hour every two months, or can give your time weekly, we
           - strong [ref=e172]: need
           - text: you.
         - paragraph [ref=e173]: Aged 18–25? You can volunteer too, as a member of the Scout Network.
@@ -162,16 +162,16 @@
         - paragraph [ref=e182]: Click a section to see this term's weekly meeting plan and the Skills for Life themes we're covering.
       - generic [ref=e183]:
         - group [ref=e184]:
-          - generic "Beavers Beavers — Summer Term 2026" [ref=e185] [cursor=pointer]:
+          - generic "Beavers Beavers - Summer Term 2026" [ref=e185] [cursor=pointer]:
             - generic [ref=e186]: B
             - generic [ref=e187]: Beavers
-            - generic [ref=e188]: Beavers — Summer Term 2026
+            - generic [ref=e188]: Beavers - Summer Term 2026
             - generic [ref=e189]: ›
         - group [ref=e190]:
-          - generic "Cubs Cubs — Summer Term 2026" [ref=e191] [cursor=pointer]:
+          - generic "Cubs Cubs - Summer Term 2026" [ref=e191] [cursor=pointer]:
             - generic [ref=e192]: C
             - generic [ref=e193]: Cubs
-            - generic [ref=e194]: Cubs — Summer Term 2026
+            - generic [ref=e194]: Cubs - Summer Term 2026
             - generic [ref=e195]: ›
       - paragraph [ref=e196]:
         - link "View all programmes →" [ref=e197] [cursor=pointer]:
@@ -268,7 +268,7 @@
                 - listitem [ref=e275]:
                   - link "Explorers" [ref=e276] [cursor=pointer]:
                     - /url: /news/sections/explorers/
-            - paragraph [ref=e277]: The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in.
+            - paragraph [ref=e277]: The whole Group turned out for our annual St George's Day Parade - fresh neckers, polished shoes, and a piper to lead us in.
             - link "Read more" [ref=e278] [cursor=pointer]:
               - /url: /news/2026-04-19-st-georges-day/
               - text: Read more
@@ -345,7 +345,7 @@
           - generic [ref=e338]:
             - img [ref=e339]
             - generic [ref=e341]: 1st Anytown Scouts
-          - paragraph [ref=e342]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e342]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e343]:
           - heading "Visit" [level=5] [ref=e344]
           - list [ref=e345]:
@@ -374,7 +374,7 @@
               - link "Privacy" [ref=e364] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e365]:
-        - generic [ref=e366]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e366]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e367]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e369]:
         - text: "Registered charity:"

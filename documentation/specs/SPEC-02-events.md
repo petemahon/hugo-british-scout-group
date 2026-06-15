@@ -8,7 +8,7 @@ A page-per-event content type rendering date, time, location, kit
 needed, cost, audience, and a downloadable `.ics` calendar file.
 Aggregated into `/events/` index sortable by date and section.
 
-The natural pair to News (SPEC-01) — together they cover the "what we
+The natural pair to News (SPEC-01) - together they cover the "what we
 did" and "what's next" needs. Real parallels: Brent District event
 pages, Chester-le-Street's St George's Day, BSO Northern Europe's
 District Camp.
@@ -27,7 +27,7 @@ District Camp.
    file.
 3. Hugo generates the `.ics` via a custom output format. The `.ics` is
    valid per RFC 5545 (test against iCal / Outlook / Google Calendar).
-4. **Aggregate `/events/all.ics`** is generated at build time —parents
+4. **Aggregate `/events/all.ics`** is generated at build time -parents
    can subscribe once to get every upcoming event. The aggregate
    **excludes cancelled events** (status="cancelled"): when an event
    is cancelled it is omitted from the feed entirely, and subscribers'
@@ -78,34 +78,34 @@ Slug convention: `YYYY-MM-DD-kebab-case-title.md`.
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | Event title |
+| `title` | string | yes | - | Event title |
 | `publishDate` | datetime | yes | - | When the event was added to the site. Always past at deploy time so Hugo's `--buildFuture=false` build includes future events. The archetype auto-fills with the moment of `hugo new`; authors normally leave it alone. |
-| `date` | datetime | yes | — | Event start. Used by Hugo for sort and listing. |
+| `date` | datetime | yes | - | Event start. Used by Hugo for sort and listing. |
 | `end` | datetime | no | `date + 1h30` | Used in `.ics` |
 | `all_day` | bool | no | false | If true, `.ics` uses `VALUE=DATE` |
 | `timezone` | string | no | `params.events.timezone` | IANA TZ, e.g. "Europe/Brussels" |
-| `location` | string | yes | — | Venue name, e.g. "St Mary's Hall" |
-| `address` | string | no | — | Full street address |
-| `map_url` | string | no | — | OpenStreetMap or Google Maps link |
+| `location` | string | yes | - | Venue name, e.g. "St Mary's Hall" |
+| `address` | string | no | - | Full street address |
+| `map_url` | string | no | - | OpenStreetMap or Google Maps link |
 | `sections` | list[string] | no | `[]` | Taxonomy values |
-| `cost` | string | no | "" | Free text — "£25", "Free", "€10 per Cub" |
+| `cost` | string | no | "" | Free text - "£25", "Free", "€10 per Cub" |
 | `cost_includes` | string | no | "" | "Activities, food, accommodation" |
-| `kit_list_ref` | string | no | — | Slug of a kit list (SPEC-05) |
-| `kit_list_url` | string | no | — | External kit list link if not local |
+| `kit_list_ref` | string | no | - | Slug of a kit list (SPEC-05) |
+| `kit_list_url` | string | no | - | External kit list link if not local |
 | `additional_kit` | string (HTML allowed) | no | "" | Per-event kit additions on top of the referenced kit list (SPEC-05 cross-ref) |
 | `dress` | string | no | "" | "Full uniform", "Activity uniform", "Mufti" |
 | `audience` | string | no | "" | "Cubs only", "Whole Group", "Parents welcome" |
-| `rsvp_to` | string | no | — | Generic Group email, never personal |
-| `rsvp_deadline` | datetime | no | — | Optional |
-| `cost_pay_url` | string | no | — | External payment link only |
+| `rsvp_to` | string | no | - | Generic Group email, never personal |
+| `rsvp_deadline` | datetime | no | - | Optional |
+| `cost_pay_url` | string | no | - | External payment link only |
 | `status` | string | no | `"active"` | `"active"`, `"cancelled"`, or `"postponed"`. Cancelled = red pill + removed from .ics feeds. Postponed = amber pill + .ics emitted with new date and bumped SEQUENCE. |
 | `revision` | int | no | 0 | Bumped each time `date` changes on an existing event. SEQUENCE in the .ics is `max(revision, postponed ? 1 : 0)`. Required for re-postponing; first postponement handled automatically. |
-| `cover_image` | string | no | — | Path under `assets/events/<slug>/` |
-| `cover_alt` | string | yes if image | — | |
-| `photo_consent` | bool | yes if image | — | See SPEC-COMMON §10 |
-| `times_local` | string | no | — | BSO: e.g. "20:30 (Brussels)" |
-| `times_uk` | string | no | — | BSO: e.g. "19:30 (UK)" |
-| `external_url` | string | no | — | If event is hosted elsewhere (District camp, World Jamboree) |
+| `cover_image` | string | no | - | Path under `assets/events/<slug>/` |
+| `cover_alt` | string | yes if image | - | |
+| `photo_consent` | bool | yes if image | - | See SPEC-COMMON §10 |
+| `times_local` | string | no | - | BSO: e.g. "20:30 (Brussels)" |
+| `times_uk` | string | no | - | BSO: e.g. "19:30 (UK)" |
+| `external_url` | string | no | - | If event is hosted elsewhere (District camp, World Jamboree) |
 | `external_url_label` | string | no | "More information" | Anchor text |
 
 ## Output format: `.ics`
@@ -190,7 +190,7 @@ events/past/_index.md` is its own section, falls back to the parent
 
 ```toml
 [params.features]
-  events = false                           # default OFF — opt-in
+  events = false                           # default OFF - opt-in
 
 [params.events]
   timezone           = "Europe/London"     # site-level default
@@ -208,7 +208,7 @@ events/past/_index.md` is its own section, falls back to the parent
 
 ## CSS-only baseline
 
-- Date pill: stacked vertically — large day number, abbreviated
+- Date pill: stacked vertically - large day number, abbreviated
   month (e.g. "Jul"), year. Year always shown. CSS Grid for the
   internal stack; outer container is `event-meta` (date pill on left,
   details on right).
@@ -227,7 +227,7 @@ events/past/_index.md` is its own section, falls back to the parent
 
 `times_local` / `times_uk` is a BSO pattern observed verbatim on
 `britishscoutingoverseas.org.uk`. Both fields optional; the partial
-renders dual times only if both present. No `params.bso` gating —
+renders dual times only if both present. No `params.bso` gating -
 any Group (e.g. UK Group hosting an international event) might use it.
 
 ## Safeguarding & GDPR
@@ -250,11 +250,11 @@ the feature README.
 
 | Q | Decision |
 | --- | --- |
-> | Q2.1 | **Status enum** replaces the cancelled boolean. Three states (`active`, `cancelled`, `postponed`), each with distinct site rendering and .ics behaviour. Cancelled events are OMITTED from .ics feeds entirely (cleanest UX — calendar subscribers see the meeting disappear). Postponed events are emitted with the new date, a prefixed DESCRIPTION and bumped SEQUENCE so subscriber apps update in place. New `--warning` (`#d4351c`) and `--postponed` (`#d97706`) palette tokens added across all five presets; both are app-functionality colours, not brand palette entries (see DECISIONS.md). |
+> | Q2.1 | **Status enum** replaces the cancelled boolean. Three states (`active`, `cancelled`, `postponed`), each with distinct site rendering and .ics behaviour. Cancelled events are OMITTED from .ics feeds entirely (cleanest UX - calendar subscribers see the meeting disappear). Postponed events are emitted with the new date, a prefixed DESCRIPTION and bumped SEQUENCE so subscriber apps update in place. New `--warning` (`#d4351c`) and `--postponed` (`#d97706`) palette tokens added across all five presets; both are app-functionality colours, not brand palette entries (see DECISIONS.md). |
 | Q2.2 | **Single template** (`layouts/events/list.html`) branching on `.Params.archive` set by `content/events/past/_index.md`. Hugo natural sub-section pattern. |
 | Q2.3 | **Single VEVENT** for multi-day events with `DTSTART`/`DTEND` spanning the period. |
-| Q2.4 | **Yes** — aggregate `/events/all.ics` feed via custom output format on the events list page. Material UX win for parents. |
-| Q2.5 | **Demo-roller** — example event dates are kept fresh in the theme repo only via `scripts/roll-example-dates.py` and a `[demo]` block in each example event's front-matter. Cross-cutting form documented in DECISIONS.md. Group sites consuming the theme have no `[demo]` blocks and the script ignores their events. |
+| Q2.4 | **Yes** - aggregate `/events/all.ics` feed via custom output format on the events list page. Material UX win for parents. |
+| Q2.5 | **Demo-roller** - example event dates are kept fresh in the theme repo only via `scripts/roll-example-dates.py` and a `[demo]` block in each example event's front-matter. Cross-cutting form documented in DECISIONS.md. Group sites consuming the theme have no `[demo]` blocks and the script ignores their events. |
 
 ## Out of scope (cross-references)
 

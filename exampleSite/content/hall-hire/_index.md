@@ -1,9 +1,9 @@
 +++
 # NB: all scalar / inline-array keys MUST come before the [[rates]] and
-# [[photos]] array-of-tables — otherwise TOML assigns them to the last
+# [[photos]] array-of-tables - otherwise TOML assigns them to the last
 # table block, not the page front-matter.
 title = "Hire our hall"
-intro = "Our Scout Hut is available for community hire when we're not using it — birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown."
+intro = "Our Scout Hut is available for community hire when we're not using it - birthday parties, classes, clubs, small functions and meetings. It's a bright, flexible space with its own kitchen and parking, in the heart of Anytown."
 
 address   = "Anytown Scout Hut, 11 Hut Lane"
 postcode  = "AT1 2BC"
@@ -67,5 +67,5 @@ draft = false
 
 We're a registered charity and every penny of hire income goes back
 into Scouting for local young people. If you're a community group or
-running a not-for-profit event, do ask — we can often be flexible on
+running a not-for-profit event, do ask - we can often be flexible on
 the rate.

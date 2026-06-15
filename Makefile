@@ -1,4 +1,4 @@
-# Hugo British Scout Group theme — development helpers.
+# Hugo British Scout Group theme - development helpers.
 #
 #   make serve   Roll example dates forward, then run `hugo serve`.
 #   make build   Roll example dates forward, then run `hugo --minify`.

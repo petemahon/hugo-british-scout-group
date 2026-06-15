@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
-   28. BSO HUB — s-bso
+   28. BSO HUB - s-bso
    /bso/ Joining Hub, the five sub-pages (eligibility, moving-in,
    moving-out, host-scouting, home-range), and the small bso-links
    footer that appears on every BSO page. SPEC-10.
@@ -72,7 +72,7 @@
 }
 
 /* -- Sub-page prose layout -------------------------------------------- */
-/* Back-link retired — now the shared .back-link component (09-…). */
+/* Back-link retired - now the shared .back-link component (09-…). */
 .s-bso__post-head {
   margin-bottom: 1.5rem;
 }
@@ -104,7 +104,7 @@
   line-height: 1.6;
 }
 
-/* -- Eligibility POR footnote — single small citation line at the
+/* -- Eligibility POR footnote - single small citation line at the
    page foot (the canonical full bso-membership-notice partial no
    longer renders here; lives on /join/ instead). */
 .s-bso__por-footnote {
@@ -238,7 +238,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   BSO links footer — appears at the bottom of every BSO sub-page,
+   BSO links footer - appears at the bottom of every BSO sub-page,
    above the standard site footer. Quiet, neutral; the standard
    .site-footer block reads as the canonical Group footer.
    ----------------------------------------------------------------------------- */
@@ -266,7 +266,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   Print stylesheet — quiet print pass for any of the BSO sub-pages.
+   Print stylesheet - quiet print pass for any of the BSO sub-pages.
    Strips chrome, lets prose flow edge-to-edge, drops the bso-links
    footer (chrome, not content).
    ----------------------------------------------------------------------------- */

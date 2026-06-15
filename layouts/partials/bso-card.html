@@ -3,13 +3,13 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-card — one card on the /bso/ hub page (SPEC-10).
+  bso-card - one card on the /bso/ hub page (SPEC-10).
 
   Context (dict):
-    title        (str)  REQUIRED — card heading
-    description  (str)  REQUIRED — supporting body line
-    url          (str)  REQUIRED — link target (typically /bso/<slug>/)
-    eyebrow      (str)  OPTIONAL — small uppercase lead-in inside the card
+    title        (str)  REQUIRED - card heading
+    description  (str)  REQUIRED - supporting body line
+    url          (str)  REQUIRED - link target (typically /bso/<slug>/)
+    eyebrow      (str)  OPTIONAL - small uppercase lead-in inside the card
 */ -}}
 <a class="s-bso__card styled-link" href="{{ .url | relURL }}">
   {{- with .eyebrow }}<span class="s-bso__card-eyebrow">{{ . }}</span>{{ end }}

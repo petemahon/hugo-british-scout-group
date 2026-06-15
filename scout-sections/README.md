@@ -1,4 +1,4 @@
-# Scout-sections — handoff
+# Scout-sections - handoff
 
 **Deliverable 7 of ~14.** Implements the `scout-sections` redesign from
 the rev-2 mockup: a responsive grid of N cards (1–6, typically 5)
@@ -62,7 +62,7 @@ renders sensibly during integration. Each SVG has a comment at the
 top saying so. **Before publishing the theme, replace each of the six
 `assets/images/sections/<key>.svg` files with the official Scouts
 section logo SVG downloaded from <https://scoutsbrand.org.uk>.** The
-CSS sizing rules (`.s-scout-sections__logo svg` — `max-height: 100%;
+CSS sizing rules (`.s-scout-sections__logo svg` - `max-height: 100%;
 max-width: 100%; width: auto`) handle whatever viewBox the brand SVGs
 use, including wordmarks of different aspect ratios.
 
@@ -91,7 +91,7 @@ hugo serve --buildDrafts=false --buildFuture=false
 
 ### Removed
 
-- `button_style` — the new design fixes the button look to
+- `button_style` - the new design fixes the button look to
   `.s-scout-sections__btn` (primary-coloured pill at desktop, hidden
   on mobile). If your `[[sections]]` entries set
   `button_style = "primary"`, drop the field; the visual is the same.
@@ -100,14 +100,14 @@ hugo serve --buildDrafts=false --buildFuture=false
 
 ### Added (optional, all default to inert)
 
-- `eyebrow` — small uppercase lead-in above the h2, e.g. "Our Sections".
-- `align` — `"left"` applies `.sect-head--left`; anything else (or
+- `eyebrow` - small uppercase lead-in above the h2, e.g. "Our Sections".
+- `align` - `"left"` applies `.sect-head--left`; anything else (or
   unset) keeps the head centred.
 
 ### Unchanged
 
 - `id`, `bg`, `title`, `title_color`, `subtitle`, `button_label`.
-- Group-side `[params.scoutSections]` — same enable / disable
+- Group-side `[params.scoutSections]` - same enable / disable
   semantics. Network still defaults to off (data-file
   `default_enabled = false`).
 
@@ -136,7 +136,7 @@ hugo serve --buildDrafts=false --buildFuture=false
 - **Per-Group `params.scoutSections.<key>.logo` override is no
   longer read.** Brand asset maintenance is centralised in the
   theme. If any consuming site set this override, the new code
-  silently ignores it — the theme's logo wins.
+  silently ignores it - the theme's logo wins.
 
 ## Architecture notes
 
@@ -151,10 +151,10 @@ badges (news cards, event cards, gallery covers, joining cards) per
 Sourcing from the data file rather than introducing new global
 `--sec-squirrels` / `--sec-beavers` / … palette tokens means:
 
-1. One source of truth — the data file already documents the colours
+1. One source of truth - the data file already documents the colours
    and their derivation (challenge-badge outer-ring values, with
    brand-book substitutions per DECISIONS.md).
-2. Cross-spec consistency — a "scouts" card on the home page uses the
+2. Cross-spec consistency - a "scouts" card on the home page uses the
    same red strip as a "Scouts" badge pill on a news card linking to
    that section.
 3. No palette token sprawl. The mockup's `--sec-*` tokens implied
@@ -172,7 +172,7 @@ any viewBox aspect ratio so the real Scouts wordmarks (e.g. Squirrels
 174×39, Beavers 166×46, Cubs 110×43, Scouts 148×27, Explorers 168×18,
 Network 130×29) all fit cleanly.
 
-The placeholder SVGs in this tarball use a 220×44 viewBox —
+The placeholder SVGs in this tarball use a 220×44 viewBox -
 intentionally generic so the placeholder layout looks reasonable. The
 real wordmarks have varying aspect ratios; the CSS handles them.
 
@@ -188,7 +188,7 @@ real wordmarks have varying aspect ratios; the CSS handles them.
 
 `:has()` selects the grid when exactly four cards are present (`:nth-child(4)`
 is also `:last-child`) and overrides the default 3-across to 2×2.
-Browser support: Firefox ≥ 121, Safari ≥ 15.4, Chrome ≥ 105 — modern
+Browser support: Firefox ≥ 121, Safari ≥ 15.4, Chrome ≥ 105 - modern
 defaults. Older browsers degrade to 3+1, which is still readable.
 
 The default 3-across handles every other count: 1 (single, centred),
@@ -199,12 +199,12 @@ Tested all three of: 5, 6, and 4. See `VERIFICATION.txt`.
 
 The whole card is a single `<a>` element. Inside it:
 
-- `.s-scout-sections__logo` — `aria-hidden="true"` (the section name
+- `.s-scout-sections__logo` - `aria-hidden="true"` (the section name
   is in the `aria-label` on the anchor)
-- `.s-scout-sections__info` — age + inline "Learn more →" (mobile
+- `.s-scout-sections__info` - age + inline "Learn more →" (mobile
   view; hidden at ≥ 768 px)
-- `.s-scout-sections__btn` — pill-shaped "Learn more" lookalike
-  (desktop view; hidden at < 768 px). NOT an `<a>` or `<button>` — a
+- `.s-scout-sections__btn` - pill-shaped "Learn more" lookalike
+  (desktop view; hidden at < 768 px). NOT an `<a>` or `<button>` - a
   `<span>`. The parent anchor handles the click; the span gives the
   visual affordance.
 
@@ -214,7 +214,7 @@ section name and age repeat in the inner content.
 
 ### File slot
 
-`17-section-scout-sections.css` slot 17 — next free in the section
+`17-section-scout-sections.css` slot 17 - next free in the section
 band after D6:
 
 ```
@@ -233,14 +233,14 @@ this slot is the next-up.)
 
 ## What this does NOT include
 
-- **The real Scouts brand SVGs.** Placeholders only — see ⚠️ above.
+- **The real Scouts brand SVGs.** Placeholders only - see ⚠️ above.
   Replace before publishing.
 - **README.md updates.** The top-level README.md has some pre-existing
   drift around per-Group logo overrides ("Each Group must download
   alternative images, if desired"). Per the new policy, section logos
   ship with the theme and Groups don't substitute. The README.md
   paragraph in question is ambiguously worded and could be read either
-  way — flagging here for a separate documentation cleanup. Not
+  way - flagging here for a separate documentation cleanup. Not
   modified in this deliverable.
 - **The volunteering image (`assets/images/volunteer/role-model.webp`)
   policy.** Unchanged. That image stays a generic placeholder Groups
@@ -251,4 +251,4 @@ this slot is the next-up.)
 
 ## What comes next
 
-D8 — `events` section redesign (event card visual update).
+D8 - `events` section redesign (event card visual update).

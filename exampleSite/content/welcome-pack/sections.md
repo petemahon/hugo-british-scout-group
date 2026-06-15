@@ -25,7 +25,7 @@ typical Cubs term carries one camp and one community-impact activity.
 ## Scouts (10½–14)
 
 Patrol-led. Scouts run their own programme alongside the leaders, with
-a strong outdoor calendar — expeditions, weekends away, Trangia
+a strong outdoor calendar - expeditions, weekends away, Trangia
 cooking, pioneering, the big camps every summer.
 
 ## Explorers (14–18)

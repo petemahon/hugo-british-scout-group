@@ -1,5 +1,5 @@
 {{- /*
-  network-feature — the "Maybe you're over 18. But not over Scouts."
+  network-feature - the "Maybe you're over 18. But not over Scouts."
   band. A two-column section pitching Scout Network (18–25) to home-page
   visitors, with the Network wordmark + eyebrow on one row, a big black
   display heading, intro paragraph, dark CTA on the left, and a stack of
@@ -15,7 +15,7 @@
       anchor, not a palette-relative choice. The `bg` front-matter field
       is therefore deliberately ignored.
     • Number circles use `var(--primary)` so they take on the site's
-      palette tint — giving the brand-anchored band a subtle palette
+      palette tint - giving the brand-anchored band a subtle palette
       signature. Classic-purple sites get purple circles; network-palette
       sites get black; coastal gets teal.
 
@@ -45,7 +45,7 @@
 */ -}}
 
 {{- /* Opt-in gate. The feature defaults off; example site sets the flag true.
-       We read site.Params.features defensively — when the [params.features]
+       We read site.Params.features defensively - when the [params.features]
        block is absent entirely, this evaluates to false and the whole partial
        emits nothing. */ -}}
 {{- $featureOn := false -}}

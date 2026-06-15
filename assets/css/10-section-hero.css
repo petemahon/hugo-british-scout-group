@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------------------------
    10. SECTION: HERO
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    New hero layout (replaces the previous centred title-only hero).
@@ -43,7 +43,7 @@
 /* ── Eyebrow ───────────────────────────────────────────────── */
 /* The hero consumes the shared `.eyebrow` component, which lives in
    05-components-sect-head.css. The bespoke `.s-hero__eyebrow` rules
-   that lived here in D4 were folded into the shared component in D5 —
+   that lived here in D4 were folded into the shared component in D5 -
    they were byte-identical, and the hero is now one consumer among
    many (Join, Sections, Events, News, Meet, …). */
 

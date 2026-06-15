@@ -23,7 +23,7 @@
 
 /* Each item is a white pill so the section's coloured background frames it
    nicely. Item titles take the palette's primary colour (Scouts Purple in
-   the classic palette) — set `title_color = "..."` on the section to change. */
+   the classic palette) - set `title_color = "..."` on the section to change. */
 .s-stacked__item {
   background: var(--bg);
   color: var(--text);
@@ -39,7 +39,7 @@
 }
 .s-stacked__item-body { margin: 0; }
 
-/* Item title in palette primary — higher specificity than the
+/* Item title in palette primary - higher specificity than the
    ".s-bg-* :is(h1..h6) { color: ...; }" rule, so this wins inside white pills. */
 .s-stacked__item .s-stacked__item-title { color: var(--primary); }
 .s-bg-primary .s-stacked__item .s-stacked__item-title { color: var(--secondary); }

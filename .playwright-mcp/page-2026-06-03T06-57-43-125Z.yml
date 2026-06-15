@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -36,7 +36,7 @@
           - generic [ref=e28]: British Scouting Overseas
           - heading "Home range and InTouch" [level=1] [ref=e29]
         - generic [ref=e30]:
-          - paragraph [ref=e31]: 1st Anytown's home range is roughly a 20 km radius around our hut. Trips beyond the home range need an InTouch form filed by the Group Scout Leader — see the summary below or read the full policy PDF.
+          - paragraph [ref=e31]: 1st Anytown's home range is roughly a 20 km radius around our hut. Trips beyond the home range need an InTouch form filed by the Group Scout Leader - see the summary below or read the full policy PDF.
           - paragraph [ref=e32]:
             - strong [ref=e33]: Anytown Scout Hut
             - text: · approximately 20 km
@@ -45,7 +45,7 @@
             - paragraph [ref=e36]: InTouch is The Scout Association's contact-tracking policy for activities away from the meeting place. We log the activity, the leader-on-call's phone, and the home contact for every camp or trip. Parents receive the on-call number before any away activity.
           - generic [ref=e37]:
             - heading "Beyond the home range" [level=3] [ref=e38]
-            - paragraph [ref=e39]: Activities outside the home range — particularly cross-border or overnight activities — need a written permission form from each parent in addition to the InTouch record.
+            - paragraph [ref=e39]: Activities outside the home range - particularly cross-border or overnight activities - need a written permission form from each parent in addition to the InTouch record.
           - paragraph [ref=e41]:
             - text: This page is gated by
             - code [ref=e42]: params.bso.show_home_range
@@ -53,7 +53,7 @@
             - code [ref=e43]: hugo.toml
             - text: . Default is
             - strong [ref=e44]: "false"
-            - text: — most BSO Groups don’t need a formal home-range publication. Flip the param to
+            - text: - most BSO Groups don’t need a formal home-range publication. Flip the param to
             - code [ref=e45]: "true"
             - text: to surface the link in the
             - code [ref=e46]: /bso/
@@ -77,7 +77,7 @@
           - generic [ref=e60]:
             - img [ref=e61]
             - generic [ref=e63]: 1st Anytown Scouts
-          - paragraph [ref=e64]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e64]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e65]:
           - heading "Visit" [level=5] [ref=e66]
           - list [ref=e67]:
@@ -106,7 +106,7 @@
               - link "Privacy" [ref=e86] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e87]:
-        - generic [ref=e88]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e88]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e89]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e91]:
         - text: "Registered charity:"

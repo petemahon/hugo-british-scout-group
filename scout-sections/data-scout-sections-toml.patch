@@ -5,11 +5,11 @@
  #
  # Logos are official Scouts brand assets, downloaded from
 -# https://scoutsbrand.org.uk by the theme maintainer. Groups should NOT
--# substitute their own logos — the brand is centrally controlled.
+-# substitute their own logos - the brand is centrally controlled.
 -# (An optional per-Group `logo` override exists in the partial for edge
 -# cases, but it isn't documented in the public README.)
 +# https://scoutsbrand.org.uk by the theme maintainer. Groups DO NOT
-+# substitute their own logos — the brand is centrally controlled and
++# substitute their own logos - the brand is centrally controlled and
 +# the partial does not read a per-Group `logo` override.
  
  [[items]]

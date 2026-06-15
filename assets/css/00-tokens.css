@@ -1,5 +1,5 @@
 /* =============================================================================
-   British Scout Group — Hugo theme
+   British Scout Group - Hugo theme
    theme.css
    -----------------------------------------------------------------------------
    ALL editable design tokens are at the top of this file.
@@ -8,15 +8,15 @@
         (or edit data/palettes.toml in the theme to add a new preset).
      2. Edit the Design Tokens block below if non-colour tokens change.
    The palette tokens (--primary, --secondary, etc.) are injected at runtime
-   from the chosen palette via partials/palette-style.html — you should not
+   from the chosen palette via partials/palette-style.html - you should not
    need to edit the :root block here unless changing fallback defaults.
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
-   1. PALETTE TOKENS — fallback defaults (overridden per-site by palette-style)
+   1. PALETTE TOKENS - fallback defaults (overridden per-site by palette-style)
    ----------------------------------------------------------------------------- */
 :root {
-  /* Brand colours (Scouts Purple + Teal — classic-purple palette) */
+  /* Brand colours (Scouts Purple + Teal - classic-purple palette) */
   --primary:           #7413dc;
   --primary-hover:     #8e34ee;
   --focus-ring:        #7413dc;   /* a11y focus indicator (SPEC-12); per-palette via palette-style */
@@ -29,11 +29,11 @@
      --bg is the CARD / nav surface (kept pure white). The page itself
      sits on the warmer --surface (defined in the structural-tokens block
      below and applied to <body>), so white cards lift off an off-white
-     field — the "polished, not medical" warmed-neutral treatment. */
+     field - the "polished, not medical" warmed-neutral treatment. */
   --bg:                #ffffff;
   --bg-muted:          #f1efe9;   /* warm muted band (was #f7f7f7) */
 
-  /* Text colours — warmed near-black ink + warm grey muted. */
+  /* Text colours - warmed near-black ink + warm grey muted. */
   --text:              #14110e;
   --text-muted:        #45413a;
   --text-on-primary:   #ffffff;
@@ -41,7 +41,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   1b. BRAND-ANCHOR TOKENS — fixed across every palette preset.
+   1b. BRAND-ANCHOR TOKENS - fixed across every palette preset.
    These are Scouts identity colours that DO NOT change when the site palette
    changes. Used by sections whose brand identity is colour-anchored (e.g. the
    Network feature band is always Scouts Orange, regardless of palette).
@@ -66,7 +66,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   1c. SECTION IDENTITY TOKENS — per-Scout-section wordmark colours.
+   1c. SECTION IDENTITY TOKENS - per-Scout-section wordmark colours.
    The colours of the official Scouts wordmark logos (Squirrels, Beavers,
    Cubs, Scouts, Explorers, Network), sourced from Scouts Brand Guidelines
    2023. Fixed across every palette preset, like the brand-anchor tokens
@@ -87,15 +87,15 @@
   --sec-cubs:      #25b755;   /* Scouts Green */
   --sec-scouts:    #205b41;   /* Scouts Forest Green */
   --sec-explorers: #003982;   /* Scouts Navy */
-  --sec-network:   #ed3f23;   /* Scouts Red — same hex as Squirrels, distinct wordmark */
+  --sec-network:   #ed3f23;   /* Scouts Red - same hex as Squirrels, distinct wordmark */
 }
 
 /* -----------------------------------------------------------------------------
-   2. DESIGN TOKENS — non-colour structural values
+   2. DESIGN TOKENS - non-colour structural values
    Only edit these if the visual language itself needs to change.
    ----------------------------------------------------------------------------- */
 :root {
-  /* Neutral chrome tokens — palette-independent (NOT injected by
+  /* Neutral chrome tokens - palette-independent (NOT injected by
      palette-style.html). The warmed-neutral surface the page sits on,
      plus the faint-ink and hairline-rule tones used by cards, the
      balanced info-page treatment, and section dividers. */
@@ -106,7 +106,7 @@
 
   /* Typography */
   --font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  /* Display face — UK Scouts brand poster type (Nunito Sans 900). Used for
+  /* Display face - UK Scouts brand poster type (Nunito Sans 900). Used for
      expressive display moments only (the volunteer poster), never body copy. */
   --font-display: "Nunito Sans", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --display-1: 5rem;     /* hero titles */
@@ -123,7 +123,7 @@
 
   /* Component shape */
   --radius-card:    2rem;     /* images, cards, video frames */
-  --radius-btn:     1.5rem;   /* buttons — soft rounded, not pill */
+  --radius-btn:     1.5rem;   /* buttons - soft rounded, not pill */
   --radius-nav:     2rem;     /* nav itself, and nav items */
 
   /* Border weights */

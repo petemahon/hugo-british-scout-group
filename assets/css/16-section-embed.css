@@ -1,8 +1,8 @@
 /* -----------------------------------------------------------------------------
-   13. SECTION: EMBED (iframe — maps, video etc.)
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   13. SECTION: EMBED (iframe - maps, video etc.)
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    -----------------------------------------------------------------------------
-   D13 — visual application of the rev-2 design mockup, "where we meet"
+   D13 - visual application of the rev-2 design mockup, "where we meet"
    block. Applies to every `embed` section, but the canonical use case is
    the home-page SnazzyMaps embed below the "Where we meet" section-header.
 
@@ -22,14 +22,14 @@
      constraint (--container-max) and side gutters; we don't need
      flex-center on the section itself. The `padding: 0` zeroes the
      section's vertical padding so the map sits flush against
-     adjacent sections — established embed behaviour pre-D13. */
+     adjacent sections - established embed behaviour pre-D13. */
   padding: 0;
 }
 
 .s-embed__frame {
   /* width 100% of the .container, which is itself capped at
      --container-max (1320 px) and gutter-inset. On any viewport the
-     iframe leaves a visible strip of page background alongside it —
+     iframe leaves a visible strip of page background alongside it -
      critical on touch devices so users can scroll past the map
      without the iframe capturing the gesture. */
   width: 100%;

@@ -14,7 +14,7 @@ Drey for ages 4–6 from September.
 The Drey will meet on Thursday afternoons in the church hall, with
 a six-week introductory programme already mapped out. We have a Drey
 Leader and one Assistant in place; a second Assistant role is open if
-anyone fancies giving it a go (no previous experience required —
+anyone fancies giving it a go (no previous experience required -
 we'll get you trained up).
 
 Expressions of interest are open now. Please get in touch via our

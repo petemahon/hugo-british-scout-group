@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  programme-current — home-page (or any-page) block showing the
+  programme-current - home-page (or any-page) block showing the
   current term's programme(s).
 
   Gated by site.Params.features.programme. Renders one collapsible
@@ -17,18 +17,18 @@
   programme-current entry is in its content/_index.md.
 
   Section params (front-matter under [[sections]]):
-    id        (string, optional)  — anchor
-    eyebrow   (string, optional)  — small uppercase lead-in
-    title     (string, optional)  — falls back to i18n.programmeCurrentHeading
+    id        (string, optional)  - anchor
+    eyebrow   (string, optional)  - small uppercase lead-in
+    title     (string, optional)  - falls back to i18n.programmeCurrentHeading
     subtitle  (string, optional, HTML allowed)
-    align     (string, optional)  — "left" applies sect-head--left
-    bg        (string, optional)  — primary | secondary | tertiary | muted
-    density   (string, optional)  — "themes_only" | "full"; overrides
+    align     (string, optional)  - "left" applies sect-head--left
+    bg        (string, optional)  - primary | secondary | tertiary | muted
+    density   (string, optional)  - "themes_only" | "full"; overrides
                                     per-programme density site-wide
                                     for this block only
-    sections  (list[string], opt) — filter to these section keys; empty
+    sections  (list[string], opt) - filter to these section keys; empty
                                     list = all sections
-    show_more (bool, optional)    — default true; renders the
+    show_more (bool, optional)    - default true; renders the
                                     "View all programmes →" button
                                     under the cards, linking to
                                     /programme/. Set false to suppress.

@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  news-meta — date + (optional) author byline + section badges.
+  news-meta - date + (optional) author byline + section badges.
   Receives a Page. Section badge colours come from data/scout_sections.toml
   via inline CSS custom properties (no hex hardcoded in the stylesheet).
 */ -}}
@@ -13,11 +13,11 @@
   {{- if and (ne $showAuthor false) .Params.author }}
     <span class="s-news__author display-7">{{ i18n "newsByLine" (dict "Author" .Params.author) }}</span>
   {{- end }}
-  {{- /* Section badges — uses the shared `.badges` component from D8
+  {{- /* Section badges - uses the shared `.badges` component from D8
         (21-section-events.css). Pill bg is the component's fixed cream;
         the leading dot is section-coloured via `--sec` set inline from
         scout_sections.toml's `color` field (the badge outer-ring colour,
-        not the wordmark identity — same source as event badges).
+        not the wordmark identity - same source as event badges).
         The inner <a> is news-specific: it links to the per-section
         filter page. Events pills don't have inner anchors because the
         event card itself is one big <a>; news cards are <article>

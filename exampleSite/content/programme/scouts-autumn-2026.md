@@ -1,5 +1,5 @@
 +++
-title       = "Scouts — Autumn Term 2026"
+title       = "Scouts - Autumn Term 2026"
 section     = "scouts"
 term        = "Autumn 2026"
 term_start  = 2026-09-08
@@ -27,13 +27,13 @@ density     = "themes_only"
 [[weeks]]
   number = 4
   date   = 2026-09-29
-  title  = "Weekend hike — kit checklist night"
+  title  = "Weekend hike - kit checklist night"
   themes = ["outdoor-and-adventure", "have-adventures"]
 
 [[weeks]]
   number = 5
   date   = 2026-10-06
-  title  = "Wide game — orienteering"
+  title  = "Wide game - orienteering"
   themes = ["have-adventures", "teamwork-and-leadership"]
 
 [[weeks]]
@@ -73,5 +73,5 @@ density     = "themes_only"
   themes = ["have-adventures", "beliefs-and-attitudes"]
 +++
 
-A look ahead to next autumn — published early so parents can plan
+A look ahead to next autumn - published early so parents can plan
 around the weekend hike and Remembrance parade.

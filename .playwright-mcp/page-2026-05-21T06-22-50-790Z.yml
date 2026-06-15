@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -32,7 +32,7 @@
       - generic [ref=e15]:
         - generic [ref=e16]: Join us
         - heading "Join 1st Anytown Scouts" [level=1] [ref=e17]
-        - paragraph [ref=e18]: We have spaces in some sections and waiting lists in others. Pick a section below for the latest. Volunteering with us is the surest way to get your child a place — we give priority to families who join in.
+        - paragraph [ref=e18]: We have spaces in some sections and waiting lists in others. Pick a section below for the latest. Volunteering with us is the surest way to get your child a place - we give priority to families who join in.
       - generic [ref=e19]:
         - link "Read our Welcome Pack →" [ref=e20] [cursor=pointer]:
           - /url: /welcome-pack/
@@ -133,7 +133,7 @@
             - generic [ref=e134]:
               - term [ref=e135]: Subs
               - definition [ref=e136]: £45 per term
-          - generic [ref=e137]: Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule.
+          - generic [ref=e137]: Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy - expeditions, pioneering, cooking, and a strong camp schedule.
           - link "Get in touch →" [ref=e139] [cursor=pointer]:
             - /url: mailto:scouts@1stanytown.org.uk
         - article [ref=e140]:
@@ -152,7 +152,7 @@
             - generic [ref=e155]:
               - term [ref=e156]: Subs
               - definition [ref=e157]: £50 per term
-          - generic [ref=e158]: Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar.
+          - generic [ref=e158]: Explorers (age 14 to 18) run their own programme - expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar.
           - link "Get in touch →" [ref=e160] [cursor=pointer]:
             - /url: mailto:explorers@1stanytown.org.uk
       - region "Frequently asked questions" [ref=e161]:
@@ -177,7 +177,7 @@
           - generic [ref=e177]:
             - img [ref=e178]
             - generic [ref=e180]: 1st Anytown Scouts
-          - paragraph [ref=e181]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e181]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e182]:
           - heading "Visit" [level=5] [ref=e183]
           - list [ref=e184]:
@@ -207,7 +207,7 @@
                 - /url: /privacy/
             - listitem [ref=e204]: Charity no. 1234567
       - generic [ref=e205]:
-        - generic [ref=e206]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e206]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e207]: "Skills for Life · #SkillsForLife"
   - link "Back to top":
     - /url: "#top"

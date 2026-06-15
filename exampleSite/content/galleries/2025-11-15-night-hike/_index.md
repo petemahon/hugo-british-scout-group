@@ -6,7 +6,7 @@ summary       = "Head-torches, hot chocolate, and getting a bit lost on purpose.
 cover         = "001.webp"
 cover_alt     = "Silhouetted Scouts walking with head-torches against a dusk sky"
 
-# Header note explaining the obscured faces — appears above the grid.
+# Header note explaining the obscured faces - appears above the grid.
 note          = "Faces have been obscured in this gallery at parents' request. The Group's safeguarding lead checks every uploaded photo before publication."
 
 photo_consent = true

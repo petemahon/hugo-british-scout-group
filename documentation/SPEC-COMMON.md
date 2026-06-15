@@ -4,7 +4,7 @@ Shared conventions for every feature in the Hugo British Scouting Overseas
 Theme roadmap. Every per-feature spec assumes these. Read this once at the
 start of a session, then read the feature spec.
 
-If a feature spec contradicts this file, the contradiction is a mistake —
+If a feature spec contradicts this file, the contradiction is a mistake -
 flag it.
 
 ## 1. Architectural rules (locked, do not relitigate)
@@ -12,11 +12,11 @@ flag it.
 - Hugo extended, min 0.156. en-GB only. `<html lang="en-GB">` hardcoded.
 - **No JavaScript dependency anywhere.** Pure CSS for all interactivity.
   A native-share feature was proposed and explicitly declined for this
-  reason — see DECISIONS.md.
+  reason - see DECISIONS.md.
 - No backend services. No third-party scripts (analytics, social embeds,
   comment systems, payment widgets, livechat, font CDNs that track).
 - The theme repo ships the **official Scout section logo SVGs** at
-  `assets/images/sections/<key>.svg` — these are maintained centrally
+  `assets/images/sections/<key>.svg` - these are maintained centrally
   by the theme and Groups DO NOT override them. **Other visual assets**
   shipped at theme paths remain generic placeholders; Groups override
   them at the same path in their site repo.
@@ -48,7 +48,7 @@ Idiom inside a partial:
 {{- end -}}
 ```
 
-Idiom for a listing route — preferred pattern is to ship the listing
+Idiom for a listing route - preferred pattern is to ship the listing
 inside the partial gate so the route 404s cleanly when the flag is off.
 
 ## 3. Section partial idiom
@@ -58,13 +58,13 @@ in `layouts/partials/sections/`):
 
 ```go-html-template
 {{- /*
-  <section-name> — one-line description.
+  <section-name> - one-line description.
   Params (front-matter under [[sections]]):
     id       (string, optional)
     title    (string, optional)
-    bg       (string, optional) — "primary" | "secondary" | "tertiary"
+    bg       (string, optional) - "primary" | "secondary" | "tertiary"
                                   | "muted" | unset (white)
-    title_color (string, optional) — same options as bg
+    title_color (string, optional) - same options as bg
     ... feature-specific params ...
 */ -}}
 {{- $id := .id | default "" -}}
@@ -98,18 +98,18 @@ banner.
   `colour`, `programme`, `organisation`, `behaviour`, `licence`,
   `centre`, `enrolled`. Code identifiers (TOML field keys, CSS class
   names, template variables) follow source-code conventions and may
-  use US spelling where idiomatic — see DECISIONS.md §"en-GB scope".
+  use US spelling where idiomatic - see DECISIONS.md §"en-GB scope".
   The build does not lint this; reviewers do.
 
 ## 5. Image and asset paths
 
 Two paths, two purposes:
 
-- `assets/<feature>/...` — files that should pass through Hugo's image
+- `assets/<feature>/...` - files that should pass through Hugo's image
   pipeline (resize, srcset, WebP). Used for editorial images: news
   covers, gallery photos, event posters, hall-hire shots, history
   images.
-- `static/<feature>/...` — files served as-is. Used for downloadable
+- `static/<feature>/...` - files served as-is. Used for downloadable
   documents (kit-list PDFs if Group provides, AGM reports, T&Cs PDFs)
   and binary assets that must keep their exact filename.
 
@@ -142,8 +142,8 @@ CSS custom properties already emitted by `partials/palette-style.html`:
 
 | Token | Use |
 | --- | --- |
-| `--warning` | Cancelled events (SPEC-02), cancelled programme rows (SPEC-03), expired vacancies (SPEC-09), hall fully-booked banner (SPEC-08). Hex `#d4351c` across all palettes — chosen to be distinct from Scouts Red so a Cancelled pill never collides visually with a Scouts section pill. |
-| `--postponed` | Postponed events (SPEC-02). Hex `#d97706` across all palettes — amber, distinct from every section identity colour. |
+| `--warning` | Cancelled events (SPEC-02), cancelled programme rows (SPEC-03), expired vacancies (SPEC-09), hall fully-booked banner (SPEC-08). Hex `#d4351c` across all palettes - chosen to be distinct from Scouts Red so a Cancelled pill never collides visually with a Scouts section pill. |
+| `--postponed` | Postponed events (SPEC-02). Hex `#d97706` across all palettes - amber, distinct from every section identity colour. |
 | `--status-open` | Open joining badge (SPEC-06) |
 | `--status-waiting` | Waiting-list joining badge (SPEC-06) |
 | `--status-closed` | Closed joining badge (SPEC-06) |
@@ -203,14 +203,14 @@ colour comes from `data/scout_sections.toml`).
 ## 9. BSO conditional rendering
 
 A site-wide master switch already exists: `[params.bso].enabled =
-true|false`. (It is a table key, not a scalar `bso = true` — the two
+true|false`. (It is a table key, not a scalar `bso = true` - the two
 collide in TOML.)
 
 - A feature that is general-purpose stays decoupled from this switch.
 - A feature that has BSO-specific extras (e.g. extra front-matter
   fields, alternative copy) reads `site.Params.bso.enabled` and
   adapts. The
-  BSO branch must never be the only branch — the non-BSO path is the
+  BSO branch must never be the only branch - the non-BSO path is the
   default.
 - The `bso_hub` feature (SPEC-10) is the *only* feature whose entire
   existence is gated by `site.Params.bso`.
@@ -230,14 +230,14 @@ or unset on a post that resolves any image asset. This is a build-time
 lint, not a runtime check.
 
 For features that touch personal data (joining, hall hire, fundraising),
-the spec requires a `mailto:` or external-system handoff — never a form
+the spec requires a `mailto:` or external-system handoff - never a form
 that POSTs anywhere from the static site.
 
 ## 11. DBS and safeguarding checks
 
 DBS is the canonical UK Scouts safeguarding check, used globally
 across UK Scout volunteers (including BSO). The DBS regime is run by
-The Scout Association — Group websites describe but do not collect.
+The Scout Association - Group websites describe but do not collect.
 
 Default in volunteer-role schemas (SPEC-09): `dbs_required = true`.
 
@@ -248,7 +248,7 @@ archetype's comment header documents this clearly so Group authors
 don't accidentally publish "no DBS required" for roles that actually
 need a host-country equivalent check.
 
-No `safeguarding_check_note` field in v1 — the rule is uniform across
+No `safeguarding_check_note` field in v1 - the rule is uniform across
 UK Scouts.
 
 ## 12. i18n and copy
@@ -266,7 +266,7 @@ prose) belong in front-matter, not i18n. Strings that are pure UI
 chrome (button labels, ARIA descriptions, status badges) belong in
 i18n.
 
-Every BSO partial already follows this pattern — see
+Every BSO partial already follows this pattern - see
 `bso-membership-notice.html` and existing `bsoNotice*` keys.
 
 ## 13. Build validation pattern
@@ -322,14 +322,14 @@ back in:
 - Any embedded social widget (Facebook, Instagram, Twitter, TikTok)
 - Any embedded analytics, A/B testing, heatmap, or session-replay tool
 - Any payment processor (Stripe, PayPal, GoCardless, JustGiving)
-- Any client-side search index (lunr.js, FlexSearch, Pagefind) — search
+- Any client-side search index (lunr.js, FlexSearch, Pagefind) - search
   is its own future feature, separately scoped
 - Any chat or comment system
 - Any login/auth gated area (OSM is the authority for member data)
-- Any image editing (cropping, EXIF stripping) at runtime — these are
+- Any image editing (cropping, EXIF stripping) at runtime - these are
   Group-side responsibilities at upload time, optionally documented in
   the feature spec but never built
-- Native share feature (Web Share API) — proposed and declined as
+- Native share feature (Web Share API) - proposed and declined as
   it would introduce JS to the theme
 
 ## 16. License header (templates and CSS)
@@ -351,14 +351,14 @@ CSS files use `/* ... */` form. The header is not optional.
 SPEC-12 makes WCAG 2.2 AA a correctness requirement across every page.
 Two build-time contracts apply to every feature:
 
-**Heading order.** Exactly one `<h1>` per page — the page title.
+**Heading order.** Exactly one `<h1>` per page - the page title.
 
 - On **content pages** the template emits it (`single` / `list` / the
   per-feature templates), and the `hero` section partial is not used.
 - On the **home page** there is no template-level title, so the `hero`
   section partial (`layouts/partials/sections/hero.html`) carries the
   page's single `<h1>` (the Group name). The hero is the one documented
-  exception to the "section partials start at `<h2>`" rule below — it is
+  exception to the "section partials start at `<h2>`" rule below - it is
   home-only, so it never collides with a template `<h1>`.
 
 Given that:
@@ -366,10 +366,10 @@ Given that:
 - Every **other** partial under `layouts/partials/sections/` starts its
   headings at `<h2>` and nests downward (`<h3>`, `<h4>`) without
   skipping. This is enforced by review (Hugo can't reliably post-process
-  partial-produced markup — see SPEC-12 Q12.4).
+  partial-produced markup - see SPEC-12 Q12.4).
 - Body content (Markdown) starts at `## ` (`<h2>`). `partials/audit-headings.html`
   runs on every page from `baseof` and `errorf`s if a page's rendered
-  `.Content` contains an `<h1>` — i.e. an author wrote a top-level `# `.
+  `.Content` contains an `<h1>` - i.e. an author wrote a top-level `# `.
 - A Group that removes the `hero` from its home `[[sections]]` leaves the
   home page with no `<h1>`; keep a hero (or another single `<h1>`) there.
 
@@ -378,7 +378,7 @@ Whenever a content type sets an image, it calls
 `partials/audit-image.html` (the single source of truth for the lint)
 with the image value, the alt value, the alt field name, and a context
 label; the partial `errorf`s if the image is set but alt is empty. Used
-by news, galleries, events, history, and hall hire — add the call to any
+by news, galleries, events, history, and hall hire - add the call to any
 new image-bearing content type rather than re-implementing the check.
 
 Both audits are build-time lints (they `errorf`, never render). Colour

@@ -1,4 +1,4 @@
-# data/history_timeline.toml — optional sidebar/section timeline for the
+# data/history_timeline.toml - optional sidebar/section timeline for the
 # Group history page (SPEC-07, /about/history/).
 #
 # This file ships EMPTY. Each consuming Group adds its own dated beats.
@@ -10,7 +10,7 @@
 #   title      (string, required)
 #   detail     (string, HTML allowed, optional)
 #   image      (filename under assets/about/timeline/, optional)
-#   image_alt  (string, required if image is set — SPEC-COMMON §10)
+#   image_alt  (string, required if image is set - SPEC-COMMON §10)
 #
 # [[entry]]
 #   year      = 1908

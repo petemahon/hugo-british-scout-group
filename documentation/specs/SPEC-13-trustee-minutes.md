@@ -4,8 +4,8 @@ Read `SPEC-COMMON.md` first. Extends SPEC-07 (History & Governance).
 
 ## Goal
 
-Make it easy for a Trustee Board — at **any** level of UK Scouting
-(Group, District, County/Area/Region) — to keep good minutes, and to
+Make it easy for a Trustee Board - at **any** level of UK Scouting
+(Group, District, County/Area/Region) - to keep good minutes, and to
 publish a short, safe account of what the board decides.
 
 Two parts, deliberately separated:
@@ -13,14 +13,14 @@ Two parts, deliberately separated:
 1. **A universal authoring template** trustees fill in for each meeting,
    covering every standing agenda item plus level-specific business. Kept
    **private** by the board.
-2. **A public summary archive** at `/about/minutes/` — short, redacted
+2. **A public summary archive** at `/about/minutes/` - short, redacted
    "decisions taken" summaries only, opt-in per meeting.
 
 ## Why summaries only (the safeguarding decision)
 
 This theme has **no backend and no authentication** (a locked invariant),
 so anything rendered is fully public. Full Trustee Board minutes routinely
-contain confidential matter — live safeguarding cases, named young people
+contain confidential matter - live safeguarding cases, named young people
 and volunteers, HR/personnel matters, detailed finances. Publishing them
 would be a safeguarding and GDPR risk. So the theme **never** renders full
 minutes: only short summaries the board has approved and redacted. Most
@@ -33,8 +33,8 @@ Decided via the 4-question slate on 2026-06-13:
 | --- | --- |
 | Publish model | **Public summaries only.** Full minutes authored privately; the site renders a short per-meeting summary. |
 | Levels | **One universal template** with all core sections; the three level-specific blocks are optional (keep one, delete the rest). |
-| Format | **Lightweight archive treatment**, reusing the reports-archive/balanced-info-page components — not rich per-meeting article pages. |
-| Placement | Chosen as `/about/governance/minutes/`, but **landed at `/about/minutes/`** (flat under `/about/`, matching its siblings `history` / `governance` / `reports`). Nesting under the `governance.md` leaf isn't cleanly achievable — see "Placement" below. Cross-linked from the governance page and with `/about/reports/`. |
+| Format | **Lightweight archive treatment**, reusing the reports-archive/balanced-info-page components - not rich per-meeting article pages. |
+| Placement | Chosen as `/about/governance/minutes/`, but **landed at `/about/minutes/`** (flat under `/about/`, matching its siblings `history` / `governance` / `reports`). Nesting under the `governance.md` leaf isn't cleanly achievable - see "Placement" below. Cross-linked from the governance page and with `/about/reports/`. |
 
 ## Acceptance criteria
 
@@ -70,13 +70,13 @@ content/about/minutes/              # /about/minutes/
 └── 2025-05-agm.md
 ```
 
-**Placement — why `/about/minutes/`, not `/about/governance/minutes/`.**
+**Placement - why `/about/minutes/`, not `/about/governance/minutes/`.**
 `content/about/governance.md` is a leaf page, so a `content/about/governance/`
-directory (needed to nest minutes under it) collides with it — a `.md` page
+directory (needed to nest minutes under it) collides with it - a `.md` page
 and a same-named branch directory both map to `/about/governance/`. Two ways
 round it were tried and rejected: a `url` front-matter override on the
 section `_index.md` (Hugo does not reliably publish a branch-section relocated
-this way — it 404s), and converting governance to a branch bundle (risks the
+this way - it 404s), and converting governance to a branch bundle (risks the
 shipped SPEC-07 layout resolution). `/about/minutes/` is the clean, reliable
 home and is consistent with the other flat `/about/*` pages; the governance
 page cross-links it so it still reads as "under governance" to visitors.
@@ -85,15 +85,15 @@ page cross-links it so it still reads as "under governance" to visitors.
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | no | — | Display title |
-| `meeting_date` | string (ISO date) | yes | — | Display + newest-first sort |
+| `title` | string | no | - | Display title |
+| `meeting_date` | string (ISO date) | yes | - | Display + newest-first sort |
 | `meeting_type` | enum | no | "ordinary" | "ordinary" \| "extraordinary" \| "agm" |
 | `level` | enum | no | `[params.minutes].level` | "group" \| "district" \| "county" |
 | `present_count` | int | no | 0 | 0 hides the count |
 | `quorum_met` | bool | no | false | Shows a "Quorum met" tag |
-| `minutes_pdf` | string | no | — | Optional link to an approved redacted PDF |
-| `approved` | bool | no | false | **Publication gate** — only `true` renders |
-| `build` | table | yes | — | `render = "never"`, `list = "local"` (rendered inline, no standalone page, not in site-wide collections). The `build` key — renamed from `_build` in Hugo 0.145.0. |
+| `minutes_pdf` | string | no | - | Optional link to an approved redacted PDF |
+| `approved` | bool | no | false | **Publication gate** - only `true` renders |
+| `build` | table | yes | - | `render = "never"`, `list = "local"` (rendered inline, no standalone page, not in site-wide collections). The `build` key - renamed from `_build` in Hugo 0.145.0. |
 
 Body: the short public summary (Markdown).
 
@@ -101,10 +101,10 @@ Body: the short public summary (Markdown).
 
 ```toml
 [params.features]
-  trustee_minutes = false    # default OFF — opt-in; needs governance = true
+  trustee_minutes = false    # default OFF - opt-in; needs governance = true
 
 [params.minutes]
-  level = "group"            # "group" | "district" | "county" — labels the archive
+  level = "group"            # "group" | "district" | "county" - labels the archive
 ```
 
 ## Layouts to create
@@ -113,7 +113,7 @@ Body: the short public summary (Markdown).
 | --- | --- |
 | `layouts/about/minutes/list.html` | `/about/minutes/` archive listing |
 
-No new partials — reuses `back-link.html`, the `.pb-*` balanced-info-page
+No new partials - reuses `back-link.html`, the `.pb-*` balanced-info-page
 components and the About stylesheet.
 
 ## CSS
@@ -143,7 +143,7 @@ keep the locked SPEC-11 nav contract untouched.
 
 - Rendering full minutes anywhere.
 - Per-meeting standalone pages / permalinks (lightweight archive only).
-- Members-only / authenticated areas (no backend — a locked invariant).
+- Members-only / authenticated areas (no backend - a locked invariant).
 - A data-manifest drift check (summaries are content files, not filesystem
   PDFs; the reports archive keeps its own PDF drift check).
 

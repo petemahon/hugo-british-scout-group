@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -12,7 +12,7 @@
       - generic [ref=e17]:
         - generic [ref=e18]: Camp kit
         - heading "Kit lists" [level=1] [ref=e19]
-        - paragraph [ref=e20]: "What to pack for each kind of camp. Print any list as a checkbox sheet and tick items off as you pack — and remember, if there's something you don't have, just ask: we'd always rather lend kit than have anyone miss out."
+        - paragraph [ref=e20]: "What to pack for each kind of camp. Print any list as a checkbox sheet and tick items off as you pack - and remember, if there's something you don't have, just ask: we'd always rather lend kit than have anyone miss out."
         - paragraph [ref=e22]: Pick the list that matches the camp. Each one shows a version and the date a leader last checked it, so you know it’s current.
       - generic [ref=e23]:
         - heading "Cubs" [level=2] [ref=e24]
@@ -70,7 +70,7 @@
           - generic [ref=e67]:
             - img [ref=e68]
             - generic [ref=e70]: 1st Anytown Scouts
-          - paragraph [ref=e71]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e71]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e72]:
           - heading "Visit" [level=5] [ref=e73]
           - list [ref=e74]:
@@ -99,7 +99,7 @@
               - link "Privacy" [ref=e93] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e94]:
-        - generic [ref=e95]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e95]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e96]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e98]:
         - text: "Registered charity:"

@@ -5,7 +5,7 @@
 # Example:                content/programme/cubs-summer-2026.md
 # Run:                    hugo new programme/cubs-summer-2026.md
 #
-# Safeguarding & GDPR — read before publishing
+# Safeguarding & GDPR - read before publishing
 # ---------------------------------------------
 # OSM-level programme detail is NOT safe to publish on a public site.
 # This page is the public-facing, sanitised summary.
@@ -18,10 +18,10 @@
 #   - Don't expose hazardous-activity risk-assessment detail; that
 #     belongs in OSM, not on the public site.
 #
-# Density modes — choose with `density` below
+# Density modes - choose with `density` below
 # -------------------------------------------
-#   themes_only   (default) — title + theme chips only. Safer.
-#   full                    — adds the `notes` column. Use only when
+#   themes_only   (default) - title + theme chips only. Safer.
+#   full                    - adds the `notes` column. Use only when
 #                             every notes value has been reviewed for
 #                             the safeguarding points above.
 
@@ -42,7 +42,7 @@ term_start     = {{ .Date }}
 term_end       = {{ .Date }}
 
 # Optional free-text anchor for BSO Groups that align with a host-country
-# school calendar — e.g. "British School in the Netherlands Spring Term".
+# school calendar - e.g. "British School in the Netherlands Spring Term".
 # Empty by default.
 term_anchor    = ""
 
@@ -53,7 +53,7 @@ density        = "themes_only"
 # term. Empty by default.
 # kit_list_ref = "/kit-lists/cubs-weekly/"
 
-# Optional term-level notes — HTML allowed for occasional emphasis or a
+# Optional term-level notes - HTML allowed for occasional emphasis or a
 # link. Renders below the table. "Week 5 is half-term", etc.
 notes          = ""
 
@@ -64,7 +64,7 @@ district_approved = false
 # Standard Hugo. Set to false to publish.
 draft          = true
 
-# Weekly meetings — at least one [[weeks]] block per published programme.
+# Weekly meetings - at least one [[weeks]] block per published programme.
 # `themes` keys come from data/programme_themes.toml.
 # [[weeks]]
 #   number            = 1
@@ -76,6 +76,6 @@ draft          = true
 #   cancellation_note = ""
 +++
 
-Optional opening paragraph rendered above the table — high-level intent
+Optional opening paragraph rendered above the table - high-level intent
 for the term ("This term we're working towards the Naturalist activity
 badge, with a camp in week 8"). Keep it short.

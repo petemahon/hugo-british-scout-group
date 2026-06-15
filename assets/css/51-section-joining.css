@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
-   26. JOINING — s-joining
+   26. JOINING - s-joining
    /join/ page rendered from content/join/_index.md + data/sections_status.toml.
    Card-grid of one card per pack, palette-driven status badges via the new
    --status-* tokens (SPEC-06).
@@ -22,7 +22,7 @@
   justify-content: center;
 }
 /* Override the global `.btn + .btn` adjacent-sibling rule (8px top
-   margin) inside the bridges row — flex `gap` already handles spacing,
+   margin) inside the bridges row - flex `gap` already handles spacing,
    and the inherited margin-top makes the second button sit lower than
    the first. */
 .s-joining__bridges .btn + .btn {
@@ -248,7 +248,7 @@
   padding-top: 2.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
-/* Narrower reading column for the FAQ on desktop — full container
+/* Narrower reading column for the FAQ on desktop - full container
    width feels overstretched against the question/answer rhythm. */
 @media (min-width: 768px) {
   .s-joining__faq { max-width: 60%; }
@@ -295,7 +295,7 @@
 .s-joining__faq-answer p:last-child  { margin-bottom: 0; }
 
 /* -----------------------------------------------------------------------------
-   Print stylesheet — parents who'd rather print a one-shot copy of the
+   Print stylesheet - parents who'd rather print a one-shot copy of the
    joining info get the cards in a stacked, table-friendly layout, all
    FAQ entries expanded.
    ----------------------------------------------------------------------------- */

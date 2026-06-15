@@ -1,6 +1,6 @@
 /* =============================================================================
    24. SECTION: BSO MEMBERSHIP NOTICE
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Visual upgrade of the BSO POR 3.2.1.1 membership-notice card. This is the
@@ -20,7 +20,7 @@
    Why we keep the 1 px hairline border here (unlike the scout-sections
    cards, where we removed it): the BSO card sits on a near-white muted
    surface, so the border is the only thing defining the card edge. Scout-
-   sections cards sit on coloured bg with high contrast — different
+   sections cards sit on coloured bg with high contrast - different
    context, same brand pattern.
    ============================================================================= */
 
@@ -92,13 +92,13 @@
 
 /* The inner <small> is kept for semantics (legal/fine-print marker).
    Neutralise the UA default `font-size: smaller` so the paragraph rule
-   above is the only size source — otherwise the text double-shrinks. */
+   above is the only size source - otherwise the text double-shrinks. */
 .bso-membership-notice__rule-reference small {
   font-size: inherit;
 }
 
 /* POR link inside the footnote. Primary-coloured, no underline, weight
-   600 — matches the mockup. The theme's auto-underline-on-coloured-bg
+   600 - matches the mockup. The theme's auto-underline-on-coloured-bg
    rule in 02-layout.css has higher specificity (0,3,1) than this rule
    (0,1,1), so on `.s-bg-primary` / `.s-bg-dark` etc. the link gains an
    underline. That's intentional and accessibility-friendly: white card

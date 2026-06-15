@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -34,7 +34,7 @@
             - link "← Galleries" [ref=e27] [cursor=pointer]:
               - /url: /galleries/
           - heading "Cubs Cooking Cup 2026" [level=1] [ref=e28]
-          - paragraph [ref=e29]: Six teams, five courses, one trophy. No captions — the photos tell their own story.
+          - paragraph [ref=e29]: Six teams, five courses, one trophy. No captions - the photos tell their own story.
           - list "Scout sections in this gallery" [ref=e30]:
             - listitem [ref=e31]: Cubs
           - paragraph [ref=e32]:
@@ -60,7 +60,7 @@
           - generic [ref=e49]:
             - img [ref=e50]
             - generic [ref=e52]: 1st Anytown Scouts
-          - paragraph [ref=e53]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e53]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e54]:
           - heading "Visit" [level=5] [ref=e55]
           - list [ref=e56]:
@@ -89,7 +89,7 @@
               - link "Privacy" [ref=e75] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e76]:
-        - generic [ref=e77]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e77]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e78]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e80]:
         - text: "Registered charity:"

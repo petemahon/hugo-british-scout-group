@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -18,9 +18,9 @@
           - heading "About the Group" [level=1] [ref=e21]
         - generic [ref=e22]:
           - heading "A short history" [level=2] [ref=e23]
-          - paragraph [ref=e24]: 1st Anytown Scouts has been part of Anytown for over thirty years. We run five sections — Squirrels, Beavers, Cubs, Scouts and Explorers — plus a Network at city level for 18-25s. Our charity number is on the footer of every page.
+          - paragraph [ref=e24]: 1st Anytown Scouts has been part of Anytown for over thirty years. We run five sections - Squirrels, Beavers, Cubs, Scouts and Explorers - plus a Network at city level for 18-25s. Our charity number is on the footer of every page.
           - heading "What we’re here for" [level=2] [ref=e25]
-          - paragraph [ref=e26]: "Scouts gives young people skills for life: confidence, friendship, practical know-how, time outdoors, leadership. Every section does it in their own way — Squirrels through structured play, Explorers through expeditions and qualifications — but the through-line is the same."
+          - paragraph [ref=e26]: "Scouts gives young people skills for life: confidence, friendship, practical know-how, time outdoors, leadership. Every section does it in their own way - Squirrels through structured play, Explorers through expeditions and qualifications - but the through-line is the same."
           - heading "Where we meet" [level=2] [ref=e27]
           - paragraph [ref=e28]: The Anytown Scout Hut, 11 Hut Lane, Anytown. Map and section-by-section timings are on the home page.
         - navigation "Chapter navigation" [ref=e29]:
@@ -35,7 +35,7 @@
           - generic [ref=e37]:
             - img [ref=e38]
             - generic [ref=e40]: 1st Anytown Scouts
-          - paragraph [ref=e41]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e41]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e42]:
           - heading "Visit" [level=5] [ref=e43]
           - list [ref=e44]:
@@ -64,7 +64,7 @@
               - link "Privacy" [ref=e63] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e64]:
-        - generic [ref=e65]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e65]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e66]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e68]:
         - text: "Registered charity:"

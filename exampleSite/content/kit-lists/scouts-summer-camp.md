@@ -6,7 +6,7 @@ climate       = "temperate"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Skip"
-intro         = "A full week of camp — expeditions, cooking, water activities and a lot of weather. Pack to be self-sufficient and to carry your own kit. Two big rules: keep your sleeping bag dry, and break your boots in before you come."
+intro         = "A full week of camp - expeditions, cooking, water activities and a lot of weather. Pack to be self-sufficient and to carry your own kit. Two big rules: keep your sleeping bag dry, and break your boots in before you come."
 phone_policy  = true
 
 non_essential = "Leave at home: valuables, large sums of money, energy drinks. Phones per the policy below."
@@ -79,7 +79,7 @@ non_essential = "Leave at home: valuables, large sums of money, energy drinks. P
   [[categories.items]]
     name        = "Swimming kit"
     quantity    = 1
-    alternative = "Water activities are planned — bring it"
+    alternative = "Water activities are planned - bring it"
 
 [[categories]]
   name = "Camp gear"

@@ -1,6 +1,6 @@
 +++
 title = "Kit lists"
-intro = "What to pack for each kind of camp. Print any list as a checkbox sheet and tick items off as you pack — and remember, if there's something you don't have, just ask: we'd always rather lend kit than have anyone miss out."
+intro = "What to pack for each kind of camp. Print any list as a checkbox sheet and tick items off as you pack - and remember, if there's something you don't have, just ask: we'd always rather lend kit than have anyone miss out."
 
 # Cascade: every kit-list page (descendant of /kit-lists/) emits HTML
 # plus a printable checkbox view at /kit-lists/<slug>/print.html,

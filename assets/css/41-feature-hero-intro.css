@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------------------------
    41. FEATURE: HERO INTRO ANIMATION  (opt-in, off by default)
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Three-phase scroll-driven choreography for the home-page hero:
@@ -23,7 +23,7 @@
    class. The animation runs only when:
      - `params.heroIntro = true` is set in the site's hugo.toml, AND
      - the browser supports both `animation-timeline: scroll()` and
-       `anchor-name` (both Baseline 2026 — Chrome 115+, Safari 26+), AND
+       `anchor-name` (both Baseline 2026 - Chrome 115+, Safari 26+), AND
      - the user has not requested reduced motion.
 
    The body class is set by layouts/_default/baseof.html. Without the class,
@@ -44,7 +44,7 @@
    this feature when the animation is off.
    ----------------------------------------------------------------------------- */
 
-/* Scroll budget — keep in sync with the animation-range values below.
+/* Scroll budget - keep in sync with the animation-range values below.
    Defined globally because the parallax container depends on the total
    budget and the keyframe ranges use the same anchors. */
 :root {
@@ -90,7 +90,7 @@ body.has-hero-intro .site-nav__name {
    Requires: animation-timeline + anchor positioning (Baseline 2026). */
 @supports (animation-timeline: scroll()) and (anchor-name: --x) {
 
-  /* Phase 1 — em flight.
+  /* Phase 1 - em flight.
      Two parallel animations: em-fly moves it from h1 source to nav-fleur,
      em-fade fades it out in the last 40 px so the static nav-name takes
      over the visual without a positional snap. */
@@ -142,7 +142,7 @@ body.has-hero-intro .site-nav__name {
     to   { opacity: 0; }
   }
 
-  /* Nav-name appears as the em arrives — same 40 px crossfade window. */
+  /* Nav-name appears as the em arrives - same 40 px crossfade window. */
   body.has-hero-intro .site-nav__name {
     animation: hero-intro-nav-name-arrive linear both;
     animation-timeline: scroll(root);
@@ -152,7 +152,7 @@ body.has-hero-intro .site-nav__name {
     to { max-width: clamp(140px, 60vw, 320px); opacity: 1; }
   }
 
-  /* Phase 2 — gap close (em-slot collapses to zero height). */
+  /* Phase 2 - gap close (em-slot collapses to zero height). */
   body.has-hero-intro .s-hero__em-slot {
     animation: hero-intro-gap-close linear both;
     animation-timeline: scroll(root);
@@ -163,7 +163,7 @@ body.has-hero-intro .site-nav__name {
     to   { height: 0;   }
   }
 
-  /* Phase 3 — neon glow pulse on the static h1 pieces. */
+  /* Phase 3 - neon glow pulse on the static h1 pieces. */
   body.has-hero-intro .s-hero__welcome,
   body.has-hero-intro .s-hero__suffix {
     animation: hero-intro-neon-pulse linear both;

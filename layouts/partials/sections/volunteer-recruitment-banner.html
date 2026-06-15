@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  volunteer-recruitment-banner — home-page band that appears ONLY when
+  volunteer-recruitment-banner - home-page band that appears ONLY when
   at least one volunteer role is currently open. SPEC-09. When none are
   open (or the fundraising feature is off), it renders nothing and the
   home page flows past as if the block weren't there.
@@ -26,7 +26,7 @@
       <div class="container s-vol-banner__inner">
         <div class="s-vol-banner__text">
           <h2 class="s-vol-banner__title">{{ with .title }}{{ . }}{{ else }}{{ i18n "volunteerBannerTitle" | default "We're recruiting" }}{{ end }}</h2>
-          <p class="s-vol-banner__message">{{ with .message }}{{ . | safeHTML }}{{ else }}{{ i18n "volunteerBannerMessage" | default "We have open volunteer roles — a few hours from the right people keeps Scouting running here." }}{{ end }}</p>
+          <p class="s-vol-banner__message">{{ with .message }}{{ . | safeHTML }}{{ else }}{{ i18n "volunteerBannerMessage" | default "We have open volunteer roles - a few hours from the right people keeps Scouting running here." }}{{ end }}</p>
         </div>
         <a class="btn btn-primary s-vol-banner__cta" href="{{ "/support-us/volunteer-roles/" | relURL }}">
           {{- with .cta_text }}{{ . }}{{ else }}{{ i18n "volunteerBannerCta" | default "See open roles" }}{{ end }} &rarr;

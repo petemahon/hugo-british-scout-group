@@ -3,21 +3,21 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  events-upcoming — home-page block, "What's coming up".
+  events-upcoming - home-page block, "What's coming up".
 
   Front-matter (under [[sections]] in content/_index.md):
     type        (string)   must be "events-upcoming"
     id          (string)   optional anchor
-    eyebrow     (string)   optional — small uppercase lead-in over the h2
+    eyebrow     (string)   optional - small uppercase lead-in over the h2
     title       (string)   optional heading
-    subtitle    (string)   optional, HTML allowed — escape hatch for
+    subtitle    (string)   optional, HTML allowed - escape hatch for
                            freeform prose. When unset (recommended),
                            the section-shortcut pill row (D8 Stage C)
                            takes this slot automatically.
     align       (string)   "left" applies sect-head--left (recommended);
                            anything else (or unset) keeps the head
                            centred. The rev-2 mockup uses left.
-    bg          (string)   optional — primary | secondary | tertiary | muted
+    bg          (string)   optional - primary | secondary | tertiary | muted
     count       (int)      optional, defaults to params.events.default_count_on_home;
                            fallback default is 3. Use multiples of 3 for a
                            clean desktop grid.
@@ -36,7 +36,7 @@
   Below the h2 (and above the card grid), a row of dot-prefix pills
   links to each section's taxonomy term page (/events/sections/<key>/).
   Pills only render for sections that have at least one FUTURE event
-  tagged — built at deploy time. Sections without future events don't
+  tagged - built at deploy time. Sections without future events don't
   get a pill. Order follows the canonical age order from
   data/scout_sections.toml.
 
@@ -44,7 +44,7 @@
   -----------------------------
   Still rendered (the card surfaces the Cancelled state visually).
   Cancelled events DO count towards a section having pills (they are
-  upcoming events from a UX standpoint — parents may want to navigate
+  upcoming events from a UX standpoint - parents may want to navigate
   to the section's listing to confirm the cancellation in context).
 */ -}}
 {{- if site.Params.features.events -}}

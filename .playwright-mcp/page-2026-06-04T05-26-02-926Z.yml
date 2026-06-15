@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -19,7 +19,7 @@
           - text: to the key shown on each card.
           - text: To preview a palette in context, change the value in
           - code [ref=e22]: exampleSite/hugo.toml
-          - text: and reload — every section on the home page will update.
+          - text: and reload - every section on the home page will update.
       - generic [ref=e23]:
         - article [ref=e24]:
           - generic [ref=e25]:
@@ -54,7 +54,7 @@
         - article [ref=e57]:
           - generic [ref=e58]:
             - heading "Network" [level=3] [ref=e59]
-            - paragraph [ref=e60]: Black primary with Purple secondary. The Scout Network look — older, more sophisticated.
+            - paragraph [ref=e60]: Black primary with Purple secondary. The Scout Network look - older, more sophisticated.
           - generic [ref=e61]:
             - generic "Primary" [ref=e62]: "#000000"
             - generic "Secondary" [ref=e63]: "#7413dc"
@@ -78,7 +78,7 @@
           - generic [ref=e83]:
             - img [ref=e84]
             - generic [ref=e86]: 1st Anytown Scouts
-          - paragraph [ref=e87]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e87]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e88]:
           - heading "Visit" [level=5] [ref=e89]
           - list [ref=e90]:
@@ -107,7 +107,7 @@
               - link "Privacy" [ref=e109] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e110]:
-        - generic [ref=e111]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e111]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e112]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e114]:
         - text: "Registered charity:"

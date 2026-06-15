@@ -13,7 +13,7 @@ draft           = false
 
 Keep the Group's finances healthy: pay the bills, bank the takings,
 keep the books, and present the accounts at the AGM. It's a Trustee
-role, so it carries real responsibility — but it's very doable
+role, so it carries real responsibility - but it's very doable
 remotely, which makes it a great fit for a UK-based parent or
 supporter who can't get to weekly meetings. Bookkeeping or finance
 experience is welcome but not essential; the outgoing Treasurer will

@@ -1,4 +1,4 @@
-# exampleSite reports manifest — overrides the empty theme starter.
+# exampleSite reports manifest - overrides the empty theme starter.
 # These three entries match the placeholder PDFs in
 # exampleSite/static/about/reports/. Groups replace both the manifest
 # entries and the PDFs with their real documents.

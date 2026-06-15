@@ -39,7 +39,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Typography display scale (matches Mobirise's display-N classes) */
 .display-1 { font-size: var(--display-1); line-height: 1;   font-weight: 400; }
-.display-2 { font-size: var(--display-2); line-height: 1;   font-weight: 700; } /* section titles — heavy */
+.display-2 { font-size: var(--display-2); line-height: 1;   font-weight: 700; } /* section titles - heavy */
 .display-3 { font-size: var(--display-3); line-height: 1.1; font-weight: 400; }
 .display-4 { font-size: var(--display-4); line-height: 1.5; font-weight: 400; }
 .display-5 { font-size: var(--display-5); line-height: 1.5; font-weight: 400; }

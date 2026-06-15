@@ -9,7 +9,7 @@ resources/_gen/
 # Editor / merge backups
 *.orig
 
-# Claude Code / AI-assistant config — local tooling, kept out of the public repo
+# Claude Code / AI-assistant config - local tooling, kept out of the public repo
 CLAUDE.md
 CLAUDE.local.md
 .claude/

@@ -13,7 +13,7 @@
 title         = "{{ replace .Name "-" " " | title }}"
 weight        = 10                  # cover-page nav + print view order
 
-# Optional intro image — relative to assets/welcome-pack/. Hugo's image
+# Optional intro image - relative to assets/welcome-pack/. Hugo's image
 # pipeline produces resized WebP variants. Leave empty for no image.
 intro_image   = ""
 intro_alt     = ""                  # required if intro_image is set
@@ -29,7 +29,7 @@ don't read them cover-to-cover. Headings (##), short paragraphs, and
 the occasional bullet list serve them best.
 
 Don't put forms or anything that asks for personal data on these
-pages — Welcome Pack is read-only by design (see SPEC-COMMON §10).
+pages - Welcome Pack is read-only by design (see SPEC-COMMON §10).
 Hardcopy forms (medical, photo consent) are referenced as
 "completed at first night" and linked to placeholder PDFs the Group
 provides under /static/welcome-pack/.

@@ -1,7 +1,7 @@
 +++
 title       = "District Rally"
 
-# IMPORTANT — this event has been POSTPONED. The date here is the
+# IMPORTANT - this event has been POSTPONED. The date here is the
 # NEW date. The original was scheduled for 2026-10-04; postponed to
 # 2026-11-22. Revision is bumped to 1 so subscriber calendars update
 # the meeting in place rather than treating it as a new entry.
@@ -37,7 +37,7 @@ draft       = false
 
 The District Rally has been **rescheduled** from October to late
 November to align with the District's outdoor programme. Same venue,
-new date — full Group day with backwoods cooking, pioneering, a wide
+new date - full Group day with backwoods cooking, pioneering, a wide
 game in the afternoon, and the District flag ceremony to finish.
 
 If you subscribed to our events calendar you don't need to do

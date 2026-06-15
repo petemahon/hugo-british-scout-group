@@ -1,18 +1,18 @@
 +++
 # Camp kit-list archetype. SPEC-05.
 #
-# Filename convention:  <slug>.md  (no date prefix — kit lists are reusable)
+# Filename convention:  <slug>.md  (no date prefix - kit lists are reusable)
 # Example:              content/kit-lists/cubs-weekend.md
 # Run:                  hugo new kit-lists/cubs-weekend.md
 #
 # A kit list is structured data: one or more [[categories]], each with a
 # list of [[categories.items]]. Both the on-screen view and the printable
 # checkbox view (/kit-lists/<slug>/print.html) are generated from this
-# same front-matter — never maintain two copies.
+# same front-matter - never maintain two copies.
 
 title         = "{{ replace .Name "-" " " | title }} Kit List"
 
-# Which section this list is for — one of the keys in
+# Which section this list is for - one of the keys in
 # data/scout_sections.toml: squirrels | beavers | cubs | scouts |
 # explorers | network. Drives the grouping on /kit-lists/.
 section       = "cubs"
@@ -23,7 +23,7 @@ camp_type     = "weekend"
 
 # "temperate" (default) | "desert" | "winter". Labels the list and lets
 # Groups in hot climates ship a clearly-marked variant. Does not change
-# rendering — it is editorial labelling for parents.
+# rendering - it is editorial labelling for parents.
 climate       = "temperate"
 
 # Version + review provenance. last_reviewed is required so parents can
@@ -32,11 +32,11 @@ version       = "2026.1"
 last_reviewed = {{ now.Format "2006-01-02" }}
 reviewed_by   = ""                  # leader nickname, optional
 
-# Optional HTML intro above the categories — hire-it offers, where to
+# Optional HTML intro above the categories - hire-it offers, where to
 # buy uniform, Scout-shop links all go here as Markdown/HTML.
 intro         = ""
 
-# Mobile-phone policy block. false by default — each Group affirmatively
+# Mobile-phone policy block. false by default - each Group affirmatively
 # decides to publish one. When true, the block renders using
 # [params.kit_lists].default_phone_policy_text (or the theme i18n
 # default if that is blank). See SPEC-05 §Safeguarding.
@@ -52,7 +52,7 @@ phone_policy  = false
 #     will travel (sun cream, antihistamines, etc.)
 cross_border_notes = ""
 
-# "Please leave at home" list — free HTML. Phones, valuables, sweets, etc.
+# "Please leave at home" list - free HTML. Phones, valuables, sweets, etc.
 non_essential = ""
 
 # Structured items. Repeat [[categories]] per logical grouping
@@ -60,7 +60,7 @@ non_essential = ""
 # [[categories.items]] per item.
 #
 #   quantity     defaults to 1; set 3 for "3 pairs of socks".
-#   alternative  free text for a substitute — "or two warm blankets".
+#   alternative  free text for a substitute - "or two warm blankets".
 [[categories]]
   name  = "Sleeping"
   notes = ""                        # optional HTML, renders below the items
@@ -90,5 +90,5 @@ non_essential = ""
 draft = true
 +++
 
-Optional Markdown body — renders nowhere by default; keep notes for
+Optional Markdown body - renders nowhere by default; keep notes for
 leaders here, or move anything parent-facing into `intro` above.

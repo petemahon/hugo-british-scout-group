@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
-   04. SITE NAV (floating, rounded pill — fleur + group name + menu + burger)
+   04. SITE NAV (floating, rounded pill - fleur + group name + menu + burger)
    The brand is fleur + name, never a custom logo. Group identity comes from
    site.Title (full name e.g. "1st Anytown Scouts"). The fleur uses
    currentColor so it tints to var(--primary) via the .site-nav__fleur rule.
@@ -33,7 +33,7 @@
 
 /* The checkbox functionally controls the mobile drawer. It is visually
    hidden but KEYBOARD-FOCUSABLE (no tabindex=-1 / aria-hidden) so the
-   drawer can be opened without a pointer — WCAG 2.1.1. Present only below
+   drawer can be opened without a pointer - WCAG 2.1.1. Present only below
    the 960px desktop breakpoint; display:none at/above it keeps this
    invisible control out of the desktop tab order. */
 .site-nav__toggle-cb {
@@ -48,7 +48,7 @@
 }
 /* Relocate the focus indicator onto the burger the checkbox controls: a
    1px box can't show a meaningful ring, so focus stays clearly visible on
-   the burger. This is the ONE deliberate `outline: none` in the theme —
+   the burger. This is the ONE deliberate `outline: none` in the theme -
    focus is relocated, never removed (see DECISIONS.md, SPEC-12). */
 .site-nav__toggle-cb:focus-visible {
   outline: none;
@@ -101,7 +101,7 @@
   .site-nav__fleur { width: 36px; height: 36px; }
 }
 .site-nav__name {
-  font-size: 17px;          /* group name — larger than the menu links */
+  font-size: 17px;          /* group name - larger than the menu links */
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -225,7 +225,7 @@
   pointer-events: none;
   /* visibility:hidden so the collapsed drawer's links are NOT in the tab
      order (max-height:0 + overflow:hidden alone still leaves them
-     focusable). Deferred 0.3s so it doesn't cut the collapse transition —
+     focusable). Deferred 0.3s so it doesn't cut the collapse transition -
      same technique as the desktop dropdown. */
   visibility: hidden;
   transition: max-height 0.3s ease,

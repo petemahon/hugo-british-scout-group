@@ -25,7 +25,7 @@ properly. Real parallels: 21st Romsey, 1st Rustington, 1st Lady Bay,
    disclaimer.
 5. **"Fully booked" banner** when `params.hall_hire.fully_booked = true`,
    styled with `--warning` palette token (see DECISIONS.md). Page
-   continues to render — the banner just signals that new enquiries
+   continues to render - the banner just signals that new enquiries
    aren't being taken.
 6. Feature gated by `params.features.hall_hire` (default OFF).
 7. Example site exercises: a Group with a single rate, a Group with
@@ -46,22 +46,22 @@ Single page. Multi-hall is out of scope.
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `title` | string | no | "Hire our hall" | Page heading |
-| `intro` | string (HTML allowed) | yes | — | Description of the hall |
-| `address` | string | yes | — | Full street address |
-| `postcode` | string | no | — | UK / international format |
-| `map_url` | string | no | — | Static map link (OSM or Google) |
-| `capacity_seated` | int | no | — | |
-| `capacity_standing` | int | no | — | |
-| `dimensions` | string | no | — | Free text — "10m × 8m" |
-| `floor_area_m2` | int | no | — | Numeric |
+| `intro` | string (HTML allowed) | yes | - | Description of the hall |
+| `address` | string | yes | - | Full street address |
+| `postcode` | string | no | - | UK / international format |
+| `map_url` | string | no | - | Static map link (OSM or Google) |
+| `capacity_seated` | int | no | - | |
+| `capacity_standing` | int | no | - | |
+| `dimensions` | string | no | - | Free text - "10m × 8m" |
+| `floor_area_m2` | int | no | - | Numeric |
 | `facilities` | list[string] | no | `[]` | "Kitchen", "Toilets", "Disabled access", "Parking", "Stage", "AV/projector", "Wi-Fi" |
-| `rates` | list[block] | yes | — | See below |
+| `rates` | list[block] | yes | - | See below |
 | `deposit` | string | no | "" | "£50 refundable damage deposit" |
 | `cleaning_fee` | string | no | "" | |
-| `terms_pdf` | string | no | — | Path to T&Cs PDF (under `static/`) |
-| `terms_url` | string | no | — | Alternative — external T&Cs URL |
-| `enquiry_email` | string | yes | — | Generic Group email |
-| `enquiry_phone` | string | no | — | Group duty mobile (not personal) |
+| `terms_pdf` | string | no | - | Path to T&Cs PDF (under `static/`) |
+| `terms_url` | string | no | - | Alternative - external T&Cs URL |
+| `enquiry_email` | string | yes | - | Generic Group email |
+| `enquiry_phone` | string | no | - | Group duty mobile (not personal) |
 | `availability_note` | string (HTML allowed) | no | "" | "Not available Monday–Friday 17:00–21:00 during school terms" |
 | `priority_disclaimer` | bool | no | true | Renders the "Scout activities take priority" line |
 | `photos` | list[block] | no | `[]` | See below |
@@ -86,10 +86,10 @@ Each `rates` block:
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `name` | string | yes | — | |
-| `amount` | string | yes | — | Number as string |
+| `name` | string | yes | - | |
+| `amount` | string | yes | - | Number as string |
 | `currency` | string | no | "GBP" | ISO 4217 |
-| `period` | string | yes | — | "hour" \| "session" \| "day" \| "weekend" |
+| `period` | string | yes | - | "hour" \| "session" \| "day" \| "weekend" |
 | `notes` | string | no | "" | |
 
 Each `photos` block:
@@ -103,8 +103,8 @@ Each `photos` block:
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `src` | string | yes | — | Filename in `assets/hall-hire/photos/` |
-| `alt` | string | yes | — | |
+| `src` | string | yes | - | Filename in `assets/hall-hire/photos/` |
+| `alt` | string | yes | - | |
 | `caption` | string | no | "" | |
 
 ## Layouts to create
@@ -121,7 +121,7 @@ Each `photos` block:
 
 ```toml
 [params.features]
-  hall_hire = false                       # default OFF — opt-in
+  hall_hire = false                       # default OFF - opt-in
 
 [params.hall_hire]
   show_currency_symbol = true
@@ -130,9 +130,9 @@ Each `photos` block:
 
 ## Asset paths
 
-- `assets/hall-hire/photos/<filename>.jpg` — processed by Hugo image
+- `assets/hall-hire/photos/<filename>.jpg` - processed by Hugo image
   pipeline.
-- `static/hall-hire/terms-and-conditions.pdf` — T&Cs.
+- `static/hall-hire/terms-and-conditions.pdf` - T&Cs.
 - Theme ships placeholder photos at
   `assets/hall-hire/_placeholder/main-hall.jpg`.
 
@@ -166,9 +166,9 @@ defaults OFF. No BSO-specific behaviour.
 
 | Q | Decision |
 | --- | --- |
-| Q8.1 | **Yes** — fully-booked banner via `params.hall_hire.fully_booked = true`. Reuses `--warning` palette token. |
-| Q8.2 | **No** — multi-hall support deferred. Single-hall v1; multi-hall Groups can add a second listing in the `intro`. |
-| Q8.3 | **Neutral** rate labelling — numbers as plain strings, Groups annotate in `notes`. |
+| Q8.1 | **Yes** - fully-booked banner via `params.hall_hire.fully_booked = true`. Reuses `--warning` palette token. |
+| Q8.2 | **No** - multi-hall support deferred. Single-hall v1; multi-hall Groups can add a second listing in the `intro`. |
+| Q8.3 | **Neutral** rate labelling - numbers as plain strings, Groups annotate in `notes`. |
 | Q8.4 | **Link only** for map. Static-map embed needs API keys / tile services. |
 
 ## Out of scope (cross-references)
@@ -177,7 +177,7 @@ defaults OFF. No BSO-specific behaviour.
 - Booking calendar.
 - Per-event hire history.
 - Hire enquiry tracking.
-- Insurance certificates / risk assessment downloads — Groups can
+- Insurance certificates / risk assessment downloads - Groups can
   add as ad-hoc Markdown links in the `intro`.
 
 ## Implementation order
@@ -190,5 +190,5 @@ defaults OFF. No BSO-specific behaviour.
 5. `layouts/partials/hall-hire-facilities.html` chips.
 6. `layouts/partials/hall-hire-photos.html` strip.
 7. `layouts/partials/hall-hire-fully-booked.html` banner.
-8. CSS — two-column, photo strip, banner, print stylesheet.
+8. CSS - two-column, photo strip, banner, print stylesheet.
 9. README, screenshot.

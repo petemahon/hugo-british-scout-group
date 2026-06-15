@@ -1,6 +1,6 @@
 +++
 title = "1st Anytown Scouts" # optional; only used if you want different from site.Title
-description = "Skills for Life — example Scout Group home page using the British Scout Group theme."
+description = "Skills for Life - example Scout Group home page using the British Scout Group theme."
 
 # Each [[sections]] entry is rendered by the partial in
 # layouts/partials/sections/<type>.html. Reorder, remove or duplicate entries
@@ -37,7 +37,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
     style = "ghost"
 
 # -----------------------------------------------------------------------------
-# 2. Join us — two-column CTA
+# 2. Join us - two-column CTA
 # -----------------------------------------------------------------------------
 [[sections]]
   type     = "join"
@@ -47,7 +47,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   title    = "Joining couldn't be easier."
   subtitle = "Register your interest below - for your child, yourself, or both. We give priority to families who are happy to volunteer their time alongside us."
 
-  # Head CTA — sends visitors to the full /join/ page (section-by-section
+  # Head CTA - sends visitors to the full /join/ page (section-by-section
   # openings, meeting nights, fees, FAQ and the Welcome Pack) before they
   # commit to a waiting-list or volunteer card below.
   [sections.button]
@@ -77,10 +77,10 @@ description = "Skills for Life — example Scout Group home page using the Briti
       style = "ghost"
 
 # -----------------------------------------------------------------------------
-# 3. Our Sections — section-grid
+# 3. Our Sections - section-grid
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
-# 3. Our Sections — auto-renders enabled UK Scout sections.
+# 3. Our Sections - auto-renders enabled UK Scout sections.
 # Toggle each section on/off and set logo paths in [params.scoutSections]
 # in hugo.toml. Section metadata (ages, URLs) comes from the theme.
 # -----------------------------------------------------------------------------
@@ -95,10 +95,10 @@ description = "Skills for Life — example Scout Group home page using the Briti
   button_label = "Learn more"
 
 # -----------------------------------------------------------------------------
-# 4. Network 18-25 — network-feature (opt-in via params.features.network_feature)
+# 4. Network 18-25 - network-feature (opt-in via params.features.network_feature)
 #
 # Note: the home page used to carry a `bso-membership` section here
-# rendering the POR 3.2.1.1 notice. We removed it deliberately — the
+# rendering the POR 3.2.1.1 notice. We removed it deliberately - the
 # canonical place for "who can join" prose is now the /join/ page,
 # which embeds the same partial in context with the joining cards.
 # The bso-membership section type still exists in the theme; Groups
@@ -108,10 +108,10 @@ description = "Skills for Life — example Scout Group home page using the Briti
   type    = "network-feature"
   id      = "network"
   # eyebrow, title, intro, cta_label, cta_href all use theme defaults via i18n.
-  # [[sections.points]] is omitted — the theme renders the three default points.
+  # [[sections.points]] is omitted - the theme renders the three default points.
 
 # -----------------------------------------------------------------------------
-# 5a. Recruitment banner — volunteer-recruitment-banner (SPEC-09).
+# 5a. Recruitment banner - volunteer-recruitment-banner (SPEC-09).
 # Conditional: renders ONLY when at least one volunteer role is currently
 # open (data/content under content/support-us/volunteer-roles/). When no
 # roles are open, the home page flows straight past it. Gated by
@@ -124,7 +124,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   bg       = "primary"
 
 # -----------------------------------------------------------------------------
-# 5. Volunteer — volunteer-feature brand-anchor band (D11)
+# 5. Volunteer - volunteer-feature brand-anchor band (D11)
 # Opt-in via params.features.volunteer_feature in hugo.toml. Always renders
 # on Scouts Purple regardless of palette. The text column ships the canonical
 # i18n-default copy; the poster ships in the default `role-model` variant.
@@ -141,7 +141,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # all use theme defaults via i18n.
 
 # -----------------------------------------------------------------------------
-# 6. This term's programme — programme-current (opt-in via
+# 6. This term's programme - programme-current (opt-in via
 #    params.features.programme). SPEC-03 Q3.1 was revised on 2026-05-21
 #    to wire this block into the example site so the demo exercises
 #    every section type; consuming Group sites still opt in by adding
@@ -164,7 +164,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   # sections = ["beavers", "cubs"]   # optional filter; empty = all sections
 
 # -----------------------------------------------------------------------------
-# 7. Whats coming up — events-upcoming (opt-in via params.features.events)
+# 7. Whats coming up - events-upcoming (opt-in via params.features.events)
 # -----------------------------------------------------------------------------
 [[sections]]
   type    = "events-upcoming"
@@ -175,7 +175,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   count   = 3
   
 # -----------------------------------------------------------------------------
-# 8. Latest news — news-grid (opt-in via params.features.news in hugo.toml)
+# 8. Latest news - news-grid (opt-in via params.features.news in hugo.toml)
 # -----------------------------------------------------------------------------
 [[sections]]
   type        = "news-grid"
@@ -190,7 +190,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
 
 
 # -----------------------------------------------------------------------------
-# 9. Latest gallery — gallery-strip (opt-in via params.features.galleries)
+# 9. Latest gallery - gallery-strip (opt-in via params.features.galleries)
 # Renders the most recent gallery's cover plus a short row of thumbs and
 # a "View all galleries" CTA. Renders nothing if no galleries are
 # published yet (or if params.features.galleries is false).
@@ -205,7 +205,7 @@ description = "Skills for Life — example Scout Group home page using the Briti
   show_more = true
 
 # -----------------------------------------------------------------------------
-# 10. Where we meet — section-header (acts as title for the map below)
+# 10. Where we meet - section-header (acts as title for the map below)
 # -----------------------------------------------------------------------------
 [[sections]]
   type     = "section-header"
@@ -216,13 +216,13 @@ description = "Skills for Life — example Scout Group home page using the Briti
   subtitle = "There are several groups of Scouts operating across Anytown, with more in the works. To find out more details for each group, click the place marker on the map below.<br><br>Scout Network meets at various locations across the city."
 
 # -----------------------------------------------------------------------------
-# 11. The map — embed
+# 11. The map - embed
 # -----------------------------------------------------------------------------
 [[sections]]
   type   = "embed"
-  url    = "https://snazzymaps.com/embed/123456"   # CHANGE ME — your map ID
+  url    = "https://snazzymaps.com/embed/123456"   # CHANGE ME - your map ID
   title  = "Map of where we meet"
-  # height / width omitted — the embed uses the D13 aspect-ratio default
+  # height / width omitted - the embed uses the D13 aspect-ratio default
   # (4:3 mobile, 16:9 desktop). Set explicit values here only if you
   # need a fixed-pixel iframe.
 +++

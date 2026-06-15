@@ -1,12 +1,12 @@
 /* -----------------------------------------------------------------------------
    03. COMPONENTS: BUTTONS
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Restyled in deliverable 4 (hero) to the new design language. All existing
-   class names are preserved — only the visual styling changes. New additions:
-     .btn-ghost      — quiet secondary button (transparent + ink-coloured text)
-     .btn .arr       — optional arrow span that nudges right on hover
+   class names are preserved - only the visual styling changes. New additions:
+     .btn-ghost      - quiet secondary button (transparent + ink-coloured text)
+     .btn .arr       - optional arrow span that nudges right on hover
      .btn-dark
 
    Markup pattern:
@@ -41,7 +41,7 @@
 
 .btn + .btn { margin-left: 0.5rem; margin-top: 0.5rem; }
 
-/* Animated arrow nudge — additive; markup uses <span class="arr">→</span>. */
+/* Animated arrow nudge - additive; markup uses <span class="arr">→</span>. */
 .btn .arr { transition: transform 0.2s ease; }
 .btn:hover .arr,
 .btn:focus-visible .arr { transform: translateX(3px); }
@@ -58,7 +58,7 @@
   border-color: var(--primary-hover);
   color: var(--text-on-primary);
   transform: translateY(-1px);
-  /* Palette-aware drop shadow — adapts to whichever palette is in use. */
+  /* Palette-aware drop shadow - adapts to whichever palette is in use. */
   box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
@@ -74,7 +74,7 @@
   color: var(--text-on-primary);
 }
 
-/* ── Ghost (quiet secondary — used in the hero alongside primary) ── */
+/* ── Ghost (quiet secondary - used in the hero alongside primary) ── */
 .btn-ghost {
   background: transparent;
   border-color: color-mix(in srgb, var(--text) 15%, transparent);
@@ -86,7 +86,7 @@
 }
 
 /* ── Dark (used on brand-anchor coloured bands, e.g. Network feature) ── */
-/* Dark CTA — black background, white text. Used on coloured-band
+/* Dark CTA - black background, white text. Used on coloured-band
    sections (Network feature, future volunteer band) where the
    theme's primary CTA colour would clash with the section's
    brand-anchor background. */
@@ -102,7 +102,7 @@
   color: #fff;
 }
 
-/* ── Waiting (joining cards in waiting-list state — SPEC-06) ── */
+/* ── Waiting (joining cards in waiting-list state - SPEC-06) ── */
 /* Matches the amber --status-waiting badge so the CTA visually
    reinforces the badge's "you're queueing, not enrolling" message
    rather than reading as a confident primary action. */
@@ -121,7 +121,7 @@
 }
 
 /* ── Yellow (used on the Scouts-Purple volunteer-feature band) ── */
-/* Yellow CTA — Scouts Yellow background, Scouts Black text. Mirrors
+/* Yellow CTA - Scouts Yellow background, Scouts Black text. Mirrors
    the canonical Scouts brand-poster pairing (the role-model poster
    uses the same yellow-on-purple language for its tag pill). Hover
    lifts to a slightly lighter yellow lifted from the rev-2 mockup. */

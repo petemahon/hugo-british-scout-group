@@ -3,13 +3,13 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  gallery-video-links — external video cards on /galleries/<slug>/.
+  gallery-video-links - external video cards on /galleries/<slug>/.
   Receives: { links: [...], slug: "<gallery-slug>" }
   Each link block has: { url, label, thumbnail? }. Platform name is
   inferred from the URL host so YouTube/Vimeo/Facebook get a visible
   badge without authors having to type it.
 
-  No video is hosted by the site and no players are embedded — every
+  No video is hosted by the site and no players are embedded - every
   card is a plain anchor that opens in a new tab.
 */ -}}
 {{- $links := .links -}}

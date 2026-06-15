@@ -1,4 +1,4 @@
-# data/reports.toml — manifest of AGM-related documents (Trustees'
+# data/reports.toml - manifest of AGM-related documents (Trustees'
 # Annual Reports AND AGM minutes) listed on /about/reports/ (SPEC-07).
 #
 # Ships EMPTY. Each consuming Group lists its own documents here AND

@@ -1,12 +1,12 @@
 /* -----------------------------------------------------------------------------
    7. ACCESSIBILITY (SPEC-12)
-   Cross-cutting WCAG 2.2 AA hardening. Always on — no feature flag.
+   Cross-cutting WCAG 2.2 AA hardening. Always on - no feature flag.
 
    Contents:
-     a. Skip link            — first focusable element; visible only on focus.
-     b. Global focus ring    — consistent :focus-visible across the theme.
-     c. .sr-only             — visually-hidden-but-screen-reader-visible text.
-     d. Reduced motion       — global kill-switch for animation/transition.
+     a. Skip link            - first focusable element; visible only on focus.
+     b. Global focus ring    - consistent :focus-visible across the theme.
+     c. .sr-only             - visually-hidden-but-screen-reader-visible text.
+     d. Reduced motion       - global kill-switch for animation/transition.
 
    The --focus-ring token is emitted per-palette by palette-style.html
    (data/palettes.toml `focus_ring`), falling back to --primary. Every
@@ -40,7 +40,7 @@
 /* Every focusable control shows a visible focus indicator (SPEC-12 AC3).
    Keyboard focus is shown; pointer focus is not (`:focus-visible`). The one
    `outline: none` in the theme is on the sr-only mobile-nav toggle in
-   04-nav.css, whose indicator is RELOCATED to the burger it controls —
+   04-nav.css, whose indicator is RELOCATED to the burger it controls -
    focus is moved, never removed. */
 :focus-visible {
   outline: 2px solid var(--focus-ring, var(--primary));

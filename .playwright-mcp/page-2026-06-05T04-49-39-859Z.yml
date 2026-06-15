@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -89,13 +89,13 @@
             - generic [ref=e82]: +
             - generic [ref=e83]:
               - heading "Could you join the board?" [level=3] [ref=e84]
-              - paragraph [ref=e85]: We'd welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM.
+              - paragraph [ref=e85]: We'd welcome more hands - particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM.
         - paragraph [ref=e86]: AGM & charity registration
         - generic [ref=e87]:
           - article [ref=e88]:
             - generic [ref=e89]: Annual General Meeting
             - heading "Tuesday 13 May 2026, 19:30" [level=3] [ref=e90]
-            - paragraph [ref=e91]: The community centre hall (and online — link sent to all families)
+            - paragraph [ref=e91]: The community centre hall (and online - link sent to all families)
           - article [ref=e92]:
             - generic [ref=e93]: Charity registration
             - paragraph [ref=e95]:
@@ -103,7 +103,7 @@
               - link "British Scouting Overseas (1151702)" [ref=e96] [cursor=pointer]:
                 - /url: https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1151702
               - text: · Charity Commission for England and Wales
-        - paragraph [ref=e98]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board — particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
+        - paragraph [ref=e98]: Every parent and carer of a member is welcome at the AGM, where the Trustee Board reports on the year, presents the accounts, and stands for re-election. We’d genuinely welcome more hands on the board - particularly anyone with finance, fundraising or premises experience. If that might be you, have a word with any of the trustees listed above.
         - generic [ref=e99]:
           - generic [ref=e100]: Reports & accounts
           - link "Trustees' Annual Reports and AGM minutes →" [ref=e102] [cursor=pointer]:
@@ -115,7 +115,7 @@
           - generic [ref=e107]:
             - img [ref=e108]
             - generic [ref=e110]: 1st Anytown Scouts
-          - paragraph [ref=e111]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e111]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e112]:
           - heading "Visit" [level=5] [ref=e113]
           - list [ref=e114]:
@@ -144,7 +144,7 @@
               - link "Privacy" [ref=e133] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e134]:
-        - generic [ref=e135]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e135]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e136]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e138]:
         - text: "Registered charity:"

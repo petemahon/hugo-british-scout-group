@@ -1,6 +1,6 @@
 +++
 # Theme-shipped /galleries/ branch bundle. Hugo merges theme content
-# with site content — a consuming Group that doesn't create its own
+# with site content - a consuming Group that doesn't create its own
 # content/galleries/_index.md inherits this one. A Group that wants
 # a custom listing title or intro overrides this file at the same
 # path in their site repo; the cascade block below MUST be preserved
@@ -9,7 +9,7 @@
 title       = "Galleries"
 description = "Photo galleries from camps, parades and meetings."
 
-# Forces /galleries/ itself to use list.html — the layout chain for a
+# Forces /galleries/ itself to use list.html - the layout chain for a
 # kind=section page would otherwise consider single.html if a cascade
 # rule applied. Belt-and-braces: explicit overrides any inherited
 # cascade.

@@ -3,11 +3,11 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-host-scouting — /bso/host-scouting/ body. SPEC-10.
+  bso-host-scouting - /bso/host-scouting/ body. SPEC-10.
 
   Loads data/bso/alternatives/<host_country_iso>.toml and renders one
   card per organisation (name, language, description, link, optional
-  joining link). Missing data file is a build warning — not an error —
+  joining link). Missing data file is a build warning - not an error -
   so a Group can stand up the page before the data lands.
 
   Context: the host-scouting Page.
@@ -37,7 +37,7 @@
   {{- else if not $alts }}
     {{- warnf "bso-host-scouting (%q): no data/bso/alternatives/%s.toml found. Add the file to populate this page." .File.LogicalName $iso -}}
     <p class="s-bso__host-scouting-empty">
-      {{ i18n "bsoHostScoutingNoData" | default "Host-country alternatives data is not available for this host country yet — your Group can add it to data/bso/alternatives/." }}
+      {{ i18n "bsoHostScoutingNoData" | default "Host-country alternatives data is not available for this host country yet - your Group can add it to data/bso/alternatives/." }}
     </p>
   {{- else }}
     <ul class="s-bso__host-orgs" role="list">

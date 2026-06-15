@@ -1,10 +1,10 @@
-# data/palettes.toml — Scout Brand colour presets
+# data/palettes.toml - Scout Brand colour presets
 #
 # All hex values are the OFFICIAL Scouts brand colours from the
 # Scouts Brand Guidelines (Our Colours, 2023 edition).
 # Source: https://scoutsbrand.org.uk
 #
-# Reference (do not edit — these are the brand truths):
+# Reference (do not edit - these are the brand truths):
 #   Scouts Purple        #7413dc
 #   Scouts Teal          #088486
 #   Scouts Forest Green  #205b41
@@ -35,7 +35,7 @@
 #
 # --status-open / --status-waiting / --status-closed (SPEC-06): the
 # three joining-status badge colours. Uniform across every palette
-# preset — status semantics shouldn't shift with the site's house
+# preset - status semantics shouldn't shift with the site's house
 # colours. Distinct from --warning (red) and --postponed (amber):
 #   --status-open    = #0a7b3a   Confident green, distinct from Scouts
 #                                Green (#25b755 = Squirrels) and from
@@ -43,14 +43,14 @@
 #   --status-waiting = #b45309   Deeper amber than --postponed so a
 #                                cross-page reader doesn't confuse
 #                                "Waiting list" with "Postponed event".
-#   --status-closed  = #6b7280   Neutral grey — "section not running"
+#   --status-closed  = #6b7280   Neutral grey - "section not running"
 #                                isn't a warning, it's informational.
 #
 # To add a palette: copy a block, give it a unique key, change the hexes.
 # To select a palette: set palette = "<key>" in the site's hugo.toml params.
 
 # -----------------------------------------------------------------------------
-# Classic Purple — the canonical Scouts house palette.
+# Classic Purple - the canonical Scouts house palette.
 # Closest match to the original adscouts.org colour scheme.
 # -----------------------------------------------------------------------------
 [classic-purple]
@@ -69,19 +69,19 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f1efe9"
-  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
+  warning           = "#d4351c"  # App scarlet - distinct from Scouts Red
   text_on_warning   = "#ffffff"
-  postponed         = "#d97706"  # App amber — non-section colour
+  postponed         = "#d97706"  # App amber - non-section colour
   text_on_postponed = "#ffffff"
-  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # Joining status tokens (SPEC-06). Uniform across all palettes -
   # status semantics shouldn't shift with the site's house colours.
-  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
-  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
-  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  status_open       = "#0a7b3a"  # Confident green - "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber - differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey - section not running this term
   text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
-# Adventure — outdoorsy, energetic. Good for active Scout Groups.
+# Adventure - outdoorsy, energetic. Good for active Scout Groups.
 # -----------------------------------------------------------------------------
 [adventure]
   name        = "Adventure"
@@ -99,19 +99,19 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f1efe9"
-  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
+  warning           = "#d4351c"  # App scarlet - distinct from Scouts Red
   text_on_warning   = "#ffffff"
-  postponed         = "#d97706"  # App amber — non-section colour
+  postponed         = "#d97706"  # App amber - non-section colour
   text_on_postponed = "#ffffff"
-  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # Joining status tokens (SPEC-06). Uniform across all palettes -
   # status semantics shouldn't shift with the site's house colours.
-  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
-  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
-  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  status_open       = "#0a7b3a"  # Confident green - "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber - differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey - section not running this term
   text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
-# Coastal — Sea Scouts and waterside groups.
+# Coastal - Sea Scouts and waterside groups.
 # -----------------------------------------------------------------------------
 [coastal]
   name        = "Coastal"
@@ -129,19 +129,19 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f1efe9"
-  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
+  warning           = "#d4351c"  # App scarlet - distinct from Scouts Red
   text_on_warning   = "#ffffff"
-  postponed         = "#d97706"  # App amber — non-section colour
+  postponed         = "#d97706"  # App amber - non-section colour
   text_on_postponed = "#ffffff"
-  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # Joining status tokens (SPEC-06). Uniform across all palettes -
   # status semantics shouldn't shift with the site's house colours.
-  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
-  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
-  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  status_open       = "#0a7b3a"  # Confident green - "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber - differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey - section not running this term
   text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
-# Vibrant — bold, youthful, high-energy.
+# Vibrant - bold, youthful, high-energy.
 # -----------------------------------------------------------------------------
 [vibrant]
   name        = "Vibrant"
@@ -150,7 +150,7 @@
   primary_hover     = "#f15d45"
   # Focus ring NOT = primary here: Scouts Red on white is only ~3.9:1, below
   # the AA 4.5:1 target SPEC-12 sets for focus indicators. Use the palette's
-  # own tertiary (Scouts Purple, ~6.4:1) instead — strongly visible against
+  # own tertiary (Scouts Purple, ~6.4:1) instead - strongly visible against
   # the red/pink scheme. Decided 2026-06-04 (SPEC-12 Q-slate).
   focus_ring        = "#7413dc"  # Scouts Purple (= tertiary)
   secondary         = "#ffb4e5"  # Scouts Pink
@@ -163,23 +163,23 @@
   text_on_secondary = "#000000"
   bg                = "#ffffff"
   bg_muted          = "#f1efe9"
-  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
+  warning           = "#d4351c"  # App scarlet - distinct from Scouts Red
   text_on_warning   = "#ffffff"
-  postponed         = "#d97706"  # App amber — non-section colour
+  postponed         = "#d97706"  # App amber - non-section colour
   text_on_postponed = "#ffffff"
-  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # Joining status tokens (SPEC-06). Uniform across all palettes -
   # status semantics shouldn't shift with the site's house colours.
-  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
-  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
-  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  status_open       = "#0a7b3a"  # Confident green - "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber - differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey - section not running this term
   text_on_status    = "#ffffff"
 
 # -----------------------------------------------------------------------------
-# Network — for Scout Network groups (18-25). Black-led, sophisticated.
+# Network - for Scout Network groups (18-25). Black-led, sophisticated.
 # -----------------------------------------------------------------------------
 [network]
   name        = "Network"
-  description = "Black primary with Purple secondary. The Scout Network look — older, more sophisticated."
+  description = "Black primary with Purple secondary. The Scout Network look - older, more sophisticated."
   primary           = "#000000"  # Black
   primary_hover     = "#2a2a2a"
   focus_ring        = "#000000"  # = primary; 21:1 on white, meets AA (SPEC-12)
@@ -193,13 +193,13 @@
   text_on_secondary = "#ffffff"
   bg                = "#ffffff"
   bg_muted          = "#f1efe9"
-  warning           = "#d4351c"  # App scarlet — distinct from Scouts Red
+  warning           = "#d4351c"  # App scarlet - distinct from Scouts Red
   text_on_warning   = "#ffffff"
-  postponed         = "#d97706"  # App amber — non-section colour
+  postponed         = "#d97706"  # App amber - non-section colour
   text_on_postponed = "#ffffff"
-  # Joining status tokens (SPEC-06). Uniform across all palettes —
+  # Joining status tokens (SPEC-06). Uniform across all palettes -
   # status semantics shouldn't shift with the site's house colours.
-  status_open       = "#0a7b3a"  # Confident green — "ready to enrol"
-  status_waiting    = "#b45309"  # Deeper amber — differs from --postponed
-  status_closed     = "#6b7280"  # Neutral grey — section not running this term
+  status_open       = "#0a7b3a"  # Confident green - "ready to enrol"
+  status_waiting    = "#b45309"  # Deeper amber - differs from --postponed
+  status_closed     = "#6b7280"  # Neutral grey - section not running this term
   text_on_status    = "#ffffff"

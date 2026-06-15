@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------------------------
    55. SECTION: KIT LISTS
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Two views from one source (SPEC-05):
@@ -194,7 +194,7 @@
 }
 
 /* =============================================================================
-   PRINT VIEW — /kit-lists/<slug>/print.html (body.kit-list-print).
+   PRINT VIEW - /kit-lists/<slug>/print.html (body.kit-list-print).
    Self-contained document rendered by single.kitlistprint.html.
    ============================================================================= */
 body.kit-list-print {

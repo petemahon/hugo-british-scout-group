@@ -23,11 +23,11 @@ photo-rich news posts.
    chronological order, with a cover image and item count.
 2. Each gallery has its own page at `/galleries/<slug>/` with a CSS
    Grid of thumbnails. Clicking a thumbnail navigates to
-   `/galleries/<slug>/<image-slug>/` — a dedicated full-size page.
+   `/galleries/<slug>/<image-slug>/` - a dedicated full-size page.
    The full-size page has prev/next links.
 3. The build fails (errorf) if a gallery contains any image but
    `photo_consent = true` is not set in front-matter.
-4. The build also fails if `consent_log` is unset — a non-empty single
+4. The build also fails if `consent_log` is unset - a non-empty single
    string pointing to where the Group has stored consent records.
    Never rendered to the public site; build-time lint only.
 5. Hugo image pipeline produces three sizes per image: 320, 640,
@@ -35,7 +35,7 @@ photo-rich news posts.
 6. Captions are optional; sidecar `data/galleries/<slug>.toml` lists
    `{file, caption, alt, faces_blurred}` per image.
 7. **Video links** (YouTube, Vimeo, Facebook video) are supported via
-   an optional `video_links` array — rendered as cards linking out.
+   an optional `video_links` array - rendered as cards linking out.
    No video files hosted by the site, no embedded players.
 8. **Per-photo Open Graph meta** so a parent sharing a single photo
    to grandparents shows the photo as preview.
@@ -71,17 +71,17 @@ data/galleries/
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | "Summer Camp 2026" |
-| `date` | date | yes | — | Used for sort order |
+| `title` | string | yes | - | "Summer Camp 2026" |
+| `date` | date | yes | - | Used for sort order |
 | `summary` | string | no | "" | Card description |
 | `cover` | string | no | first image | Filename in `assets/galleries/<slug>/` |
-| `cover_alt` | string | yes if `cover` | — | |
-| `photo_consent` | bool | yes | — | Build fails if unset/false |
-| `consent_log` | string | yes | — | Single string. Build fails if empty. |
+| `cover_alt` | string | yes if `cover` | - | |
+| `photo_consent` | bool | yes | - | Build fails if unset/false |
+| `consent_log` | string | yes | - | Single string. Build fails if empty. |
 | `sections` | list[string] | no | `[]` | Taxonomy values |
-| `event_ref` | string | no | — | Slug of an Events page (SPEC-02) |
-| `news_ref` | string | no | — | Slug of a News post (SPEC-01) |
-| `note` | string (HTML allowed) | no | — | Header note e.g. "Faces blurred at parents' request" |
+| `event_ref` | string | no | - | Slug of an Events page (SPEC-02) |
+| `news_ref` | string | no | - | Slug of a News post (SPEC-01) |
+| `note` | string (HTML allowed) | no | - | Header note e.g. "Faces blurred at parents' request" |
 | `video_links` | list[block] | no | `[]` | See below |
 
 Each `video_links` block:
@@ -95,9 +95,9 @@ Each `video_links` block:
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `url` | string | yes | — | External video URL — YouTube, Vimeo, Facebook video |
-| `label` | string | yes | — | |
-| `thumbnail` | string | no | — | Optional image in `assets/galleries/<slug>/` |
+| `url` | string | yes | - | External video URL - YouTube, Vimeo, Facebook video |
+| `label` | string | yes | - | |
+| `thumbnail` | string | no | - | Optional image in `assets/galleries/<slug>/` |
 
 ## Sidecar caption file
 
@@ -138,7 +138,7 @@ notice suggesting Groups add captions for accessibility.
 
 ```toml
 [params.features]
-  galleries = false                       # default OFF — opt-in
+  galleries = false                       # default OFF - opt-in
 
 [params.galleries]
   thumbs_per_row     = 4                  # layout hint, CSS handles responsive
@@ -149,7 +149,7 @@ notice suggesting Groups add captions for accessibility.
 
 ## Asset paths
 
-- `assets/galleries/<slug>/*.jpg|png|webp` — source files, processed
+- `assets/galleries/<slug>/*.jpg|png|webp` - source files, processed
   by Hugo image pipeline.
 - Placeholder gallery shipped with theme at
   `assets/galleries/_placeholder/`.
@@ -181,7 +181,7 @@ cron, with a prominent warning:
 Sample cron pattern (in README):
 
 ```yaml
-# .github/workflows/prune-galleries.yml — OPT-IN, READ THE WARNING
+# .github/workflows/prune-galleries.yml - OPT-IN, READ THE WARNING
 name: Prune galleries older than N years
 on:
   schedule:
@@ -203,7 +203,7 @@ General-purpose. BSO Groups often have international audiences
 (grandparents in UK), so per-photo page URL stability is helpful. No
 BSO-specific gating.
 
-## Safeguarding & GDPR — critical
+## Safeguarding & GDPR - critical
 
 This feature is the largest GDPR/safeguarding surface in the roadmap.
 
@@ -225,15 +225,15 @@ This feature is the largest GDPR/safeguarding surface in the roadmap.
 
 | Q | Decision |
 | --- | --- |
-| Q4.1 | **Video links only** — gallery supports `video_links` array of external URLs (YouTube, Vimeo, Facebook video). No video file hosting. No embedded players. |
+| Q4.1 | **Video links only** - gallery supports `video_links` array of external URLs (YouTube, Vimeo, Facebook video). No video file hosting. No embedded players. |
 | Q4.2 | **Don't auto-prune.** Document the cron pattern in the README with the explicit warning that a forgotten cron will keep pruning. Opt-in for large Groups posting frequently. |
 | Q4.3 | **`cover_alt` required when `cover` is set** (current schema). Not all-galleries, but enforced for any explicitly named cover. |
 | Q4.4 | **Single string** for `consent_log`. Concatenate manually if multi-line. |
-| Q4.5 | **Yes** — per-photo Open Graph meta. Pure-static, free, materially better when shared. |
+| Q4.5 | **Yes** - per-photo Open Graph meta. Pure-static, free, materially better when shared. |
 
 ## Out of scope (cross-references)
 
-- Inline photos within News posts — those use Hugo's render hooks,
+- Inline photos within News posts - those use Hugo's render hooks,
   not this feature.
 - Live event photo streams.
 - User-uploaded photos.
@@ -248,7 +248,7 @@ This feature is the largest GDPR/safeguarding surface in the roadmap.
 2. Build `layouts/galleries/single.html` with hardcoded image list,
    no captions, no consent enforcement yet.
 3. Add the consent and consent_log lints (errorf if missing).
-4. Add captions sidecar mechanism — `data/galleries/<slug>.toml`.
+4. Add captions sidecar mechanism - `data/galleries/<slug>.toml`.
 5. Build `layouts/galleries/photo.html` with prev/next.
 6. Build `layouts/galleries/list.html`.
 7. Add `gallery-strip` home-page partial.

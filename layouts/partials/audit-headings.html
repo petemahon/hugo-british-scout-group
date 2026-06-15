@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  audit-headings — heading-order audit (SPEC-12 AC6).
+  audit-headings - heading-order audit (SPEC-12 AC6).
 
   The page title is the ONLY permitted <h1> on any page; it is emitted by
   the template (baseof / single / list), not by body content or a section
@@ -12,9 +12,9 @@
   (.Content) contains an <h1>, which happens when an author writes a
   top-level "# Heading" in Markdown, producing a duplicate <h1>.
 
-  The section-partial side of the contract — every section partial
+  The section-partial side of the contract - every section partial
   starts at <h2>, with the sole exception of the home-only hero, which
-  carries the home page's single <h1> — is documented in SPEC-COMMON §17
+  carries the home page's single <h1> - is documented in SPEC-COMMON §17
   and enforced by review (Hugo's render pipeline can't reliably
   post-process partial-produced markup; see SPEC-12 Q12.4). The theme's
   own partials already comply.
@@ -23,5 +23,5 @@
 */ -}}
 {{- $content := .Content | default "" -}}
 {{- if findRE `<h1[\s>]` $content 1 -}}
-  {{- errorf "heading-order audit: page %q renders an <h1> inside its body content. The page title is the only permitted <h1> on a page — start body headings at <h2> (Markdown '## '). See SPEC-COMMON §17." .RelPermalink -}}
+  {{- errorf "heading-order audit: page %q renders an <h1> inside its body content. The page title is the only permitted <h1> on a page - start body headings at <h2> (Markdown '## '). See SPEC-COMMON §17." .RelPermalink -}}
 {{- end -}}

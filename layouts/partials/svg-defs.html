@@ -1,5 +1,5 @@
 {{- /*
-  svg-defs — emits a hidden inline <svg> block containing reusable
+  svg-defs - emits a hidden inline <svg> block containing reusable
   <symbol> definitions, one per row in data/svg_symbols.toml.
 
   Called once from baseof.html, just inside <body>, before any partial
@@ -23,7 +23,7 @@
        tag, keeping only the inner content (paths, groups, defs, etc.).
     5. Wraps the inner content in <symbol id="..." viewBox="..." fill="...">.
 
-  Source SVGs are real files on disk — no inline path data to keep in
+  Source SVGs are real files on disk - no inline path data to keep in
   sync. Standard <symbol> caching: each <use> reference is a shadow-DOM
   instantiation; the source path data is parsed once and reused.
 
@@ -38,7 +38,7 @@
          source = "svg/foo.svg"    # path relative to /assets/
   3. Reference from any template with <svg><use href="#foo"/></svg>.
 
-  Site authors don't normally edit data/svg_symbols.toml — the theme's
+  Site authors don't normally edit data/svg_symbols.toml - the theme's
   is the source of truth. To register a SITE-SPECIFIC symbol (e.g. a
   Group's own logomark), add an entry in the site's own
   data/svg_symbols.toml; Hugo's merge semantics combine the lists.
@@ -49,7 +49,7 @@
   by tokens such as var(--primary)), the source SVG must use
   fill="currentColor" or stroke="currentColor" on its root <svg>
   element (or on each path). Hardcoded fills survive into the symbol
-  unchanged — intentional for brand-colour marks (section badges)
+  unchanged - intentional for brand-colour marks (section badges)
   which must not be palette-tinted.
 */ -}}
 
@@ -66,7 +66,7 @@
   {{- if $res }}
     {{- $svg := $res.Content -}}
 
-    {{- /* Capture the root <svg ...> opening tag — used to extract
+    {{- /* Capture the root <svg ...> opening tag - used to extract
            viewBox and fill attributes for the wrapping <symbol>. */ -}}
     {{- $rootTag := "" -}}
     {{- with findRE `<svg\b[^>]*>` $svg 1 -}}
@@ -89,7 +89,7 @@
     {{- end -}}
 
     {{- /* Strip outer <svg ...> opening tag and the </svg> closing tag.
-           (?s) is the DOTALL flag — required because SVG content spans
+           (?s) is the DOTALL flag - required because SVG content spans
            newlines. */ -}}
     {{- $inner := replaceRE `(?s)^.*?<svg\b[^>]*>` "" $svg -}}
     {{- $inner = replaceRE `(?s)</svg>\s*$` "" $inner -}}

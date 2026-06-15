@@ -6,7 +6,7 @@ climate       = "desert"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Skip"
-intro         = "The hot-climate version of our Scouts weekend list. Pack and carry your own kit. In the desert the two things that catch people out are not drinking enough and not packing a warm layer for the night — sort both before you worry about anything else."
+intro         = "The hot-climate version of our Scouts weekend list. Pack and carry your own kit. In the desert the two things that catch people out are not drinking enough and not packing a warm layer for the night - sort both before you worry about anything else."
 phone_policy  = true
 non_essential = "Leave at home: valuables, large sums of money, energy drinks. Phones per the policy below."
 

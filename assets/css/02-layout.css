@@ -72,7 +72,7 @@
 .s-bg-dark      a:not(.btn):not(.styled-link) { color: inherit; text-decoration: underline; }
 .s-bg-accent    a:not(.btn):not(.styled-link) { color: #000000; text-decoration: underline; }
 
-/* Title colour overrides — pass `title_color = "primary" | "secondary" |
+/* Title colour overrides - pass `title_color = "primary" | "secondary" |
    "tertiary" | "accent"` on a section to tint its main heading. */
 .s-title-primary   { color: var(--primary)   !important; }
 .s-title-secondary { color: var(--secondary) !important; }
@@ -91,7 +91,7 @@
 }
 
 
-/* Sentinel class — opts an anchor out of any auto-applied link
+/* Sentinel class - opts an anchor out of any auto-applied link
    decoration (notably the dark-bg underline rule above). Use on any
    anchor that's styled as a card, badge or other self-contained
    component rather than as a text link. Separate from .btn, which

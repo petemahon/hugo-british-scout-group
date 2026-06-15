@@ -8,15 +8,15 @@ International License. To view a copy of this license, visit:
 
 You are free to:
 
-  - Share — copy and redistribute the material in any medium or format
-  - Adapt — remix, transform, and build upon the material for any purpose,
+  - Share - copy and redistribute the material in any medium or format
+  - Adapt - remix, transform, and build upon the material for any purpose,
     even commercially.
 
 Under the following terms:
 
-  - Attribution — You must give appropriate credit, provide a link to the
+  - Attribution - You must give appropriate credit, provide a link to the
     license, and indicate if changes were made.
-  - ShareAlike — If you remix, transform, or build upon the material, you
+  - ShareAlike - If you remix, transform, or build upon the material, you
     must distribute your contributions under the same license as the
     original.
 
@@ -30,7 +30,7 @@ LICENSE file intact in any forks of the theme repository.
 The official Scout section logos ship in the theme as SVG files at
 `assets/images/sections/{squirrels,beavers,cubs,scouts,explorers,network}.svg`,
 downloaded by the theme maintainer from https://scoutsbrand.org.uk. Brand-asset
-maintenance is centralised — Groups do not override these. Other images shipped
+maintenance is centralised - Groups do not override these. Other images shipped
 in the theme are generic placeholders that Groups override at the same path.
 
 Those files are © The Scout Association. Their distribution within forks of this

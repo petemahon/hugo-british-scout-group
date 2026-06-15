@@ -1,11 +1,11 @@
 /* -----------------------------------------------------------------------------
-   54. GALLERIES — s-galleries / s-gallery-card / s-gallery-strip
+   54. GALLERIES - s-galleries / s-gallery-card / s-gallery-strip
    /galleries/ listing, /galleries/<slug>/ grid, /galleries/<slug>/<image>/
    full-size view, and the gallery-strip home block. See SPEC-04. No JS;
    the photo page uses native browser navigation between sibling pages.
    ----------------------------------------------------------------------------- */
 
-/* ── /galleries/ listing — gallery cards ──────────────────────────────────── */
+/* ── /galleries/ listing - gallery cards ──────────────────────────────────── */
 .s-galleries--list .s-galleries__list-head {
   margin-bottom: 2.5rem;
   text-align: center;
@@ -71,7 +71,7 @@
   color: var(--text-muted);
 }
 
-/* ── /galleries/<slug>/ — grid view ───────────────────────────────────────── */
+/* ── /galleries/<slug>/ - grid view ───────────────────────────────────────── */
 .s-galleries--single .s-galleries__head {
   margin-bottom: 2rem;
 }
@@ -238,7 +238,7 @@
   font-size: 0.9rem;
 }
 
-/* ── /galleries/<slug>/<image>/ — photo page ──────────────────────────────── */
+/* ── /galleries/<slug>/<image>/ - photo page ──────────────────────────────── */
 .s-galleries--photo .s-galleries__photo-container {
   max-width: 100%;
 }
@@ -304,7 +304,7 @@
 }
 .s-galleries__photo-nav-spacer { display: inline-block; min-width: 1px; }
 
-/* ── Home block — gallery-strip ───────────────────────────────────────────── */
+/* ── Home block - gallery-strip ───────────────────────────────────────────── */
 .s-gallery-strip__layout {
   display: grid;
   grid-template-columns: 1fr;

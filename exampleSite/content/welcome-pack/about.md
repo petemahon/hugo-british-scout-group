@@ -7,7 +7,7 @@ summary = "Who we are, where we meet, and what young people get from us."
 ## A short history
 
 1st Anytown Scouts has been part of Anytown for over thirty years. We
-run five sections — Squirrels, Beavers, Cubs, Scouts and Explorers —
+run five sections - Squirrels, Beavers, Cubs, Scouts and Explorers -
 plus a Network at city level for 18-25s. Our charity number is on the
 footer of every page.
 
@@ -15,8 +15,8 @@ footer of every page.
 
 Scouts gives young people skills for life: confidence, friendship,
 practical know-how, time outdoors, leadership. Every section does it
-in their own way — Squirrels through structured play, Explorers
-through expeditions and qualifications — but the through-line is the
+in their own way - Squirrels through structured play, Explorers
+through expeditions and qualifications - but the through-line is the
 same.
 
 ## Where we meet

@@ -4,14 +4,14 @@
   https://github.com/petemahon/hugo-british-scout-group
 
   ============================================================================
-  TRUSTEE BOARD MEETING MINUTES — universal template (all levels)
+  TRUSTEE BOARD MEETING MINUTES - universal template (all levels)
   ============================================================================
 
   HOW TO USE THIS FILE
   --------------------
   1. Copy it for each meeting (e.g. "2026-03-12-trustee-board.md").
   2. Keep the ONE "Level-specific business" block that matches your charity
-     — Group, District, or County/Area/Region — and delete the other two.
+     - Group, District, or County/Area/Region - and delete the other two.
   3. Fill in the blanks. The minute-taker should NOT be a trustee (a trustee
      who is minuting can't fully take part in the meeting). At Group level
      this is part of the Group Leadership Team's job; at District and
@@ -19,13 +19,13 @@
 
   KEEP THIS DOCUMENT PRIVATE
   --------------------------
-  Full minutes routinely contain confidential matter — live safeguarding
+  Full minutes routinely contain confidential matter - live safeguarding
   cases, named young people and volunteers, HR and personnel matters, and
   detailed finances. Store the completed minutes in the board's own private
   system; do NOT commit them to your public website repository.
 
   Only a short, redacted "PUBLIC SUMMARY" (the last section of this file) is
-  intended for publication — and even that only after the board has APPROVED
+  intended for publication - and even that only after the board has APPROVED
   the minutes. The theme surfaces those summaries at /about/governance/minutes/
   (see SPEC-13). When you publish a summary, run `hugo new about/minutes/<date>.md`
   and paste the approved public summary into the body.
@@ -55,9 +55,9 @@
 | **Meeting type** | _Ordinary / Extraordinary / Annual General Meeting (AGM)_ |
 | **Date** | _e.g. Wednesday 12 March 2026_ |
 | **Start / end time** | _e.g. 19:30 – 21:00_ |
-| **Venue** | _in person / online / hybrid — give the location or platform_ |
+| **Venue** | _in person / online / hybrid - give the location or platform_ |
 | **In the chair** | _Chair of Trustees_ |
-| **Minute-taker** | _not a trustee — see note above_ |
+| **Minute-taker** | _not a trustee - see note above_ |
 
 **Present (trustees):** _list names_
 
@@ -93,13 +93,13 @@ Note who proposed and seconded their approval._
 _Review the action log from previous meetings: each action, owner, due date,
 and current status. Carry forward anything outstanding._
 
-## 6. Safeguarding _(standing item — every meeting)_
+## 6. Safeguarding _(standing item - every meeting)_
 
-_Recent updates, concerns or incidents (anonymised here — keep detail in the
+_Recent updates, concerns or incidents (anonymised here - keep detail in the
 board's confidential record), and the board's assurance that safeguarding
 responsibilities are being met._
 
-## 7. Safety _(standing item — every meeting)_
+## 7. Safety _(standing item - every meeting)_
 
 _Safety updates and priorities, premises/activity safety, and any incidents
 or near-misses and the actions taken._
@@ -109,7 +109,7 @@ or near-misses and the actions taken._
 _Headlines from the section/leadership teams: membership, programme,
 volunteers, anything needing the board's attention._
 
-## 9. Finance — Treasurer's report
+## 9. Finance - Treasurer's report
 
 _Budget vs actual, current balances and reserves, significant income and
 expenditure, any decisions the board is asked to make, and progress towards
@@ -136,7 +136,7 @@ maintenance and any capital projects._
      KEEP THE ONE BLOCK BELOW THAT MATCHES YOUR CHARITY. DELETE THE OTHER TWO.
      ======================================================================= -->
 
-## 13. Group business _(GROUP boards — delete if not a Group)_
+## 13. Group business _(GROUP boards - delete if not a Group)_
 
 - **Section health:** numbers and waiting lists across Squirrels, Beavers,
   Cubs, Scouts (and any Explorer Unit / Network), leader vacancies.
@@ -145,7 +145,7 @@ maintenance and any capital projects._
 - **Volunteer recruitment:** vacancies and recruitment plans.
 - **AGM preparation:** date, papers, trustee elections (as the AGM approaches).
 
-## 13. District business _(DISTRICT boards — delete if not a District)_
+## 13. District business _(DISTRICT boards - delete if not a District)_
 
 - **Group health:** Group openings, closures and support to struggling Groups.
 - **District team and appointments:** adult appointments, awards, vacancies.
@@ -199,7 +199,7 @@ ___________, and signed by the Chair.
 _Signed:_ ____________________  _Date:_ ____________
 
 <!-- =======================================================================
-     PUBLIC SUMMARY — the only part intended for publication
+     PUBLIC SUMMARY - the only part intended for publication
      -----------------------------------------------------------------------
      Write a SHORT, plain-English summary of the decisions taken and the
      key actions agreed. This is what the public sees at

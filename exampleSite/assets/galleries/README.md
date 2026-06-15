@@ -16,7 +16,7 @@ convenient.
 | `2026-03-30-cubs-cooking-cup/`     | `001.webp`, `002.webp`          |
 | `2025-11-15-night-hike/`           | `001.webp`, `002.webp`          |
 | `2026-07-12-summer-fete/`          | `001.webp`, `002.webp`          |
-| `2026-08-14-cubs-summer-camp/`     | `001.webp` (draft — only built with `--buildDrafts`) |
+| `2026-08-14-cubs-summer-camp/`     | `001.webp` (draft - only built with `--buildDrafts`) |
 
 PNG and WebP are also fine; the content adapter picks up any
 `.jpg`, `.jpeg`, `.png`, `.webp` file in the directory and registers

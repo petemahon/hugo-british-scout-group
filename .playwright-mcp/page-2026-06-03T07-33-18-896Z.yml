@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -31,8 +31,8 @@
       - generic [ref=e25]:
         - generic [ref=e26]: Support us
         - heading "Support us" [level=1] [ref=e27]
-        - paragraph [ref=e28]: Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people — and gift-aided donations go further still.
-      - paragraph [ref=e30]: Thank you to everyone who supports the Group — whether by giving, by turning out to help at events, or by shopping through easyfundraising. It genuinely keeps us running.
+        - paragraph [ref=e28]: Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people - and gift-aided donations go further still.
+      - paragraph [ref=e30]: Thank you to everyone who supports the Group - whether by giving, by turning out to help at events, or by shopping through easyfundraising. It genuinely keeps us running.
       - generic [ref=e31]:
         - heading "Give online" [level=2] [ref=e32]
         - list [ref=e33]:
@@ -58,11 +58,11 @@
           - article [ref=e49]:
             - heading "100 Club" [level=3] [ref=e50]
             - paragraph [ref=e51]: Monthly draw
-            - paragraph [ref=e52]: A monthly prize draw — members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join.
+            - paragraph [ref=e52]: A monthly prize draw - members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join.
           - article [ref=e53]:
             - heading "Bag packing & bonfire BBQ" [level=3] [ref=e54]
             - paragraph [ref=e55]: Autumn
-            - paragraph [ref=e56]: Seasonal events we run with the whole Group — many hands needed, and a good excuse to get everyone together.
+            - paragraph [ref=e56]: Seasonal events we run with the whole Group - many hands needed, and a good excuse to get everyone together.
       - generic [ref=e57]:
         - heading "Where the money goes 2024–25" [level=2] [ref=e58]
         - generic [ref=e59]:
@@ -83,7 +83,7 @@
           - generic [ref=e73]:
             - img [ref=e74]
             - generic [ref=e76]: 1st Anytown Scouts
-          - paragraph [ref=e77]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e77]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e78]:
           - heading "Visit" [level=5] [ref=e79]
           - list [ref=e80]:
@@ -112,7 +112,7 @@
               - link "Privacy" [ref=e99] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e100]:
-        - generic [ref=e101]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e101]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e102]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e104]:
         - text: "Registered charity:"

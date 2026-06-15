@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Aggregate /events/all.ics — every upcoming non-cancelled event in
+  Aggregate /events/all.ics - every upcoming non-cancelled event in
   one VCALENDAR. Output format: EventsAggregateCalendar (declared in
   hugo.toml).
 
@@ -15,7 +15,7 @@
   remove the corresponding meeting from the subscriber's calendar on
   next refresh. This is the cleanest UX for parents.
 
-  Postponed events ARE included — with their NEW DTSTART/DTEND, a
+  Postponed events ARE included - with their NEW DTSTART/DTEND, a
   prepended DESCRIPTION note, and SEQUENCE bumped so subscriber apps
   update the meeting in place.
 

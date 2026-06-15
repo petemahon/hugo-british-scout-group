@@ -7,7 +7,7 @@ weight = 20
   list   = "always"
 +++
 
-No — but it helps. We have a long-standing principle that families who
+No - but it helps. We have a long-standing principle that families who
 join in get priority on the waiting list. There's a role for every
 amount of time you can give, from washing-up after camp to running a
 section. See [the volunteer page](/#volunteer) for what we need.

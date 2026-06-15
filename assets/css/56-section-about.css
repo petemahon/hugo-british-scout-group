@@ -1,12 +1,12 @@
 /* -----------------------------------------------------------------------------
-   56. SECTION: ABOUT — HISTORY & GOVERNANCE
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   56. SECTION: ABOUT - HISTORY & GOVERNANCE
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
-   /about/history/  — narrative + CSS-only vertical timeline (sidebar/top/
+   /about/history/  - narrative + CSS-only vertical timeline (sidebar/top/
                       bottom placement).
-   /about/governance/ — charity registration, AGM, Trustee Board.
-   .charity-info    — shared block used on the governance page AND, when
+   /about/governance/ - charity registration, AGM, Trustee Board.
+   .charity-info    - shared block used on the governance page AND, when
                       configured, in the site footer (navy); hidden in print.
    ----------------------------------------------------------------------------- */
 

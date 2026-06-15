@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  event-vevent.ics — emit a single VEVENT for a Page.
+  event-vevent.ics - emit a single VEVENT for a Page.
 
   Receives a Page via dot.
 
@@ -22,11 +22,11 @@
 
   The cancelled-omission rule means a cancelled event:
     - Has an event.ics file containing an empty (well-formed)
-      VCALENDAR wrapper — the URL keeps working but contains no
+      VCALENDAR wrapper - the URL keeps working but contains no
       VEVENT, so a calendar app polling the URL removes the meeting.
     - Is omitted from the aggregate /events/all.ics feed.
 
-  Old behaviour (STATUS:CANCELLED in the feed) is retired — SPEC-02
+  Old behaviour (STATUS:CANCELLED in the feed) is retired - SPEC-02
   acceptance criteria 4 and 7 reworded accordingly. See documentation.
 
   RFC 5545 fields emitted:

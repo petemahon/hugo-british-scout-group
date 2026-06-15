@@ -7,7 +7,7 @@ Read `SPEC-COMMON.md` first.
 Reusable, versioned kit lists that any event page (SPEC-02) can link
 to or transclude. Different list per section, per camp type, with
 optional "additional items" overrides per event. Items are structured
-records with quantity and alternative — supporting cleaner page
+records with quantity and alternative - supporting cleaner page
 structure and a printable checkbox layout.
 
 The 2nd Acomb Group's KL1–KL5 layered model and 1st Liss's structured
@@ -24,7 +24,7 @@ policy block is the safeguarding-friendly addition.
 3. **Items are structured records** with `name`, `quantity` (default 1),
    and `alternative` (free text). Renders as a labelled row in the
    on-screen view and as a checkbox row in the print view.
-4. **Printable view at `/kit-lists/<slug>/print/`** — separate route
+4. **Printable view at `/kit-lists/<slug>/print/`** - separate route
    with print-friendly stylesheet, items rendered with checkboxes,
    no nav, no footer except the print-stylesheet copy of the Group
    name and date. Parents print or "Save as PDF" from the browser.
@@ -61,15 +61,15 @@ content/kit-lists/
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | "Cubs Weekend Camp Kit List" |
-| `section` | string | yes | — | One of `data/scout_sections.toml` keys |
+| `title` | string | yes | - | "Cubs Weekend Camp Kit List" |
+| `section` | string | yes | - | One of `data/scout_sections.toml` keys |
 | `camp_type` | string | no | "" | "weekend", "summer", "winter", "indoor", "expedition" |
-| `climate` | string | no | "temperate" | "temperate" \| "desert" \| "winter" — drives starter-pack labelling |
+| `climate` | string | no | "temperate" | "temperate" \| "desert" \| "winter" - drives starter-pack labelling |
 | `version` | string | no | "1.0" | Free text, e.g. "2026.1" |
-| `last_reviewed` | date | yes | — | When the leader last sanity-checked this list |
-| `reviewed_by` | string | no | "" | Free text — leader nickname |
+| `last_reviewed` | date | yes | - | When the leader last sanity-checked this list |
+| `reviewed_by` | string | no | "" | Free text - leader nickname |
 | `intro` | string (HTML allowed) | no | "" | Renders above the categories |
-| `categories` | list[block] | yes | — | See below |
+| `categories` | list[block] | yes | - | See below |
 | `phone_policy` | bool | no | false | Renders the standard phone-policy block |
 | `cross_border_notes` | string (HTML allowed) | no | "" | BSO: passport, EHIC/GHIC, currency notes |
 | `non_essential` | string (HTML allowed) | no | "" | "Please leave at home" list |
@@ -79,7 +79,7 @@ Each category block:
 ```toml
 [[categories]]
   name = "Sleeping"
-  notes = "If you don't have a 3-season bag, please contact GSL — we have spares."
+  notes = "If you don't have a 3-season bag, please contact GSL - we have spares."
 
 [[categories.items]]
   name = "Sleeping bag"
@@ -101,15 +101,15 @@ Each category block:
 
 | Sub-field of `categories` | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `name` | string | yes | — | "Sleeping", "Clothing", "Personal", "Cooking gear" |
+| `name` | string | yes | - | "Sleeping", "Clothing", "Personal", "Cooking gear" |
 | `notes` | string (HTML allowed) | no | "" | Renders below the item list |
-| `items` | list[item] | yes | — | See below |
+| `items` | list[item] | yes | - | See below |
 
 | Sub-field of `categories.items` | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `name` | string | yes | — | The item name |
+| `name` | string | yes | - | The item name |
 | `quantity` | int | no | 1 | "3 pairs of socks" → quantity 3 |
-| `alternative` | string | no | "" | Free text — "or fleece blankets if no bag" |
+| `alternative` | string | no | "" | Free text - "or fleece blankets if no bag" |
 
 ## Layouts to create
 
@@ -118,12 +118,12 @@ Each category block:
 | `layouts/kit-lists/list.html` | `/kit-lists/` index, grouped by section |
 | `layouts/kit-lists/single.html` | `/kit-lists/<slug>/` (on-screen) |
 | `layouts/kit-lists/print.html` | `/kit-lists/<slug>/print/` (printable view) |
-| `layouts/partials/kit-list-categories.html` | Category-by-category list — both views call this with a `mode` param |
-| `layouts/partials/kit-list-item.html` | Single item row — `mode = "screen"` shows quantity badge + alternative; `mode = "print"` prepends a checkbox |
+| `layouts/partials/kit-list-categories.html` | Category-by-category list - both views call this with a `mode` param |
+| `layouts/partials/kit-list-item.html` | Single item row - `mode = "screen"` shows quantity badge + alternative; `mode = "print"` prepends a checkbox |
 | `layouts/partials/kit-phone-policy.html` | Reusable phone-policy block |
 | `layouts/shortcodes/kit-list.html` | Transclude a kit list inside another page (e.g. an event) |
 
-The print route is implemented as a Hugo subpage —
+The print route is implemented as a Hugo subpage -
 `content/kit-lists/<slug>/print.md` would be one approach, but cleaner
 is a custom output format `KitListPrint` declared on the kit-lists
 content type so Hugo emits both `/kit-lists/<slug>/` (HTML) and
@@ -134,7 +134,7 @@ same source file.
 
 ```toml
 [params.features]
-  kit_lists = false                       # default OFF — opt-in
+  kit_lists = false                       # default OFF - opt-in
 
 [params.kit_lists]
   show_phone_policy_default = false
@@ -144,7 +144,7 @@ same source file.
 
 ## Asset paths
 
-Optional images per item or category — `assets/kit-lists/<slug>/<item>.jpg`.
+Optional images per item or category - `assets/kit-lists/<slug>/<item>.jpg`.
 Not used in v1; if a Group wants to illustrate a 3-season bag, they
 add an inline image via Markdown in the `intro` or `categories[].notes`.
 
@@ -162,7 +162,7 @@ add an inline image via Markdown in the `intro` or `categories[].notes`.
 
 - Single A4-friendly page.
 - Each item rendered as a checkbox row: `<label><input type="checkbox">
-  Item name (×3) — or fleece blankets</label>`.
+  Item name (×3) - or fleece blankets</label>`.
 - Two-column packed layout for compactness.
 - Hide nav, hide hero, hide non-essentials.
 - Page header: Group name + kit list title + camp dates if known +
@@ -184,7 +184,7 @@ Examples to include in the BSO archetype comment:
   assume travels
 
 The desert-climate starter-pack variants are particularly useful for
-BSO Groups in UAE, Saudi Arabia, Oman, Egypt etc. — high temperatures
+BSO Groups in UAE, Saudi Arabia, Oman, Egypt etc. - high temperatures
 and sun exposure change the kit list materially (sun hat mandatory,
 extra water, lighter sleeping bag, sand-suitable footwear).
 
@@ -194,26 +194,26 @@ extra water, lighter sleeping bag, sand-suitable footwear).
   affirmatively chooses to publish a policy. Configurable via i18n and
   front-matter. Recommended default mirrors 20th Worcester's pattern.
 - Don't include children's names in kit lists.
-- Don't include leaders' personal mobile numbers — only the Group
+- Don't include leaders' personal mobile numbers - only the Group
   duty mobile or generic email.
 
 ## Decided
 
 | Q | Decision |
 | --- | --- |
-| Q5.1 | **Structured items** — `{name, quantity, alternative}` records, not plain strings. Cleaner on-screen and supports the printable checkbox view. |
-| Q5.2 | **Yes** — ship a starter pack including desert-climate variants for Cubs weekend, Cubs summer, Scouts weekend, Scouts summer. Material reduction in friction for BSO Groups in hot climates. |
+| Q5.1 | **Structured items** - `{name, quantity, alternative}` records, not plain strings. Cleaner on-screen and supports the printable checkbox view. |
+| Q5.2 | **Yes** - ship a starter pack including desert-climate variants for Cubs weekend, Cubs summer, Scouts weekend, Scouts summer. Material reduction in friction for BSO Groups in hot climates. |
 | Q5.3 | **Free-text `additional_kit` on Event front-matter** (already in SPEC-02 schema). Cleaner than per-event override blocks. |
 | Q5.4 | **No PDF generation.** Printable browser route at `/kit-lists/<slug>/print/` with checkboxes covers the use case. Browser "Save as PDF" handles the export. |
 
 ## Out of scope (cross-references)
 
-- Per-young-person kit checking — that's leader paperwork, not
+- Per-young-person kit checking - that's leader paperwork, not
   website content.
 - Quartermaster inventory.
-- Hire-it kit ("we can lend you a sleeping bag") — Groups put this
+- Hire-it kit ("we can lend you a sleeping bag") - Groups put this
   in the `intro`.
-- Camp shop / Scout shop links — Markdown links in `intro`.
+- Camp shop / Scout shop links - Markdown links in `intro`.
 
 ## Implementation order
 
@@ -222,7 +222,7 @@ extra water, lighter sleeping bag, sand-suitable footwear).
 3. Replace with front-matter-driven categories.
 4. `layouts/partials/kit-list-categories.html` and `kit-list-item.html`
    with `mode` parameter.
-5. `layouts/kit-lists/print.html` — register custom output format,
+5. `layouts/kit-lists/print.html` - register custom output format,
    verify route emits.
 6. `layouts/kit-lists/list.html`.
 7. `layouts/partials/kit-phone-policy.html` + i18n string.

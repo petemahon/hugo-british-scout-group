@@ -1,4 +1,4 @@
-# exampleSite/hugo.toml — copy this into your Group's site as a starting point.
+# exampleSite/hugo.toml - copy this into your Group's site as a starting point.
 # Lines marked "# CHANGE ME" are the ones you should edit.
 
 baseURL      = "https://example.com/"             # CHANGE ME
@@ -8,7 +8,7 @@ theme        = "british-scout-group"
 enableRobotsTXT = true
 
 # This theme is hardcoded to British English (en-GB). The <html lang="en-GB">
-# attribute is set in baseof.html — do not configure other locales.
+# attribute is set in baseof.html - do not configure other locales.
 
 # Suppress Hugo's auto-generated taxonomy term/list pages. The shared
 # `section = "sections"` taxonomy (see [taxonomies] below) is used for
@@ -28,14 +28,14 @@ disableKinds = ["taxonomy", "term"]
   unsafe = true
 
 # -----------------------------------------------------------------------------
-# Custom output formats — used by the Events feature (SPEC-02).
+# Custom output formats - used by the Events feature (SPEC-02).
 #
-#   EventCalendar              — per-event .ics, rendered as event.ics next
+#   EventCalendar              - per-event .ics, rendered as event.ics next
 #                                to each event's index.html.
-#   EventsAggregateCalendar    — single feed of all upcoming events,
+#   EventsAggregateCalendar    - single feed of all upcoming events,
 #                                rendered at /events/all.ics so parents can
 #                                subscribe once.
-#   Calendar                   — generic .ics output format kept available
+#   Calendar                   - generic .ics output format kept available
 #                                for any future per-page calendar use.
 #
 # Wired up via `outputs` and a `[cascade]` block in
@@ -61,7 +61,7 @@ disableKinds = ["taxonomy", "term"]
   isPlainText    = true
   notAlternative = true
 
-# Welcome Pack — concatenated printable view (SPEC-06).
+# Welcome Pack - concatenated printable view (SPEC-06).
 # Rendered at /welcome-pack/print.html by layouts/welcome-pack/list.welcomepackprint.html.
 # Enabled on the welcome-pack section via `outputs = […]` in its _index.md.
 [outputFormats.WelcomePackPrint]
@@ -70,7 +70,7 @@ disableKinds = ["taxonomy", "term"]
   isHTML         = true
   notAlternative = true
 
-# Kit lists — per-list printable checkbox view (SPEC-05).
+# Kit lists - per-list printable checkbox view (SPEC-05).
 # Rendered at /kit-lists/<slug>/print.html by single.kitlistprint.html.
 # Enabled on every kit-list page via the [cascade] in
 # content/kit-lists/_index.md.
@@ -93,7 +93,7 @@ disableKinds = ["taxonomy", "term"]
   # The home-page hero splits the site title into three pieces so the
   # optional intro animation can fly the "prefix" portion up to the nav.
   # Keeping the split consistent with `title` is the author's responsibility
-  # — the theme does not validate it.
+  # - the theme does not validate it.
   #
   #   Convention:  title  ==  groupPrefix + " " + groupSuffix
   #
@@ -116,7 +116,7 @@ disableKinds = ["taxonomy", "term"]
 
   heroIntro = true
 
-  description     = "Skills for Life — placeholder description for the example Scout Group site."
+  description     = "Skills for Life - placeholder description for the example Scout Group site."
   favicon         = "images/favicon.png"               # CHANGE ME (optional)
 
   copyrightOwner  = "1st Anytown Scouts"               # CHANGE ME
@@ -124,16 +124,16 @@ disableKinds = ["taxonomy", "term"]
 
   # Note: pre-D13 the footer accepted a `footerBg` param controlling
   # background tone (muted/primary/.../dark). D13 made the footer a
-  # brand-anchor surface — always Scouts Navy regardless of palette —
+  # brand-anchor surface - always Scouts Navy regardless of palette -
   # and the param is now ignored. Removed here; safe to delete from
   # consuming sites.
 
 # -----------------------------------------------------------------------------
-# Footer — see partials/footer.html for schema. All fields optional.
+# Footer - see partials/footer.html for schema. All fields optional.
 # Up to four columns; the responsive grid handles 1/2/4 col layouts.
 # -----------------------------------------------------------------------------
 [params.footer]
-  tagline = "Skills for life in Anytown — and a slice of UK Scouting wherever you call home."
+  tagline = "Skills for life in Anytown - and a slice of UK Scouting wherever you call home."
 
   [[params.footer.columns]]
     heading = "Visit"
@@ -158,7 +158,7 @@ disableKinds = ["taxonomy", "term"]
       { label = "Privacy",                 url = "/privacy/" },
     ]
     # Charity number is rendered by the charity-info block (SPEC-07), driven
-    # by [params.governance] — no need to hardcode it as a footer item.
+    # by [params.governance] - no need to hardcode it as a footer item.
 
 # -----------------------------------------------------------------------------
 # BSO membership notice (POR 3.2.1.1)
@@ -171,7 +171,7 @@ disableKinds = ["taxonomy", "term"]
   hostScoutingAssociation = "Emirates Scout Association" # CHANGE ME
 
 # -----------------------------------------------------------------------------
-# BSO — site-level master switch + Joining Hub (SPEC-10) config.
+# BSO - site-level master switch + Joining Hub (SPEC-10) config.
 #
 # `enabled` is the site-wide master switch for every BSO render path:
 #   - the bso-membership-notice partial (also separately enabled via
@@ -214,9 +214,9 @@ disableKinds = ["taxonomy", "term"]
   bso_area_url           = "https://www.britishscoutingoverseas.org.uk/"
 
 # -----------------------------------------------------------------------------
-# Scout Sections — toggle which sections your Group runs.
+# Scout Sections - toggle which sections your Group runs.
 #
-# That's it. Logos ship with the theme — you don't need to download or
+# That's it. Logos ship with the theme - you don't need to download or
 # configure them. Brand asset maintenance is centralised in the theme repo.
 # -----------------------------------------------------------------------------
 [params.scoutSections]
@@ -228,7 +228,7 @@ disableKinds = ["taxonomy", "term"]
   network   = { enable = false }   # opt-in; default off (see DECISIONS.md)
 
 # -----------------------------------------------------------------------------
-# Feature flags — every theme feature defaults OFF and is opted into here.
+# Feature flags - every theme feature defaults OFF and is opted into here.
 # Set to true ONLY when your Group has the editorial commitment to maintain
 # the feature: stale published content damages credibility more than no
 # content. The exampleSite turns everything on so the demo exercises every
@@ -253,7 +253,7 @@ disableKinds = ["taxonomy", "term"]
 
 
 # -----------------------------------------------------------------------------
-# News & Camp Reports — see SPEC-01.
+# News & Camp Reports - see SPEC-01.
 # -----------------------------------------------------------------------------
 [params.news]
   posts_per_page        = 12     # listing page pagination
@@ -262,11 +262,11 @@ disableKinds = ["taxonomy", "term"]
   show_reading_time     = false  # pure-Hugo, no JS
 
 # -----------------------------------------------------------------------------
-# Events with .ics download — see SPEC-02.
+# Events with .ics download - see SPEC-02.
 #   timezone              IANA TZ used for events that don't override it.
 #   show_past_archive     If true, /events/past/ is built (a sub-section
 #                         that uses the same list template with archive=true).
-#   upcoming_window_days  Reserved for future use — listings are currently
+#   upcoming_window_days  Reserved for future use - listings are currently
 #                         filtered by `Date >= now`.
 #   default_count_on_home Default `count` for the events-upcoming home block.
 # -----------------------------------------------------------------------------
@@ -277,7 +277,7 @@ disableKinds = ["taxonomy", "term"]
   default_count_on_home = 4
 
 # -----------------------------------------------------------------------------
-# Termly Programme — see SPEC-03.
+# Termly Programme - see SPEC-03.
 #   keep_archive                  If true, past terms (term_end < today)
 #                                 remain on /programme/. Default false.
 #   default_density               Site-wide default for per-programme density.
@@ -295,7 +295,7 @@ disableKinds = ["taxonomy", "term"]
   show_theme_chips              = true
 
 # -----------------------------------------------------------------------------
-# Joining & Waiting List — see SPEC-06.
+# Joining & Waiting List - see SPEC-06.
 #   show_currency        Render the currency symbol on every fee value.
 #                        Set false if your Group quotes a single currency
 #                        and would rather not repeat it on every card.
@@ -309,7 +309,7 @@ disableKinds = ["taxonomy", "term"]
   show_volunteer_link  = true
 
 # -----------------------------------------------------------------------------
-# Welcome Pack — see SPEC-06.
+# Welcome Pack - see SPEC-06.
 #   print_route          Generate /welcome-pack/print.html (a single
 #                        concatenated HTML document). Default true.
 # -----------------------------------------------------------------------------
@@ -317,7 +317,7 @@ disableKinds = ["taxonomy", "term"]
   print_route = true
 
 # -----------------------------------------------------------------------------
-# Galleries — see SPEC-04.
+# Galleries - see SPEC-04.
 #   thumbs_per_row      Hint for the CSS Grid auto-fit (purely visual; the
 #                       grid is responsive regardless).
 #   show_captions       When true, captions in data/galleries/<slug>.toml
@@ -333,13 +333,13 @@ disableKinds = ["taxonomy", "term"]
   consent_policy_url = "/policies/photo-consent/"
 
 # -----------------------------------------------------------------------------
-# Kit lists — see SPEC-05.
+# Kit lists - see SPEC-05.
 #   printable_route            Emit the /kit-lists/<slug>/print.html checkbox
 #                              view (requires the KitListPrint output format
 #                              above + the [cascade] in the section _index).
 #   show_phone_policy_default  When true, kit lists that don't set
 #                              `phone_policy` in front-matter still render the
-#                              mobile-phone-policy block. Default false — each
+#                              mobile-phone-policy block. Default false - each
 #                              Group affirmatively opts in.
 #   default_phone_policy_text  Overrides the theme's neutral i18n default copy.
 #                              Leave blank to use the theme default.
@@ -350,17 +350,17 @@ disableKinds = ["taxonomy", "term"]
   default_phone_policy_text = ""
 
 # -----------------------------------------------------------------------------
-# Governance / charity info — see SPEC-07.
+# Governance / charity info - see SPEC-07.
 #   show_in_footer  When true (and features.governance is on AND a charity
 #                   number is set), the charity-info block renders in every
 #                   non-printing footer. A charity number never surfaces
 #                   without a governance page; a governance page can exist
 #                   with no charity listed.
 #   charity_*       Primary registration. This example uses British Scouting
-#                   Overseas' real England & Wales charity number — most BSO
+#                   Overseas' real England & Wales charity number - most BSO
 #                   Groups operate under it rather than registering separately.
 #   charity_secondary_*  Optional second jurisdiction (e.g. a BSO Group that
-#                   is ALSO a host-country legal entity — 1st Brussels is a
+#                   is ALSO a host-country legal entity - 1st Brussels is a
 #                   Belgian ASBL, BE1013020290). Left off here; uncomment and
 #                   set charity_secondary = true to exercise the dual block.
 # -----------------------------------------------------------------------------
@@ -376,10 +376,10 @@ disableKinds = ["taxonomy", "term"]
   # charity_secondary_url       = ""
 
 # -----------------------------------------------------------------------------
-# Trustee Board meeting summaries — see SPEC-13.
+# Trustee Board meeting summaries - see SPEC-13.
 #   Requires features.governance AND features.trustee_minutes (both above).
 #   Publishes SHORT, redacted PUBLIC SUMMARIES of board decisions at
-#   /about/governance/minutes/ — never the full minutes (those stay private;
+#   /about/governance/minutes/ - never the full minutes (those stay private;
 #   write them from documentation/templates/trustee-minutes-template.md).
 #   Each summary is a content file in content/about/minutes/ with
 #   `approved = true`; unapproved/draft files never publish.
@@ -390,7 +390,7 @@ disableKinds = ["taxonomy", "term"]
   level = "group"
 
 # -----------------------------------------------------------------------------
-# Wogglebox partner badge — opt-in "We use Wogglebox" badge near the home
+# Wogglebox partner badge - opt-in "We use Wogglebox" badge near the home
 # footer and on /kit-lists/. Wogglebox (wogglebox.app) is an independent, free
 # kit / quartermaster manager for Scout Groups. The badge SVG is self-hosted
 # (assets/images/wogglebox/) so no third-party request fires on page load; the
@@ -401,7 +401,7 @@ disableKinds = ["taxonomy", "term"]
   url     = "https://wogglebox.app/?utm_source=group-website&utm_medium=badge&utm_campaign=we-use-wogglebox"
 
 # -----------------------------------------------------------------------------
-# Fundraising & volunteering — see SPEC-09.
+# Fundraising & volunteering - see SPEC-09.
 #   show_giftaid                         Render the Gift Aid PDF link when set.
 #   show_external_links_section_heading  Heading above the giving-links block.
 # The "We're recruiting" conditional nav link is owned by SPEC-11 (it
@@ -418,7 +418,7 @@ disableKinds = ["taxonomy", "term"]
   nav_link_label = "We're recruiting"
 
 # -----------------------------------------------------------------------------
-# Hall hire — see SPEC-08.
+# Hall hire - see SPEC-08.
 #   show_currency_symbol  Prefix rate amounts with the currency symbol
 #                         (from data/currencies.toml).
 #   fully_booked          When true, renders the --warning banner at the top
@@ -430,7 +430,7 @@ disableKinds = ["taxonomy", "term"]
   fully_booked         = false
 
 # -----------------------------------------------------------------------------
-# Taxonomies — single shared taxonomy across content types per SPEC-COMMON §8.
+# Taxonomies - single shared taxonomy across content types per SPEC-COMMON §8.
 # The values are the keys from data/scout_sections.toml. The auto-generated
 # taxonomy term/list pages are suppressed via top-level disableKinds (above);
 # user-visible filter pages live at /news/sections/<scout-section>/ etc.
@@ -439,7 +439,7 @@ disableKinds = ["taxonomy", "term"]
   section = "sections"
 
 # -----------------------------------------------------------------------------
-# Navigation (SPEC-11) is AUTO-BUILT from the feature flags above — there is
+# Navigation (SPEC-11) is AUTO-BUILT from the feature flags above - there is
 # no [[menu.main]] to curate. Turning a feature on adds its nav entry;
 # turning it off removes it. Labels are customised via i18n (nav* keys);
 # order and hierarchy are owned by the theme.

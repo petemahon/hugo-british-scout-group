@@ -1,5 +1,5 @@
 +++
-title             = "Cubs — Summer Term 2026"
+title             = "Cubs - Summer Term 2026"
 section           = "cubs"
 term              = "Summer 2026"
 term_start        = 2026-04-15
@@ -7,7 +7,7 @@ term_end          = 2026-07-15
 term_anchor       = "British School in Anytown Summer Term"
 density           = "full"
 district_approved = true
-notes             = "Week 8 is half-term (no meeting). Pack camp is in week 10 — kit list link below."
+notes             = "Week 8 is half-term (no meeting). Pack camp is in week 10 - kit list link below."
 kit_list_ref      = "/kit-lists/cubs-summer-camp/"
 
 [[weeks]]
@@ -15,7 +15,7 @@ kit_list_ref      = "/kit-lists/cubs-summer-camp/"
   date   = 2026-04-15
   title  = "Welcome back & investiture"
   themes = ["skills-for-life", "beliefs-and-attitudes"]
-  notes  = "Bring your necker. New Cubs welcome — uniform optional for week 1."
+  notes  = "Bring your necker. New Cubs welcome - uniform optional for week 1."
 
 [[weeks]]
   number = 2
@@ -29,14 +29,14 @@ kit_list_ref      = "/kit-lists/cubs-summer-camp/"
   date   = 2026-04-29
   title  = "Fire-lighting safety"
   themes = ["outdoor-and-adventure", "try-new-things"]
-  notes  = "Long sleeves and closed shoes. Activity at the hut — no off-site travel."
+  notes  = "Long sleeves and closed shoes. Activity at the hut - no off-site travel."
 
 [[weeks]]
   number            = 4
   date              = 2026-05-06
   title             = "Community link visit"
   themes            = ["community-impact"]
-  notes             = "Visitor from a local community group — short talk, then Q&A."
+  notes             = "Visitor from a local community group - short talk, then Q&A."
   cancelled         = true
   cancellation_note = "Visit postponed to the autumn term; meeting cancelled."
 
@@ -50,14 +50,14 @@ kit_list_ref      = "/kit-lists/cubs-summer-camp/"
 [[weeks]]
   number = 6
   date   = 2026-05-20
-  title  = "Naturalist activity badge — part 1"
+  title  = "Naturalist activity badge - part 1"
   themes = ["outdoor-and-adventure", "live-up-to-our-values"]
   notes  = "Local walk. Sturdy shoes and a water bottle."
 
 [[weeks]]
   number = 7
   date   = 2026-06-03
-  title  = "Naturalist activity badge — part 2"
+  title  = "Naturalist activity badge - part 2"
   themes = ["outdoor-and-adventure", "live-up-to-our-values"]
   notes  = "Habitat survey at the hut grounds. Bring a notebook."
 
@@ -73,12 +73,12 @@ kit_list_ref      = "/kit-lists/cubs-summer-camp/"
   date   = 2026-06-24
   title  = "Pioneering basics"
   themes = ["teamwork-and-leadership", "outdoor-and-adventure"]
-  notes  = "Lashings and frapping turns. Outdoor — please bring layers."
+  notes  = "Lashings and frapping turns. Outdoor - please bring layers."
 
 [[weeks]]
   number = 10
   date   = 2026-07-04
-  title  = "Pack camp — Anytown Common"
+  title  = "Pack camp - Anytown Common"
   themes = ["have-adventures", "outdoor-and-adventure", "teamwork-and-leadership"]
   notes  = "Saturday-Sunday camp. See the kit list link below for the full pack list. Leaders' phone numbers will be circulated separately."
 
@@ -93,4 +93,4 @@ kit_list_ref      = "/kit-lists/cubs-summer-camp/"
 This term we're building towards the **Naturalist activity badge** and
 a weekend Pack camp at Anytown Common. A typical Cubs term: fire-lighting,
 map work, a community visit, and plenty of outdoor time. Half-term falls in
-week 8 — no meeting that week.
+week 8 - no meeting that week.

@@ -3,9 +3,9 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Events listing — /events/.
+  Events listing - /events/.
 
-  Renders the future-only events grid (acceptance criterion #1 — past
+  Renders the future-only events grid (acceptance criterion #1 - past
   events hidden by default; archive route is its own sub-section). Each
   card is rendered by the shared event-card.html partial so home-page
   block, listing and per-section term page all look the same.
@@ -35,7 +35,7 @@
     {{- $events = $events.ByDate -}}
   {{- end -}}
 
-  {{- /* Heading text — Hugo's parser doesn't accept `else if` directly
+  {{- /* Heading text - Hugo's parser doesn't accept `else if` directly
          after `with`, so compute the heading text into a variable first
          (with `if .Title` rather than `with .Title`). */ -}}
   {{- $headingText := "" -}}

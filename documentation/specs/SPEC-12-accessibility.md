@@ -11,7 +11,7 @@ visibility, and the parts of the no-JS dropdown nav that need
 non-obvious markup to behave well.
 
 This is the cross-cutting feature that hardens every page rendered by
-the theme. Like SPEC-11, it has no `params.features.<name>` flag — it
+the theme. Like SPEC-11, it has no `params.features.<name>` flag - it
 is always on. There is no opt-in or opt-out.
 
 UK Scouts websites are public-facing community sites and reach a
@@ -71,14 +71,14 @@ correctness requirement.
 
 **Out of scope:**
 
-- Screen-reader-only "Skip to nav" / "Skip to footer" — only the
+- Screen-reader-only "Skip to nav" / "Skip to footer" - only the
   one main-content skip link.
 - ARIA live regions (no JS, no dynamic updates).
 - Reading order beyond what semantic HTML provides.
 - Mouseless drag-and-drop (no DnD anywhere in the theme).
-- Captions or transcripts for video — galleries link out only
+- Captions or transcripts for video - galleries link out only
   (SPEC-04), no embeds, so no captioning concern in the theme.
-- Sign-language alternatives for video — same reason.
+- Sign-language alternatives for video - same reason.
 
 ## hugo.toml additions
 
@@ -90,7 +90,7 @@ No new feature flag. The accessibility behaviour is unconditional.
 | --- | --- |
 | `layouts/_default/baseof.html` | Add `<a class="skip-link" href="#main">Skip to main content</a>` as the first child of `<body>`. Add `<main id="main">` wrapper around the existing main slot. Add `<nav aria-label="Main">` wrapper inside `partials/header-nav.html` (SPEC-11 already does this, this spec just confirms the contract). |
 | `layouts/_default/baseof.html` | Heading-order audit: a single `<h1>` per page, sourced from `.Title`. Section partials use `<h2>` (already do). |
-| `layouts/partials/audit-headings.html` | Build-time audit; calls `errorf` if it detects an `<h1>` produced inside a section partial. (Pattern: scan `.Content` for `<h1>` regex; for partial-produced markup, this requires each section partial to surface its own headings via a contract — see implementation order.) |
+| `layouts/partials/audit-headings.html` | Build-time audit; calls `errorf` if it detects an `<h1>` produced inside a section partial. (Pattern: scan `.Content` for `<h1>` regex; for partial-produced markup, this requires each section partial to surface its own headings via a contract - see implementation order.) |
 | `assets/css/theme.css` | New `/* ----- a11y ----- */` banner: skip link, focus ring, reduced motion, screen-reader-only utility class. |
 
 ## CSS additions
@@ -160,7 +160,7 @@ get used) override.
 | `classic-purple` | `--primary` (Scouts Purple) |
 | `adventure` | `--primary` |
 | `coastal` | `--primary` |
-| `vibrant` | TBD — palette-specific override likely needed |
+| `vibrant` | TBD - palette-specific override likely needed |
 | `network` | `--primary` |
 
 Resolves to a 4.5:1 contrast against `--bg` in every palette. The
@@ -184,7 +184,7 @@ The audit partial maintains a running list scoped to the page. After
 the page renders, `audit-headings.html` checks: exactly one `<h1>`
 (from baseof's `.Title`), and no section claims a level less than 2.
 
-This is build-time, not runtime — Hugo's render pipeline doesn't
+This is build-time, not runtime - Hugo's render pipeline doesn't
 allow proper post-processing, so the implementation reads the
 rendered HTML via `.RawContent` for body content and a partial-side
 contract for partials. **Implementation note:** a perfect heading
@@ -199,7 +199,7 @@ Generalised from SPEC-01's pattern. The `cover_alt`-required check
 
 - News (already in SPEC-01)
 - Galleries (SPEC-04)
-- Events (SPEC-02 — when `poster_image` is set)
+- Events (SPEC-02 - when `poster_image` is set)
 - History (SPEC-07)
 - Hall hire (SPEC-08)
 
@@ -254,7 +254,7 @@ audit fails the PR but doesn't block a manual override merge.
 | Q | Decision |
 | --- | --- |
 | Q12.1 | WCAG 2.2 AA is the floor; AAA is aspirational. Sites publishing this theme should not need to do additional a11y work to be accessibility-compliant. |
-| Q12.2 | No JS for accessibility — keyboard support comes from `:focus-within`, semantic markup, and the pure-CSS dropdown patterns specified in SPEC-11. |
+| Q12.2 | No JS for accessibility - keyboard support comes from `:focus-within`, semantic markup, and the pure-CSS dropdown patterns specified in SPEC-11. |
 | Q12.3 | Focus ring is a palette-level token. Each palette in `data/palettes.toml` declares its own; falls back to `--primary` if omitted. |
 | Q12.4 | Heading-order audit is build-time when feasible, downgrades to documented manual-review if the build-time check is brittle. |
 | Q12.5 | Image-alt lints are uniform across content types via `partials/audit-image.html`. SPEC-01's existing inline lint becomes the reference implementation; SPEC-04, -02, -07, -08 inherit it. |

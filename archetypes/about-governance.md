@@ -10,7 +10,7 @@ title       = "Governance"
 # Optional HTML intro above the trustee list.
 # intro     = "We are a registered charity run by a volunteer Trustee Board."
 
-# Next AGM — all free text, all optional.
+# Next AGM - all free text, all optional.
 # agm_date      = "Tuesday 13 May 2026, 19:30"
 # agm_location  = "Anytown Scout Hut, 11 Hut Lane"
 # agm_papers_url = "/about/reports/2026-agm-papers.pdf"
@@ -22,7 +22,7 @@ show_reports_archive = true
 draft = true
 +++
 
-Optional Markdown body — renders below the trustee list and AGM
+Optional Markdown body - renders below the trustee list and AGM
 details. The charity number and regulator come from
 `[params.governance]` in hugo.toml (not this page); the trustee board
 comes from `data/trustees.toml`.

@@ -10,8 +10,8 @@ Waiting List / Closed), age range, fee, meeting night, and what
 parents need to commit. Multi-pack support is configurable for
 Groups that run more than one Pack/Troop within a section.
 
-The Welcome Pack ships as a printable Hugo content section — a set
-of pages with a print-friendly stylesheet — replacing the original
+The Welcome Pack ships as a printable Hugo content section - a set
+of pages with a print-friendly stylesheet - replacing the original
 "download a PDF" pattern. Sample content and structural guidelines
 ship with the theme.
 
@@ -23,7 +23,7 @@ Sevenoaks (Welcome Pack pattern).
 ## Acceptance criteria
 
 1. A page exists at `/join/` rendering one card per section the Group
-   runs (toggled via `params.scoutSections` — already in theme),
+   runs (toggled via `params.scoutSections` - already in theme),
    with multi-pack support: a section with multiple packs renders
    one card per pack.
 2. Each card shows: section logo, age range, status badge, meeting
@@ -79,10 +79,10 @@ data/sections_status.toml           # source of truth, edited by Group
 | `intro` | string (HTML allowed) | no | "" | Renders below heading, above cards |
 | `welcome_pack_url` | string | no | "/welcome-pack/" | Path to Welcome Pack section, or external URL |
 | `welcome_pack_label` | string | no | "Read our Welcome Pack" | |
-| `osm_waiting_list_url` | string | no | — | Direct OSM URL — overrides per-card emails when present |
-| `enquiry_email` | string | no | — | Generic Group email for enquiries |
+| `osm_waiting_list_url` | string | no | - | Direct OSM URL - overrides per-card emails when present |
+| `enquiry_email` | string | no | - | Generic Group email for enquiries |
 | `volunteer_link_text` | string | no | "We need you too" | Bridge to SPEC-09 |
-| `bso_eligibility_summary` | string (HTML allowed) | no | "" | BSO only — short eligibility blurb |
+| `bso_eligibility_summary` | string (HTML allowed) | no | "" | BSO only - short eligibility blurb |
 
 ## Data schema (`data/sections_status.toml`)
 
@@ -122,18 +122,18 @@ multiple. The `pack_name` field renders only when populated.
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `pack_name` | string | no | "" | Empty = single-pack section, no name shown |
-| `status` | enum | yes | — | "open" \| "waiting" \| "closed" |
-| `meeting_night` | string | yes | — | "Monday", "Tuesday", … |
-| `meeting_start` | string | yes | — | "17:30" |
-| `meeting_end` | string | yes | — | "18:30" |
+| `status` | enum | yes | - | "open" \| "waiting" \| "closed" |
+| `meeting_night` | string | yes | - | "Monday", "Tuesday", … |
+| `meeting_start` | string | yes | - | "17:30" |
+| `meeting_end` | string | yes | - | "18:30" |
 | `fee` | string | no | "" | Number as string, e.g. "30" |
 | `fee_currency` | string | no | "GBP" | ISO 4217 |
 | `fee_period` | string | no | "term" | "term" \| "month" \| "year" |
-| `contact_email` | string | no | — | Per-pack email |
-| `description` | string (HTML allowed) | no | — | Card body |
-| `waiting_url` | string | no | — | OSM URL, used when `status = "waiting"` |
-| `bso_language` | string | no | — | BSO only |
-| `bso_nationality_note` | string | no | — | BSO only |
+| `contact_email` | string | no | - | Per-pack email |
+| `description` | string (HTML allowed) | no | - | Card body |
+| `waiting_url` | string | no | - | OSM URL, used when `status = "waiting"` |
+| `bso_language` | string | no | - | BSO only |
+| `bso_nationality_note` | string | no | - | BSO only |
 
 Currency rendering: a `data/currencies.toml` map provides the symbol
 for each ISO code (reused by SPEC-09 and SPEC-10).
@@ -146,19 +146,19 @@ covering the standard topics observed in research (4th Sevenoaks, 1st
 Welwyn, 1st Alton Manor, 3rd Bookham). Groups copy the starter into
 their site and edit.
 
-### Starter pack — sample content guidelines
+### Starter pack - sample content guidelines
 
 Each page is a normal Hugo page with title, body, optional intro
 image, and a `weight` for ordering.
 
-**`_index.md`** — Welcome Pack cover page
+**`_index.md`** - Welcome Pack cover page
 
 - Group name, current academic year, version, last reviewed date.
 - A nav listing the chapters with brief descriptions.
 - "Print all" link to `/welcome-pack/print.html` (compiles all
-  chapters into one printable page — see Layouts).
+  chapters into one printable page - see Layouts).
 
-**`about.md`** — About the Group
+**`about.md`** - About the Group
 
 - One-paragraph history (link to SPEC-07 if enabled).
 - Where we meet (link to existing "Where we meet" section).
@@ -166,14 +166,14 @@ image, and a `weight` for ordering.
 - Charity number & regulator (if `params.governance.charity_number`
   is set).
 
-**`sections.md`** — What each section does
+**`sections.md`** - What each section does
 
 - Per-section block: age range (from `data/scout_sections.toml`),
   meeting times (from `data/sections_status.toml`), what a typical
   meeting looks like.
 - Use the section colour from `data/scout_sections.toml`.
 
-**`joining.md`** — How to join, subs, what to bring
+**`joining.md`** - How to join, subs, what to bring
 
 - Joining process (waiting list, OSM signup, first-night reminder).
 - Subs: amount, currency, period, payment method, hardship policy.
@@ -181,7 +181,7 @@ image, and a `weight` for ordering.
 - What to bring on a typical night (tied to the kit-lists feature
   if enabled).
 
-**`safeguarding.md`** — Code of conduct & photo policy
+**`safeguarding.md`** - Code of conduct & photo policy
 
 - A clear statement that the Group is part of The Scout Association
   and follows TSA safeguarding policy.
@@ -189,11 +189,11 @@ image, and a `weight` for ordering.
 - Photo consent: how the Group records and respects it (link to
   `/policies/photo-consent/` from SPEC-04 if enabled).
 - Health & medication: how forms are collected (NOT collected on the
-  website — refer to OSM or first-night paperwork).
+  website - refer to OSM or first-night paperwork).
 - GDPR: where data is held, retention period, who to contact for
   removal.
 
-**`calendar.md`** — Termly calendar overview
+**`calendar.md`** - Termly calendar overview
 
 - High-level term dates (link to SPEC-03 if enabled).
 - Annual fixtures: St George's Day Parade, Remembrance Sunday,
@@ -208,7 +208,7 @@ content for their own context.
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | The question |
+| `title` | string | yes | - | The question |
 | `weight` | int | no | filename order | Display order |
 
 Body: free Markdown.
@@ -220,7 +220,7 @@ Body: free Markdown.
 | `layouts/join/single.html` | `/join/` page |
 | `layouts/welcome-pack/list.html` | `/welcome-pack/` cover page |
 | `layouts/welcome-pack/single.html` | Per-chapter page |
-| `layouts/welcome-pack/list.welcomepackprint.html` | `/welcome-pack/print.html` — concatenated, print-styled (custom output format) |
+| `layouts/welcome-pack/list.welcomepackprint.html` | `/welcome-pack/print.html` - concatenated, print-styled (custom output format) |
 | `layouts/partials/joining-grid.html` | The cards |
 | `layouts/partials/joining-card.html` | Per-pack card |
 | `layouts/partials/joining-faq.html` | FAQ accordion |
@@ -233,8 +233,8 @@ section list page.
 
 ```toml
 [params.features]
-  joining       = false              # default OFF — opt-in
-  welcome_pack  = false              # default OFF — opt-in
+  joining       = false              # default OFF - opt-in
+  welcome_pack  = false              # default OFF - opt-in
 
 [params.joining]
   show_currency      = true
@@ -259,13 +259,13 @@ The existing `params.scoutSections` toggles which cards render.
   - Open: `var(--status-open)`
   - Waiting: `var(--status-waiting)`
   - Closed: `var(--status-closed)`
-- FAQ: `<details>` / `<summary>` — no JS. Print stylesheet forces
+- FAQ: `<details>` / `<summary>` - no JS. Print stylesheet forces
   `details[open] > *, details > *` reset so all answers print
   expanded.
 - Welcome Pack chapter pages: serif body for readability, generous
   margins. Print stylesheet hides nav, optimises for A4.
 
-## BSO notes — first-class
+## BSO notes - first-class
 
 When `[params.bso].enabled = true`:
 
@@ -296,11 +296,11 @@ When `[params.bso].enabled = false`, the BSO-specific fields are ignored.
 
 | Q | Decision |
 | --- | --- |
-| Q6.1 | **Yes** — three new palette tokens `--status-open`, `--status-waiting`, `--status-closed`. Defined per palette in `data/palettes.toml`. |
-| Q6.2 | **Multi-pack supported** — `data/sections_status.toml` uses array-per-section pattern (`[[cubs]]` repeated). Single-pack Groups have one entry; multi-pack Groups add more. `pack_name` field renders only when populated. |
-| Q6.3 | **Welcome Pack as printable Hugo content section** — `/welcome-pack/` with chapters; `/welcome-pack/print.html` (a `WelcomePackPrint` custom output format on the section list page) for the concatenated printable view. Starter content ships in `exampleSite/`. |
-| Q6.4 | **No Word version** — superseded by Q6.3. The Markdown chapters in the starter pack are themselves the editable template. |
-| Q6.5 | **Yes** — print stylesheet forces `<details>` open. Standard accessibility. |
+| Q6.1 | **Yes** - three new palette tokens `--status-open`, `--status-waiting`, `--status-closed`. Defined per palette in `data/palettes.toml`. |
+| Q6.2 | **Multi-pack supported** - `data/sections_status.toml` uses array-per-section pattern (`[[cubs]]` repeated). Single-pack Groups have one entry; multi-pack Groups add more. `pack_name` field renders only when populated. |
+| Q6.3 | **Welcome Pack as printable Hugo content section** - `/welcome-pack/` with chapters; `/welcome-pack/print.html` (a `WelcomePackPrint` custom output format on the section list page) for the concatenated printable view. Starter content ships in `exampleSite/`. |
+| Q6.4 | **No Word version** - superseded by Q6.3. The Markdown chapters in the starter pack are themselves the editable template. |
+| Q6.5 | **Yes** - print stylesheet forces `<details>` open. Standard accessibility. |
 
 ## Out of scope (cross-references)
 
@@ -330,7 +330,7 @@ When `[params.bso].enabled = false`, the BSO-specific fields are ignored.
     eligibility notes.
 11. Welcome Pack section: `layouts/welcome-pack/list.html`,
     `single.html`, `print.html` (custom output format).
-12. Starter pack content in `exampleSite/content/welcome-pack/` —
+12. Starter pack content in `exampleSite/content/welcome-pack/` -
     five chapters (about, sections, joining, safeguarding, calendar)
     plus the `_index.md` cover page, covering the topics above.
 13. Print stylesheets for both `/join/` and `/welcome-pack/print/`.

@@ -1,8 +1,8 @@
 +++
 title = "Support us"
-intro = "Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people — and gift-aided donations go further still."
+intro = "Subs cover the basics, but camps, equipment and keeping a roof over the hut all cost more than subs alone can carry. Every pound raised goes straight back into Scouting for local young people - and gift-aided donations go further still."
 
-# External giving links — URLs only. Replace with your Group's own.
+# External giving links - URLs only. Replace with your Group's own.
 donate_url          = "https://example.com/donate"
 donate_label        = "Make a donation"
 easyfundraising_url = "https://www.easyfundraising.org.uk/causes/example-scouts/"
@@ -17,13 +17,13 @@ justgiving_url      = "https://www.justgiving.com/example-scouts"
 [[fundraising_activities]]
   name          = "100 Club"
   when          = "Monthly draw"
-  detail        = "A monthly prize draw — members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join."
+  detail        = "A monthly prize draw - members and parents buy a number for a few pounds a month, half the pot goes to a winner and half to the Group. Ask a leader to join."
   contact_email = ""
 
 [[fundraising_activities]]
   name          = "Bag packing & bonfire BBQ"
   when          = "Autumn"
-  detail        = "Seasonal events we run with the whole Group — many hands needed, and a good excuse to get everyone together."
+  detail        = "Seasonal events we run with the whole Group - many hands needed, and a good excuse to get everyone together."
   contact_email = ""
 
 [annual_budget]
@@ -37,6 +37,6 @@ justgiving_url      = "https://www.justgiving.com/example-scouts"
 draft = false
 +++
 
-Thank you to everyone who supports the Group — whether by giving, by
+Thank you to everyone who supports the Group - whether by giving, by
 turning out to help at events, or by shopping through easyfundraising.
 It genuinely keeps us running.

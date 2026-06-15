@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -39,20 +39,20 @@
           - generic [ref=e32]: British Scouting Overseas
           - heading "Who can join 1st Anytown Scouts" [level=1] [ref=e33]
         - generic [ref=e34]:
-          - paragraph [ref=e35]: BSO Groups operate under The Scout Association's Policy, Organisation and Rules (POR). Youth membership is open to anyone living in the host country who isn't a national of it — UK families, third-country families, dual-nationals whose other nationality isn't the host country. Volunteer membership is open to anyone over 18 regardless of nationality. The detail below explains the practical eligibility in plain English; POR 3.2.1.1 is the canonical rule.
+          - paragraph [ref=e35]: BSO Groups operate under The Scout Association's Policy, Organisation and Rules (POR). Youth membership is open to anyone living in the host country who isn't a national of it - UK families, third-country families, dual-nationals whose other nationality isn't the host country. Volunteer membership is open to anyone over 18 regardless of nationality. The detail below explains the practical eligibility in plain English; POR 3.2.1.1 is the canonical rule.
           - generic [ref=e36]:
             - heading "Language" [level=3] [ref=e37]
             - paragraph [ref=e38]: We meet in English. Children are warmly welcomed regardless of background as long as they (or their carers) are comfortable enough in English to follow the session and the safeguarding language.
           - generic [ref=e39]:
             - heading "Nationality" [level=3] [ref=e40]
             - paragraph [ref=e41]:
-              - text: Membership of British Scouting Overseas is for families who are not nationals of the United Arab Emirates. UAE nationals are warmly directed to the Emirates Scout Association — see
+              - text: Membership of British Scouting Overseas is for families who are not nationals of the United Arab Emirates. UAE nationals are warmly directed to the Emirates Scout Association - see
               - link "scouting in the UAE" [ref=e42] [cursor=pointer]:
                 - /url: /bso/host-scouting/
               - text: .
           - generic [ref=e43]:
             - heading "Volunteering" [level=3] [ref=e44]
-            - paragraph [ref=e45]: Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles.
+            - paragraph [ref=e45]: Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of the host country. See the volunteer page for the current roles.
           - generic [ref=e46]:
             - heading "Not eligible for BSO?" [level=3] [ref=e47]
             - paragraph [ref=e48]:
@@ -65,7 +65,7 @@
               - text: (This follows
               - link "POR 3.2.1.1" [ref=e52] [cursor=pointer]:
                 - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
-              - text: — The Scout Association's rule for every BSO group.)
+              - text: - The Scout Association's rule for every BSO group.)
         - generic "British Scouting Overseas links" [ref=e53]:
           - paragraph [ref=e54]: Part of British Scouting Overseas.
           - list [ref=e55]:
@@ -82,7 +82,7 @@
           - generic [ref=e64]:
             - img [ref=e65]
             - generic [ref=e67]: 1st Anytown Scouts
-          - paragraph [ref=e68]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e68]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e69]:
           - heading "Visit" [level=5] [ref=e70]
           - list [ref=e71]:
@@ -111,7 +111,7 @@
               - link "Privacy" [ref=e90] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e91]:
-        - generic [ref=e92]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e92]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e93]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e95]:
         - text: "Registered charity:"

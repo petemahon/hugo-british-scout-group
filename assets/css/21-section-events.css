@@ -1,7 +1,7 @@
 /* =============================================================================
-   21. SECTION: EVENTS — events-upcoming home block, /events/ listing,
+   21. SECTION: EVENTS - events-upcoming home block, /events/ listing,
                         /events/sections/<key>/ taxonomy term page.
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    This file owns every selector under .s-events-upcoming, .s-events, .ev-card,
@@ -31,7 +31,7 @@
      Modern browsers (Chrome 115+, Safari 26+):
        Scroll-driven CSS animations fade each chevron in/out based on the
        carousel's scrollLeft. Left chevron is invisible at scrollLeft=0,
-       full at scrollLeft>0. Right chevron is the reverse — full when more
+       full at scrollLeft>0. Right chevron is the reverse - full when more
        content lies to the right, fading to invisible as the last card
        comes flush with the viewport.
 
@@ -41,7 +41,7 @@
        are still visually correct in the most common case (3+ cards) where
        both ends of the scroll have content beyond.
 
-   The chevrons are non-interactive — they're affordance markers, not
+   The chevrons are non-interactive - they're affordance markers, not
    controls. Swipe is the input on mobile.
    ============================================================================= */
 
@@ -157,7 +157,7 @@
 
 /* ── Mobile scroll-indicator chevrons ──────────────────────── */
 
-/* Render only below the desktop breakpoint — desktop is a wrap-to-row
+/* Render only below the desktop breakpoint - desktop is a wrap-to-row
    grid with no horizontal scroll, so chevrons are meaningless. */
 .s-events-upcoming__chevron {
   position: absolute;
@@ -196,7 +196,7 @@
   .s-events-upcoming__chevron { display: none; }
 }
 
-/* Scroll-driven fade — modern browsers only. Each chevron's opacity is
+/* Scroll-driven fade - modern browsers only. Each chevron's opacity is
    keyframed against the carousel's horizontal scroll progress (0–100%).
    In unsupported browsers this block is silently ignored and the static
    opacity above remains. */
@@ -235,7 +235,7 @@
 
 /* ── Event card ────────────────────────────────────────────── */
 
-/* The card is a single anchor wrapping all internals — bigger touch
+/* The card is a single anchor wrapping all internals - bigger touch
    target, no nested anchors. The `.styled-link` sentinel opts out of
    the dark-bg auto-underline rule per DECISIONS.md. */
 .ev-card {
@@ -316,7 +316,7 @@
 }
 
 
-/* ── Card body — title, meta, badges ──────────────────────── */
+/* ── Card body - title, meta, badges ──────────────────────── */
 
 .ev-card__body { min-width: 0; }   /* prevent grid-row overflow from long titles */
 
@@ -355,7 +355,7 @@
 
 /* ── Section + status pills (dot-prefix style) ────────────── */
 
-/* These rules apply to ANY .badges usage — event-card meta row, news
+/* These rules apply to ANY .badges usage - event-card meta row, news
    card meta row, the Stage C section-shortcut nav pills above the
    events grid, anywhere else a .badges list is rendered. The
    .ev-card-scoped rules below add only card-specific size bumps. */
@@ -397,7 +397,7 @@
 
 /* The status pills (Cancelled / Postponed) sit in the same .badges
    container before the section pills. They use solid colour fills
-   rather than the dot-prefix style — they're event-state
+   rather than the dot-prefix style - they're event-state
    indicators, not section identity. */
 .badges__status {
   display: inline-flex;
@@ -503,7 +503,7 @@
 
 
 /* =============================================================================
-   D8 STAGE C — Section-shortcut pill row
+   D8 STAGE C - Section-shortcut pill row
    -----------------------------------------------------------------------------
    Append this block to assets/css/21-section-events.css.
 

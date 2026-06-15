@@ -12,7 +12,7 @@ consent_log   = "OSM > Personal Details > Photo Consent (Summer 2026 sweep)"
 sections      = ["squirrels", "beavers", "cubs"]
 event_ref     = "2026-07-12-summer-fete"
 
-# Video links exercise SPEC-04 §"Video links" — external URLs only,
+# Video links exercise SPEC-04 §"Video links" - external URLs only,
 # rendered as outbound cards. No embedded players, no hosted videos.
 # YouTube / Vimeo / Facebook hosts are auto-recognised; other hosts
 # show the bare hostname as the platform label.

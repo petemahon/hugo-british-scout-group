@@ -1,4 +1,4 @@
-# data/scout_sections.toml — the standard UK Scout sections.
+# data/scout_sections.toml - the standard UK Scout sections.
 #
 # This file defines the fixed metadata for each Scout section: the official
 # age range, scouts.org.uk URL, accessibility alt text, identity colours,
@@ -20,13 +20,13 @@
 # -----
 # One short, Group-generic line describing what the section does. Shown in
 # the vertical desktop card on the `scout-sections` home block (hidden on the
-# compact mobile rows). Optional — omit to fall back to the logo + age only.
+# compact mobile rows). Optional - omit to fall back to the logo + age only.
 #
 # Identity colours
 # ----------------
 # `colour` is the section's identity background colour (sourced from the
 # outer ring of each section's challenge badge, with brand-book substitutions
-# where Peter specified by name — see DECISIONS.md). `text_colour` is the
+# where Peter specified by name - see DECISIONS.md). `text_colour` is the
 # foreground colour to use on top of `colour`, chosen to meet WCAG AA
 # contrast for badge-pill labels. These are used on news cards, event
 # cards, gallery covers, joining cards, and anywhere else a section is
@@ -42,19 +42,19 @@
 # explicitly with `[params.scoutSections] network = { enable = true }`.
 #
 # Network's metadata (colour, URL, etc.) is still loaded for any feature
-# that needs to render a Network badge — e.g. tagging a news post about a
+# that needs to render a Network badge - e.g. tagging a news post about a
 # Network event. Only the home-page card is suppressed by default.
 #
 # Logos are official Scouts brand assets, downloaded from
 # https://scoutsbrand.org.uk by the theme maintainer. Groups DO NOT
-# substitute their own logos — the brand is centrally controlled and
+# substitute their own logos - the brand is centrally controlled and
 # the partial does not read a per-Group `logo` override.
 
 [[items]]
   key         = "squirrels"
   name        = "Squirrels"
   ages        = "4 to 6 years"
-  blurb       = "First steps into the outdoors — games, friendship and giving everything a go."
+  blurb       = "First steps into the outdoors - games, friendship and giving everything a go."
   logo        = "images/sections/squirrels.svg"
   url         = "https://www.scouts.org.uk/squirrels"
   alt         = "Logo for Squirrels Section"
@@ -76,7 +76,7 @@
   key         = "cubs"
   name        = "Cubs"
   ages        = "8 to 10 ½ years"
-  blurb       = "Hikes, badges and first sleepovers — plenty of chances to get stuck in."
+  blurb       = "Hikes, badges and first sleepovers - plenty of chances to get stuck in."
   logo        = "images/sections/cubs.svg"
   url         = "https://www.scouts.org.uk/cubs"
   alt         = "Logo for Cubs Section"
@@ -98,7 +98,7 @@
   key         = "explorers"
   name        = "Explorers"
   ages        = "14 to 18 years"
-  blurb       = "Self-led units, top awards and international travel — the path to King's Scout."
+  blurb       = "Self-led units, top awards and international travel - the path to King's Scout."
   logo        = "images/sections/explorers.svg"
   url         = "https://www.scouts.org.uk/explorers"
   alt         = "Logo for Explorers Section"
@@ -109,7 +109,7 @@
   key             = "network"
   name            = "Network"
   ages            = "18 to 25 years"
-  blurb           = "Awards, expeditions and a community that gets it — Scouting on your terms."
+  blurb           = "Awards, expeditions and a community that gets it - Scouting on your terms."
   logo            = "images/sections/network.svg"
   url             = "https://www.scouts.org.uk/network/"
   alt             = "Logo for Scout Network"

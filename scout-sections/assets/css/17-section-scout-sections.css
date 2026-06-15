@@ -1,16 +1,16 @@
 /* -----------------------------------------------------------------------------
    16. SECTION: SCOUT-SECTIONS
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    Responsive grid of N cards (1–6, typically 5) auto-rendered from
    data/scout_sections.toml. Each card links to its section's
-   scouts.org.uk page. The whole card is a single anchor — no nested
+   scouts.org.uk page. The whole card is a single anchor - no nested
    anchors, big touch target, screen-reader-friendly.
 
    Layout: option A on desktop (≥ 768 px), option B on mobile.
 
-   Option A — desktop, vertical:
+   Option A - desktop, vertical:
      ┌─────────────────────────────┐
      │ ━━━━━━━━━━━━━━━━━━━━━━━━━━  │ ← top accent strip (section colour)
      │           [LOGO]            │
@@ -18,7 +18,7 @@
      │      [   Learn more   ]     │ ← button-look (non-interactive)
      └─────────────────────────────┘
 
-   Option B — mobile, horizontal:
+   Option B - mobile, horizontal:
      ┌─┬─────────────────────────┐
      │ │ [LOGO]    4 to 6 years  │
      │ │           Learn more →  │ ← inline text, no button-look
@@ -27,10 +27,10 @@
 
    The section's identity colour is delivered to .s-scout-sections__card
    via an inline `--sec` custom property set by the partial from
-   data/scout_sections.toml's `color` field — the same value used by
+   data/scout_sections.toml's `color` field - the same value used by
    section badges elsewhere in the theme (news cards, event cards, etc).
 
-   The Learn-more affordance is *non-interactive* — it's a styled
+   The Learn-more affordance is *non-interactive* - it's a styled
    <span class="s-scout-sections__btn"> inside the parent <a>. Visual
    feedback on hover comes from the parent anchor's :hover state
    cascading down. Keyboard focus lands on the parent <a>, where the
@@ -39,19 +39,19 @@
    Card-count overrides:
      - Default: 3 per row at ≥ 768 px (handles 1, 2, 3, 5, 6).
      - Exactly 4: 2×2 instead of 3+1, via :has(). Older browsers
-       (Firefox ≤ 120) degrade to 3+1 — still readable.
+       (Firefox ≤ 120) degrade to 3+1 - still readable.
    ----------------------------------------------------------------------------- */
 
 /* The outer section uses the theme's standard .section padding (from
    02-layout.css) and the standard .s-bg-* tones (from 02-layout.css).
-   No bespoke padding overrides — the mockup's 64 px / 96 px values are
+   No bespoke padding overrides - the mockup's 64 px / 96 px values are
    a one-off; --section-py is the correct cross-section rhythm. */
 
 .s-scout-sections__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;        /* 16 px — mockup */
+  gap: 1rem;        /* 16 px - mockup */
 }
 @media (min-width: 768px) {
   .s-scout-sections__grid { gap: 1.25rem; }  /* 20 px */
@@ -86,7 +86,7 @@
 
 /* Inherit text colour for the card body, regardless of section bg tone.
    The outer .s-bg-* rules in 02-layout.css cascade text colours onto
-   descendants — but the card's interior is a white pill, so we want
+   descendants - but the card's interior is a white pill, so we want
    the body to use the default text colour. */
 .s-bg-primary   .s-scout-sections__card,
 .s-bg-secondary .s-scout-sections__card,
@@ -94,7 +94,7 @@
 .s-bg-accent    .s-scout-sections__card,
 .s-bg-dark      .s-scout-sections__card { color: var(--text); }
 
-/* Coloured accent strip — vertical on mobile (left edge),
+/* Coloured accent strip - vertical on mobile (left edge),
    horizontal on desktop (top edge). Width and height swap. */
 .s-scout-sections__card::before {
   content: "";
@@ -210,13 +210,13 @@
     font-size: 14px;
     text-align: center;
     transition: background 0.15s ease;
-    margin-top: auto;          /* glue button to card bottom — uniform heights */
+    margin-top: auto;          /* glue button to card bottom - uniform heights */
   }
   .s-scout-sections__card:hover .s-scout-sections__btn {
     background: var(--primary-hover);
   }
 
-  /* Exactly 4 cards: 2×2 instead of 3+1. Modern :has() — Firefox ≥ 121,
+  /* Exactly 4 cards: 2×2 instead of 3+1. Modern :has() - Firefox ≥ 121,
      Safari ≥ 15.4, Chrome ≥ 105. Older browsers fall back to 3+1, still
      functional. */
   .s-scout-sections__grid:has(> .s-scout-sections__card:nth-child(4):last-child)

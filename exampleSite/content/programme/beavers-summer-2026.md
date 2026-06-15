@@ -1,5 +1,5 @@
 +++
-title       = "Beavers — Summer Term 2026"
+title       = "Beavers - Summer Term 2026"
 section     = "beavers"
 term        = "Summer 2026"
 term_start  = 2026-04-15
@@ -22,7 +22,7 @@ term_end    = 2026-07-15
 [[weeks]]
   number = 3
   date   = 2026-04-29
-  title  = "Helping at home — kitchen skills"
+  title  = "Helping at home - kitchen skills"
   themes = ["skills-for-life", "community-impact"]
 
 [[weeks]]
@@ -34,7 +34,7 @@ term_end    = 2026-07-15
 [[weeks]]
   number = 5
   date   = 2026-05-13
-  title  = "Storytelling night — bring a book"
+  title  = "Storytelling night - bring a book"
   themes = ["beliefs-and-attitudes", "try-new-things"]
 
 [[weeks]]
@@ -46,7 +46,7 @@ term_end    = 2026-07-15
 [[weeks]]
   number = 7
   date   = 2026-06-03
-  title  = "Community visit — local library"
+  title  = "Community visit - local library"
   themes = ["community-impact"]
 
 [[weeks]]
@@ -74,5 +74,5 @@ term_end    = 2026-07-15
   themes = ["live-up-to-our-values"]
 +++
 
-A bright, gentle Summer term for Beavers — finishing with a Colony
+A bright, gentle Summer term for Beavers - finishing with a Colony
 sleepover at the hut.

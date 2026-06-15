@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -11,7 +11,7 @@
     - generic [ref=e16]:
       - generic [ref=e17]:
         - heading "Galleries" [level=1] [ref=e18]
-        - paragraph [ref=e19]: Camp write-ups in pictures — what we've been up to across the Group.
+        - paragraph [ref=e19]: Camp write-ups in pictures - what we've been up to across the Group.
       - generic [ref=e20]:
         - article [ref=e21]:
           - link "Squirrels and Beavers lined up on parade in front of the church St George's Day Parade 2026 April 2026 3 items A morning of marching, awards and oversized flags. Squirrels through to Scouts all on parade." [ref=e22] [cursor=pointer]:
@@ -25,7 +25,7 @@
                 - generic [ref=e29]: 3 items
               - paragraph [ref=e30]: A morning of marching, awards and oversized flags. Squirrels through to Scouts all on parade.
         - article [ref=e31]:
-          - link "Cubs Cooking Cup 2026 March 2026 2 items Six teams, five courses, one trophy. No captions — the photos tell their own story." [ref=e32] [cursor=pointer]:
+          - link "Cubs Cooking Cup 2026 March 2026 2 items Six teams, five courses, one trophy. No captions - the photos tell their own story." [ref=e32] [cursor=pointer]:
             - /url: /galleries/2026-03-30-cubs-cooking-cup/
             - generic [ref=e34]:
               - heading "Cubs Cooking Cup 2026" [level=3] [ref=e35]
@@ -33,7 +33,7 @@
                 - time [ref=e37]: March 2026
                 - generic [ref=e38]: ·
                 - generic [ref=e39]: 2 items
-              - paragraph [ref=e40]: Six teams, five courses, one trophy. No captions — the photos tell their own story.
+              - paragraph [ref=e40]: Six teams, five courses, one trophy. No captions - the photos tell their own story.
         - article [ref=e41]:
           - link "Silhouetted Scouts walking with head-torches against a dusk sky Night Hike 2025 November 2025 2 items Head-torches, hot chocolate, and getting a bit lost on purpose. Faces obscured at parents' request." [ref=e42] [cursor=pointer]:
             - /url: /galleries/2025-11-15-night-hike/
@@ -52,7 +52,7 @@
           - generic [ref=e55]:
             - img [ref=e56]
             - generic [ref=e58]: 1st Anytown Scouts
-          - paragraph [ref=e59]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e59]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e60]:
           - heading "Visit" [level=5] [ref=e61]
           - list [ref=e62]:
@@ -81,7 +81,7 @@
               - link "Privacy" [ref=e81] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e82]:
-        - generic [ref=e83]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e83]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e84]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e86]:
         - text: "Registered charity:"

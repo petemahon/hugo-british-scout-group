@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -19,7 +19,7 @@
         - generic [ref=e22]:
           - generic [ref=e23]:
             - generic [ref=e24]:
-              - paragraph [ref=e25]: BSO Groups operate under The Scout Association's Policy, Organisation and Rules (POR). Youth membership is open to anyone living in the host country who isn't a national of it — UK families, third-country families, dual-nationals whose other nationality isn't the host country. Volunteer membership is open to anyone over 18 regardless of nationality. The detail below explains the practical eligibility in plain English; POR 3.2.1.1 is the canonical rule.
+              - paragraph [ref=e25]: BSO Groups operate under The Scout Association's Policy, Organisation and Rules (POR). Youth membership is open to anyone living in the host country who isn't a national of it - UK families, third-country families, dual-nationals whose other nationality isn't the host country. Volunteer membership is open to anyone over 18 regardless of nationality. The detail below explains the practical eligibility in plain English; POR 3.2.1.1 is the canonical rule.
               - link "See how to join →" [ref=e27] [cursor=pointer]:
                 - /url: /join/
                 - text: See how to join
@@ -29,17 +29,17 @@
               - generic [ref=e31]:
                 - generic [ref=e32]:
                   - term [ref=e33]: Young people
-                  - definition [ref=e35]: Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify.
+                  - definition [ref=e35]: Yes - if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify.
                 - generic [ref=e36]:
                   - term [ref=e37]: Volunteers (18+)
-                  - definition [ref=e39]: Yes — anyone over 18, any nationality, including nationals of the host country.
+                  - definition [ref=e39]: Yes - anyone over 18, any nationality, including nationals of the host country.
                 - generic [ref=e40]:
                   - term [ref=e41]: The canonical rule
                   - definition [ref=e43]:
                     - text: (This follows
                     - link "POR 3.2.1.1" [ref=e44] [cursor=pointer]:
                       - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
-                    - text: — The Scout Association's rule for every BSO group.)
+                    - text: - The Scout Association's rule for every BSO group.)
           - paragraph [ref=e45]: The detail, in plain English
           - generic [ref=e46]:
             - article [ref=e47]:
@@ -50,14 +50,14 @@
               - generic [ref=e52]: Nationality
               - heading "Not for host-country nationals" [level=3] [ref=e53]
               - paragraph [ref=e54]:
-                - text: Membership of British Scouting Overseas is for families who are not nationals of the United Arab Emirates. UAE nationals are warmly directed to the Emirates Scout Association — see
+                - text: Membership of British Scouting Overseas is for families who are not nationals of the United Arab Emirates. UAE nationals are warmly directed to the Emirates Scout Association - see
                 - link "scouting in the UAE" [ref=e55] [cursor=pointer]:
                   - /url: /bso/host-scouting/
                 - text: .
             - article [ref=e56]:
               - generic [ref=e57]: Volunteering
               - heading "Open to any adult, 18+" [level=3] [ref=e58]
-              - paragraph [ref=e59]: Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles.
+              - paragraph [ref=e59]: Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of the host country. See the volunteer page for the current roles.
             - article [ref=e60]:
               - generic [ref=e61]: Not eligible for BSO?
               - heading "Where to go instead" [level=3] [ref=e62]
@@ -71,7 +71,7 @@
               - text: (This follows
               - link "POR 3.2.1.1" [ref=e67] [cursor=pointer]:
                 - /url: https://www.scouts.org.uk/por/3-membership/32-membership/
-              - text: — The Scout Association's rule for every BSO group.)
+              - text: - The Scout Association's rule for every BSO group.)
         - generic "British Scouting Overseas links" [ref=e68]:
           - paragraph [ref=e69]: Part of British Scouting Overseas.
           - list [ref=e70]:
@@ -88,7 +88,7 @@
           - generic [ref=e79]:
             - img [ref=e80]
             - generic [ref=e82]: 1st Anytown Scouts
-          - paragraph [ref=e83]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e83]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e84]:
           - heading "Visit" [level=5] [ref=e85]
           - list [ref=e86]:
@@ -117,7 +117,7 @@
               - link "Privacy" [ref=e105] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e106]:
-        - generic [ref=e107]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e107]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e108]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e110]:
         - text: "Registered charity:"

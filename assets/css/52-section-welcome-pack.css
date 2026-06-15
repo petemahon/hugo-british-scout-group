@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
-   27. WELCOME PACK — s-welcome-pack
+   27. WELCOME PACK - s-welcome-pack
    /welcome-pack/ cover, per-chapter pages, and the concatenated
    /welcome-pack/print.html view. SPEC-06.
 
@@ -84,7 +84,7 @@
 }
 
 /* -- Per-chapter page -------------------------------------------------- */
-/* Back-link retired — now the shared .back-link component (09-…). */
+/* Back-link retired - now the shared .back-link component (09-…). */
 .s-welcome-pack__chapter-head {
   margin-bottom: 1.5rem;
 }
@@ -114,7 +114,7 @@
 .s-welcome-pack__chapter-body {
   font-size: 1.05rem;
   line-height: 1.65;
-  /* Slightly wider measure than card descriptions — Welcome Pack reads
+  /* Slightly wider measure than card descriptions - Welcome Pack reads
      like a brochure, not a card-grid info dump. Stay under 70 ch for
      comfortable line length. */
   max-width: 38rem;
@@ -160,7 +160,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   Concatenated print view — /welcome-pack/print.html.
+   Concatenated print view - /welcome-pack/print.html.
    The HTML document this body class wraps is rendered by
    list.welcomepackprint.html as a SELF-CONTAINED document (no header /
    footer / site chrome), so a screen-rendered print view is also fine

@@ -11,7 +11,7 @@ instrument until you've reviewed it with your safeguarding lead.
 
 ## Why we ask
 
-Some of what we do is naturally photogenic — camps, badge presentations,
+Some of what we do is naturally photogenic - camps, badge presentations,
 parades. Sharing photos helps families see what their child has been
 up to and shows prospective members what life in the Group is like.
 We also have a duty of care to the young people in those photos.

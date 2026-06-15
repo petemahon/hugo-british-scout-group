@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  /bso/ — Joining Hub cover page. SPEC-10.
+  /bso/ - Joining Hub cover page. SPEC-10.
 
   Renders one card per BSO sub-page. The default card set is computed
   from i18n + params.bso when content/bso/_index.md does NOT override
@@ -15,7 +15,7 @@
     5. Home range / InTouch (gated by params.bso.show_home_range)
 
   Gating: site.Params.bso AND params.features.bso_hub. With either
-  off, this list page emits nothing — Hugo still produces the URL
+  off, this list page emits nothing - Hugo still produces the URL
   (because the _index.md exists) but the body is empty rather than
   exposing a placeholder shell.
 */ -}}
@@ -29,10 +29,10 @@
   {{- if not $cards -}}
     {{- $cards = slice
         (dict "title"       (i18n "bsoCardEligibilityTitle"       | default "Who can join")
-              "description" (i18n "bsoCardEligibilityDescription" | default "POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility.")
+              "description" (i18n "bsoCardEligibilityDescription" | default "POR 3.2.1.1 in plain English - language requirement, nationality rules, volunteer eligibility.")
               "url"         "/bso/eligibility/")
         (dict "title"       (printf "%s %s" (i18n "bsoCardMovingInTitle" | default "Moving to") $hostName)
-              "description" (i18n "bsoCardMovingInDescription" | default "Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect.")
+              "description" (i18n "bsoCardMovingInDescription" | default "Newly-arrived British family pathway - how to enrol, school-term anchor, what to expect.")
               "url"         "/bso/moving-in/")
         (dict "title"       (i18n "bsoCardMovingOutTitle"       | default "Moving on")
               "description" (i18n "bsoCardMovingOutDescription" | default "Transferring to another BSO Group, returning to the UK, or joining the host-country NSO.")

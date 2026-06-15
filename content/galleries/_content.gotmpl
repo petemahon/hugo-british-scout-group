@@ -3,13 +3,13 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Galleries content adapter — SPEC-04.
+  Galleries content adapter - SPEC-04.
 
   For every gallery directory the consuming site has under
   content/galleries/<slug>/, scan assets/galleries/<slug>/ for image
   files and register one virtual photo Page per image at
   /galleries/<slug>/<image-basename>/. Each photo page renders via
-  layouts/galleries/photo.html — set explicitly through layout="photo"
+  layouts/galleries/photo.html - set explicitly through layout="photo"
   so the /galleries/ cascade (layout="single", kind=section only)
   does not collide with the per-photo template.
 
@@ -19,7 +19,7 @@
   alt text and faces_blurred flags per image; missing sidecar still
   builds, with an info-level notice suggesting captions for a11y.
 
-  Gated by params.features.galleries — adapter is a no-op when the
+  Gated by params.features.galleries - adapter is a no-op when the
   feature is off, so a Group with no gallery content doesn't pay any
   scan cost.
 */ -}}
@@ -37,7 +37,7 @@
 
       {{- if fileExists $assetDir -}}
 
-        {{- /* Captions sidecar — build a {filename -> meta} lookup so
+        {{- /* Captions sidecar - build a {filename -> meta} lookup so
                each image registration can pull caption / alt /
                faces_blurred without re-scanning the slice. */ -}}
         {{- $byFile := dict -}}
@@ -66,7 +66,7 @@
             {{- end -}}
             {{- /* `path` is relative to this adapter's own section
                    (content/galleries/), so Hugo prepends `galleries/`
-                   for us — the slug/base alone places the photo page at
+                   for us - the slug/base alone places the photo page at
                    /galleries/<slug>/<base>/ as a child of the gallery
                    section. Prefixing `galleries/` here double-nests it
                    (/galleries/galleries/…) and detaches it from the

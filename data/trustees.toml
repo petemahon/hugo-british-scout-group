@@ -1,7 +1,7 @@
-# data/trustees.toml — the Group's Trustee Board, shown on
+# data/trustees.toml - the Group's Trustee Board, shown on
 # /about/governance/ (SPEC-07).
 #
-# Ships EMPTY by design — we don't publish placeholder names. Trustee
+# Ships EMPTY by design - we don't publish placeholder names. Trustee
 # names ARE public on the Charity Commission register, so listing them
 # is legitimate, but NO contact details are rendered.
 #

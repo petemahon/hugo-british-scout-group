@@ -3,22 +3,22 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  event-times — render the time portion of an event.
+  event-times - render the time portion of an event.
 
   Receives a Page via dot.
 
   Rendering modes:
     1. Dual (BSO pattern): when BOTH times_local and times_uk are set in
        front-matter, render as a <dl> pair (e.g. "20:30 (Brussels)" /
-       "19:30 (UK)"). The values are pure free-text strings — no
-       datetime parsing — so the location qualifier ("Brussels", "UK")
+       "19:30 (UK)"). The values are pure free-text strings - no
+       datetime parsing - so the location qualifier ("Brussels", "UK")
        lives in the field value. Screen-reader labels come from the
        i18n keys eventsTimeLocal and eventsTimeUk.
     2. All-day: render the "All day" string.
     3. Single time line: HH:MM – HH:MM, computed from .Date and
        .Params.end (defaulting to start + 1h30).
 
-  No params.bso gating — any Group (e.g. UK Group hosting an
+  No params.bso gating - any Group (e.g. UK Group hosting an
   international event) might use the dual-time mode. Pattern lifted
   verbatim from britishscoutingoverseas.org.uk.
 

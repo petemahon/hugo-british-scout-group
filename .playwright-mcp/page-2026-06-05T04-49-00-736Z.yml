@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -47,7 +47,7 @@
           - heading "Cubs (8–10½)" [level=2] [ref=e39]
           - paragraph [ref=e40]: Cubs is the section where adventure becomes a regular thing. Camps, hikes, cooking on a single hob, first aid, swimming, navigation. A typical Cubs term carries one camp and one community-impact activity.
           - heading "Scouts (10½–14)" [level=2] [ref=e41]
-          - paragraph [ref=e42]: Patrol-led. Scouts run their own programme alongside the leaders, with a strong outdoor calendar — expeditions, weekends away, Trangia cooking, pioneering, the big camps every summer.
+          - paragraph [ref=e42]: Patrol-led. Scouts run their own programme alongside the leaders, with a strong outdoor calendar - expeditions, weekends away, Trangia cooking, pioneering, the big camps every summer.
           - heading "Explorers (14–18)" [level=2] [ref=e43]
           - paragraph [ref=e44]: Older Explorers run their own Unit. The Duke of Edinburgh’s Award, top-tier Scout awards, international expeditions, and community impact work. Strong bridge into volunteering as adults.
         - navigation "Chapter navigation" [ref=e45]:
@@ -66,7 +66,7 @@
           - generic [ref=e56]:
             - img [ref=e57]
             - generic [ref=e59]: 1st Anytown Scouts
-          - paragraph [ref=e60]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e60]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e61]:
           - heading "Visit" [level=5] [ref=e62]
           - list [ref=e63]:
@@ -95,7 +95,7 @@
               - link "Privacy" [ref=e82] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e83]:
-        - generic [ref=e84]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e84]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e85]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e87]:
         - text: "Registered charity:"

@@ -1,4 +1,4 @@
-# D13-SPEC — Where-we-meet + Footer
+# D13-SPEC - Where-we-meet + Footer
 
 **Status:** shipped.
 **Track:** final deliverable in the D5–D13 visual-redesign sweep.
@@ -11,13 +11,13 @@ pattern, `color-mix` faded text tier).
 
 Two unrelated visual blocks closed in one deliverable:
 
-1. **Where-we-meet map** — the existing generic `embed` section type is
+1. **Where-we-meet map** - the existing generic `embed` section type is
    re-styled to match the mockup's `.meet-map` visual: aspect-ratio
    driven (4:3 mobile → 16:9 desktop), rounded corners (18 → 24 px),
    soft shadow. Pre-D13 the partial enforced explicit pixel
    `height` / `width` defaults; D13 drops those defaults and lets them
    become optional overrides.
-2. **Footer** — complete rewrite from a single-line copyright surface
+2. **Footer** - complete rewrite from a single-line copyright surface
    into the mockup's brand-anchor four-column layout: brand block +
    three configurable link columns + bottom strap. Always Scouts Navy.
 
@@ -34,21 +34,21 @@ Two unrelated visual blocks closed in one deliverable:
    the theme shouldn't ship example values. Groups can render their own
    stats with a `prose` section directly below the embed.
 
-3. **Use `--section-py` rhythm** for the outer section padding — D7
+3. **Use `--section-py` rhythm** for the outer section padding - D7
    precedent. The mockup's bespoke 56/96 px values discarded.
 
 4. **Aspect-ratio default + optional explicit override.** Default sizing
    is 4:3 mobile → 16:9 desktop, border-radius 18 → 24, shadow
    `0 12px 32px rgba(20,17,14,0.08)`. Front-matter `height` / `width`
-   still emit inline styles that win on specificity — back-compat for
+   still emit inline styles that win on specificity - back-compat for
    any consumer who'd pinned a fixed pixel height.
 
 ### Footer
 
 5. **Add `--scouts-navy` (`#003982`) and `--scouts-navy-hover`
    (`#14529e`)** to `00-tokens.css` block 1b. `#003982` already appears
-   in two other places — `--sec-explorers` (D7) and the hardcoded
-   `.s-bg-dark` rule in `02-layout.css` — confirming canonical
+   in two other places - `--sec-explorers` (D7) and the hardcoded
+   `.s-bg-dark` rule in `02-layout.css` - confirming canonical
    provenance. The `--scouts-navy-hover` value continues D10/D11's
    pattern of choosing a slightly-lighter sibling that doesn't ride the
    site palette.
@@ -59,7 +59,7 @@ Two unrelated visual blocks closed in one deliverable:
    beyond that, content overflows the row. Sensible default ordering
    (brand block + Visit/Contact/About) shipped in the example site.
 
-7. **`footerStrap` i18n key** — default `"Skills for Life ·
+7. **`footerStrap` i18n key** - default `"Skills for Life ·
    #SkillsForLife"`. Sites can override to remove the hashtag,
    substitute their own strapline, or empty the value to suppress the
    strap entirely. Other branded strings in the theme follow the same
@@ -89,7 +89,7 @@ assets/css/16-section-embed.css           full rewrite (4 lines → 41)
 layouts/partials/sections/embed.html      drop default height/width
 i18n/en.toml                              +footerStrap key
 exampleSite/hugo.toml                     drop footerBg, +[params.footer]
-exampleSite/content/_index.md             block 10 — drop explicit sizing
+exampleSite/content/_index.md             block 10 - drop explicit sizing
 README.md                                 +D13 tag on 30-footer.css line
 ```
 
@@ -98,7 +98,7 @@ README.md                                 +D13 tag on 30-footer.css line
 **The `params.footerBg` mechanism is gone.** Pre-D13 the footer accepted
 `"muted" | "primary" | "secondary" | "tertiary" | "accent" | "dark"`
 and applied an `.s-bg-<value>` tone. D13 makes the footer a brand-anchor
-surface — always Scouts Navy regardless of palette — so the param is
+surface - always Scouts Navy regardless of palette - so the param is
 silently ignored if set. Consuming sites with `footerBg` in their
 hugo.toml render correctly; the param is just dead weight.
 
@@ -140,7 +140,7 @@ no-op. No warnings emitted by Hugo.
 4. Footer anchor hover: white text + underline. Focus-visible: 2 px
    white outline ring.
 5. With `palette = "network"` (black/orange palette), footer still
-   navy — confirms brand-anchor wins.
+   navy - confirms brand-anchor wins.
 6. Map embed renders 4:3 on mobile, 16:9 on desktop. Setting
    `height = "600px"` in `_index.md` block 10 reverts to fixed-pixel
    height (back-compat).
@@ -172,7 +172,7 @@ no-op. No warnings emitted by Hugo.
 
 ## What's next
 
-D14 — adscouts adoption. The consuming site (1stadscouts.org) inherits
+D14 - adscouts adoption. The consuming site (1stadscouts.org) inherits
 D5–D13 by bumping the theme submodule. Per-Group content that overrides
 the example values:
 
@@ -183,6 +183,6 @@ the example values:
 - `[[sections]]` content in `_index.md` → group-specific copy
 - `data/scout_sections.toml` enables only the sections the group runs
 
-No code expected to change in adscouts as part of D14 — purely a
+No code expected to change in adscouts as part of D14 - purely a
 content adoption. Any code change there signals a missing theme
 parameterisation that should be flagged back upstream.

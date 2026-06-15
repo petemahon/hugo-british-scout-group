@@ -43,21 +43,21 @@ content/news/
 ```
 
 Slug convention: `YYYY-MM-DD-kebab-case-title.md`. Hugo derives
-`/news/2026-04-19-st-georges-day/`. URLs are flat (no year nesting) —
+`/news/2026-04-19-st-georges-day/`. URLs are flat (no year nesting) -
 see DECISIONS.md.
 
 ## Front-matter schema (per post)
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `title` | string | yes | — | Post title, plain text |
-| `date` | datetime | yes | — | ISO-8601. Posts with `date > now` are not built. |
+| `title` | string | yes | - | Post title, plain text |
+| `date` | datetime | yes | - | ISO-8601. Posts with `date > now` are not built. |
 | `summary` | string | no | first 30 words of body | Used on cards and meta description |
 | `sections` | list[string] | no | `[]` | Taxonomy values from `data/scout_sections.toml` |
-| `cover_image` | string | no | — | Path under `assets/news/<slug>/` |
-| `cover_alt` | string | yes if `cover_image` | — | Required when image present |
-| `author` | string | no | "" | Free text — leader nickname e.g. "Akela" |
-| `photo_consent` | bool | yes if any image referenced | — | Build fails if missing |
+| `cover_image` | string | no | - | Path under `assets/news/<slug>/` |
+| `cover_alt` | string | yes if `cover_image` | - | Required when image present |
+| `author` | string | no | "" | Free text - leader nickname e.g. "Akela" |
+| `photo_consent` | bool | yes if any image referenced | - | Build fails if missing |
 | `draft` | bool | no | `false` | Standard Hugo |
 
 `_index.md` for the listing page:
@@ -65,7 +65,7 @@ see DECISIONS.md.
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `title` | string | no | "News" | Listing page heading |
-| `description` | string | no | — | Renders below heading |
+| `description` | string | no | - | Renders below heading |
 | `posts_per_page` | int | no | 12 | Hugo pagination |
 
 ## Section partial: `news-grid`
@@ -101,7 +101,7 @@ summary, section badges. "View all news" link if `show_more` is true.
 
 ```toml
 [params.features]
-  news = false                           # default OFF — opt-in per DECISIONS.md
+  news = false                           # default OFF - opt-in per DECISIONS.md
 
 [params.news]
   posts_per_page    = 12
@@ -115,7 +115,7 @@ summary, section badges. "View all news" link if `show_more` is true.
 
 ## Asset paths
 
-- `assets/news/<slug>/cover.jpg` (or .webp, .png — Hugo pipeline accepts)
+- `assets/news/<slug>/cover.jpg` (or .webp, .png - Hugo pipeline accepts)
 - Inline images for the post body: `assets/news/<slug>/photo-1.jpg`,
   referenced from Markdown via Hugo's image render hook.
 - Theme ships a generic placeholder cover at
@@ -141,7 +141,7 @@ feature like any other Group.
 - `photo_consent = true` is the canonical lint (see SPEC-COMMON §10).
 - Recommend in archetype field comments that authors avoid
   identifiable names; the partial does not enforce.
-- Author byline takes free-text — recommend leader nickname
+- Author byline takes free-text - recommend leader nickname
   ("Akela", "GSL", "Cub Leader") rather than full personal name.
 - No comments section.
 
@@ -149,9 +149,9 @@ feature like any other Group.
 
 | Q | Decision |
 | --- | --- |
-| Q1.1 | **Yes** — add `colour` field to `data/scout_sections.toml`. Values per DECISIONS.md (challenge-badge outer-ring colours, brand-book where Peter named without hex). |
-| Q1.2 | **No** — no separate `tags` taxonomy in v1. `sections` is the only taxonomy. |
-| Q1.3 | **Flat URLs** — `/news/<slug>/`, no year nesting. |
+| Q1.1 | **Yes** - add `colour` field to `data/scout_sections.toml`. Values per DECISIONS.md (challenge-badge outer-ring colours, brand-book where Peter named without hex). |
+| Q1.2 | **No** - no separate `tags` taxonomy in v1. `sections` is the only taxonomy. |
+| Q1.3 | **Flat URLs** - `/news/<slug>/`, no year nesting. |
 
 ## Out of scope (cross-references)
 

@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -33,7 +33,7 @@
           - link "← All volunteer roles" [ref=e26] [cursor=pointer]:
             - /url: /support-us/volunteer-roles/
         - heading "Fundraising Lead" [level=1] [ref=e27]
-        - paragraph [ref=e28]: This role is no longer open — see our current volunteer roles above.
+        - paragraph [ref=e28]: This role is no longer open - see our current volunteer roles above.
   - contentinfo [ref=e29]:
     - generic [ref=e30]:
       - generic [ref=e31]:
@@ -41,7 +41,7 @@
           - generic [ref=e33]:
             - img [ref=e34]
             - generic [ref=e36]: 1st Anytown Scouts
-          - paragraph [ref=e37]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e37]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e38]:
           - heading "Visit" [level=5] [ref=e39]
           - list [ref=e40]:
@@ -70,7 +70,7 @@
               - link "Privacy" [ref=e59] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e60]:
-        - generic [ref=e61]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e61]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e62]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e64]:
         - text: "Registered charity:"

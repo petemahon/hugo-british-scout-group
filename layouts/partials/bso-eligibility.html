@@ -3,16 +3,16 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-eligibility — /bso/eligibility/ body. Rendered inside bso/single.html
+  bso-eligibility - /bso/eligibility/ body. Rendered inside bso/single.html
   (which supplies the breadcrumb, eyebrow and <h1>). Uses the balanced
   info-page treatment (08-page-balanced.css): a masthead with an
   "at-a-glance" answer card on the right, then a 2×2 detail card grid.
 
-  The canonical full "Who can join" notice lives on /join/, not here — the
+  The canonical full "Who can join" notice lives on /join/, not here - the
   eligibility page expands the same point in the Group's own voice. A small
   POR 3.2.1.1 citation lands at the foot when `por_reference_visible` is true.
 
-  Glance-card copy is host-country-GENERIC ("the host country") — concrete
+  Glance-card copy is host-country-GENERIC ("the host country") - concrete
   host-country detail lives in the Group's front matter below, never in
   theme code. See documentation/DECISIONS.md.
 
@@ -38,12 +38,12 @@
       <dl>
         <div class="pb-glance__row">
           <dt><span class="pb-pip pb-pip--yes" aria-hidden="true"></span> {{ i18n "bsoEligibilityGlanceYouthDt" | default "Young people" }}</dt>
-          <dd>{{ i18n "bsoEligibilityGlanceYouthDd" | default "Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify." }}</dd>
+          <dd>{{ i18n "bsoEligibilityGlanceYouthDd" | default "Yes - if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify." }}</dd>
         </div>
         {{- if .Params.volunteer_eligibility_open }}
         <div class="pb-glance__row">
           <dt><span class="pb-pip pb-pip--yes" aria-hidden="true"></span> {{ i18n "bsoEligibilityGlanceVolDt" | default "Volunteers (18+)" }}</dt>
-          <dd>{{ i18n "bsoEligibilityGlanceVolDd" | default "Yes — anyone over 18, any nationality, including nationals of the host country." }}</dd>
+          <dd>{{ i18n "bsoEligibilityGlanceVolDd" | default "Yes - anyone over 18, any nationality, including nationals of the host country." }}</dd>
         </div>
         {{- end }}
         <div class="pb-glance__row">
@@ -76,7 +76,7 @@
       <article class="pb-card">
         <span class="pb-card__tag">{{ i18n "bsoEligibilityVolunteerHeading" | default "Volunteering" }}</span>
         <h3>{{ i18n "bsoEligibilityVolunteerTitle" | default "Open to any adult, 18+" }}</h3>
-        <p>{{ i18n "bsoEligibilityVolunteerBody" | default "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles." | safeHTML }}</p>
+        <p>{{ i18n "bsoEligibilityVolunteerBody" | default "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of the host country. See the volunteer page for the current roles." | safeHTML }}</p>
       </article>
     {{- end }}
     {{- with .Params.host_country_alternatives_summary }}

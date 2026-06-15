@@ -1,8 +1,8 @@
-# data/sections_status.toml — joining-page card data (SPEC-06).
+# data/sections_status.toml - joining-page card data (SPEC-06).
 #
 # This file ships as a STARTER intended to be replaced wholesale by
 # each consuming Group. The values below are generic placeholders
-# matching the theme's "1st Anytown Scouts" example Group — fictional
+# matching the theme's "1st Anytown Scouts" example Group - fictional
 # emails, fictional descriptions, generic "host country" phrasing in
 # the BSO nationality notes. NOTHING here is country-specific; the
 # host country is supplied at render time by the Group's hugo.toml
@@ -27,11 +27,11 @@
 # contact_email         Per-pack email (falls back to enquiry_email)
 # description           HTML allowed; short paragraph describing the pack
 # waiting_url           OSM waiting-list URL; used when status="waiting"
-# bso_language          BSO only, EXCEPTION-ONLY — set only when THIS pack
+# bso_language          BSO only, EXCEPTION-ONLY - set only when THIS pack
 #                       runs in a different language from the rest of the
 #                       Group (e.g. a French-speaking Colony in an otherwise
 #                       English Group). Leave "" when the Group is uniform.
-# bso_nationality_note  BSO only, EXCEPTION-ONLY — populate only if a specific
+# bso_nationality_note  BSO only, EXCEPTION-ONLY - populate only if a specific
 #                       pack's eligibility genuinely differs. Nationality
 #                       eligibility (POR 3.2.1.1) is a GROUP-WIDE rule, so
 #                       normally leave "". When set, it links to
@@ -44,7 +44,7 @@
 # bso-membership-notice partial. Repeating it on every card is pure
 # duplication, so these per-pack fields are reserved for the rare case
 # where a single pack differs. To demonstrate a bilingual Group, you'd
-# set e.g. `bso_language = "French — this Colony runs in French"` on the
+# set e.g. `bso_language = "French - this Colony runs in French"` on the
 # one pack that differs, and leave every other pack's field "".
 #
 # The example site below exercises SPEC-06 acceptance criterion #9:
@@ -52,7 +52,7 @@
 # multi-pack, Scouts/Explorers open. Network is opt-in via
 # params.scoutSections; an example entry is provided commented-out.
 
-# Squirrels — section not yet running this term ("closed" / informational)
+# Squirrels - section not yet running this term ("closed" / informational)
 [[squirrels]]
   pack_name            = ""
   status               = "closed"
@@ -68,7 +68,7 @@
   bso_language         = ""
   bso_nationality_note = ""
 
-# Beavers — open waiting list
+# Beavers - open waiting list
 [[beavers]]
   pack_name            = ""
   status               = "waiting"
@@ -84,7 +84,7 @@
   bso_language         = ""
   bso_nationality_note = ""
 
-# Cubs — multi-pack (two Packs running on different nights)
+# Cubs - multi-pack (two Packs running on different nights)
 [[cubs]]
   pack_name            = "Wednesday Pack"
   status               = "open"
@@ -115,7 +115,7 @@
   bso_language         = ""
   bso_nationality_note = ""
 
-# Scouts — open, single Troop
+# Scouts - open, single Troop
 [[scouts]]
   pack_name            = ""
   status               = "open"
@@ -126,12 +126,12 @@
   fee_currency         = "GBP"
   fee_period           = "term"
   contact_email        = "scouts@1stanytown.org.uk"
-  description          = "Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy — expeditions, pioneering, cooking, and a strong camp schedule."
+  description          = "Scouts (age 10½ to 14) meet on Thursday evenings for the kind of programme older Scouts enjoy - expeditions, pioneering, cooking, and a strong camp schedule."
   waiting_url          = ""
   bso_language         = ""
   bso_nationality_note = ""
 
-# Explorers — open, single Unit
+# Explorers - open, single Unit
 [[explorers]]
   pack_name            = ""
   status               = "open"
@@ -142,12 +142,12 @@
   fee_currency         = "GBP"
   fee_period           = "term"
   contact_email        = "explorers@1stanytown.org.uk"
-  description          = "Explorers (age 14 to 18) run their own programme — expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar."
+  description          = "Explorers (age 14 to 18) run their own programme - expeditions, the Duke of Edinburgh's Award, and the Scouts UK top awards. Strong international and adventurous activity calendar."
   waiting_url          = ""
   bso_language         = ""
   bso_nationality_note = ""
 
-# Network — opt-in via params.scoutSections in hugo.toml; not enabled
+# Network - opt-in via params.scoutSections in hugo.toml; not enabled
 # by default in the example site. Uncomment the block below and toggle
 # `network = { enable = true }` in hugo.toml to render the card.
 #

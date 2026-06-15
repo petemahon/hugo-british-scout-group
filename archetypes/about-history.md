@@ -9,7 +9,7 @@ layout      = "history"
 
 title       = "Our history"
 
-# Year the Group was founded — rendered prominently. Optional.
+# Year the Group was founded - rendered prominently. Optional.
 # founded   = 1908
 
 # Optional cover image, relative to assets/about/. cover_alt and
@@ -28,7 +28,7 @@ timeline_position = "sidebar"        # "sidebar" | "top" | "bottom"
 draft = true
 +++
 
-Write the Group's story here in Markdown — how it started, the people
+Write the Group's story here in Markdown - how it started, the people
 who built it, the moves and milestones. The timeline in
 `data/history_timeline.toml` runs alongside; keep the prose narrative
 and let the timeline carry the dated beats.

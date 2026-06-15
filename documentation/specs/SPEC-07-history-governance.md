@@ -32,7 +32,7 @@ ecosystem.
 5. AGM archive uses a `data/reports.toml` manifest. The build emits
    a warning when a PDF in `static/about/reports/` isn't listed in
    the manifest.
-6. Trustee names render as plain text — public on the Charity
+6. Trustee names render as plain text - public on the Charity
    Commission register, but no contact details are shown.
 7. Example site exercises: a Group with a 50-year history (timeline
    with 8+ events), a UK charity (Charity Commission for England &
@@ -63,15 +63,15 @@ static/about/reports/
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
 | `title` | string | no | "Our history" | Page heading |
-| `founded` | int | no | — | Year founded — renders prominently |
-| `cover_image` | string | no | — | Path under `assets/about/` |
-| `cover_alt` | string | yes if image | — | |
+| `founded` | int | no | - | Year founded - renders prominently |
+| `cover_image` | string | no | - | Path under `assets/about/` |
+| `cover_alt` | string | yes if image | - | |
 | `show_timeline` | bool | no | true | Whether to render `data/history_timeline.toml` |
 | `timeline_position` | string | no | "sidebar" | "sidebar" \| "top" \| "bottom" |
-| `wikipedia_url` | string | no | — | Optional link to Wikipedia "oldest Scout groups" entry |
-| `photo_consent` | bool | yes if image | — | See SPEC-COMMON §10 |
+| `wikipedia_url` | string | no | - | Optional link to Wikipedia "oldest Scout groups" entry |
+| `photo_consent` | bool | yes if image | - | See SPEC-COMMON §10 |
 
-Body: free Markdown — narrative history.
+Body: free Markdown - narrative history.
 
 ## Data schema (`data/history_timeline.toml`)
 
@@ -91,11 +91,11 @@ Body: free Markdown — narrative history.
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `year` | int | yes | — | |
-| `title` | string | yes | — | |
+| `year` | int | yes | - | |
+| `title` | string | yes | - | |
 | `detail` | string (HTML allowed) | no | "" | |
-| `image` | string | no | — | Filename under `assets/about/timeline/` |
-| `image_alt` | string | yes if image | — | |
+| `image` | string | no | - | Filename under `assets/about/timeline/` |
+| `image_alt` | string | yes if image | - | |
 
 ## Front-matter schema (`content/about/governance.md`)
 
@@ -103,9 +103,9 @@ Body: free Markdown — narrative history.
 | --- | --- | --- | --- | --- |
 | `title` | string | no | "Governance" | Page heading |
 | `intro` | string (HTML allowed) | no | "" | |
-| `agm_date` | string | no | — | Free text — "Tuesday 15 May 2026, 19:30" |
-| `agm_location` | string | no | — | |
-| `agm_papers_url` | string | no | — | Pre-AGM papers PDF |
+| `agm_date` | string | no | - | Free text - "Tuesday 15 May 2026, 19:30" |
+| `agm_location` | string | no | - | |
+| `agm_papers_url` | string | no | - | Pre-AGM papers PDF |
 | `show_reports_archive` | bool | no | true | Surfaces /about/reports/ |
 
 ## Data schema (`data/trustees.toml`)
@@ -113,7 +113,7 @@ Body: free Markdown — narrative history.
 Theme ships an empty file with comment-rich example.
 
 ```toml
-# data/trustees.toml — populated per Group.
+# data/trustees.toml - populated per Group.
 # Public on the Charity Commission register; no contact details rendered.
 
 # [[trustee]]
@@ -124,9 +124,9 @@ Theme ships an empty file with comment-rich example.
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `name` | string | yes | — | Public on Charity Commission register |
-| `role` | string | yes | — | |
-| `appointed` | int | no | — | Year |
+| `name` | string | yes | - | Public on Charity Commission register |
+| `role` | string | yes | - | |
+| `appointed` | int | no | - | Year |
 
 ## Data schema (`data/reports.toml`)
 
@@ -156,9 +156,9 @@ AND AGM minutes). Build emits a warning when files exist in
 
 | Sub-field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
-| `filename` | string | yes | — | Must exist in `static/about/reports/` |
-| `label` | string | yes | — | Display label |
-| `year` | int | yes | — | Used for sort |
+| `filename` | string | yes | - | Must exist in `static/about/reports/` |
+| `label` | string | yes | - | Display label |
+| `year` | int | yes | - | Used for sort |
 | `type` | enum | no | "other" | "annual_report" \| "agm_minutes" \| "other" |
 
 ## Layouts to create
@@ -177,8 +177,8 @@ AND AGM minutes). Build emits a warning when files exist in
 
 ```toml
 [params.features]
-  history    = false                  # default OFF — opt-in
-  governance = false                  # default OFF — opt-in
+  history    = false                  # default OFF - opt-in
+  governance = false                  # default OFF - opt-in
 
 [params.governance]
   show_in_footer          = true      # render charity-info partial in every non-printing footer
@@ -205,9 +205,9 @@ special-casing.
 
 ## Asset paths
 
-- `assets/about/cover.jpg` — history page cover.
-- `assets/about/timeline/<year>.jpg` — optional timeline images.
-- `static/about/reports/<filename>.pdf` — AGM-related documents.
+- `assets/about/cover.jpg` - history page cover.
+- `assets/about/timeline/<year>.jpg` - optional timeline images.
+- `static/about/reports/<filename>.pdf` - AGM-related documents.
 
 ## CSS-only baseline
 
@@ -222,10 +222,10 @@ special-casing.
 
 Many BSO Groups operate under BSO Area's charity registration
 (England & Wales, 1151702) rather than registering separately. The
-single-charity configuration handles this — Groups set
+single-charity configuration handles this - Groups set
 `charity_number = "1151702"`. Some BSO Groups have a host-country
 legal personality (1st Brussels is also a Belgian ASBL,
-BE1013020290) — the `charity_secondary_*` block handles dual
+BE1013020290) - the `charity_secondary_*` block handles dual
 jurisdictions.
 
 The history feature is *especially* relevant for BSO. Several BSO
@@ -234,7 +234,7 @@ Groups have rich histories. The BSO Hub (SPEC-10) cross-links to
 
 ## Safeguarding & GDPR
 
-- Trustee names are public on the Charity Commission register —
+- Trustee names are public on the Charity Commission register -
   listing them is legitimate. No contact details.
 - Photos in the history timeline of identifiable young people require
   `photo_consent = true` on the parent page.
@@ -245,10 +245,10 @@ Groups have rich histories. The BSO Hub (SPEC-10) cross-links to
 
 | Q | Decision |
 | --- | --- |
-| Q7.1 | **Charity info config-gated**, displayed in every non-printing footer when configured. Hidden in print. Most BSO Groups will configure with BSO Area's charity number 1151702. **Revised 2026-06-02:** the footer block additionally requires `params.features.governance` to be on (and `show_in_footer` true) — a charity number never surfaces without a governance page, though a governance page may run with no charity listed. This supersedes the original "independent of features.governance" reading. |
-| Q7.2 | **Manifest** (`data/reports.toml`) with build warning when filesystem PDFs aren't in the manifest. Best of both — explicit ordering plus drift detection. |
+| Q7.1 | **Charity info config-gated**, displayed in every non-printing footer when configured. Hidden in print. Most BSO Groups will configure with BSO Area's charity number 1151702. **Revised 2026-06-02:** the footer block additionally requires `params.features.governance` to be on (and `show_in_footer` true) - a charity number never surfaces without a governance page, though a governance page may run with no charity listed. This supersedes the original "independent of features.governance" reading. |
+| Q7.2 | **Manifest** (`data/reports.toml`) with build warning when filesystem PDFs aren't in the manifest. Best of both - explicit ordering plus drift detection. |
 | Q7.3 | **Empty starter** for `data/trustees.toml` with comment-rich example. Don't ship placeholder names. |
-| Q7.4 | **Combine** — single archive of AGM-related documents (Trustee Annual Reports + AGM minutes). The `type` enum distinguishes them. |
+| Q7.4 | **Combine** - single archive of AGM-related documents (Trustee Annual Reports + AGM minutes). The `type` enum distinguishes them. |
 
 ## Out of scope (cross-references)
 

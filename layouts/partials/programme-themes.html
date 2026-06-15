@@ -3,15 +3,15 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  programme-themes — renders the Skills for Life chip strip for one
+  programme-themes - renders the Skills for Life chip strip for one
   meeting / one week.
 
   Called from partials/programme-table.html (per-week row) and
   partials/sections/programme-current.html (collapsed home block).
 
   Context (dict):
-    keys    list[string]  REQUIRED — keys from data/programme_themes.toml
-    page    Page          REQUIRED — for errorf path on an unknown key
+    keys    list[string]  REQUIRED - keys from data/programme_themes.toml
+    page    Page          REQUIRED - for errorf path on an unknown key
 
   Pass-through rules:
     - site.Params.programme.show_theme_chips = false suppresses ALL chips

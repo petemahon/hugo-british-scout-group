@@ -14,6 +14,6 @@ draft           = false
 
 Help run our Wednesday Cub Pack: games, badge work, the occasional bit
 of controlled chaos, and the camps that Cubs remember for years. You'd
-work alongside Akela and the rest of the team — no experience needed,
+work alongside Akela and the rest of the team - no experience needed,
 just reliability and a sense of humour. We'll fund and book your
 training, and you'll never be on your own with the Pack.

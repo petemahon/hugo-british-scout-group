@@ -2,7 +2,7 @@
   - banner "Site header" [ref=e2]:
     - checkbox
     - generic [ref=e3]:
-      - link "1st Anytown Scouts — home" [ref=e4] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e4] [cursor=pointer]:
         - /url: /
         - img [ref=e5]
         - generic [ref=e7]: 1st Anytown Scouts
@@ -45,7 +45,7 @@
             - generic [ref=e38]:
               - term [ref=e39]: Safeguarding
               - definition [ref=e40]: A DBS check is required for this role.
-        - paragraph [ref=e42]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility — but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
+        - paragraph [ref=e42]: "Keep the Group’s finances healthy: pay the bills, bank the takings, keep the books, and present the accounts at the AGM. It’s a Trustee role, so it carries real responsibility - but it’s very doable remotely, which makes it a great fit for a UK-based parent or supporter who can’t get to weekly meetings. Bookkeeping or finance experience is welcome but not essential; the outgoing Treasurer will hand over thoroughly."
         - paragraph [ref=e43]:
           - link "Apply for this role →" [ref=e44] [cursor=pointer]:
             - /url: mailto:volunteers@1stanytown.org.uk
@@ -56,7 +56,7 @@
           - generic [ref=e49]:
             - img [ref=e50]
             - generic [ref=e52]: 1st Anytown Scouts
-          - paragraph [ref=e53]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e53]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e54]:
           - heading "Visit" [level=5] [ref=e55]
           - list [ref=e56]:
@@ -85,7 +85,7 @@
               - link "Privacy" [ref=e75] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e76]:
-        - generic [ref=e77]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e77]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e78]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e80]:
         - text: "Registered charity:"

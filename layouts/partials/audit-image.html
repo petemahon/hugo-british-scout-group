@@ -3,23 +3,23 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  audit-image — shared image-alt lint (SPEC-12 AC5 / Q12.5).
+  audit-image - shared image-alt lint (SPEC-12 AC5 / Q12.5).
 
   Single source of truth for the "alt text is mandatory when an image is
   set" rule. Every image-bearing content type calls this instead of
   re-implementing the check inline, so the lint message and semantics
   stay uniform across news, galleries, events, history and hall hire.
 
-  Build-time only — errorf's, never renders. The image is NOT rendered
+  Build-time only - errorf's, never renders. The image is NOT rendered
   here; callers render it themselves after the audit passes.
 
   Context (dict):
-    image    — the image value (path/filename, or any truthy "is set"
+    image    - the image value (path/filename, or any truthy "is set"
                marker). When falsy, the audit is a no-op.
-    alt      — the alt-text value to validate (string, may be empty).
-    field    — name of the alt front-matter field, for the message
+    alt      - the alt-text value to validate (string, may be empty).
+    field    - name of the alt front-matter field, for the message
                (e.g. "cover_alt", "image_alt", "alt"). Default "alt".
-    context  — human label for the offending page/item, for the message
+    context  - human label for the offending page/item, for the message
                (e.g. `news post "st-georges-day.md"`).
 */ -}}
 {{- $field   := .field   | default "alt" -}}

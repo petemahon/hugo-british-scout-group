@@ -1,10 +1,10 @@
 /* -----------------------------------------------------------------------------
-   6. ARTICLE — long-form Markdown body for flat content pages
+   6. ARTICLE - long-form Markdown body for flat content pages
    Used by layouts/_default/single.html when a page has no [[sections]] array
    (policies, terms, ad-hoc one-off pages). The prose SECTION partial
    (`s-prose__inner`, see 17-section-prose.css) is for a single big section
    heading plus body text and bumps h2 to display-2 (4rem). That sizing breaks
-   any flat Markdown page with multiple `##` subheadings — they all render at
+   any flat Markdown page with multiple `##` subheadings - they all render at
    hero scale next to body text. This component is the article-shaped
    alternative: h2/h3 stay subordinate to the page title, margins follow
    typographic rhythm, and line-length is capped for comfortable reading.

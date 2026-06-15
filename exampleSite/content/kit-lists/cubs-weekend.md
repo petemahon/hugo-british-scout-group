@@ -6,14 +6,14 @@ climate       = "temperate"
 version       = "2026.1"
 last_reviewed = 2026-04-01
 reviewed_by   = "Akela"
-intro         = "Everything a Cub needs for a weekend under canvas or in a camp building. Pack it <strong>with</strong> your Cub, not for them — knowing where their own kit is makes the weekend go far more smoothly. Haven't got something? Ask Akela: we keep spare sleeping bags and waterproofs to lend."
+intro         = "Everything a Cub needs for a weekend under canvas or in a camp building. Pack it <strong>with</strong> your Cub, not for them - knowing where their own kit is makes the weekend go far more smoothly. Haven't got something? Ask Akela: we keep spare sleeping bags and waterproofs to lend."
 phone_policy  = true
 
-non_essential = "Please leave at home: <strong>phones, tablets and games consoles</strong> (see the note above), money beyond a few pounds for the tuck shop, and anything valuable or irreplaceable. Sweets and fizzy drinks stay at home too — we provide all the food."
+non_essential = "Please leave at home: <strong>phones, tablets and games consoles</strong> (see the note above), money beyond a few pounds for the tuck shop, and anything valuable or irreplaceable. Sweets and fizzy drinks stay at home too - we provide all the food."
 
 [[categories]]
   name  = "Sleeping"
-  notes = "If you don't have a 3-season sleeping bag, contact Akela — we have spares to lend."
+  notes = "If you don't have a 3-season sleeping bag, contact Akela - we have spares to lend."
 
   [[categories.items]]
     name        = "Sleeping bag"
@@ -41,7 +41,7 @@ non_essential = "Please leave at home: <strong>phones, tablets and games console
     quantity = 2
 
   [[categories.items]]
-    name     = "Trousers (not jeans — they stay cold and wet)"
+    name     = "Trousers (not jeans - they stay cold and wet)"
     quantity = 2
 
   [[categories.items]]
@@ -64,7 +64,7 @@ non_essential = "Please leave at home: <strong>phones, tablets and games console
   [[categories.items]]
     name        = "Warm hat and gloves"
     quantity    = 1
-    alternative = "Even in summer — evenings get cold"
+    alternative = "Even in summer - evenings get cold"
 
 [[categories]]
   name = "Wash kit"
@@ -83,7 +83,7 @@ non_essential = "Please leave at home: <strong>phones, tablets and games console
 
 [[categories]]
   name  = "Camp gear"
-  notes = "Label everything with your Cub's name — it saves a mountain of lost property on Sunday."
+  notes = "Label everything with your Cub's name - it saves a mountain of lost property on Sunday."
 
   [[categories.items]]
     name     = "Named water bottle"
@@ -101,7 +101,7 @@ non_essential = "Please leave at home: <strong>phones, tablets and games console
   [[categories.items]]
     name        = "Plate, bowl, mug and cutlery"
     quantity    = 1
-    alternative = "Only if told to bring them — we'll let you know"
+    alternative = "Only if told to bring them - we'll let you know"
 
 draft = false
 +++

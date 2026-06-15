@@ -2,7 +2,7 @@
 # Title shown on the listing, the single page, and the calendar SUMMARY.
 title       = "{{ replace .Name "-" " " | title }}"
 
-# Event start time — the source-of-truth start, used by the listing
+# Event start time - the source-of-truth start, used by the listing
 # filter, by Hugo's sort, and as DTSTART in the .ics.
 # ISO-8601 with a timezone offset. The offset should match the
 # `timezone` field below (or the site default).
@@ -41,7 +41,7 @@ cost        = ""
 # no matching kit list.
 # kit_list_ref   = "cubs-weekend"
 #
-# Free text appended to the kit list for THIS event only — anything
+# Free text appended to the kit list for THIS event only - anything
 # beyond the standard list. Shown under the kit link on the event page,
 # and appended when the list is transcluded inline in the body below
 # with the kit-list shortcode (see the README for the exact syntax).
@@ -55,7 +55,7 @@ sections    = []
 
 # ─── Status (D8) ───────────────────────────────────────────────────
 # Allowed values:
-#   "active"      (default) — event is happening as advertised.
+#   "active"      (default) - event is happening as advertised.
 #   "cancelled"   event is off. The card and single page show a red
 #                 Cancelled pill; the per-event .ics still renders
 #                 (with an empty VCALENDAR body); the event is omitted

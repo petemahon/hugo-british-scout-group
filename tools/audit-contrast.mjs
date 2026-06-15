@@ -4,7 +4,7 @@
  * CC BY-SA 4.0 © Peter Mahon
  * https://github.com/petemahon/hugo-british-scout-group
  *
- * audit-contrast.mjs — WCAG 2.2 colour-contrast audit (SPEC-12 AC7 / Q12.7).
+ * audit-contrast.mjs - WCAG 2.2 colour-contrast audit (SPEC-12 AC7 / Q12.7).
  *
  * Hugo can't reliably evaluate contrast ratios, so this runs in CI (and
  * locally with `node tools/audit-contrast.mjs`) instead of at build time.
@@ -17,20 +17,20 @@
  * CSS custom properties).
  *
  * Size classes (WCAG 1.4.3 / 1.4.11):
- *   normal (4.5:1) — body copy: --text and --text-muted on --bg.
- *   large  (3.0:1) — the "text-on-<brand/app colour>" tokens. These label
+ *   normal (4.5:1) - body copy: --text and --text-muted on --bg.
+ *   large  (3.0:1) - the "text-on-<brand/app colour>" tokens. These label
  *                    bold buttons, bold uppercase status pills, and display
- *                    headings on coloured bands — never body copy. Per WCAG
+ *                    headings on coloured bands - never body copy. Per WCAG
  *                    they qualify as large text (>=18.66px bold). This is
  *                    what lets Scouts Red (white text ~3.94:1) and the
  *                    --postponed amber (white ~3.18:1) pass: they are only
  *                    ever used for large/bold chrome, matching the Scouts
  *                    Brand Guidelines' own white-on-red usage rules.
- *   ui     (3.0:1) — non-text indicators: --focus-ring against --bg
+ *   ui     (3.0:1) - non-text indicators: --focus-ring against --bg
  *                    (WCAG 1.4.11 Non-text Contrast). All five palettes in
  *                    fact clear ~6:1 here.
  *
- * No third-party dependencies — the palette file is a flat set of TOML
+ * No third-party dependencies - the palette file is a flat set of TOML
  * tables, parsed with a small purpose-built reader below.
  */
 
@@ -116,7 +116,7 @@ const palettes = parsePalettes(readFileSync(PALETTE_FILE, "utf8"));
 let failures = 0;
 let checked = 0;
 
-console.log(`WCAG contrast audit — ${PALETTE_FILE}\n`);
+console.log(`WCAG contrast audit - ${PALETTE_FILE}\n`);
 
 for (const [name, p] of Object.entries(palettes)) {
   console.log(`[${name}]`);

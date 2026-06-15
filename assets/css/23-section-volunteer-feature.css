@@ -1,6 +1,6 @@
 /* =============================================================================
-   23. SECTION: VOLUNTEER FEATURE — "Register to volunteer."
-   Hugo British Scout Group theme — CC BY-SA 4.0 © Peter Mahon
+   23. SECTION: VOLUNTEER FEATURE - "Register to volunteer."
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
    https://github.com/petemahon/hugo-british-scout-group
    -----------------------------------------------------------------------------
    This file owns every .s-volunteer-feature* selector.
@@ -9,7 +9,7 @@
    block (mockup lines 774–880).
 
    The background is ALWAYS Scouts Purple regardless of the site's palette
-   — volunteer recruitment is a national Scouts UK campaign with consistent
+   - volunteer recruitment is a national Scouts UK campaign with consistent
    purple branding. The yellow eyebrow and yellow CTA are also brand-anchor:
    the poster's tag pill is yellow-on-purple, the CTA mirrors that pairing
    on the text side.
@@ -24,7 +24,7 @@
          Scouts Yellow background, black fleur bottom-right, large black
          display copy with the campaign's 27%/49% statistic.
 
-   The partial renders ONLY the chosen variant's markup — there is no
+   The partial renders ONLY the chosen variant's markup - there is no
    both-rendered-and-hidden gymnastics from the mockup. Each variant's
    inner-content selectors are therefore unscoped to the variant
    modifier; the appropriate inner element is the only one present.
@@ -37,7 +37,7 @@
    network-feature module so the two brand-anchor bands feel symmetric.
    ============================================================================= */
 
-/* ── Section wrapper — brand-anchor purple ───────────────────── */
+/* ── Section wrapper - brand-anchor purple ───────────────────── */
 .s-volunteer-feature {
   background: var(--scouts-purple);
   color: #fff;
@@ -126,7 +126,7 @@
 }
 
 .s-volunteer-feature__poster-headline {
-  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
+  font-family: var(--font-display);   /* Nunito Sans 900 - Scouts poster face */
   font-size: clamp(26px, 7.2cqi, 52px);
   font-weight: 900;
   line-height: 0.98;
@@ -159,7 +159,7 @@
 }
 
 .s-volunteer-feature__stat-copy {
-  font-family: var(--font-display);   /* Nunito Sans 900 — Scouts poster face */
+  font-family: var(--font-display);   /* Nunito Sans 900 - Scouts poster face */
   font-weight: 900;
   font-size: clamp(20px, 8.4cqi, 64px);
   line-height: 1.05;
@@ -184,7 +184,7 @@
 /* The shared .eyebrow base supplies the line-decoration; the
    .eyebrow-yellow modifier in 05-components-sect-head.css supplies
    the yellow colour. Inside this section we suppress the trailing
-   ::after — this is a left-aligned context, not a centred .sect-head. */
+   ::after - this is a left-aligned context, not a centred .sect-head. */
 .s-volunteer-feature__eyebrow {
   display: inline-flex;
   justify-content: flex-start;

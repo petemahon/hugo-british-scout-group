@@ -17,7 +17,7 @@ other = "Welcome to"
 other = "Scouts gathered round a small fire at night, lighting it together in the rain"
 
 # -----------------------------------------------------------------------------
-# BSO Membership Notice — used by partials/bso-membership-notice.html
+# BSO Membership Notice - used by partials/bso-membership-notice.html
 # Override these in your site's i18n/en.toml to change the wording.
 # -----------------------------------------------------------------------------
 [bsoNoticeHeading]
@@ -27,16 +27,16 @@ other = "Who can join"
 other = "BSO is a slice of UK Scouting, here for families living in {{ .HostCountry }}. Whether you've moved here from the UK or somewhere else, our doors are open."
 
 [bsoNoticeAssociation]
-other = "Every country has its own home of Scouting. Here, that's {{ .HostAssociation }} — and if you're a national of {{ .HostCountry }}, they'd love to have you."
+other = "Every country has its own home of Scouting. Here, that's {{ .HostAssociation }} - and if you're a national of {{ .HostCountry }}, they'd love to have you."
 
 [bsoNoticeVolunteering]
-other = "Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of {{ .HostCountry }}."
+other = "Volunteering's a different story. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of {{ .HostCountry }}."
 
 [bsoNoticeRuleReference]
-other = "(This follows <a href=\"https://www.scouts.org.uk/por/3-membership/32-membership/\">POR 3.2.1.1</a> — The Scout Association's rule for every BSO group.)"
+other = "(This follows <a href=\"https://www.scouts.org.uk/por/3-membership/32-membership/\">POR 3.2.1.1</a> - The Scout Association's rule for every BSO group.)"
 
 # -----------------------------------------------------------------------------
-# News & Camp Reports — used by partials/news-card.html, news-meta.html, and
+# News & Camp Reports - used by partials/news-card.html, news-meta.html, and
 # layouts/news/{list,single}.html. Override in your site's i18n/en.toml to
 # adjust wording. SPEC-01 in the project knowledge documents the full feature.
 # -----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ other = "Read more"
 other = "View all news"
 
 [newsNoPosts]
-other = "No news posts yet — check back soon."
+other = "No news posts yet - check back soon."
 
 [newsSectionBadge]
 other = "Scout sections featured"
@@ -91,7 +91,7 @@ other = "Details"
 other = "Local time"
 
 [eventsTimeUk]
-other = "UK time"# Hero — added by deliverable 4 (hero with intro animation).
+other = "UK time"# Hero - added by deliverable 4 (hero with intro animation).
 
 [eventsBadgesLabel]
 other = "Event details"
@@ -133,7 +133,7 @@ other = "This event has been rescheduled. The new date and time are shown here. 
 other = "Filter events by section"
 
 # -----------------------------------------------------------------------------
-# Network feature section — used by partials/sections/network-feature.html.
+# Network feature section - used by partials/sections/network-feature.html.
 # Override these in your site's i18n/en.toml to change the wording.
 # -----------------------------------------------------------------------------
 [networkFeatureEyebrow]
@@ -143,7 +143,7 @@ other = "· 18–25"
 other = "Maybe you're over 18. But not over Scouts."
 
 [networkFeatureIntro]
-other = "Network members start small but think big — always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it."
+other = "Network members start small but think big - always challenging themselves to do more, see more, be more. Awards, expeditions and a community that gets it."
 
 [networkFeatureCtaLabel]
 other = "Find out more"
@@ -166,7 +166,7 @@ other = "Travel, lead, give back"
 [networkFeaturePoint3Body]
 other = "International expeditions, leader training, community service projects."
 # -----------------------------------------------------------------------------
-# Volunteer-feature section — used by partials/sections/volunteer-feature.html.
+# Volunteer-feature section - used by partials/sections/volunteer-feature.html.
 # Override these in your site's i18n/en.toml to change the wording.
 # -----------------------------------------------------------------------------
 [volunteerFeatureEyebrow]
@@ -179,7 +179,7 @@ other = "Register to volunteer."
 other = "Our amazing teams of helpers, Team Leads and Boards of Trustees are all volunteers."
 
 [volunteerFeatureBody2]
-other = "We're always looking for more people to join us — whether you have an hour every two months, or can give your time weekly, we <strong>need</strong> you."
+other = "We're always looking for more people to join us - whether you have an hour every two months, or can give your time weekly, we <strong>need</strong> you."
 
 [volunteerFeatureNetworkNote]
 other = "Aged 18–25? You can volunteer too, as a member of the Scout Network."
@@ -209,7 +209,7 @@ other = "However, 49% said they'd never been asked."
 
 
 # -----------------------------------------------------------------------------
-# Programme — used by layouts/programme/{list,single}.html, the table
+# Programme - used by layouts/programme/{list,single}.html, the table
 # partial, the chip partial and the programme-current home block.
 # Override in your site's i18n/en.toml to change wording. SPEC-03 in the
 # project knowledge documents the full feature.
@@ -221,7 +221,7 @@ other = "Termly programmes"
 other = "What we're doing this term"
 
 [programmeNoPosts]
-other = "No published programmes yet — check back at the start of next term."
+other = "No published programmes yet - check back at the start of next term."
 
 [programmeBackToList]
 other = "All programmes"
@@ -263,7 +263,7 @@ other = "Approved by the District per POR 9.1.2.1."
 other = "Term kit list"
 
 # -----------------------------------------------------------------------------
-# Joining & Waiting List — used by layouts/join/list.html and the
+# Joining & Waiting List - used by layouts/join/list.html and the
 # joining-{card,grid,faq} partials. SPEC-06. Override in your site's
 # i18n/en.toml to change wording.
 # -----------------------------------------------------------------------------
@@ -271,7 +271,7 @@ other = "Term kit list"
 other = "Join us"
 
 [joiningHeading]
-other = "Add your child to a Pack — or join us as a volunteer."
+other = "Add your child to a Pack - or join us as a volunteer."
 
 [joiningWelcomePackLink]
 other = "Read our Welcome Pack"
@@ -328,7 +328,7 @@ other = "Sections & meeting nights"
 other = "Frequently asked questions"
 
 # -----------------------------------------------------------------------------
-# Welcome Pack — used by layouts/welcome-pack/* and welcome-pack-nav
+# Welcome Pack - used by layouts/welcome-pack/* and welcome-pack-nav
 # partial. SPEC-06.
 # -----------------------------------------------------------------------------
 [welcomePackEyebrow]
@@ -362,10 +362,10 @@ other = "Last reviewed"
 other = "Print or save the whole pack"
 
 [welcomePackPrintTitle]
-other = "Welcome Pack — printable"
+other = "Welcome Pack - printable"
 
 # -----------------------------------------------------------------------------
-# BSO Joining Hub — used by layouts/bso/* and the bso-* partials.
+# BSO Joining Hub - used by layouts/bso/* and the bso-* partials.
 # SPEC-10. Override in your site's i18n/en.toml to change wording.
 # -----------------------------------------------------------------------------
 [bsoHubEyebrow]
@@ -382,13 +382,13 @@ other = "BSO information"
 other = "Who can join"
 
 [bsoCardEligibilityDescription]
-other = "POR 3.2.1.1 in plain English — language requirement, nationality rules, volunteer eligibility."
+other = "POR 3.2.1.1 in plain English - language requirement, nationality rules, volunteer eligibility."
 
 [bsoCardMovingInTitle]
 other = "Moving to"
 
 [bsoCardMovingInDescription]
-other = "Newly-arrived British family pathway — how to enrol, school-term anchor, what to expect."
+other = "Newly-arrived British family pathway - how to enrol, school-term anchor, what to expect."
 
 [bsoCardMovingOutTitle]
 other = "Moving on"
@@ -419,7 +419,7 @@ other = "Nationality"
 other = "Volunteering"
 
 [bsoEligibilityVolunteerBody]
-other = "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality — including nationals of the host country. See the volunteer page for the current roles."
+other = "Volunteer membership is different. Anyone over 18 is welcome to help out, whatever your nationality - including nationals of the host country. See the volunteer page for the current roles."
 
 [bsoEligibilityAlternativesHeading]
 other = "Not eligible for BSO?"
@@ -482,7 +482,7 @@ other = "BSO Area"
 other = "Host-country alternatives are not configured for this Group yet."
 
 [bsoHostScoutingNoData]
-other = "Host-country alternatives data is not available for this host country yet — your Group can add it to data/bso/alternatives/."
+other = "Host-country alternatives data is not available for this host country yet - your Group can add it to data/bso/alternatives/."
 
 [bsoHostScoutingOrgSiteLink]
 other = "Visit site"
@@ -514,14 +514,14 @@ other = "BSO Area"
 other = "District"
 
 # -----------------------------------------------------------------------------
-# Galleries — used by layouts/galleries/* and the gallery-* partials.
+# Galleries - used by layouts/galleries/* and the gallery-* partials.
 # SPEC-04. Override in your site's i18n/en.toml to change wording.
 # -----------------------------------------------------------------------------
 [galleriesHeading]
 other = "Galleries"
 
 [galleriesEmptyList]
-other = "No galleries published yet — check back after the next camp."
+other = "No galleries published yet - check back after the next camp."
 
 [galleriesEmpty]
 other = "No photos in this gallery yet."
@@ -573,7 +573,7 @@ other = "Watch"
 other = "How we handle photos"
 
 # -----------------------------------------------------------------------------
-# Kit lists — used by layouts/kit-lists/* and the kit-list-* partials.
+# Kit lists - used by layouts/kit-lists/* and the kit-list-* partials.
 # SPEC-05.
 # -----------------------------------------------------------------------------
 [kitListEyebrow]
@@ -583,7 +583,7 @@ other = "Camp kit"
 other = "Kit lists"
 
 [kitListEmptyList]
-other = "No kit lists published yet — check back before the next camp."
+other = "No kit lists published yet - check back before the next camp."
 
 [kitListBackToList]
 other = "All kit lists"
@@ -607,7 +607,7 @@ other = "Mobile phones"
 # names no Group, reproduces no external Group's wording. A Group can
 # override it via [params.kit_lists].default_phone_policy_text.
 [kitListPhonePolicyDefault]
-other = "Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive — we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us."
+other = "Phones aren't needed at camp, and we'd encourage you to leave yours at home. If you do bring one, please hand it to a leader when you arrive - we'll keep it safe and give it back at the end. Leaders carry a Group phone for emergencies, and you'll have a contact number for the whole camp, so there's always a way to reach us."
 
 [kitListCrossBorderHeading]
 other = "Travelling from abroad"
@@ -628,7 +628,7 @@ other = "View the full kit list"
 other = "Browse all camp kit lists"
 
 # -----------------------------------------------------------------------------
-# History & Governance — used by layouts/about/* and the history-timeline,
+# History & Governance - used by layouts/about/* and the history-timeline,
 # trustee-list and charity-info partials. SPEC-07.
 # -----------------------------------------------------------------------------
 [historyEyebrow]
@@ -683,7 +683,7 @@ other = "Accounts & minutes"
 other = "Trustees' reports & AGM minutes"
 
 [reportsEmpty]
-other = "No reports published yet — they'll appear here after the next AGM."
+other = "No reports published yet - they'll appear here after the next AGM."
 
 [reportsBackToGovernance]
 other = "Back to governance"
@@ -698,7 +698,7 @@ other = "AGM minutes"
 other = "Document"
 
 # -----------------------------------------------------------------------------
-# Trustee Board meeting summaries — used by layouts/about/minutes/list.html
+# Trustee Board meeting summaries - used by layouts/about/minutes/list.html
 # and the governance cross-link. SPEC-13. These are PUBLIC SUMMARIES of board
 # decisions, not the full minutes. Override in your site's i18n/en.toml.
 # -----------------------------------------------------------------------------
@@ -712,7 +712,7 @@ other = "Trustee Board meeting summaries"
 other = "These are short public summaries of the decisions taken. The board's full minutes are kept privately, as they cover confidential matters such as safeguarding, individuals and detailed finances."
 
 [minutesEmpty]
-other = "No meeting summaries published yet — they'll appear here once the board approves them."
+other = "No meeting summaries published yet - they'll appear here once the board approves them."
 
 [minutesListLabel]
 other = "Meeting summaries"
@@ -766,7 +766,7 @@ other = "Meeting summaries"
 other = "Trustee Board meeting summaries"
 
 # -----------------------------------------------------------------------------
-# Fundraising & volunteering — used by layouts/support-us/* and the
+# Fundraising & volunteering - used by layouts/support-us/* and the
 # fundraising / volunteer partials. SPEC-09.
 # -----------------------------------------------------------------------------
 [supportUsEyebrow]
@@ -818,7 +818,7 @@ other = "All volunteer roles"
 other = "We're not actively recruiting right now, but please get in touch if you'd like to help."
 
 [volunteerRoleClosedNotice]
-other = "This role is no longer open — see our current volunteer roles above."
+other = "This role is no longer open - see our current volunteer roles above."
 
 [volunteerRemoteBadge]
 other = "Remote OK"
@@ -845,13 +845,13 @@ other = "Apply for this role"
 other = "We're recruiting"
 
 [volunteerBannerMessage]
-other = "We have open volunteer roles — a few hours from the right people keeps Scouting running here."
+other = "We have open volunteer roles - a few hours from the right people keeps Scouting running here."
 
 [volunteerBannerCta]
 other = "See open roles"
 
 # -----------------------------------------------------------------------------
-# Hall hire — used by layouts/hall-hire/* and the hall-hire-* partials.
+# Hall hire - used by layouts/hall-hire/* and the hall-hire-* partials.
 # SPEC-08.
 # -----------------------------------------------------------------------------
 [hallEyebrow]
@@ -903,7 +903,7 @@ other = "per day"
 other = "per weekend"
 
 [hallPriority]
-other = "Scout activities always take priority — hire bookings are confirmed around our weekly programme and events."
+other = "Scout activities always take priority - hire bookings are confirmed around our weekly programme and events."
 
 [hallTerms]
 other = "Terms & conditions (PDF)"
@@ -915,10 +915,10 @@ other = "Enquire about hire"
 other = "or call"
 
 [hallFullyBooked]
-other = "Our hall is fully booked at the moment — we're not taking new hire enquiries just now. Please check back later."
+other = "Our hall is fully booked at the moment - we're not taking new hire enquiries just now. Please check back later."
 
 # -----------------------------------------------------------------------------
-# Navigation — auto-built nav labels. SPEC-11. Group labels and the
+# Navigation - auto-built nav labels. SPEC-11. Group labels and the
 # mobile toggle; Groups override these to relabel without touching the
 # structure (which the theme owns).
 # -----------------------------------------------------------------------------
@@ -989,13 +989,13 @@ other = "Mobile navigation"
 other = "Open menu"
 
 # -----------------------------------------------------------------------------
-# Footer — used by partials/footer.html.
+# Footer - used by partials/footer.html.
 # -----------------------------------------------------------------------------
 [footerStrap]
 other = "Skills for Life · #SkillsForLife"
 
 # -----------------------------------------------------------------------------
-# Accessibility — used by the skip link and ARIA labels. SPEC-12. The nav
+# Accessibility - used by the skip link and ARIA labels. SPEC-12. The nav
 # already ships navPrimaryAria / navMobileAria / navToggleAria; these are
 # the remaining a11y chrome strings. Override in your site's i18n/en.toml.
 # -----------------------------------------------------------------------------
@@ -1015,13 +1015,13 @@ other = "Open menu"
 other = "Close menu"
 
 # -----------------------------------------------------------------------------
-# Balanced info-page treatment — masthead glance cards, detail-card titles,
+# Balanced info-page treatment - masthead glance cards, detail-card titles,
 # file lists and the policy right-rail. Added with the 2026 design handoff
 # (08-page-balanced.css). Strings are host-country-GENERIC; concrete
 # host-country detail lives in each Group's content front matter.
 # -----------------------------------------------------------------------------
 
-# BSO eligibility — glance card + detail-card titles
+# BSO eligibility - glance card + detail-card titles
 [bsoEligibilityJoinCta]
 other = "See how to join"
 
@@ -1032,13 +1032,13 @@ other = "Can you join?"
 other = "Young people"
 
 [bsoEligibilityGlanceYouthDd]
-other = "Yes — if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify."
+other = "Yes - if you live in the host country and aren't a national of it. UK, third-country and dual-national families all qualify."
 
 [bsoEligibilityGlanceVolDt]
 other = "Volunteers (18+)"
 
 [bsoEligibilityGlanceVolDd]
-other = "Yes — anyone over 18, any nationality, including nationals of the host country."
+other = "Yes - anyone over 18, any nationality, including nationals of the host country."
 
 [bsoEligibilityGlanceRuleDt]
 other = "The canonical rule"
@@ -1058,7 +1058,7 @@ other = "Open to any adult, 18+"
 [bsoEligibilityAlternativesTitle]
 other = "Where to go instead"
 
-# Governance — glance card, board join prompt, detail label
+# Governance - glance card, board join prompt, detail label
 [governanceGlanceHeading]
 other = "At a glance"
 
@@ -1081,9 +1081,9 @@ other = "AGM & charity registration"
 other = "Could you join the board?"
 
 [governanceJoinBoardBody]
-other = "We'd welcome more hands — particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM."
+other = "We'd welcome more hands - particularly anyone with finance, fundraising or premises experience. Have a word with any trustee at the AGM."
 
-# Reports — glance card + list label
+# Reports - glance card + list label
 [reportsGlanceHeading]
 other = "At a glance"
 
@@ -1099,7 +1099,7 @@ other = "available to download"
 [reportsListLabel]
 other = "Documents"
 
-# Volunteer role — glance card extra labels
+# Volunteer role - glance card extra labels
 [volunteerGlanceHeading]
 other = "Role at a glance"
 
@@ -1109,7 +1109,7 @@ other = "Section"
 [volunteerLocation]
 other = "Location"
 
-# Policy single — eyebrow, contents rail, contact card
+# Policy single - eyebrow, contents rail, contact card
 [policyEyebrow]
 other = "Policy"
 
@@ -1126,8 +1126,8 @@ other = "Contact the Group and we'll be glad to help."
 other = "Get in touch"
 
 # -----------------------------------------------------------------------------
-# Wogglebox badge — used by partials/wogglebox-badge.html (opt-in). The badge
+# Wogglebox badge - used by partials/wogglebox-badge.html (opt-in). The badge
 # image carries its own label; this is the <img> alt / accessible name.
 # -----------------------------------------------------------------------------
 [woggleboxBadgeAlt]
-other = "We use Wogglebox — Scout kit management"
+other = "We use Wogglebox - Scout kit management"

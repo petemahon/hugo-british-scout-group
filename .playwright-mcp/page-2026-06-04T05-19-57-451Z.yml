@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -33,11 +33,11 @@
     - generic [ref=e28]:
       - generic [ref=e29]:
         - generic [ref=e30]: Welcome Pack
-        - heading "1st Anytown Scouts — Welcome Pack" [level=1] [ref=e31]
+        - heading "1st Anytown Scouts - Welcome Pack" [level=1] [ref=e31]
         - paragraph [ref=e32]: "Everything you need to know in the first few weeks: what each section does, how subs work, our safeguarding promise, and the year's calendar."
         - paragraph [ref=e33]: v2026.1 · Last reviewed April 2026
       - generic [ref=e34]:
-        - paragraph [ref=e35]: Welcome to 1st Anytown Scouts. We’re a Group of around 300 young people across five sections, meeting four nights a week. This pack is the short version of what you need to know — sections, joining, subs, our safeguarding promise, and the year’s calendar.
+        - paragraph [ref=e35]: Welcome to 1st Anytown Scouts. We’re a Group of around 300 young people across five sections, meeting four nights a week. This pack is the short version of what you need to know - sections, joining, subs, our safeguarding promise, and the year’s calendar.
         - paragraph [ref=e36]: Click any chapter below to read it on its own; or use the “Print or save the whole pack” button at the foot of this page to grab the lot as a single document.
       - navigation "Welcome Pack chapters" [ref=e37]:
         - list [ref=e38]:
@@ -86,7 +86,7 @@
           - generic [ref=e75]:
             - img [ref=e76]
             - generic [ref=e78]: 1st Anytown Scouts
-          - paragraph [ref=e79]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e79]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e80]:
           - heading "Visit" [level=5] [ref=e81]
           - list [ref=e82]:
@@ -115,7 +115,7 @@
               - link "Privacy" [ref=e101] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e102]:
-        - generic [ref=e103]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e103]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e104]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e106]:
         - text: "Registered charity:"

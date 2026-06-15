@@ -3,16 +3,16 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  bso-subscription — currency-aware fee block for the moving-in page
+  bso-subscription - currency-aware fee block for the moving-in page
   and any other BSO sub-page that surfaces subs. Reuses
   data/currencies.toml (introduced in SPEC-06 / Q10.5).
 
   Context (dict):
-    amount    (str)  REQUIRED — the fee value, e.g. "750"
-    currency  (str)  OPTIONAL — ISO 4217 (default "GBP")
-    period    (str)  OPTIONAL — "term" | "month" | "year" (default "term")
-    joining   (str)  OPTIONAL — one-off joining fee, same currency
-    page      (Page) OPTIONAL — passed through for errorf path on unknown
+    amount    (str)  REQUIRED - the fee value, e.g. "750"
+    currency  (str)  OPTIONAL - ISO 4217 (default "GBP")
+    period    (str)  OPTIONAL - "term" | "month" | "year" (default "term")
+    joining   (str)  OPTIONAL - one-off joining fee, same currency
+    page      (Page) OPTIONAL - passed through for errorf path on unknown
                                 currency code
 */ -}}
 {{- $amount   := .amount   -}}

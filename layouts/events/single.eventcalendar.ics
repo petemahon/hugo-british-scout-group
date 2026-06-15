@@ -3,7 +3,7 @@
   CC BY-SA 4.0 © Peter Mahon
   https://github.com/petemahon/hugo-british-scout-group
 
-  Per-event event.ics — single VEVENT for one event Page.
+  Per-event event.ics - single VEVENT for one event Page.
   Output format: EventCalendar (declared in hugo.toml).
 
   D8 status-model change

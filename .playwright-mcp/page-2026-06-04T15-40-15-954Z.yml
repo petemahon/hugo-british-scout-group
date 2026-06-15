@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - generic [ref=e4]:
-      - link "1st Anytown Scouts — home" [ref=e5] [cursor=pointer]:
+      - link "1st Anytown Scouts - home" [ref=e5] [cursor=pointer]:
         - /url: /
         - img [ref=e6]
         - generic [ref=e8]: 1st Anytown Scouts
@@ -81,7 +81,7 @@
           - generic [ref=e70]:
             - img [ref=e71]
             - generic [ref=e73]: 1st Anytown Scouts
-          - paragraph [ref=e74]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e74]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e75]:
           - heading "Visit" [level=5] [ref=e76]
           - list [ref=e77]:
@@ -110,7 +110,7 @@
               - link "Privacy" [ref=e96] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e97]:
-        - generic [ref=e98]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e98]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e99]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e101]:
         - text: "Registered charity:"

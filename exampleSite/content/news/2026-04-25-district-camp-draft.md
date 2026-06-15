@@ -1,5 +1,5 @@
 +++
-title         = "District Camp 2026 — heads up"
+title         = "District Camp 2026 - heads up"
 date          = 2026-04-25T18:00:00+00:00
 summary       = "Save the date for District Camp at Gilwell-on-Sea. Booking opens next month."
 sections      = ["scouts", "explorers"]

@@ -3,7 +3,7 @@
     - /url: "#main"
   - banner "Site header" [ref=e3]:
     - checkbox "Open menu" [ref=e4]
-    - link "1st Anytown Scouts — home" [ref=e6] [cursor=pointer]:
+    - link "1st Anytown Scouts - home" [ref=e6] [cursor=pointer]:
       - /url: /
       - img [ref=e7]
       - generic [ref=e9]: 1st Anytown Scouts
@@ -37,7 +37,7 @@
                 - listitem [ref=e37]:
                   - link "Explorers" [ref=e38] [cursor=pointer]:
                     - /url: /news/sections/explorers/
-            - paragraph [ref=e39]: The whole Group turned out for our annual St George's Day Parade — fresh neckers, polished shoes, and a piper to lead us in.
+            - paragraph [ref=e39]: The whole Group turned out for our annual St George's Day Parade - fresh neckers, polished shoes, and a piper to lead us in.
             - link "Read more" [ref=e40] [cursor=pointer]:
               - /url: /news/2026-04-19-st-georges-day/
               - text: Read more →
@@ -83,7 +83,7 @@
           - generic [ref=e71]:
             - img [ref=e72]
             - generic [ref=e74]: 1st Anytown Scouts
-          - paragraph [ref=e75]: Skills for life in Anytown — and a slice of UK Scouting wherever you call home.
+          - paragraph [ref=e75]: Skills for life in Anytown - and a slice of UK Scouting wherever you call home.
         - generic [ref=e76]:
           - heading "Visit" [level=5] [ref=e77]
           - list [ref=e78]:
@@ -112,7 +112,7 @@
               - link "Privacy" [ref=e97] [cursor=pointer]:
                 - /url: /privacy/
       - generic [ref=e98]:
-        - generic [ref=e99]: © 2026 1st Anytown Scouts — All Rights Reserved
+        - generic [ref=e99]: © 2026 1st Anytown Scouts - All Rights Reserved
         - generic [ref=e100]: "Skills for Life · #SkillsForLife"
       - paragraph [ref=e102]:
         - text: "Registered charity:"
