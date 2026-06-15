@@ -1,15 +1,31 @@
-# Hugo British Scout Group
+<h1 align="center">Hugo British Scout Group</h1>
 
-A reusable, palette-driven Hugo theme for UK Scout Group websites,
-with first-class support for **British Scouting Overseas (BSO)** Groups.
+<p align="center">
+  A reusable, palette-driven Hugo theme for UK Scout Group websites —<br>
+  with <strong>first-class support for British Scouting Overseas (BSO)</strong>.
+</p>
 
-Front-matter-driven sections. Five Scouts-brand palettes. Pure CSS —
-no JavaScript anywhere in the theme. No third-party tracking. en-GB
-throughout.
+<p align="center">
+  Front-matter-driven sections · five Scouts-brand palettes · pure CSS, no JavaScript ·<br>
+  no third-party tracking · WCAG 2.2 AA · en-GB throughout.
+</p>
 
-- **Licence:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) © Peter Mahon
-- **Minimum Hugo:** 0.156 (extended edition)
-- **Live example:** [adscouts.org](https://adscouts.org) (Abu Dhabi Scouts)
+<p align="center">
+  <a href="https://gohugo.io/installation/"><img alt="Hugo 0.156+ extended" src="https://img.shields.io/badge/Hugo-0.156%2B%20extended-ff4088?logo=hugo&logoColor=white"></a>
+  <a href="https://github.com/petemahon/hugo-british-scout-group/actions/workflows/a11y.yml"><img alt="Accessibility CI" src="https://github.com/petemahon/hugo-british-scout-group/actions/workflows/a11y.yml/badge.svg"></a>
+  <img alt="WCAG 2.2 AA" src="https://img.shields.io/badge/accessibility-WCAG%202.2%20AA-2e7d32">
+  <img alt="Pure CSS — no JavaScript" src="https://img.shields.io/badge/Pure%20CSS-no%20JavaScript-success">
+  <img alt="British Scouting Overseas: first-class" src="https://img.shields.io/badge/British%20Scouting%20Overseas-first--class-7413dc">
+  <a href="#contributing"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen"></a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence: CC BY-SA 4.0" src="https://img.shields.io/badge/licence-CC%20BY--SA%204.0-blue"></a>
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/petemahon/hugo-british-scout-group">
+</p>
+
+<p align="center">
+  <strong>Live example:</strong> <a href="https://adscouts.org">adscouts.org</a> (Abu Dhabi Scouts)
+  · <strong>Minimum Hugo:</strong> 0.156 extended
+  · <strong>Licence:</strong> CC BY-SA 4.0 © Peter Mahon
+</p>
 
 ---
 
@@ -52,8 +68,9 @@ Out of the box, the theme provides:
   consent lints, reusable **Camp Kit Lists** with printable sheets, and
   a **Joining / Waiting-List** page plus a printable **Welcome Pack**.
 - **History & Governance** pages (CSS-only timeline, Trustee Board,
-  charity-registration footer), a **Hall Hire** page, and a
-  **Fundraising & Volunteering** area with open-role listings.
+  charity-registration footer, and published Trustee Board meeting
+  summaries), a **Hall Hire** page, and a **Fundraising & Volunteering**
+  area with open-role listings.
 - A **BSO Joining Hub** (`/bso/`) for overseas Groups — eligibility,
   moving-in/out pathways, and host-country scouting bodies.
 - An **auto-built navigation** (no menu config — driven by your feature
@@ -254,20 +271,21 @@ maintain.
 
 ```toml
 [params.features]
-  news              = true     # SPEC-01
-  events            = true     # SPEC-02
-  programme         = true     # SPEC-03 termly programmes
-  galleries         = true     # SPEC-04 photo galleries
-  kit_lists         = true     # SPEC-05 camp kit lists
-  joining           = true     # SPEC-06 /join/ page
-  welcome_pack      = true     # SPEC-06 /welcome-pack/ content section
-  history           = true     # SPEC-07 /about/history/
-  governance        = true     # SPEC-07 /about/governance/ + charity footer
-  fundraising       = true     # SPEC-09 /support-us/ + volunteer roles
-  hall_hire         = true     # SPEC-08 /hall-hire/
-  bso_hub           = true     # SPEC-10 /bso/ joining hub (BSO Groups only)
+  news              = true     # /news/ listing + camp reports
+  events            = true     # /events/ with .ics calendar downloads
+  programme         = true     # termly programmes
+  galleries         = true     # photo galleries with consent lints
+  kit_lists         = true     # camp kit lists + printable sheets
+  joining           = true     # /join/ page + waiting lists
+  welcome_pack      = true     # /welcome-pack/ content section
+  history           = true     # /about/history/
+  governance        = true     # /about/governance/ + charity footer
+  trustee_minutes   = true     # /about/minutes/ Trustee Board summaries
+  fundraising       = true     # /support-us/ + volunteer roles
+  hall_hire         = true     # /hall-hire/
+  bso_hub           = true     # /bso/ joining hub (BSO Groups only)
   network_feature   = true     # Network 18–25 brand-anchor band
-  volunteer_feature = true     # "Register to volunteer." brand-anchor band (D11)
+  volunteer_feature = true     # "Register to volunteer." brand-anchor band
 ```
 
 ---
@@ -297,7 +315,7 @@ relies on these keys).
 | `news-grid`          | Home-page block listing recent news posts (requires `news`).                       |
 | `gallery-strip`      | Home-page block — latest gallery's cover plus a short row of thumbs (requires `galleries`). |
 | `programme-current`  | Home-page block — collapsible "this term's programme" per section (requires `programme`). Opt-in: ships disabled by default. |
-| `volunteer-recruitment-banner` | Home-page band linking to open volunteer roles — renders **only** when a role is open (requires `fundraising`; SPEC-09). |
+| `volunteer-recruitment-banner` | Home-page band linking to open volunteer roles — renders **only** when a role is open (requires `fundraising`). |
 | `join`               | The Join Us nav-anchor section (`id="join"` → `#join`).                            |
 
 Each consuming-site section block in `content/_index.md` looks like:
@@ -335,7 +353,7 @@ scroll()` + `anchor-name` (Baseline 2026, Chrome 115+, Safari 26+).
 Pre-baseline browsers and `prefers-reduced-motion: reduce` get the
 static hero — no degraded fallback path needed.
 
-### News & Camp Reports (SPEC-01)
+### News & Camp Reports
 
 A standard Hugo content section under `content/news/`. Set
 `params.features.news = true`, then:
@@ -351,7 +369,7 @@ A standard Hugo content section under `content/news/`. Set
 Generates a listing at `/news/`, paginated; a per-post page; and a
 `news-grid` home-page block that renders the latest N posts.
 
-### Events with `.ics` download (SPEC-02)
+### Events with `.ics` download
 
 A content section under `content/events/` with three custom output
 formats: HTML, per-event `event.ics`, and an aggregate `/events/all.ics`.
@@ -377,7 +395,7 @@ local time, with the UK equivalent in parentheses. Drive this by
 setting `params.events.timezone` to your local IANA TZ — the theme
 computes UK time at render.
 
-### Termly Programme (SPEC-03)
+### Termly Programme
 
 A content section under `content/programme/` for publishing one
 sanitised, public-friendly summary per section per term. Each programme
@@ -423,7 +441,7 @@ chips outlined in monochrome, and the weeks table edge-to-edge.
 
 **Optional home-page block.** A `programme-current` section type
 renders the current term as a list of collapsible `<details>` panels.
-**Per SPEC-03 it's NOT in the example site's home page by default** —
+**It's NOT in the example site's home page by default** —
 opt in by pasting this into your `content/_index.md`:
 
 ```toml
@@ -439,7 +457,7 @@ opt in by pasting this into your `content/_index.md`:
   # sections = ["beavers", "cubs"]   # optional filter; empty = all sections
 ```
 
-### Photo Galleries (SPEC-04)
+### Photo Galleries
 
 A `/galleries/` content section for camp and event photo galleries.
 The highest residual safeguarding surface in the roadmap — the build
@@ -566,7 +584,7 @@ must review and merge each prune.
 7. The `consent-policy.md` page on the site documents the Group's
    approach to handling photos.
 
-### Camp Kit Lists (SPEC-05)
+### Camp Kit Lists
 
 Reusable, versioned kit lists at `/kit-lists/`, grouped by section.
 Each list (`content/kit-lists/<slug>.md`) is **structured front-matter**
@@ -599,7 +617,7 @@ home"** list (`non_essential`). The starter pack ships nine lists —
 Cubs/Scouts weekend and summer, an Explorers expedition, plus
 desert-climate variants — as **content the Group edits**, not theme code.
 
-**Event integration (with SPEC-02):** an event with `kit_list_ref =
+**Event integration.** An event with `kit_list_ref =
 "<slug>"` renders a "Kit list for this camp → …" link, and its free-text
 `additional_kit` shows alongside as a per-event note. To embed the full
 list inline in an event (or any page) body, use the shortcode:
@@ -631,7 +649,7 @@ hugo new kit-lists/cubs-weekend.md
 > the badge's `utm_*` link only fires on click. Override the click-through
 > with `[params.wogglebox] url = "..."`.
 
-### Joining & Waiting List (SPEC-06)
+### Joining & Waiting List
 
 A structured `/join/` page generated from a single Markdown file
 (`content/join/_index.md`) plus a data file
@@ -648,7 +666,7 @@ built in: a section with two Packs renders two cards.
 [params.joining]
   show_currency       = true
   card_layout         = "grid"          # "grid" | "stacked"
-  show_volunteer_link = true            # bridge into SPEC-09
+  show_volunteer_link = true            # bridge to the volunteer roles
 
 [params.welcome_pack]
   print_route = true                    # generate /welcome-pack/print.html
@@ -711,7 +729,7 @@ in-card note. The example site ships BSO fields populated but a Group
 can default `enabled = false`; flip the switch to exercise the BSO
 render path end-to-end.
 
-### Welcome Pack (SPEC-06)
+### Welcome Pack
 
 A Hugo content section at `/welcome-pack/` with a cover page, a set
 of editable Markdown chapters (`about`, `sections`, `joining`,
@@ -736,7 +754,7 @@ to the consuming site.
 hugo new welcome-pack/about.md
 ```
 
-### Group History & Governance (SPEC-07)
+### Group History & Governance
 
 Two independently-gated pages under `/about/`:
 
@@ -744,7 +762,7 @@ Two independently-gated pages under `/about/`:
   Markdown history with an optional CSS-only timeline driven by
   `data/history_timeline.toml`. `timeline_position` places it as a
   `sidebar` (two columns on wide screens), `top`, or `bottom`. A cover
-  image triggers the SPEC-COMMON §10 photo-consent lint.
+  image triggers the photo-consent lint.
 - **`/about/governance/`** (`params.features.governance`) — charity
   registration, AGM details, the Trustee Board (`data/trustees.toml` —
   names only, no contact details), and a link to the reports archive.
@@ -774,7 +792,22 @@ hugo new about/history.md
 hugo new about/governance.md
 ```
 
-### Fundraising & Volunteering (SPEC-09)
+**Trustee Board meeting summaries.** With `params.features.trustee_minutes`
+on (alongside `governance`), an archive at `/about/minutes/` publishes short,
+**public, redacted summaries** of board decisions — never the full minutes,
+which stay private (the no-backend, no-login design means anything rendered
+is fully public). Each summary is a Markdown file in `content/about/minutes/`
+that renders only when marked `approved = true`, so nothing publishes by
+accident. A universal, all-levels (Group / District / County · Area · Region)
+authoring template ships at
+`documentation/templates/trustee-minutes-template.md` for boards to write
+their full minutes privately. The governance page cross-links the archive.
+
+```sh
+hugo new about/minutes/2026-03-board.md
+```
+
+### Fundraising & Volunteering
 
 Gated by `params.features.fundraising`. Two linked areas under
 `/support-us/`:
@@ -783,7 +816,7 @@ Gated by `params.features.fundraising`. Two linked areas under
   external giving platforms (no logos — copyright), recurring
   fundraising activities, an optional Gift Aid PDF link, and an
   optional high-level `annual_budget` block (currency from
-  `data/currencies.toml`, with a cross-link to the SPEC-07 reports
+  `data/currencies.toml`, with a cross-link to the reports
   archive).
 - **`/support-us/volunteer-roles/`** — open vacancies as cards, each
   linking to a per-role page (`/support-us/volunteer-roles/<slug>/`). A
@@ -797,21 +830,19 @@ Gated by `params.features.fundraising`. Two linked areas under
 A new **`volunteer-recruitment-banner`** home section renders **only
 when at least one role is open** (and `features.fundraising` is on),
 linking to the roles page; when nothing's open it outputs nothing and
-the page flows past. Both the banner and (from SPEC-11) the nav link
-read the same `partials/volunteer-roles-open.html`, so they can't
-disagree.
+the page flows past. Both the banner and the nav link read the same
+`partials/volunteer-roles-open.html`, so they can't disagree.
 
-The **conditional "We're recruiting" nav link** (AC4) is owned by
-**SPEC-11**, which rebuilds the nav — the `[params.volunteer_roles]`
-config ships now so it's stable, and the homepage banner is the
-interim entry point.
+The **conditional "We're recruiting" nav link** appears automatically
+whenever a role is open; the homepage banner is the other entry point.
+Both read the same source, so they can't disagree.
 
 ```sh
 hugo new support-us/_index.md
 hugo new support-us/volunteer-roles/treasurer.md
 ```
 
-### Hall Hire (SPEC-08)
+### Hall Hire
 
 Gated by `params.features.hall_hire`. A single informational page at
 `/hall-hire/` advertising the Scout Hut for community hire — intro,
@@ -831,12 +862,12 @@ signals new enquiries are paused; the page still renders in full.
 hugo new hall-hire/_index.md
 ```
 
-### BSO Joining Hub (SPEC-10)
+### BSO Joining Hub
 
 A BSO-only content section at `/bso/` covering joining eligibility,
 moving-in/moving-out pathways, and the WOSM-recognised scouting
 bodies of the host country. Builds on the existing
-`bso-membership-notice` partial and the SPEC-06 joining cards (which
+`bso-membership-notice` partial and the joining cards (which
 cross-link to `/bso/eligibility/` for the per-pack `bso_nationality_note`).
 
 ```toml
@@ -857,7 +888,7 @@ cross-link to `/bso/eligibility/` for the per-pack `bso_nationality_note`).
 
 **End-to-end gating.** With `bso.enabled = false` *or* `bso_hub = false`,
 none of the `/bso/` pages render: the hub list page is empty, and
-the SPEC-06 joining cards' `/bso/eligibility/` link target becomes
+the joining cards' `/bso/eligibility/` link target becomes
 a 404. Groups that aren't BSO leave the master switch off and never
 encounter the feature.
 
@@ -952,7 +983,7 @@ overseas Groups. The notice is a dedicated partial, configured via
 The wording is canonical and should not be reworded without
 consulting POR.
 
-### Navigation (SPEC-11)
+### Navigation
 
 The site nav is **auto-built from your feature flags** — there is no
 `[[menu.main]]` to maintain. Turn a feature on and its entry appears;
@@ -972,7 +1003,7 @@ theme-owned order: **Join Us · Our Sections · What we do · Get Involved
   `:focus-within`; **mobile** collapses to a checkbox-hack drawer where
   each group is a `<details>` **accordion**. Pure CSS, no JavaScript.
 - The **"We're recruiting"** flag appears on the Volunteer-roles entry
-  when a role is open (SPEC-09).
+  when a role is open.
 
 Customise labels via the `nav*` i18n keys; hide a specific entry without
 disabling its feature via `[params.nav].show_*` (all default `true`).
@@ -984,7 +1015,7 @@ Order and hierarchy are owned by the theme and not Group-configurable.
   show_what_we_do = false   # hide a group from the auto-nav
 ```
 
-### Accessibility (SPEC-12)
+### Accessibility
 
 Every page the theme renders targets **WCAG 2.2 AA** out of the box —
 there is no flag and nothing to switch on. Publishing this theme should
@@ -1015,7 +1046,7 @@ not require additional accessibility work.
 
 If you add a new image-bearing content type, call `audit-image.html`
 for it; if you add a section partial, start its headings at `<h2>`.
-See `documentation/SPEC-COMMON.md` §17.
+See the accessibility notes in `documentation/`.
 
 ---
 
@@ -1054,29 +1085,29 @@ adding a new module is a drop-in:
 04-nav.css                     Sticky nav, dropdowns, mobile drawer
 05-components-sect-head.css    .sect-head + .eyebrow shared component
 06-components-article.css      Prose/article typography
-07-a11y.css                    Skip link, focus ring, sr-only, reduced motion (SPEC-12)
+07-a11y.css                    Skip link, focus ring, sr-only, reduced motion
 …
 10-section-hero.css            Section modules — one per section type
 11-section-two-col-cta.css
 …
-22-section-network-feature.css (D10)
-23-section-volunteer-feature.css (D11)
-24-section-bso-membership.css (D12)
-30-footer.css                  (D13)
+22-section-network-feature.css Network 18–25 brand-anchor band
+23-section-volunteer-feature.css Volunteer brand-anchor band
+24-section-bso-membership.css  BSO membership notice
+30-footer.css                  Footer
 31-back-to-top.css
 32-page-load-fade.css          (reveal fade-in; honours reduced motion)
 33-wogglebox-badge.css         (opt-in "We use Wogglebox" partner badge)
-40-section-news.css            (SPEC-01)
+40-section-news.css            News & camp reports
 41-feature-hero-intro.css      (opt-in, gated by body class)
-50-section-programme.css       (SPEC-03)
-51-section-joining.css         (SPEC-06)
-52-section-welcome-pack.css    (SPEC-06)
-53-section-bso-hub.css         (SPEC-10)
-54-section-galleries.css       (SPEC-04)
-55-section-kit-lists.css       (SPEC-05)
-56-section-about.css           (SPEC-07 history/governance)
-57-section-support-us.css      (SPEC-09 fundraising/volunteering)
-58-section-hall-hire.css       (SPEC-08)
+50-section-programme.css       Termly programme
+51-section-joining.css         Joining & waiting list
+52-section-welcome-pack.css    Welcome pack
+53-section-bso-hub.css         BSO joining hub
+54-section-galleries.css       Photo galleries
+55-section-kit-lists.css       Camp kit lists
+56-section-about.css           History, governance & minutes
+57-section-support-us.css      Fundraising & volunteering
+58-section-hall-hire.css       Hall hire
 ```
 
 To override theme styles in your site, add a `assets/css/99-site.css`
@@ -1179,9 +1210,9 @@ hugo-british-scout-group/
 ├── theme.toml                     # theme metadata for Hugo
 ├── Makefile                       # make serve | build | roll | clean
 ├── .github/
-│   └── workflows/a11y.yml         # contrast + axe-core WCAG CI (SPEC-12)
+│   └── workflows/a11y.yml         # contrast + axe-core WCAG CI
 ├── tools/
-│   └── audit-contrast.mjs         # palette contrast audit, run in CI (SPEC-12)
+│   └── audit-contrast.mjs         # palette contrast audit, run in CI
 ├── archetypes/                    # `hugo new` scaffolds
 ├── assets/
 │   ├── css/                       # numbered CSS modules (00–99)
@@ -1217,13 +1248,10 @@ hugo-british-scout-group/
 │       ├── news/
 │       ├── events/                # with [demo] blocks
 │       └── palettes/_index.md
-└── documentation/
-    ├── README.md                  # spec-pack reading order
+└── documentation/                # design & contributor notes
     ├── DECISIONS.md               # locked architectural choices
-    ├── SPEC-COMMON.md             # cross-cutting conventions
-    ├── D13-SPEC.md                # D5–D13 redesign closing record
-    └── specs/
-        └── SPEC-01-news.md … SPEC-12-accessibility.md
+    ├── README.md                  # reading order for the design docs
+    └── …                          # per-feature design notes + conventions
 ```
 
 ---
@@ -1306,9 +1334,8 @@ invariants that need a conversation, not a silent flip:
   scoutsbrand.org.uk on a per-Group basis).
 
 For everything else: clear commit messages, en-GB in user-facing
-strings, no new JS, and please add to the relevant SPEC document
-under `documentation/specs/` if the change extends a feature's
-contract.
+strings, no new JS, and please update the relevant design doc under
+`documentation/` if the change extends a feature's contract.
 
 ---
 
