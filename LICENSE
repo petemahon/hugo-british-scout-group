@@ -43,5 +43,9 @@ The colour palette presets in data/palettes.toml use hex values published in
 the Scouts Brand Guidelines (Our Colours, 2023). Hex codes are factual data
 and are not themselves copyrightable.
 
-The "Manrope" and "Nunito Sans" typefaces are loaded at runtime from Google
-Fonts under the SIL Open Font License 1.1.
+The "Manrope" and "Nunito Sans" typefaces are bundled in the theme as woff2
+files at assets/fonts/, under the SIL Open Font License 1.1, with each family's
+OFL licence text alongside (OFL-Manrope.txt, OFL-NunitoSans.txt). Manrope is
+Copyright 2018 The Manrope Project Authors; Nunito Sans is Copyright 2016 The
+Nunito Sans Project Authors. They are self-hosted - not loaded from a font CDN
+- so no visitor request reaches a third party.

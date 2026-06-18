@@ -39,14 +39,12 @@
 <link rel="icon" href="{{ . | relURL }}">
 {{- end }}
 
-<!-- Manrope (body/UI) + Nunito Sans (poster display) from Google Fonts.
-     Nunito Sans is the UK Scouts brand poster face; it is used only for
-     display moments (the volunteer poster headline + stat copy) via
-     var(--font-display). Preload the stylesheet to avoid FOUT. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@800;900&display=swap">
+<!-- Manrope (body/UI) + Nunito Sans (poster display), SELF-HOSTED from
+     assets/fonts/ (OFL 1.1) - no runtime font-CDN request, so the theme's
+     "no tracking" promise holds. Nunito Sans is the UK Scouts brand poster
+     face, used only for display moments (the volunteer poster headline + stat
+     copy) via var(--font-display). @font-face + preload live in fonts.html. -->
+{{ partial "fonts.html" . }}
 
 <!-- Theme CSS - assets/css/*.css globbed in numeric-prefix order, concatenated
      to a single bundle, then minified+fingerprinted in production.

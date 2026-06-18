@@ -1200,8 +1200,9 @@ flag-not-change event - open an issue first.
   JS.
 - **No backend services, no third-party tracking.** No analytics,
   no social embeds with trackers, no comment systems, no payment
-  widgets, no live-chat, no tracking font CDNs. The only runtime
-  third party is Google Fonts (Manrope + Nunito Sans), loaded statically.
+  widgets, no live-chat, no font CDNs. The Manrope and Nunito Sans
+  webfonts are self-hosted from the theme (`assets/fonts/`, OFL 1.1),
+  so a page load makes **no** request to any third party.
 - **WCAG 2.2 AA is the floor.** Skip link first-focusable on every
   page; focus rings on every interactive element; `prefers-reduced-motion`
   honoured; colour-contrast audited in CI.
@@ -1226,6 +1227,7 @@ hugo-british-scout-group/
 ├── archetypes/                    # `hugo new` scaffolds
 ├── assets/
 │   ├── css/                       # numbered CSS modules (00–99)
+│   ├── fonts/                     # self-hosted woff2 (Manrope + Nunito Sans, OFL 1.1)
 │   ├── svg/                       # source SVGs for inline symbols
 │   └── images/                    # generic placeholders + section logos
 ├── data/
@@ -1244,13 +1246,15 @@ hugo-british-scout-group/
 │       ├── header.html            # sticky nav
 │       ├── footer.html
 │       ├── palette-style.html     # emits chosen palette as CSS vars
+│       ├── fonts.html             # self-hosted @font-face + preload
 │       ├── svg-defs.html          # data-driven inline <symbol> defs
 │       ├── bso-membership-notice.html
 │       ├── event-*.{html,ics}
 │       ├── news-*.html
 │       └── sections/              # one partial per [[sections]] type
 ├── scripts/
-│   └── roll-example-dates.py      # demo-roller for exampleSite events
+│   ├── roll-example-dates.py      # demo-roller for exampleSite events
+│   └── fetch-fonts.sh             # download self-hosted webfonts (run once, commit)
 ├── exampleSite/                   # demo site + test fixture
 │   ├── hugo.toml                  # exercises every feature
 │   └── content/
@@ -1369,8 +1373,11 @@ distribution within forks of this theme is permitted only when the
 fork is being used to build a website for an actual Scout Group, in
 line with The Scout Association's brand asset terms.
 
-The "Manrope" and "Nunito Sans" typefaces are loaded at runtime from
-Google Fonts under the SIL Open Font License 1.1.
+The "Manrope" and "Nunito Sans" typefaces are self-hosted in the
+theme at `assets/fonts/` (woff2) under the SIL Open Font License 1.1,
+each with its OFL licence text alongside. They are not loaded from a
+font CDN. To refresh them, run `scripts/fetch-fonts.sh` and commit the
+result.
 
 The author asks (but does not require) that downstream users keep
 the `LICENSE` file intact in any forks of the theme repository.

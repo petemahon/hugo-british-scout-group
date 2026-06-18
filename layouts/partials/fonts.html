@@ -1,0 +1,57 @@
+{{- /*
+  Hugo British Scout Group theme
+  CC BY-SA 4.0 © Peter Mahon
+  https://github.com/petemahon/hugo-british-scout-group
+
+  fonts - self-hosted @font-face declarations for Manrope (body/UI) and
+  Nunito Sans (poster display, var(--font-display)). The woff2 files ship in
+  the theme at assets/fonts/ under the SIL Open Font License 1.1, so NO
+  visitor request ever reaches a third-party font CDN. This is what keeps the
+  theme's "no tracking" promise literally true; it replaces the former runtime
+  Google Fonts <link>s in head.html.
+
+  latin and latin-ext ship as separate subsets with unicode-range, so a
+  browser only fetches the (rarely-needed) latin-ext file when a page actually
+  renders those glyphs. Fingerprinted in production for long-cache busting.
+
+  To (re)download the binaries - e.g. when bumping the upstream font version -
+  run scripts/fetch-fonts.sh and commit the result. The build errorfs below if
+  any expected woff2 is absent, so a missing download fails loudly rather than
+  silently falling back to system fonts.
+*/ -}}
+{{- $latin := "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD" -}}
+{{- $latinExt := "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF" -}}
+{{- $subsets := slice (dict "name" "latin" "range" $latin) (dict "name" "latin-ext" "range" $latinExt) -}}
+{{- $families := slice
+      (dict "key" "manrope" "name" "Manrope" "weights" (slice 400 500 600 700 800))
+      (dict "key" "nunito-sans" "name" "Nunito Sans" "weights" (slice 800 900)) -}}
+{{- /* Preload the two faces used on every page (Manrope 400 + 700, latin) to
+       trim FOUT; font-display: swap covers the rest. crossorigin is required
+       even same-origin because fonts are always fetched in CORS mode. */ -}}
+{{- range $p := slice "fonts/manrope-latin-400.woff2" "fonts/manrope-latin-700.woff2" -}}
+  {{- with resources.Get $p -}}
+    {{- $r := . -}}
+    {{- if hugo.IsProduction }}{{ $r = $r | fingerprint }}{{ end -}}
+<link rel="preload" as="font" type="font/woff2" href="{{ $r.RelPermalink }}" crossorigin>
+  {{- end -}}
+{{- end }}
+<style>
+{{- range $fam := $families }}
+  {{- range $w := $fam.weights }}
+    {{- range $s := $subsets }}
+      {{- $path := printf "fonts/%s-%s-%d.woff2" $fam.key $s.name $w -}}
+      {{- $res := resources.Get $path -}}
+      {{- if not $res }}{{ errorf "british-scout-group: missing self-hosted font %q - run scripts/fetch-fonts.sh and commit assets/fonts/" $path }}{{ end -}}
+      {{- if hugo.IsProduction }}{{ $res = $res | fingerprint }}{{ end }}
+@font-face {
+  font-family: '{{ $fam.name }}';
+  font-style: normal;
+  font-weight: {{ $w }};
+  font-display: swap;
+  src: url('{{ $res.RelPermalink }}') format('woff2');
+  unicode-range: {{ $s.range }};
+}
+    {{- end }}
+  {{- end }}
+{{- end }}
+</style>

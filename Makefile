@@ -4,6 +4,8 @@
 #   make build   Roll example dates forward, then run `hugo --minify`.
 #   make roll    Just run the date-roller.
 #   make clean   Discard the date-roller's edits to example events.
+#   make fonts   Download the self-hosted webfonts into assets/fonts/
+#                (run once and commit; re-run only to refresh).
 #
 # All Hugo invocations use --buildDrafts=false --buildFuture=false to
 # match the deploy policy (drafts hidden, future-dated content gated by
@@ -11,10 +13,13 @@
 
 PY ?= python3
 
-.PHONY: roll serve build clean
+.PHONY: roll serve build clean fonts
 
 roll:
 	$(PY) scripts/roll-example-dates.py
+
+fonts:
+	bash scripts/fetch-fonts.sh
 
 serve: roll
 	cd exampleSite && hugo serve --buildDrafts=false --buildFuture=false
