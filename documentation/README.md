@@ -43,6 +43,22 @@ cross-cutting specs that affect every feature:
 | 11 | **Navigation** - auto-built hierarchical nav from feature flags (always on) | `SPEC-11-nav.md` |
 | 12 | **Accessibility** - WCAG 2.2 AA baseline, skip link, focus visibility, audit lints (always on) | `SPEC-12-accessibility.md` |
 
+## Beyond the v1 pack
+
+The twelve specs above are the original v1 roadmap, all shipped. Two
+further specs extend that baseline and are also shipped - they follow
+the same conventions (`SPEC-COMMON.md` still applies):
+
+| # | Feature | Spec |
+| --- | --- | --- |
+| 13 | Trustee Minutes - public, redacted board-decision summaries; extends SPEC-07 | `specs/SPEC-13-trustee-minutes.md` |
+| 14 | **Policies** - review-before-use starter policy pages (photo consent, privacy/UK GDPR, safeguarding, social media), gated `features.policies`, footer-only | `specs/SPEC-14-policies.md` |
+
+SPEC-14 completes the half-built `policies` section: the starter
+policies ship in the theme as `draft = true` / `starter = true` so
+nothing un-reviewed publishes, surfaced by a single automatic footer
+link. See the spec for the safe-publish rationale.
+
 ## Recommended implementation order
 
 1. **SPEC-01 News** - small, foundational, exercises the schema +

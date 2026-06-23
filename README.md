@@ -7,7 +7,7 @@
 
 <p align="center">
   Front-matter-driven sections · five Scouts-brand palettes · pure CSS, no JavaScript ·<br>
-  no third-party tracking · WCAG 2.2 AA · en-GB throughout.
+  no third-party tracking · review-before-use policies · WCAG 2.2 AA · en-GB throughout.
 </p>
 
 <p align="center">
@@ -15,6 +15,10 @@
   <a href="https://github.com/petemahon/hugo-british-scout-group/actions/workflows/a11y.yml"><img alt="Accessibility CI" src="https://github.com/petemahon/hugo-british-scout-group/actions/workflows/a11y.yml/badge.svg"></a>
   <img alt="WCAG 2.2 AA" src="https://img.shields.io/badge/accessibility-WCAG%202.2%20AA-2e7d32">
   <img alt="Pure CSS - no JavaScript" src="https://img.shields.io/badge/Pure%20CSS-no%20JavaScript-success">
+  <img alt="Privacy by design - no backend, no trackers" src="https://img.shields.io/badge/privacy-by%20design-2e7d32">
+  <img alt="UK GDPR-aware starter policies" src="https://img.shields.io/badge/UK%20GDPR-aware-2e7d32">
+  <img alt="Safeguarding-first" src="https://img.shields.io/badge/safeguarding-first--class-7413dc">
+  <img alt="No third-party requests - self-hosted fonts" src="https://img.shields.io/badge/third--party%20requests-zero-success">
   <img alt="British Scouting Overseas: first-class" src="https://img.shields.io/badge/British%20Scouting%20Overseas-first--class-7413dc">
   <a href="#contributing"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen"></a>
   <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence: CC BY-SA 4.0" src="https://img.shields.io/badge/licence-CC%20BY--SA%204.0-blue"></a>
@@ -71,6 +75,11 @@ Out of the box, the theme provides:
   charity-registration footer, and published Trustee Board meeting
   summaries), a **Hall Hire** page, and a **Fundraising & Volunteering**
   area with open-role listings.
+- A **Policies** area (`/policies/`) shipping four *review-before-use*
+  starter policies - photo consent, privacy & data protection (UK GDPR),
+  a safeguarding statement, and social media / communications - as
+  drafts, so nothing un-reviewed ever goes live, surfaced by a single
+  automatic footer link.
 - A **BSO Joining Hub** (`/bso/`) for overseas Groups - eligibility,
   moving-in/out pathways, and host-country scouting bodies.
 - An **auto-built navigation** (no menu config - driven by your feature
@@ -281,6 +290,7 @@ maintain.
   history           = true     # /about/history/
   governance        = true     # /about/governance/ + charity footer
   trustee_minutes   = true     # /about/minutes/ Trustee Board summaries
+  policies          = true     # /policies/ review-before-use policy pages
   fundraising       = true     # /support-us/ + volunteer roles
   hall_hire         = true     # /hall-hire/
   bso_hub           = true     # /bso/ joining hub (BSO Groups only)
@@ -817,6 +827,65 @@ their full minutes privately. The governance page cross-links the archive.
 hugo new about/minutes/2026-03-board.md
 ```
 
+### Policies
+
+Gated by `params.features.policies` (default OFF). A `/policies/` area
+giving every Group a small set of **review-before-use** policy pages out
+of the box, so the safeguarding and data-protection promises elsewhere on
+the site point at something real rather than a blank.
+
+```toml
+[params.features]
+  policies = true
+```
+
+The theme ships four starter policies in `content/policies/`:
+
+| Policy | Covers |
+| --- | --- |
+| **Photo consent** | How photos of young people are handled; right to be forgotten. Complements the galleries' build-time consent lints. |
+| **Privacy & data protection** | What data is held, where it lives (OSM, no site backend), who it's shared with, and **UK GDPR** subject-access / erasure rights. |
+| **Safeguarding statement** | How the Group *applies* Scouts UK safeguarding - **links** to TSA's Yellow Card / POR, never reproduces them. |
+| **Social media & communications** | Official channels, use of platforms, and Yellow Card online-contact rules. |
+
+**Safe-publish by design.** The theme has no backend and no
+authentication - anything rendered is fully public - so un-reviewed
+boilerplate must never go live as if it were the Group's adopted policy.
+Two safety nets enforce this:
+
+- Each starter ships as **`draft = true`**, so under the deploy policy
+  (`--buildDrafts=false`) it does **not** render until a Group reviews it
+  and clears the draft flag.
+- Each also carries **`starter = true`**, which renders a prominent
+  "review this wording" banner (`--warning`) for as long as the flag is
+  present - a second net if a site publishes before fully adopting the
+  text.
+
+The workflow to publish one: copy its intent into a same-path file in
+your site repo (or edit in place), review with your Trustees, remove
+`starter`, and set `draft = false`.
+
+```sh
+hugo new policies/data-retention.md
+```
+
+**Footer link, no nav entry.** A single automatic **"Policies"** link
+appears in the footer - but **only** when `features.policies` is on
+*and* at least one policy is actually published. The `/policies/` index
+then lists every published policy, so the footer stays a single link as
+the set grows. There is deliberately **no main-nav entry** (the
+five-group SPEC-11 nav contract is untouched); policy links are
+conventional footer utility links.
+
+The existing `[params.galleries].consent_policy_url`
+(`/policies/photo-consent/`) gallery-to-policy link is complementary and
+resolves naturally once a Group publishes its photo-consent policy.
+
+The starter wording is honest boilerplate, **not** legal advice or a
+ready-to-adopt policy - the accuracy/safeguarding warnings in
+`archetypes/policies.md` and the in-page banner say so. Adopting and
+keeping policies current is the Group's responsibility.
+
 ### Fundraising & Volunteering
 
 Gated by `params.features.fundraising`. Two linked areas under
@@ -1118,6 +1187,7 @@ adding a new module is a drop-in:
 56-section-about.css           History, governance & minutes
 57-section-support-us.css      Fundraising & volunteering
 58-section-hall-hire.css       Hall hire
+59-section-policies.css        Policy listing, starter banner, footer link
 ```
 
 To override theme styles in your site, add a `assets/css/99-site.css`
