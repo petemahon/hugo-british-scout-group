@@ -1,0 +1,82 @@
+/* =============================================================================
+   59. POLICIES
+   Hugo British Scout Group theme - CC BY-SA 4.0 © Peter Mahon
+   https://github.com/petemahon/hugo-british-scout-group
+   -----------------------------------------------------------------------------
+   SPEC-14. The /policies/ index (s-policies--list), the per-policy
+   starter-wording banner (s-policy__starter), the "last reviewed" meta
+   line, and the footer "Policies" link. Per-policy prose pages reuse the
+   balanced info-page treatment in 08-page-balanced.css.
+   ============================================================================= */
+
+/* ── Listing grid ──────────────────────────────────────────── */
+.s-policies__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .s-policies__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.s-policies__card {
+  border: 1px solid var(--line, #e7e4dd);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg, #fff);
+}
+
+.s-policies__card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+.s-policies__card-link {
+  text-decoration: none;
+}
+.s-policies__card-link:hover {
+  text-decoration: underline;
+}
+
+.s-policies__card-desc {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted, #45413a);
+}
+
+.s-policies__card-meta,
+.s-policy__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #45413a);
+}
+
+.s-policies__empty {
+  color: var(--text-muted, #45413a);
+}
+
+/* ── Starter-wording banner (per-policy) ───────────────────── */
+.s-policy__starter {
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 12px;
+  background: var(--warning, #b4690e);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Footer "Policies" link ────────────────────────────────── */
+/* Inherits dark-surface link treatment from 30-footer.css via
+   .site-footer__link; this just lets it centre between the copyright
+   line and the strap when the bottom bar lays out three items. */
+.site-footer__policies {
+  text-align: center;
+}
+
+@media print {
+  .s-policy__starter { border: 1px solid #000; background: transparent; color: #000; }
+  .site-footer__policies { display: none; }
+}

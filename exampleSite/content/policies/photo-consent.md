@@ -1,7 +1,9 @@
 +++
-title       = "Photo consent"
-description = "How we handle photographs of young people at 1st Anytown Scouts."
-date        = 2026-05-01
+title         = "Photo consent"
+description   = "How we handle photographs of young people at 1st Anytown Scouts."
+date          = 2026-05-01
+last_reviewed = 2026-05-01
+# This example policy is "adopted" - no `starter` flag, so no banner.
 +++
 
 This page is the starter wording shipped with the British Scout Group

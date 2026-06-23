@@ -23,7 +23,17 @@
       <span class="eyebrow">{{ i18n "policyEyebrow" | default "Policy" }}</span>
       <h1 class="display-2">{{ .Title }}</h1>
       {{- with .Description }}<p class="pb-lede">{{ . }}</p>{{ end }}
+      {{- with .Params.last_reviewed }}
+        <p class="s-policy__meta">{{ i18n "policyLastReviewed" }}: {{ dateFormat "2 January 2006" . }}</p>
+      {{- end }}
     </header>
+
+    {{- /* Theme-shipped starter wording the Group has not yet adopted.
+           The Group clears `starter` (and reviews `draft`) once the
+           policy reflects its own agreed position. SPEC-14. */ -}}
+    {{- if .Params.starter }}
+      <div class="s-policy__starter" role="note">{{ i18n "policyStarterNotice" }}</div>
+    {{- end }}
 
     <div class="pb-body-grid">
       <div class="pb-prose">

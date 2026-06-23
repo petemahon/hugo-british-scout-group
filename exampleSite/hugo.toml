@@ -250,6 +250,7 @@ disableKinds = ["taxonomy", "term"]
   trustee_minutes   = true
   fundraising       = true
   hall_hire         = true
+  policies          = true
 
 
 # -----------------------------------------------------------------------------

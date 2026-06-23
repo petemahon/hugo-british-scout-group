@@ -113,8 +113,22 @@
 
     </div>
 
+    {{- /* Policies (SPEC-14). A single auto link to the /policies/ index,
+           shown only when features.policies is on AND at least one policy
+           is published (theme-shipped starters ship as drafts, so a fresh
+           site shows no link until the Group adopts one). The index lists
+           every published policy - the footer stays a single link as the
+           set grows. */ -}}
+    {{- $showPolicies := false -}}
+    {{- if site.Params.features.policies -}}
+      {{- if where site.RegularPages "Section" "policies" }}{{ $showPolicies = true }}{{ end -}}
+    {{- end -}}
+
     <div class="site-footer__bottom">
       <span class="site-footer__copyright">&copy; {{ $year }} {{ $owner }} &mdash; {{ $rights }}</span>
+      {{- if $showPolicies }}
+        <a class="styled-link site-footer__link site-footer__policies" href="{{ "/policies/" | relURL }}">{{ i18n "policiesFooterLink" }}</a>
+      {{- end }}
       {{- with $strap }}
         <span class="site-footer__strap">{{ . }}</span>
       {{- end }}

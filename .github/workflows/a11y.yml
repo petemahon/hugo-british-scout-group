@@ -100,4 +100,6 @@ jobs:
             http://localhost:8080/kit-lists/ \
             http://localhost:8080/hall-hire/ \
             http://localhost:8080/support-us/ \
+            http://localhost:8080/policies/ \
+            http://localhost:8080/policies/photo-consent/ \
             http://localhost:8080/about/history/

@@ -1125,6 +1125,28 @@ other = "Contact the Group and we'll be glad to help."
 [policyAskCta]
 other = "Get in touch"
 
+# Policy listing (/policies/), footer link, and the theme-shipped
+# starter-wording banner. SPEC-14.
+[policiesHeading]
+other = "Policies"
+
+[policiesIntro]
+other = "How this Group keeps young people safe, looks after your data, and handles photos."
+
+[policiesEmptyList]
+other = "No policies have been published yet - check back soon."
+
+[policiesFooterLink]
+other = "Policies"
+
+# Rendered on any policy whose front matter still carries `starter = true`
+# - i.e. theme-shipped wording the Group has not yet reviewed and adopted.
+[policyStarterNotice]
+other = "Starter wording shipped with the theme. Review it with your safeguarding lead and Trustees - and delete this notice - before relying on it."
+
+[policyLastReviewed]
+other = "Last reviewed"
+
 # -----------------------------------------------------------------------------
 # Wogglebox badge - used by partials/wogglebox-badge.html (opt-in). The badge
 # image carries its own label; this is the <img> alt / accessible name.
